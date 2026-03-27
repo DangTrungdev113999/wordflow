@@ -1,9 +1,21 @@
 import { useParams, Link, useNavigate } from 'react-router';
 import { ArrowLeft, PlayCircle } from 'lucide-react';
 import { useGrammarStore } from '../../../stores/grammarStore';
-import { useEffect } from 'react';
+import { useEffect, type ReactNode } from 'react';
 import { Badge } from '../../../components/ui/Badge';
 import { Button } from '../../../components/ui/Button';
+
+function renderBold(text: string): ReactNode[] {
+  return text.split(/(\*\*.*?\*\*)/).map((part, i) =>
+    part.startsWith('**') && part.endsWith('**') ? (
+      <strong key={i} className="text-indigo-600 dark:text-indigo-400">
+        {part.slice(2, -2)}
+      </strong>
+    ) : (
+      <span key={i}>{part}</span>
+    )
+  );
+}
 
 export function LessonPage() {
   const { lessonId } = useParams<{ lessonId: string }>();
@@ -49,30 +61,12 @@ export function LessonPage() {
           <div key={i} className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800">
             <h2 className="font-bold text-gray-900 dark:text-white mb-3">{section.heading}</h2>
             <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed whitespace-pre-line mb-4">
-              {section.content.split(/(\*\*.*?\*\*)/).map((part, j) =>
-                part.startsWith('**') && part.endsWith('**') ? (
-                  <strong key={j} className="text-indigo-600 dark:text-indigo-400">
-                    {part.slice(2, -2)}
-                  </strong>
-                ) : (
-                  <span key={j}>{part}</span>
-                )
-              )}
+              {renderBold(section.content)}
             </div>
             <div className="space-y-2">
               {section.examples.map((ex, j) => (
                 <div key={j} className="pl-3 border-l-2 border-indigo-200 dark:border-indigo-800">
-                  <p className="text-sm text-gray-900 dark:text-white">
-                    {ex.en.split(/(\*\*.*?\*\*)/).map((part, k) =>
-                      part.startsWith('**') && part.endsWith('**') ? (
-                        <strong key={k} className="text-indigo-600 dark:text-indigo-400">
-                          {part.slice(2, -2)}
-                        </strong>
-                      ) : (
-                        <span key={k}>{part}</span>
-                      )
-                    )}
-                  </p>
+                  <p className="text-sm text-gray-900 dark:text-white">{renderBold(ex.en)}</p>
                   <p className="text-sm text-gray-500 dark:text-gray-400 italic">{ex.vi}</p>
                 </div>
               ))}

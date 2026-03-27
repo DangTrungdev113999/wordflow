@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from 'react-router';
 import { ArrowLeft, CheckCircle, RotateCcw } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useGrammarStore } from '../../../stores/grammarStore';
 import { useProgressStore } from '../../../stores/progressStore';
@@ -24,7 +24,8 @@ export function QuizPage() {
   } = useGrammarStore();
   const { addXP } = useProgressStore();
   const [showNext, setShowNext] = useState(false);
-  const [xpAwarded, setXpAwarded] = useState(false);
+  const xpAwardedRef = useRef(false);
+  const [quizXP, setQuizXP] = useState<ReturnType<typeof calculateQuizXP> | null>(null);
 
   useEffect(() => {
     const lesson = lessons.find((l) => l.id === lessonId);
@@ -32,11 +33,27 @@ export function QuizPage() {
       setCurrentLesson(lesson);
       resetQuiz();
     }
+    xpAwardedRef.current = false;
+    setQuizXP(null);
     return () => {
       setCurrentLesson(null);
       resetQuiz();
     };
   }, [lessonId]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Award XP when quiz completes — in useEffect to avoid render side effects
+  useEffect(() => {
+    if (!quiz.isComplete || xpAwardedRef.current || !currentLesson) return;
+    xpAwardedRef.current = true;
+
+    const correctCount = quiz.answers.filter((a) => a.correct).length;
+    const score = Math.round((correctCount / currentLesson.exercises.length) * 100);
+    const xp = calculateQuizXP(correctCount, currentLesson.exercises.length);
+
+    addXP(xp.totalXP);
+    updateLessonProgress(currentLesson.id, score);
+    setQuizXP(xp);
+  }, [quiz.isComplete]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!currentLesson) {
     return <div className="p-6 text-center text-gray-500">Loading...</div>;
@@ -46,18 +63,9 @@ export function QuizPage() {
   const progress = ((quiz.currentExerciseIndex) / currentLesson.exercises.length) * 100;
   const correctCount = quiz.answers.filter((a) => a.correct).length;
 
-  // Quiz complete
-  if (quiz.isComplete && !xpAwarded) {
-    const score = Math.round((correctCount / currentLesson.exercises.length) * 100);
-    const xp = calculateQuizXP(correctCount, currentLesson.exercises.length);
-    addXP(xp.totalXP);
-    updateLessonProgress(currentLesson.id, score);
-    setXpAwarded(true);
-  }
-
   if (quiz.isComplete) {
     const score = Math.round((correctCount / currentLesson.exercises.length) * 100);
-    const xp = calculateQuizXP(correctCount, currentLesson.exercises.length);
+    const xp = quizXP ?? calculateQuizXP(correctCount, currentLesson.exercises.length);
 
     return (
       <motion.div
@@ -99,7 +107,8 @@ export function QuizPage() {
             className="flex-1"
             onClick={() => {
               resetQuiz();
-              setXpAwarded(false);
+              xpAwardedRef.current = false;
+              setQuizXP(null);
               setShowNext(false);
             }}
           >
