@@ -1,3 +1,5 @@
+import { LEVELS } from './constants';
+
 export function formatDate(date: Date): string {
   const y = date.getFullYear();
   const m = String(date.getMonth() + 1).padStart(2, '0');
@@ -22,17 +24,6 @@ export function daysBetween(dateStr1: string, dateStr2: string): number {
 }
 
 export function getLevelFromXP(xp: number): { level: number; title: string; nextXP: number; progress: number } {
-  const LEVELS = [
-    { level: 1, xpRequired: 0, title: 'Beginner' },
-    { level: 2, xpRequired: 200, title: 'Learner' },
-    { level: 3, xpRequired: 500, title: 'Explorer' },
-    { level: 4, xpRequired: 1000, title: 'Achiever' },
-    { level: 5, xpRequired: 2000, title: 'Scholar' },
-    { level: 6, xpRequired: 4000, title: 'Expert' },
-    { level: 7, xpRequired: 7000, title: 'Master' },
-    { level: 8, xpRequired: 10000, title: 'Legend' },
-  ];
-
   let current = LEVELS[0];
   for (let i = LEVELS.length - 1; i >= 0; i--) {
     if (xp >= LEVELS[i].xpRequired) {

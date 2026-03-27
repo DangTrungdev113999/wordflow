@@ -7,7 +7,7 @@ const CACHE_TTL = 7 * 24 * 60 * 60 * 1000; // 7 days
 export async function lookupWord(word: string): Promise<DictionaryEntry[] | null> {
   const cached = await db.dictionaryCache.get(word.toLowerCase());
   if (cached && Date.now() - cached.cachedAt < CACHE_TTL) {
-    return cached.data as DictionaryEntry[];
+    return cached.data;
   }
 
   try {

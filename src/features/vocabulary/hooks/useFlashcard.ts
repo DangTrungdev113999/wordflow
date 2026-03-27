@@ -1,6 +1,7 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useVocabularyStore } from '../../../stores/vocabularyStore';
 import { useProgressStore } from '../../../stores/progressStore';
+import { useSettingsStore } from '../../../stores/settingsStore';
 import { db } from '../../../db/database';
 import { calculateSM2, createInitialProgress } from '../../../services/spacedRepetition';
 import { XP_VALUES } from '../../../lib/constants';
@@ -20,10 +21,13 @@ export function useFlashcard(topicId: string) {
     wordProgressMap,
     setWordProgressMap,
     sessionStats,
+    recordAnswer,
     resetSession,
   } = useVocabularyStore();
 
-  const { addXP, incrementWordsLearned, incrementWordsReviewed } = useProgressStore();
+  const { addXP, incrementWordsLearned, incrementWordsReviewed, todayWordsLearned, todayXP } = useProgressStore();
+  const { dailyGoal } = useSettingsStore();
+  const dailyGoalAwarded = useRef(false);
 
   const currentWord = flashcardQueue[currentCardIndex];
   const isSessionComplete = currentCardIndex >= flashcardQueue.length && flashcardQueue.length > 0;
@@ -33,25 +37,22 @@ export function useFlashcard(topicId: string) {
     if (!topic) return;
     setCurrentTopic(topic);
 
-    // Load word progress from DB
     const wordIds = topic.words.map((w) => `${topicId}:${w.word}`);
     db.wordProgress.where('wordId').anyOf(wordIds).toArray().then((progresses) => {
       const map: typeof wordProgressMap = {};
       progresses.forEach((p) => { map[p.wordId] = p; });
       setWordProgressMap(map);
 
-      // Build flashcard queue: prioritize due/new words
       const queue = topic.words
         .filter((w) => {
           const id = `${topicId}:${w.word}`;
           const prog = map[id];
-          if (!prog) return true; // new
-          return prog.nextReview <= Date.now(); // due
+          if (!prog) return true;
+          return prog.nextReview <= Date.now();
         })
-        .slice(0, 20); // limit to 20 per session
+        .slice(0, 20);
 
       if (queue.length === 0) {
-        // All words reviewed — show all as a refresher
         setFlashcardQueue(topic.words.slice(0, 20));
       } else {
         setFlashcardQueue(queue);
@@ -75,13 +76,14 @@ export function useFlashcard(topicId: string) {
       lastReview: Date.now(),
     };
 
-    // Upsert in DB
     await db.wordProgress.put(newProgress);
-
-    // Update map
     setWordProgressMap({ ...wordProgressMap, [wordId]: newProgress });
 
-    // Award XP
+    // 🔴 FIX: Record answer for sessionStats
+    const isCorrect = rating >= 3;
+    recordAnswer(isCorrect);
+
+    // 🟡 FIX: Award XP based on actual rating values
     let xpGain = XP_VALUES.flashcard_hard;
     if (rating === 5) xpGain = XP_VALUES.flashcard_easy;
     else if (rating >= 3) xpGain = XP_VALUES.flashcard_correct;
@@ -93,8 +95,15 @@ export function useFlashcard(topicId: string) {
       incrementWordsReviewed();
     }
 
+    // 🟡 FIX: Check daily goal met → award bonus (once per day)
+    const newTodayLearned = todayWordsLearned + 1;
+    if (!dailyGoalAwarded.current && newTodayLearned >= dailyGoal) {
+      addXP(XP_VALUES.daily_goal_met);
+      dailyGoalAwarded.current = true;
+    }
+
     nextCard();
-  }, [currentWord, currentTopic, topicId, wordProgressMap, addXP, incrementWordsLearned, incrementWordsReviewed, nextCard, setWordProgressMap]);
+  }, [currentWord, currentTopic, topicId, wordProgressMap, addXP, incrementWordsLearned, incrementWordsReviewed, nextCard, setWordProgressMap, recordAnswer, todayWordsLearned, dailyGoal]);
 
   return {
     currentTopic,
@@ -106,5 +115,6 @@ export function useFlashcard(topicId: string) {
     isSessionComplete,
     flashcardQueue,
     currentCardIndex,
+    sessionXP: todayXP,
   };
 }

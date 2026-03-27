@@ -1,4 +1,4 @@
-import type { CEFRLevel, WordStatus, Theme } from '../lib/types';
+import type { CEFRLevel, WordStatus, Theme, DictionaryEntry } from '../lib/types';
 
 export interface Word {
   id: string;
@@ -55,6 +55,6 @@ export interface UserProfile {
 
 export interface DictionaryCache {
   word: string;
-  data: unknown;
+  data: DictionaryEntry[];
   cachedAt: number;
 }

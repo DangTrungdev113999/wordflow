@@ -18,6 +18,7 @@ export function FlashcardPage() {
     isSessionComplete,
     flashcardQueue,
     currentCardIndex,
+    sessionXP,
   } = useFlashcard(topic ?? '');
 
   if (!currentTopic) {
@@ -45,7 +46,7 @@ export function FlashcardPage() {
             <p className="text-sm text-green-700 dark:text-green-400">Accuracy</p>
           </div>
           <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-2xl p-4">
-            <p className="text-2xl font-bold text-indigo-600">{sessionStats.correct * 10}xp</p>
+            <p className="text-2xl font-bold text-indigo-600">{sessionXP}xp</p>
             <p className="text-sm text-indigo-700 dark:text-indigo-400">XP Earned</p>
           </div>
         </div>
