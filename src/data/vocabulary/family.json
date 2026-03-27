@@ -1,0 +1,32 @@
+{
+  "topic": "family",
+  "topicLabel": "Family & Relationships",
+  "cefrLevel": "A1",
+  "words": [
+    { "word": "mother", "meaning": "mẹ", "ipa": "/ˈmʌð.ər/", "example": "My mother is a teacher.", "audioUrl": null },
+    { "word": "father", "meaning": "bố", "ipa": "/ˈfɑː.ðər/", "example": "My father works in a factory.", "audioUrl": null },
+    { "word": "brother", "meaning": "anh/em trai", "ipa": "/ˈbrʌð.ər/", "example": "I have two brothers.", "audioUrl": null },
+    { "word": "sister", "meaning": "chị/em gái", "ipa": "/ˈsɪs.tər/", "example": "My sister is older than me.", "audioUrl": null },
+    { "word": "husband", "meaning": "chồng", "ipa": "/ˈhʌz.bənd/", "example": "Her husband is a doctor.", "audioUrl": null },
+    { "word": "wife", "meaning": "vợ", "ipa": "/waɪf/", "example": "His wife is very kind.", "audioUrl": null },
+    { "word": "son", "meaning": "con trai", "ipa": "/sʌn/", "example": "Their son is five years old.", "audioUrl": null },
+    { "word": "daughter", "meaning": "con gái", "ipa": "/ˈdɔː.tər/", "example": "My daughter loves reading.", "audioUrl": null },
+    { "word": "grandfather", "meaning": "ông", "ipa": "/ˈɡrænd.fɑː.ðər/", "example": "My grandfather is 80 years old.", "audioUrl": null },
+    { "word": "grandmother", "meaning": "bà", "ipa": "/ˈɡrænd.mʌð.ər/", "example": "My grandmother makes the best soup.", "audioUrl": null },
+    { "word": "uncle", "meaning": "chú/bác/cậu", "ipa": "/ˈʌŋ.kəl/", "example": "My uncle lives in Da Nang.", "audioUrl": null },
+    { "word": "aunt", "meaning": "cô/dì/mợ", "ipa": "/ɑːnt/", "example": "My aunt gave me a birthday present.", "audioUrl": null },
+    { "word": "cousin", "meaning": "anh/chị/em họ", "ipa": "/ˈkʌz.ən/", "example": "I play with my cousins every weekend.", "audioUrl": null },
+    { "word": "nephew", "meaning": "cháu trai", "ipa": "/ˈnef.juː/", "example": "My nephew just started school.", "audioUrl": null },
+    { "word": "niece", "meaning": "cháu gái", "ipa": "/niːs/", "example": "My niece is very smart.", "audioUrl": null },
+    { "word": "parent", "meaning": "phụ huynh", "ipa": "/ˈpeə.rənt/", "example": "Her parents are very supportive.", "audioUrl": null },
+    { "word": "sibling", "meaning": "anh chị em", "ipa": "/ˈsɪb.lɪŋ/", "example": "I have three siblings.", "audioUrl": null },
+    { "word": "married", "meaning": "đã kết hôn", "ipa": "/ˈmær.id/", "example": "They got married last year.", "audioUrl": null },
+    { "word": "single", "meaning": "độc thân", "ipa": "/ˈsɪŋ.ɡəl/", "example": "He is still single.", "audioUrl": null },
+    { "word": "baby", "meaning": "em bé", "ipa": "/ˈbeɪ.bi/", "example": "The baby is sleeping.", "audioUrl": null },
+    { "word": "teenager", "meaning": "thiếu niên", "ipa": "/ˈtiːn.eɪ.dʒər/", "example": "Teenagers love social media.", "audioUrl": null },
+    { "word": "adult", "meaning": "người lớn", "ipa": "/ˈæd.ʌlt/", "example": "Adults pay full price.", "audioUrl": null },
+    { "word": "elderly", "meaning": "người cao tuổi", "ipa": "/ˈel.dər.li/", "example": "We should respect the elderly.", "audioUrl": null },
+    { "word": "neighbor", "meaning": "hàng xóm", "ipa": "/ˈneɪ.bər/", "example": "Our neighbors are very friendly.", "audioUrl": null },
+    { "word": "friend", "meaning": "bạn bè", "ipa": "/frend/", "example": "She is my best friend.", "audioUrl": null }
+  ]
+}

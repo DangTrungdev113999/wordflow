@@ -1,0 +1,32 @@
+{
+  "topic": "entertainment",
+  "topicLabel": "Entertainment & Media",
+  "cefrLevel": "A2",
+  "words": [
+    { "word": "movie", "meaning": "phim", "ipa": "/ˈmuː.vi/", "example": "Let's watch a movie tonight.", "audioUrl": null },
+    { "word": "music", "meaning": "âm nhạc", "ipa": "/ˈmjuː.zɪk/", "example": "I listen to music every day.", "audioUrl": null },
+    { "word": "concert", "meaning": "buổi hòa nhạc", "ipa": "/ˈkɒn.sət/", "example": "We went to a rock concert.", "audioUrl": null },
+    { "word": "theater", "meaning": "nhà hát/rạp phim", "ipa": "/ˈθɪə.tər/", "example": "The theater is sold out.", "audioUrl": null },
+    { "word": "novel", "meaning": "tiểu thuyết", "ipa": "/ˈnɒv.əl/", "example": "She is reading a novel.", "audioUrl": null },
+    { "word": "painting", "meaning": "bức tranh", "ipa": "/ˈpeɪn.tɪŋ/", "example": "This painting is beautiful.", "audioUrl": null },
+    { "word": "photography", "meaning": "nhiếp ảnh", "ipa": "/fəˈtɒɡ.rə.fi/", "example": "Photography is my hobby.", "audioUrl": null },
+    { "word": "festival", "meaning": "lễ hội", "ipa": "/ˈfes.tɪ.vəl/", "example": "The music festival is in June.", "audioUrl": null },
+    { "word": "comedy", "meaning": "hài kịch", "ipa": "/ˈkɒm.ə.di/", "example": "I love watching comedies.", "audioUrl": null },
+    { "word": "drama", "meaning": "phim truyền hình", "ipa": "/ˈdrɑː.mə/", "example": "She watches Korean dramas.", "audioUrl": null },
+    { "word": "documentary", "meaning": "phim tài liệu", "ipa": "/ˌdɒk.jəˈmen.tər.i/", "example": "I watched a documentary about nature.", "audioUrl": null },
+    { "word": "podcast", "meaning": "podcast", "ipa": "/ˈpɒd.kɑːst/", "example": "I listen to podcasts while commuting.", "audioUrl": null },
+    { "word": "celebrity", "meaning": "người nổi tiếng", "ipa": "/sɪˈleb.rə.ti/", "example": "She met a celebrity at the airport.", "audioUrl": null },
+    { "word": "audience", "meaning": "khán giả", "ipa": "/ˈɔː.di.əns/", "example": "The audience applauded loudly.", "audioUrl": null },
+    { "word": "performance", "meaning": "buổi biểu diễn", "ipa": "/pəˈfɔː.məns/", "example": "The performance was amazing.", "audioUrl": null },
+    { "word": "cartoon", "meaning": "phim hoạt hình", "ipa": "/kɑːˈtuːn/", "example": "Children love watching cartoons.", "audioUrl": null },
+    { "word": "subtitle", "meaning": "phụ đề", "ipa": "/ˈsʌb.taɪ.təl/", "example": "Turn on the subtitles.", "audioUrl": null },
+    { "word": "genre", "meaning": "thể loại", "ipa": "/ˈʒɒn.rə/", "example": "What's your favorite genre?", "audioUrl": null },
+    { "word": "streaming", "meaning": "phát trực tuyến", "ipa": "/ˈstriː.mɪŋ/", "example": "I watch movies on a streaming service.", "audioUrl": null },
+    { "word": "hobby", "meaning": "sở thích", "ipa": "/ˈhɒb.i/", "example": "My hobby is playing guitar.", "audioUrl": null },
+    { "word": "review", "meaning": "đánh giá", "ipa": "/rɪˈvjuː/", "example": "The movie got good reviews.", "audioUrl": null },
+    { "word": "channel", "meaning": "kênh", "ipa": "/ˈtʃæn.əl/", "example": "Change the TV channel.", "audioUrl": null },
+    { "word": "episode", "meaning": "tập phim", "ipa": "/ˈep.ɪ.səʊd/", "example": "I watched three episodes last night.", "audioUrl": null },
+    { "word": "museum", "meaning": "bảo tàng", "ipa": "/mjuːˈziː.əm/", "example": "The museum is free on Sundays.", "audioUrl": null },
+    { "word": "exhibition", "meaning": "triển lãm", "ipa": "/ˌek.sɪˈbɪʃ.ən/", "example": "There's an art exhibition downtown.", "audioUrl": null }
+  ]
+}

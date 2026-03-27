@@ -4,6 +4,7 @@ import { useProgressStore } from '../../../stores/progressStore';
 import { useSettingsStore } from '../../../stores/settingsStore';
 import { db } from '../../../db/database';
 import { calculateSM2, createInitialProgress } from '../../../services/spacedRepetition';
+import { logWordLearned, logWordReviewed, logBonusXP } from '../../../services/dailyLogService';
 import { XP_VALUES } from '../../../lib/constants';
 import type { FlashcardRating } from '../../../lib/types';
 
@@ -79,26 +80,31 @@ export function useFlashcard(topicId: string) {
     await db.wordProgress.put(newProgress);
     setWordProgressMap({ ...wordProgressMap, [wordId]: newProgress });
 
-    // 🔴 FIX: Record answer for sessionStats
+    // Record answer for sessionStats
     const isCorrect = rating >= 3;
     recordAnswer(isCorrect);
 
-    // 🟡 FIX: Award XP based on actual rating values
+    // Calculate XP
     let xpGain = XP_VALUES.flashcard_hard;
     if (rating === 5) xpGain = XP_VALUES.flashcard_easy;
     else if (rating >= 3) xpGain = XP_VALUES.flashcard_correct;
     addXP(xpGain);
 
-    if (!existing || existing.status === 'new') {
+    // 🔴 FIX: Write to DailyLog in IndexedDB
+    const isNew = !existing || existing.status === 'new';
+    if (isNew) {
       incrementWordsLearned();
+      await logWordLearned(xpGain);
     } else {
       incrementWordsReviewed();
+      await logWordReviewed(xpGain);
     }
 
-    // 🟡 FIX: Check daily goal met → award bonus (once per day)
+    // Check daily goal met → award bonus (once per session)
     const newTodayLearned = todayWordsLearned + 1;
     if (!dailyGoalAwarded.current && newTodayLearned >= dailyGoal) {
       addXP(XP_VALUES.daily_goal_met);
+      await logBonusXP(XP_VALUES.daily_goal_met);
       dailyGoalAwarded.current = true;
     }
 

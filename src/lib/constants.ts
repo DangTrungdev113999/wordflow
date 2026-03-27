@@ -42,6 +42,13 @@ export const TOPIC_ICONS: Record<string, string> = {
   'shopping': '🛍️',
   'home': '🏡',
   'work': '👔',
+  'family': '👨‍👩‍👧‍👦',
+  'clothing': '👗',
+  'transportation': '🚌',
+  'entertainment': '🎬',
+  'communication': '💬',
+  'time-numbers': '⏰',
+  'environment': '🌍',
 };
 
 export const TOPIC_COLORS: Record<string, string> = {
@@ -58,4 +65,11 @@ export const TOPIC_COLORS: Record<string, string> = {
   'shopping': 'from-fuchsia-400 to-pink-500',
   'home': 'from-yellow-400 to-amber-500',
   'work': 'from-slate-400 to-gray-600',
+  'family': 'from-sky-400 to-blue-500',
+  'clothing': 'from-violet-400 to-purple-500',
+  'transportation': 'from-red-400 to-orange-500',
+  'entertainment': 'from-indigo-400 to-violet-500',
+  'communication': 'from-teal-400 to-cyan-500',
+  'time-numbers': 'from-gray-400 to-slate-500',
+  'environment': 'from-green-500 to-emerald-600',
 };

@@ -1,0 +1,32 @@
+{
+  "topic": "transportation",
+  "topicLabel": "Transportation",
+  "cefrLevel": "A1",
+  "words": [
+    { "word": "bus", "meaning": "xe buýt", "ipa": "/bʌs/", "example": "I take the bus to school.", "audioUrl": null },
+    { "word": "train", "meaning": "tàu hỏa", "ipa": "/treɪn/", "example": "The train arrives at 9 AM.", "audioUrl": null },
+    { "word": "taxi", "meaning": "xe taxi", "ipa": "/ˈtæk.si/", "example": "Let's take a taxi.", "audioUrl": null },
+    { "word": "bicycle", "meaning": "xe đạp", "ipa": "/ˈbaɪ.sɪ.kəl/", "example": "She rides a bicycle to work.", "audioUrl": null },
+    { "word": "motorcycle", "meaning": "xe máy", "ipa": "/ˈməʊ.tə.saɪ.kəl/", "example": "Many people ride motorcycles in Vietnam.", "audioUrl": null },
+    { "word": "airplane", "meaning": "máy bay", "ipa": "/ˈeə.pleɪn/", "example": "The airplane landed safely.", "audioUrl": null },
+    { "word": "subway", "meaning": "tàu điện ngầm", "ipa": "/ˈsʌb.weɪ/", "example": "Take the subway to downtown.", "audioUrl": null },
+    { "word": "boat", "meaning": "thuyền", "ipa": "/bəʊt/", "example": "We took a boat across the river.", "audioUrl": null },
+    { "word": "traffic", "meaning": "giao thông", "ipa": "/ˈtræf.ɪk/", "example": "The traffic is terrible at rush hour.", "audioUrl": null },
+    { "word": "parking", "meaning": "bãi đỗ xe", "ipa": "/ˈpɑː.kɪŋ/", "example": "Is there parking near the restaurant?", "audioUrl": null },
+    { "word": "ticket", "meaning": "vé", "ipa": "/ˈtɪk.ɪt/", "example": "Buy a ticket before boarding.", "audioUrl": null },
+    { "word": "station", "meaning": "ga/trạm", "ipa": "/ˈsteɪ.ʃən/", "example": "The train station is nearby.", "audioUrl": null },
+    { "word": "highway", "meaning": "đường cao tốc", "ipa": "/ˈhaɪ.weɪ/", "example": "Drive carefully on the highway.", "audioUrl": null },
+    { "word": "crosswalk", "meaning": "vạch sang đường", "ipa": "/ˈkrɒs.wɔːk/", "example": "Use the crosswalk to cross the street.", "audioUrl": null },
+    { "word": "passenger", "meaning": "hành khách", "ipa": "/ˈpæs.ən.dʒər/", "example": "All passengers must wear seatbelts.", "audioUrl": null },
+    { "word": "driver", "meaning": "tài xế", "ipa": "/ˈdraɪ.vər/", "example": "The driver was very friendly.", "audioUrl": null },
+    { "word": "fuel", "meaning": "nhiên liệu", "ipa": "/fjuːəl/", "example": "We need to stop for fuel.", "audioUrl": null },
+    { "word": "speed", "meaning": "tốc độ", "ipa": "/spiːd/", "example": "The speed limit is 60 km/h.", "audioUrl": null },
+    { "word": "intersection", "meaning": "ngã tư", "ipa": "/ˌɪn.tə.ˈsek.ʃən/", "example": "Turn left at the intersection.", "audioUrl": null },
+    { "word": "seatbelt", "meaning": "dây an toàn", "ipa": "/ˈsiːt.belt/", "example": "Always wear your seatbelt.", "audioUrl": null },
+    { "word": "departure", "meaning": "khởi hành", "ipa": "/dɪˈpɑː.tʃər/", "example": "The departure time is 7 AM.", "audioUrl": null },
+    { "word": "arrival", "meaning": "đến nơi", "ipa": "/əˈraɪ.vəl/", "example": "Check the arrival time.", "audioUrl": null },
+    { "word": "route", "meaning": "tuyến đường", "ipa": "/ruːt/", "example": "What's the fastest route?", "audioUrl": null },
+    { "word": "ferry", "meaning": "phà", "ipa": "/ˈfer.i/", "example": "Take the ferry to the island.", "audioUrl": null },
+    { "word": "helmet", "meaning": "mũ bảo hiểm", "ipa": "/ˈhel.mɪt/", "example": "Always wear a helmet when riding.", "audioUrl": null }
+  ]
+}

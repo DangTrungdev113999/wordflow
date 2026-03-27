@@ -1,0 +1,32 @@
+{
+  "topic": "environment",
+  "topicLabel": "Environment & Science",
+  "cefrLevel": "A2",
+  "words": [
+    { "word": "recycle", "meaning": "tái chế", "ipa": "/ˌriːˈsaɪ.kəl/", "example": "We should recycle plastic bottles.", "audioUrl": null },
+    { "word": "energy", "meaning": "năng lượng", "ipa": "/ˈen.ə.dʒi/", "example": "Solar energy is clean.", "audioUrl": null },
+    { "word": "pollution", "meaning": "ô nhiễm", "ipa": "/pəˈluː.ʃən/", "example": "Air pollution causes health problems.", "audioUrl": null },
+    { "word": "global warming", "meaning": "nóng lên toàn cầu", "ipa": "/ˌɡləʊ.bəl ˈwɔː.mɪŋ/", "example": "Global warming is a serious problem.", "audioUrl": null },
+    { "word": "endangered", "meaning": "có nguy cơ tuyệt chủng", "ipa": "/ɪnˈdeɪn.dʒəd/", "example": "The panda is an endangered species.", "audioUrl": null },
+    { "word": "wildlife", "meaning": "động vật hoang dã", "ipa": "/ˈwaɪld.laɪf/", "example": "We must protect wildlife.", "audioUrl": null },
+    { "word": "ecosystem", "meaning": "hệ sinh thái", "ipa": "/ˈiː.kəʊ.sɪs.təm/", "example": "The coral reef is a complex ecosystem.", "audioUrl": null },
+    { "word": "renewable", "meaning": "tái tạo", "ipa": "/rɪˈnjuː.ə.bəl/", "example": "Wind is a renewable energy source.", "audioUrl": null },
+    { "word": "waste", "meaning": "rác thải", "ipa": "/weɪst/", "example": "Reduce food waste.", "audioUrl": null },
+    { "word": "carbon", "meaning": "carbon", "ipa": "/ˈkɑː.bən/", "example": "We need to reduce carbon emissions.", "audioUrl": null },
+    { "word": "oxygen", "meaning": "oxy", "ipa": "/ˈɒk.sɪ.dʒən/", "example": "Trees produce oxygen.", "audioUrl": null },
+    { "word": "species", "meaning": "loài", "ipa": "/ˈspiː.ʃiːz/", "example": "There are many species of birds.", "audioUrl": null },
+    { "word": "deforestation", "meaning": "phá rừng", "ipa": "/diːˌfɒr.ɪˈsteɪ.ʃən/", "example": "Deforestation destroys animal habitats.", "audioUrl": null },
+    { "word": "drought", "meaning": "hạn hán", "ipa": "/draʊt/", "example": "The drought lasted for months.", "audioUrl": null },
+    { "word": "flood", "meaning": "lũ lụt", "ipa": "/flʌd/", "example": "The flood damaged many homes.", "audioUrl": null },
+    { "word": "solar", "meaning": "năng lượng mặt trời", "ipa": "/ˈsəʊ.lər/", "example": "They installed solar panels.", "audioUrl": null },
+    { "word": "plastic", "meaning": "nhựa", "ipa": "/ˈplæs.tɪk/", "example": "Avoid single-use plastic.", "audioUrl": null },
+    { "word": "greenhouse", "meaning": "nhà kính", "ipa": "/ˈɡriːn.haʊs/", "example": "Greenhouse gases trap heat.", "audioUrl": null },
+    { "word": "conservation", "meaning": "bảo tồn", "ipa": "/ˌkɒn.səˈveɪ.ʃən/", "example": "Wildlife conservation is important.", "audioUrl": null },
+    { "word": "organic", "meaning": "hữu cơ", "ipa": "/ɔːˈɡæn.ɪk/", "example": "I buy organic vegetables.", "audioUrl": null },
+    { "word": "atmosphere", "meaning": "khí quyển", "ipa": "/ˈæt.mə.sfɪər/", "example": "The atmosphere protects the Earth.", "audioUrl": null },
+    { "word": "sustainable", "meaning": "bền vững", "ipa": "/səˈsteɪ.nə.bəl/", "example": "We need sustainable development.", "audioUrl": null },
+    { "word": "experiment", "meaning": "thí nghiệm", "ipa": "/ɪkˈsper.ɪ.mənt/", "example": "The students did a science experiment.", "audioUrl": null },
+    { "word": "discovery", "meaning": "phát hiện", "ipa": "/dɪˈskʌv.ər.i/", "example": "It was an important discovery.", "audioUrl": null },
+    { "word": "extinct", "meaning": "tuyệt chủng", "ipa": "/ɪkˈstɪŋkt/", "example": "Dinosaurs became extinct millions of years ago.", "audioUrl": null }
+  ]
+}

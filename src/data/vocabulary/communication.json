@@ -1,0 +1,32 @@
+{
+  "topic": "communication",
+  "topicLabel": "Communication & Social",
+  "cefrLevel": "A2",
+  "words": [
+    { "word": "conversation", "meaning": "cuộc trò chuyện", "ipa": "/ˌkɒn.vəˈseɪ.ʃən/", "example": "We had an interesting conversation.", "audioUrl": null },
+    { "word": "message", "meaning": "tin nhắn", "ipa": "/ˈmes.ɪdʒ/", "example": "I sent you a message.", "audioUrl": null },
+    { "word": "email", "meaning": "thư điện tử", "ipa": "/ˈiː.meɪl/", "example": "Please reply to my email.", "audioUrl": null },
+    { "word": "phone call", "meaning": "cuộc gọi", "ipa": "/fəʊn kɔːl/", "example": "I missed your phone call.", "audioUrl": null },
+    { "word": "language", "meaning": "ngôn ngữ", "ipa": "/ˈlæŋ.ɡwɪdʒ/", "example": "She speaks three languages.", "audioUrl": null },
+    { "word": "translate", "meaning": "dịch", "ipa": "/trænzˈleɪt/", "example": "Can you translate this for me?", "audioUrl": null },
+    { "word": "pronounce", "meaning": "phát âm", "ipa": "/prəˈnaʊns/", "example": "How do you pronounce this word?", "audioUrl": null },
+    { "word": "explain", "meaning": "giải thích", "ipa": "/ɪkˈspleɪn/", "example": "Please explain the instructions.", "audioUrl": null },
+    { "word": "agree", "meaning": "đồng ý", "ipa": "/əˈɡriː/", "example": "I agree with your opinion.", "audioUrl": null },
+    { "word": "disagree", "meaning": "không đồng ý", "ipa": "/ˌdɪs.əˈɡriː/", "example": "I disagree with that idea.", "audioUrl": null },
+    { "word": "apologize", "meaning": "xin lỗi", "ipa": "/əˈpɒl.ə.dʒaɪz/", "example": "I apologize for being late.", "audioUrl": null },
+    { "word": "complain", "meaning": "phàn nàn", "ipa": "/kəmˈpleɪn/", "example": "He complained about the food.", "audioUrl": null },
+    { "word": "suggest", "meaning": "đề nghị", "ipa": "/səˈdʒest/", "example": "I suggest we take a break.", "audioUrl": null },
+    { "word": "promise", "meaning": "hứa", "ipa": "/ˈprɒm.ɪs/", "example": "I promise to be on time.", "audioUrl": null },
+    { "word": "invite", "meaning": "mời", "ipa": "/ɪnˈvaɪt/", "example": "I invited her to the party.", "audioUrl": null },
+    { "word": "announce", "meaning": "thông báo", "ipa": "/əˈnaʊns/", "example": "They announced the winner.", "audioUrl": null },
+    { "word": "social media", "meaning": "mạng xã hội", "ipa": "/ˌsəʊ.ʃəl ˈmiː.di.ə/", "example": "I spend too much time on social media.", "audioUrl": null },
+    { "word": "opinion", "meaning": "ý kiến", "ipa": "/əˈpɪn.jən/", "example": "What's your opinion on this?", "audioUrl": null },
+    { "word": "discussion", "meaning": "cuộc thảo luận", "ipa": "/dɪˈskʌʃ.ən/", "example": "We had a long discussion.", "audioUrl": null },
+    { "word": "greet", "meaning": "chào hỏi", "ipa": "/ɡriːt/", "example": "She greeted me with a smile.", "audioUrl": null },
+    { "word": "introduce", "meaning": "giới thiệu", "ipa": "/ˌɪn.trəˈdjuːs/", "example": "Let me introduce myself.", "audioUrl": null },
+    { "word": "interrupt", "meaning": "ngắt lời", "ipa": "/ˌɪn.təˈrʌpt/", "example": "Don't interrupt when someone is speaking.", "audioUrl": null },
+    { "word": "gossip", "meaning": "ngồi lê đôi mách", "ipa": "/ˈɡɒs.ɪp/", "example": "She loves to gossip about celebrities.", "audioUrl": null },
+    { "word": "rumor", "meaning": "tin đồn", "ipa": "/ˈruː.mər/", "example": "Don't believe every rumor.", "audioUrl": null },
+    { "word": "speech", "meaning": "bài phát biểu", "ipa": "/spiːtʃ/", "example": "He gave a great speech.", "audioUrl": null }
+  ]
+}

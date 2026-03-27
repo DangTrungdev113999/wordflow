@@ -1,0 +1,32 @@
+{
+  "topic": "time-numbers",
+  "topicLabel": "Time & Numbers",
+  "cefrLevel": "A1",
+  "words": [
+    { "word": "morning", "meaning": "buổi sáng", "ipa": "/ˈmɔːr.nɪŋ/", "example": "Good morning! How are you?", "audioUrl": null },
+    { "word": "afternoon", "meaning": "buổi chiều", "ipa": "/ˌɑːf.təˈnuːn/", "example": "I have a meeting this afternoon.", "audioUrl": null },
+    { "word": "evening", "meaning": "buổi tối", "ipa": "/ˈiːv.nɪŋ/", "example": "Good evening, everyone.", "audioUrl": null },
+    { "word": "midnight", "meaning": "nửa đêm", "ipa": "/ˈmɪd.naɪt/", "example": "I stayed up until midnight.", "audioUrl": null },
+    { "word": "hour", "meaning": "giờ", "ipa": "/aʊər/", "example": "It takes one hour to get there.", "audioUrl": null },
+    { "word": "minute", "meaning": "phút", "ipa": "/ˈmɪn.ɪt/", "example": "Wait a minute, please.", "audioUrl": null },
+    { "word": "second", "meaning": "giây", "ipa": "/ˈsek.ənd/", "example": "It happened in just a few seconds.", "audioUrl": null },
+    { "word": "week", "meaning": "tuần", "ipa": "/wiːk/", "example": "I exercise three times a week.", "audioUrl": null },
+    { "word": "month", "meaning": "tháng", "ipa": "/mʌnθ/", "example": "January is the first month.", "audioUrl": null },
+    { "word": "year", "meaning": "năm", "ipa": "/jɪər/", "example": "Happy New Year!", "audioUrl": null },
+    { "word": "century", "meaning": "thế kỷ", "ipa": "/ˈsen.tʃər.i/", "example": "We live in the 21st century.", "audioUrl": null },
+    { "word": "calendar", "meaning": "lịch", "ipa": "/ˈkæl.ən.dər/", "example": "Check the calendar for holidays.", "audioUrl": null },
+    { "word": "schedule", "meaning": "lịch trình", "ipa": "/ˈʃed.juːl/", "example": "My schedule is very busy.", "audioUrl": null },
+    { "word": "early", "meaning": "sớm", "ipa": "/ˈɜː.li/", "example": "I wake up early every day.", "audioUrl": null },
+    { "word": "late", "meaning": "muộn/trễ", "ipa": "/leɪt/", "example": "Sorry, I'm late.", "audioUrl": null },
+    { "word": "half", "meaning": "một nửa", "ipa": "/hɑːf/", "example": "It's half past three.", "audioUrl": null },
+    { "word": "quarter", "meaning": "một phần tư", "ipa": "/ˈkwɔː.tər/", "example": "It's a quarter to five.", "audioUrl": null },
+    { "word": "thousand", "meaning": "nghìn", "ipa": "/ˈθaʊ.zənd/", "example": "A thousand people attended.", "audioUrl": null },
+    { "word": "million", "meaning": "triệu", "ipa": "/ˈmɪl.jən/", "example": "The city has 10 million people.", "audioUrl": null },
+    { "word": "dozen", "meaning": "một tá (12)", "ipa": "/ˈdʌz.ən/", "example": "Buy a dozen eggs.", "audioUrl": null },
+    { "word": "double", "meaning": "gấp đôi", "ipa": "/ˈdʌb.əl/", "example": "The price has doubled.", "audioUrl": null },
+    { "word": "percent", "meaning": "phần trăm", "ipa": "/pəˈsent/", "example": "50 percent of students passed.", "audioUrl": null },
+    { "word": "average", "meaning": "trung bình", "ipa": "/ˈæv.ər.ɪdʒ/", "example": "The average temperature is 25°C.", "audioUrl": null },
+    { "word": "total", "meaning": "tổng cộng", "ipa": "/ˈtəʊ.təl/", "example": "The total cost is $100.", "audioUrl": null },
+    { "word": "deadline", "meaning": "hạn chót", "ipa": "/ˈded.laɪn/", "example": "The deadline is tomorrow.", "audioUrl": null }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "topic": "clothing",
+  "topicLabel": "Clothing & Fashion",
+  "cefrLevel": "A1",
+  "words": [
+    { "word": "shirt", "meaning": "áo sơ mi", "ipa": "/ʃɜːt/", "example": "He wears a white shirt to work.", "audioUrl": null },
+    { "word": "dress", "meaning": "váy", "ipa": "/dres/", "example": "She bought a new dress.", "audioUrl": null },
+    { "word": "jacket", "meaning": "áo khoác", "ipa": "/ˈdʒæk.ɪt/", "example": "Put on your jacket, it's cold.", "audioUrl": null },
+    { "word": "jeans", "meaning": "quần jeans", "ipa": "/dʒiːnz/", "example": "I wear jeans every day.", "audioUrl": null },
+    { "word": "shoes", "meaning": "giày", "ipa": "/ʃuːz/", "example": "Take off your shoes at the door.", "audioUrl": null },
+    { "word": "hat", "meaning": "mũ", "ipa": "/hæt/", "example": "Wear a hat in the sun.", "audioUrl": null },
+    { "word": "scarf", "meaning": "khăn quàng", "ipa": "/skɑːf/", "example": "She wrapped a scarf around her neck.", "audioUrl": null },
+    { "word": "socks", "meaning": "tất/vớ", "ipa": "/sɒks/", "example": "I need new socks.", "audioUrl": null },
+    { "word": "boots", "meaning": "ủng/bốt", "ipa": "/buːts/", "example": "Wear boots in the rain.", "audioUrl": null },
+    { "word": "sweater", "meaning": "áo len", "ipa": "/ˈswet.ər/", "example": "This sweater is very warm.", "audioUrl": null },
+    { "word": "skirt", "meaning": "chân váy", "ipa": "/skɜːt/", "example": "She looks great in that skirt.", "audioUrl": null },
+    { "word": "coat", "meaning": "áo choàng", "ipa": "/kəʊt/", "example": "Don't forget your coat.", "audioUrl": null },
+    { "word": "gloves", "meaning": "găng tay", "ipa": "/ɡlʌvz/", "example": "Wear gloves to keep your hands warm.", "audioUrl": null },
+    { "word": "belt", "meaning": "thắt lưng", "ipa": "/belt/", "example": "I need a new belt.", "audioUrl": null },
+    { "word": "tie", "meaning": "cà vạt", "ipa": "/taɪ/", "example": "He wore a blue tie.", "audioUrl": null },
+    { "word": "sandals", "meaning": "dép", "ipa": "/ˈsæn.dəlz/", "example": "I wear sandals at the beach.", "audioUrl": null },
+    { "word": "uniform", "meaning": "đồng phục", "ipa": "/ˈjuː.nɪ.fɔːm/", "example": "Students must wear a uniform.", "audioUrl": null },
+    { "word": "pocket", "meaning": "túi áo/quần", "ipa": "/ˈpɒk.ɪt/", "example": "The keys are in my pocket.", "audioUrl": null },
+    { "word": "zipper", "meaning": "dây kéo", "ipa": "/ˈzɪp.ər/", "example": "The zipper is broken.", "audioUrl": null },
+    { "word": "cotton", "meaning": "vải cotton", "ipa": "/ˈkɒt.ən/", "example": "This shirt is made of cotton.", "audioUrl": null },
+    { "word": "fashion", "meaning": "thời trang", "ipa": "/ˈfæʃ.ən/", "example": "She follows the latest fashion.", "audioUrl": null },
+    { "word": "sunglasses", "meaning": "kính râm", "ipa": "/ˈsʌn.ɡlɑː.sɪz/", "example": "Don't forget your sunglasses.", "audioUrl": null },
+    { "word": "pajamas", "meaning": "đồ ngủ", "ipa": "/pəˈdʒɑː.məz/", "example": "I bought new pajamas.", "audioUrl": null },
+    { "word": "underwear", "meaning": "đồ lót", "ipa": "/ˈʌn.də.weər/", "example": "Pack clean underwear for the trip.", "audioUrl": null },
+    { "word": "laundry", "meaning": "giặt ủi", "ipa": "/ˈlɔːn.dri/", "example": "I do laundry every Sunday.", "audioUrl": null }
+  ]
+}

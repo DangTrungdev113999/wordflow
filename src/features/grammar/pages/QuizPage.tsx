@@ -8,6 +8,7 @@ import { QuizRenderer } from '../components/QuizRenderer';
 import { Button } from '../../../components/ui/Button';
 import { ProgressBar } from '../../../components/ui/ProgressBar';
 import { calculateQuizXP } from '../../../services/xpEngine';
+import { logQuizCompleted } from '../../../services/dailyLogService';
 
 export function QuizPage() {
   const { lessonId } = useParams<{ lessonId: string }>();
@@ -53,6 +54,7 @@ export function QuizPage() {
     addXP(xp.totalXP);
     updateLessonProgress(currentLesson.id, score);
     setQuizXP(xp);
+    logQuizCompleted(correctCount, currentLesson.exercises.length, xp.totalXP);
   }, [quiz.isComplete]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!currentLesson) {
