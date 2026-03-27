@@ -1,0 +1,32 @@
+{
+  "topic": "travel",
+  "topicLabel": "Travel",
+  "cefrLevel": "A1",
+  "words": [
+    { "word": "airport", "meaning": "sân bay", "ipa": "/ˈer.pɔːrt/", "example": "We arrived at the airport two hours early.", "audioUrl": null },
+    { "word": "hotel", "meaning": "khách sạn", "ipa": "/hoʊˈtel/", "example": "The hotel is near the city center.", "audioUrl": null },
+    { "word": "ticket", "meaning": "vé", "ipa": "/ˈtɪk.ɪt/", "example": "I bought two tickets for the train.", "audioUrl": null },
+    { "word": "passport", "meaning": "hộ chiếu", "ipa": "/ˈpæs.pɔːrt/", "example": "Don't forget your passport!", "audioUrl": null },
+    { "word": "luggage", "meaning": "hành lý", "ipa": "/ˈlʌɡ.ɪdʒ/", "example": "I have two pieces of luggage.", "audioUrl": null },
+    { "word": "flight", "meaning": "chuyến bay", "ipa": "/flaɪt/", "example": "My flight departs at 9 AM.", "audioUrl": null },
+    { "word": "train", "meaning": "tàu hỏa", "ipa": "/treɪn/", "example": "We took the train to Paris.", "audioUrl": null },
+    { "word": "taxi", "meaning": "taxi", "ipa": "/ˈtæk.si/", "example": "Let's take a taxi to the hotel.", "audioUrl": null },
+    { "word": "map", "meaning": "bản đồ", "ipa": "/mæp/", "example": "Do you have a map of the city?", "audioUrl": null },
+    { "word": "tourist", "meaning": "du khách", "ipa": "/ˈtʊr.ɪst/", "example": "Many tourists visit this temple.", "audioUrl": null },
+    { "word": "beach", "meaning": "bãi biển", "ipa": "/biːtʃ/", "example": "We spent the day at the beach.", "audioUrl": null },
+    { "word": "mountain", "meaning": "núi", "ipa": "/ˈmaʊn.tɪn/", "example": "The mountain is covered in snow.", "audioUrl": null },
+    { "word": "city", "meaning": "thành phố", "ipa": "/ˈsɪt.i/", "example": "Ho Chi Minh City is a big city.", "audioUrl": null },
+    { "word": "country", "meaning": "đất nước", "ipa": "/ˈkʌn.tri/", "example": "Which country are you from?", "audioUrl": null },
+    { "word": "language", "meaning": "ngôn ngữ", "ipa": "/ˈlæŋ.ɡwɪdʒ/", "example": "Do you speak the local language?", "audioUrl": null },
+    { "word": "camera", "meaning": "máy ảnh", "ipa": "/ˈkæm.ər.ə/", "example": "She took many photos with her camera.", "audioUrl": null },
+    { "word": "photo", "meaning": "ảnh", "ipa": "/ˈfoʊ.toʊ/", "example": "Can you take a photo of us?", "audioUrl": null },
+    { "word": "museum", "meaning": "bảo tàng", "ipa": "/mjuːˈziː.əm/", "example": "The museum is open until 5 PM.", "audioUrl": null },
+    { "word": "restaurant", "meaning": "nhà hàng", "ipa": "/ˈres.tər.ɑːnt/", "example": "We had dinner at a nice restaurant.", "audioUrl": null },
+    { "word": "market", "meaning": "chợ", "ipa": "/ˈmɑːr.kɪt/", "example": "She bought souvenirs at the market.", "audioUrl": null },
+    { "word": "temple", "meaning": "đền, chùa", "ipa": "/ˈtem.pəl/", "example": "This temple is 500 years old.", "audioUrl": null },
+    { "word": "guide", "meaning": "hướng dẫn viên", "ipa": "/ɡaɪd/", "example": "Our tour guide was very helpful.", "audioUrl": null },
+    { "word": "reservation", "meaning": "đặt chỗ", "ipa": "/ˌrez.ərˈveɪ.ʃən/", "example": "I made a reservation for two nights.", "audioUrl": null },
+    { "word": "visa", "meaning": "thị thực", "ipa": "/ˈviː.zə/", "example": "Do I need a visa for this country?", "audioUrl": null },
+    { "word": "souvenir", "meaning": "đồ lưu niệm", "ipa": "/ˌsuː.vəˈnɪr/", "example": "I bought a souvenir for my mom.", "audioUrl": null }
+  ]
+}

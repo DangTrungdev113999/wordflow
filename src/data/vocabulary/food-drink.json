@@ -1,0 +1,32 @@
+{
+  "topic": "food-drink",
+  "topicLabel": "Food & Drink",
+  "cefrLevel": "A1",
+  "words": [
+    { "word": "apple", "meaning": "táo", "ipa": "/ˈæp.əl/", "example": "An apple a day keeps the doctor away.", "audioUrl": null },
+    { "word": "banana", "meaning": "chuối", "ipa": "/bəˈnæn.ə/", "example": "I eat a banana for breakfast.", "audioUrl": null },
+    { "word": "rice", "meaning": "cơm", "ipa": "/raɪs/", "example": "Rice is a staple food in Vietnam.", "audioUrl": null },
+    { "word": "bread", "meaning": "bánh mì", "ipa": "/bred/", "example": "She buys fresh bread every morning.", "audioUrl": null },
+    { "word": "water", "meaning": "nước", "ipa": "/ˈwɔː.tər/", "example": "Drink eight glasses of water a day.", "audioUrl": null },
+    { "word": "milk", "meaning": "sữa", "ipa": "/mɪlk/", "example": "Children should drink milk every day.", "audioUrl": null },
+    { "word": "coffee", "meaning": "cà phê", "ipa": "/ˈkɒf.i/", "example": "I drink coffee every morning.", "audioUrl": null },
+    { "word": "tea", "meaning": "trà", "ipa": "/tiː/", "example": "Would you like a cup of tea?", "audioUrl": null },
+    { "word": "juice", "meaning": "nước ép", "ipa": "/dʒuːs/", "example": "Orange juice is my favorite drink.", "audioUrl": null },
+    { "word": "soup", "meaning": "súp", "ipa": "/suːp/", "example": "This soup is very delicious.", "audioUrl": null },
+    { "word": "salad", "meaning": "rau trộn", "ipa": "/ˈsæl.əd/", "example": "I have a salad for lunch.", "audioUrl": null },
+    { "word": "chicken", "meaning": "thịt gà", "ipa": "/ˈtʃɪk.ɪn/", "example": "The grilled chicken smells amazing.", "audioUrl": null },
+    { "word": "fish", "meaning": "cá", "ipa": "/fɪʃ/", "example": "We eat fish every Friday.", "audioUrl": null },
+    { "word": "egg", "meaning": "trứng", "ipa": "/eɡ/", "example": "I have two eggs for breakfast.", "audioUrl": null },
+    { "word": "cheese", "meaning": "phô mai", "ipa": "/tʃiːz/", "example": "She loves cheese on her pizza.", "audioUrl": null },
+    { "word": "pizza", "meaning": "pizza", "ipa": "/ˈpiːt.sə/", "example": "Let's order a pizza for dinner.", "audioUrl": null },
+    { "word": "burger", "meaning": "bánh mì kẹp", "ipa": "/ˈbɜːr.ɡər/", "example": "He ordered a burger and fries.", "audioUrl": null },
+    { "word": "noodle", "meaning": "mì", "ipa": "/ˈnuː.dəl/", "example": "I love eating noodle soup.", "audioUrl": null },
+    { "word": "vegetable", "meaning": "rau củ", "ipa": "/ˈvedʒ.tə.bəl/", "example": "Eat more vegetables for good health.", "audioUrl": null },
+    { "word": "fruit", "meaning": "trái cây", "ipa": "/fruːt/", "example": "Fresh fruit is good for you.", "audioUrl": null },
+    { "word": "sugar", "meaning": "đường", "ipa": "/ˈʃʊɡ.ər/", "example": "Don't add too much sugar to your coffee.", "audioUrl": null },
+    { "word": "salt", "meaning": "muối", "ipa": "/sɔːlt/", "example": "This dish needs more salt.", "audioUrl": null },
+    { "word": "butter", "meaning": "bơ", "ipa": "/ˈbʌt.ər/", "example": "She spread butter on the toast.", "audioUrl": null },
+    { "word": "ice cream", "meaning": "kem", "ipa": "/ˈaɪs kriːm/", "example": "Ice cream is my favorite dessert.", "audioUrl": null },
+    { "word": "chocolate", "meaning": "sô cô la", "ipa": "/ˈtʃɒk.lət/", "example": "She gave me a box of chocolates.", "audioUrl": null }
+  ]
+}

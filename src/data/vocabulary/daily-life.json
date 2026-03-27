@@ -1,0 +1,32 @@
+{
+  "topic": "daily-life",
+  "topicLabel": "Daily Life",
+  "cefrLevel": "A1",
+  "words": [
+    { "word": "breakfast", "meaning": "bữa sáng", "ipa": "/ˈbrek.fəst/", "example": "I have breakfast at 7 AM every day.", "audioUrl": null },
+    { "word": "morning", "meaning": "buổi sáng", "ipa": "/ˈmɔːr.nɪŋ/", "example": "Good morning! How are you today?", "audioUrl": null },
+    { "word": "afternoon", "meaning": "buổi chiều", "ipa": "/ˌæf.tərˈnuːn/", "example": "We have a meeting this afternoon.", "audioUrl": null },
+    { "word": "evening", "meaning": "buổi tối", "ipa": "/ˈiːv.nɪŋ/", "example": "I watch TV in the evening.", "audioUrl": null },
+    { "word": "night", "meaning": "ban đêm", "ipa": "/naɪt/", "example": "Good night! Sleep well.", "audioUrl": null },
+    { "word": "home", "meaning": "nhà", "ipa": "/hoʊm/", "example": "I'm going home after work.", "audioUrl": null },
+    { "word": "bedroom", "meaning": "phòng ngủ", "ipa": "/ˈbed.ruːm/", "example": "My bedroom is very comfortable.", "audioUrl": null },
+    { "word": "kitchen", "meaning": "nhà bếp", "ipa": "/ˈkɪtʃ.ɪn/", "example": "She is cooking in the kitchen.", "audioUrl": null },
+    { "word": "bathroom", "meaning": "phòng tắm", "ipa": "/ˈbæθ.ruːm/", "example": "The bathroom is on the second floor.", "audioUrl": null },
+    { "word": "shower", "meaning": "vòi hoa sen", "ipa": "/ˈʃaʊ.ər/", "example": "I take a shower every morning.", "audioUrl": null },
+    { "word": "sleep", "meaning": "ngủ", "ipa": "/sliːp/", "example": "I sleep eight hours a night.", "audioUrl": null },
+    { "word": "wake up", "meaning": "thức dậy", "ipa": "/weɪk ʌp/", "example": "I wake up at 6 AM on weekdays.", "audioUrl": null },
+    { "word": "work", "meaning": "làm việc", "ipa": "/wɜːrk/", "example": "She works at a hospital.", "audioUrl": null },
+    { "word": "school", "meaning": "trường học", "ipa": "/skuːl/", "example": "The children go to school by bus.", "audioUrl": null },
+    { "word": "bus", "meaning": "xe buýt", "ipa": "/bʌs/", "example": "I take the bus to work every day.", "audioUrl": null },
+    { "word": "walk", "meaning": "đi bộ", "ipa": "/wɔːk/", "example": "Let's walk to the park.", "audioUrl": null },
+    { "word": "family", "meaning": "gia đình", "ipa": "/ˈfæm.ɪ.li/", "example": "My family has four members.", "audioUrl": null },
+    { "word": "friend", "meaning": "bạn bè", "ipa": "/frend/", "example": "She is my best friend.", "audioUrl": null },
+    { "word": "phone", "meaning": "điện thoại", "ipa": "/foʊn/", "example": "He forgot his phone at home.", "audioUrl": null },
+    { "word": "computer", "meaning": "máy tính", "ipa": "/kəmˈpjuː.tər/", "example": "I use a computer for work.", "audioUrl": null },
+    { "word": "television", "meaning": "ti vi", "ipa": "/ˈtel.ɪ.vɪʒ.ən/", "example": "We watch television after dinner.", "audioUrl": null },
+    { "word": "door", "meaning": "cửa", "ipa": "/dɔːr/", "example": "Please close the door.", "audioUrl": null },
+    { "word": "window", "meaning": "cửa sổ", "ipa": "/ˈwɪn.doʊ/", "example": "Open the window, it's hot.", "audioUrl": null },
+    { "word": "street", "meaning": "đường phố", "ipa": "/striːt/", "example": "The children play on the street.", "audioUrl": null },
+    { "word": "neighbor", "meaning": "hàng xóm", "ipa": "/ˈneɪ.bər/", "example": "My neighbor is very kind.", "audioUrl": null }
+  ]
+}

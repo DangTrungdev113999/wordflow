@@ -1,0 +1,49 @@
+export const XP_VALUES = {
+  flashcard_correct: 10,
+  flashcard_easy: 15,
+  flashcard_hard: 5,
+  quiz_correct: 10,
+  quiz_perfect_score: 50,
+  lesson_complete: 30,
+  daily_goal_met: 100,
+  streak_bonus: (streak: number) => Math.min(streak * 5, 50),
+} as const;
+
+export const LEVELS = [
+  { level: 1, xpRequired: 0, title: 'Beginner' },
+  { level: 2, xpRequired: 200, title: 'Learner' },
+  { level: 3, xpRequired: 500, title: 'Explorer' },
+  { level: 4, xpRequired: 1000, title: 'Achiever' },
+  { level: 5, xpRequired: 2000, title: 'Scholar' },
+  { level: 6, xpRequired: 4000, title: 'Expert' },
+  { level: 7, xpRequired: 7000, title: 'Master' },
+  { level: 8, xpRequired: 10000, title: 'Legend' },
+] as const;
+
+export const DEFAULT_DAILY_GOAL = 10;
+export const DEFAULT_EASE_FACTOR = 2.5;
+export const MIN_EASE_FACTOR = 1.3;
+
+export const DICTIONARY_API_BASE = 'https://api.dictionaryapi.dev/api/v2/entries/en';
+
+export const CEFR_LEVELS: readonly string[] = ['A1', 'A2', 'B1', 'B2'];
+
+export const TOPIC_ICONS: Record<string, string> = {
+  'daily-life': '🏠',
+  'food-drink': '🍔',
+  'travel': '✈️',
+  'business': '💼',
+  'technology': '💻',
+  'health': '❤️',
+  'education': '📚',
+  'sports': '⚽',
+};
+
+export const TOPIC_COLORS: Record<string, string> = {
+  'daily-life': 'from-blue-400 to-blue-600',
+  'food-drink': 'from-orange-400 to-red-500',
+  'travel': 'from-green-400 to-teal-500',
+  'business': 'from-purple-400 to-purple-600',
+  'technology': 'from-cyan-400 to-blue-500',
+  'health': 'from-pink-400 to-rose-500',
+};
