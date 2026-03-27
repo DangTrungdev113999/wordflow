@@ -1,0 +1,92 @@
+{
+  "id": "present-simple",
+  "title": "Present Simple Tense",
+  "level": "A1",
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc",
+        "content": "**Khẳng định:** S + V(s/es)\n**Phủ định:** S + do/does + not + V\n**Nghi vấn:** Do/Does + S + V?",
+        "examples": [
+          { "en": "She **works** every day.", "vi": "Cô ấy làm việc mỗi ngày." },
+          { "en": "I **don't like** coffee.", "vi": "Tôi không thích cà phê." },
+          { "en": "**Do** you **speak** English?", "vi": "Bạn nói tiếng Anh không?" }
+        ]
+      },
+      {
+        "heading": "Cách thêm -s/-es",
+        "content": "Thêm **-es** sau: o, s, x, z, ch, sh\nThêm **-ies** khi V tận cùng phụ âm + y → bỏ y thêm ies\nCòn lại thêm **-s**",
+        "examples": [
+          { "en": "He **goes** to school.", "vi": "Anh ấy đi học." },
+          { "en": "She **watches** TV.", "vi": "Cô ấy xem TV." },
+          { "en": "He **studies** English.", "vi": "Anh ấy học tiếng Anh." }
+        ]
+      },
+      {
+        "heading": "Dấu hiệu nhận biết",
+        "content": "always, usually, often, sometimes, rarely, never, every day/week/month/year",
+        "examples": [
+          { "en": "I **always** wake up at 6 AM.", "vi": "Tôi luôn thức dậy lúc 6 giờ sáng." },
+          { "en": "She **never** eats fast food.", "vi": "Cô ấy không bao giờ ăn đồ ăn nhanh." }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "She ___ to school every day.",
+      "options": ["go", "goes", "going", "gone"],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "They ___ English very well.",
+      "options": ["speaks", "speak", "speaking", "spoken"],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ he like chocolate?",
+      "options": ["Do", "Does", "Is", "Are"],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "They ___ (not/play) tennis on Mondays.",
+      "acceptedAnswers": ["don't play", "do not play"]
+    },
+    {
+      "type": "fill_blank",
+      "question": "She ___ (watch) TV every evening.",
+      "acceptedAnswers": ["watches"]
+    },
+    {
+      "type": "fill_blank",
+      "question": "My brother ___ (study) medicine at university.",
+      "acceptedAnswers": ["studies"]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "He don't like pizza.",
+      "correctSentence": "He doesn't like pizza.",
+      "errorIndex": [1]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "She go to work by bus.",
+      "correctSentence": "She goes to work by bus.",
+      "errorIndex": [1]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["every", "she", "morning", "runs"],
+      "answer": "She runs every morning."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["like", "I", "not", "do", "coffee"],
+      "answer": "I do not like coffee."
+    }
+  ]
+}

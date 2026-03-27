@@ -34,3 +34,54 @@ export interface DictionaryEntry {
     }>;
   }>;
 }
+
+// Grammar types
+export type QuizType = 'multiple_choice' | 'fill_blank' | 'error_correction' | 'sentence_order';
+
+export interface MultipleChoiceExercise {
+  type: 'multiple_choice';
+  question: string;
+  options: string[];
+  answer: number;
+}
+
+export interface FillBlankExercise {
+  type: 'fill_blank';
+  question: string;
+  acceptedAnswers: string[];
+}
+
+export interface ErrorCorrectionExercise {
+  type: 'error_correction';
+  sentence: string;
+  correctSentence: string;
+  errorIndex: number[];
+}
+
+export interface SentenceOrderExercise {
+  type: 'sentence_order';
+  words: string[];
+  answer: string;
+}
+
+export type GrammarExercise =
+  | MultipleChoiceExercise
+  | FillBlankExercise
+  | ErrorCorrectionExercise
+  | SentenceOrderExercise;
+
+export interface TheorySection {
+  heading: string;
+  content: string;
+  examples: Array<{ en: string; vi: string }>;
+}
+
+export interface GrammarLessonData {
+  id: string;
+  title: string;
+  level: CEFRLevel;
+  theory: {
+    sections: TheorySection[];
+  };
+  exercises: GrammarExercise[];
+}

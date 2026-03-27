@@ -1,0 +1,92 @@
+{
+  "id": "present-continuous",
+  "title": "Present Continuous Tense",
+  "level": "A1",
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc",
+        "content": "**Khẳng định:** S + am/is/are + V-ing\n**Phủ định:** S + am/is/are + not + V-ing\n**Nghi vấn:** Am/Is/Are + S + V-ing?",
+        "examples": [
+          { "en": "I **am studying** English now.", "vi": "Tôi đang học tiếng Anh." },
+          { "en": "She **isn't working** today.", "vi": "Cô ấy không làm việc hôm nay." },
+          { "en": "**Are** you **listening** to me?", "vi": "Bạn có đang nghe tôi không?" }
+        ]
+      },
+      {
+        "heading": "Cách dùng",
+        "content": "1. Hành động đang xảy ra ngay lúc nói\n2. Hành động tạm thời\n3. Kế hoạch đã sắp xếp trong tương lai gần",
+        "examples": [
+          { "en": "Look! It **is raining**.", "vi": "Nhìn kìa! Trời đang mưa." },
+          { "en": "I **am living** with my friend this month.", "vi": "Tháng này tôi đang sống với bạn." },
+          { "en": "We **are meeting** tomorrow at 3 PM.", "vi": "Chúng tôi sẽ gặp nhau lúc 3h chiều mai." }
+        ]
+      },
+      {
+        "heading": "Dấu hiệu nhận biết",
+        "content": "now, right now, at the moment, currently, look!, listen!",
+        "examples": [
+          { "en": "**Listen!** Someone **is singing**.", "vi": "Nghe kìa! Ai đó đang hát." },
+          { "en": "**At the moment**, I **am reading** a book.", "vi": "Hiện tại, tôi đang đọc sách." }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "She ___ dinner right now.",
+      "options": ["cooks", "is cooking", "cooking", "cooked"],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Look! The children ___ in the garden.",
+      "options": ["play", "plays", "are playing", "played"],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "I ___ (wait) for the bus at the moment.",
+      "acceptedAnswers": ["am waiting"]
+    },
+    {
+      "type": "fill_blank",
+      "question": "They ___ (not/work) today. It's a holiday.",
+      "acceptedAnswers": ["aren't working", "are not working"]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "He is play football now.",
+      "correctSentence": "He is playing football now.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "We are go to the cinema tonight.",
+      "correctSentence": "We are going to the cinema tonight.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["reading", "she", "book", "is", "a"],
+      "answer": "She is reading a book."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["now", "are", "what", "doing", "you", "?"],
+      "answer": "What are you doing now?"
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ they studying for the exam?",
+      "options": ["Do", "Does", "Are", "Is"],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Listen! The baby ___ (cry).",
+      "acceptedAnswers": ["is crying"]
+    }
+  ]
+}

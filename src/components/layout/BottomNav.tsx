@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router';
-import { LayoutDashboard, BookOpen, BarChart2 } from 'lucide-react';
+import { LayoutDashboard, BookOpen, PenTool, BarChart2 } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
 const navItems = [
   { to: '/', label: 'Home', icon: LayoutDashboard },
   { to: '/vocabulary', label: 'Vocab', icon: BookOpen },
+  { to: '/grammar', label: 'Grammar', icon: PenTool },
   { to: '/stats', label: 'Stats', icon: BarChart2 },
 ];
 

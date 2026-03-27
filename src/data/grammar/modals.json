@@ -1,0 +1,91 @@
+{
+  "id": "modals",
+  "title": "Modal Verbs: Can, Must, Should",
+  "level": "A2",
+  "theory": {
+    "sections": [
+      {
+        "heading": "Can / Can't",
+        "content": "**Khả năng:** I can swim.\n**Xin phép:** Can I go out?\n**Cấu trúc:** S + can/can't + V (nguyên thể)",
+        "examples": [
+          { "en": "She **can** speak three languages.", "vi": "Cô ấy có thể nói ba ngôn ngữ." },
+          { "en": "I **can't** drive a car.", "vi": "Tôi không biết lái xe." },
+          { "en": "**Can** you help me?", "vi": "Bạn có thể giúp tôi không?" }
+        ]
+      },
+      {
+        "heading": "Must / Mustn't",
+        "content": "**Bắt buộc:** You must wear a seatbelt.\n**Cấm:** You mustn't smoke here.\n**Suy luận chắc chắn:** She must be tired.",
+        "examples": [
+          { "en": "You **must** finish your homework.", "vi": "Bạn phải hoàn thành bài tập." },
+          { "en": "You **mustn't** be late.", "vi": "Bạn không được đến muộn." }
+        ]
+      },
+      {
+        "heading": "Should / Shouldn't",
+        "content": "**Lời khuyên:** You should exercise more.\n**Cấu trúc:** S + should/shouldn't + V",
+        "examples": [
+          { "en": "You **should** drink more water.", "vi": "Bạn nên uống nhiều nước hơn." },
+          { "en": "You **shouldn't** stay up late.", "vi": "Bạn không nên thức khuya." }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "You ___ smoke in the hospital.",
+      "options": ["mustn't", "must", "should", "can"],
+      "answer": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "She ___ play the piano very well.",
+      "options": ["should", "must", "can", "mustn't"],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "You ___ (should/eat) more vegetables.",
+      "acceptedAnswers": ["should eat"]
+    },
+    {
+      "type": "fill_blank",
+      "question": "He ___ (can/not/swim). He never learned.",
+      "acceptedAnswers": ["can't swim", "cannot swim"]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "You must to study harder.",
+      "correctSentence": "You must study harder.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "She can speaks French fluently.",
+      "correctSentence": "She can speak French fluently.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["you", "should", "more", "exercise"],
+      "answer": "You should exercise more."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["must", "we", "rules", "the", "follow"],
+      "answer": "We must follow the rules."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "You look tired. You ___ get some rest.",
+      "options": ["must", "can", "should", "mustn't"],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Students ___ (must/not/use) phones in class.",
+      "acceptedAnswers": ["mustn't use", "must not use"]
+    }
+  ]
+}

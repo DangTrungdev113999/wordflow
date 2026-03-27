@@ -1,0 +1,91 @@
+{
+  "id": "past-simple",
+  "title": "Past Simple Tense",
+  "level": "A1",
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc",
+        "content": "**Khẳng định:** S + V-ed / V2 (irregular)\n**Phủ định:** S + did not (didn't) + V\n**Nghi vấn:** Did + S + V?",
+        "examples": [
+          { "en": "I **visited** my grandma yesterday.", "vi": "Tôi đã thăm bà hôm qua." },
+          { "en": "She **didn't go** to the party.", "vi": "Cô ấy không đi dự tiệc." },
+          { "en": "**Did** you **see** the movie?", "vi": "Bạn có xem phim không?" }
+        ]
+      },
+      {
+        "heading": "Regular vs Irregular",
+        "content": "**Regular:** thêm -ed (worked, played, studied)\n**Irregular:** dạng riêng (go→went, eat→ate, see→saw, buy→bought)",
+        "examples": [
+          { "en": "We **played** football yesterday.", "vi": "Chúng tôi chơi bóng đá hôm qua." },
+          { "en": "He **went** to Japan last year.", "vi": "Anh ấy đi Nhật năm ngoái." }
+        ]
+      },
+      {
+        "heading": "Dấu hiệu nhận biết",
+        "content": "yesterday, last week/month/year, ago, in 2020, when I was young",
+        "examples": [
+          { "en": "I **met** her two years **ago**.", "vi": "Tôi gặp cô ấy hai năm trước." },
+          { "en": "**Last summer**, we **traveled** to Da Nang.", "vi": "Mùa hè trước, chúng tôi đi Đà Nẵng." }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "She ___ to the store yesterday.",
+      "options": ["go", "goes", "went", "going"],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "They ___ a great time at the party last night.",
+      "options": ["have", "has", "had", "having"],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ you finish your homework?",
+      "options": ["Do", "Does", "Did", "Was"],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "I ___ (not/eat) breakfast this morning.",
+      "acceptedAnswers": ["didn't eat", "did not eat"]
+    },
+    {
+      "type": "fill_blank",
+      "question": "We ___ (buy) a new car last month.",
+      "acceptedAnswers": ["bought"]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "She didn't went to school yesterday.",
+      "correctSentence": "She didn't go to school yesterday.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "I eated lunch at 12 PM.",
+      "correctSentence": "I ate lunch at 12 PM.",
+      "errorIndex": [1]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["yesterday", "to", "I", "went", "the", "park"],
+      "answer": "I went to the park yesterday."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["movie", "we", "a", "watched", "night", "last"],
+      "answer": "We watched a movie last night."
+    },
+    {
+      "type": "fill_blank",
+      "question": "He ___ (see) a doctor last week.",
+      "acceptedAnswers": ["saw"]
+    }
+  ]
+}

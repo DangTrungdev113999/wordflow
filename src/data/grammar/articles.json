@@ -1,0 +1,93 @@
+{
+  "id": "articles",
+  "title": "Articles: A, An, The",
+  "level": "A1",
+  "theory": {
+    "sections": [
+      {
+        "heading": "A vs An",
+        "content": "**A** trước phụ âm: a book, a car, a university\n**An** trước nguyên âm (âm): an apple, an hour, an umbrella\nLưu ý: dựa vào ÂM, không phải chữ cái",
+        "examples": [
+          { "en": "I have **a** dog.", "vi": "Tôi có một con chó." },
+          { "en": "She is **an** honest person.", "vi": "Cô ấy là người trung thực." },
+          { "en": "He is **a** university student.", "vi": "Anh ấy là sinh viên đại học." }
+        ]
+      },
+      {
+        "heading": "The",
+        "content": "Dùng **the** khi:\n- Cả người nói và người nghe đều biết đang nói về cái gì\n- Đã đề cập trước đó\n- Chỉ có một (the sun, the moon)\n- Dùng với so sánh nhất (the best, the tallest)",
+        "examples": [
+          { "en": "Please close **the** door.", "vi": "Xin hãy đóng cửa lại." },
+          { "en": "**The** sun rises in the east.", "vi": "Mặt trời mọc ở phía đông." },
+          { "en": "She is **the** tallest girl in class.", "vi": "Cô ấy là cô gái cao nhất lớp." }
+        ]
+      },
+      {
+        "heading": "Không dùng mạo từ",
+        "content": "Không dùng a/an/the trước:\n- Danh từ không đếm được (chung): water, music, love\n- Danh từ số nhiều (chung): dogs are loyal\n- Tên riêng: Vietnam, John",
+        "examples": [
+          { "en": "I love **music**.", "vi": "Tôi yêu âm nhạc." },
+          { "en": "**Dogs** are friendly animals.", "vi": "Chó là động vật thân thiện." }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "I saw ___ elephant at the zoo.",
+      "options": ["a", "an", "the", "—"],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ sun is very bright today.",
+      "options": ["A", "An", "The", "—"],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "She is ___ honest woman.",
+      "options": ["a", "an", "the", "—"],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Can you pass me ___ salt, please?",
+      "acceptedAnswers": ["the"]
+    },
+    {
+      "type": "fill_blank",
+      "question": "I need ___ umbrella. It's raining.",
+      "acceptedAnswers": ["an"]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "She is a engineer.",
+      "correctSentence": "She is an engineer.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "I love the music.",
+      "correctSentence": "I love music.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["is", "the", "this", "book", "best"],
+      "answer": "This is the best book."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "He wants to be ___ doctor.",
+      "options": ["a", "an", "the", "—"],
+      "answer": 0
+    },
+    {
+      "type": "fill_blank",
+      "question": "I bought ___ new phone yesterday.",
+      "acceptedAnswers": ["a"]
+    }
+  ]
+}

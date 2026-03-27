@@ -1,0 +1,84 @@
+{
+  "id": "comparatives",
+  "title": "Comparatives & Superlatives",
+  "level": "A2",
+  "theory": {
+    "sections": [
+      {
+        "heading": "So sánh hơn (Comparatives)",
+        "content": "**Tính từ ngắn:** adj + -er + than\n**Tính từ dài:** more + adj + than\n**Bất quy tắc:** good→better, bad→worse, far→farther",
+        "examples": [
+          { "en": "This book is **cheaper than** that one.", "vi": "Quyển sách này rẻ hơn quyển kia." },
+          { "en": "English is **more interesting than** math.", "vi": "Tiếng Anh thú vị hơn toán." },
+          { "en": "My score is **better than** yours.", "vi": "Điểm tôi tốt hơn bạn." }
+        ]
+      },
+      {
+        "heading": "So sánh nhất (Superlatives)",
+        "content": "**Tính từ ngắn:** the + adj-est\n**Tính từ dài:** the most + adj\n**Bất quy tắc:** good→the best, bad→the worst",
+        "examples": [
+          { "en": "She is **the tallest** in our class.", "vi": "Cô ấy cao nhất lớp." },
+          { "en": "This is **the most beautiful** city I've visited.", "vi": "Đây là thành phố đẹp nhất tôi đã đến." },
+          { "en": "That was **the worst** movie ever.", "vi": "Đó là bộ phim tệ nhất từ trước đến nay." }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "A car is ___ than a bicycle.",
+      "options": ["fast", "faster", "fastest", "more fast"],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "This is ___ movie I've ever seen.",
+      "options": ["the good", "the better", "the best", "the most good"],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Tokyo is ___ (expensive) than Hanoi.",
+      "acceptedAnswers": ["more expensive"]
+    },
+    {
+      "type": "fill_blank",
+      "question": "She is ___ (smart) student in the class.",
+      "acceptedAnswers": ["the smartest"]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "He is more taller than his brother.",
+      "correctSentence": "He is taller than his brother.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "This is the most cheapest phone in the store.",
+      "correctSentence": "This is the cheapest phone in the store.",
+      "errorIndex": [3]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["than", "is", "math", "harder", "English"],
+      "answer": "Math is harder than English."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["tallest", "he", "the", "is", "player"],
+      "answer": "He is the tallest player."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Winter is ___ than autumn.",
+      "options": ["cold", "colder", "coldest", "more cold"],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "This exercise is ___ (difficult) than the last one.",
+      "acceptedAnswers": ["more difficult"]
+    }
+  ]
+}

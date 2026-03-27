@@ -19,15 +19,15 @@ export default function App() {
     recordActivity();
   }, [location.pathname]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const isFlashcard = location.pathname.includes('/learn');
+  const isFullscreen = location.pathname.includes('/learn') || location.pathname.includes('/quiz');
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors">
-      {!isFlashcard && <Header />}
-      <main className={!isFlashcard ? 'pb-20' : 'pb-0'}>
+      {!isFullscreen && <Header />}
+      <main className={!isFullscreen ? 'pb-20' : 'pb-0'}>
         <Outlet />
       </main>
-      {!isFlashcard && <BottomNav />}
+      {!isFullscreen && <BottomNav />}
     </div>
   );
 }

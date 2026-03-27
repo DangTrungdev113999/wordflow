@@ -7,6 +7,9 @@ const VocabularyPage = lazy(() => import('../features/vocabulary/pages/Vocabular
 const TopicPage = lazy(() => import('../features/vocabulary/pages/TopicPage').then(m => ({ default: m.TopicPage })));
 const FlashcardPage = lazy(() => import('../features/vocabulary/pages/FlashcardPage').then(m => ({ default: m.FlashcardPage })));
 const WordDetailPage = lazy(() => import('../features/vocabulary/pages/WordDetailPage').then(m => ({ default: m.WordDetailPage })));
+const GrammarPage = lazy(() => import('../features/grammar/pages/GrammarPage').then(m => ({ default: m.GrammarPage })));
+const LessonPage = lazy(() => import('../features/grammar/pages/LessonPage').then(m => ({ default: m.LessonPage })));
+const QuizPage = lazy(() => import('../features/grammar/pages/QuizPage').then(m => ({ default: m.QuizPage })));
 
 function PageLoader() {
   return (
@@ -34,6 +37,9 @@ export const router = createBrowserRouter([
       { path: 'vocabulary/:topic', element: withSuspense(TopicPage) },
       { path: 'vocabulary/:topic/learn', element: withSuspense(FlashcardPage) },
       { path: 'vocabulary/word/:word', element: withSuspense(WordDetailPage) },
+      { path: 'grammar', element: withSuspense(GrammarPage) },
+      { path: 'grammar/:lessonId', element: withSuspense(LessonPage) },
+      { path: 'grammar/:lessonId/quiz', element: withSuspense(QuizPage) },
       {
         path: 'stats',
         element: (
