@@ -1,0 +1,32 @@
+{
+  "topic": "shopping",
+  "topicLabel": "Shopping",
+  "cefrLevel": "A1",
+  "words": [
+    { "word": "shop", "meaning": "cửa hàng", "ipa": "/ʃɒp/", "example": "Let's go to the shop.", "audioUrl": null },
+    { "word": "price", "meaning": "giá", "ipa": "/praɪs/", "example": "What's the price of this shirt?", "audioUrl": null },
+    { "word": "cheap", "meaning": "rẻ", "ipa": "/tʃiːp/", "example": "This bag is very cheap.", "audioUrl": null },
+    { "word": "expensive", "meaning": "đắt", "ipa": "/ɪkˈspen.sɪv/", "example": "That car is too expensive.", "audioUrl": null },
+    { "word": "discount", "meaning": "giảm giá", "ipa": "/ˈdɪs.kaʊnt/", "example": "There is a 20% discount today.", "audioUrl": null },
+    { "word": "cashier", "meaning": "thu ngân", "ipa": "/kæˈʃɪər/", "example": "Pay at the cashier.", "audioUrl": null },
+    { "word": "receipt", "meaning": "hóa đơn", "ipa": "/rɪˈsiːt/", "example": "Keep the receipt for returns.", "audioUrl": null },
+    { "word": "size", "meaning": "kích cỡ", "ipa": "/saɪz/", "example": "What size do you wear?", "audioUrl": null },
+    { "word": "customer", "meaning": "khách hàng", "ipa": "/ˈkʌs.tə.mər/", "example": "The customer is always right.", "audioUrl": null },
+    { "word": "sale", "meaning": "giảm giá", "ipa": "/seɪl/", "example": "The store is having a big sale.", "audioUrl": null },
+    { "word": "brand", "meaning": "thương hiệu", "ipa": "/brænd/", "example": "What brand is your phone?", "audioUrl": null },
+    { "word": "wallet", "meaning": "ví", "ipa": "/ˈwɒl.ɪt/", "example": "I left my wallet at home.", "audioUrl": null },
+    { "word": "cash", "meaning": "tiền mặt", "ipa": "/kæʃ/", "example": "Do you accept cash?", "audioUrl": null },
+    { "word": "try on", "meaning": "thử (quần áo)", "ipa": "/traɪ ɒn/", "example": "Can I try on this dress?", "audioUrl": null },
+    { "word": "refund", "meaning": "hoàn tiền", "ipa": "/ˈriː.fʌnd/", "example": "Can I get a refund?", "audioUrl": null },
+    { "word": "mall", "meaning": "trung tâm mua sắm", "ipa": "/mɔːl/", "example": "Let's meet at the mall.", "audioUrl": null },
+    { "word": "bargain", "meaning": "mặc cả", "ipa": "/ˈbɑː.ɡɪn/", "example": "You can bargain at the market.", "audioUrl": null },
+    { "word": "quality", "meaning": "chất lượng", "ipa": "/ˈkwɒl.ə.ti/", "example": "The quality is very good.", "audioUrl": null },
+    { "word": "delivery", "meaning": "giao hàng", "ipa": "/dɪˈlɪv.ər.i/", "example": "Free delivery for orders over 500k.", "audioUrl": null },
+    { "word": "exchange", "meaning": "đổi hàng", "ipa": "/ɪksˈtʃeɪndʒ/", "example": "Can I exchange this for a larger size?", "audioUrl": null },
+    { "word": "cart", "meaning": "giỏ hàng", "ipa": "/kɑːt/", "example": "Put it in the shopping cart.", "audioUrl": null },
+    { "word": "aisle", "meaning": "lối đi", "ipa": "/aɪl/", "example": "The milk is in aisle 3.", "audioUrl": null },
+    { "word": "grocery", "meaning": "tạp hóa", "ipa": "/ˈɡrəʊ.sər.i/", "example": "I need to buy some groceries.", "audioUrl": null },
+    { "word": "fitting room", "meaning": "phòng thử đồ", "ipa": "/ˈfɪt.ɪŋ ruːm/", "example": "The fitting room is over there.", "audioUrl": null },
+    { "word": "order", "meaning": "đặt hàng", "ipa": "/ˈɔː.dər/", "example": "I ordered a new laptop online.", "audioUrl": null }
+  ]
+}

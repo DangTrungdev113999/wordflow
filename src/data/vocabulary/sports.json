@@ -1,0 +1,32 @@
+{
+  "topic": "sports",
+  "topicLabel": "Sports & Fitness",
+  "cefrLevel": "A1",
+  "words": [
+    { "word": "football", "meaning": "bóng đá", "ipa": "/ˈfʊt.bɔːl/", "example": "Let's play football after school.", "audioUrl": null },
+    { "word": "basketball", "meaning": "bóng rổ", "ipa": "/ˈbɑːs.kɪt.bɔːl/", "example": "He plays basketball every weekend.", "audioUrl": null },
+    { "word": "swimming", "meaning": "bơi lội", "ipa": "/ˈswɪm.ɪŋ/", "example": "Swimming is great exercise.", "audioUrl": null },
+    { "word": "running", "meaning": "chạy bộ", "ipa": "/ˈrʌn.ɪŋ/", "example": "I go running in the park.", "audioUrl": null },
+    { "word": "tennis", "meaning": "quần vợt", "ipa": "/ˈten.ɪs/", "example": "She plays tennis twice a week.", "audioUrl": null },
+    { "word": "gym", "meaning": "phòng gym", "ipa": "/dʒɪm/", "example": "I go to the gym after work.", "audioUrl": null },
+    { "word": "score", "meaning": "điểm số", "ipa": "/skɔːr/", "example": "The final score was 3-1.", "audioUrl": null },
+    { "word": "team", "meaning": "đội", "ipa": "/tiːm/", "example": "Our team won the championship.", "audioUrl": null },
+    { "word": "match", "meaning": "trận đấu", "ipa": "/mætʃ/", "example": "The match starts at 7 PM.", "audioUrl": null },
+    { "word": "coach", "meaning": "huấn luyện viên", "ipa": "/kəʊtʃ/", "example": "The coach trained us hard.", "audioUrl": null },
+    { "word": "champion", "meaning": "nhà vô địch", "ipa": "/ˈtʃæm.pi.ən/", "example": "She is the national champion.", "audioUrl": null },
+    { "word": "medal", "meaning": "huy chương", "ipa": "/ˈmed.əl/", "example": "He won a gold medal.", "audioUrl": null },
+    { "word": "fitness", "meaning": "thể lực", "ipa": "/ˈfɪt.nəs/", "example": "Fitness is important for health.", "audioUrl": null },
+    { "word": "athlete", "meaning": "vận động viên", "ipa": "/ˈæθ.liːt/", "example": "The athlete broke the world record.", "audioUrl": null },
+    { "word": "stadium", "meaning": "sân vận động", "ipa": "/ˈsteɪ.di.əm/", "example": "The stadium holds 50,000 people.", "audioUrl": null },
+    { "word": "tournament", "meaning": "giải đấu", "ipa": "/ˈtʊə.nə.mənt/", "example": "The tournament starts next month.", "audioUrl": null },
+    { "word": "practice", "meaning": "tập luyện", "ipa": "/ˈpræk.tɪs/", "example": "We have practice every afternoon.", "audioUrl": null },
+    { "word": "yoga", "meaning": "yoga", "ipa": "/ˈjəʊ.ɡə/", "example": "I do yoga to relax.", "audioUrl": null },
+    { "word": "marathon", "meaning": "cuộc thi marathon", "ipa": "/ˈmær.ə.θən/", "example": "She ran her first marathon.", "audioUrl": null },
+    { "word": "referee", "meaning": "trọng tài", "ipa": "/ˌref.əˈriː/", "example": "The referee blew the whistle.", "audioUrl": null },
+    { "word": "opponent", "meaning": "đối thủ", "ipa": "/əˈpəʊ.nənt/", "example": "His opponent was very strong.", "audioUrl": null },
+    { "word": "stretch", "meaning": "kéo giãn", "ipa": "/stretʃ/", "example": "Always stretch before exercising.", "audioUrl": null },
+    { "word": "warm-up", "meaning": "khởi động", "ipa": "/ˈwɔːm.ʌp/", "example": "Do a warm-up before the game.", "audioUrl": null },
+    { "word": "trophy", "meaning": "cúp", "ipa": "/ˈtrəʊ.fi/", "example": "The team lifted the trophy.", "audioUrl": null },
+    { "word": "defeat", "meaning": "đánh bại", "ipa": "/dɪˈfiːt/", "example": "We defeated the other team 2-0.", "audioUrl": null }
+  ]
+}

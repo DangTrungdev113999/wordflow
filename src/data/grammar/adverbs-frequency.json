@@ -1,0 +1,124 @@
+{
+  "title": "Adverbs of Frequency",
+  "level": "A1",
+  "theory": {
+    "sections": [
+      {
+        "heading": "Trạng từ chỉ tần suất",
+        "content": "**always** (100%) > **usually** (80%) > **often** (60%) > **sometimes** (40%) > **rarely** (10%) > **never** (0%)\n\nVị trí: trước động từ thường, sau be/aux",
+        "examples": [
+          {
+            "en": "I **always** drink coffee in the morning.",
+            "vi": "Tôi luôn uống cà phê buổi sáng."
+          },
+          {
+            "en": "She is **never** late.",
+            "vi": "Cô ấy không bao giờ trễ."
+          },
+          {
+            "en": "They **sometimes** go to the cinema.",
+            "vi": "Họ thỉnh thoảng đi xem phim."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "She ___ goes to the gym on Mondays.",
+      "options": [
+        "always",
+        "every",
+        "all",
+        "each"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "fill_blank",
+      "question": "I ___ eat fast food. I don't like it.",
+      "acceptedAnswers": [
+        "never",
+        "rarely"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "He is ___ happy. He smiles a lot.",
+      "acceptedAnswers": [
+        "always",
+        "usually"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "I go always to school by bus.",
+      "correctSentence": "I always go to school by bus.",
+      "errorIndex": [
+        2
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "sometimes",
+        "I",
+        "read",
+        "night",
+        "at"
+      ],
+      "answer": "I sometimes read at night."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "He ___ plays football on weekends.",
+      "options": [
+        "usual",
+        "usually",
+        "every",
+        "ever"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "We ___ have dinner at 7 PM.",
+      "acceptedAnswers": [
+        "usually",
+        "always",
+        "often"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "She never is late for work.",
+      "correctSentence": "She is never late for work.",
+      "errorIndex": [
+        1,
+        2
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "often",
+        "they",
+        "eat",
+        "out"
+      ],
+      "answer": "They often eat out."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "I ___ watch horror movies. They scare me.",
+      "options": [
+        "always",
+        "often",
+        "usually",
+        "rarely"
+      ],
+      "answer": 3
+    }
+  ]
+}

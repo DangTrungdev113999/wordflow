@@ -7,9 +7,10 @@ interface ProgressBarProps {
   size?: 'sm' | 'md';
   showLabel?: boolean;
   className?: string;
+  barClassName?: string;
 }
 
-export function ProgressBar({ value, max = 100, color = 'indigo', size = 'md', showLabel, className }: ProgressBarProps) {
+export function ProgressBar({ value, max = 100, color = 'indigo', size = 'md', showLabel, className, barClassName }: ProgressBarProps) {
   const pct = Math.min(100, Math.max(0, (value / max) * 100));
   return (
     <div className={cn('w-full', className)}>
@@ -22,7 +23,7 @@ export function ProgressBar({ value, max = 100, color = 'indigo', size = 'md', s
         <div
           className={cn(
             'h-full rounded-full transition-all duration-500',
-            {
+            barClassName ?? {
               indigo: 'bg-indigo-500',
               green: 'bg-green-500',
               yellow: 'bg-yellow-400',

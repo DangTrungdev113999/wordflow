@@ -1,0 +1,120 @@
+{
+  "title": "Prepositions of Time",
+  "level": "A1",
+  "theory": {
+    "sections": [
+      {
+        "heading": "In, On, At",
+        "content": "**In:** tháng, năm, mùa, buổi (in March, in 2024, in summer, in the morning)\n**On:** ngày, thứ (on Monday, on March 5th, on my birthday)\n**At:** giờ, thời điểm cụ thể (at 9 AM, at night, at Christmas)",
+        "examples": [
+          {
+            "en": "I wake up **at** 6 AM.",
+            "vi": "Tôi thức dậy lúc 6 giờ sáng."
+          },
+          {
+            "en": "She was born **in** 1995.",
+            "vi": "Cô ấy sinh năm 1995."
+          },
+          {
+            "en": "We have class **on** Monday.",
+            "vi": "Chúng tôi có lớp vào thứ Hai."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "I was born ___ July.",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "to"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The meeting is ___ 3 PM.",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "to"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "We go to church ___ Sundays.",
+      "acceptedAnswers": [
+        "on"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "She graduated ___ 2020.",
+      "acceptedAnswers": [
+        "in"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "I will see you at Monday.",
+      "correctSentence": "I will see you on Monday.",
+      "errorIndex": [
+        4
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "at",
+        "wake",
+        "I",
+        "up",
+        "6 AM"
+      ],
+      "answer": "I wake up at 6 AM."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "It often rains ___ the afternoon.",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "for"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "fill_blank",
+      "question": "The shop closes ___ night.",
+      "acceptedAnswers": [
+        "at"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "He arrived in 9 o'clock.",
+      "correctSentence": "He arrived at 9 o'clock.",
+      "errorIndex": [
+        2
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "in",
+        "born",
+        "was",
+        "she",
+        "1990"
+      ],
+      "answer": "She was born in 1990."
+    }
+  ]
+}

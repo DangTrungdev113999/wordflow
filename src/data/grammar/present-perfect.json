@@ -1,0 +1,138 @@
+{
+  "title": "Present Perfect Tense",
+  "level": "A2",
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc",
+        "content": "**Khẳng định:** S + have/has + V3 (past participle)\n**Phủ định:** S + have/has + not + V3\n**Nghi vấn:** Have/Has + S + V3?",
+        "examples": [
+          {
+            "en": "I **have visited** Paris.",
+            "vi": "Tôi đã từng đến Paris."
+          },
+          {
+            "en": "She **hasn't finished** her homework.",
+            "vi": "Cô ấy chưa hoàn thành bài tập."
+          }
+        ]
+      },
+      {
+        "heading": "Cách dùng",
+        "content": "1. Kinh nghiệm (ever/never)\n2. Hành động bắt đầu quá khứ, kéo dài đến hiện tại (for/since)\n3. Hành động vừa xảy ra (just, already, yet)",
+        "examples": [
+          {
+            "en": "**Have** you **ever** been to Japan?",
+            "vi": "Bạn đã bao giờ đến Nhật chưa?"
+          },
+          {
+            "en": "I **have lived** here **for** 5 years.",
+            "vi": "Tôi đã sống ở đây 5 năm."
+          },
+          {
+            "en": "She **has just** left.",
+            "vi": "Cô ấy vừa mới rời đi."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "I ___ this movie before.",
+      "options": [
+        "see",
+        "saw",
+        "have seen",
+        "seeing"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "She ___ here since 2020.",
+      "options": [
+        "lives",
+        "lived",
+        "has lived",
+        "is living"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Have you ever ___ sushi?",
+      "acceptedAnswers": [
+        "eaten",
+        "tried"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "They ___ (not/arrive) yet.",
+      "acceptedAnswers": [
+        "haven't arrived",
+        "have not arrived"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "I have went to London twice.",
+      "correctSentence": "I have been to London twice.",
+      "errorIndex": [
+        2
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "has",
+        "she",
+        "finished",
+        "just",
+        "work"
+      ],
+      "answer": "She has just finished work."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ they arrived yet?",
+      "options": [
+        "Did",
+        "Do",
+        "Have",
+        "Are"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "We ___ (know) each other for 10 years.",
+      "acceptedAnswers": [
+        "have known"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "He has already ate lunch.",
+      "correctSentence": "He has already eaten lunch.",
+      "errorIndex": [
+        3
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "ever",
+        "have",
+        "you",
+        "been",
+        "Japan",
+        "to",
+        "?"
+      ],
+      "answer": "Have you ever been to Japan?"
+    }
+  ]
+}

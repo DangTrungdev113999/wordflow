@@ -85,3 +85,33 @@ export interface GrammarLessonData {
   };
   exercises: GrammarExercise[];
 }
+
+// Achievement types
+export interface AchievementDefinition {
+  id: string;
+  badge: string;
+  title: string;
+  description: string;
+  condition: {
+    type: 'totalWords' | 'streak' | 'lessonsCompleted' | 'perfectQuiz' | 'nightOwl';
+    value: number;
+  };
+}
+
+export interface AchievementContext {
+  totalWords: number;
+  streak: number;
+  lessonsCompleted: number;
+  hasPerfectQuiz: boolean;
+  currentHour: number;
+  earnedBadges: string[];
+}
+
+// Toast types
+export interface ToastMessage {
+  id: string;
+  type: 'xp' | 'badge' | 'goal' | 'levelUp' | 'info';
+  title: string;
+  description?: string;
+  icon?: string;
+}

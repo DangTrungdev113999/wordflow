@@ -1,0 +1,32 @@
+{
+  "topic": "health",
+  "topicLabel": "Health & Body",
+  "cefrLevel": "A1",
+  "words": [
+    { "word": "doctor", "meaning": "bác sĩ", "ipa": "/ˈdɒk.tər/", "example": "I need to see a doctor.", "audioUrl": null },
+    { "word": "hospital", "meaning": "bệnh viện", "ipa": "/ˈhɒs.pɪ.təl/", "example": "She was taken to the hospital.", "audioUrl": null },
+    { "word": "medicine", "meaning": "thuốc", "ipa": "/ˈmed.ɪ.sən/", "example": "Take your medicine after meals.", "audioUrl": null },
+    { "word": "headache", "meaning": "đau đầu", "ipa": "/ˈhed.eɪk/", "example": "I have a terrible headache.", "audioUrl": null },
+    { "word": "fever", "meaning": "sốt", "ipa": "/ˈfiː.vər/", "example": "The child has a high fever.", "audioUrl": null },
+    { "word": "exercise", "meaning": "tập thể dục", "ipa": "/ˈek.sə.saɪz/", "example": "I exercise every morning.", "audioUrl": null },
+    { "word": "healthy", "meaning": "khỏe mạnh", "ipa": "/ˈhel.θi/", "example": "Eating fruit keeps you healthy.", "audioUrl": null },
+    { "word": "stomach", "meaning": "dạ dày/bụng", "ipa": "/ˈstʌm.ək/", "example": "My stomach hurts.", "audioUrl": null },
+    { "word": "cough", "meaning": "ho", "ipa": "/kɒf/", "example": "He has a bad cough.", "audioUrl": null },
+    { "word": "pain", "meaning": "đau", "ipa": "/peɪn/", "example": "I feel pain in my back.", "audioUrl": null },
+    { "word": "allergy", "meaning": "dị ứng", "ipa": "/ˈæl.ə.dʒi/", "example": "She has an allergy to peanuts.", "audioUrl": null },
+    { "word": "symptom", "meaning": "triệu chứng", "ipa": "/ˈsɪmp.təm/", "example": "What are your symptoms?", "audioUrl": null },
+    { "word": "prescription", "meaning": "đơn thuốc", "ipa": "/prɪˈskrɪp.ʃən/", "example": "The doctor gave me a prescription.", "audioUrl": null },
+    { "word": "temperature", "meaning": "nhiệt độ", "ipa": "/ˈtem.prə.tʃər/", "example": "Let me check your temperature.", "audioUrl": null },
+    { "word": "vitamin", "meaning": "vitamin", "ipa": "/ˈvɪt.ə.mɪn/", "example": "Take vitamin C every day.", "audioUrl": null },
+    { "word": "pharmacy", "meaning": "nhà thuốc", "ipa": "/ˈfɑː.mə.si/", "example": "Buy this medicine at the pharmacy.", "audioUrl": null },
+    { "word": "injury", "meaning": "chấn thương", "ipa": "/ˈɪn.dʒər.i/", "example": "He suffered a knee injury.", "audioUrl": null },
+    { "word": "blood", "meaning": "máu", "ipa": "/blʌd/", "example": "I need a blood test.", "audioUrl": null },
+    { "word": "diet", "meaning": "chế độ ăn", "ipa": "/ˈdaɪ.ət/", "example": "A balanced diet is important.", "audioUrl": null },
+    { "word": "ambulance", "meaning": "xe cấp cứu", "ipa": "/ˈæm.bjə.ləns/", "example": "Call an ambulance quickly!", "audioUrl": null },
+    { "word": "muscle", "meaning": "cơ bắp", "ipa": "/ˈmʌs.əl/", "example": "I pulled a muscle while running.", "audioUrl": null },
+    { "word": "dentist", "meaning": "nha sĩ", "ipa": "/ˈden.tɪst/", "example": "I go to the dentist twice a year.", "audioUrl": null },
+    { "word": "surgery", "meaning": "phẫu thuật", "ipa": "/ˈsɜː.dʒər.i/", "example": "She needs surgery on her knee.", "audioUrl": null },
+    { "word": "rest", "meaning": "nghỉ ngơi", "ipa": "/rest/", "example": "You should rest and drink water.", "audioUrl": null },
+    { "word": "breathe", "meaning": "thở", "ipa": "/briːð/", "example": "Breathe deeply and relax.", "audioUrl": null }
+  ]
+}

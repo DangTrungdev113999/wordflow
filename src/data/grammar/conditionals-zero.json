@@ -1,0 +1,133 @@
+{
+  "title": "Zero & First Conditional",
+  "level": "A2",
+  "theory": {
+    "sections": [
+      {
+        "heading": "Zero Conditional",
+        "content": "**If + present simple, present simple**\nDùng cho sự thật hiển nhiên, quy luật tự nhiên",
+        "examples": [
+          {
+            "en": "If you heat water, it **boils**.",
+            "vi": "Nếu bạn đun nước, nó sôi."
+          },
+          {
+            "en": "If it rains, the grass **gets** wet.",
+            "vi": "Nếu trời mưa, cỏ ướt."
+          }
+        ]
+      },
+      {
+        "heading": "First Conditional",
+        "content": "**If + present simple, will + V**\nDùng cho tình huống có thể xảy ra trong tương lai",
+        "examples": [
+          {
+            "en": "If it **rains**, I **will stay** home.",
+            "vi": "Nếu trời mưa, tôi sẽ ở nhà."
+          },
+          {
+            "en": "If you **study** hard, you **will pass**.",
+            "vi": "Nếu bạn học chăm, bạn sẽ đậu."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "If you heat ice, it ___.",
+      "options": [
+        "melt",
+        "melts",
+        "will melt",
+        "melting"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "If it rains tomorrow, I ___ an umbrella.",
+      "options": [
+        "bring",
+        "brings",
+        "will bring",
+        "brought"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "If you ___ (not/hurry), you will be late.",
+      "acceptedAnswers": [
+        "don't hurry",
+        "do not hurry"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "If water reaches 100°C, it ___.",
+      "acceptedAnswers": [
+        "boils"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "If it will rain, I stay home.",
+      "correctSentence": "If it rains, I will stay home.",
+      "errorIndex": [
+        2
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "study",
+        "if",
+        "you",
+        "will",
+        "pass",
+        "you"
+      ],
+      "answer": "If you study you will pass."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "If she ___ early, she catches the bus.",
+      "options": [
+        "leave",
+        "leaves",
+        "will leave",
+        "left"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "If I ___ (have) time, I will visit you.",
+      "acceptedAnswers": [
+        "have"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "If you will eat too much, you get sick.",
+      "correctSentence": "If you eat too much, you get sick.",
+      "errorIndex": [
+        2
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "win",
+        "if",
+        "we",
+        "celebrate",
+        "will",
+        "we"
+      ],
+      "answer": "If we win we will celebrate."
+    }
+  ]
+}

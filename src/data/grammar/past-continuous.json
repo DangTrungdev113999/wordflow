@@ -1,0 +1,131 @@
+{
+  "title": "Past Continuous Tense",
+  "level": "A2",
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc",
+        "content": "**Khẳng định:** S + was/were + V-ing\n**Phủ định:** S + was/were + not + V-ing\n**Nghi vấn:** Was/Were + S + V-ing?",
+        "examples": [
+          {
+            "en": "I **was reading** a book.",
+            "vi": "Tôi đang đọc sách."
+          },
+          {
+            "en": "They **were playing** football.",
+            "vi": "Họ đang chơi bóng đá."
+          }
+        ]
+      },
+      {
+        "heading": "Cách dùng",
+        "content": "1. Hành động đang xảy ra tại một thời điểm trong quá khứ\n2. Hai hành động xảy ra đồng thời\n3. Hành động đang xảy ra thì bị gián đoạn",
+        "examples": [
+          {
+            "en": "While I **was cooking**, he **was watching** TV.",
+            "vi": "Trong khi tôi nấu ăn, anh ấy xem TV."
+          },
+          {
+            "en": "I **was sleeping** when the phone **rang**.",
+            "vi": "Tôi đang ngủ thì điện thoại reo."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "She ___ when I called.",
+      "options": [
+        "sleeps",
+        "was sleeping",
+        "is sleeping",
+        "slept"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "They ___ (watch) TV at 8 PM last night.",
+      "acceptedAnswers": [
+        "were watching"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "I ___ (not/study) when you came.",
+      "acceptedAnswers": [
+        "wasn't studying",
+        "was not studying"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "He were playing tennis yesterday.",
+      "correctSentence": "He was playing tennis yesterday.",
+      "errorIndex": [
+        1
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "was",
+        "she",
+        "dinner",
+        "cooking"
+      ],
+      "answer": "She was cooking dinner."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ you sleeping when I called?",
+      "options": [
+        "Was",
+        "Were",
+        "Did",
+        "Are"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "While she ___ (read), the lights went out.",
+      "acceptedAnswers": [
+        "was reading"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "They was dancing at the party.",
+      "correctSentence": "They were dancing at the party.",
+      "errorIndex": [
+        1
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "while",
+        "raining",
+        "was",
+        "it",
+        "left",
+        "we"
+      ],
+      "answer": "While it was raining we left."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "At 3 PM yesterday, I ___ lunch.",
+      "options": [
+        "eat",
+        "ate",
+        "was eating",
+        "am eating"
+      ],
+      "answer": 2
+    }
+  ]
+}

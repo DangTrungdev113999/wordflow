@@ -1,0 +1,132 @@
+{
+  "title": "Countable & Uncountable Nouns",
+  "level": "A2",
+  "theory": {
+    "sections": [
+      {
+        "heading": "Danh từ đếm được",
+        "content": "Có thể đếm: a book, two cats, three apples\nDùng **a/an** với số ít, **some/many/few** với số nhiều",
+        "examples": [
+          {
+            "en": "I have **three** books.",
+            "vi": "Tôi có ba quyển sách."
+          },
+          {
+            "en": "There are **many** students.",
+            "vi": "Có nhiều học sinh."
+          }
+        ]
+      },
+      {
+        "heading": "Danh từ không đếm được",
+        "content": "Không thể đếm: water, rice, money, information\nDùng **some/much/little**, KHÔNG dùng a/an",
+        "examples": [
+          {
+            "en": "I need **some** water.",
+            "vi": "Tôi cần chút nước."
+          },
+          {
+            "en": "There is **much** traffic today.",
+            "vi": "Hôm nay có nhiều xe cộ."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "Can I have ___ water?",
+      "options": [
+        "a",
+        "an",
+        "some",
+        "many"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "There are ___ apples on the table.",
+      "options": [
+        "much",
+        "a",
+        "some",
+        "a lot"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "I don't have ___ money.",
+      "acceptedAnswers": [
+        "much",
+        "any"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "How ___ eggs do we need?",
+      "acceptedAnswers": [
+        "many"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "I need a information.",
+      "correctSentence": "I need some information.",
+      "errorIndex": [
+        2
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "much",
+        "how",
+        "rice",
+        "is",
+        "there",
+        "?"
+      ],
+      "answer": "How much rice is there?"
+    },
+    {
+      "type": "multiple_choice",
+      "question": "She has ___ friends at school.",
+      "options": [
+        "much",
+        "a",
+        "many",
+        "a lot"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "There is very ___ milk left.",
+      "acceptedAnswers": [
+        "little"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "He has much books.",
+      "correctSentence": "He has many books.",
+      "errorIndex": [
+        2
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "any",
+        "there",
+        "sugar",
+        "is",
+        "?"
+      ],
+      "answer": "Is there any sugar?"
+    }
+  ]
+}

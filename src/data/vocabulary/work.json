@@ -1,0 +1,32 @@
+{
+  "topic": "work",
+  "topicLabel": "Jobs & Work",
+  "cefrLevel": "A1",
+  "words": [
+    { "word": "job", "meaning": "công việc", "ipa": "/dʒɒb/", "example": "I love my job.", "audioUrl": null },
+    { "word": "career", "meaning": "sự nghiệp", "ipa": "/kəˈrɪər/", "example": "She has a successful career.", "audioUrl": null },
+    { "word": "engineer", "meaning": "kỹ sư", "ipa": "/ˌen.dʒɪˈnɪər/", "example": "He is a software engineer.", "audioUrl": null },
+    { "word": "nurse", "meaning": "y tá", "ipa": "/nɜːs/", "example": "The nurse checked my blood pressure.", "audioUrl": null },
+    { "word": "pilot", "meaning": "phi công", "ipa": "/ˈpaɪ.lət/", "example": "The pilot landed the plane safely.", "audioUrl": null },
+    { "word": "chef", "meaning": "đầu bếp", "ipa": "/ʃef/", "example": "The chef prepared a delicious meal.", "audioUrl": null },
+    { "word": "lawyer", "meaning": "luật sư", "ipa": "/ˈlɔɪ.ər/", "example": "You should consult a lawyer.", "audioUrl": null },
+    { "word": "accountant", "meaning": "kế toán", "ipa": "/əˈkaʊn.tənt/", "example": "The accountant manages the finances.", "audioUrl": null },
+    { "word": "architect", "meaning": "kiến trúc sư", "ipa": "/ˈɑː.kɪ.tekt/", "example": "The architect designed the building.", "audioUrl": null },
+    { "word": "journalist", "meaning": "nhà báo", "ipa": "/ˈdʒɜː.nə.lɪst/", "example": "The journalist wrote an interesting article.", "audioUrl": null },
+    { "word": "farmer", "meaning": "nông dân", "ipa": "/ˈfɑː.mər/", "example": "The farmer grows rice.", "audioUrl": null },
+    { "word": "mechanic", "meaning": "thợ sửa máy", "ipa": "/məˈkæn.ɪk/", "example": "The mechanic fixed my car.", "audioUrl": null },
+    { "word": "firefighter", "meaning": "lính cứu hỏa", "ipa": "/ˈfaɪə.faɪ.tər/", "example": "Firefighters are very brave.", "audioUrl": null },
+    { "word": "receptionist", "meaning": "lễ tân", "ipa": "/rɪˈsep.ʃən.ɪst/", "example": "Ask the receptionist for help.", "audioUrl": null },
+    { "word": "electrician", "meaning": "thợ điện", "ipa": "/ɪˌlekˈtrɪʃ.ən/", "example": "Call an electrician to fix the wiring.", "audioUrl": null },
+    { "word": "waiter", "meaning": "phục vụ bàn", "ipa": "/ˈweɪ.tər/", "example": "The waiter brought our food.", "audioUrl": null },
+    { "word": "designer", "meaning": "nhà thiết kế", "ipa": "/dɪˈzaɪ.nər/", "example": "She is a fashion designer.", "audioUrl": null },
+    { "word": "musician", "meaning": "nhạc sĩ", "ipa": "/mjuːˈzɪʃ.ən/", "example": "He is a talented musician.", "audioUrl": null },
+    { "word": "photographer", "meaning": "nhiếp ảnh gia", "ipa": "/fəˈtɒɡ.rə.fər/", "example": "The photographer took beautiful pictures.", "audioUrl": null },
+    { "word": "scientist", "meaning": "nhà khoa học", "ipa": "/ˈsaɪ.ən.tɪst/", "example": "Scientists discovered a new species.", "audioUrl": null },
+    { "word": "retire", "meaning": "nghỉ hưu", "ipa": "/rɪˈtaɪər/", "example": "He will retire next year.", "audioUrl": null },
+    { "word": "volunteer", "meaning": "tình nguyện viên", "ipa": "/ˌvɒl.ənˈtɪər/", "example": "She works as a volunteer.", "audioUrl": null },
+    { "word": "commute", "meaning": "đi lại (đi làm)", "ipa": "/kəˈmjuːt/", "example": "I commute by train every day.", "audioUrl": null },
+    { "word": "overtime", "meaning": "làm thêm giờ", "ipa": "/ˈəʊ.və.taɪm/", "example": "I worked overtime last night.", "audioUrl": null },
+    { "word": "resume", "meaning": "hồ sơ xin việc", "ipa": "/rɪˈzjuːm/", "example": "Send your resume to this email.", "audioUrl": null }
+  ]
+}

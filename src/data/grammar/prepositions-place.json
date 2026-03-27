@@ -1,0 +1,136 @@
+{
+  "title": "Prepositions of Place",
+  "level": "A1",
+  "theory": {
+    "sections": [
+      {
+        "heading": "In, On, At",
+        "content": "**In:** bên trong (in the room, in the box, in Vietnam)\n**On:** trên bề mặt (on the table, on the wall, on the floor)\n**At:** tại một điểm (at school, at the door, at home)",
+        "examples": [
+          {
+            "en": "The book is **on** the table.",
+            "vi": "Quyển sách ở trên bàn."
+          },
+          {
+            "en": "She is **in** the kitchen.",
+            "vi": "Cô ấy ở trong bếp."
+          },
+          {
+            "en": "Wait **at** the bus stop.",
+            "vi": "Đợi ở trạm xe buýt."
+          }
+        ]
+      },
+      {
+        "heading": "Khác",
+        "content": "**Between:** giữa hai thứ\n**Next to / Beside:** bên cạnh\n**Behind:** đằng sau\n**In front of:** đằng trước\n**Under:** bên dưới\n**Above / Over:** bên trên",
+        "examples": [
+          {
+            "en": "The bank is **between** the school and the hospital.",
+            "vi": "Ngân hàng ở giữa trường học và bệnh viện."
+          },
+          {
+            "en": "The cat is **under** the bed.",
+            "vi": "Con mèo ở dưới giường."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "The cat is ___ the box.",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "to"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "She lives ___ 42 Nguyen Hue Street.",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "to"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "The picture is ___ the wall.",
+      "acceptedAnswers": [
+        "on"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "He is waiting ___ the door.",
+      "acceptedAnswers": [
+        "at"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "The book is at the table.",
+      "correctSentence": "The book is on the table.",
+      "errorIndex": [
+        3
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "is",
+        "the",
+        "park",
+        "in",
+        "she"
+      ],
+      "answer": "She is in the park."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The supermarket is ___ the bank and the school.",
+      "options": [
+        "under",
+        "between",
+        "above",
+        "behind"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "The lamp is ___ the desk.",
+      "acceptedAnswers": [
+        "on",
+        "above"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "I live on Hanoi.",
+      "correctSentence": "I live in Hanoi.",
+      "errorIndex": [
+        2
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "the",
+        "behind",
+        "is",
+        "house",
+        "tree",
+        "the"
+      ],
+      "answer": "The tree is behind the house."
+    }
+  ]
+}

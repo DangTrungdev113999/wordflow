@@ -1,0 +1,117 @@
+{
+  "title": "Imperative Sentences",
+  "level": "A1",
+  "theory": {
+    "sections": [
+      {
+        "heading": "Câu mệnh lệnh",
+        "content": "Dùng V nguyên thể (không chủ ngữ)\n**Khẳng định:** V + ...\n**Phủ định:** Don't + V + ...\nDùng để: ra lệnh, yêu cầu, hướng dẫn, khuyên bảo",
+        "examples": [
+          {
+            "en": "**Open** the door, please.",
+            "vi": "Xin hãy mở cửa."
+          },
+          {
+            "en": "**Don't** touch that!",
+            "vi": "Đừng chạm vào đó!"
+          },
+          {
+            "en": "**Turn** left at the traffic light.",
+            "vi": "Rẽ trái ở đèn giao thông."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "___ the window, please.",
+      "options": [
+        "Closing",
+        "Close",
+        "Closes",
+        "Closed"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ run in the hallway!",
+      "options": [
+        "Not",
+        "No",
+        "Don't",
+        "Doesn't"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "___ quiet, please!",
+      "acceptedAnswers": [
+        "Be"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "___ forget your homework.",
+      "acceptedAnswers": [
+        "Don't"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "Not talk in the library.",
+      "correctSentence": "Don't talk in the library.",
+      "errorIndex": [
+        0
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "please",
+        "the",
+        "open",
+        "door"
+      ],
+      "answer": "Open the door please."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ me the book.",
+      "options": [
+        "Giving",
+        "Give",
+        "Gives",
+        "Gave"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Please ___ down.",
+      "acceptedAnswers": [
+        "sit"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "Don't to be late.",
+      "correctSentence": "Don't be late.",
+      "errorIndex": [
+        1
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "don't",
+        "here",
+        "sit"
+      ],
+      "answer": "Don't sit here."
+    }
+  ]
+}

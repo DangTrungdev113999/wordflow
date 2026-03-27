@@ -1,0 +1,12 @@
+[
+  { "id": "first_word", "badge": "🌱", "title": "First Steps", "description": "Learn your first word", "condition": { "type": "totalWords", "value": 1 } },
+  { "id": "words_50", "badge": "📖", "title": "Bookworm", "description": "Learn 50 words", "condition": { "type": "totalWords", "value": 50 } },
+  { "id": "words_100", "badge": "🏆", "title": "Centurion", "description": "Learn 100 words", "condition": { "type": "totalWords", "value": 100 } },
+  { "id": "words_500", "badge": "🌟", "title": "Word Wizard", "description": "Learn 500 words", "condition": { "type": "totalWords", "value": 500 } },
+  { "id": "streak_3", "badge": "🔥", "title": "3-Day Streak", "description": "Maintain a 3-day streak", "condition": { "type": "streak", "value": 3 } },
+  { "id": "streak_7", "badge": "🔥", "title": "Week Warrior", "description": "Maintain a 7-day streak", "condition": { "type": "streak", "value": 7 } },
+  { "id": "streak_30", "badge": "🔥", "title": "Monthly Master", "description": "Maintain a 30-day streak", "condition": { "type": "streak", "value": 30 } },
+  { "id": "grammar_10", "badge": "📝", "title": "Grammar Pro", "description": "Complete 10 grammar lessons", "condition": { "type": "lessonsCompleted", "value": 10 } },
+  { "id": "perfect_quiz", "badge": "💯", "title": "Perfectionist", "description": "Score 100% on any quiz", "condition": { "type": "perfectQuiz", "value": 1 } },
+  { "id": "night_owl", "badge": "🦉", "title": "Night Owl", "description": "Study after 10 PM", "condition": { "type": "nightOwl", "value": 22 } }
+]

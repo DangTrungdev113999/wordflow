@@ -1,0 +1,32 @@
+{
+  "topic": "nature",
+  "topicLabel": "Nature & Weather",
+  "cefrLevel": "A1",
+  "words": [
+    { "word": "weather", "meaning": "thời tiết", "ipa": "/ˈweð.ər/", "example": "The weather is nice today.", "audioUrl": null },
+    { "word": "rain", "meaning": "mưa", "ipa": "/reɪn/", "example": "It will rain this afternoon.", "audioUrl": null },
+    { "word": "sunshine", "meaning": "ánh nắng", "ipa": "/ˈsʌn.ʃaɪn/", "example": "I love the warm sunshine.", "audioUrl": null },
+    { "word": "cloud", "meaning": "mây", "ipa": "/klaʊd/", "example": "The sky is full of clouds.", "audioUrl": null },
+    { "word": "mountain", "meaning": "núi", "ipa": "/ˈmaʊn.tɪn/", "example": "We climbed the mountain last weekend.", "audioUrl": null },
+    { "word": "river", "meaning": "sông", "ipa": "/ˈrɪv.ər/", "example": "The river flows through the city.", "audioUrl": null },
+    { "word": "forest", "meaning": "rừng", "ipa": "/ˈfɒr.ɪst/", "example": "The forest is home to many animals.", "audioUrl": null },
+    { "word": "ocean", "meaning": "đại dương", "ipa": "/ˈəʊ.ʃən/", "example": "The Pacific Ocean is the largest.", "audioUrl": null },
+    { "word": "flower", "meaning": "hoa", "ipa": "/ˈflaʊ.ər/", "example": "She gave me a beautiful flower.", "audioUrl": null },
+    { "word": "tree", "meaning": "cây", "ipa": "/triː/", "example": "There's a big tree in our garden.", "audioUrl": null },
+    { "word": "wind", "meaning": "gió", "ipa": "/wɪnd/", "example": "The wind is very strong today.", "audioUrl": null },
+    { "word": "snow", "meaning": "tuyết", "ipa": "/snəʊ/", "example": "It rarely snows in Vietnam.", "audioUrl": null },
+    { "word": "storm", "meaning": "bão", "ipa": "/stɔːm/", "example": "A big storm is coming tonight.", "audioUrl": null },
+    { "word": "island", "meaning": "hòn đảo", "ipa": "/ˈaɪ.lənd/", "example": "Phu Quoc is a beautiful island.", "audioUrl": null },
+    { "word": "desert", "meaning": "sa mạc", "ipa": "/ˈdez.ət/", "example": "The Sahara is the largest desert.", "audioUrl": null },
+    { "word": "lake", "meaning": "hồ", "ipa": "/leɪk/", "example": "We went fishing at the lake.", "audioUrl": null },
+    { "word": "sunset", "meaning": "hoàng hôn", "ipa": "/ˈsʌn.set/", "example": "The sunset was beautiful.", "audioUrl": null },
+    { "word": "earthquake", "meaning": "động đất", "ipa": "/ˈɜːθ.kweɪk/", "example": "The earthquake lasted 30 seconds.", "audioUrl": null },
+    { "word": "temperature", "meaning": "nhiệt độ", "ipa": "/ˈtem.prə.tʃər/", "example": "The temperature dropped to 10°C.", "audioUrl": null },
+    { "word": "season", "meaning": "mùa", "ipa": "/ˈsiː.zən/", "example": "Autumn is my favorite season.", "audioUrl": null },
+    { "word": "pollution", "meaning": "ô nhiễm", "ipa": "/pəˈluː.ʃən/", "example": "Air pollution is a big problem.", "audioUrl": null },
+    { "word": "environment", "meaning": "môi trường", "ipa": "/ɪnˈvaɪ.rən.mənt/", "example": "We must protect the environment.", "audioUrl": null },
+    { "word": "rainbow", "meaning": "cầu vồng", "ipa": "/ˈreɪn.bəʊ/", "example": "Look! There's a rainbow!", "audioUrl": null },
+    { "word": "waterfall", "meaning": "thác nước", "ipa": "/ˈwɔː.tə.fɔːl/", "example": "The waterfall is 100 meters tall.", "audioUrl": null },
+    { "word": "climate", "meaning": "khí hậu", "ipa": "/ˈklaɪ.mət/", "example": "Vietnam has a tropical climate.", "audioUrl": null }
+  ]
+}

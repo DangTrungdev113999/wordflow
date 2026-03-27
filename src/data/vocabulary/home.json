@@ -1,0 +1,32 @@
+{
+  "topic": "home",
+  "topicLabel": "Home & Furniture",
+  "cefrLevel": "A1",
+  "words": [
+    { "word": "kitchen", "meaning": "nhà bếp", "ipa": "/ˈkɪtʃ.ən/", "example": "I cook in the kitchen.", "audioUrl": null },
+    { "word": "bedroom", "meaning": "phòng ngủ", "ipa": "/ˈbed.ruːm/", "example": "My bedroom is upstairs.", "audioUrl": null },
+    { "word": "bathroom", "meaning": "phòng tắm", "ipa": "/ˈbɑːθ.ruːm/", "example": "The bathroom is clean.", "audioUrl": null },
+    { "word": "living room", "meaning": "phòng khách", "ipa": "/ˈlɪv.ɪŋ ruːm/", "example": "We watch TV in the living room.", "audioUrl": null },
+    { "word": "furniture", "meaning": "nội thất", "ipa": "/ˈfɜː.nɪ.tʃər/", "example": "We bought new furniture.", "audioUrl": null },
+    { "word": "sofa", "meaning": "ghế sofa", "ipa": "/ˈsəʊ.fə/", "example": "Sit on the sofa.", "audioUrl": null },
+    { "word": "wardrobe", "meaning": "tủ quần áo", "ipa": "/ˈwɔː.drəʊb/", "example": "My clothes are in the wardrobe.", "audioUrl": null },
+    { "word": "curtain", "meaning": "rèm cửa", "ipa": "/ˈkɜː.tən/", "example": "Close the curtains, please.", "audioUrl": null },
+    { "word": "mirror", "meaning": "gương", "ipa": "/ˈmɪr.ər/", "example": "She looked in the mirror.", "audioUrl": null },
+    { "word": "pillow", "meaning": "gối", "ipa": "/ˈpɪl.əʊ/", "example": "I need a soft pillow.", "audioUrl": null },
+    { "word": "blanket", "meaning": "chăn", "ipa": "/ˈblæŋ.kɪt/", "example": "It's cold. Get a blanket.", "audioUrl": null },
+    { "word": "lamp", "meaning": "đèn", "ipa": "/læmp/", "example": "Turn on the lamp.", "audioUrl": null },
+    { "word": "shelf", "meaning": "kệ", "ipa": "/ʃelf/", "example": "Put the books on the shelf.", "audioUrl": null },
+    { "word": "carpet", "meaning": "thảm", "ipa": "/ˈkɑː.pɪt/", "example": "The carpet is soft and warm.", "audioUrl": null },
+    { "word": "ceiling", "meaning": "trần nhà", "ipa": "/ˈsiː.lɪŋ/", "example": "The ceiling is very high.", "audioUrl": null },
+    { "word": "balcony", "meaning": "ban công", "ipa": "/ˈbæl.kə.ni/", "example": "I drink coffee on the balcony.", "audioUrl": null },
+    { "word": "garage", "meaning": "nhà để xe", "ipa": "/ˈɡær.ɑːʒ/", "example": "Park the car in the garage.", "audioUrl": null },
+    { "word": "stairs", "meaning": "cầu thang", "ipa": "/steəz/", "example": "Go up the stairs to the second floor.", "audioUrl": null },
+    { "word": "roof", "meaning": "mái nhà", "ipa": "/ruːf/", "example": "The roof needs repair.", "audioUrl": null },
+    { "word": "fence", "meaning": "hàng rào", "ipa": "/fens/", "example": "There is a wooden fence around the garden.", "audioUrl": null },
+    { "word": "drawer", "meaning": "ngăn kéo", "ipa": "/drɔːr/", "example": "The keys are in the drawer.", "audioUrl": null },
+    { "word": "vacuum", "meaning": "máy hút bụi", "ipa": "/ˈvæk.juːm/", "example": "I vacuum the floor every week.", "audioUrl": null },
+    { "word": "sink", "meaning": "bồn rửa", "ipa": "/sɪŋk/", "example": "Wash the dishes in the sink.", "audioUrl": null },
+    { "word": "oven", "meaning": "lò nướng", "ipa": "/ˈʌv.ən/", "example": "Preheat the oven to 180°C.", "audioUrl": null },
+    { "word": "fridge", "meaning": "tủ lạnh", "ipa": "/frɪdʒ/", "example": "Put the milk in the fridge.", "audioUrl": null }
+  ]
+}

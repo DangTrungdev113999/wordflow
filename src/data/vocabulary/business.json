@@ -1,0 +1,32 @@
+{
+  "topic": "business",
+  "topicLabel": "Business",
+  "cefrLevel": "A2",
+  "words": [
+    { "word": "meeting", "meaning": "cuộc họp", "ipa": "/ˈmiː.tɪŋ/", "example": "We have a meeting at 10 AM.", "audioUrl": null },
+    { "word": "office", "meaning": "văn phòng", "ipa": "/ˈɒf.ɪs/", "example": "I work in an office downtown.", "audioUrl": null },
+    { "word": "salary", "meaning": "lương", "ipa": "/ˈsæl.ər.i/", "example": "She earns a good salary.", "audioUrl": null },
+    { "word": "company", "meaning": "công ty", "ipa": "/ˈkʌm.pə.ni/", "example": "He started his own company.", "audioUrl": null },
+    { "word": "contract", "meaning": "hợp đồng", "ipa": "/ˈkɒn.trækt/", "example": "Please sign the contract.", "audioUrl": null },
+    { "word": "manager", "meaning": "quản lý", "ipa": "/ˈmæn.ɪ.dʒər/", "example": "The manager approved my leave.", "audioUrl": null },
+    { "word": "client", "meaning": "khách hàng", "ipa": "/ˈklaɪ.ənt/", "example": "We have a new client from Japan.", "audioUrl": null },
+    { "word": "deadline", "meaning": "hạn chót", "ipa": "/ˈded.laɪn/", "example": "The deadline is next Friday.", "audioUrl": null },
+    { "word": "project", "meaning": "dự án", "ipa": "/ˈprɒdʒ.ekt/", "example": "This project will take three months.", "audioUrl": null },
+    { "word": "budget", "meaning": "ngân sách", "ipa": "/ˈbʌdʒ.ɪt/", "example": "We need to stay within the budget.", "audioUrl": null },
+    { "word": "invoice", "meaning": "hóa đơn", "ipa": "/ˈɪn.vɔɪs/", "example": "Please send the invoice by email.", "audioUrl": null },
+    { "word": "profit", "meaning": "lợi nhuận", "ipa": "/ˈprɒf.ɪt/", "example": "The company made a big profit.", "audioUrl": null },
+    { "word": "employee", "meaning": "nhân viên", "ipa": "/ɪmˈplɔɪ.iː/", "example": "There are 50 employees in this office.", "audioUrl": null },
+    { "word": "interview", "meaning": "phỏng vấn", "ipa": "/ˈɪn.tə.vjuː/", "example": "I have a job interview tomorrow.", "audioUrl": null },
+    { "word": "promotion", "meaning": "thăng chức", "ipa": "/prəˈməʊ.ʃən/", "example": "She got a promotion last month.", "audioUrl": null },
+    { "word": "colleague", "meaning": "đồng nghiệp", "ipa": "/ˈkɒl.iːɡ/", "example": "My colleague helped me with the report.", "audioUrl": null },
+    { "word": "negotiate", "meaning": "đàm phán", "ipa": "/nɪˈɡəʊ.ʃi.eɪt/", "example": "We need to negotiate the price.", "audioUrl": null },
+    { "word": "schedule", "meaning": "lịch trình", "ipa": "/ˈʃed.juːl/", "example": "Check your schedule for next week.", "audioUrl": null },
+    { "word": "strategy", "meaning": "chiến lược", "ipa": "/ˈstræt.ə.dʒi/", "example": "We need a new marketing strategy.", "audioUrl": null },
+    { "word": "revenue", "meaning": "doanh thu", "ipa": "/ˈrev.ən.juː/", "example": "Revenue increased by 20% this year.", "audioUrl": null },
+    { "word": "resign", "meaning": "từ chức", "ipa": "/rɪˈzaɪn/", "example": "He decided to resign from his position.", "audioUrl": null },
+    { "word": "department", "meaning": "phòng ban", "ipa": "/dɪˈpɑːt.mənt/", "example": "She works in the marketing department.", "audioUrl": null },
+    { "word": "conference", "meaning": "hội nghị", "ipa": "/ˈkɒn.fər.əns/", "example": "The conference is held annually.", "audioUrl": null },
+    { "word": "proposal", "meaning": "đề xuất", "ipa": "/prəˈpəʊ.zəl/", "example": "They submitted a business proposal.", "audioUrl": null },
+    { "word": "investment", "meaning": "đầu tư", "ipa": "/ɪnˈvest.mənt/", "example": "Real estate is a good investment.", "audioUrl": null }
+  ]
+}

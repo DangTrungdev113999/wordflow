@@ -1,0 +1,123 @@
+{
+  "title": "There is / There are",
+  "level": "A1",
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc",
+        "content": "**There is** + danh từ số ít / không đếm được\n**There are** + danh từ số nhiều\n**Phủ định:** There isn't / There aren't\n**Nghi vấn:** Is there / Are there?",
+        "examples": [
+          {
+            "en": "**There is** a cat on the sofa.",
+            "vi": "Có một con mèo trên ghế sofa."
+          },
+          {
+            "en": "**There are** many books on the shelf.",
+            "vi": "Có nhiều sách trên kệ."
+          },
+          {
+            "en": "**Is there** a bank near here?",
+            "vi": "Có ngân hàng nào gần đây không?"
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "___ a park near my house.",
+      "options": [
+        "There is",
+        "There are",
+        "It is",
+        "They are"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ any milk in the fridge?",
+      "options": [
+        "Is there",
+        "Are there",
+        "There is",
+        "There are"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "fill_blank",
+      "question": "___ three students in the room.",
+      "acceptedAnswers": [
+        "There are"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "___ a supermarket on this street?",
+      "acceptedAnswers": [
+        "Is there"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "There are a book on the table.",
+      "correctSentence": "There is a book on the table.",
+      "errorIndex": [
+        1
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "are",
+        "many",
+        "there",
+        "people",
+        "here"
+      ],
+      "answer": "There are many people here."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ any restaurants nearby?",
+      "options": [
+        "Is there",
+        "Are there",
+        "There is",
+        "There are"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "There ___ (not/be) any water.",
+      "acceptedAnswers": [
+        "isn't",
+        "is not",
+        "is no"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "There is many cars outside.",
+      "correctSentence": "There are many cars outside.",
+      "errorIndex": [
+        1
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "there",
+        "hospital",
+        "a",
+        "is",
+        "here",
+        "near"
+      ],
+      "answer": "Is there a hospital near here."
+    }
+  ]
+}

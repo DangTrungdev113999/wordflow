@@ -1,0 +1,129 @@
+{
+  "title": "Future Simple (will)",
+  "level": "A2",
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc",
+        "content": "**Khẳng định:** S + will + V\n**Phủ định:** S + will not (won't) + V\n**Nghi vấn:** Will + S + V?",
+        "examples": [
+          {
+            "en": "I **will help** you.",
+            "vi": "Tôi sẽ giúp bạn."
+          },
+          {
+            "en": "She **won't come** tomorrow.",
+            "vi": "Cô ấy sẽ không đến ngày mai."
+          }
+        ]
+      },
+      {
+        "heading": "Cách dùng",
+        "content": "1. Quyết định tức thì\n2. Dự đoán\n3. Lời hứa, đề nghị",
+        "examples": [
+          {
+            "en": "It **will rain** later.",
+            "vi": "Lát nữa trời sẽ mưa."
+          },
+          {
+            "en": "I **will call** you tonight.",
+            "vi": "Tôi sẽ gọi cho bạn tối nay."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "I ___ you tomorrow.",
+      "options": [
+        "see",
+        "will see",
+        "seeing",
+        "saw"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "She ___ come to the party.",
+      "options": [
+        "willn't",
+        "won't",
+        "don't will",
+        "not will"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "They ___ (arrive) at 6 PM.",
+      "acceptedAnswers": [
+        "will arrive"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "I ___ (not/forget) your birthday.",
+      "acceptedAnswers": [
+        "won't forget",
+        "will not forget"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "She will goes to school.",
+      "correctSentence": "She will go to school.",
+      "errorIndex": [
+        2
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "will",
+        "I",
+        "you",
+        "help"
+      ],
+      "answer": "I will help you."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ you be at the meeting?",
+      "options": [
+        "Do",
+        "Are",
+        "Will",
+        "Did"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "It ___ (be) sunny tomorrow.",
+      "acceptedAnswers": [
+        "will be"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "They won't to come.",
+      "correctSentence": "They won't come.",
+      "errorIndex": [
+        2
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "rain",
+        "it",
+        "tomorrow",
+        "will"
+      ],
+      "answer": "It will rain tomorrow."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "topic": "technology",
+  "topicLabel": "Technology",
+  "cefrLevel": "A2",
+  "words": [
+    { "word": "computer", "meaning": "máy tính", "ipa": "/kəmˈpjuː.tər/", "example": "I use a computer for work.", "audioUrl": null },
+    { "word": "software", "meaning": "phần mềm", "ipa": "/ˈsɒft.weər/", "example": "We need to update the software.", "audioUrl": null },
+    { "word": "internet", "meaning": "mạng internet", "ipa": "/ˈɪn.tə.net/", "example": "The internet connection is slow today.", "audioUrl": null },
+    { "word": "password", "meaning": "mật khẩu", "ipa": "/ˈpɑːs.wɜːd/", "example": "Don't share your password.", "audioUrl": null },
+    { "word": "download", "meaning": "tải xuống", "ipa": "/ˈdaʊn.ləʊd/", "example": "Please download the file.", "audioUrl": null },
+    { "word": "website", "meaning": "trang web", "ipa": "/ˈweb.saɪt/", "example": "Visit our website for more info.", "audioUrl": null },
+    { "word": "database", "meaning": "cơ sở dữ liệu", "ipa": "/ˈdeɪ.tə.beɪs/", "example": "The database stores customer information.", "audioUrl": null },
+    { "word": "application", "meaning": "ứng dụng", "ipa": "/ˌæp.lɪˈkeɪ.ʃən/", "example": "Download the mobile application.", "audioUrl": null },
+    { "word": "network", "meaning": "mạng lưới", "ipa": "/ˈnet.wɜːk/", "example": "The network is down.", "audioUrl": null },
+    { "word": "server", "meaning": "máy chủ", "ipa": "/ˈsɜː.vər/", "example": "The server crashed last night.", "audioUrl": null },
+    { "word": "hardware", "meaning": "phần cứng", "ipa": "/ˈhɑːd.weər/", "example": "We need new hardware for the office.", "audioUrl": null },
+    { "word": "screen", "meaning": "màn hình", "ipa": "/skriːn/", "example": "The screen is too bright.", "audioUrl": null },
+    { "word": "keyboard", "meaning": "bàn phím", "ipa": "/ˈkiː.bɔːd/", "example": "I prefer a wireless keyboard.", "audioUrl": null },
+    { "word": "browser", "meaning": "trình duyệt", "ipa": "/ˈbraʊ.zər/", "example": "Open the link in your browser.", "audioUrl": null },
+    { "word": "upload", "meaning": "tải lên", "ipa": "/ˈʌp.ləʊd/", "example": "Upload your photo to the profile.", "audioUrl": null },
+    { "word": "device", "meaning": "thiết bị", "ipa": "/dɪˈvaɪs/", "example": "Connect your device to WiFi.", "audioUrl": null },
+    { "word": "update", "meaning": "cập nhật", "ipa": "/ʌpˈdeɪt/", "example": "There is a new system update.", "audioUrl": null },
+    { "word": "storage", "meaning": "bộ nhớ", "ipa": "/ˈstɔː.rɪdʒ/", "example": "My phone is running out of storage.", "audioUrl": null },
+    { "word": "digital", "meaning": "kỹ thuật số", "ipa": "/ˈdɪdʒ.ɪ.təl/", "example": "We live in a digital world.", "audioUrl": null },
+    { "word": "algorithm", "meaning": "thuật toán", "ipa": "/ˈæl.ɡə.rɪ.ðəm/", "example": "The algorithm recommends videos for you.", "audioUrl": null },
+    { "word": "backup", "meaning": "sao lưu", "ipa": "/ˈbæk.ʌp/", "example": "Always backup your important files.", "audioUrl": null },
+    { "word": "wireless", "meaning": "không dây", "ipa": "/ˈwaɪə.ləs/", "example": "I use wireless earphones.", "audioUrl": null },
+    { "word": "encrypt", "meaning": "mã hóa", "ipa": "/ɪnˈkrɪpt/", "example": "The data is encrypted for security.", "audioUrl": null },
+    { "word": "artificial", "meaning": "nhân tạo", "ipa": "/ˌɑː.tɪˈfɪʃ.əl/", "example": "Artificial intelligence is changing the world.", "audioUrl": null },
+    { "word": "debug", "meaning": "gỡ lỗi", "ipa": "/diːˈbʌɡ/", "example": "I need to debug this code.", "audioUrl": null }
+  ]
+}

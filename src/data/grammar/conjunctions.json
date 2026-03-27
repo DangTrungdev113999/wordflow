@@ -1,0 +1,122 @@
+{
+  "title": "Conjunctions: And, But, Or, So, Because",
+  "level": "A1",
+  "theory": {
+    "sections": [
+      {
+        "heading": "Liên từ cơ bản",
+        "content": "**And:** và (thêm thông tin)\n**But:** nhưng (tương phản)\n**Or:** hoặc (lựa chọn)\n**So:** nên (kết quả)\n**Because:** bởi vì (nguyên nhân)",
+        "examples": [
+          {
+            "en": "I like tea **and** coffee.",
+            "vi": "Tôi thích trà và cà phê."
+          },
+          {
+            "en": "She is tired **but** happy.",
+            "vi": "Cô ấy mệt nhưng vui."
+          },
+          {
+            "en": "I stayed home **because** it was raining.",
+            "vi": "Tôi ở nhà vì trời mưa."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "I was hungry ___ I ate a sandwich.",
+      "options": [
+        "but",
+        "and",
+        "so",
+        "because"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "She studied hard ___ she passed the exam.",
+      "options": [
+        "but",
+        "or",
+        "so",
+        "because"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "Do you want tea ___ coffee?",
+      "acceptedAnswers": [
+        "or"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "He is smart ___ lazy.",
+      "acceptedAnswers": [
+        "but"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "I like cats so dogs.",
+      "correctSentence": "I like cats and dogs.",
+      "errorIndex": [
+        3
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "because",
+        "stayed",
+        "I",
+        "raining",
+        "home",
+        "was",
+        "it"
+      ],
+      "answer": "I stayed home because it was raining."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "He didn't come ___ he was sick.",
+      "options": [
+        "so",
+        "but",
+        "or",
+        "because"
+      ],
+      "answer": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "She sings ___ dances well.",
+      "acceptedAnswers": [
+        "and"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "I want pizza because pasta.",
+      "correctSentence": "I want pizza or pasta.",
+      "errorIndex": [
+        3
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "but",
+        "is",
+        "she",
+        "young",
+        "smart"
+      ],
+      "answer": "She is young but smart."
+    }
+  ]
+}

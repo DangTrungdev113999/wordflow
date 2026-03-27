@@ -1,0 +1,119 @@
+{
+  "title": "Wh- Questions Structure",
+  "level": "A1",
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc câu hỏi Wh-",
+        "content": "**Wh + auxiliary + S + V?**\nWhat do you want?\nWhere does she live?\nWhy did they leave?\n\n**Wh làm chủ ngữ:** Who + V?\nWho made this? (Ai làm cái này?)",
+        "examples": [
+          {
+            "en": "**What does** she want?",
+            "vi": "Cô ấy muốn gì?"
+          },
+          {
+            "en": "**Who** called you?",
+            "vi": "Ai gọi cho bạn?"
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "What ___ she do for work?",
+      "options": [
+        "do",
+        "does",
+        "is",
+        "was"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Where ___ you born?",
+      "acceptedAnswers": [
+        "were"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "Who ___ the window?",
+      "acceptedAnswers": [
+        "broke",
+        "opened",
+        "closed"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "What does she wants?",
+      "correctSentence": "What does she want?",
+      "errorIndex": [
+        3
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "does",
+        "what",
+        "do",
+        "he",
+        "?"
+      ],
+      "answer": "What does he do?"
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Where ___ you yesterday?",
+      "options": [
+        "are",
+        "was",
+        "were",
+        "did"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "How ___ does it cost?",
+      "acceptedAnswers": [
+        "much"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "Where she does work?",
+      "correctSentence": "Where does she work?",
+      "errorIndex": [
+        1,
+        2
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "did",
+        "when",
+        "arrive",
+        "you",
+        "?"
+      ],
+      "answer": "When did you arrive?"
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Who ___ this cake?",
+      "options": [
+        "make",
+        "made",
+        "did made",
+        "making"
+      ],
+      "answer": 1
+    }
+  ]
+}

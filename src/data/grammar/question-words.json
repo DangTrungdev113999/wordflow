@@ -1,0 +1,121 @@
+{
+  "title": "Question Words (Wh-)",
+  "level": "A1",
+  "theory": {
+    "sections": [
+      {
+        "heading": "Từ hỏi",
+        "content": "**What:** cái gì\n**Where:** ở đâu\n**When:** khi nào\n**Who:** ai\n**Why:** tại sao\n**How:** như thế nào\n**Which:** cái nào\n**Whose:** của ai",
+        "examples": [
+          {
+            "en": "**What** is your name?",
+            "vi": "Bạn tên gì?"
+          },
+          {
+            "en": "**Where** do you live?",
+            "vi": "Bạn sống ở đâu?"
+          },
+          {
+            "en": "**Why** are you late?",
+            "vi": "Tại sao bạn đến muộn?"
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "___ is your teacher?",
+      "options": [
+        "What",
+        "Where",
+        "Who",
+        "When"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ do you go to school?",
+      "options": [
+        "What",
+        "How",
+        "Who",
+        "Where"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "___ is the party?",
+      "acceptedAnswers": [
+        "When",
+        "Where"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "___ bag is this?",
+      "acceptedAnswers": [
+        "Whose"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "Where you live?",
+      "correctSentence": "Where do you live?",
+      "errorIndex": [
+        1
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "is",
+        "what",
+        "name",
+        "your",
+        "?"
+      ],
+      "answer": "What is your name?"
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ are you crying?",
+      "options": [
+        "What",
+        "Who",
+        "Why",
+        "Where"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "___ old are you?",
+      "acceptedAnswers": [
+        "How"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "Who is your favorite color?",
+      "correctSentence": "What is your favorite color?",
+      "errorIndex": [
+        0
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "you",
+        "where",
+        "from",
+        "are",
+        "?"
+      ],
+      "answer": "Where are you from?"
+    }
+  ]
+}

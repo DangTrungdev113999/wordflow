@@ -1,0 +1,13 @@
+{
+  "name": "WordFlow - English Learning",
+  "short_name": "WordFlow",
+  "description": "Learn English with flashcards, grammar quizzes, and spaced repetition",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f9fafb",
+  "theme_color": "#6366f1",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

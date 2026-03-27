@@ -1,17 +1,18 @@
 import { NavLink } from 'react-router';
-import { LayoutDashboard, BookOpen, PenTool, BarChart2 } from 'lucide-react';
+import { LayoutDashboard, BookOpen, PenTool, Trophy, BarChart2 } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
 const navItems = [
   { to: '/', label: 'Home', icon: LayoutDashboard },
   { to: '/vocabulary', label: 'Vocab', icon: BookOpen },
   { to: '/grammar', label: 'Grammar', icon: PenTool },
+  { to: '/achievements', label: 'Badges', icon: Trophy },
   { to: '/stats', label: 'Stats', icon: BarChart2 },
 ];
 
 export function BottomNav() {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-30 bg-white/90 dark:bg-gray-950/90 backdrop-blur-sm border-t border-gray-100 dark:border-gray-800 safe-area-inset-bottom">
+    <nav className="fixed bottom-0 left-0 right-0 z-30 bg-white/90 dark:bg-gray-950/90 backdrop-blur-sm border-t border-gray-100 dark:border-gray-800 safe-area-inset-bottom lg:hidden">
       <div className="max-w-2xl mx-auto flex">
         {navItems.map(({ to, label, icon: Icon }) => (
           <NavLink

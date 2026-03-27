@@ -12,12 +12,15 @@ interface ProgressState {
   todayWordsLearned: number;
   todayWordsReviewed: number;
   todayXP: number;
+  badges: string[];
+  totalWordsLearned: number;
   addXP: (amount: number) => void;
   setStreak: (streak: number) => void;
   setLastActiveDate: (date: string) => void;
   incrementWordsLearned: () => void;
   incrementWordsReviewed: () => void;
   resetDailyCounters: () => void;
+  addBadge: (badgeId: string) => void;
 }
 
 export const useProgressStore = create<ProgressState>()(
@@ -32,6 +35,8 @@ export const useProgressStore = create<ProgressState>()(
       todayWordsLearned: 0,
       todayWordsReviewed: 0,
       todayXP: 0,
+      badges: [],
+      totalWordsLearned: 0,
       addXP: (amount) => {
         const newXP = get().xp + amount;
         const { level, title } = getLevelFromXP(newXP);
@@ -43,9 +48,17 @@ export const useProgressStore = create<ProgressState>()(
           longestStreak: Math.max(s.longestStreak, streak),
         })),
       setLastActiveDate: (date) => set({ lastActiveDate: date }),
-      incrementWordsLearned: () => set((s) => ({ todayWordsLearned: s.todayWordsLearned + 1 })),
+      incrementWordsLearned: () =>
+        set((s) => ({
+          todayWordsLearned: s.todayWordsLearned + 1,
+          totalWordsLearned: s.totalWordsLearned + 1,
+        })),
       incrementWordsReviewed: () => set((s) => ({ todayWordsReviewed: s.todayWordsReviewed + 1 })),
       resetDailyCounters: () => set({ todayWordsLearned: 0, todayWordsReviewed: 0, todayXP: 0 }),
+      addBadge: (badgeId) =>
+        set((s) => ({
+          badges: s.badges.includes(badgeId) ? s.badges : [...s.badges, badgeId],
+        })),
     }),
     { name: 'wordflow-progress' }
   )

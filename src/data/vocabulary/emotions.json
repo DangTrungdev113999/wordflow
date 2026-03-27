@@ -1,0 +1,32 @@
+{
+  "topic": "emotions",
+  "topicLabel": "Emotions & Feelings",
+  "cefrLevel": "A1",
+  "words": [
+    { "word": "happy", "meaning": "vui vẻ", "ipa": "/ˈhæp.i/", "example": "I feel happy today.", "audioUrl": null },
+    { "word": "sad", "meaning": "buồn", "ipa": "/sæd/", "example": "She looks sad. What happened?", "audioUrl": null },
+    { "word": "angry", "meaning": "tức giận", "ipa": "/ˈæŋ.ɡri/", "example": "Don't be angry with me.", "audioUrl": null },
+    { "word": "excited", "meaning": "hào hứng", "ipa": "/ɪkˈsaɪ.tɪd/", "example": "I'm so excited about the trip!", "audioUrl": null },
+    { "word": "nervous", "meaning": "lo lắng", "ipa": "/ˈnɜː.vəs/", "example": "I feel nervous before exams.", "audioUrl": null },
+    { "word": "surprised", "meaning": "ngạc nhiên", "ipa": "/sərˈpraɪzd/", "example": "I was surprised by the gift.", "audioUrl": null },
+    { "word": "tired", "meaning": "mệt mỏi", "ipa": "/taɪəd/", "example": "I'm very tired after work.", "audioUrl": null },
+    { "word": "scared", "meaning": "sợ hãi", "ipa": "/skeəd/", "example": "She is scared of spiders.", "audioUrl": null },
+    { "word": "lonely", "meaning": "cô đơn", "ipa": "/ˈləʊn.li/", "example": "He feels lonely without friends.", "audioUrl": null },
+    { "word": "grateful", "meaning": "biết ơn", "ipa": "/ˈɡreɪt.fəl/", "example": "I'm grateful for your help.", "audioUrl": null },
+    { "word": "proud", "meaning": "tự hào", "ipa": "/praʊd/", "example": "Her parents are very proud of her.", "audioUrl": null },
+    { "word": "jealous", "meaning": "ghen tị", "ipa": "/ˈdʒel.əs/", "example": "Don't be jealous of others.", "audioUrl": null },
+    { "word": "disappointed", "meaning": "thất vọng", "ipa": "/ˌdɪs.əˈpɔɪn.tɪd/", "example": "I was disappointed with the result.", "audioUrl": null },
+    { "word": "confident", "meaning": "tự tin", "ipa": "/ˈkɒn.fɪ.dənt/", "example": "She is a confident speaker.", "audioUrl": null },
+    { "word": "embarrassed", "meaning": "xấu hổ", "ipa": "/ɪmˈbær.əst/", "example": "I felt embarrassed in front of everyone.", "audioUrl": null },
+    { "word": "bored", "meaning": "chán", "ipa": "/bɔːd/", "example": "I'm bored. Let's do something fun.", "audioUrl": null },
+    { "word": "curious", "meaning": "tò mò", "ipa": "/ˈkjʊə.ri.əs/", "example": "Children are naturally curious.", "audioUrl": null },
+    { "word": "frustrated", "meaning": "bực bội", "ipa": "/frʌsˈtreɪ.tɪd/", "example": "He got frustrated with the slow internet.", "audioUrl": null },
+    { "word": "relieved", "meaning": "nhẹ nhõm", "ipa": "/rɪˈliːvd/", "example": "I felt relieved after the exam.", "audioUrl": null },
+    { "word": "anxious", "meaning": "lo âu", "ipa": "/ˈæŋk.ʃəs/", "example": "She feels anxious about the interview.", "audioUrl": null },
+    { "word": "calm", "meaning": "bình tĩnh", "ipa": "/kɑːm/", "example": "Stay calm and take a deep breath.", "audioUrl": null },
+    { "word": "confused", "meaning": "bối rối", "ipa": "/kənˈfjuːzd/", "example": "I'm confused by these instructions.", "audioUrl": null },
+    { "word": "hopeful", "meaning": "hy vọng", "ipa": "/ˈhəʊp.fəl/", "example": "I'm hopeful about the future.", "audioUrl": null },
+    { "word": "cheerful", "meaning": "vui tươi", "ipa": "/ˈtʃɪə.fəl/", "example": "She has a cheerful personality.", "audioUrl": null },
+    { "word": "miserable", "meaning": "khổ sở", "ipa": "/ˈmɪz.ər.ə.bəl/", "example": "The rainy weather makes me miserable.", "audioUrl": null }
+  ]
+}

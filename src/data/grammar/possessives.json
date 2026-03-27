@@ -1,0 +1,128 @@
+{
+  "title": "Possessives",
+  "level": "A1",
+  "theory": {
+    "sections": [
+      {
+        "heading": "Tính từ sở hữu",
+        "content": "**my, your, his, her, its, our, their**\nĐặt trước danh từ",
+        "examples": [
+          {
+            "en": "This is **my** book.",
+            "vi": "Đây là sách của tôi."
+          },
+          {
+            "en": "**Their** house is big.",
+            "vi": "Nhà của họ rất lớn."
+          }
+        ]
+      },
+      {
+        "heading": "Sở hữu cách ('s)",
+        "content": "Thêm **'s** sau danh từ để chỉ sở hữu\nDanh từ số nhiều tận cùng -s: chỉ thêm **'**",
+        "examples": [
+          {
+            "en": "**John's** car is new.",
+            "vi": "Xe của John mới."
+          },
+          {
+            "en": "The **students'** books are on the desk.",
+            "vi": "Sách của các học sinh ở trên bàn."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "This is ___ bag.",
+      "options": [
+        "me",
+        "my",
+        "I",
+        "mine"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ name is Sarah.",
+      "options": [
+        "She",
+        "Her",
+        "Hers",
+        "She's"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "The dog lost ___ bone.",
+      "acceptedAnswers": [
+        "its"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "That is ___ (Tom) house.",
+      "acceptedAnswers": [
+        "Tom's"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "This is mine book.",
+      "correctSentence": "This is my book.",
+      "errorIndex": [
+        2
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "is",
+        "car",
+        "his",
+        "new"
+      ],
+      "answer": "His car is new."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The children played with ___ toys.",
+      "options": [
+        "they",
+        "their",
+        "them",
+        "theirs"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Is this ___ (you) phone?",
+      "acceptedAnswers": [
+        "your"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "Her go to school every day.",
+      "correctSentence": "She goes to school every day.",
+      "errorIndex": [
+        0
+      ]
+    },
+    {
+      "type": "sentence_order",
+      "words": [
+        "our",
+        "is",
+        "beautiful",
+        "garden"
+      ],
+      "answer": "Our garden is beautiful."
+    }
+  ]
+}

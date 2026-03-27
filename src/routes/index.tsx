@@ -10,6 +10,9 @@ const WordDetailPage = lazy(() => import('../features/vocabulary/pages/WordDetai
 const GrammarPage = lazy(() => import('../features/grammar/pages/GrammarPage').then(m => ({ default: m.GrammarPage })));
 const LessonPage = lazy(() => import('../features/grammar/pages/LessonPage').then(m => ({ default: m.LessonPage })));
 const QuizPage = lazy(() => import('../features/grammar/pages/QuizPage').then(m => ({ default: m.QuizPage })));
+const AchievementsPage = lazy(() => import('../features/achievements/pages/AchievementsPage').then(m => ({ default: m.AchievementsPage })));
+const StatsPage = lazy(() => import('../features/dashboard/pages/StatsPage').then(m => ({ default: m.StatsPage })));
+const SettingsPage = lazy(() => import('../features/settings/pages/SettingsPage').then(m => ({ default: m.SettingsPage })));
 
 function PageLoader() {
   return (
@@ -40,17 +43,9 @@ export const router = createBrowserRouter([
       { path: 'grammar', element: withSuspense(GrammarPage) },
       { path: 'grammar/:lessonId', element: withSuspense(LessonPage) },
       { path: 'grammar/:lessonId/quiz', element: withSuspense(QuizPage) },
-      {
-        path: 'stats',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <div className="px-4 py-6 text-center text-gray-500 dark:text-gray-400">
-              <h1 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Statistics</h1>
-              <p>Coming in Phase 3</p>
-            </div>
-          </Suspense>
-        ),
-      },
+      { path: 'achievements', element: withSuspense(AchievementsPage) },
+      { path: 'stats', element: withSuspense(StatsPage) },
+      { path: 'settings', element: withSuspense(SettingsPage) },
     ],
   },
 ]);

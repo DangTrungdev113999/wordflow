@@ -1,0 +1,32 @@
+{
+  "topic": "education",
+  "topicLabel": "Education",
+  "cefrLevel": "A1",
+  "words": [
+    { "word": "school", "meaning": "trường học", "ipa": "/skuːl/", "example": "My children go to school by bus.", "audioUrl": null },
+    { "word": "teacher", "meaning": "giáo viên", "ipa": "/ˈtiː.tʃər/", "example": "The teacher explained the lesson clearly.", "audioUrl": null },
+    { "word": "student", "meaning": "học sinh/sinh viên", "ipa": "/ˈstjuː.dənt/", "example": "She is a university student.", "audioUrl": null },
+    { "word": "homework", "meaning": "bài tập về nhà", "ipa": "/ˈhəʊm.wɜːk/", "example": "Did you finish your homework?", "audioUrl": null },
+    { "word": "exam", "meaning": "kỳ thi", "ipa": "/ɪɡˈzæm/", "example": "The final exam is next week.", "audioUrl": null },
+    { "word": "lesson", "meaning": "bài học", "ipa": "/ˈles.ən/", "example": "Today's lesson is about grammar.", "audioUrl": null },
+    { "word": "classroom", "meaning": "phòng học", "ipa": "/ˈklɑːs.ruːm/", "example": "The classroom is on the second floor.", "audioUrl": null },
+    { "word": "library", "meaning": "thư viện", "ipa": "/ˈlaɪ.brər.i/", "example": "I study at the library every evening.", "audioUrl": null },
+    { "word": "subject", "meaning": "môn học", "ipa": "/ˈsʌb.dʒekt/", "example": "Math is my favorite subject.", "audioUrl": null },
+    { "word": "textbook", "meaning": "sách giáo khoa", "ipa": "/ˈtekst.bʊk/", "example": "Open your textbook to page 42.", "audioUrl": null },
+    { "word": "grade", "meaning": "điểm số", "ipa": "/ɡreɪd/", "example": "She got the highest grade in class.", "audioUrl": null },
+    { "word": "certificate", "meaning": "chứng chỉ", "ipa": "/sərˈtɪf.ɪ.kət/", "example": "He received an English certificate.", "audioUrl": null },
+    { "word": "university", "meaning": "đại học", "ipa": "/ˌjuː.nɪˈvɜː.sə.ti/", "example": "She studies at a famous university.", "audioUrl": null },
+    { "word": "scholarship", "meaning": "học bổng", "ipa": "/ˈskɒl.ə.ʃɪp/", "example": "He won a scholarship to study abroad.", "audioUrl": null },
+    { "word": "graduate", "meaning": "tốt nghiệp", "ipa": "/ˈɡrædʒ.u.eɪt/", "example": "I will graduate next year.", "audioUrl": null },
+    { "word": "lecture", "meaning": "bài giảng", "ipa": "/ˈlek.tʃər/", "example": "The lecture starts at 9 AM.", "audioUrl": null },
+    { "word": "notebook", "meaning": "vở", "ipa": "/ˈnəʊt.bʊk/", "example": "Write the answer in your notebook.", "audioUrl": null },
+    { "word": "research", "meaning": "nghiên cứu", "ipa": "/rɪˈsɜːtʃ/", "example": "She is doing research on climate change.", "audioUrl": null },
+    { "word": "knowledge", "meaning": "kiến thức", "ipa": "/ˈnɒl.ɪdʒ/", "example": "Knowledge is power.", "audioUrl": null },
+    { "word": "practice", "meaning": "luyện tập", "ipa": "/ˈpræk.tɪs/", "example": "Practice makes perfect.", "audioUrl": null },
+    { "word": "dictionary", "meaning": "từ điển", "ipa": "/ˈdɪk.ʃən.ər.i/", "example": "Look up the word in the dictionary.", "audioUrl": null },
+    { "word": "semester", "meaning": "học kỳ", "ipa": "/sɪˈmes.tər/", "example": "This semester has five subjects.", "audioUrl": null },
+    { "word": "attendance", "meaning": "điểm danh", "ipa": "/əˈten.dəns/", "example": "Attendance is mandatory.", "audioUrl": null },
+    { "word": "assignment", "meaning": "bài tập", "ipa": "/əˈsaɪn.mənt/", "example": "Submit your assignment by Friday.", "audioUrl": null },
+    { "word": "tutor", "meaning": "gia sư", "ipa": "/ˈtjuː.tər/", "example": "She hired a tutor for math.", "audioUrl": null }
+  ]
+}
