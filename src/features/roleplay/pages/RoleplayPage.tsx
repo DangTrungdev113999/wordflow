@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useParams } from 'react-router';
 import { Theater } from 'lucide-react';
 import { useRoleplay } from '../hooks/useRoleplay';
 import { ScenarioGrid } from '../components/ScenarioGrid';
@@ -29,6 +31,15 @@ export function RoleplayPage() {
     goToPick,
   } = useRoleplay();
 
+  const { scenarioId } = useParams();
+
+  useEffect(() => {
+    if (scenarioId && phase === 'pick') {
+      const found = scenarios.find((s) => s.id === scenarioId);
+      if (found) startScenario(found);
+    }
+  }, [scenarioId, phase, startScenario]);
+
   if (!aiService.hasAnyProvider()) {
     return <AIKeyRequired />;
   }
@@ -45,7 +56,7 @@ export function RoleplayPage() {
 
   if ((phase === 'active' || phase === 'generating-summary') && scenario) {
     return (
-      <div className="flex flex-col h-[calc(100vh-4rem)] lg:h-[calc(100vh-2rem)]">
+      <div className="relative flex flex-col h-[calc(100vh-4rem)] lg:h-[calc(100vh-2rem)]">
         <RoleplayHeader
           scenario={scenario}
           turnCount={turnCount}
