@@ -18,6 +18,10 @@ type AppEvents = {
   'daily_challenge:complete': { date: string; score: number };
   'pronunciation:correct': { wordId: string };
   'pronunciation:incorrect': { wordId: string };
+  // Phase 5 — Reading Comprehension
+  'reading:correct': { passageId: string };
+  'reading:incorrect': { passageId: string };
+  'reading:session_complete': { correct: number; total: number; passageId: string };
 };
 
 export type AppEventTypes = AppEvents;
