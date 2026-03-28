@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useRef } from 'react';
 import { ALL_TOPICS } from '../../../data/vocabulary/_index';
 import { eventBus } from '../../../services/eventBus';
 import { XP_VALUES } from '../../../lib/constants';
@@ -62,6 +62,7 @@ export function useDictation(topic: string, mode: DictationMode) {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<AnswerResult[]>([]);
+  const answersRef = useRef<AnswerResult[]>([]);
   const [lastResult, setLastResult] = useState<AnswerResult | null>(null);
   const [isComplete, setIsComplete] = useState(false);
 
@@ -73,6 +74,7 @@ export function useDictation(topic: string, mode: DictationMode) {
     const correct = checkAnswer(input, currentItem.target);
     const result: AnswerResult = { item: currentItem, userAnswer: input, correct };
     setLastResult(result);
+    answersRef.current = [...answersRef.current, result];
     setAnswers(prev => [...prev, result]);
 
     const wordId = `${topic}:${currentItem.word.word}`;
@@ -88,12 +90,12 @@ export function useDictation(topic: string, mode: DictationMode) {
     setLastResult(null);
     if (currentIndex + 1 >= total) {
       setIsComplete(true);
-      const finalCorrect = answers.filter(a => a.correct).length;
+      const finalCorrect = answersRef.current.filter(a => a.correct).length;
       eventBus.emit('dictation:session_complete', { correct: finalCorrect, total, mode });
     } else {
       setCurrentIndex(prev => prev + 1);
     }
-  }, [currentIndex, total, answers, mode]);
+  }, [currentIndex, total, mode]);
 
   const correctCount = answers.filter(a => a.correct).length;
   const xpEarned = correctCount * XP_VALUES.dictation_correct + (isComplete && correctCount === total ? XP_VALUES.dictation_session_perfect : 0);

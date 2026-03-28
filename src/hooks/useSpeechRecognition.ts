@@ -32,7 +32,10 @@ export function useSpeechRecognition() {
       setIsListening(true);
       setError(null);
 
+      let resolved = false;
+
       recognition.onresult = (event: any) => {
+        resolved = true;
         const result = event.results[0];
         const alternatives = Array.from({ length: result.length }, (_, i) =>
           (result[i] as any).transcript.toLowerCase().trim()
@@ -45,6 +48,7 @@ export function useSpeechRecognition() {
       };
 
       recognition.onerror = (event: any) => {
+        resolved = true;
         setError(event.error);
         setIsListening(false);
         reject(new Error(event.error));
@@ -52,6 +56,9 @@ export function useSpeechRecognition() {
 
       recognition.onend = () => {
         setIsListening(false);
+        if (!resolved) {
+          reject(new Error('no-speech'));
+        }
       };
 
       recognition.start();

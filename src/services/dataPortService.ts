@@ -1,5 +1,5 @@
 import { db } from '../db/database';
-import type { UserProfile, WordProgress, GrammarLesson, DailyLog, DictionaryCache } from '../db/models';
+import type { UserProfile, WordProgress, GrammarLesson, DailyLog, DictionaryCache, DailyChallengeLog } from '../db/models';
 
 export interface ExportData {
   version: 1;
@@ -11,6 +11,7 @@ export interface ExportData {
     grammarLessons: GrammarLesson[];
     dailyLogs: DailyLog[];
     dictionaryCache: DictionaryCache[];
+    dailyChallenges?: DailyChallengeLog[];
   };
 }
 
@@ -18,18 +19,19 @@ export async function exportAllData(): Promise<ExportData> {
   const userProfile = await db.userProfile.get('default');
   if (!userProfile) throw new Error('No user profile found');
 
-  const [wordProgress, grammarLessons, dailyLogs, dictionaryCache] = await Promise.all([
+  const [wordProgress, grammarLessons, dailyLogs, dictionaryCache, dailyChallenges] = await Promise.all([
     db.wordProgress.toArray(),
     db.grammarLessons.toArray(),
     db.dailyLogs.toArray(),
     db.dictionaryCache.toArray(),
+    db.dailyChallenges.toArray(),
   ]);
 
   return {
     version: 1,
     exportedAt: new Date().toISOString(),
     app: 'WordFlow',
-    data: { userProfile, wordProgress, grammarLessons, dailyLogs, dictionaryCache },
+    data: { userProfile, wordProgress, grammarLessons, dailyLogs, dictionaryCache, dailyChallenges },
   };
 }
 
@@ -94,6 +96,16 @@ export async function importData(json: string): Promise<{
     }
   }
 
+  // Validate dailyChallenges (optional for backward compat)
+  if (data.dailyChallenges && Array.isArray(data.dailyChallenges)) {
+    const challenges = data.dailyChallenges as Array<Record<string, unknown>>;
+    for (let i = 0; i < challenges.length; i++) {
+      if (typeof challenges[i].date !== 'string' || !dateRegex.test(challenges[i].date as string)) {
+        errors.push(`dailyChallenges[${i}].date must match format YYYY-MM-DD`);
+      }
+    }
+  }
+
   const stats = {
     words: wp.length,
     lessons: (data.grammarLessons as unknown[]).length,
@@ -104,13 +116,14 @@ export async function importData(json: string): Promise<{
 }
 
 export async function performImport(data: ExportData['data']): Promise<void> {
-  await db.transaction('rw', [db.userProfile, db.wordProgress, db.grammarLessons, db.dailyLogs, db.dictionaryCache], async () => {
+  await db.transaction('rw', [db.userProfile, db.wordProgress, db.grammarLessons, db.dailyLogs, db.dictionaryCache, db.dailyChallenges], async () => {
     await Promise.all([
       db.userProfile.clear(),
       db.wordProgress.clear(),
       db.grammarLessons.clear(),
       db.dailyLogs.clear(),
       db.dictionaryCache.clear(),
+      db.dailyChallenges.clear(),
     ]);
 
     await db.userProfile.add(data.userProfile);
@@ -118,5 +131,6 @@ export async function performImport(data: ExportData['data']): Promise<void> {
     if (data.grammarLessons.length) await db.grammarLessons.bulkAdd(data.grammarLessons);
     if (data.dailyLogs.length) await db.dailyLogs.bulkAdd(data.dailyLogs);
     if (data.dictionaryCache?.length) await db.dictionaryCache.bulkAdd(data.dictionaryCache);
+    if (data.dailyChallenges?.length) await db.dailyChallenges.bulkAdd(data.dailyChallenges);
   });
 }

@@ -40,6 +40,7 @@ export interface DailyLog {
   minutesSpent: number;
   dictationAttempts?: number;
   dictationCorrect?: number;
+  pronunciationCorrect?: number;
 }
 
 export interface UserProfile {

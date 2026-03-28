@@ -61,6 +61,15 @@ export async function logBonusXP(xp: number): Promise<void> {
   });
 }
 
+export async function logPronunciation(correct: boolean, xp: number): Promise<void> {
+  const log = await ensureTodayLog();
+  await db.dailyLogs.put({
+    ...log,
+    pronunciationCorrect: (log.pronunciationCorrect ?? 0) + (correct ? 1 : 0),
+    xpEarned: log.xpEarned + xp,
+  });
+}
+
 export async function logDictation(correct: boolean, xp: number): Promise<void> {
   const log = await ensureTodayLog();
   await db.dailyLogs.put({

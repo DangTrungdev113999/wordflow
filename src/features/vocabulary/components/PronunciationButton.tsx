@@ -31,8 +31,11 @@ export function PronunciationButton({ word, wordId }: PronunciationButtonProps) 
       } else {
         eventBus.emit('pronunciation:incorrect', { wordId });
       }
-    } catch {
-      // Speech recognition error — silently ignore (button returns to idle)
+    } catch (err) {
+      if (err instanceof Error && err.message === 'no-speech') {
+        setResult({ isCorrect: false, spokenText: "Didn't hear anything, try again" });
+      }
+      // Other speech recognition errors — silently ignore (button returns to idle)
     }
   }, [isListening, startListening, word, wordId]);
 

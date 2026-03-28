@@ -1,13 +1,18 @@
 import { eventBus } from './eventBus';
 import { calculateQuizXP } from './xpEngine';
 import { checkAchievements } from './achievementEngine';
-import { logWordReviewed, logQuizCompleted, logBonusXP, logDictation } from './dailyLogService';
+import { logWordReviewed, logQuizCompleted, logBonusXP, logDictation, logPronunciation } from './dailyLogService';
 import { useProgressStore } from '../stores/progressStore';
 import { useGrammarStore } from '../stores/grammarStore';
 import { useToastStore } from '../stores/toastStore';
 import { XP_VALUES } from '../lib/constants';
+import { db } from '../db/database';
+
+let initialized = false;
 
 export function initEventSubscribers() {
+  if (initialized) return;
+  initialized = true;
   // flashcard:correct → XP + dailyLog
   eventBus.on('flashcard:correct', ({ rating }) => {
     const { addXP } = useProgressStore.getState();
@@ -77,10 +82,11 @@ export function initEventSubscribers() {
     }
   });
 
-  // pronunciation:correct → XP
+  // pronunciation:correct → XP + dailyLog
   eventBus.on('pronunciation:correct', () => {
     const { addXP } = useProgressStore.getState();
     addXP(XP_VALUES.pronunciation_correct);
+    void logPronunciation(true, XP_VALUES.pronunciation_correct);
   });
 
   // pronunciation:incorrect → no XP (event still fires for achievement tracking)
@@ -88,35 +94,48 @@ export function initEventSubscribers() {
     // No XP for incorrect pronunciation
   });
 
-  // Wildcard: check achievements after ANY event
+  // Wildcard: check achievements after ANY event (debounced)
+  let achievementCheckTimer: ReturnType<typeof setTimeout> | null = null;
+
   eventBus.on('*', () => {
-    const { totalWordsLearned, currentStreak, badges, addBadge } = useProgressStore.getState();
-    const { lessonProgress } = useGrammarStore.getState();
-    const { addToast } = useToastStore.getState();
+    if (achievementCheckTimer) clearTimeout(achievementCheckTimer);
+    achievementCheckTimer = setTimeout(async () => {
+      const { totalWordsLearned, currentStreak, badges, addBadge } = useProgressStore.getState();
+      const { lessonProgress } = useGrammarStore.getState();
+      const { addToast } = useToastStore.getState();
 
-    const lessonsCompleted = Object.values(lessonProgress).filter((p) => p.completed).length;
-    const hasPerfectQuiz = Object.values(lessonProgress).some((p) => p.bestScore === 100);
+      const lessonsCompleted = Object.values(lessonProgress).filter((p) => p.completed).length;
+      const hasPerfectQuiz = Object.values(lessonProgress).some((p) => p.bestScore === 100);
 
-    const newBadges = checkAchievements({
-      totalWords: totalWordsLearned,
-      streak: currentStreak,
-      lessonsCompleted,
-      hasPerfectQuiz,
-      currentHour: new Date().getHours(),
-      earnedBadges: badges,
-      dictationCount: 0,
-      challengeCount: 0,
-      pronunciationCount: 0,
-    });
+      // Query actual counts from database
+      const dailyLogs = await db.dailyLogs.toArray();
+      const dictationCount = dailyLogs.reduce((sum, log) => sum + (log.dictationCorrect ?? 0), 0);
+      const pronunciationCount = dailyLogs.reduce((sum, log) => sum + (log.pronunciationCorrect ?? 0), 0);
 
-    for (const achievement of newBadges) {
-      addBadge(achievement.id);
-      addToast({
-        type: 'badge',
-        title: `${achievement.badge} ${achievement.title}`,
-        description: achievement.description,
-        icon: achievement.badge,
+      const allChallenges = await db.dailyChallenges.toArray();
+      const challengeCount = allChallenges.filter(c => c.completed).length;
+
+      const newBadges = checkAchievements({
+        totalWords: totalWordsLearned,
+        streak: currentStreak,
+        lessonsCompleted,
+        hasPerfectQuiz,
+        currentHour: new Date().getHours(),
+        earnedBadges: badges,
+        dictationCount,
+        challengeCount,
+        pronunciationCount,
       });
-    }
+
+      for (const achievement of newBadges) {
+        addBadge(achievement.id);
+        addToast({
+          type: 'badge',
+          title: `${achievement.badge} ${achievement.title}`,
+          description: achievement.description,
+          icon: achievement.badge,
+        });
+      }
+    }, 300);
   });
 }

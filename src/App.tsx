@@ -21,13 +21,20 @@ export default function App() {
     async function init() {
       await initializeUserProfile();
       initEventSubscribers();
+    }
+    init();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Routing guard: redirect to onboarding if placement not done
+  useEffect(() => {
+    async function checkOnboarding() {
       const profile = await db.userProfile.get('default');
       if (profile && !profile.placementDone && location.pathname !== '/onboarding') {
         navigate('/onboarding', { replace: true });
       }
     }
-    init();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    checkOnboarding();
+  }, [location.pathname]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     recordActivity();
