@@ -94,6 +94,41 @@ export interface GrammarLessonData {
   exercises: GrammarExercise[];
 }
 
+// Sentence Building types
+export interface SentenceBuildingExercise {
+  id: string;
+  sentence: string;
+  translation: string;
+  words: string[];
+  distractors?: string[];
+  topic: string;
+  cefrLevel: CEFRLevel;
+  difficulty: 'easy' | 'medium' | 'hard';
+}
+
+export interface SentenceBuildingTopic {
+  topic: string;
+  topicLabel: string;
+  sentences: SentenceBuildingExercise[];
+}
+
+export interface WordItem {
+  id: string;
+  word: string;
+  originalIndex: number;
+  isDistractor: boolean;
+  isHinted: boolean;
+}
+
+export interface SentenceBuildingResult {
+  exerciseId: string;
+  correct: boolean;
+  hintsUsed: number;
+  wrongAttempts: number;
+  score: number;
+  userAnswer: string;
+}
+
 // Achievement types
 export interface AchievementDefinition {
   id: string;

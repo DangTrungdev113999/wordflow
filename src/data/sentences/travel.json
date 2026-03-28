@@ -1,0 +1,106 @@
+{
+  "topic": "travel",
+  "topicLabel": "Travel",
+  "sentences": [
+    {
+      "id": "tr-001",
+      "sentence": "Where is the nearest train station?",
+      "translation": "Ga tàu gần nhất ở đâu?",
+      "words": ["nearest", "the", "Where", "station", "is", "train"],
+      "distractors": [],
+      "topic": "travel",
+      "cefrLevel": "A1",
+      "difficulty": "easy"
+    },
+    {
+      "id": "tr-002",
+      "sentence": "I would like to book a room for two nights.",
+      "translation": "Tôi muốn đặt một phòng cho hai đêm.",
+      "words": ["a", "I", "two", "room", "like", "for", "book", "would", "to", "nights"],
+      "distractors": [],
+      "topic": "travel",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    },
+    {
+      "id": "tr-003",
+      "sentence": "The flight to Paris departs at noon.",
+      "translation": "Chuyến bay đến Paris khởi hành lúc trưa.",
+      "words": ["at", "departs", "The", "Paris", "noon", "flight", "to"],
+      "distractors": [],
+      "topic": "travel",
+      "cefrLevel": "A1",
+      "difficulty": "easy"
+    },
+    {
+      "id": "tr-004",
+      "sentence": "We need to check in before three o'clock.",
+      "translation": "Chúng tôi cần nhận phòng trước 3 giờ.",
+      "words": ["three", "check", "We", "before", "in", "o'clock", "to", "need"],
+      "distractors": [],
+      "topic": "travel",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    },
+    {
+      "id": "tr-005",
+      "sentence": "Can you recommend a good restaurant nearby?",
+      "translation": "Bạn có thể giới thiệu nhà hàng ngon gần đây không?",
+      "words": ["good", "you", "a", "Can", "nearby", "recommend", "restaurant"],
+      "distractors": [],
+      "topic": "travel",
+      "cefrLevel": "A2",
+      "difficulty": "easy"
+    },
+    {
+      "id": "tr-006",
+      "sentence": "How long does it take to get to the airport?",
+      "translation": "Mất bao lâu để đến sân bay?",
+      "words": ["the", "take", "long", "How", "to", "does", "airport", "get", "it", "to"],
+      "distractors": [],
+      "topic": "travel",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    },
+    {
+      "id": "tr-007",
+      "sentence": "I have already packed my suitcase for the trip.",
+      "translation": "Tôi đã đóng gói vali cho chuyến đi rồi.",
+      "words": ["the", "packed", "I", "for", "already", "trip", "suitcase", "have", "my"],
+      "distractors": ["yet", "just"],
+      "topic": "travel",
+      "cefrLevel": "B1",
+      "difficulty": "hard"
+    },
+    {
+      "id": "tr-008",
+      "sentence": "Excuse me, could you tell me the way to the museum?",
+      "translation": "Xin lỗi, bạn có thể chỉ cho tôi đường đến bảo tàng không?",
+      "words": ["the", "could", "Excuse", "to", "me", "museum", "way", "the", "you", "tell", "me"],
+      "distractors": [],
+      "topic": "travel",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    },
+    {
+      "id": "tr-009",
+      "sentence": "If I had more money, I would travel around the world.",
+      "translation": "Nếu tôi có nhiều tiền hơn, tôi sẽ đi du lịch vòng quanh thế giới.",
+      "words": ["more", "travel", "If", "the", "I", "around", "money", "had", "world", "would", "I"],
+      "distractors": ["will", "can"],
+      "topic": "travel",
+      "cefrLevel": "B1",
+      "difficulty": "hard"
+    },
+    {
+      "id": "tr-010",
+      "sentence": "They are planning a vacation to Japan next summer.",
+      "translation": "Họ đang lên kế hoạch đi Nhật Bản mùa hè tới.",
+      "words": ["a", "are", "They", "Japan", "next", "vacation", "summer", "planning", "to"],
+      "distractors": [],
+      "topic": "travel",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    }
+  ]
+}

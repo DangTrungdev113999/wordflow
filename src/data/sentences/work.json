@@ -1,0 +1,106 @@
+{
+  "topic": "work",
+  "topicLabel": "Work & Office",
+  "sentences": [
+    {
+      "id": "wk-001",
+      "sentence": "I start work at nine every morning.",
+      "translation": "Tôi bắt đầu làm việc lúc 9 giờ mỗi sáng.",
+      "words": ["at", "work", "I", "every", "nine", "start", "morning"],
+      "distractors": [],
+      "topic": "work",
+      "cefrLevel": "A1",
+      "difficulty": "easy"
+    },
+    {
+      "id": "wk-002",
+      "sentence": "She works as a teacher at the local school.",
+      "translation": "Cô ấy làm giáo viên ở trường địa phương.",
+      "words": ["a", "as", "She", "the", "at", "teacher", "works", "local", "school"],
+      "distractors": [],
+      "topic": "work",
+      "cefrLevel": "A1",
+      "difficulty": "easy"
+    },
+    {
+      "id": "wk-003",
+      "sentence": "We have a meeting at two o'clock today.",
+      "translation": "Chúng tôi có cuộc họp lúc 2 giờ hôm nay.",
+      "words": ["a", "at", "We", "two", "today", "meeting", "o'clock", "have"],
+      "distractors": [],
+      "topic": "work",
+      "cefrLevel": "A1",
+      "difficulty": "easy"
+    },
+    {
+      "id": "wk-004",
+      "sentence": "My boss asked me to finish the report by Friday.",
+      "translation": "Sếp tôi yêu cầu tôi hoàn thành báo cáo trước thứ Sáu.",
+      "words": ["the", "asked", "My", "by", "me", "finish", "report", "Friday", "boss", "to"],
+      "distractors": [],
+      "topic": "work",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    },
+    {
+      "id": "wk-005",
+      "sentence": "He is looking for a new job in marketing.",
+      "translation": "Anh ấy đang tìm việc mới trong lĩnh vực marketing.",
+      "words": ["a", "is", "He", "in", "new", "for", "job", "looking", "marketing"],
+      "distractors": [],
+      "topic": "work",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    },
+    {
+      "id": "wk-006",
+      "sentence": "They need to send the email before the deadline.",
+      "translation": "Họ cần gửi email trước hạn chót.",
+      "words": ["the", "need", "They", "the", "before", "send", "email", "deadline", "to"],
+      "distractors": [],
+      "topic": "work",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    },
+    {
+      "id": "wk-007",
+      "sentence": "I have been working on this project since January.",
+      "translation": "Tôi đã làm việc dự án này từ tháng Một.",
+      "words": ["on", "been", "I", "this", "since", "working", "January", "have", "project"],
+      "distractors": ["for", "from"],
+      "topic": "work",
+      "cefrLevel": "B1",
+      "difficulty": "hard"
+    },
+    {
+      "id": "wk-008",
+      "sentence": "The company decided to hire more employees next quarter.",
+      "translation": "Công ty quyết định tuyển thêm nhân viên quý tới.",
+      "words": ["to", "decided", "The", "more", "next", "hire", "employees", "company", "quarter"],
+      "distractors": ["fire", "less"],
+      "topic": "work",
+      "cefrLevel": "B1",
+      "difficulty": "hard"
+    },
+    {
+      "id": "wk-009",
+      "sentence": "Please let me know if you have any questions.",
+      "translation": "Xin hãy cho tôi biết nếu bạn có câu hỏi nào.",
+      "words": ["me", "if", "Please", "any", "know", "have", "let", "you", "questions"],
+      "distractors": [],
+      "topic": "work",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    },
+    {
+      "id": "wk-010",
+      "sentence": "She would have been promoted if she had completed the training.",
+      "translation": "Cô ấy đã được thăng chức nếu cô ấy hoàn thành khóa đào tạo.",
+      "words": ["been", "had", "She", "the", "if", "promoted", "completed", "have", "would", "training", "she"],
+      "distractors": ["will", "did"],
+      "topic": "work",
+      "cefrLevel": "B1",
+      "difficulty": "hard"
+    }
+  ]
+}

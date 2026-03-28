@@ -28,6 +28,7 @@ const AIHubPage = lazy(() => import('../features/ai-hub/pages/AIHubPage').then(m
 const AIChatPage = lazy(() => import('../features/ai-chat/pages/AIChatPage').then(m => ({ default: m.AIChatPage })));
 const WritingPage = lazy(() => import('../features/writing/pages/WritingPage').then(m => ({ default: m.WritingPage })));
 const RoleplayPage = lazy(() => import('../features/roleplay/pages/RoleplayPage').then(m => ({ default: m.RoleplayPage })));
+const SentenceBuildingPage = lazy(() => import('../features/sentence-building/SentenceBuildingPage').then(m => ({ default: m.SentenceBuildingPage })));
 
 function PageLoader() {
   return (
@@ -78,6 +79,7 @@ export const router = createBrowserRouter([
       { path: 'writing/:submissionId', element: withSuspense(WritingPage) },
       { path: 'roleplay', element: withSuspense(RoleplayPage) },
       { path: 'roleplay/:scenarioId', element: withSuspense(RoleplayPage) },
+      { path: 'sentence-building', element: withSuspense(SentenceBuildingPage) },
       { path: 'settings', element: withSuspense(SettingsPage) },
       { path: 'onboarding', element: withSuspense(OnboardingPage) },
     ],

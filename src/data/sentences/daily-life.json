@@ -1,0 +1,106 @@
+{
+  "topic": "daily-life",
+  "topicLabel": "Daily Life",
+  "sentences": [
+    {
+      "id": "dl-001",
+      "sentence": "I usually wake up at seven o'clock.",
+      "translation": "Tôi thường thức dậy lúc 7 giờ.",
+      "words": ["wake", "I", "at", "o'clock", "usually", "seven", "up"],
+      "distractors": [],
+      "topic": "daily-life",
+      "cefrLevel": "A1",
+      "difficulty": "easy"
+    },
+    {
+      "id": "dl-002",
+      "sentence": "We have breakfast together every morning.",
+      "translation": "Chúng tôi ăn sáng cùng nhau mỗi buổi sáng.",
+      "words": ["breakfast", "every", "We", "together", "morning", "have"],
+      "distractors": [],
+      "topic": "daily-life",
+      "cefrLevel": "A1",
+      "difficulty": "easy"
+    },
+    {
+      "id": "dl-003",
+      "sentence": "She takes the bus to work every day.",
+      "translation": "Cô ấy đi xe buýt đi làm mỗi ngày.",
+      "words": ["the", "work", "She", "bus", "day", "takes", "every", "to"],
+      "distractors": [],
+      "topic": "daily-life",
+      "cefrLevel": "A1",
+      "difficulty": "easy"
+    },
+    {
+      "id": "dl-004",
+      "sentence": "I need to buy some groceries after work.",
+      "translation": "Tôi cần mua một ít đồ tạp hóa sau giờ làm.",
+      "words": ["buy", "work", "I", "after", "groceries", "to", "need", "some"],
+      "distractors": [],
+      "topic": "daily-life",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    },
+    {
+      "id": "dl-005",
+      "sentence": "My children always do their homework before dinner.",
+      "translation": "Con tôi luôn làm bài tập trước bữa tối.",
+      "words": ["homework", "children", "dinner", "always", "their", "My", "do", "before"],
+      "distractors": [],
+      "topic": "daily-life",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    },
+    {
+      "id": "dl-006",
+      "sentence": "He usually goes for a run in the morning.",
+      "translation": "Anh ấy thường đi chạy bộ vào buổi sáng.",
+      "words": ["a", "goes", "He", "the", "run", "in", "usually", "morning", "for"],
+      "distractors": [],
+      "topic": "daily-life",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    },
+    {
+      "id": "dl-007",
+      "sentence": "She has been working here since last year.",
+      "translation": "Cô ấy đã làm việc ở đây từ năm ngoái.",
+      "words": ["has", "since", "She", "here", "year", "been", "last", "working"],
+      "distractors": ["was", "did"],
+      "topic": "daily-life",
+      "cefrLevel": "B1",
+      "difficulty": "hard"
+    },
+    {
+      "id": "dl-008",
+      "sentence": "I would rather stay home than go to the party.",
+      "translation": "Tôi thà ở nhà còn hơn đi dự tiệc.",
+      "words": ["go", "I", "stay", "the", "would", "to", "home", "party", "rather", "than"],
+      "distractors": ["prefer", "instead"],
+      "topic": "daily-life",
+      "cefrLevel": "B1",
+      "difficulty": "hard"
+    },
+    {
+      "id": "dl-009",
+      "sentence": "They enjoy spending time with their neighbors.",
+      "translation": "Họ thích dành thời gian với hàng xóm.",
+      "words": ["with", "enjoy", "neighbors", "spending", "They", "time", "their"],
+      "distractors": [],
+      "topic": "daily-life",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    },
+    {
+      "id": "dl-010",
+      "sentence": "Could you please turn off the lights before leaving?",
+      "translation": "Bạn có thể tắt đèn trước khi rời đi không?",
+      "words": ["the", "off", "Could", "before", "lights", "turn", "leaving", "please", "you"],
+      "distractors": ["can", "after"],
+      "topic": "daily-life",
+      "cefrLevel": "B1",
+      "difficulty": "hard"
+    }
+  ]
+}

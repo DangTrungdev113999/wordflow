@@ -1,0 +1,106 @@
+{
+  "topic": "food-drink",
+  "topicLabel": "Food & Drink",
+  "sentences": [
+    {
+      "id": "fd-001",
+      "sentence": "I would like a glass of water, please.",
+      "translation": "Tôi muốn một ly nước, làm ơn.",
+      "words": ["a", "I", "of", "please", "water", "glass", "would", "like"],
+      "distractors": [],
+      "topic": "food-drink",
+      "cefrLevel": "A1",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fd-002",
+      "sentence": "She always has coffee for breakfast.",
+      "translation": "Cô ấy luôn uống cà phê vào bữa sáng.",
+      "words": ["coffee", "She", "for", "has", "always", "breakfast"],
+      "distractors": [],
+      "topic": "food-drink",
+      "cefrLevel": "A1",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fd-003",
+      "sentence": "We ordered two pizzas and a salad.",
+      "translation": "Chúng tôi đã gọi hai pizza và một salad.",
+      "words": ["a", "two", "We", "and", "salad", "ordered", "pizzas"],
+      "distractors": [],
+      "topic": "food-drink",
+      "cefrLevel": "A1",
+      "difficulty": "easy"
+    },
+    {
+      "id": "fd-004",
+      "sentence": "This soup is too hot to eat right now.",
+      "translation": "Món súp này quá nóng để ăn ngay bây giờ.",
+      "words": ["too", "eat", "This", "now", "hot", "right", "soup", "is", "to"],
+      "distractors": [],
+      "topic": "food-drink",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fd-005",
+      "sentence": "Could you bring me the menu, please?",
+      "translation": "Bạn có thể đưa tôi thực đơn được không?",
+      "words": ["the", "Could", "me", "please", "bring", "menu", "you"],
+      "distractors": [],
+      "topic": "food-drink",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fd-006",
+      "sentence": "He prefers tea with milk and sugar.",
+      "translation": "Anh ấy thích trà với sữa và đường.",
+      "words": ["with", "and", "He", "tea", "milk", "sugar", "prefers"],
+      "distractors": [],
+      "topic": "food-drink",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fd-007",
+      "sentence": "They have been waiting for their food for thirty minutes.",
+      "translation": "Họ đã đợi đồ ăn của họ ba mươi phút rồi.",
+      "words": ["for", "been", "They", "their", "thirty", "food", "waiting", "have", "minutes", "for"],
+      "distractors": ["was", "since"],
+      "topic": "food-drink",
+      "cefrLevel": "B1",
+      "difficulty": "hard"
+    },
+    {
+      "id": "fd-008",
+      "sentence": "I am allergic to peanuts so I cannot eat this cake.",
+      "translation": "Tôi bị dị ứng với đậu phộng nên tôi không thể ăn bánh này.",
+      "words": ["to", "am", "I", "this", "so", "eat", "peanuts", "cannot", "allergic", "cake", "I"],
+      "distractors": ["must", "should"],
+      "topic": "food-drink",
+      "cefrLevel": "B1",
+      "difficulty": "hard"
+    },
+    {
+      "id": "fd-009",
+      "sentence": "The restaurant serves fresh seafood every day.",
+      "translation": "Nhà hàng phục vụ hải sản tươi mỗi ngày.",
+      "words": ["fresh", "every", "The", "serves", "day", "seafood", "restaurant"],
+      "distractors": [],
+      "topic": "food-drink",
+      "cefrLevel": "A2",
+      "difficulty": "medium"
+    },
+    {
+      "id": "fd-010",
+      "sentence": "If you had told me earlier, I would have cooked something different.",
+      "translation": "Nếu bạn nói sớm hơn, tôi đã nấu món khác.",
+      "words": ["told", "had", "If", "something", "I", "cooked", "me", "earlier", "different", "would", "have", "you"],
+      "distractors": ["will", "can"],
+      "topic": "food-drink",
+      "cefrLevel": "B1",
+      "difficulty": "hard"
+    }
+  ]
+}
