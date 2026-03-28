@@ -18,6 +18,9 @@ const DailyChallengePage = lazy(() => import('../features/daily-challenge/pages/
 const ListeningPage = lazy(() => import('../features/listening/pages/ListeningPage').then(m => ({ default: m.ListeningPage })));
 const DictationSessionPage = lazy(() => import('../features/listening/pages/DictationSessionPage').then(m => ({ default: m.DictationSessionPage })));
 const OnboardingPage = lazy(() => import('../features/onboarding/pages/OnboardingPage').then(m => ({ default: m.OnboardingPage })));
+const CustomTopicsPage = lazy(() => import('../features/vocabulary/pages/CustomTopicsPage').then(m => ({ default: m.CustomTopicsPage })));
+const CustomTopicDetailPage = lazy(() => import('../features/vocabulary/pages/CustomTopicDetailPage').then(m => ({ default: m.CustomTopicDetailPage })));
+const CustomFlashcardPage = lazy(() => import('../features/vocabulary/pages/CustomFlashcardPage').then(m => ({ default: m.CustomFlashcardPage })));
 
 function PageLoader() {
   return (
@@ -46,6 +49,9 @@ export const router = createBrowserRouter([
       { path: 'vocabulary', element: withSuspense(VocabularyPage) },
       { path: 'vocabulary/:topic', element: withSuspense(TopicPage) },
       { path: 'vocabulary/:topic/learn', element: withSuspense(FlashcardPage) },
+      { path: 'vocabulary/custom', element: withSuspense(CustomTopicsPage) },
+      { path: 'vocabulary/custom/:topicId', element: withSuspense(CustomTopicDetailPage) },
+      { path: 'vocabulary/custom/:topicId/learn', element: withSuspense(CustomFlashcardPage) },
       { path: 'vocabulary/word/:word', element: withSuspense(WordDetailPage) },
       { path: 'grammar', element: withSuspense(GrammarPage) },
       { path: 'grammar/:lessonId', element: withSuspense(LessonPage) },

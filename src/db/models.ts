@@ -75,3 +75,21 @@ export interface DailyChallengeLog {
   completed: boolean;
   xpEarned: number;
 }
+
+export interface CustomTopic {
+  id?: number;
+  name: string;
+  icon: string;
+  createdAt: number;
+}
+
+export interface CustomWord {
+  id?: number;
+  topicId: number;
+  word: string;
+  meaning: string;
+  ipa: string;
+  example: string;
+  audioUrl: string | null;
+  createdAt: number;
+}
