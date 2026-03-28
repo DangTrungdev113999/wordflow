@@ -4,13 +4,13 @@ import { db } from '../../db/database';
 import type { MediaSession } from '../../db/models';
 import { MediaSessionCard } from './MediaSessionCard';
 
-export function MediaHistory() {
+export function MediaHistory({ refreshKey = 0 }: { refreshKey?: number }) {
   const [sessions, setSessions] = useState<MediaSession[]>([]);
   const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     db.mediaSessions.orderBy('createdAt').reverse().limit(20).toArray().then(setSessions);
-  }, []);
+  }, [refreshKey]);
 
   if (sessions.length === 0) return null;
 

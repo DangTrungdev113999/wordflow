@@ -1,6 +1,11 @@
 export async function extractFromUrl(url: string): Promise<{ title: string; text: string }> {
-  const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
-  const html = await fetch(proxyUrl, { signal: AbortSignal.timeout(10000) }).then(r => r.text());
+  const encodedUrl = encodeURIComponent(url);
+  let html: string;
+  try {
+    html = await fetch(`https://api.allorigins.win/raw?url=${encodedUrl}`, { signal: AbortSignal.timeout(10000) }).then(r => r.text());
+  } catch {
+    html = await fetch(`https://corsproxy.io/?${encodedUrl}`, { signal: AbortSignal.timeout(10000) }).then(r => r.text());
+  }
 
   const doc = new DOMParser().parseFromString(html, 'text/html');
 

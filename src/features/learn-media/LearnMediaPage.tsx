@@ -64,7 +64,7 @@ export function LearnMediaPage() {
                 error={media.error}
               />
             </div>
-            <MediaHistory />
+            <MediaHistory refreshKey={media.sessionVersion} />
           </motion.div>
         )}
 

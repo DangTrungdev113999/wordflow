@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import type { CEFRLevel, MediaVocabWord, GrammarExercise } from '../../lib/types';
 import type { MediaSession } from '../../db/models';
@@ -40,17 +40,20 @@ const initialState: MediaLearningState = {
 
 export function useMediaLearning() {
   const [state, setState] = useState<MediaLearningState>(initialState);
+  const [sessionVersion, setSessionVersion] = useState(0);
   const abortRef = useRef<AbortController | null>(null);
   const levelRef = useRef<CEFRLevel>('A2');
   const sessionIdRef = useRef<string>('');
+  const stateRef = useRef(state);
+  stateRef.current = state;
   const { addXP } = useProgressStore();
 
   // Load user level
-  useState(() => {
+  useEffect(() => {
     db.userProfile.get('default').then(p => {
       if (p?.placementLevel) levelRef.current = p.placementLevel;
     });
-  });
+  }, []);
 
   const reset = useCallback(() => {
     abortRef.current?.abort();
@@ -81,8 +84,17 @@ export function useMediaLearning() {
       );
 
       if (controller.signal.aborted) return;
-      const vocabJson = cleanJsonResponse(vocabResponse.text);
-      const vocab: MediaVocabWord[] = JSON.parse(vocabJson);
+      const vocab = await parseAIJson<MediaVocabWord[]>(
+        async () => {
+          const r = await aiService.chat(
+            [{ role: 'user', content: mediaVocabExtractionPrompt(text, levelRef.current) }],
+            { feature: 'media', maxTokens: 2000, temperature: 0.7, signal: controller.signal },
+          );
+          return r.text;
+        },
+        vocabResponse.text,
+        'vocabulary',
+      );
 
       if (!Array.isArray(vocab) || vocab.length === 0) {
         throw new Error('AI returned invalid vocabulary data. Please try again.');
@@ -114,8 +126,17 @@ export function useMediaLearning() {
       );
 
       if (controller.signal.aborted) return;
-      const quizJson = cleanJsonResponse(quizResponse.text);
-      const exercises: GrammarExercise[] = JSON.parse(quizJson);
+      const exercises = await parseAIJson<GrammarExercise[]>(
+        async () => {
+          const r = await aiService.chat(
+            [{ role: 'user', content: mediaQuizGenerationPrompt(state.vocab, levelRef.current) }],
+            { feature: 'media', maxTokens: 2000, temperature: 0.7, signal: controller.signal },
+          );
+          return r.text;
+        },
+        quizResponse.text,
+        'quiz',
+      );
 
       if (!Array.isArray(exercises) || exercises.length === 0) {
         throw new Error('AI returned invalid quiz data. Please try again.');
@@ -133,42 +154,43 @@ export function useMediaLearning() {
   }, [state.vocab]);
 
   const answerQuiz = useCallback((correct: boolean, userAnswer: string) => {
-    setState(s => {
-      const newResults = [...s.quizResults, { correct, userAnswer }];
-      const nextIndex = s.quizIndex + 1;
-      const isComplete = nextIndex >= s.quizExercises.length;
+    const s = stateRef.current;
+    const newResults = [...s.quizResults, { correct, userAnswer }];
+    const nextIndex = s.quizIndex + 1;
+    const isComplete = nextIndex >= s.quizExercises.length;
 
+    if (isComplete) {
+      const correctCount = newResults.filter(r => r.correct).length;
+      const score = Math.round((correctCount / newResults.length) * 100);
+
+      setState(prev => ({ ...prev, quizResults: newResults, quizIndex: nextIndex, step: 'complete' as MediaStep }));
+
+      // Side effects AFTER setState
       if (correct) addXP(10);
+      addXP(20);
 
-      if (isComplete) {
-        const correctCount = newResults.filter(r => r.correct).length;
-        const score = Math.round((correctCount / newResults.length) * 100);
+      const sessionId = nanoid();
+      sessionIdRef.current = sessionId;
+      const session: MediaSession = {
+        id: sessionId,
+        createdAt: new Date().toISOString(),
+        sourceType: s.sourceType,
+        sourceUrl: s.sourceUrl,
+        title: s.title,
+        originalText: s.originalText,
+        extractedVocab: s.vocab,
+        quizExercises: s.quizExercises,
+        quizScore: score,
+        completed: true,
+      };
+      db.mediaSessions.add(session);
+      setSessionVersion(v => v + 1);
+    } else {
+      setState(prev => ({ ...prev, quizResults: newResults, quizIndex: nextIndex }));
 
-        // Save session
-        const sessionId = nanoid();
-        sessionIdRef.current = sessionId;
-        const session: MediaSession = {
-          id: sessionId,
-          createdAt: new Date().toISOString(),
-          sourceType: s.sourceType,
-          sourceUrl: s.sourceUrl,
-          title: s.title,
-          originalText: s.originalText,
-          extractedVocab: s.vocab,
-          quizExercises: s.quizExercises,
-          quizScore: score,
-          completed: true,
-        };
-        db.mediaSessions.add(session);
-
-        // Bonus XP for completion
-        addXP(20);
-
-        return { ...s, quizResults: newResults, quizIndex: nextIndex, step: 'complete' as MediaStep };
-      }
-
-      return { ...s, quizResults: newResults, quizIndex: nextIndex };
-    });
+      // Side effect AFTER setState
+      if (correct) addXP(10);
+    }
   }, [addXP]);
 
   const saveToMyWords = useCallback(async (words: MediaVocabWord[]) => {
@@ -202,6 +224,7 @@ export function useMediaLearning() {
   return {
     ...state,
     quizScore,
+    sessionVersion,
     processContent,
     generateQuiz,
     answerQuiz,
@@ -211,10 +234,22 @@ export function useMediaLearning() {
 }
 
 function cleanJsonResponse(text: string): string {
-  // Remove markdown code blocks if present
   let cleaned = text.trim();
   if (cleaned.startsWith('```')) {
     cleaned = cleaned.replace(/^```(?:json)?\s*\n?/, '').replace(/\n?```\s*$/, '');
   }
   return cleaned.trim();
+}
+
+async function parseAIJson<T>(retry: () => Promise<string>, firstResponse: string, label: string): Promise<T> {
+  try {
+    return JSON.parse(cleanJsonResponse(firstResponse));
+  } catch {
+    const retryText = await retry();
+    try {
+      return JSON.parse(cleanJsonResponse(retryText));
+    } catch {
+      throw new Error(`Failed to parse ${label} after retry`);
+    }
+  }
 }
