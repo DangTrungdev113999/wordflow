@@ -61,31 +61,34 @@ export const useTimerStore = create<TimerState>()((set) => ({
   },
 }));
 
+// Singleton interval: only ONE interval ever runs regardless of how many components use useStudyTimer
+let singletonInterval: ReturnType<typeof setInterval> | null = null;
+
+useTimerStore.subscribe((state, prev) => {
+  if (state.isRunning === prev.isRunning) return;
+  if (state.isRunning) {
+    if (!singletonInterval) {
+      singletonInterval = setInterval(() => {
+        useTimerStore.getState().addElapsed(1000);
+      }, 1000);
+    }
+  } else {
+    if (singletonInterval) {
+      clearInterval(singletonInterval);
+      singletonInterval = null;
+    }
+  }
+});
+
 function isLearningRoute(pathname: string): boolean {
   return LEARNING_ROUTES.some((prefix) => pathname.startsWith(prefix));
 }
 
 export function useStudyTimer() {
   const location = useLocation();
-  const { isRunning, elapsedMs, isManual, setRunning, addElapsed, setManual, reset } =
+  const { isRunning, elapsedMs, isManual, setRunning, setManual, reset } =
     useTimerStore();
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const lastFlushRef = useRef(elapsedMs);
-
-  // Tick every second when running
-  useEffect(() => {
-    if (isRunning) {
-      intervalRef.current = setInterval(() => {
-        addElapsed(1000);
-      }, 1000);
-    } else if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [isRunning, addElapsed]);
 
   // Auto-detect: start when on learning page, pause when leaving
   useEffect(() => {

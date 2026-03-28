@@ -80,6 +80,8 @@ export function checkAchievements(context: AchievementContext): AchievementDefin
       case 'totalXp':
         met = context.totalXp >= value;
         break;
+      default:
+        console.warn('Unknown achievement condition:', type);
     }
 
     if (met) newlyUnlocked.push(achievement);

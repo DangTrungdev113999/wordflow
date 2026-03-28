@@ -20,6 +20,7 @@ export interface Mistake {
   nextReview: string;    // ISO date
   reviewCount: number;   // default 0
   lastReviewResult?: ReviewResult;
+  lastReviewedAt?: string; // ISO date of last review
 }
 
 export interface MistakeStats {

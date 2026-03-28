@@ -138,8 +138,11 @@ export function initEventSubscribers() {
         return sum + c.tasks.filter(t => t.type === 'sentenceBuilding' && t.completed).length;
       }, 0);
 
-      // Sentence building perfect: reuse sentenceBuildingCount as proxy
-      const sentenceBuildingPerfect = sentenceBuildingCount;
+      // Sentence building perfect: count only tasks completed with no wrong attempts (score === 100)
+      const sentenceBuildingPerfect = allChallenges.reduce((sum, c) => {
+        if (!Array.isArray(c.tasks)) return sum;
+        return sum + c.tasks.filter(t => t.type === 'sentenceBuilding' && t.completed && t.score === 100).length;
+      }, 0);
 
       const mediaSessions = await db.mediaSessions.toArray();
       const mediaSessionCount = mediaSessions.filter(s => s.completed).length;
@@ -168,10 +171,9 @@ export function initEventSubscribers() {
 
       // Study planner metrics
       const goalsCreated = goals.length;
-      const weeklyGoalsMet = weeklySnapshots.reduce((sum, snap) => {
-        const allMet = snap.goals.every(g => g.achieved >= g.target);
-        return sum + (allMet ? snap.daysActive : 0);
-      }, 0);
+      const weeklyGoalsMet = weeklySnapshots.filter(snap =>
+        snap.daysActive >= 7 && snap.goals.every(g => g.achieved >= g.target)
+      ).length;
 
       // Mistake journal metrics
       const mistakesReviewed = mistakes.filter(m => m.reviewCount > 0).length;

@@ -9,6 +9,7 @@ const typeStyles: Record<string, string> = {
   goal: 'bg-green-500',
   levelUp: 'bg-purple-500',
   info: 'bg-gray-700',
+  success: 'bg-green-500',
 };
 
 const typeIcons: Record<string, string> = {
@@ -17,6 +18,7 @@ const typeIcons: Record<string, string> = {
   goal: '🎯',
   levelUp: '🚀',
   info: 'ℹ️',
+  success: '✅',
 };
 
 export function ToastContainer() {

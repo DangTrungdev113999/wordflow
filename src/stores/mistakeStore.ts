@@ -63,7 +63,7 @@ export const useMistakeStore = create<MistakeState>()(
                 easeFactor -= 0.2;
                 break;
               case 'hard':
-                interval = Math.max(1, Math.round(interval * 1.2));
+                interval = Math.max(1, Math.ceil(interval * 1.2));
                 easeFactor -= 0.15;
                 break;
               case 'good':
@@ -84,6 +84,7 @@ export const useMistakeStore = create<MistakeState>()(
               nextReview: addDays(today, interval),
               reviewCount: m.reviewCount + 1,
               lastReviewResult: result,
+              lastReviewedAt: today,
             };
           }),
         }));
@@ -105,7 +106,7 @@ export const useMistakeStore = create<MistakeState>()(
 
         // Count reviewed today
         const reviewedToday = mistakes.filter(
-          m => m.reviewCount > 0 && m.lastReviewResult && m.nextReview > today
+          m => m.lastReviewedAt?.startsWith(today)
         ).length;
 
         const dueForReview = mistakes.filter(m => m.nextReview <= today).length;

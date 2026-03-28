@@ -218,7 +218,7 @@ export interface MediaVocabWord {
 // Toast types
 export interface ToastMessage {
   id: string;
-  type: 'xp' | 'badge' | 'goal' | 'levelUp' | 'info';
+  type: 'xp' | 'badge' | 'goal' | 'levelUp' | 'info' | 'success';
   title: string;
   description?: string;
   icon?: string;

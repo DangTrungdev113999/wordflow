@@ -31,7 +31,7 @@ export async function shareAchievement(achievement: AchievementDefinition): Prom
   try {
     await navigator.clipboard.writeText(data.text);
     useToastStore.getState().addToast({
-      type: 'info',
+      type: 'success',
       title: 'Copied to clipboard!',
       description: 'Share your achievement with friends',
     });
