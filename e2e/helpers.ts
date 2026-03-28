@@ -15,7 +15,6 @@ export async function clearAppData(page: Page) {
 /** Skip onboarding by setting placementDone — navigates to app first */
 export async function skipOnboarding(page: Page) {
   await page.goto('/');
-  // Wait for Dexie to init the DB, then update the profile
   await page.waitForTimeout(500);
   await page.evaluate(async () => {
     return new Promise<void>((resolve, reject) => {
