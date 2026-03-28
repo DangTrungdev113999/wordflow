@@ -38,6 +38,8 @@ export interface DailyLog {
   quizAccuracy: number;
   xpEarned: number;
   minutesSpent: number;
+  dictationAttempts?: number;
+  dictationCorrect?: number;
 }
 
 export interface UserProfile {

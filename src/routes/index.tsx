@@ -14,6 +14,8 @@ const AchievementsPage = lazy(() => import('../features/achievements/pages/Achie
 const StatsPage = lazy(() => import('../features/dashboard/pages/StatsPage').then(m => ({ default: m.StatsPage })));
 const SettingsPage = lazy(() => import('../features/settings/pages/SettingsPage').then(m => ({ default: m.SettingsPage })));
 const DailyChallengePage = lazy(() => import('../features/daily-challenge/pages/DailyChallengePage').then(m => ({ default: m.DailyChallengePage })));
+const ListeningPage = lazy(() => import('../features/listening/pages/ListeningPage').then(m => ({ default: m.ListeningPage })));
+const DictationSessionPage = lazy(() => import('../features/listening/pages/DictationSessionPage').then(m => ({ default: m.DictationSessionPage })));
 
 function PageLoader() {
   return (
@@ -46,6 +48,8 @@ export const router = createBrowserRouter([
       { path: 'grammar/:lessonId/quiz', element: withSuspense(QuizPage) },
       { path: 'achievements', element: withSuspense(AchievementsPage) },
       { path: 'stats', element: withSuspense(StatsPage) },
+      { path: 'listening', element: withSuspense(ListeningPage) },
+      { path: 'listening/:topic/practice', element: withSuspense(DictationSessionPage) },
       { path: 'daily-challenge', element: withSuspense(DailyChallengePage) },
       { path: 'settings', element: withSuspense(SettingsPage) },
     ],

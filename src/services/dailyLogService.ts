@@ -60,3 +60,13 @@ export async function logBonusXP(xp: number): Promise<void> {
     xpEarned: log.xpEarned + xp,
   });
 }
+
+export async function logDictation(correct: boolean, xp: number): Promise<void> {
+  const log = await ensureTodayLog();
+  await db.dailyLogs.put({
+    ...log,
+    dictationAttempts: (log.dictationAttempts ?? 0) + 1,
+    dictationCorrect: (log.dictationCorrect ?? 0) + (correct ? 1 : 0),
+    xpEarned: log.xpEarned + xp,
+  });
+}

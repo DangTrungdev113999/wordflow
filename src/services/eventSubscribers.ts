@@ -1,7 +1,7 @@
 import { eventBus } from './eventBus';
 import { calculateQuizXP } from './xpEngine';
 import { checkAchievements } from './achievementEngine';
-import { logWordReviewed, logQuizCompleted, logBonusXP } from './dailyLogService';
+import { logWordReviewed, logQuizCompleted, logBonusXP, logDictation } from './dailyLogService';
 import { useProgressStore } from '../stores/progressStore';
 import { useGrammarStore } from '../stores/grammarStore';
 import { useToastStore } from '../stores/toastStore';
@@ -54,6 +54,27 @@ export function initEventSubscribers() {
   // word:mastered → placeholder
   eventBus.on('word:mastered', (_data) => {
     // Future: mastery-based achievements
+  });
+
+  // dictation:correct → XP + dailyLog
+  eventBus.on('dictation:correct', () => {
+    const { addXP } = useProgressStore.getState();
+    addXP(XP_VALUES.dictation_correct);
+    void logDictation(true, XP_VALUES.dictation_correct);
+  });
+
+  // dictation:incorrect → dailyLog only
+  eventBus.on('dictation:incorrect', () => {
+    void logDictation(false, 0);
+  });
+
+  // dictation:session_complete → bonus XP if perfect
+  eventBus.on('dictation:session_complete', ({ correct, total }) => {
+    if (correct === total) {
+      const { addXP } = useProgressStore.getState();
+      addXP(XP_VALUES.dictation_session_perfect);
+      void logBonusXP(XP_VALUES.dictation_session_perfect);
+    }
   });
 
   // Wildcard: check achievements after ANY event

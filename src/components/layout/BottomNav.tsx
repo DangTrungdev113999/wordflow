@@ -1,13 +1,13 @@
 import { NavLink } from 'react-router';
-import { LayoutDashboard, BookOpen, PenTool, Trophy, BarChart2 } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Headphones, PenTool, Trophy } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
 const navItems = [
   { to: '/', label: 'Home', icon: LayoutDashboard },
   { to: '/vocabulary', label: 'Vocab', icon: BookOpen },
+  { to: '/listening', label: 'Listen', icon: Headphones },
   { to: '/grammar', label: 'Grammar', icon: PenTool },
   { to: '/achievements', label: 'Badges', icon: Trophy },
-  { to: '/stats', label: 'Stats', icon: BarChart2 },
 ];
 
 export function BottomNav() {
