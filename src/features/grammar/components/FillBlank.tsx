@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import Lottie from 'lottie-react';
 import { cn } from '../../../lib/utils';
 import type { FillBlankExercise } from '../../../lib/types';
+import correctAnim from '../../../assets/lottie/correct-check.json';
+import wrongAnim from '../../../assets/lottie/wrong-shake.json';
 
 interface Props {
   exercise: FillBlankExercise;
@@ -45,6 +48,16 @@ export function FillBlank({ exercise, onAnswer }: Props) {
         )}
         autoFocus
       />
+      {submitted && (
+        <div className="flex justify-center">
+          <Lottie
+            animationData={isCorrect ? correctAnim : wrongAnim}
+            loop={false}
+            className="w-20 h-20"
+          />
+        </div>
+      )}
+
       {submitted && !isCorrect && (
         <p className="text-sm text-green-600 dark:text-green-400">
           Correct answer: <strong>{exercise.acceptedAnswers[0]}</strong>

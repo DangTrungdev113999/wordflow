@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import Lottie from 'lottie-react';
 import { cn } from '../../../lib/utils';
 import type { MultipleChoiceExercise } from '../../../lib/types';
+import correctAnim from '../../../assets/lottie/correct-check.json';
+import wrongAnim from '../../../assets/lottie/wrong-shake.json';
 
 interface Props {
   exercise: MultipleChoiceExercise;
@@ -23,9 +26,22 @@ export function MultipleChoice({ exercise, onAnswer }: Props) {
     onAnswer(correct, exercise.options[selected]);
   };
 
+  const isCorrectAnswer = submitted && selected === exercise.answer;
+
   return (
     <div className="space-y-4">
       <p className="text-lg font-medium text-gray-900 dark:text-white">{exercise.question}</p>
+
+      {submitted && (
+        <div className="flex justify-center">
+          <Lottie
+            animationData={isCorrectAnswer ? correctAnim : wrongAnim}
+            loop={false}
+            className="w-20 h-20"
+          />
+        </div>
+      )}
+
       <div className="space-y-2">
         {exercise.options.map((option, i) => (
           <button

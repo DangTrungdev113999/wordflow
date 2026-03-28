@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
-import { CheckCircle, ArrowLeft, RotateCcw, XCircle } from 'lucide-react';
+import Lottie from 'lottie-react';
+import { ArrowLeft, RotateCcw, XCircle } from 'lucide-react';
 import { Button } from '../../../components/ui/Button';
+import celebrationAnim from '../../../assets/lottie/celebration.json';
 
 interface IncorrectQuestion {
   question: string;
@@ -35,9 +37,11 @@ export function QuizSummary({
       animate={{ opacity: 1, scale: 1 }}
       className="px-4 py-10 flex flex-col items-center gap-6 text-center max-w-md mx-auto"
     >
-      <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
-        <CheckCircle size={40} className="text-green-500" />
-      </div>
+      <Lottie
+        animationData={celebrationAnim}
+        loop={false}
+        className="w-32 h-32"
+      />
 
       <div>
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
