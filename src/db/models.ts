@@ -58,3 +58,15 @@ export interface DictionaryCache {
   data: DictionaryEntry[];
   cachedAt: number;
 }
+
+export interface DailyChallengeLog {
+  date: string;                    // "2026-03-28" — PK
+  wordId: string;
+  tasks: {
+    learnWord: boolean;
+    grammarQuiz: boolean;
+    dictation: boolean;
+  };
+  completed: boolean;
+  xpEarned: number;
+}

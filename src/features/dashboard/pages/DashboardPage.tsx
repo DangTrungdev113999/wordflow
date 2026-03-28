@@ -10,6 +10,7 @@ import { StatsChart } from '../components/StatsChart';
 import { Card } from '../../../components/ui/Card';
 import { ProgressBar } from '../../../components/ui/ProgressBar';
 import { TOPIC_ICONS, TOPIC_COLORS } from '../../../lib/constants';
+import { DailyChallengeCard } from '../../daily-challenge/components/DailyChallengeCard';
 
 export function DashboardPage() {
   const { todayWordsLearned, todayWordsReviewed } = useProgressStore();
@@ -42,6 +43,11 @@ export function DashboardPage() {
             <p className="text-xs text-green-600 dark:text-green-400 mt-1 font-medium">🎉 Daily goal completed!</p>
           )}
         </Card>
+      </motion.div>
+
+      {/* Daily Challenge */}
+      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.12 }}>
+        <DailyChallengeCard />
       </motion.div>
 
       {/* Streak + XP */}

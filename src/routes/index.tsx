@@ -13,6 +13,7 @@ const QuizPage = lazy(() => import('../features/grammar/pages/QuizPage').then(m 
 const AchievementsPage = lazy(() => import('../features/achievements/pages/AchievementsPage').then(m => ({ default: m.AchievementsPage })));
 const StatsPage = lazy(() => import('../features/dashboard/pages/StatsPage').then(m => ({ default: m.StatsPage })));
 const SettingsPage = lazy(() => import('../features/settings/pages/SettingsPage').then(m => ({ default: m.SettingsPage })));
+const DailyChallengePage = lazy(() => import('../features/daily-challenge/pages/DailyChallengePage').then(m => ({ default: m.DailyChallengePage })));
 
 function PageLoader() {
   return (
@@ -45,6 +46,7 @@ export const router = createBrowserRouter([
       { path: 'grammar/:lessonId/quiz', element: withSuspense(QuizPage) },
       { path: 'achievements', element: withSuspense(AchievementsPage) },
       { path: 'stats', element: withSuspense(StatsPage) },
+      { path: 'daily-challenge', element: withSuspense(DailyChallengePage) },
       { path: 'settings', element: withSuspense(SettingsPage) },
     ],
   },

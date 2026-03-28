@@ -1,5 +1,5 @@
 import Dexie, { type Table } from 'dexie';
-import type { Word, WordProgress, GrammarLesson, DailyLog, UserProfile, DictionaryCache } from './models';
+import type { Word, WordProgress, GrammarLesson, DailyLog, UserProfile, DictionaryCache, DailyChallengeLog } from './models';
 
 export class WordFlowDatabase extends Dexie {
   words!: Table<Word, string>;
@@ -8,6 +8,7 @@ export class WordFlowDatabase extends Dexie {
   dailyLogs!: Table<DailyLog, string>;
   userProfile!: Table<UserProfile, string>;
   dictionaryCache!: Table<DictionaryCache, string>;
+  dailyChallenges!: Table<DailyChallengeLog, string>;
 
   constructor() {
     super('WordFlowDB');
@@ -19,6 +20,16 @@ export class WordFlowDatabase extends Dexie {
       dailyLogs: 'date',
       userProfile: 'id',
       dictionaryCache: 'word, cachedAt',
+    });
+
+    this.version(2).stores({
+      words: 'id, topic, cefrLevel',
+      wordProgress: 'wordId, nextReview, status',
+      grammarLessons: 'id, level, completed',
+      dailyLogs: 'date',
+      userProfile: 'id',
+      dictionaryCache: 'word, cachedAt',
+      dailyChallenges: 'date',
     });
   }
 }
