@@ -12,6 +12,19 @@ const baseContext: AchievementContext = {
   dictationCount: 0,
   challengeCount: 0,
   pronunciationCount: 0,
+  sentenceBuildingCount: 0,
+  mediaSessionCount: 0,
+  grammarLessonsCompleted: 0,
+  grammarPerfectQuiz: 0,
+  writingSubmissions: 0,
+  sentenceBuildingPerfect: 0,
+  challengeStreak: 0,
+  goalsCreated: 0,
+  weeklyGoalsMet: 0,
+  totalMinutesStudied: 0,
+  mistakesReviewed: 0,
+  mistakesMastered: 0,
+  totalXp: 0,
 };
 
 describe('achievementEngine - Phase 4 conditions', () => {

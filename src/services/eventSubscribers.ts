@@ -6,6 +6,8 @@ import { initMistakeCollector } from './mistakeCollector';
 import { useProgressStore } from '../stores/progressStore';
 import { useGrammarStore } from '../stores/grammarStore';
 import { useToastStore } from '../stores/toastStore';
+import { useStudyPlanStore } from '../stores/studyPlanStore';
+import { useMistakeStore } from '../stores/mistakeStore';
 import { XP_VALUES } from '../lib/constants';
 import { db } from '../db/database';
 
@@ -112,9 +114,11 @@ export function initEventSubscribers() {
   eventBus.on('*', () => {
     if (achievementCheckTimer) clearTimeout(achievementCheckTimer);
     achievementCheckTimer = setTimeout(async () => {
-      const { totalWordsLearned, currentStreak, badges, addBadge } = useProgressStore.getState();
+      const { totalWordsLearned, currentStreak, badges, addBadge, xp } = useProgressStore.getState();
       const { lessonProgress } = useGrammarStore.getState();
       const { addToast } = useToastStore.getState();
+      const { goals, weeklySnapshots } = useStudyPlanStore.getState();
+      const { mistakes } = useMistakeStore.getState();
 
       const lessonsCompleted = Object.values(lessonProgress).filter((p) => p.completed).length;
       const hasPerfectQuiz = Object.values(lessonProgress).some((p) => p.bestScore === 100);
@@ -123,6 +127,7 @@ export function initEventSubscribers() {
       const dailyLogs = await db.dailyLogs.toArray();
       const dictationCount = dailyLogs.reduce((sum, log) => sum + (log.dictationCorrect ?? 0), 0);
       const pronunciationCount = dailyLogs.reduce((sum, log) => sum + (log.pronunciationCorrect ?? 0), 0);
+      const totalMinutesStudied = dailyLogs.reduce((sum, log) => sum + (log.minutesSpent ?? 0), 0);
 
       const allChallenges = await db.dailyChallenges.toArray();
       const challengeCount = allChallenges.filter(c => c.completed).length;
@@ -133,8 +138,44 @@ export function initEventSubscribers() {
         return sum + c.tasks.filter(t => t.type === 'sentenceBuilding' && t.completed).length;
       }, 0);
 
+      // Sentence building perfect: reuse sentenceBuildingCount as proxy
+      const sentenceBuildingPerfect = sentenceBuildingCount;
+
       const mediaSessions = await db.mediaSessions.toArray();
       const mediaSessionCount = mediaSessions.filter(s => s.completed).length;
+
+      // Writing submissions count
+      const writingSubmissions = await db.writingSubmissions.count();
+
+      // Challenge streak: count consecutive completed days from today backwards
+      const sortedChallenges = [...allChallenges]
+        .filter(c => c.completed)
+        .sort((a, b) => b.date.localeCompare(a.date));
+      let challengeStreak = 0;
+      if (sortedChallenges.length > 0) {
+        let checkDate = new Date().toISOString().split('T')[0];
+        for (const c of sortedChallenges) {
+          if (c.date === checkDate) {
+            challengeStreak++;
+            const d = new Date(checkDate);
+            d.setDate(d.getDate() - 1);
+            checkDate = d.toISOString().split('T')[0];
+          } else if (c.date < checkDate) {
+            break;
+          }
+        }
+      }
+
+      // Study planner metrics
+      const goalsCreated = goals.length;
+      const weeklyGoalsMet = weeklySnapshots.reduce((sum, snap) => {
+        const allMet = snap.goals.every(g => g.achieved >= g.target);
+        return sum + (allMet ? snap.daysActive : 0);
+      }, 0);
+
+      // Mistake journal metrics
+      const mistakesReviewed = mistakes.filter(m => m.reviewCount > 0).length;
+      const mistakesMastered = mistakes.filter(m => m.interval > 30).length;
 
       const newBadges = checkAchievements({
         totalWords: totalWordsLearned,
@@ -148,6 +189,17 @@ export function initEventSubscribers() {
         pronunciationCount,
         sentenceBuildingCount,
         mediaSessionCount,
+        grammarLessonsCompleted: lessonsCompleted,
+        grammarPerfectQuiz: hasPerfectQuiz ? 1 : 0,
+        writingSubmissions,
+        sentenceBuildingPerfect,
+        challengeStreak,
+        goalsCreated,
+        weeklyGoalsMet,
+        totalMinutesStudied,
+        mistakesReviewed,
+        mistakesMastered,
+        totalXp: xp,
       });
 
       for (const achievement of newBadges) {

@@ -129,15 +129,55 @@ export interface SentenceBuildingResult {
 }
 
 // Achievement types
+export type AchievementTier = 'bronze' | 'silver' | 'gold';
+
+export type AchievementCategory =
+  | 'vocabulary'
+  | 'streak'
+  | 'grammar'
+  | 'writing'
+  | 'sentence_building'
+  | 'media'
+  | 'daily_challenge'
+  | 'study_planner'
+  | 'mistake_journal'
+  | 'tier'
+  | 'general';
+
+export type AchievementConditionType =
+  | 'totalWords'
+  | 'streak'
+  | 'lessonsCompleted'
+  | 'perfectQuiz'
+  | 'nightOwl'
+  | 'dictationCount'
+  | 'challengeCount'
+  | 'pronunciationCount'
+  | 'sentenceBuildingCount'
+  | 'mediaSessionCount'
+  | 'grammarLessonsCompleted'
+  | 'grammarPerfectQuiz'
+  | 'writingSubmissions'
+  | 'sentenceBuildingPerfect'
+  | 'challengeStreak'
+  | 'goalsCreated'
+  | 'weeklyGoalsMet'
+  | 'totalMinutesStudied'
+  | 'mistakesReviewed'
+  | 'mistakesMastered'
+  | 'totalXp';
+
 export interface AchievementDefinition {
   id: string;
   badge: string;
   title: string;
   description: string;
+  category: AchievementCategory;
   condition: {
-    type: 'totalWords' | 'streak' | 'lessonsCompleted' | 'perfectQuiz' | 'nightOwl' | 'dictationCount' | 'challengeCount' | 'pronunciationCount' | 'sentenceBuildingCount' | 'mediaSessionCount';
+    type: AchievementConditionType;
     value: number;
   };
+  tier?: AchievementTier;
 }
 
 export interface AchievementContext {
@@ -152,6 +192,17 @@ export interface AchievementContext {
   pronunciationCount: number;
   sentenceBuildingCount: number;
   mediaSessionCount: number;
+  grammarLessonsCompleted: number;
+  grammarPerfectQuiz: number;
+  writingSubmissions: number;
+  sentenceBuildingPerfect: number;
+  challengeStreak: number;
+  goalsCreated: number;
+  weeklyGoalsMet: number;
+  totalMinutesStudied: number;
+  mistakesReviewed: number;
+  mistakesMastered: number;
+  totalXp: number;
 }
 
 // Media Learning types

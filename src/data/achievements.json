@@ -1,22 +1,53 @@
 [
-  { "id": "first_word", "badge": "🌱", "title": "First Steps", "description": "Learn your first word", "condition": { "type": "totalWords", "value": 1 } },
-  { "id": "words_50", "badge": "📖", "title": "Bookworm", "description": "Learn 50 words", "condition": { "type": "totalWords", "value": 50 } },
-  { "id": "words_100", "badge": "🏆", "title": "Centurion", "description": "Learn 100 words", "condition": { "type": "totalWords", "value": 100 } },
-  { "id": "words_500", "badge": "🌟", "title": "Word Wizard", "description": "Learn 500 words", "condition": { "type": "totalWords", "value": 500 } },
-  { "id": "streak_3", "badge": "🔥", "title": "3-Day Streak", "description": "Maintain a 3-day streak", "condition": { "type": "streak", "value": 3 } },
-  { "id": "streak_7", "badge": "🔥", "title": "Week Warrior", "description": "Maintain a 7-day streak", "condition": { "type": "streak", "value": 7 } },
-  { "id": "streak_30", "badge": "🔥", "title": "Monthly Master", "description": "Maintain a 30-day streak", "condition": { "type": "streak", "value": 30 } },
-  { "id": "grammar_10", "badge": "📝", "title": "Grammar Pro", "description": "Complete 10 grammar lessons", "condition": { "type": "lessonsCompleted", "value": 10 } },
-  { "id": "perfect_quiz", "badge": "💯", "title": "Perfectionist", "description": "Score 100% on any quiz", "condition": { "type": "perfectQuiz", "value": 1 } },
-  { "id": "night_owl", "badge": "🦉", "title": "Night Owl", "description": "Study after 10 PM", "condition": { "type": "nightOwl", "value": 22 } },
-  { "id": "dictation_10", "badge": "🎧", "title": "Keen Ear", "description": "Complete 10 dictation exercises", "condition": { "type": "dictationCount", "value": 10 } },
-  { "id": "dictation_50", "badge": "🎵", "title": "Sound Master", "description": "Complete 50 dictation exercises", "condition": { "type": "dictationCount", "value": 50 } },
-  { "id": "daily_challenge_7", "badge": "🏆", "title": "Weekly Champion", "description": "Complete 7 daily challenges", "condition": { "type": "challengeCount", "value": 7 } },
-  { "id": "daily_challenge_30", "badge": "👑", "title": "Monthly Champion", "description": "Complete 30 daily challenges", "condition": { "type": "challengeCount", "value": 30 } },
-  { "id": "pronunciation_10", "badge": "🗣️", "title": "Voice Learner", "description": "Practice pronunciation 10 times", "condition": { "type": "pronunciationCount", "value": 10 } },
-  { "id": "streak_14", "badge": "⚔️", "title": "2-Week Warrior", "description": "Streak 14 ngày", "condition": { "type": "streak", "value": 14 } },
-  { "id": "streak_100", "badge": "🏛️", "title": "Centurion Streak", "description": "Streak 100 ngày!", "condition": { "type": "streak", "value": 100 } },
-  { "id": "sentence_master", "badge": "🧩", "title": "Sentence Master", "description": "Hoàn thành 50 sentence building", "condition": { "type": "sentenceBuildingCount", "value": 50 } },
-  { "id": "media_explorer", "badge": "📰", "title": "Media Explorer", "description": "Học từ 10 bài báo/video", "condition": { "type": "mediaSessionCount", "value": 10 } },
-  { "id": "media_first", "badge": "📖", "title": "First Article", "description": "Hoàn thành media lesson đầu tiên", "condition": { "type": "mediaSessionCount", "value": 1 } }
+  { "id": "first_word", "badge": "🌱", "title": "First Steps", "description": "Learn your first word", "category": "vocabulary", "condition": { "type": "totalWords", "value": 1 } },
+  { "id": "words_50", "badge": "📖", "title": "Bookworm", "description": "Learn 50 words", "category": "vocabulary", "condition": { "type": "totalWords", "value": 50 } },
+  { "id": "words_100", "badge": "🏆", "title": "Centurion", "description": "Learn 100 words", "category": "vocabulary", "condition": { "type": "totalWords", "value": 100 } },
+  { "id": "words_500", "badge": "🌟", "title": "Word Wizard", "description": "Learn 500 words", "category": "vocabulary", "condition": { "type": "totalWords", "value": 500 } },
+
+  { "id": "streak_3", "badge": "🔥", "title": "3-Day Streak", "description": "Maintain a 3-day streak", "category": "streak", "condition": { "type": "streak", "value": 3 } },
+  { "id": "streak_7", "badge": "🔥", "title": "Week Warrior", "description": "Maintain a 7-day streak", "category": "streak", "condition": { "type": "streak", "value": 7 } },
+  { "id": "streak_14", "badge": "⚔️", "title": "2-Week Warrior", "description": "Maintain a 14-day streak", "category": "streak", "condition": { "type": "streak", "value": 14 } },
+  { "id": "streak_30", "badge": "🔥", "title": "Monthly Master", "description": "Maintain a 30-day streak", "category": "streak", "condition": { "type": "streak", "value": 30 } },
+  { "id": "streak_100", "badge": "🏛️", "title": "Centurion Streak", "description": "Maintain a 100-day streak!", "category": "streak", "condition": { "type": "streak", "value": 100 } },
+
+  { "id": "grammar_10", "badge": "📝", "title": "Grammar Pro", "description": "Complete 10 grammar lessons", "category": "grammar", "condition": { "type": "lessonsCompleted", "value": 10 } },
+  { "id": "perfect_quiz", "badge": "💯", "title": "Perfectionist", "description": "Score 100% on any quiz", "category": "grammar", "condition": { "type": "perfectQuiz", "value": 1 } },
+  { "id": "grammar_starter", "badge": "📖", "title": "Grammar Rookie", "description": "Complete your first grammar lesson", "category": "grammar", "condition": { "type": "grammarLessonsCompleted", "value": 1 } },
+  { "id": "grammar_master", "badge": "🎓", "title": "Grammar Master", "description": "Complete all 24 grammar lessons", "category": "grammar", "condition": { "type": "grammarLessonsCompleted", "value": 24 } },
+  { "id": "grammar_perfect", "badge": "💯", "title": "Perfect Grammar", "description": "Score 100% on a grammar quiz", "category": "grammar", "condition": { "type": "grammarPerfectQuiz", "value": 1 } },
+
+  { "id": "night_owl", "badge": "🦉", "title": "Night Owl", "description": "Study after 10 PM", "category": "general", "condition": { "type": "nightOwl", "value": 22 } },
+
+  { "id": "dictation_10", "badge": "🎧", "title": "Keen Ear", "description": "Complete 10 dictation exercises", "category": "general", "condition": { "type": "dictationCount", "value": 10 } },
+  { "id": "dictation_50", "badge": "🎵", "title": "Sound Master", "description": "Complete 50 dictation exercises", "category": "general", "condition": { "type": "dictationCount", "value": 50 } },
+
+  { "id": "pronunciation_10", "badge": "🗣️", "title": "Voice Learner", "description": "Practice pronunciation 10 times", "category": "general", "condition": { "type": "pronunciationCount", "value": 10 } },
+
+  { "id": "first_essay", "badge": "✍️", "title": "First Words", "description": "Submit your first writing", "category": "writing", "condition": { "type": "writingSubmissions", "value": 1 } },
+  { "id": "prolific_writer", "badge": "📝", "title": "Prolific Writer", "description": "Submit 20 writings", "category": "writing", "condition": { "type": "writingSubmissions", "value": 20 } },
+
+  { "id": "sentence_master", "badge": "🧩", "title": "Sentence Master", "description": "Complete 50 sentence building exercises", "category": "sentence_building", "condition": { "type": "sentenceBuildingCount", "value": 50 } },
+  { "id": "sentence_builder", "badge": "🧩", "title": "Sentence Builder", "description": "Complete 10 sentence building exercises", "category": "sentence_building", "condition": { "type": "sentenceBuildingCount", "value": 10 } },
+  { "id": "sentence_perfect", "badge": "✨", "title": "Perfect Order", "description": "Complete a sentence with no wrong attempts", "category": "sentence_building", "condition": { "type": "sentenceBuildingPerfect", "value": 1 } },
+
+  { "id": "media_first", "badge": "📖", "title": "First Article", "description": "Complete your first media lesson", "category": "media", "condition": { "type": "mediaSessionCount", "value": 1 } },
+  { "id": "media_explorer", "badge": "📰", "title": "Media Explorer", "description": "Learn from 5 media sources", "category": "media", "condition": { "type": "mediaSessionCount", "value": 5 } },
+  { "id": "media_addict", "badge": "🗞️", "title": "Media Addict", "description": "Learn from 25 media sources", "category": "media", "condition": { "type": "mediaSessionCount", "value": 25 } },
+
+  { "id": "daily_challenge_7", "badge": "🏆", "title": "Weekly Champion", "description": "Complete 7 daily challenges", "category": "daily_challenge", "condition": { "type": "challengeCount", "value": 7 } },
+  { "id": "daily_challenge_30", "badge": "👑", "title": "Monthly Champion", "description": "Complete 30 daily challenges", "category": "daily_challenge", "condition": { "type": "challengeCount", "value": 30 } },
+  { "id": "challenge_week", "badge": "🔥", "title": "Weekly Warrior", "description": "7-day challenge streak", "category": "daily_challenge", "condition": { "type": "challengeStreak", "value": 7 } },
+  { "id": "challenge_month", "badge": "🏆", "title": "Challenge Champion", "description": "30-day challenge streak", "category": "daily_challenge", "condition": { "type": "challengeStreak", "value": 30 } },
+
+  { "id": "goal_setter", "badge": "🎯", "title": "Goal Setter", "description": "Set your first study goal", "category": "study_planner", "condition": { "type": "goalsCreated", "value": 1 } },
+  { "id": "goal_achiever", "badge": "⭐", "title": "Goal Achiever", "description": "Meet all daily goals in a week", "category": "study_planner", "condition": { "type": "weeklyGoalsMet", "value": 7 } },
+  { "id": "study_hour", "badge": "⏰", "title": "Dedicated Student", "description": "Study for 60 minutes total", "category": "study_planner", "condition": { "type": "totalMinutesStudied", "value": 60 } },
+  { "id": "study_marathon", "badge": "🏃", "title": "Study Marathon", "description": "Study for 600 minutes total", "category": "study_planner", "condition": { "type": "totalMinutesStudied", "value": 600 } },
+
+  { "id": "mistake_learner", "badge": "🔄", "title": "Learning from Mistakes", "description": "Review 10 mistakes", "category": "mistake_journal", "condition": { "type": "mistakesReviewed", "value": 10 } },
+  { "id": "mistake_master", "badge": "🧠", "title": "Mistake Master", "description": "Master 50 mistakes (interval > 30 days)", "category": "mistake_journal", "condition": { "type": "mistakesMastered", "value": 50 } },
+
+  { "id": "bronze_scholar", "badge": "🥉", "title": "Bronze Scholar", "description": "Earn 500 XP", "category": "tier", "condition": { "type": "totalXp", "value": 500 }, "tier": "bronze" },
+  { "id": "silver_scholar", "badge": "🥈", "title": "Silver Scholar", "description": "Earn 2000 XP", "category": "tier", "condition": { "type": "totalXp", "value": 2000 }, "tier": "silver" },
+  { "id": "gold_scholar", "badge": "🥇", "title": "Gold Scholar", "description": "Earn 5000 XP", "category": "tier", "condition": { "type": "totalXp", "value": 5000 }, "tier": "gold" }
 ]
