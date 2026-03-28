@@ -79,3 +79,12 @@ export async function logDictation(correct: boolean, xp: number): Promise<void> 
     xpEarned: log.xpEarned + xp,
   });
 }
+
+export async function logStudyMinutes(minutes: number): Promise<void> {
+  if (minutes <= 0) return;
+  const log = await ensureTodayLog();
+  await db.dailyLogs.put({
+    ...log,
+    minutesSpent: log.minutesSpent + minutes,
+  });
+}

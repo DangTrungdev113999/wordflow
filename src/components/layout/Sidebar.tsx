@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router';
-import { LayoutDashboard, BookOpen, Headphones, BookOpenText, PenTool, Sparkles, BarChart2, Trophy, Settings, Puzzle, Newspaper, RotateCcw } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Headphones, BookOpenText, PenTool, Sparkles, BarChart2, Trophy, Settings, Puzzle, Newspaper, RotateCcw, CalendarDays } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { useProgressStore } from '../../stores/progressStore';
 import { useMistakeStore } from '../../stores/mistakeStore';
@@ -13,6 +13,7 @@ const navItems = [
   { to: '/sentence-building', label: 'Sentences', icon: Puzzle },
   { to: '/learn-media', label: 'Learn from Media', icon: Newspaper },
   { to: '/mistake-journal', label: 'Mistake Journal', icon: RotateCcw },
+  { to: '/study-planner', label: 'Study Planner', icon: CalendarDays },
   { to: '/ai', label: 'AI', icon: Sparkles },
   { to: '/stats', label: 'Statistics', icon: BarChart2 },
   { to: '/achievements', label: 'Achievements', icon: Trophy },

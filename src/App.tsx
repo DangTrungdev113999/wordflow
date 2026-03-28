@@ -6,6 +6,7 @@ import { Header } from './components/layout/Header';
 import { BottomNav } from './components/layout/BottomNav';
 import { Sidebar } from './components/layout/Sidebar';
 import { ToastContainer } from './components/common/ToastContainer';
+import { StudyTimerWidget } from './features/study-planner/components/StudyTimerWidget';
 import { useEffect } from 'react';
 import { db, initializeUserProfile } from './db/database';
 import { initEventSubscribers } from './services/eventSubscribers';
@@ -45,6 +46,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors">
       <ToastContainer />
+      {!isFullscreen && <StudyTimerWidget />}
       {!isFullscreen && <Sidebar />}
       <div className={!isFullscreen ? 'lg:ml-64' : ''}>
         {!isFullscreen && <Header />}
