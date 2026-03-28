@@ -1,17 +1,9 @@
 import type { AIProvider, AIMessage, AIResponse } from './aiProvider';
+import { ApiError } from './aiProvider';
 
 const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
 const GROQ_MODEL = 'llama-3.1-8b-instant';
 const STORAGE_KEY = 'wordflow_groq_api_key';
-
-class ApiError extends Error {
-  status: number;
-  constructor(message: string, status: number) {
-    super(message);
-    this.name = 'ApiError';
-    this.status = status;
-  }
-}
 
 function getApiKey(): string | null {
   return localStorage.getItem(STORAGE_KEY);
@@ -25,7 +17,7 @@ export const groqProvider: AIProvider = {
     return key !== null && key.length > 0;
   },
 
-  async chat(messages: AIMessage[], config?: { maxTokens?: number; temperature?: number }): Promise<AIResponse> {
+  async chat(messages: AIMessage[], config?: { maxTokens?: number; temperature?: number; signal?: AbortSignal }): Promise<AIResponse> {
     const apiKey = getApiKey();
     if (!apiKey) throw new ApiError('Groq API key not configured', 401);
 
@@ -41,6 +33,7 @@ export const groqProvider: AIProvider = {
         max_tokens: config?.maxTokens ?? 1024,
         temperature: config?.temperature ?? 0.7,
       }),
+      signal: config?.signal,
     });
 
     if (!res.ok) {

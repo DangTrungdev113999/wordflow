@@ -84,9 +84,11 @@ export function ConversationList({ conversations, onNew, onDelete }: Conversatio
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  onDelete(c.id);
+                  if (window.confirm('Xóa cuộc trò chuyện này?')) {
+                    onDelete(c.id);
+                  }
                 }}
-                className="p-2 mr-1 opacity-0 group-hover:opacity-100 text-gray-400 hover:text-red-500 transition-all"
+                className="p-2 mr-1 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 text-gray-400 hover:text-red-500 transition-all"
               >
                 <Trash2 size={14} />
               </button>

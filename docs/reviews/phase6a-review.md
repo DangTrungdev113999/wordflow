@@ -7,67 +7,96 @@
 
 ---
 
-## Status: NEEDS CHANGES (3 issues)
+## Status: NEEDS CHANGES
 
 ---
 
-## Issue 1 — BUG: Full page reload khi chọn conversation
-- **File:** `src/features/ai-chat/pages/AIChatPage.tsx` ~line 42
-- **Vấn đề:** Dùng `window.location.href = /ai-chat/${id}` → full page reload, mất React state
-- **Fix:** Đổi sang `navigate(`/ai-chat/${id}`)` dùng `useNavigate()` từ React Router (hook đã import trong useAIChat)
-- **Severity:** Medium — UX kém, app reload mỗi lần chuyển conversation
+## 🔴 Critical (phải fix)
 
-## Issue 2 — DESIGN MISMATCH: BottomNav chưa restructure
-- **File:** `src/components/layout/BottomNav.tsx`
-- **Vấn đề:** Design đề xuất 4 tab: Dashboard / Learn / AI / Stats. Code hiện có 5 tab: Home / Vocab / Listen / Grammar / AI. Chưa gom vào tab "Learn"
-- **Severity:** Low — Có thể defer sang phase sau, nhưng ghi nhận khác design
+### 1. AbortController cho fetch — memory leak
+- **Files:** `geminiProvider.ts`, `groqProvider.ts`, `useAIChat.ts`
+- **Vấn đề:** Fetch không có AbortController → nếu user rời page hoặc unmount component, request vẫn chạy → memory leak, state update trên unmounted component
+- **Fix:** Thêm AbortController vào provider `chat()` method (accept `signal` param). Trong `useAIChat`, tạo AbortController ref, pass signal vào `aiService.chat()`, abort on cleanup
 
-## Issue 3 — DESIGN MISMATCH: Sidebar chưa restructure
-- **File:** `src/components/layout/Sidebar.tsx`
-- **Vấn đề:** Tương tự BottomNav — 9 mục riêng lẻ thay vì gom theo cấu trúc design
-- **Severity:** Low — Có thể defer
+### 2. Rate limiter `acquire()` silent fail
+- **File:** `rateLimiter.ts` lines 49-56, 62-69
+- **Vấn đề:** Sau 2 lần retry (`delay` + `tryConsume`), nếu vẫn fail thì `tryConsume()` return false nhưng code không check → request đi qua dù rate limit
+- **Fix:** Sau retry cuối, nếu `tryConsume()` return false → throw `RateLimitError`
+
+### 3. `sendMessage` race condition — double-click
+- **File:** `useAIChat.ts`
+- **Vấn đề:** `isLoading` check dùng stale closure value. Double-click nhanh có thể gửi 2 request vì cả 2 đều thấy `isLoading = false`
+- **Fix:** Dùng `useRef` cho loading state hoặc `sendingRef.current` flag set đồng bộ trước async logic
 
 ---
 
-## Files OK (24/26)
+## 🟡 Important (nên fix)
 
-### AI Service Layer ✅
-- `aiProvider.ts` — Interface AIProvider, AIMessage, AIResponse khớp design
-- `geminiProvider.ts` — URL, model gemini-2.0-flash, localStorage key đúng
-- `groqProvider.ts` — OpenAI-compatible format, Bearer auth đúng
-- `aiService.ts` — Fallback [gemini → groq], rateLimiter, singleton OK
-- `rateLimiter.ts` — Token bucket 10 req/min global, 5 req/min per feature OK
-- `promptTemplates.ts` — 4 prompts khớp design, thêm "valid JSON only" cho structured output — cải tiến tốt
+### 4. AISettings default status `'valid'` khi có key
+- **File:** `AISettings.tsx` — `ProviderCard` line `useState<KeyStatus>(() => (key ? 'valid' : 'none'))`
+- **Vấn đề:** Có key trong localStorage → auto set 'valid' mà chưa test. Key cũ/hết hạn sẽ hiện ✅ sai
+- **Fix:** Default là `'untested'` hoặc auto-test khi mount (gọi `testConnection()` trong useEffect nếu key exists)
 
-### Database ✅
-- `database.ts` — Version 4, 4 tables mới, backward-compatible
-- `models.ts` — Tất cả interfaces đúng design
+### 5. `formatContent` regex quá aggressive
+- **File:** `ChatBubble.tsx` line 11 — `content.replace(/\n*❌[\s\S]*$/, '')`
+- **Vấn đề:** Strip mọi thứ từ ký tự ❌ đầu tiên trở đi. Nếu AI dùng ❌ trong conversational text (ví dụ "That's ❌ wrong approach"), toàn bộ phần sau bị cắt
+- **Fix:** Regex cần chặt hơn — match block correction pattern `❌...→...✅` thay vì bất kỳ ❌ nào
 
-### AI Chat ✅
-- `useAIChat.ts` — 20-message context, parseCorrections regex ❌→✅—, XP +5/+10, EventBus OK
-- `ChatBubble.tsx` — User/AI phân biệt, strip corrections render riêng OK
-- `ChatInput.tsx` — Auto-resize, Enter/Shift+Enter OK
-- `ConversationList.tsx` — List, new chat, delete, relative time OK
-- `CorrectionHighlight.tsx` — Wrong (đỏ gạch) → correct (xanh), explanation OK
-- `TopicSuggestions.tsx` — 6 gợi ý, grid, click gửi OK
+### 6. Duplicate `ApiError` class
+- **Files:** `geminiProvider.ts:6`, `groqProvider.ts:7`
+- **Vấn đề:** Cùng class `ApiError` define 2 lần
+- **Fix:** Extract sang `aiProvider.ts` hoặc file common, import dùng chung
 
-### AI Hub + Navigation ✅
-- `AIHubPage.tsx` — 3 cards, Writing + Roleplay "Sắp có" OK
-- `AIKeyRequired.tsx` — Banner + link /settings#ai OK
-- `AISettings.tsx` — 2 providers, show/hide, test connection, 4 status, debounce 500ms, collapsible instructions, security warning — khớp 100% Section 11
-- `SettingsPage.tsx` — Import AISettings, section id="ai" OK
+### 7. Xóa conversation không confirm
+- **File:** `useAIChat.ts` → `deleteConversation`
+- **Vấn đề:** Delete trực tiếp không hỏi user. Mất toàn bộ conversation history
+- **Fix:** Thêm confirm dialog trước khi xóa (có thể handle ở `ConversationList.tsx`)
 
-### Routes + Events ✅
-- `routes/index.tsx` — /ai, /ai-chat, /ai-chat/:conversationId OK
-- `eventBus.ts` — 3 events mới đúng payload types
-- `constants.ts` — XP values đúng
+---
+
+## ✅ OK (không cần sửa)
+
+### AI Service Layer
+- `aiProvider.ts` — Interface đúng design ✅
+- `geminiProvider.ts` — URL, model, format đúng ✅
+- `groqProvider.ts` — OpenAI-compatible đúng ✅
+- `aiService.ts` — Fallback logic, singleton ✅
+- `promptTemplates.ts` — 4 prompts khớp design, thêm "valid JSON only" — cải tiến tốt ✅
+
+### Database
+- `database.ts` — Version 4, 4 tables mới, backward-compatible ✅
+- `models.ts` — Tất cả interfaces đúng design ✅
+
+### AI Chat
+- `useAIChat.ts` — 20-message context, parseCorrections, XP, EventBus đúng ✅
+- `AIChatPage.tsx` — Layout, AIKeyRequired check, `navigate()` dùng đúng (handleNewChat) ✅
+- `ChatInput.tsx` — Auto-resize, Enter/Shift+Enter ✅
+- `ConversationList.tsx` — List, relative time ✅
+- `CorrectionHighlight.tsx` — Visual đúng design ✅
+- `TopicSuggestions.tsx` — 6 gợi ý, grid ✅
+
+### AI Hub + Navigation + Settings
+- `AIHubPage.tsx` — 3 cards, Writing + Roleplay "Sắp có" ✅
+- `AIKeyRequired.tsx` — Banner + link ✅
+- `AISettings.tsx` — 2 providers, show/hide, test, collapsible, warning — khớp Section 11 ✅
+- `SettingsPage.tsx` — Import + section id="ai" ✅
+
+### Routes + Events
+- `routes/index.tsx` — 3 routes đúng ✅
+- `eventBus.ts` — 3 events mới ✅
+- `constants.ts` — XP values đúng ✅
+
+---
+
+## Lưu ý về review trước
+
+Review trước mình report bug `window.location.href` ở AIChatPage — nhưng xem lại code thì `handleNewChat` đã dùng `navigate()` đúng. `useAIChat.sendMessage` cũng dùng `navigate()`. Bug này **không tồn tại** (có thể đã fix hoặc report sai). Đã bỏ khỏi list.
+
+Nav restructure (BottomNav/Sidebar gom thành 4 tab) — defer sang phase sau, không block.
 
 ---
 
 ## Verdict
 
-**Issue #1 (window.location.href) phải fix** — đây là bug ảnh hưởng UX.
+Fix **3 critical + 4 important** items rồi báo lại. Code quality overall tốt, architecture đúng design.
 
-Issue #2-3 (nav restructure) có thể defer — không ảnh hưởng functionality, AI tab đã được thêm đúng. Tuy nhiên sẽ cần restructure khi thêm nhiều features hơn.
-
-Fix issue #1 xong thì PASS.

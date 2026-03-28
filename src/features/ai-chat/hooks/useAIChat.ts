@@ -40,12 +40,21 @@ export function useAIChat(conversationId?: string) {
   const navigate = useNavigate();
   const addXP = useProgressStore((s) => s.addXP);
   const levelRef = useRef<CEFRLevel>('A1');
+  const abortControllerRef = useRef<AbortController | null>(null);
+  const isSendingRef = useRef(false);
 
   // Load user's CEFR level
   useEffect(() => {
     db.userProfile.get('default').then((p) => {
       if (p?.placementLevel) levelRef.current = p.placementLevel;
     });
+  }, []);
+
+  // Abort in-flight request on unmount
+  useEffect(() => {
+    return () => {
+      abortControllerRef.current?.abort();
+    };
   }, []);
 
   // Load conversations list
@@ -96,7 +105,13 @@ export function useAIChat(conversationId?: string) {
 
   const sendMessage = useCallback(
     async (content: string) => {
-      if (!content.trim() || isLoading) return;
+      if (!content.trim() || isSendingRef.current) return;
+      isSendingRef.current = true;
+
+      // Abort any in-flight request
+      abortControllerRef.current?.abort();
+      const controller = new AbortController();
+      abortControllerRef.current = controller;
 
       setError(null);
       let activeConvoId = conversationId;
@@ -149,7 +164,7 @@ export function useAIChat(conversationId?: string) {
           })),
         ];
 
-        const response = await aiService.chat(aiMessages, { feature: 'chat' });
+        const response = await aiService.chat(aiMessages, { feature: 'chat', signal: controller.signal });
         const corrections = parseCorrections(response.text);
 
         const assistantMsg: ChatMessage = {
@@ -173,13 +188,15 @@ export function useAIChat(conversationId?: string) {
         // EventBus
         eventBus.emit('chat:message-sent', { corrections: corrections.length });
       } catch (e) {
+        if (e instanceof DOMException && e.name === 'AbortError') return;
         const msg = e instanceof Error ? e.message : 'Đã xảy ra lỗi. Vui lòng thử lại.';
         setError(msg);
       } finally {
+        isSendingRef.current = false;
         setIsLoading(false);
       }
     },
-    [conversationId, isLoading, createConversation, navigate, loadConversations, addXP],
+    [conversationId, createConversation, navigate, loadConversations, addXP],
   );
 
   const deleteConversation = useCallback(

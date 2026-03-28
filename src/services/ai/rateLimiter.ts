@@ -1,3 +1,10 @@
+export class RateLimitExceededError extends Error {
+  constructor(message = 'Bạn gửi quá nhanh. Vui lòng đợi một chút rồi thử lại.') {
+    super(message);
+    this.name = 'RateLimitExceededError';
+  }
+}
+
 interface TokenBucket {
   tokens: number;
   lastRefill: number;
@@ -52,7 +59,9 @@ export class RateLimiter {
       // Retry after waiting
       if (!tryConsume(this.globalBucket)) {
         await this.delay(msUntilAvailable(this.globalBucket));
-        tryConsume(this.globalBucket);
+        if (!tryConsume(this.globalBucket)) {
+          throw new RateLimitExceededError();
+        }
       }
     }
 
@@ -68,7 +77,9 @@ export class RateLimiter {
         await this.delay(waitMs);
         if (!tryConsume(bucket)) {
           await this.delay(msUntilAvailable(bucket));
-          tryConsume(bucket);
+          if (!tryConsume(bucket)) {
+            throw new RateLimitExceededError();
+          }
         }
       }
     }

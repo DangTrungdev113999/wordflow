@@ -1,16 +1,8 @@
 import type { AIProvider, AIMessage, AIResponse } from './aiProvider';
+import { ApiError } from './aiProvider';
 
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 const STORAGE_KEY = 'wordflow_gemini_api_key';
-
-class ApiError extends Error {
-  status: number;
-  constructor(message: string, status: number) {
-    super(message);
-    this.name = 'ApiError';
-    this.status = status;
-  }
-}
 
 function getApiKey(): string | null {
   return localStorage.getItem(STORAGE_KEY);
@@ -43,7 +35,7 @@ export const geminiProvider: AIProvider = {
     return key !== null && key.length > 0;
   },
 
-  async chat(messages: AIMessage[], config?: { maxTokens?: number; temperature?: number }): Promise<AIResponse> {
+  async chat(messages: AIMessage[], config?: { maxTokens?: number; temperature?: number; signal?: AbortSignal }): Promise<AIResponse> {
     const apiKey = getApiKey();
     if (!apiKey) throw new ApiError('Gemini API key not configured', 401);
 
@@ -65,6 +57,7 @@ export const geminiProvider: AIProvider = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
+      signal: config?.signal,
     });
 
     if (!res.ok) {

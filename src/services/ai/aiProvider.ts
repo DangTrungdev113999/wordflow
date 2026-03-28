@@ -10,8 +10,17 @@ export interface AIResponse {
 
 export interface AIProvider {
   name: string;
-  chat(messages: AIMessage[], config?: { maxTokens?: number; temperature?: number }): Promise<AIResponse>;
+  chat(messages: AIMessage[], config?: { maxTokens?: number; temperature?: number; signal?: AbortSignal }): Promise<AIResponse>;
   isAvailable(): boolean;
+}
+
+export class ApiError extends Error {
+  status: number;
+  constructor(message: string, status: number) {
+    super(message);
+    this.name = 'ApiError';
+    this.status = status;
+  }
 }
 
 export class AIUnavailableError extends Error {

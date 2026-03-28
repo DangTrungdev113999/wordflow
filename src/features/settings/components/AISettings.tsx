@@ -15,7 +15,7 @@ interface ProviderConfig {
   testUrl: (key: string) => { url: string; headers?: Record<string, string> };
 }
 
-type KeyStatus = 'none' | 'testing' | 'valid' | 'invalid';
+type KeyStatus = 'none' | 'untested' | 'testing' | 'valid' | 'invalid';
 
 const PROVIDERS: ProviderConfig[] = [
   {
@@ -80,6 +80,12 @@ function StatusBadge({ status }: { status: KeyStatus }) {
           <Loader2 size={16} className="animate-spin" /> Đang kiểm tra...
         </span>
       );
+    case 'untested':
+      return (
+        <span className="inline-flex items-center gap-1.5 text-sm text-gray-400">
+          <Circle size={16} /> Chưa kiểm tra
+        </span>
+      );
     default:
       return (
         <span className="inline-flex items-center gap-1.5 text-sm text-gray-400">
@@ -92,7 +98,7 @@ function StatusBadge({ status }: { status: KeyStatus }) {
 function ProviderCard({ provider }: { provider: ProviderConfig }) {
   const [key, setKey] = useState(() => localStorage.getItem(provider.storageKey) ?? '');
   const [showKey, setShowKey] = useState(false);
-  const [status, setStatus] = useState<KeyStatus>(() => (key ? 'valid' : 'none'));
+  const [status, setStatus] = useState<KeyStatus>(() => (key ? 'untested' : 'none'));
   const [instructionsOpen, setInstructionsOpen] = useState(!key);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
@@ -131,6 +137,14 @@ function ProviderCard({ provider }: { provider: ProviderConfig }) {
       setStatus('invalid');
     }
   };
+
+  // Auto-test on mount if key exists
+  useEffect(() => {
+    if (key) {
+      testConnection();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-5">

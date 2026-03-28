@@ -9,7 +9,8 @@ interface ChatBubbleProps {
 
 function formatContent(content: string): string {
   // Remove correction block from displayed text (it's shown separately)
-  return content.replace(/\n*❌[\s\S]*$/, '').trim();
+  // Only strip lines matching the correction format: ❌ ... → ✅ ... — ...
+  return content.replace(/\n*(?:❌\s*.+?\s*→\s*✅\s*.+?\s*—\s*.+?\n*)+$/, '').trim();
 }
 
 export function ChatBubble({ message }: ChatBubbleProps) {

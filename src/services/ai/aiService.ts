@@ -8,7 +8,7 @@ class AIService {
   private providers = [geminiProvider, groqProvider];
   private rateLimiter = new RateLimiter();
 
-  async chat(messages: AIMessage[], opts?: { feature?: string; maxTokens?: number; temperature?: number }): Promise<AIResponse> {
+  async chat(messages: AIMessage[], opts?: { feature?: string; maxTokens?: number; temperature?: number; signal?: AbortSignal }): Promise<AIResponse> {
     await this.rateLimiter.acquire(opts?.feature);
 
     for (const provider of this.providers) {
@@ -17,6 +17,7 @@ class AIService {
         return await provider.chat(messages, {
           maxTokens: opts?.maxTokens,
           temperature: opts?.temperature,
+          signal: opts?.signal,
         });
       } catch (e) {
         if (isRateLimitError(e)) continue;
