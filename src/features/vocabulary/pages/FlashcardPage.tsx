@@ -75,6 +75,7 @@ export function FlashcardPage() {
         onRate={handleRate}
         cardIndex={currentCardIndex}
         total={flashcardQueue.length}
+        wordId={`${topic}:${currentWord.word}`}
       />
     </div>
   );

@@ -1,5 +1,6 @@
 import { FlipCard } from '../../../components/common/FlipCard';
 import { AudioButton } from '../../../components/common/AudioButton';
+import { PronunciationButton } from './PronunciationButton';
 import { Button } from '../../../components/ui/Button';
 import type { VocabWord } from '../../../lib/types';
 import { cn } from '../../../lib/utils';
@@ -11,9 +12,10 @@ interface FlashcardDeckProps {
   onRate: (rating: 0 | 2 | 4 | 5) => void;
   cardIndex: number;
   total: number;
+  wordId?: string;
 }
 
-export function FlashcardDeck({ word, isFlipped, onFlip, onRate, cardIndex, total }: FlashcardDeckProps) {
+export function FlashcardDeck({ word, isFlipped, onFlip, onRate, cardIndex, total, wordId }: FlashcardDeckProps) {
   const progress = ((cardIndex + 1) / total) * 100;
 
   return (
@@ -49,6 +51,10 @@ export function FlashcardDeck({ word, isFlipped, onFlip, onRate, cardIndex, tota
             <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">{word.meaning}</p>
             <p className="text-sm text-gray-400 font-mono">{word.ipa}</p>
             <p className="text-sm text-gray-500 dark:text-gray-400 italic mt-1">"{word.example}"</p>
+            <div className="flex items-center gap-2 mt-2">
+              <AudioButton word={word.word} audioUrl={word.audioUrl} size="sm" />
+              {wordId && <PronunciationButton word={word.word} wordId={wordId} />}
+            </div>
           </div>
         }
       />

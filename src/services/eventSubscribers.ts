@@ -77,6 +77,17 @@ export function initEventSubscribers() {
     }
   });
 
+  // pronunciation:correct → XP
+  eventBus.on('pronunciation:correct', () => {
+    const { addXP } = useProgressStore.getState();
+    addXP(XP_VALUES.pronunciation_correct);
+  });
+
+  // pronunciation:incorrect → no XP (event still fires for achievement tracking)
+  eventBus.on('pronunciation:incorrect', () => {
+    // No XP for incorrect pronunciation
+  });
+
   // Wildcard: check achievements after ANY event
   eventBus.on('*', () => {
     const { totalWordsLearned, currentStreak, badges, addBadge } = useProgressStore.getState();
