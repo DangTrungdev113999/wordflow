@@ -30,6 +30,7 @@ export const DEFAULT_EASE_FACTOR = 2.5;
 export const MIN_EASE_FACTOR = 1.3;
 
 export const DICTIONARY_API_BASE = 'https://api.dictionaryapi.dev/api/v2/entries/en';
+export const DATAMUSE_API_BASE = 'https://api.datamuse.com/words';
 
 export const CEFR_LEVELS: readonly string[] = ['A1', 'A2', 'B1', 'B2'];
 

@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from 'react-router';
 import { ArrowLeft } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useFlashcard } from '../hooks/useFlashcard';
+import { useEnrichedAudio } from '../../../hooks/useEnrichedAudio';
 import { FlashcardDeck } from '../components/FlashcardDeck';
 import { SessionSummary } from '../components/SessionSummary';
 import { getWeakWords, getSessionWeakWords, type WeakWord } from '../../../services/weakWordsService';
@@ -23,6 +24,7 @@ export function FlashcardPage() {
     sessionXP,
   } = useFlashcard(topic ?? '');
 
+  const { getAudioUrl } = useEnrichedAudio(flashcardQueue, currentCardIndex);
   const [weakWords, setWeakWords] = useState<WeakWord[]>([]);
 
   useEffect(() => {
@@ -69,7 +71,7 @@ export function FlashcardPage() {
         <h1 className="font-semibold text-gray-900 dark:text-white">{currentTopic.topicLabel}</h1>
       </div>
       <FlashcardDeck
-        word={currentWord}
+        word={{ ...currentWord, audioUrl: getAudioUrl(currentWord) }}
         isFlipped={isFlipped}
         onFlip={flipCard}
         onRate={handleRate}
