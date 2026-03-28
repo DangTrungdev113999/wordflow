@@ -2,6 +2,7 @@ import { Settings, Sun, Moon, Monitor, Target } from 'lucide-react';
 import { useSettingsStore } from '../../../stores/settingsStore';
 import type { Theme } from '../../../lib/types';
 import { cn } from '../../../lib/utils';
+import { DataExportImport } from '../components/DataExportImport';
 
 export function SettingsPage() {
   const { theme, setTheme, dailyGoal, setDailyGoal } = useSettingsStore();
@@ -70,6 +71,11 @@ export function SettingsPage() {
             </button>
           ))}
         </div>
+      </div>
+
+      {/* Data Export/Import */}
+      <div className="mb-4">
+        <DataExportImport />
       </div>
 
       {/* App info */}
