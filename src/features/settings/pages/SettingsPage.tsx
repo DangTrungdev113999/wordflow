@@ -5,6 +5,7 @@ import { useSettingsStore } from '../../../stores/settingsStore';
 import type { Theme, CEFRLevel } from '../../../lib/types';
 import { cn } from '../../../lib/utils';
 import { DataExportImport } from '../components/DataExportImport';
+import { AISettings } from '../components/AISettings';
 import { db } from '../../../db/database';
 
 export function SettingsPage() {
@@ -102,6 +103,11 @@ export function SettingsPage() {
         >
           Redo Placement Test
         </button>
+      </div>
+
+      {/* AI Settings */}
+      <div className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800 mb-4">
+        <AISettings />
       </div>
 
       {/* Data Export/Import */}

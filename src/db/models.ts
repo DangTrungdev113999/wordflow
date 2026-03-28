@@ -93,3 +93,83 @@ export interface CustomWord {
   audioUrl: string | null;
   createdAt: number;
 }
+
+// Phase 6 — AI Features
+
+export interface ChatConversation {
+  id: string;
+  title: string;
+  createdAt: number;
+  updatedAt: number;
+}
+
+export interface Correction {
+  wrong: string;
+  correct: string;
+  explanation: string;
+}
+
+export interface ChatMessage {
+  id: string;
+  conversationId: string;
+  role: 'user' | 'assistant';
+  content: string;
+  corrections?: Correction[];
+  timestamp: number;
+}
+
+export interface GrammarIssue {
+  original: string;
+  correction: string;
+  rule: string;
+}
+
+export interface WritingFeedback {
+  overallScore: number;
+  categories: {
+    grammar: { score: number; issues: GrammarIssue[] };
+    vocabulary: { score: number; feedback: string };
+    coherence: { score: number; feedback: string };
+    taskCompletion: { score: number; feedback: string };
+  };
+  improvedVersion: string;
+  encouragement: string;
+  vocabSuggestions: string[];
+}
+
+export interface WritingSubmission {
+  id: string;
+  promptId: string;
+  content: string;
+  wordCount: number;
+  feedback: WritingFeedback | null;
+  overallScore: number;
+  submittedAt: number;
+}
+
+export interface RoleplayMessage {
+  role: 'user' | 'assistant';
+  content: string;
+  timestamp: number;
+}
+
+export interface RoleplaySummary {
+  goalCompleted: boolean;
+  goalFeedback: string;
+  fluency: number;
+  fluencyFeedback: string;
+  grammarIssues: { original: string; correction: string; explanation: string }[];
+  usefulPhrases: string[];
+  phrasesToLearn: string[];
+  overallFeedback: string;
+}
+
+export interface RoleplaySession {
+  id: string;
+  scenarioId: string;
+  messages: RoleplayMessage[];
+  status: 'in-progress' | 'completed';
+  summary?: RoleplaySummary | null;
+  startedAt: number;
+  completedAt?: number;
+}

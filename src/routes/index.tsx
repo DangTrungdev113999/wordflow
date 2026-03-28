@@ -24,6 +24,8 @@ const CustomFlashcardPage = lazy(() => import('../features/vocabulary/pages/Cust
 const PronunciationPage = lazy(() => import('../features/pronunciation/pages/PronunciationPage').then(m => ({ default: m.PronunciationPage })));
 const ReadingPage = lazy(() => import('../features/reading/pages/ReadingPage').then(m => ({ default: m.ReadingPage })));
 const ReadingSessionPage = lazy(() => import('../features/reading/pages/ReadingSessionPage').then(m => ({ default: m.ReadingSessionPage })));
+const AIHubPage = lazy(() => import('../features/ai-hub/pages/AIHubPage').then(m => ({ default: m.AIHubPage })));
+const AIChatPage = lazy(() => import('../features/ai-chat/pages/AIChatPage').then(m => ({ default: m.AIChatPage })));
 
 function PageLoader() {
   return (
@@ -67,6 +69,9 @@ export const router = createBrowserRouter([
       { path: 'reading', element: withSuspense(ReadingPage) },
       { path: 'reading/:passageId', element: withSuspense(ReadingSessionPage) },
       { path: 'daily-challenge', element: withSuspense(DailyChallengePage) },
+      { path: 'ai', element: withSuspense(AIHubPage) },
+      { path: 'ai-chat', element: withSuspense(AIChatPage) },
+      { path: 'ai-chat/:conversationId', element: withSuspense(AIChatPage) },
       { path: 'settings', element: withSuspense(SettingsPage) },
       { path: 'onboarding', element: withSuspense(OnboardingPage) },
     ],

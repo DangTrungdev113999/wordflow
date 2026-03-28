@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router';
-import { LayoutDashboard, BookOpen, Headphones, BookOpenText, PenTool, BarChart2, Trophy, Settings } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Headphones, BookOpenText, PenTool, Sparkles, BarChart2, Trophy, Settings } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { useProgressStore } from '../../stores/progressStore';
 
@@ -7,7 +7,9 @@ const navItems = [
   { to: '/', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/vocabulary', label: 'Vocabulary', icon: BookOpen },
   { to: '/listening', label: 'Listening', icon: Headphones },
-  { to: '/reading', label: 'Reading', icon: BookOpenText },  { to: '/grammar', label: 'Grammar', icon: PenTool },
+  { to: '/reading', label: 'Reading', icon: BookOpenText },
+  { to: '/grammar', label: 'Grammar', icon: PenTool },
+  { to: '/ai', label: 'AI', icon: Sparkles },
   { to: '/stats', label: 'Statistics', icon: BarChart2 },
   { to: '/achievements', label: 'Achievements', icon: Trophy },
   { to: '/settings', label: 'Settings', icon: Settings },

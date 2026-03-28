@@ -22,6 +22,10 @@ type AppEvents = {
   'reading:correct': { passageId: string };
   'reading:incorrect': { passageId: string };
   'reading:session_complete': { correct: number; total: number; passageId: string };
+  // Phase 6 — AI Features
+  'chat:message-sent': { corrections: number };
+  'writing:submitted': { score: number; wordCount: number };
+  'roleplay:completed': { scenarioId: string; goalCompleted: boolean; fluency: number };
 };
 
 export type AppEventTypes = AppEvents;

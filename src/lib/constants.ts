@@ -12,6 +12,9 @@ export const XP_VALUES = {
   dictation_session_perfect: 30,
   daily_challenge_complete: 50,
   pronunciation_correct: 5,
+  // Phase 6 — AI Features
+  chat_message_sent: 5,
+  chat_no_correction_bonus: 10,
 } as const;
 
 export const LEVELS = [

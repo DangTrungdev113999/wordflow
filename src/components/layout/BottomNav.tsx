@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router';
-import { LayoutDashboard, BookOpen, Headphones, PenTool, BookOpenText } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Headphones, PenTool, Sparkles } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
 const navItems = [
@@ -7,7 +7,7 @@ const navItems = [
   { to: '/vocabulary', label: 'Vocab', icon: BookOpen },
   { to: '/listening', label: 'Listen', icon: Headphones },
   { to: '/grammar', label: 'Grammar', icon: PenTool },
-  { to: '/reading', label: 'Read', icon: BookOpenText },
+  { to: '/ai', label: 'AI', icon: Sparkles },
 ];
 
 export function BottomNav() {
