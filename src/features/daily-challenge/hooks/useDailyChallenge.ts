@@ -26,6 +26,12 @@ function getTodayString(): string {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
+function getYesterdayString(): string {
+  const d = new Date();
+  d.setDate(d.getDate() - 1);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
 // --- CEFR filtering ---
 
 function getCEFRPool(level: CEFRLevel): CEFRLevel[] {
@@ -184,15 +190,28 @@ export function useDailyChallenge(): DailyChallengeState {
 
     const allDone = newTasks.every(t => t.completed);
     if (allDone) {
+      // Issue 2 fix: add bonus XP to store, not just local tracking
       const bonus = 75;
       newXP += bonus;
+      useProgressStore.getState().addXP(bonus);
       eventBus.emit('daily_challenge:complete', { date: today, score: newXP });
 
-      // Check streak milestone
+      // Issue 1 fix: update streak based on yesterday's completion
+      const yesterday = getYesterdayString();
+      const yesterdayLog = await db.dailyChallenges.get(yesterday);
       const { currentStreak } = useProgressStore.getState();
-      const milestone = checkStreakMilestone(currentStreak);
+      const newStreak = yesterdayLog?.completed ? currentStreak + 1 : 1;
+      useProgressStore.getState().setStreak(newStreak);
+      useProgressStore.getState().setLastActiveDate(today);
+
+      // Check streak milestone with the NEW streak value
+      const milestone = checkStreakMilestone(newStreak);
       if (milestone) {
+        // Issue 4 fix: include milestone XP in log
+        newXP += milestone.xpBonus;
         useProgressStore.getState().addXP(milestone.xpBonus);
+        // Issue 3 fix: actually award the badge
+        useProgressStore.getState().addBadge(milestone.badgeId);
         useToastStore.getState().addToast({
           type: 'xp',
           title: `🔥 ${milestone.days}-Day Streak!`,
