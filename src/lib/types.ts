@@ -153,6 +153,16 @@ export interface AchievementContext {
   pronunciationCount: number;
 }
 
+// Media Learning types
+export interface MediaVocabWord {
+  word: string;
+  meaning: string;
+  ipa: string;
+  contextSentence: string;
+  cefrLevel: CEFRLevel;
+  example: string;
+}
+
 // Toast types
 export interface ToastMessage {
   id: string;

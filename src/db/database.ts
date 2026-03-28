@@ -1,5 +1,5 @@
 import Dexie, { type Table } from 'dexie';
-import type { Word, WordProgress, GrammarLesson, DailyLog, UserProfile, DictionaryCache, DailyChallengeLog, CustomTopic, CustomWord, ChatConversation, ChatMessage, WritingSubmission, RoleplaySession } from './models';
+import type { Word, WordProgress, GrammarLesson, DailyLog, UserProfile, DictionaryCache, DailyChallengeLog, CustomTopic, CustomWord, ChatConversation, ChatMessage, WritingSubmission, RoleplaySession, MediaSession } from './models';
 
 export class WordFlowDatabase extends Dexie {
   words!: Table<Word, string>;
@@ -15,6 +15,7 @@ export class WordFlowDatabase extends Dexie {
   chatMessages!: Table<ChatMessage, string>;
   writingSubmissions!: Table<WritingSubmission, string>;
   roleplaySessions!: Table<RoleplaySession, string>;
+  mediaSessions!: Table<MediaSession, string>;
 
   constructor() {
     super('WordFlowDB');
@@ -64,6 +65,23 @@ export class WordFlowDatabase extends Dexie {
       chatMessages: 'id, conversationId, timestamp',
       writingSubmissions: 'id, promptId, submittedAt',
       roleplaySessions: 'id, scenarioId, completedAt',
+    });
+
+    this.version(5).stores({
+      words: 'id, topic, cefrLevel',
+      wordProgress: 'wordId, nextReview, status',
+      grammarLessons: 'id, level, completed',
+      dailyLogs: 'date',
+      userProfile: 'id',
+      dictionaryCache: 'word, cachedAt',
+      dailyChallenges: 'date',
+      customTopics: '++id, name, createdAt',
+      customWords: '++id, topicId, word, createdAt',
+      chatConversations: 'id, updatedAt',
+      chatMessages: 'id, conversationId, timestamp',
+      writingSubmissions: 'id, promptId, submittedAt',
+      roleplaySessions: 'id, scenarioId, completedAt',
+      mediaSessions: 'id, createdAt',
     });
   }
 }

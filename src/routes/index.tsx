@@ -29,6 +29,7 @@ const AIChatPage = lazy(() => import('../features/ai-chat/pages/AIChatPage').the
 const WritingPage = lazy(() => import('../features/writing/pages/WritingPage').then(m => ({ default: m.WritingPage })));
 const RoleplayPage = lazy(() => import('../features/roleplay/pages/RoleplayPage').then(m => ({ default: m.RoleplayPage })));
 const SentenceBuildingPage = lazy(() => import('../features/sentence-building/SentenceBuildingPage').then(m => ({ default: m.SentenceBuildingPage })));
+const LearnMediaPage = lazy(() => import('../features/learn-media/LearnMediaPage').then(m => ({ default: m.LearnMediaPage })));
 
 function PageLoader() {
   return (
@@ -80,6 +81,8 @@ export const router = createBrowserRouter([
       { path: 'roleplay', element: withSuspense(RoleplayPage) },
       { path: 'roleplay/:scenarioId', element: withSuspense(RoleplayPage) },
       { path: 'sentence-building', element: withSuspense(SentenceBuildingPage) },
+      { path: 'learn-media', element: withSuspense(LearnMediaPage) },
+      { path: 'learn-media/:sessionId', element: withSuspense(LearnMediaPage) },
       { path: 'settings', element: withSuspense(SettingsPage) },
       { path: 'onboarding', element: withSuspense(OnboardingPage) },
     ],

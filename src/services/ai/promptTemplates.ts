@@ -1,4 +1,4 @@
-import type { CEFRLevel } from '../../lib/types';
+import type { CEFRLevel, MediaVocabWord } from '../../lib/types';
 
 export function chatSystemPrompt(level: CEFRLevel): string {
   return `You are a friendly English tutor for Vietnamese learners (CEFR ${level}).
@@ -90,4 +90,54 @@ Provide a performance review in this JSON format:
 }
 
 IMPORTANT: Respond ONLY with valid JSON, no extra text.`;
+}
+
+// Phase 7 — Learn from Media prompts
+
+export function mediaVocabExtractionPrompt(text: string, level: CEFRLevel): string {
+  return `You are a vocabulary extraction assistant for English learners.
+
+User's level: ${level}
+
+Analyze this text and extract 10-15 vocabulary words that are:
+- Appropriate for ${level} level learners (slightly above their level to challenge)
+- Important for understanding the text
+- Useful in everyday English
+
+Text:
+"""
+${text.slice(0, 3000)}
+"""
+
+Return JSON array:
+[{
+  "word": "string",
+  "meaning": "Vietnamese meaning",
+  "ipa": "IPA pronunciation",
+  "contextSentence": "exact sentence from text containing this word",
+  "cefrLevel": "A1|A2|B1|B2",
+  "example": "another example sentence"
+}]
+
+Return ONLY valid JSON, no markdown.`;
+}
+
+export function mediaQuizGenerationPrompt(vocab: MediaVocabWord[], level: CEFRLevel): string {
+  return `Generate 8 quiz exercises from these vocabulary words for ${level} level learners.
+
+Words: ${JSON.stringify(vocab.map(v => v.word))}
+
+Create a mix of:
+- 3 multiple_choice (test word meaning)
+- 2 fill_blank (test usage in context)
+- 2 sentence_order (test sentence structure)
+- 1 error_correction
+
+Return JSON array matching these TypeScript types exactly:
+- MultipleChoice: { type: "multiple_choice", question: string, options: string[4], answer: number }
+- FillBlank: { type: "fill_blank", question: string (use ___ for blank), acceptedAnswers: string[] }
+- SentenceOrder: { type: "sentence_order", words: string[], answer: string }
+- ErrorCorrection: { type: "error_correction", sentence: string, correctSentence: string, errorIndex: number[] }
+
+Return ONLY valid JSON array, no markdown.`;
 }

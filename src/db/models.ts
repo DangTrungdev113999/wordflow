@@ -1,4 +1,4 @@
-import type { CEFRLevel, WordStatus, Theme, DictionaryEntry } from '../lib/types';
+import type { CEFRLevel, WordStatus, Theme, DictionaryEntry, MediaVocabWord, GrammarExercise } from '../lib/types';
 
 export interface Word {
   id: string;
@@ -172,4 +172,18 @@ export interface RoleplaySession {
   summary?: RoleplaySummary | null;
   startedAt: number;
   completedAt?: number;
+}
+
+// Phase 7 — Learn from Media
+export interface MediaSession {
+  id: string;
+  createdAt: string;
+  sourceType: 'url' | 'text';
+  sourceUrl?: string;
+  title: string;
+  originalText: string;
+  extractedVocab: MediaVocabWord[];
+  quizExercises: GrammarExercise[];
+  quizScore?: number;
+  completed: boolean;
 }
