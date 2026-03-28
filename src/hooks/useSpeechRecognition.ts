@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-interface SpeechRecognitionResult {
+interface SpeechRecognitionHookResult {
   transcript: string;
   alternatives: string[];
   confidence: number;
@@ -14,10 +14,10 @@ export function useSpeechRecognition() {
     typeof window !== 'undefined' &&
     ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window);
 
-  async function startListening(lang = 'en-US'): Promise<SpeechRecognitionResult> {
+  async function startListening(lang = 'en-US'): Promise<SpeechRecognitionHookResult> {
     return new Promise((resolve, reject) => {
       const SpeechRecognitionAPI =
-        (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+        window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!SpeechRecognitionAPI) {
         reject(new Error('Speech recognition not supported'));
         return;
@@ -34,11 +34,11 @@ export function useSpeechRecognition() {
 
       let resolved = false;
 
-      recognition.onresult = (event: any) => {
+      recognition.onresult = (event: SpeechRecognitionEvent) => {
         resolved = true;
         const result = event.results[0];
         const alternatives = Array.from({ length: result.length }, (_, i) =>
-          (result[i] as any).transcript.toLowerCase().trim()
+          result[i].transcript.toLowerCase().trim()
         );
         resolve({
           transcript: alternatives[0],
@@ -47,7 +47,7 @@ export function useSpeechRecognition() {
         });
       };
 
-      recognition.onerror = (event: any) => {
+      recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
         resolved = true;
         setError(event.error);
         setIsListening(false);

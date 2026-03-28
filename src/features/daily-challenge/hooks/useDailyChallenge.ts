@@ -74,8 +74,7 @@ export function useDailyChallenge(): DailyChallengeState {
     if (allDone) {
       const bonus = 50;
       newXP += bonus;
-      useProgressStore.getState().addXP(bonus);
-      useToastStore.getState().addToast({ type: 'xp', title: `+${bonus} XP Bonus!`, description: 'All daily tasks completed!' });
+      // XP bonus handled by event subscriber - don't call addXP directly
       eventBus.emit('daily_challenge:complete', { date: today, score: newXP });
     }
 

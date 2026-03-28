@@ -82,7 +82,15 @@ export function initEventSubscribers() {
     }
   });
 
-  // pronunciation:correct → XP + dailyLog
+  // daily_challenge:complete → bonus XP + toast
+  eventBus.on('daily_challenge:complete', () => {
+    const { addXP } = useProgressStore.getState();
+    addXP(XP_VALUES.daily_challenge_complete);
+    useToastStore.getState().addToast({ type: 'xp', title: `+${XP_VALUES.daily_challenge_complete} XP Bonus!`, description: 'All daily tasks completed!' });
+    void logBonusXP(XP_VALUES.daily_challenge_complete);
+  });
+
+    // pronunciation:correct → XP + dailyLog
   eventBus.on('pronunciation:correct', () => {
     const { addXP } = useProgressStore.getState();
     addXP(XP_VALUES.pronunciation_correct);
