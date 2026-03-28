@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 import { lazy, Suspense } from 'react';
 import App from '../App';
+import { PageTransition } from '../components/common/PageTransition';
 
 const DashboardPage = lazy(() => import('../features/dashboard/pages/DashboardPage').then(m => ({ default: m.DashboardPage })));
 const VocabularyPage = lazy(() => import('../features/vocabulary/pages/VocabularyPage').then(m => ({ default: m.VocabularyPage })));
@@ -29,7 +30,9 @@ function PageLoader() {
 function withSuspense(Component: React.ComponentType) {
   return (
     <Suspense fallback={<PageLoader />}>
-      <Component />
+      <PageTransition>
+        <Component />
+      </PageTransition>
     </Suspense>
   );
 }

@@ -1,16 +1,17 @@
+import { motion, type HTMLMotionProps } from 'framer-motion';
 import { cn } from '../../lib/utils';
-import type { ButtonHTMLAttributes } from 'react';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'size'> {
   variant?: 'primary' | 'secondary' | 'ghost' | 'danger';
   size?: 'sm' | 'md' | 'lg';
 }
 
 export function Button({ variant = 'primary', size = 'md', className, children, ...props }: ButtonProps) {
   return (
-    <button
+    <motion.button
+      whileTap={{ scale: 0.97 }}
       className={cn(
-        'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed',
+        'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed',
         {
           primary: 'bg-indigo-500 text-white hover:bg-indigo-600 shadow-sm shadow-indigo-200 dark:shadow-indigo-900',
           secondary: 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700',
@@ -27,6 +28,6 @@ export function Button({ variant = 'primary', size = 'md', className, children, 
       {...props}
     >
       {children}
-    </button>
+    </motion.button>
   );
 }
