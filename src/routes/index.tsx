@@ -21,6 +21,7 @@ const OnboardingPage = lazy(() => import('../features/onboarding/pages/Onboardin
 const CustomTopicsPage = lazy(() => import('../features/vocabulary/pages/CustomTopicsPage').then(m => ({ default: m.CustomTopicsPage })));
 const CustomTopicDetailPage = lazy(() => import('../features/vocabulary/pages/CustomTopicDetailPage').then(m => ({ default: m.CustomTopicDetailPage })));
 const CustomFlashcardPage = lazy(() => import('../features/vocabulary/pages/CustomFlashcardPage').then(m => ({ default: m.CustomFlashcardPage })));
+const PronunciationPage = lazy(() => import('../features/pronunciation/pages/PronunciationPage').then(m => ({ default: m.PronunciationPage })));
 
 function PageLoader() {
   return (
@@ -60,6 +61,7 @@ export const router = createBrowserRouter([
       { path: 'stats', element: withSuspense(StatsPage) },
       { path: 'listening', element: withSuspense(ListeningPage) },
       { path: 'listening/:topic/practice', element: withSuspense(DictationSessionPage) },
+      { path: 'pronunciation', element: withSuspense(PronunciationPage) },
       { path: 'daily-challenge', element: withSuspense(DailyChallengePage) },
       { path: 'settings', element: withSuspense(SettingsPage) },
       { path: 'onboarding', element: withSuspense(OnboardingPage) },

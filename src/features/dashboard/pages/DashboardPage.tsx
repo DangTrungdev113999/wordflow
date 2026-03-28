@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
-import { BookOpen, ChevronRight, Target } from 'lucide-react';
+import { BookOpen, ChevronRight, Target, Mic2 } from 'lucide-react';
 import { useProgressStore } from '../../../stores/progressStore';
 import { useSettingsStore } from '../../../stores/settingsStore';
 import { useVocabularyStore } from '../../../stores/vocabularyStore';
@@ -54,6 +54,23 @@ export function DashboardPage() {
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }} className="grid grid-cols-2 gap-3">
         <StreakWidget />
         <XPBar />
+      </motion.div>
+
+      {/* Quick actions */}
+      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18 }}>
+        <Link
+          to="/pronunciation"
+          className="flex items-center gap-3 p-3 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-indigo-200 dark:hover:border-indigo-800 transition-all group"
+        >
+          <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-400 to-purple-600 flex items-center justify-center">
+            <Mic2 size={20} className="text-white" />
+          </span>
+          <div className="flex-1">
+            <p className="font-medium text-gray-900 dark:text-white text-sm">Pronunciation Practice</p>
+            <p className="text-xs text-gray-400">Improve your speaking skills</p>
+          </div>
+          <ChevronRight size={16} className="text-gray-300 dark:text-gray-600 group-hover:text-indigo-400" />
+        </Link>
       </motion.div>
 
       {/* Quick start */}

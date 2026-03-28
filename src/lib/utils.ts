@@ -48,3 +48,34 @@ export function cn(...classes: (string | undefined | null | false)[]): string {
 export function pluralize(count: number, singular: string, plural?: string): string {
   return count === 1 ? singular : (plural ?? `${singular}s`);
 }
+
+/**
+ * Levenshtein distance between two strings (case-insensitive).
+ * Returns the minimum number of single-character edits needed to transform a into b.
+ */
+export function levenshteinDistance(a: string, b: string): number {
+  const s = a.toLowerCase();
+  const t = b.toLowerCase();
+  if (s === t) return 0;
+  if (s.length === 0) return t.length;
+  if (t.length === 0) return s.length;
+
+  const m = s.length;
+  const n = t.length;
+  // Use single array optimization
+  const prev = Array.from({ length: n + 1 }, (_, i) => i);
+
+  for (let i = 1; i <= m; i++) {
+    let corner = prev[0];
+    prev[0] = i;
+    for (let j = 1; j <= n; j++) {
+      const upper = prev[j];
+      prev[j] = s[i - 1] === t[j - 1]
+        ? corner
+        : 1 + Math.min(corner, prev[j], prev[j - 1]);
+      corner = upper;
+    }
+  }
+
+  return prev[n];
+}
