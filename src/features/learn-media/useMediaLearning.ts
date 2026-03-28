@@ -7,6 +7,7 @@ import { aiService } from '../../services/ai/aiService';
 import { mediaVocabExtractionPrompt, mediaQuizGenerationPrompt } from '../../services/ai/promptTemplates';
 import { extractFromUrl, processDirectText } from '../../services/contentExtractor';
 import { useProgressStore } from '../../stores/progressStore';
+import { eventBus } from '../../services/eventBus';
 import * as customTopicService from '../../services/customTopicService';
 
 export type MediaStep = 'input' | 'extracting' | 'vocab' | 'quiz' | 'complete';
@@ -169,6 +170,28 @@ export function useMediaLearning() {
       if (correct) addXP(10);
       addXP(20);
 
+      // Emit mistakes for incorrect quiz answers
+      const incorrectMistakes = newResults
+        .map((r, i) => ({ ...r, exercise: s.quizExercises[i] }))
+        .filter(r => !r.correct);
+      if (incorrectMistakes.length > 0) {
+        eventBus.emit('mistakes:collected', {
+          source: 'media-quiz',
+          mistakes: incorrectMistakes.map(r => {
+            const ex = r.exercise;
+            const correctAnswer = ex && 'options' in ex && 'answer' in ex
+              ? ex.options[ex.answer as number] ?? ''
+              : '';
+            return {
+              type: 'vocabulary' as const,
+              question: ex?.question ?? 'Media quiz question',
+              userAnswer: r.userAnswer,
+              correctAnswer,
+            };
+          }),
+        });
+      }
+
       const sessionId = nanoid();
       sessionIdRef.current = sessionId;
       const session: MediaSession = {
@@ -185,6 +208,37 @@ export function useMediaLearning() {
       };
       db.mediaSessions.add(session);
       setSessionVersion(v => v + 1);
+
+      // Emit mistakes for incorrect quiz answers
+      const incorrect = newResults
+        .map((r, i) => ({ ...r, exercise: s.quizExercises[i] }))
+        .filter(r => !r.correct);
+      if (incorrect.length > 0) {
+        eventBus.emit('mistakes:collected', {
+          source: 'media-quiz',
+          mistakes: incorrect.map(item => {
+            const ex = item.exercise;
+            const correctAnswer = ex.type === 'multiple_choice'
+              ? ex.options[ex.answer]
+              : ex.type === 'fill_blank'
+                ? ex.acceptedAnswers[0]
+                : ex.type === 'error_correction'
+                  ? ex.correctSentence
+                  : ex.answer;
+            const question = ex.type === 'error_correction'
+              ? ex.sentence
+              : ex.type === 'sentence_order'
+                ? `Order: ${ex.words.join(', ')}`
+                : ex.question;
+            return {
+              type: 'vocabulary' as const,
+              question,
+              userAnswer: item.userAnswer,
+              correctAnswer,
+            };
+          }),
+        });
+      }
     } else {
       setState(prev => ({ ...prev, quizResults: newResults, quizIndex: nextIndex }));
 

@@ -125,6 +125,29 @@ export function useFlashcard(topicId: string) {
     nextCard();
   }, [currentWord, currentTopic, topicId, wordProgressMap, nextCard, setWordProgressMap, recordAnswer, todayWordsLearned, dailyGoal]);
 
+  // Emit mistakes when session completes
+  const mistakeEmittedRef = useRef(false);
+  useEffect(() => {
+    if (!isSessionComplete || mistakeEmittedRef.current) return;
+    mistakeEmittedRef.current = true;
+
+    const incorrect = sessionResults.filter(r => !r.correct);
+    if (incorrect.length > 0) {
+      eventBus.emit('mistakes:collected', {
+        source: 'quiz',
+        mistakes: incorrect.map(r => {
+          const word = flashcardQueue.find(w => `${topicId}:${w.word}` === r.wordId);
+          return {
+            type: 'vocabulary' as const,
+            question: word ? `What does "${word.word}" mean?` : r.wordId,
+            userAnswer: 'Incorrect recall',
+            correctAnswer: word?.meaning ?? r.wordId,
+          };
+        }),
+      });
+    }
+  }, [isSessionComplete]); // eslint-disable-line react-hooks/exhaustive-deps
+
   return {
     currentTopic,
     currentWord,

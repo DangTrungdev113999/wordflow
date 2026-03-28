@@ -1,6 +1,7 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import { nanoid } from 'nanoid';
 import type { SentenceBuildingExercise, WordItem, SentenceBuildingResult } from '../../lib/types';
+import { eventBus } from '../../services/eventBus';
 
 export function stripPunctuation(text: string): string {
   return text.replace(/[.!?,;:'"]+/g, '');
@@ -236,6 +237,29 @@ export function useSentenceBuilding(exercises: SentenceBuildingExercise[]) {
       };
     });
   }, []);
+
+  // Emit mistakes when session completes
+  const mistakeEmittedRef = useRef(false);
+  useEffect(() => {
+    if (!state.isComplete || mistakeEmittedRef.current) return;
+    mistakeEmittedRef.current = true;
+
+    const incorrect = state.results.filter(r => !r.correct);
+    if (incorrect.length > 0) {
+      eventBus.emit('mistakes:collected', {
+        source: 'sentence-building',
+        mistakes: incorrect.map(r => {
+          const exercise = state.exercises.find(e => e.id === r.exerciseId);
+          return {
+            type: 'sentence_order' as const,
+            question: exercise ? `Arrange: ${exercise.words.join(', ')}` : r.exerciseId,
+            userAnswer: r.userAnswer,
+            correctAnswer: exercise?.sentence ?? '',
+          };
+        }),
+      });
+    }
+  }, [state.isComplete, state.results, state.exercises]);
 
   const totalScore = useMemo(
     () => state.results.reduce((sum, r) => sum + r.score, 0),

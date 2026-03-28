@@ -30,6 +30,7 @@ const WritingPage = lazy(() => import('../features/writing/pages/WritingPage').t
 const RoleplayPage = lazy(() => import('../features/roleplay/pages/RoleplayPage').then(m => ({ default: m.RoleplayPage })));
 const SentenceBuildingPage = lazy(() => import('../features/sentence-building/SentenceBuildingPage').then(m => ({ default: m.SentenceBuildingPage })));
 const LearnMediaPage = lazy(() => import('../features/learn-media/LearnMediaPage').then(m => ({ default: m.LearnMediaPage })));
+const MistakeJournalPage = lazy(() => import('../features/mistake-journal/pages/MistakeJournalPage').then(m => ({ default: m.MistakeJournalPage })));
 
 function PageLoader() {
   return (
@@ -83,6 +84,7 @@ export const router = createBrowserRouter([
       { path: 'sentence-building', element: withSuspense(SentenceBuildingPage) },
       { path: 'learn-media', element: withSuspense(LearnMediaPage) },
       { path: 'learn-media/:sessionId', element: withSuspense(LearnMediaPage) },
+      { path: 'mistake-journal', element: withSuspense(MistakeJournalPage) },
       { path: 'settings', element: withSuspense(SettingsPage) },
       { path: 'onboarding', element: withSuspense(OnboardingPage) },
     ],

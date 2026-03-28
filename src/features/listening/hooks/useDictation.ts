@@ -92,6 +92,20 @@ export function useDictation(topic: string, mode: DictationMode) {
       setIsComplete(true);
       const finalCorrect = answersRef.current.filter(a => a.correct).length;
       eventBus.emit('dictation:session_complete', { correct: finalCorrect, total, mode });
+
+      // Emit mistakes for incorrect answers
+      const incorrect = answersRef.current.filter(a => !a.correct);
+      if (incorrect.length > 0) {
+        eventBus.emit('mistakes:collected', {
+          source: 'dictation',
+          mistakes: incorrect.map(a => ({
+            type: 'listening' as const,
+            question: `Listen and type: "${a.item.target}"`,
+            userAnswer: a.userAnswer,
+            correctAnswer: a.item.target,
+          })),
+        });
+      }
     } else {
       setCurrentIndex(prev => prev + 1);
     }

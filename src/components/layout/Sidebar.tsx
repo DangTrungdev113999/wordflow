@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router';
-import { LayoutDashboard, BookOpen, Headphones, BookOpenText, PenTool, Sparkles, BarChart2, Trophy, Settings, Puzzle, Newspaper } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Headphones, BookOpenText, PenTool, Sparkles, BarChart2, Trophy, Settings, Puzzle, Newspaper, RotateCcw } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { useProgressStore } from '../../stores/progressStore';
+import { useMistakeStore } from '../../stores/mistakeStore';
 
 const navItems = [
   { to: '/', label: 'Dashboard', icon: LayoutDashboard },
@@ -11,6 +12,7 @@ const navItems = [
   { to: '/grammar', label: 'Grammar', icon: PenTool },
   { to: '/sentence-building', label: 'Sentences', icon: Puzzle },
   { to: '/learn-media', label: 'Learn from Media', icon: Newspaper },
+  { to: '/mistake-journal', label: 'Mistake Journal', icon: RotateCcw },
   { to: '/ai', label: 'AI', icon: Sparkles },
   { to: '/stats', label: 'Statistics', icon: BarChart2 },
   { to: '/achievements', label: 'Achievements', icon: Trophy },
@@ -19,6 +21,7 @@ const navItems = [
 
 export function Sidebar() {
   const { level, levelTitle, xp } = useProgressStore();
+  const dueCount = useMistakeStore(s => s.getDueForReview().length);
 
   return (
     <aside className="hidden lg:flex flex-col w-64 h-screen fixed left-0 top-0 bg-white dark:bg-gray-950 border-r border-gray-100 dark:border-gray-800 p-4">
@@ -44,6 +47,11 @@ export function Sidebar() {
           >
             <Icon size={20} />
             {label}
+            {to === '/mistake-journal' && dueCount > 0 && (
+              <span className="ml-auto inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 text-[10px] font-bold text-white bg-red-500 rounded-full">
+                {dueCount > 99 ? '99+' : dueCount}
+              </span>
+            )}
           </NavLink>
         ))}
       </nav>

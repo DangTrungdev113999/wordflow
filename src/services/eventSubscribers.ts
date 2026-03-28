@@ -2,6 +2,7 @@ import { eventBus } from './eventBus';
 import { calculateQuizXP } from './xpEngine';
 import { checkAchievements } from './achievementEngine';
 import { logWordReviewed, logQuizCompleted, logBonusXP, logDictation, logPronunciation } from './dailyLogService';
+import { initMistakeCollector } from './mistakeCollector';
 import { useProgressStore } from '../stores/progressStore';
 import { useGrammarStore } from '../stores/grammarStore';
 import { useToastStore } from '../stores/toastStore';
@@ -13,6 +14,9 @@ let initialized = false;
 export function initEventSubscribers() {
   if (initialized) return;
   initialized = true;
+
+  // Initialize mistake collector (Phase 8)
+  initMistakeCollector();
   // flashcard:correct → XP + dailyLog
   eventBus.on('flashcard:correct', ({ rating }) => {
     const { addXP } = useProgressStore.getState();

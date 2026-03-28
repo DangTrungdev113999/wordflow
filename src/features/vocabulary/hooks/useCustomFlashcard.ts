@@ -115,6 +115,30 @@ export function useCustomFlashcard(topicId: number) {
     setIsFlipped(false);
   }, [currentWord, topic, topicId, wordProgressMap, todayWordsLearned, dailyGoal]);
 
+  // Emit mistakes when session completes
+  const mistakeEmittedRef = useRef(false);
+  useEffect(() => {
+    if (!isSessionComplete || mistakeEmittedRef.current) return;
+    mistakeEmittedRef.current = true;
+
+    const incorrect = sessionResults.filter(r => !r.correct);
+    if (incorrect.length > 0) {
+      eventBus.emit('mistakes:collected', {
+        source: 'quiz',
+        mistakes: incorrect.map(r => {
+          const wordKey = r.wordId.replace(`custom-${topicId}:`, '');
+          const word = flashcardQueue.find(w => w.word === wordKey);
+          return {
+            type: 'vocabulary' as const,
+            question: word ? `What does "${word.word}" mean?` : r.wordId,
+            userAnswer: 'Incorrect recall',
+            correctAnswer: word?.meaning ?? r.wordId,
+          };
+        }),
+      });
+    }
+  }, [isSessionComplete]); // eslint-disable-line react-hooks/exhaustive-deps
+
   return {
     topic,
     currentWord,

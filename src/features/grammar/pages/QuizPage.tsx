@@ -86,6 +86,24 @@ export function QuizPage() {
       correct: correctCount,
       total: currentLesson.exercises.length,
     });
+
+    // Emit mistakes for incorrect answers
+    const incorrectMistakes = quiz.answers
+      .map((a, i) => ({ ...a, exercise: currentLesson.exercises[i] }))
+      .filter(a => !a.correct)
+      .map(a => ({
+        type: 'grammar' as const,
+        question: getExerciseQuestion(a.exercise),
+        userAnswer: a.userAnswer,
+        correctAnswer: getExerciseCorrectAnswer(a.exercise),
+      }));
+
+    if (incorrectMistakes.length > 0) {
+      eventBus.emit('mistakes:collected', {
+        source: 'grammar-quiz',
+        mistakes: incorrectMistakes,
+      });
+    }
   }, [quiz.isComplete]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!currentLesson) {

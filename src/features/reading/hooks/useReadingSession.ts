@@ -60,6 +60,34 @@ export function useReadingSession(passageId: string) {
           total: totalQuestions,
           passageId: passage.id,
         });
+
+        // Emit mistakes for incorrect answers
+        const incorrect = resultsRef.current
+          .map((r, i) => ({ ...r, question: passage.questions[i] }))
+          .filter(r => !r.correct);
+        if (incorrect.length > 0) {
+          eventBus.emit('mistakes:collected', {
+            source: 'reading',
+            mistakes: incorrect.map(item => {
+              const q = item.question;
+              let correctAnswer: string;
+              if (q.type === 'multiple_choice' && q.options && typeof q.answer === 'number') {
+                correctAnswer = q.options[q.answer];
+              } else if (q.type === 'true_false') {
+                correctAnswer = String(q.answer);
+              } else {
+                correctAnswer = String(q.answer);
+              }
+              return {
+                type: 'reading' as const,
+                question: q.question,
+                userAnswer: item.userAnswer,
+                correctAnswer,
+                explanation: q.explanation,
+              };
+            }),
+          });
+        }
       }
     } else {
       setCurrentQuestionIndex(prev => prev + 1);

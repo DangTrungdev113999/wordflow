@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useRef } from 'react';
+import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { ALL_TOPICS } from '../../../data/vocabulary/_index';
 import { eventBus } from '../../../services/eventBus';
 import { XP_VALUES } from '../../../lib/constants';
@@ -120,6 +120,23 @@ export function useListeningQuiz(topic: string) {
       userAnswer: a.question.options[a.selectedIndex],
       correct: false,
     }));
+
+  // Emit mistakes when session completes
+  const mistakeEmittedRef = useRef(false);
+  useEffect(() => {
+    if (!isComplete || mistakeEmittedRef.current) return;
+    if (incorrectAnswers.length === 0) return;
+    mistakeEmittedRef.current = true;
+    eventBus.emit('mistakes:collected', {
+      source: 'listening-quiz',
+      mistakes: incorrectAnswers.map(a => ({
+        type: 'listening' as const,
+        question: `What word did you hear? (${a.item.word.meaning})`,
+        userAnswer: a.userAnswer,
+        correctAnswer: a.item.target,
+      })),
+    });
+  }, [isComplete]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return {
     currentQuestion,

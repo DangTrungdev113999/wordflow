@@ -143,6 +143,21 @@ export function useWritingPractice(submissionId?: string) {
         addXP(xp);
 
         eventBus.emit('writing:submitted', { score: feedback.overallScore, wordCount });
+
+        // Emit grammar mistakes from writing feedback
+        const grammarIssues = feedback.categories.grammar.issues ?? [];
+        if (grammarIssues.length > 0) {
+          eventBus.emit('mistakes:collected', {
+            source: 'writing',
+            mistakes: grammarIssues.map(issue => ({
+              type: 'writing' as const,
+              question: issue.original,
+              userAnswer: issue.original,
+              correctAnswer: issue.correction,
+              explanation: issue.rule,
+            })),
+          });
+        }
       } catch (e) {
         if (e instanceof DOMException && e.name === 'AbortError') return;
         const msg = e instanceof Error ? e.message : 'Đã xảy ra lỗi. Vui lòng thử lại.';

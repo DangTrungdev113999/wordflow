@@ -1,5 +1,6 @@
 import mitt from 'mitt';
 import type { DictationMode } from '../lib/types';
+import type { MistakeCollectedEvent } from '../models/Mistake';
 export type { DictationMode } from '../lib/types';
 
 type AppEvents = {
@@ -26,6 +27,8 @@ type AppEvents = {
   'chat:message-sent': { corrections: number };
   'writing:submitted': { score: number; wordCount: number };
   'roleplay:completed': { scenarioId: string; goalCompleted: boolean; fluency: number };
+  // Phase 8 — Mistake Journal
+  'mistakes:collected': MistakeCollectedEvent;
 };
 
 export type AppEventTypes = AppEvents;

@@ -32,6 +32,7 @@ export function FlashcardPage() {
     getWeakWords().then((allWeak) => {
       setWeakWords(getSessionWeakWords(sessionResults, allWeak));
     });
+    // Mistake emission is handled by useFlashcard hook
   }, [isSessionComplete]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!currentTopic) {
