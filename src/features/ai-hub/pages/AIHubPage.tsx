@@ -18,7 +18,7 @@ const AI_FEATURES = [
     icon: '✍️',
     to: '/writing',
     gradient: 'from-violet-400 to-purple-500',
-    available: false,
+    available: true,
   },
   {
     title: 'Roleplay',
@@ -27,7 +27,7 @@ const AI_FEATURES = [
     icon: '🎭',
     to: '/roleplay',
     gradient: 'from-orange-400 to-rose-500',
-    available: false,
+    available: true,
   },
 ];
 

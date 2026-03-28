@@ -26,6 +26,8 @@ const ReadingPage = lazy(() => import('../features/reading/pages/ReadingPage').t
 const ReadingSessionPage = lazy(() => import('../features/reading/pages/ReadingSessionPage').then(m => ({ default: m.ReadingSessionPage })));
 const AIHubPage = lazy(() => import('../features/ai-hub/pages/AIHubPage').then(m => ({ default: m.AIHubPage })));
 const AIChatPage = lazy(() => import('../features/ai-chat/pages/AIChatPage').then(m => ({ default: m.AIChatPage })));
+const WritingPage = lazy(() => import('../features/writing/pages/WritingPage').then(m => ({ default: m.WritingPage })));
+const RoleplayPage = lazy(() => import('../features/roleplay/pages/RoleplayPage').then(m => ({ default: m.RoleplayPage })));
 
 function PageLoader() {
   return (
@@ -72,6 +74,10 @@ export const router = createBrowserRouter([
       { path: 'ai', element: withSuspense(AIHubPage) },
       { path: 'ai-chat', element: withSuspense(AIChatPage) },
       { path: 'ai-chat/:conversationId', element: withSuspense(AIChatPage) },
+      { path: 'writing', element: withSuspense(WritingPage) },
+      { path: 'writing/:submissionId', element: withSuspense(WritingPage) },
+      { path: 'roleplay', element: withSuspense(RoleplayPage) },
+      { path: 'roleplay/:scenarioId', element: withSuspense(RoleplayPage) },
       { path: 'settings', element: withSuspense(SettingsPage) },
       { path: 'onboarding', element: withSuspense(OnboardingPage) },
     ],
