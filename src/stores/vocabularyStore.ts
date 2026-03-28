@@ -41,7 +41,7 @@ export const useVocabularyStore = create<VocabularyState>()((set, get) => ({
   setFlashcardQueue: (queue) => set({ flashcardQueue: queue, currentCardIndex: 0, isFlipped: false }),
   nextCard: () => {
     const { currentCardIndex, flashcardQueue } = get();
-    if (currentCardIndex < flashcardQueue.length - 1) {
+    if (currentCardIndex < flashcardQueue.length) {
       set({ currentCardIndex: currentCardIndex + 1, isFlipped: false });
     }
   },
