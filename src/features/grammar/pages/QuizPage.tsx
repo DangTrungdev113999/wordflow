@@ -1,13 +1,41 @@
 import { useParams, Link, useNavigate } from 'react-router';
-import { ArrowLeft, CheckCircle, RotateCcw } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useGrammarStore } from '../../../stores/grammarStore';
 import { QuizRenderer } from '../components/QuizRenderer';
+import { QuizSummary } from '../components/QuizSummary';
 import { Button } from '../../../components/ui/Button';
 import { ProgressBar } from '../../../components/ui/ProgressBar';
 import { calculateQuizXP } from '../../../services/xpEngine';
 import { eventBus } from '../../../services/eventBus';
+import type { GrammarExercise } from '../../../lib/types';
+
+function getExerciseQuestion(ex: GrammarExercise): string {
+  switch (ex.type) {
+    case 'multiple_choice':
+      return ex.question;
+    case 'fill_blank':
+      return ex.question;
+    case 'error_correction':
+      return ex.sentence;
+    case 'sentence_order':
+      return `Order: ${ex.words.join(', ')}`;
+  }
+}
+
+function getExerciseCorrectAnswer(ex: GrammarExercise): string {
+  switch (ex.type) {
+    case 'multiple_choice':
+      return ex.options[ex.answer];
+    case 'fill_blank':
+      return ex.acceptedAnswers[0];
+    case 'error_correction':
+      return ex.correctSentence;
+    case 'sentence_order':
+      return ex.answer;
+  }
+}
 
 export function QuizPage() {
   const { lessonId } = useParams<{ lessonId: string }>();
@@ -72,58 +100,38 @@ export function QuizPage() {
     const score = Math.round((correctCount / currentLesson.exercises.length) * 100);
     const xp = quizXP ?? calculateQuizXP(correctCount, currentLesson.exercises.length);
 
+    const incorrectQuestions = quiz.answers
+      .map((a, i) => ({ ...a, exercise: currentLesson.exercises[i] }))
+      .filter((a) => !a.correct)
+      .map((a) => ({
+        question: getExerciseQuestion(a.exercise),
+        userAnswer: a.userAnswer,
+        correctAnswer: getExerciseCorrectAnswer(a.exercise),
+      }));
+
     return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="px-4 py-10 flex flex-col items-center gap-6 text-center max-w-md mx-auto"
-      >
-        <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
-          <CheckCircle size={40} className="text-green-500" />
+      <>
+        <QuizSummary
+          lessonTitle={currentLesson.title}
+          correctCount={correctCount}
+          totalQuestions={currentLesson.exercises.length}
+          score={score}
+          xp={xp}
+          incorrectQuestions={incorrectQuestions}
+          onRetry={() => {
+            resetQuiz();
+            xpAwardedRef.current = false;
+            setQuizXP(null);
+            setShowNext(false);
+          }}
+          onBack={() => navigate(`/grammar/${lessonId}`)}
+        />
+        <div className="text-center mt-2">
+          <Link to="/grammar" className="text-sm text-indigo-500 hover:underline">
+            ← Back to all lessons
+          </Link>
         </div>
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Quiz Complete!</h2>
-          <p className="text-gray-500 dark:text-gray-400 mt-1">{currentLesson.title}</p>
-        </div>
-        <div className="grid grid-cols-2 gap-4 w-full">
-          <div className="bg-green-50 dark:bg-green-900/20 rounded-2xl p-4">
-            <p className="text-2xl font-bold text-green-600">{score}%</p>
-            <p className="text-sm text-green-700 dark:text-green-400">Score</p>
-          </div>
-          <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-2xl p-4">
-            <p className="text-2xl font-bold text-indigo-600">+{xp.totalXP}xp</p>
-            <p className="text-sm text-indigo-700 dark:text-indigo-400">XP Earned</p>
-          </div>
-        </div>
-        <div className="w-full text-sm text-gray-500 dark:text-gray-400 space-y-1">
-          <p>✅ Correct: {correctCount}/{currentLesson.exercises.length}</p>
-          {xp.perfectBonus > 0 && <p>🎯 Perfect Score Bonus: +{xp.perfectBonus}xp</p>}
-          <p>📖 Lesson Complete: +{xp.lessonBonus}xp</p>
-        </div>
-        <div className="flex gap-3 w-full">
-          <Button
-            variant="secondary"
-            className="flex-1"
-            onClick={() => navigate(`/grammar/${lessonId}`)}
-          >
-            <ArrowLeft size={18} className="mr-1" /> Review
-          </Button>
-          <Button
-            className="flex-1"
-            onClick={() => {
-              resetQuiz();
-              xpAwardedRef.current = false;
-              setQuizXP(null);
-              setShowNext(false);
-            }}
-          >
-            <RotateCcw size={18} className="mr-1" /> Retry
-          </Button>
-        </div>
-        <Link to="/grammar" className="text-sm text-indigo-500 hover:underline">
-          ← Back to all lessons
-        </Link>
-      </motion.div>
+      </>
     );
   }
 

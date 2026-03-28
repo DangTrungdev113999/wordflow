@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react';
+import { useSearchParams } from 'react-router';
 import { useVocabularyStore } from '../../../stores/vocabularyStore';
 import { useProgressStore } from '../../../stores/progressStore';
 import { useSettingsStore } from '../../../stores/settingsStore';
@@ -8,6 +9,9 @@ import { eventBus } from '../../../services/eventBus';
 import type { FlashcardRating } from '../../../lib/types';
 
 export function useFlashcard(topicId: string) {
+  const [searchParams] = useSearchParams();
+  const isWeakMode = searchParams.get('weak') === 'true';
+
   const {
     topics,
     currentTopic,
@@ -21,6 +25,7 @@ export function useFlashcard(topicId: string) {
     wordProgressMap,
     setWordProgressMap,
     sessionStats,
+    sessionResults,
     recordAnswer,
     resetSession,
   } = useVocabularyStore();
@@ -43,14 +48,28 @@ export function useFlashcard(topicId: string) {
       progresses.forEach((p) => { map[p.wordId] = p; });
       setWordProgressMap(map);
 
-      const queue = topic.words
-        .filter((w) => {
+      let queue;
+      if (isWeakMode) {
+        // Weak mode: only words with low easeFactor or failed learning
+        queue = topic.words.filter((w) => {
           const id = `${topicId}:${w.word}`;
           const prog = map[id];
-          if (!prog) return true;
-          return prog.nextReview <= Date.now();
-        })
-        .slice(0, 20);
+          if (!prog) return false;
+          return (
+            prog.easeFactor < 2.0 ||
+            (prog.status === 'learning' && prog.repetitions === 0)
+          );
+        });
+      } else {
+        queue = topic.words
+          .filter((w) => {
+            const id = `${topicId}:${w.word}`;
+            const prog = map[id];
+            if (!prog) return true;
+            return prog.nextReview <= Date.now();
+          })
+          .slice(0, 20);
+      }
 
       if (queue.length === 0) {
         setFlashcardQueue(topic.words.slice(0, 20));
@@ -60,7 +79,7 @@ export function useFlashcard(topicId: string) {
     });
 
     return () => resetSession();
-  }, [topicId]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [topicId, isWeakMode]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleRate = useCallback(async (rating: FlashcardRating) => {
     if (!currentWord || !currentTopic) return;
@@ -81,7 +100,7 @@ export function useFlashcard(topicId: string) {
 
     // Record answer for sessionStats
     const isCorrect = rating >= 3;
-    recordAnswer(isCorrect);
+    recordAnswer(isCorrect, wordId);
 
     // Emit events instead of direct calls
     if (isCorrect) {
@@ -113,6 +132,7 @@ export function useFlashcard(topicId: string) {
     flipCard,
     handleRate,
     sessionStats,
+    sessionResults,
     isSessionComplete,
     flashcardQueue,
     currentCardIndex,

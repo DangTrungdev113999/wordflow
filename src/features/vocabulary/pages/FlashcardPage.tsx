@@ -1,9 +1,10 @@
 import { useParams, Link, useNavigate } from 'react-router';
-import { ArrowLeft, CheckCircle } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { useFlashcard } from '../hooks/useFlashcard';
 import { FlashcardDeck } from '../components/FlashcardDeck';
-import { Button } from '../../../components/ui/Button';
-import { motion } from 'framer-motion';
+import { SessionSummary } from '../components/SessionSummary';
+import { getWeakWords, getSessionWeakWords, type WeakWord } from '../../../services/weakWordsService';
 
 export function FlashcardPage() {
   const { topic } = useParams<{ topic: string }>();
@@ -15,11 +16,21 @@ export function FlashcardPage() {
     flipCard,
     handleRate,
     sessionStats,
+    sessionResults,
     isSessionComplete,
     flashcardQueue,
     currentCardIndex,
     sessionXP,
   } = useFlashcard(topic ?? '');
+
+  const [weakWords, setWeakWords] = useState<WeakWord[]>([]);
+
+  useEffect(() => {
+    if (!isSessionComplete) return;
+    getWeakWords().then((allWeak) => {
+      setWeakWords(getSessionWeakWords(sessionResults, allWeak));
+    });
+  }, [isSessionComplete]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!currentTopic) {
     return <div className="p-6 text-center text-gray-500">Loading...</div>;
@@ -28,37 +39,20 @@ export function FlashcardPage() {
   if (isSessionComplete) {
     const accuracy = sessionStats.total > 0 ? Math.round((sessionStats.correct / sessionStats.total) * 100) : 0;
     return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="px-4 py-10 flex flex-col items-center gap-6 text-center max-w-md mx-auto"
-      >
-        <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
-          <CheckCircle size={40} className="text-green-500" />
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Session Complete!</h2>
-          <p className="text-gray-500 dark:text-gray-400 mt-1">{sessionStats.total} cards reviewed</p>
-        </div>
-        <div className="grid grid-cols-2 gap-4 w-full">
-          <div className="bg-green-50 dark:bg-green-900/20 rounded-2xl p-4">
-            <p className="text-2xl font-bold text-green-600">{accuracy}%</p>
-            <p className="text-sm text-green-700 dark:text-green-400">Accuracy</p>
-          </div>
-          <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-2xl p-4">
-            <p className="text-2xl font-bold text-indigo-600">{sessionXP}xp</p>
-            <p className="text-sm text-indigo-700 dark:text-indigo-400">XP Earned</p>
-          </div>
-        </div>
-        <div className="flex gap-3 w-full">
-          <Button variant="secondary" className="flex-1" onClick={() => navigate(`/vocabulary/${topic}`)}>
-            Word List
-          </Button>
-          <Button className="flex-1" onClick={() => navigate(0)}>
-            Study Again
-          </Button>
-        </div>
-      </motion.div>
+      <SessionSummary
+        correct={sessionStats.correct}
+        total={sessionStats.total}
+        accuracy={accuracy}
+        xpEarned={sessionXP}
+        weakWords={weakWords}
+        onPracticeWeakWords={
+          weakWords.length > 0
+            ? () => navigate(`/vocabulary/${topic}/learn?weak=true`)
+            : undefined
+        }
+        onBack={() => navigate(`/vocabulary/${topic}`)}
+        onRetry={() => navigate(0)}
+      />
     );
   }
 
