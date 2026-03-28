@@ -1,13 +1,20 @@
 import { useEffect, useState } from 'react';
-import { BarChart2, TrendingUp } from 'lucide-react';
+import { BarChart2, TrendingUp, Target, Crosshair, Activity, CalendarDays, PieChart as PieChartIcon } from 'lucide-react';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { db } from '../../../db/database';
 import { useProgressStore } from '../../../stores/progressStore';
+import { useAnalytics } from '../hooks/useAnalytics';
+import { SkillRadar } from '../components/SkillRadar';
+import { WordMasteryBreakdown } from '../components/WordMasteryBreakdown';
+import { AccuracyTrend } from '../components/AccuracyTrend';
+import { WeakAreasChart } from '../components/WeakAreasChart';
+import { LearningHeatmap } from '../components/LearningHeatmap';
 import type { DailyLog } from '../../../db/models';
 
 export function StatsPage() {
   const [logs, setLogs] = useState<DailyLog[]>([]);
   const { xp, totalWordsLearned, currentStreak, longestStreak, badges } = useProgressStore();
+  const analytics = useAnalytics();
 
   useEffect(() => {
     db.dailyLogs.orderBy('date').reverse().limit(30).toArray().then((data) => {
@@ -94,6 +101,61 @@ export function StatsPage() {
         <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 border border-gray-100 dark:border-gray-800 text-center">
           <p className="text-gray-400">📊 Start learning to see your stats!</p>
           <p className="text-sm text-gray-400 mt-1">Charts will appear after your first study session.</p>
+        </div>
+      )}
+
+      {/* Enhanced Analytics */}
+      {!analytics.loading && (
+        <div className="mt-6 space-y-4">
+          {/* Skill Radar + Word Mastery — side by side */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-white dark:bg-gray-900 rounded-2xl p-4 border border-gray-100 dark:border-gray-800">
+              <div className="flex items-center gap-2 mb-3">
+                <Target size={16} className="text-indigo-500" />
+                <h3 className="font-semibold text-gray-900 dark:text-white">Skill Radar</h3>
+              </div>
+              <SkillRadar data={analytics.skillRadar} />
+            </div>
+
+            {analytics.masteryBreakdown.some((d) => d.count > 0) && (
+              <div className="bg-white dark:bg-gray-900 rounded-2xl p-4 border border-gray-100 dark:border-gray-800">
+                <div className="flex items-center gap-2 mb-3">
+                  <PieChartIcon size={16} className="text-green-500" />
+                  <h3 className="font-semibold text-gray-900 dark:text-white">Word Mastery</h3>
+                </div>
+                <WordMasteryBreakdown data={analytics.masteryBreakdown} />
+              </div>
+            )}
+          </div>
+
+          {/* Accuracy Trend — full width */}
+          <div className="bg-white dark:bg-gray-900 rounded-2xl p-4 border border-gray-100 dark:border-gray-800">
+            <div className="flex items-center gap-2 mb-3">
+              <Activity size={16} className="text-indigo-500" />
+              <h3 className="font-semibold text-gray-900 dark:text-white">Accuracy Trend (30 days)</h3>
+            </div>
+            <AccuracyTrend data={analytics.accuracyTrend} />
+          </div>
+
+          {/* Weak Areas — full width */}
+          {analytics.weakAreas.length >= 2 && (
+            <div className="bg-white dark:bg-gray-900 rounded-2xl p-4 border border-gray-100 dark:border-gray-800">
+              <div className="flex items-center gap-2 mb-3">
+                <Crosshair size={16} className="text-red-500" />
+                <h3 className="font-semibold text-gray-900 dark:text-white">Weak Areas</h3>
+              </div>
+              <WeakAreasChart data={analytics.weakAreas} />
+            </div>
+          )}
+
+          {/* Learning Heatmap — full width */}
+          <div className="bg-white dark:bg-gray-900 rounded-2xl p-4 border border-gray-100 dark:border-gray-800">
+            <div className="flex items-center gap-2 mb-3">
+              <CalendarDays size={16} className="text-green-500" />
+              <h3 className="font-semibold text-gray-900 dark:text-white">Learning Activity</h3>
+            </div>
+            <LearningHeatmap data={analytics.heatmapData} />
+          </div>
         </div>
       )}
     </div>
