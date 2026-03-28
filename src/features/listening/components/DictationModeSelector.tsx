@@ -10,6 +10,7 @@ const modes: { value: DictationMode; label: string }[] = [
   { value: 'word', label: 'Word' },
   { value: 'phrase', label: 'Phrase' },
   { value: 'sentence', label: 'Sentence' },
+  { value: 'quiz', label: 'Quiz' },
 ];
 
 export function DictationModeSelector({ mode, onChange }: DictationModeSelectorProps) {

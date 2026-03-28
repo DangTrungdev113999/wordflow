@@ -1,6 +1,6 @@
 import mitt from 'mitt';
-
-export type DictationMode = 'word' | 'phrase' | 'sentence';
+import type { DictationMode } from '../lib/types';
+export type { DictationMode } from '../lib/types';
 
 type AppEvents = {
   'flashcard:correct': { wordId: string; rating: 0 | 2 | 4 | 5 };

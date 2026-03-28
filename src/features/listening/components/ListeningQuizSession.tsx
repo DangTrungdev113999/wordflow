@@ -1,69 +1,39 @@
 import { useState, useCallback } from 'react';
-import { useParams, useSearchParams, useNavigate } from 'react-router';
-import { motion } from 'framer-motion';
-import { X } from 'lucide-react';
-import { useDictation } from '../hooks/useDictation';
-import { useDictationAudio } from '../hooks/useDictationAudio';
-import { DictationPlayer } from '../components/DictationPlayer';
-import { DictationInput } from '../components/DictationInput';
-import { DictationResult } from '../components/DictationResult';
-import { DictationSessionSummary } from '../components/DictationSessionSummary';
-import { ListeningQuizSession } from '../components/ListeningQuizSession';
-import { ALL_TOPICS } from '../../../data/vocabulary/_index';
+import { useNavigate } from 'react-router';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, Headphones } from 'lucide-react';
+import { useListeningQuiz } from '../hooks/useListeningQuiz';
+import { ListeningQuiz } from './ListeningQuiz';
+import { DictationSessionSummary } from './DictationSessionSummary';
 import { TOPIC_ICONS } from '../../../lib/constants';
-import type { DictationMode } from '../../../lib/types';
 
-export function DictationSessionPage() {
-  const { topic } = useParams<{ topic: string }>();
-  const [searchParams] = useSearchParams();
+interface ListeningQuizSessionProps {
+  topic: string;
+  topicLabel: string;
+}
+
+export function ListeningQuizSession({ topic, topicLabel }: ListeningQuizSessionProps) {
   const navigate = useNavigate();
-  const mode = (searchParams.get('mode') as DictationMode) || 'word';
-
   const {
-    currentItem,
+    currentQuestion,
     currentIndex,
     total,
-    lastResult,
     isComplete,
     correctCount,
     xpEarned,
     incorrectAnswers,
     submitAnswer,
     next,
-  } = useDictation(topic!, mode);
+  } = useListeningQuiz(topic);
 
-  const { play, playSentence, isPlaying } = useDictationAudio();
-  const [hasPlayed, setHasPlayed] = useState(false);
   const [showExitConfirm, setShowExitConfirm] = useState(false);
-
-  const topicData = ALL_TOPICS.find(t => t.topic === topic);
-  const topicLabel = topicData?.topicLabel ?? topic;
-  const topicIcon = TOPIC_ICONS[topic!] ?? '📝';
-
-  const handlePlay = useCallback(() => {
-    if (!currentItem) return;
-    setHasPlayed(true);
-    if (mode === 'sentence') {
-      playSentence(currentItem.target);
-    } else if (mode === 'phrase') {
-      playSentence(currentItem.target);
-    } else {
-      play(currentItem.word.word, currentItem.word.audioUrl);
-    }
-  }, [currentItem, mode, play, playSentence]);
+  const topicIcon = TOPIC_ICONS[topic] ?? '📝';
 
   const handleNext = useCallback(() => {
-    setHasPlayed(false);
     next();
   }, [next]);
 
-  // Quiz mode: delegate to dedicated component
-  if (mode === 'quiz') {
-    const quizTopicLabel = topicData?.topicLabel ?? topic!;
-    return <ListeningQuizSession topic={topic!} topicLabel={quizTopicLabel} />;
-  }
-
-  if (!topicData || total === 0) {
+  if (total === 0) {
     return (
       <div className="px-4 py-6 text-center">
         <p className="text-gray-500 dark:text-gray-400">Topic not found</p>
@@ -94,52 +64,48 @@ export function DictationSessionPage() {
           <span className="text-xl">{topicIcon}</span>
           <h2 className="font-semibold text-gray-900 dark:text-white">{topicLabel}</h2>
         </div>
-        <button
-          onClick={() => setShowExitConfirm(true)}
-          className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
-        >
-          <X size={22} />
-        </button>
+        <div className="flex items-center gap-2">
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs font-medium">
+            <Headphones size={12} />
+            Quiz
+          </span>
+          <button
+            onClick={() => setShowExitConfirm(true)}
+            className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+          >
+            <X size={22} />
+          </button>
+        </div>
       </div>
 
       {/* Progress */}
       <div className="space-y-2">
         <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400">
-          <span>Word {currentIndex + 1} of {total}</span>
-          <span className="capitalize">{mode} mode</span>
+          <span>Question {currentIndex + 1} of {total}</span>
+          <span>{correctCount} correct</span>
         </div>
         <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
           <motion.div
             className="h-full bg-indigo-500 rounded-full"
             initial={{ width: 0 }}
-            animate={{ width: `${((currentIndex) / total) * 100}%` }}
+            animate={{ width: `${(currentIndex / total) * 100}%` }}
             transition={{ duration: 0.3 }}
           />
         </div>
       </div>
 
-      {/* Player */}
-      <div className="py-6">
-        <DictationPlayer
-          onPlay={handlePlay}
-          isPlaying={isPlaying}
-          hasPlayed={hasPlayed}
-          disabled={!!lastResult}
-        />
-      </div>
-
-      {/* Input or Result */}
-      {lastResult ? (
-        <DictationResult
-          correct={lastResult.correct}
-          userAnswer={lastResult.userAnswer}
-          target={lastResult.item.target}
-          word={lastResult.item.word}
-          onNext={handleNext}
-        />
-      ) : (
-        <DictationInput onSubmit={submitAnswer} />
-      )}
+      {/* Quiz question */}
+      <AnimatePresence mode="wait">
+        {currentQuestion && (
+          <ListeningQuiz
+            key={currentIndex}
+            question={currentQuestion}
+            onAnswer={submitAnswer}
+            onNext={handleNext}
+            questionNumber={currentIndex}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Exit confirmation */}
       {showExitConfirm && (

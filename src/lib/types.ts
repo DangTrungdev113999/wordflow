@@ -2,7 +2,7 @@ export type CEFRLevel = 'A1' | 'A2' | 'B1' | 'B2';
 export type WordStatus = 'new' | 'learning' | 'review' | 'mastered';
 export type Theme = 'light' | 'dark' | 'system';
 export type FlashcardRating = 0 | 2 | 4 | 5;
-export type DictationMode = 'word' | 'phrase' | 'sentence';
+export type DictationMode = 'word' | 'phrase' | 'sentence' | 'quiz';
 
 export interface SessionResult {
   wordId: string;
