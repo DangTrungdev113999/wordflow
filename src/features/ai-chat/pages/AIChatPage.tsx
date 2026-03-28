@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router';
 import { Bot, PanelLeftOpen, PanelLeftClose, AlertCircle } from 'lucide-react';
 import { useAIChat } from '../hooks/useAIChat';
 import { ChatBubble } from '../components/ChatBubble';
@@ -12,6 +12,7 @@ import { cn } from '../../../lib/utils';
 
 export function AIChatPage() {
   const { conversationId } = useParams();
+  const navigate = useNavigate();
   const {
     conversations,
     messages,
@@ -38,7 +39,7 @@ export function AIChatPage() {
   const handleNewChat = async () => {
     const id = await createConversation();
     setSidebarOpen(false);
-    window.location.href = `/ai-chat/${id}`;
+    navigate(`/ai-chat/${id}`);
   };
 
   return (
