@@ -179,12 +179,13 @@ export function useMediaLearning() {
           source: 'media-quiz',
           mistakes: incorrectMistakes.map(r => {
             const ex = r.exercise;
+            const question = ex && 'question' in ex ? ex.question : ex && 'sentence' in ex ? ex.sentence : 'Media quiz';
             const correctAnswer = ex && 'options' in ex && 'answer' in ex
-              ? ex.options[ex.answer as number] ?? ''
+              ? (ex as { options: string[]; answer: number }).options[ex.answer as number] ?? ''
               : '';
             return {
               type: 'vocabulary' as const,
-              question: ex?.question ?? 'Media quiz question',
+              question,
               userAnswer: r.userAnswer,
               correctAnswer,
             };
