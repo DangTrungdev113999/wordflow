@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { lookupWord } from '../../../services/dictionaryApi';
-import type { DictionaryEntry } from '../../../lib/types';
+import { enrichWord, type EnrichedWordData } from '../../../services/enrichmentService';
 import type { VocabWord } from '../../../lib/types';
 import { AudioButton } from '../../../components/common/AudioButton';
 import { Skeleton } from '../../../components/ui/Skeleton';
@@ -11,16 +10,18 @@ interface WordDetailProps {
 }
 
 export function WordDetail({ word }: WordDetailProps) {
-  const [entry, setEntry] = useState<DictionaryEntry | null>(null);
+  const [enriched, setEnriched] = useState<EnrichedWordData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    lookupWord(word.word).then((entries) => {
-      setEntry(entries?.[0] ?? null);
+    enrichWord(word.word).then((data) => {
+      setEnriched(data);
       setLoading(false);
     });
   }, [word.word]);
+
+  const audioUrl = enriched?.audioUrl ?? word.audioUrl;
 
   return (
     <div className="space-y-4">
@@ -32,7 +33,7 @@ export function WordDetail({ word }: WordDetailProps) {
             <p className="text-sm text-gray-400 font-mono mt-0.5">{word.ipa}</p>
             <p className="text-indigo-600 dark:text-indigo-400 font-semibold mt-1">{word.meaning}</p>
           </div>
-          <AudioButton word={word.word} audioUrl={word.audioUrl} size="md" />
+          <AudioButton word={word.word} audioUrl={audioUrl} size="md" />
         </div>
         <p className="text-sm text-gray-500 dark:text-gray-400 italic mt-3">"{word.example}"</p>
       </Card>
@@ -43,26 +44,41 @@ export function WordDetail({ word }: WordDetailProps) {
           <Skeleton className="h-32" />
           <Skeleton className="h-24" />
         </div>
-      ) : entry ? (
+      ) : enriched && enriched.definitions.length > 0 ? (
         <Card>
           <h2 className="font-semibold text-gray-700 dark:text-gray-300 mb-3 text-sm uppercase tracking-wide">Dictionary</h2>
-          {entry.meanings.slice(0, 3).map((meaning, i) => (
+          {enriched.definitions.map((def, i) => (
             <div key={i} className="mb-3">
-              <span className="text-xs text-indigo-500 font-semibold uppercase">{meaning.partOfSpeech}</span>
-              {meaning.definitions.slice(0, 2).map((def, j) => (
-                <div key={j} className="mt-1">
-                  <p className="text-sm text-gray-700 dark:text-gray-300">{def.definition}</p>
-                  {def.example && (
-                    <p className="text-xs text-gray-400 italic mt-0.5">"{def.example}"</p>
-                  )}
-                </div>
-              ))}
+              <span className="text-xs text-indigo-500 font-semibold uppercase">{def.partOfSpeech}</span>
+              <div className="mt-1">
+                <p className="text-sm text-gray-700 dark:text-gray-300">{def.definition}</p>
+                {def.example && (
+                  <p className="text-xs text-gray-400 italic mt-0.5">"{def.example}"</p>
+                )}
+              </div>
             </div>
           ))}
         </Card>
       ) : (
         <Card>
           <p className="text-sm text-gray-400 text-center py-4">No dictionary entry found</p>
+        </Card>
+      )}
+
+      {/* Synonyms */}
+      {!loading && enriched && enriched.synonyms.length > 0 && (
+        <Card>
+          <h2 className="font-semibold text-gray-700 dark:text-gray-300 mb-3 text-sm uppercase tracking-wide">Synonyms</h2>
+          <div className="flex flex-wrap gap-2">
+            {enriched.synonyms.map((syn) => (
+              <span
+                key={syn}
+                className="px-3 py-1 text-sm bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full"
+              >
+                {syn}
+              </span>
+            ))}
+          </div>
         </Card>
       )}
     </div>
