@@ -10,14 +10,13 @@ import {
   type DragStartEvent,
   type DragEndEvent,
 } from '@dnd-kit/core';
-import { arrayMove } from '@dnd-kit/sortable';
-import { Check, ArrowRight, RotateCcw } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { DropZone } from './DropZone';
 import { BankWordChip, DragOverlayChip } from './WordChip';
 import { HintButton } from './HintButton';
 import type { SentenceBuildingExercise as Exercise } from '../../lib/types';
-import type { useSentenceBuilding } from './useSentenceBuilding';
+import { type useSentenceBuilding, stripPunctuation } from './useSentenceBuilding';
 
 type HookReturn = ReturnType<typeof useSentenceBuilding>;
 
@@ -88,14 +87,14 @@ export function SentenceBuildingExercise({ exercise, state }: SentenceBuildingEx
         }
       }
     },
-    [state]
+    [state.bankWords, state.placedWords, state.moveToZone, state.reorderPlaced]
   );
 
   const handleDragCancel = useCallback(() => {
     setActiveId(null);
   }, []);
 
-  const correctWordCount = exercise.sentence.replace(/[.!?]+$/, '').split(/\s+/).length;
+  const correctWordCount = stripPunctuation(exercise.sentence).split(/\s+/).length;
   const maxHints = Math.min(3, Math.ceil(correctWordCount / 3));
   const progress = ((state.currentIndex + 1) / state.exercises.length) * 100;
 

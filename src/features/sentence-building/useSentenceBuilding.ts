@@ -2,6 +2,10 @@ import { useState, useCallback, useMemo } from 'react';
 import { nanoid } from 'nanoid';
 import type { SentenceBuildingExercise, WordItem, SentenceBuildingResult } from '../../lib/types';
 
+export function stripPunctuation(text: string): string {
+  return text.replace(/[.!?,;:'"]+/g, '');
+}
+
 export interface SentenceBuildingState {
   exercises: SentenceBuildingExercise[];
   currentIndex: number;
@@ -16,36 +20,17 @@ export interface SentenceBuildingState {
 }
 
 function createWordItems(exercise: SentenceBuildingExercise): WordItem[] {
-  const correctWords = exercise.sentence
-    .replace(/[.!?,']+$/g, '')
-    .split(/\s+/);
-
   const allWords = [...exercise.words];
   if (exercise.distractors?.length) {
     allWords.push(...exercise.distractors);
   }
 
-  return allWords.map((word) => {
-    const correctIdx = correctWords.findIndex(
-      (w, i) =>
-        w.toLowerCase() === word.toLowerCase() &&
-        !allWords
-          .slice(0, allWords.indexOf(word))
-          .some(
-            (prev) =>
-              prev.toLowerCase() === word.toLowerCase() &&
-              correctWords.indexOf(prev.toLowerCase()) === i
-          )
-    );
-
-    return {
-      id: nanoid(),
-      word,
-      originalIndex: correctIdx,
-      isDistractor: exercise.distractors?.includes(word) ?? false,
-      isHinted: false,
-    };
-  });
+  return allWords.map((word) => ({
+    id: nanoid(),
+    word,
+    isDistractor: exercise.distractors?.includes(word) ?? false,
+    isHinted: false,
+  }));
 }
 
 function shuffleArray<T>(arr: T[]): T[] {
@@ -122,18 +107,12 @@ export function useSentenceBuilding(exercises: SentenceBuildingExercise[]) {
       const exercise = prev.exercises[prev.currentIndex];
       if (!exercise) return prev;
 
-      const correctWords = exercise.sentence
-        .replace(/[.!?]+$/, '')
+      const correctWords = stripPunctuation(exercise.sentence)
         .split(/\s+/);
 
       const userWords = prev.placedWords.filter((w) => !w.isDistractor);
       const userSentence = userWords.map((w) => w.word).join(' ');
       const correctSentence = correctWords.join(' ');
-
-      const isCorrect =
-        userSentence.toLowerCase() === correctSentence.toLowerCase() &&
-        prev.placedWords.every((w) => !w.isDistractor || false) &&
-        userWords.length === correctWords.length;
 
       // Check if no distractors are in placed words and all correct words are placed
       const noDistractorsPlaced = !prev.placedWords.some((w) => w.isDistractor);
@@ -182,8 +161,7 @@ export function useSentenceBuilding(exercises: SentenceBuildingExercise[]) {
       const exercise = prev.exercises[prev.currentIndex];
       if (!exercise) return prev;
 
-      const correctWords = exercise.sentence
-        .replace(/[.!?]+$/, '')
+      const correctWords = stripPunctuation(exercise.sentence)
         .split(/\s+/);
 
       // Find first position that doesn't have the correct hinted word

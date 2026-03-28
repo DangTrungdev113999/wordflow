@@ -13,5 +13,10 @@
   { "id": "dictation_50", "badge": "🎵", "title": "Sound Master", "description": "Complete 50 dictation exercises", "condition": { "type": "dictationCount", "value": 50 } },
   { "id": "daily_challenge_7", "badge": "🏆", "title": "Weekly Champion", "description": "Complete 7 daily challenges", "condition": { "type": "challengeCount", "value": 7 } },
   { "id": "daily_challenge_30", "badge": "👑", "title": "Monthly Champion", "description": "Complete 30 daily challenges", "condition": { "type": "challengeCount", "value": 30 } },
-  { "id": "pronunciation_10", "badge": "🗣️", "title": "Voice Learner", "description": "Practice pronunciation 10 times", "condition": { "type": "pronunciationCount", "value": 10 } }
+  { "id": "pronunciation_10", "badge": "🗣️", "title": "Voice Learner", "description": "Practice pronunciation 10 times", "condition": { "type": "pronunciationCount", "value": 10 } },
+  { "id": "streak_14", "badge": "⚔️", "title": "2-Week Warrior", "description": "Streak 14 ngày", "condition": { "type": "streak", "value": 14 } },
+  { "id": "streak_100", "badge": "🏛️", "title": "Centurion Streak", "description": "Streak 100 ngày!", "condition": { "type": "streak", "value": 100 } },
+  { "id": "sentence_master", "badge": "🧩", "title": "Sentence Master", "description": "Hoàn thành 50 sentence building", "condition": { "type": "sentenceBuildingCount", "value": 50 } },
+  { "id": "media_explorer", "badge": "📰", "title": "Media Explorer", "description": "Học từ 10 bài báo/video", "condition": { "type": "mediaSessionCount", "value": 10 } },
+  { "id": "media_first", "badge": "📖", "title": "First Article", "description": "Hoàn thành media lesson đầu tiên", "condition": { "type": "mediaSessionCount", "value": 1 } }
 ]

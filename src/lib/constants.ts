@@ -10,7 +10,7 @@ export const XP_VALUES = {
   // Phase 4
   dictation_correct: 10,
   dictation_session_perfect: 30,
-  daily_challenge_complete: 50,
+  daily_challenge_complete: 75,
   pronunciation_correct: 5,
   // Phase 6 — AI Features
   chat_message_sent: 5,

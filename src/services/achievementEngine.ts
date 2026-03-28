@@ -39,6 +39,12 @@ export function checkAchievements(context: AchievementContext): AchievementDefin
       case 'pronunciationCount':
         met = context.pronunciationCount >= achievement.condition.value;
         break;
+      case 'sentenceBuildingCount':
+        met = context.sentenceBuildingCount >= achievement.condition.value;
+        break;
+      case 'mediaSessionCount':
+        met = context.mediaSessionCount >= achievement.condition.value;
+        break;
     }
 
     if (met) newlyUnlocked.push(achievement);

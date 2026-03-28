@@ -1,5 +1,5 @@
 import Dexie, { type Table } from 'dexie';
-import type { Word, WordProgress, GrammarLesson, DailyLog, UserProfile, DictionaryCache, DailyChallengeLog, CustomTopic, CustomWord, ChatConversation, ChatMessage, WritingSubmission, RoleplaySession, MediaSession } from './models';
+import type { Word, WordProgress, GrammarLesson, DailyLog, UserProfile, DictionaryCache, DailyChallengeLog, DailyChallengeTask, CustomTopic, CustomWord, ChatConversation, ChatMessage, WritingSubmission, RoleplaySession, MediaSession } from './models';
 
 export class WordFlowDatabase extends Dexie {
   words!: Table<Word, string>;
@@ -82,6 +82,36 @@ export class WordFlowDatabase extends Dexie {
       writingSubmissions: 'id, promptId, submittedAt',
       roleplaySessions: 'id, scenarioId, completedAt',
       mediaSessions: 'id, createdAt',
+    });
+
+    // Version 6 — Daily Challenge v2: migrate old 3-task object → 5-task array
+    this.version(6).stores({
+      words: 'id, topic, cefrLevel',
+      wordProgress: 'wordId, nextReview, status',
+      grammarLessons: 'id, level, completed',
+      dailyLogs: 'date',
+      userProfile: 'id',
+      dictionaryCache: 'word, cachedAt',
+      dailyChallenges: 'date',
+      customTopics: '++id, name, createdAt',
+      customWords: '++id, topicId, word, createdAt',
+      chatConversations: 'id, updatedAt',
+      chatMessages: 'id, conversationId, timestamp',
+      writingSubmissions: 'id, promptId, submittedAt',
+      roleplaySessions: 'id, scenarioId, completedAt',
+      mediaSessions: 'id, createdAt',
+    }).upgrade(tx => {
+      return tx.table('dailyChallenges').toCollection().modify((challenge: Record<string, unknown>) => {
+        if (!Array.isArray(challenge.tasks)) {
+          const oldTasks = challenge.tasks as { learnWord: boolean; grammarQuiz: boolean; dictation: boolean };
+          challenge.tasks = [
+            { type: 'learnWord', contentId: (challenge.wordId as string) || '', completed: oldTasks.learnWord },
+            { type: 'grammarQuiz', contentId: '', completed: oldTasks.grammarQuiz },
+            { type: 'dictation', contentId: '', completed: oldTasks.dictation },
+          ] satisfies DailyChallengeTask[];
+          delete challenge.wordId;
+        }
+      });
     });
   }
 }

@@ -64,14 +64,18 @@ export interface DictionaryCache {
   cachedAt: number;
 }
 
+export type DailyChallengeTaskType = 'learnWord' | 'grammarQuiz' | 'dictation' | 'sentenceBuilding' | 'mediaVocab';
+
+export interface DailyChallengeTask {
+  type: DailyChallengeTaskType;
+  contentId: string;
+  completed: boolean;
+  score?: number;
+}
+
 export interface DailyChallengeLog {
   date: string;                    // "2026-03-28" — PK
-  wordId: string;
-  tasks: {
-    learnWord: boolean;
-    grammarQuiz: boolean;
-    dictation: boolean;
-  };
+  tasks: DailyChallengeTask[];
   completed: boolean;
   xpEarned: number;
 }

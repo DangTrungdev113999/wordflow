@@ -115,7 +115,6 @@ export interface SentenceBuildingTopic {
 export interface WordItem {
   id: string;
   word: string;
-  originalIndex: number;
   isDistractor: boolean;
   isHinted: boolean;
 }
@@ -136,7 +135,7 @@ export interface AchievementDefinition {
   title: string;
   description: string;
   condition: {
-    type: 'totalWords' | 'streak' | 'lessonsCompleted' | 'perfectQuiz' | 'nightOwl' | 'dictationCount' | 'challengeCount' | 'pronunciationCount';
+    type: 'totalWords' | 'streak' | 'lessonsCompleted' | 'perfectQuiz' | 'nightOwl' | 'dictationCount' | 'challengeCount' | 'pronunciationCount' | 'sentenceBuildingCount' | 'mediaSessionCount';
     value: number;
   };
 }
@@ -151,6 +150,8 @@ export interface AchievementContext {
   dictationCount: number;
   challengeCount: number;
   pronunciationCount: number;
+  sentenceBuildingCount: number;
+  mediaSessionCount: number;
 }
 
 // Media Learning types

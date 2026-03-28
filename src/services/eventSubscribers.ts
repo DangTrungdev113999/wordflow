@@ -123,6 +123,15 @@ export function initEventSubscribers() {
       const allChallenges = await db.dailyChallenges.toArray();
       const challengeCount = allChallenges.filter(c => c.completed).length;
 
+      // Count sentence building completions from daily challenge tasks
+      const sentenceBuildingCount = allChallenges.reduce((sum, c) => {
+        if (!Array.isArray(c.tasks)) return sum;
+        return sum + c.tasks.filter(t => t.type === 'sentenceBuilding' && t.completed).length;
+      }, 0);
+
+      const mediaSessions = await db.mediaSessions.toArray();
+      const mediaSessionCount = mediaSessions.filter(s => s.completed).length;
+
       const newBadges = checkAchievements({
         totalWords: totalWordsLearned,
         streak: currentStreak,
@@ -133,6 +142,8 @@ export function initEventSubscribers() {
         dictationCount,
         challengeCount,
         pronunciationCount,
+        sentenceBuildingCount,
+        mediaSessionCount,
       });
 
       for (const achievement of newBadges) {

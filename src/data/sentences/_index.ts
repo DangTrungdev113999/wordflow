@@ -11,6 +11,4 @@ export const ALL_SENTENCE_TOPICS: SentenceBuildingTopic[] = [
   work as SentenceBuildingTopic,
 ];
 
-export const ALL_SENTENCES = ALL_SENTENCE_TOPICS.flatMap(t =>
-  t.sentences.map(s => ({ ...s, topic: t.topic }))
-);
+export const ALL_SENTENCES = ALL_SENTENCE_TOPICS.flatMap(t => t.sentences);

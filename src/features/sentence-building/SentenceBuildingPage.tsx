@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { ArrowLeft, Puzzle, Filter } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { cn } from '../../lib/utils';
@@ -10,7 +10,7 @@ import { useProgressStore } from '../../stores/progressStore';
 import type { CEFRLevel, SentenceBuildingExercise as Exercise } from '../../lib/types';
 
 type Difficulty = 'all' | 'easy' | 'medium' | 'hard';
-type ViewState = 'topics' | 'exercise' | 'summary';
+type ViewState = 'topics' | 'exercise';
 
 const DIFFICULTY_CONFIG: Record<string, { label: string; color: string }> = {
   all: { label: 'All Levels', color: 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300' },
@@ -132,9 +132,16 @@ function ExerciseView({
 }) {
   const hook = useSentenceBuilding(exercises);
   const addXP = useProgressStore((s) => s.addXP);
+  const [xpAdded, setXpAdded] = useState(false);
+
+  useEffect(() => {
+    if (hook.isComplete && !xpAdded) {
+      addXP(hook.totalXP);
+      setXpAdded(true);
+    }
+  }, [hook.isComplete, hook.totalXP, addXP, xpAdded]);
 
   if (hook.isComplete) {
-    addXP(hook.totalXP);
     return (
       <SentenceBuildingSummary
         results={hook.results}

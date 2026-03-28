@@ -1,14 +1,16 @@
 import { Link } from 'react-router';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Flame } from 'lucide-react';
 import { Card } from '../../../components/ui/Card';
 import { useDailyChallenge } from '../hooks/useDailyChallenge';
+import { useProgressStore } from '../../../stores/progressStore';
 
 export function DailyChallengeCard() {
-  const { word, tasks, completed, xpEarned, loading } = useDailyChallenge();
+  const { content, tasks, completed, xpEarned, loading } = useDailyChallenge();
+  const currentStreak = useProgressStore(s => s.currentStreak);
 
   if (loading) return null;
 
-  const doneCount = [tasks.learnWord, tasks.grammarQuiz, tasks.dictation].filter(Boolean).length;
+  const doneCount = tasks.filter(t => t.completed).length;
   const started = doneCount > 0;
 
   return (
@@ -18,7 +20,14 @@ export function DailyChallengeCard() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-semibold text-green-600 dark:text-green-400">✅ Challenge Complete!</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Earned {xpEarned} XP today</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                Earned {xpEarned} XP today
+                {currentStreak > 1 && (
+                  <span className="inline-flex items-center gap-0.5 ml-1.5 text-amber-600 dark:text-amber-400">
+                    <Flame size={10} /> {currentStreak}-day streak
+                  </span>
+                )}
+              </p>
             </div>
             <ChevronRight size={16} className="text-gray-300 dark:text-gray-600 group-hover:text-indigo-400" />
           </div>
@@ -27,9 +36,13 @@ export function DailyChallengeCard() {
             <div>
               <p className="text-sm font-semibold text-gray-900 dark:text-white">🎯 Today's Challenge</p>
               {started ? (
-                <p className="text-xs text-indigo-500 mt-0.5">{doneCount}/3 tasks done — Continue</p>
+                <p className="text-xs text-indigo-500 mt-0.5">{doneCount}/5 tasks done — Continue</p>
               ) : (
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Word: <span className="font-medium text-indigo-600 dark:text-indigo-400">{word.word}</span></p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                  Word: <span className="font-medium text-indigo-600 dark:text-indigo-400">{content.word.word}</span>
+                  <span className="text-gray-300 dark:text-gray-600 mx-1">·</span>
+                  5 tasks
+                </p>
               )}
             </div>
             <span className="px-3 py-1 bg-indigo-500 text-white text-xs font-medium rounded-full group-hover:bg-indigo-600 transition-colors">
