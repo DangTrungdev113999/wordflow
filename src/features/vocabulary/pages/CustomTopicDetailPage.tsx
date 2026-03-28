@@ -5,6 +5,7 @@ import { ArrowLeft, Play, Trash2, Volume2 } from 'lucide-react';
 import { Button } from '../../../components/ui/Button';
 import { Badge } from '../../../components/ui/Badge';
 import { WordSearch } from '../components/WordSearch';
+import { TopicExportImport } from '../components/TopicExportImport';
 import {
   getTopicById,
   getWords,
@@ -111,6 +112,12 @@ export function CustomTopicDetailPage() {
           </div>
           <p className="text-sm text-gray-500 dark:text-gray-400">{words.length} words</p>
         </div>
+        <TopicExportImport
+          topicId={numericId}
+          topicName={topic.name}
+          existingWords={existingWords}
+          onImportComplete={loadData}
+        />
       </div>
 
       {/* Start Flashcards button */}
