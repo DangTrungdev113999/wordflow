@@ -8,6 +8,7 @@ import { Sidebar } from './components/layout/Sidebar';
 import { ToastContainer } from './components/common/ToastContainer';
 import { useEffect } from 'react';
 import { initializeUserProfile } from './db/database';
+import { initEventSubscribers } from './services/eventSubscribers';
 
 export default function App() {
   useTheme();
@@ -17,6 +18,7 @@ export default function App() {
 
   useEffect(() => {
     initializeUserProfile();
+    initEventSubscribers();
   }, []);
 
   useEffect(() => {

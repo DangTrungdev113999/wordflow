@@ -7,7 +7,11 @@ export type XPAction =
   | 'quiz_correct'
   | 'quiz_perfect_score'
   | 'lesson_complete'
-  | 'daily_goal_met';
+  | 'daily_goal_met'
+  | 'dictation_correct'
+  | 'dictation_session_perfect'
+  | 'daily_challenge_complete'
+  | 'pronunciation_correct';
 
 export function calculateXP(action: XPAction): number {
   return XP_VALUES[action];

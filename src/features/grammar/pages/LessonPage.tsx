@@ -43,7 +43,7 @@ export function LessonPage() {
         <div className="flex-1">
           <h1 className="font-bold text-lg text-gray-900 dark:text-white">{currentLesson.title}</h1>
           <div className="flex items-center gap-2 mt-0.5">
-            <Badge variant={currentLesson.level === 'A1' ? 'primary' : 'secondary'}>
+            <Badge variant={currentLesson.level === 'A1' ? 'cefr' : 'default'}>
               {currentLesson.level}
             </Badge>
             {progress && (

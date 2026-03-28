@@ -1,12 +1,13 @@
 import { cn } from '../../lib/utils';
 
 interface BadgeProps {
-  label: string;
+  label?: string;
+  children?: React.ReactNode;
   variant?: 'default' | 'success' | 'warning' | 'info' | 'cefr';
   className?: string;
 }
 
-export function Badge({ label, variant = 'default', className }: BadgeProps) {
+export function Badge({ label, children, variant = 'default', className }: BadgeProps) {
   return (
     <span
       className={cn(
@@ -21,7 +22,7 @@ export function Badge({ label, variant = 'default', className }: BadgeProps) {
         className
       )}
     >
-      {label}
+      {label || children}
     </span>
   );
 }

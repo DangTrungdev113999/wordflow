@@ -4,8 +4,7 @@ import { useProgressStore } from '../../../stores/progressStore';
 import { useSettingsStore } from '../../../stores/settingsStore';
 import { db } from '../../../db/database';
 import { calculateSM2, createInitialProgress } from '../../../services/spacedRepetition';
-import { logWordLearned, logWordReviewed, logBonusXP } from '../../../services/dailyLogService';
-import { XP_VALUES } from '../../../lib/constants';
+import { eventBus } from '../../../services/eventBus';
 import type { FlashcardRating } from '../../../lib/types';
 
 export function useFlashcard(topicId: string) {
@@ -26,7 +25,7 @@ export function useFlashcard(topicId: string) {
     resetSession,
   } = useVocabularyStore();
 
-  const { addXP, incrementWordsLearned, incrementWordsReviewed, todayWordsLearned, todayXP } = useProgressStore();
+  const { todayWordsLearned, todayXP } = useProgressStore();
   const { dailyGoal } = useSettingsStore();
   const dailyGoalAwarded = useRef(false);
 
@@ -84,32 +83,28 @@ export function useFlashcard(topicId: string) {
     const isCorrect = rating >= 3;
     recordAnswer(isCorrect);
 
-    // Calculate XP
-    let xpGain = XP_VALUES.flashcard_hard;
-    if (rating === 5) xpGain = XP_VALUES.flashcard_easy;
-    else if (rating >= 3) xpGain = XP_VALUES.flashcard_correct;
-    addXP(xpGain);
-
-    // 🔴 FIX: Write to DailyLog in IndexedDB
-    const isNew = !existing || existing.status === 'new';
-    if (isNew) {
-      incrementWordsLearned();
-      await logWordLearned(xpGain);
+    // Emit events instead of direct calls
+    if (isCorrect) {
+      eventBus.emit('flashcard:correct', { wordId, rating: rating as 0 | 2 | 4 | 5 });
     } else {
-      incrementWordsReviewed();
-      await logWordReviewed(xpGain);
+      eventBus.emit('flashcard:incorrect', { wordId });
     }
 
-    // Check daily goal met → award bonus (once per session)
+    // Emit word:learned for new words
+    const isNew = !existing || existing.status === 'new';
+    if (isNew) {
+      eventBus.emit('word:learned', { wordId });
+    }
+
+    // Check daily goal met → emit event (once per session)
     const newTodayLearned = todayWordsLearned + 1;
     if (!dailyGoalAwarded.current && newTodayLearned >= dailyGoal) {
-      addXP(XP_VALUES.daily_goal_met);
-      await logBonusXP(XP_VALUES.daily_goal_met);
+      eventBus.emit('daily_goal:met', {});
       dailyGoalAwarded.current = true;
     }
 
     nextCard();
-  }, [currentWord, currentTopic, topicId, wordProgressMap, addXP, incrementWordsLearned, incrementWordsReviewed, nextCard, setWordProgressMap, recordAnswer, todayWordsLearned, dailyGoal]);
+  }, [currentWord, currentTopic, topicId, wordProgressMap, nextCard, setWordProgressMap, recordAnswer, todayWordsLearned, dailyGoal]);
 
   return {
     currentTopic,

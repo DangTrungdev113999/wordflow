@@ -3,12 +3,11 @@ import { ArrowLeft, CheckCircle, RotateCcw } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useGrammarStore } from '../../../stores/grammarStore';
-import { useProgressStore } from '../../../stores/progressStore';
 import { QuizRenderer } from '../components/QuizRenderer';
 import { Button } from '../../../components/ui/Button';
 import { ProgressBar } from '../../../components/ui/ProgressBar';
 import { calculateQuizXP } from '../../../services/xpEngine';
-import { logQuizCompleted } from '../../../services/dailyLogService';
+import { eventBus } from '../../../services/eventBus';
 
 export function QuizPage() {
   const { lessonId } = useParams<{ lessonId: string }>();
@@ -23,7 +22,6 @@ export function QuizPage() {
     resetQuiz,
     updateLessonProgress,
   } = useGrammarStore();
-  const { addXP } = useProgressStore();
   const [showNext, setShowNext] = useState(false);
   const xpAwardedRef = useRef(false);
   const [quizXP, setQuizXP] = useState<ReturnType<typeof calculateQuizXP> | null>(null);
@@ -51,10 +49,15 @@ export function QuizPage() {
     const score = Math.round((correctCount / currentLesson.exercises.length) * 100);
     const xp = calculateQuizXP(correctCount, currentLesson.exercises.length);
 
-    addXP(xp.totalXP);
     updateLessonProgress(currentLesson.id, score);
     setQuizXP(xp);
-    logQuizCompleted(correctCount, currentLesson.exercises.length, xp.totalXP);
+
+    // Emit event instead of direct addXP + logQuizCompleted
+    eventBus.emit('quiz:complete', {
+      lessonId: currentLesson.id,
+      correct: correctCount,
+      total: currentLesson.exercises.length,
+    });
   }, [quiz.isComplete]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!currentLesson) {

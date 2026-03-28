@@ -30,6 +30,15 @@ export function checkAchievements(context: AchievementContext): AchievementDefin
       case 'nightOwl':
         met = context.currentHour >= achievement.condition.value;
         break;
+      case 'dictationCount':
+        met = context.dictationCount >= achievement.condition.value;
+        break;
+      case 'challengeCount':
+        met = context.challengeCount >= achievement.condition.value;
+        break;
+      case 'pronunciationCount':
+        met = context.pronunciationCount >= achievement.condition.value;
+        break;
     }
 
     if (met) newlyUnlocked.push(achievement);

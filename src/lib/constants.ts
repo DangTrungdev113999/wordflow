@@ -7,6 +7,11 @@ export const XP_VALUES = {
   lesson_complete: 30,
   daily_goal_met: 100,
   streak_bonus: (streak: number) => Math.min(streak * 5, 50),
+  // Phase 4
+  dictation_correct: 10,
+  dictation_session_perfect: 30,
+  daily_challenge_complete: 50,
+  pronunciation_correct: 5,
 } as const;
 
 export const LEVELS = [

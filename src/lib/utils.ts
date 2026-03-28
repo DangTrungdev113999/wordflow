@@ -24,7 +24,7 @@ export function daysBetween(dateStr1: string, dateStr2: string): number {
 }
 
 export function getLevelFromXP(xp: number): { level: number; title: string; nextXP: number; progress: number } {
-  let current = LEVELS[0];
+  let current: (typeof LEVELS)[number] = LEVELS[0];
   for (let i = LEVELS.length - 1; i >= 0; i--) {
     if (xp >= LEVELS[i].xpRequired) {
       current = LEVELS[i];

@@ -24,7 +24,7 @@ export function LessonCard({ lesson, progress }: LessonCardProps) {
       <div className="flex-1 min-w-0">
         <h3 className="font-semibold text-gray-900 dark:text-white truncate">{lesson.title}</h3>
         <div className="flex items-center gap-2 mt-1">
-          <Badge variant={lesson.level === 'A1' ? 'primary' : 'secondary'}>{lesson.level}</Badge>
+          <Badge variant={lesson.level === 'A1' ? 'cefr' : 'default'}>{lesson.level}</Badge>
           <span className="text-sm text-gray-500 dark:text-gray-400">
             {lesson.exercises.length} questions
           </span>

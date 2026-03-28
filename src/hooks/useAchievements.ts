@@ -13,9 +13,9 @@ export function useAchievements() {
   const lessonsCompleted = Object.values(lessonProgress).filter((p) => p.completed).length;
   const hasPerfectQuiz = Object.values(lessonProgress).some((p) => p.bestScore === 100);
 
+  // Initial load check only — ongoing achievement checks are handled by eventSubscribers
   useEffect(() => {
-    // Debounce: don't check on initial render with empty data
-    if (checkedRef.current && totalWordsLearned === 0 && currentStreak === 0) return;
+    if (checkedRef.current) return;
     checkedRef.current = true;
 
     const newBadges = checkAchievements({
@@ -25,6 +25,9 @@ export function useAchievements() {
       hasPerfectQuiz,
       currentHour: new Date().getHours(),
       earnedBadges: badges,
+      dictationCount: 0,
+      challengeCount: 0,
+      pronunciationCount: 0,
     });
 
     for (const achievement of newBadges) {

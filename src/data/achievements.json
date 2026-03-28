@@ -8,5 +8,10 @@
   { "id": "streak_30", "badge": "🔥", "title": "Monthly Master", "description": "Maintain a 30-day streak", "condition": { "type": "streak", "value": 30 } },
   { "id": "grammar_10", "badge": "📝", "title": "Grammar Pro", "description": "Complete 10 grammar lessons", "condition": { "type": "lessonsCompleted", "value": 10 } },
   { "id": "perfect_quiz", "badge": "💯", "title": "Perfectionist", "description": "Score 100% on any quiz", "condition": { "type": "perfectQuiz", "value": 1 } },
-  { "id": "night_owl", "badge": "🦉", "title": "Night Owl", "description": "Study after 10 PM", "condition": { "type": "nightOwl", "value": 22 } }
+  { "id": "night_owl", "badge": "🦉", "title": "Night Owl", "description": "Study after 10 PM", "condition": { "type": "nightOwl", "value": 22 } },
+  { "id": "dictation_10", "badge": "🎧", "title": "Keen Ear", "description": "Complete 10 dictation exercises", "condition": { "type": "dictationCount", "value": 10 } },
+  { "id": "dictation_50", "badge": "🎵", "title": "Sound Master", "description": "Complete 50 dictation exercises", "condition": { "type": "dictationCount", "value": 50 } },
+  { "id": "daily_challenge_7", "badge": "🏆", "title": "Weekly Champion", "description": "Complete 7 daily challenges", "condition": { "type": "challengeCount", "value": 7 } },
+  { "id": "daily_challenge_30", "badge": "👑", "title": "Monthly Champion", "description": "Complete 30 daily challenges", "condition": { "type": "challengeCount", "value": 30 } },
+  { "id": "pronunciation_10", "badge": "🗣️", "title": "Voice Learner", "description": "Practice pronunciation 10 times", "condition": { "type": "pronunciationCount", "value": 10 } }
 ]

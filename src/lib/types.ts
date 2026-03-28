@@ -2,6 +2,14 @@ export type CEFRLevel = 'A1' | 'A2' | 'B1' | 'B2';
 export type WordStatus = 'new' | 'learning' | 'review' | 'mastered';
 export type Theme = 'light' | 'dark' | 'system';
 export type FlashcardRating = 0 | 2 | 4 | 5;
+export type DictationMode = 'word' | 'phrase' | 'sentence';
+
+export interface SessionResult {
+  wordId: string;
+  correct: boolean;
+  timeMs: number;
+  userAnswer?: string;
+}
 
 export interface VocabWord {
   word: string;
@@ -93,7 +101,7 @@ export interface AchievementDefinition {
   title: string;
   description: string;
   condition: {
-    type: 'totalWords' | 'streak' | 'lessonsCompleted' | 'perfectQuiz' | 'nightOwl';
+    type: 'totalWords' | 'streak' | 'lessonsCompleted' | 'perfectQuiz' | 'nightOwl' | 'dictationCount' | 'challengeCount' | 'pronunciationCount';
     value: number;
   };
 }
@@ -105,6 +113,9 @@ export interface AchievementContext {
   hasPerfectQuiz: boolean;
   currentHour: number;
   earnedBadges: string[];
+  dictationCount: number;
+  challengeCount: number;
+  pronunciationCount: number;
 }
 
 // Toast types
