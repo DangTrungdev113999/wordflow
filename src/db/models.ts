@@ -53,6 +53,8 @@ export interface UserProfile {
   theme: Theme;
   badges: string[];
   createdAt: number;
+  placementDone?: boolean;
+  placementLevel?: CEFRLevel;
 }
 
 export interface DictionaryCache {

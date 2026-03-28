@@ -16,6 +16,7 @@ const SettingsPage = lazy(() => import('../features/settings/pages/SettingsPage'
 const DailyChallengePage = lazy(() => import('../features/daily-challenge/pages/DailyChallengePage').then(m => ({ default: m.DailyChallengePage })));
 const ListeningPage = lazy(() => import('../features/listening/pages/ListeningPage').then(m => ({ default: m.ListeningPage })));
 const DictationSessionPage = lazy(() => import('../features/listening/pages/DictationSessionPage').then(m => ({ default: m.DictationSessionPage })));
+const OnboardingPage = lazy(() => import('../features/onboarding/pages/OnboardingPage').then(m => ({ default: m.OnboardingPage })));
 
 function PageLoader() {
   return (
@@ -52,6 +53,7 @@ export const router = createBrowserRouter([
       { path: 'listening/:topic/practice', element: withSuspense(DictationSessionPage) },
       { path: 'daily-challenge', element: withSuspense(DailyChallengePage) },
       { path: 'settings', element: withSuspense(SettingsPage) },
+      { path: 'onboarding', element: withSuspense(OnboardingPage) },
     ],
   },
 ]);

@@ -1,11 +1,20 @@
-import { Settings, Sun, Moon, Monitor, Target } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Settings, Sun, Moon, Monitor, Target, GraduationCap } from 'lucide-react';
+import { useNavigate } from 'react-router';
 import { useSettingsStore } from '../../../stores/settingsStore';
-import type { Theme } from '../../../lib/types';
+import type { Theme, CEFRLevel } from '../../../lib/types';
 import { cn } from '../../../lib/utils';
 import { DataExportImport } from '../components/DataExportImport';
+import { db } from '../../../db/database';
 
 export function SettingsPage() {
   const { theme, setTheme, dailyGoal, setDailyGoal } = useSettingsStore();
+  const navigate = useNavigate();
+  const [placementLevel, setPlacementLevel] = useState<CEFRLevel | undefined>();
+
+  useEffect(() => {
+    db.userProfile.get('default').then((p) => setPlacementLevel(p?.placementLevel));
+  }, []);
 
   const themes: Array<{ value: Theme; label: string; icon: typeof Sun }> = [
     { value: 'light', label: 'Light', icon: Sun },
@@ -71,6 +80,28 @@ export function SettingsPage() {
             </button>
           ))}
         </div>
+      </div>
+
+      {/* Placement Test */}
+      <div className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800 mb-4">
+        <div className="flex items-center gap-2 mb-3">
+          <GraduationCap size={18} className="text-indigo-500" />
+          <h3 className="font-semibold text-gray-900 dark:text-white">Placement Test</h3>
+        </div>
+        {placementLevel && (
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
+            Current level: <span className="font-semibold text-indigo-600 dark:text-indigo-400">{placementLevel}</span>
+          </p>
+        )}
+        <button
+          onClick={() => navigate('/onboarding')}
+          className={cn(
+            'w-full py-2.5 rounded-xl border-2 font-semibold text-sm transition-all',
+            'border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/20',
+          )}
+        >
+          Redo Placement Test
+        </button>
       </div>
 
       {/* Data Export/Import */}
