@@ -10,13 +10,22 @@ interface GrammarVisualProps {
 export function GrammarVisual({ type, data }: GrammarVisualProps) {
   switch (type) {
     case 'timeline':
-      return <TenseTimeline {...(data as unknown as TenseTimelineProps)} />;
+      if ('tense' in data && 'markers' in data) {
+        return <TenseTimeline {...(data as TenseTimelineProps)} />;
+      }
+      return null;
 
     case 'comparison':
-      return <ComparisonTable {...(data as unknown as ComparisonTableProps)} />;
+      if ('left' in data && 'right' in data) {
+        return <ComparisonTable {...(data as ComparisonTableProps)} />;
+      }
+      return null;
 
     case 'formula':
-      return <FormulaCard {...(data as unknown as FormulaCardProps)} />;
+      if ('title' in data && 'parts' in data) {
+        return <FormulaCard {...(data as FormulaCardProps)} />;
+      }
+      return null;
 
     case 'diagram':
       // Future: tree-like sentence structure diagram

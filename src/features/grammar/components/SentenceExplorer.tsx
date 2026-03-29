@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { ColoredExample, SentencePart } from '../../../lib/types';
-import { ROLE_COLORS, ROLE_LABELS, ALL_ROLES } from '../constants/colors';
+import { ROLE_COLORS, ROLE_LABELS, ALL_ROLES, type SentenceRole } from '../constants/colors';
 
 interface SentenceExplorerProps {
   examples: ColoredExample[];
