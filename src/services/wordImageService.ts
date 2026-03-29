@@ -3,9 +3,7 @@ import type { WordImageData, EnrichedWordData } from '../db/models';
 
 export type { WordImageData };
 
-const UNSPLASH_ACCESS_KEY = import.meta.env.VITE_UNSPLASH_ACCESS_KEY as
-  | string
-  | undefined;
+const UNSPLASH_ACCESS_KEY = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
 
 const IMAGE_CACHE_TTL = 30 * 24 * 60 * 60 * 1000; // 30 days
 
