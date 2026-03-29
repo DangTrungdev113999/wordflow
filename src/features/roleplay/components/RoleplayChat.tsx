@@ -109,8 +109,9 @@ export function RoleplayChat({ messages, isSending, error, disabled, onSend }: R
             value={text}
             onChange={(e) => {
               setText(e.target.value);
+              const maxH = window.innerWidth >= 640 ? 200 : 120;
               e.target.style.height = 'auto';
-              e.target.style.height = Math.min(120, e.target.scrollHeight) + 'px';
+              e.target.style.height = Math.min(maxH, e.target.scrollHeight) + 'px';
             }}
             onKeyDown={handleKeyDown}
             placeholder={disabled ? 'Cuộc hội thoại đã kết thúc' : 'Nhập tin nhắn...'}

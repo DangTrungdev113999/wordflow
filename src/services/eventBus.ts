@@ -29,6 +29,8 @@ type AppEvents = {
   'roleplay:completed': { scenarioId: string; goalCompleted: boolean; fluency: number };
   // Phase 8 — Mistake Journal
   'mistakes:collected': MistakeCollectedEvent;
+  // Phase 9 — Celebrations
+  'achievement:unlocked': { id: string };
 };
 
 export type AppEventTypes = AppEvents;

@@ -30,7 +30,7 @@ export function DailyChallengeCard() {
 
   return (
     <Link to="/daily-challenge" className="block">
-      <Card className="group hover:border-indigo-200 dark:hover:border-indigo-800 transition-all">
+      <Card interactive className="group hover:border-indigo-200 dark:hover:border-indigo-800 transition-all">
         {completed ? (
           <div className="flex items-center justify-between">
             <div>

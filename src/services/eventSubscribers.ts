@@ -212,6 +212,7 @@ export function initEventSubscribers() {
           description: achievement.description,
           icon: achievement.badge,
         });
+        eventBus.emit('achievement:unlocked', { id: achievement.id });
       }
     }, 300);
   });

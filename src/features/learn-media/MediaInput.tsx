@@ -80,9 +80,9 @@ export function MediaInput({ onSubmit, loading, error }: Props) {
             value={text}
             onChange={e => setText(e.target.value)}
             placeholder="Paste article text, YouTube transcript, podcast notes, or any English text here..."
-            rows={8}
+            rows={4}
             maxLength={5000}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder:text-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all resize-none"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder:text-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all resize-none min-h-[7rem] sm:min-h-[12rem]"
             disabled={loading}
           />
           <p className="mt-2 text-xs text-gray-400 dark:text-gray-500">

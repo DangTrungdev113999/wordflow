@@ -31,14 +31,26 @@ export function ToastContainer() {
           <motion.div
             key={toast.id}
             initial={{ opacity: 0, x: 100, scale: 0.9 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
+            animate={
+              toast.type === 'badge'
+                ? { opacity: 1, x: 0, scale: [0.9, 1.08, 1] }
+                : { opacity: 1, x: 0, scale: 1 }
+            }
             exit={{ opacity: 0, x: 100, scale: 0.9 }}
+            transition={toast.type === 'badge' ? { duration: 0.5, ease: 'easeOut' } : undefined}
             className={cn(
               'flex items-center gap-3 px-4 py-3 rounded-xl text-white shadow-lg',
+              toast.type === 'badge' && 'ring-2 ring-amber-300/50 shadow-amber-500/25',
               typeStyles[toast.type] ?? typeStyles.info
             )}
           >
-            <span className="text-xl">{toast.icon ?? typeIcons[toast.type]}</span>
+            <motion.span
+              className="text-xl"
+              animate={toast.type === 'badge' ? { rotate: [0, -10, 10, -5, 5, 0] } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              {toast.icon ?? typeIcons[toast.type]}
+            </motion.span>
             <div className="flex-1 min-w-0">
               <p className="font-semibold text-sm">{toast.title}</p>
               {toast.description && (

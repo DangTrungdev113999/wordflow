@@ -36,8 +36,9 @@ export function ChatInput({ onSend, isLoading }: ChatInputProps) {
   const handleInput = () => {
     const el = textareaRef.current;
     if (el) {
+      const maxH = window.innerWidth >= 640 ? 200 : 120;
       el.style.height = 'auto';
-      el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+      el.style.height = Math.min(el.scrollHeight, maxH) + 'px';
     }
   };
 
