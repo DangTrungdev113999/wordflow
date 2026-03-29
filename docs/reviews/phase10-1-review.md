@@ -105,3 +105,20 @@ export async function prefetchTopicImages(words, topicId) {
 ## Verdict
 
 Fix 3 medium issues rồi em review lại. Estimated effort: ~30 phút.
+
+---
+
+## Re-review (commit d7570d6)
+
+**Status: PASS ✅**
+
+Cả 3 medium issues đã fix đúng:
+1. ✅ Retry logic — 2 try/catch riêng, network throw không skip retry, RateLimitError handled riêng
+2. ✅ Cache stub — `updatedAt > 0` check ở cả `enrichWordData` và `getCachedEnrichment`
+3. ✅ Prefetch race — AbortController cancel prefetch cũ, signal check tại 2 checkpoint
+
+Minors cũng fix:
+- ✅ `'placeholder'` xóa khỏi union type → `'unsplash' | 'emoji'`
+- ✅ `console.warn` cho network failures ở cả 2 catch blocks
+
+Code clean, ready to merge.
