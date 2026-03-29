@@ -11,6 +11,9 @@ const UNSPLASH_ACCESS_KEY = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
 const IMAGE_CACHE_TTL = 30 * 24 * 60 * 60 * 1000; // 30 days
 const RATE_LIMIT_CACHE_TTL = 60 * 60 * 1000; // 1 hour — retry after rate limit
 
+// Module-level 429 flag — skip Unsplash calls until this timestamp passes
+let rateLimitedUntil = 0;
+
 const TOPIC_EMOJI_MAP: Record<string, string> = {
   'daily-life': '🌅',
   'food-drink': '🍜',
@@ -64,6 +67,7 @@ export async function getWordImage(
   word: string,
   meaning: string,
   topicId?: string,
+  signal?: AbortSignal,
 ): Promise<WordImageData> {
   const key = word.toLowerCase().trim();
 
@@ -71,7 +75,8 @@ export async function getWordImage(
   const inflight = inflightRequests.get(key);
   if (inflight) return inflight;
 
-  const promise = doGetWordImage(key, meaning, topicId);
+  const promise = doGetWordImage(key, meaning, topicId, signal);
+
   inflightRequests.set(key, promise);
   promise.finally(() => inflightRequests.delete(key));
 
@@ -82,7 +87,14 @@ async function doGetWordImage(
   word: string,
   meaning: string,
   topicId?: string,
+  signal?: AbortSignal,
 ): Promise<WordImageData> {
+  // Short-circuit if globally rate-limited — skip Unsplash entirely
+  if (Date.now() < rateLimitedUntil) {
+    const emoji = getEmojiPlaceholder(topicId ?? '');
+    await cacheImageData(word, emoji, RATE_LIMIT_CACHE_TTL);
+    return emoji;
+  }
   // 1. Check cache
   try {
     const cached = await db.enrichedWords.get(word);
@@ -103,7 +115,7 @@ async function doGetWordImage(
 
     // First try: English word
     try {
-      photo = await fetchUnsplashImage(word);
+      photo = await fetchUnsplashImage(word, signal);
     } catch (e) {
       if (e instanceof RateLimitError) {
         const emoji = getEmojiPlaceholder(topicId ?? '');
@@ -120,7 +132,7 @@ async function doGetWordImage(
 
     // Retry: Vietnamese meaning (if first returned null OR threw)
     try {
-      photo = await fetchUnsplashImage(meaning);
+      photo = await fetchUnsplashImage(meaning, signal);
     } catch (e) {
       if (e instanceof RateLimitError) {
         const emoji = getEmojiPlaceholder(topicId ?? '');
@@ -145,6 +157,7 @@ async function doGetWordImage(
 
 async function fetchUnsplashImage(
   query: string,
+  signal?: AbortSignal,
 ): Promise<WordImageData | null> {
   const url = new URL('https://api.unsplash.com/search/photos');
   url.searchParams.set('query', query);
@@ -153,9 +166,13 @@ async function fetchUnsplashImage(
 
   const res = await fetch(url.toString(), {
     headers: { Authorization: `Client-ID ${UNSPLASH_ACCESS_KEY}` },
+    signal,
   });
 
-  if (res.status === 429) throw new RateLimitError();
+  if (res.status === 429) {
+    rateLimitedUntil = Date.now() + RATE_LIMIT_CACHE_TTL;
+    throw new RateLimitError();
+  }
   if (!res.ok) return null;
 
   const data = await res.json();
@@ -273,9 +290,9 @@ export async function prefetchTopicImages(
     // Parallel fetch with concurrency limit of 3
     const CONCURRENCY = 3;
     for (let i = 0; i < uncached.length; i += CONCURRENCY) {
-      if (signal.aborted) return;
+      if (signal.aborted || Date.now() < rateLimitedUntil) return;
       const chunk = uncached.slice(i, i + CONCURRENCY);
-      await Promise.all(chunk.map((w) => getWordImage(w.word, w.meaning, topicId)));
+      await Promise.all(chunk.map((w) => getWordImage(w.word, w.meaning, topicId, signal)));
       // Throttle between batches if using Unsplash
       if (UNSPLASH_ACCESS_KEY && i + CONCURRENCY < uncached.length) {
         await new Promise((r) => setTimeout(r, 1000));
@@ -285,5 +302,3 @@ export async function prefetchTopicImages(
     inflightPrefetches.delete(topicId);
   }
 }
-
-export { TOPIC_EMOJI_MAP };
