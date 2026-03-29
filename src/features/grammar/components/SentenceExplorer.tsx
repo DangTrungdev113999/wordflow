@@ -1,15 +1,13 @@
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { ColoredExample, SentencePart } from '../../../lib/types';
-import { ROLE_COLORS, ROLE_LABELS, type SentenceRole } from '../constants/colors';
+import { ROLE_COLORS, ROLE_LABELS, ALL_ROLES } from '../constants/colors';
 
 interface SentenceExplorerProps {
   examples: ColoredExample[];
 }
 
 type Mode = 'explore' | 'quiz';
-
-const ALL_ROLES: SentenceRole[] = ['subject', 'verb', 'object', 'time', 'auxiliary', 'complement', 'connector', 'determiner'];
 
 interface QuizPartState {
   revealed: boolean;
@@ -101,6 +99,11 @@ function QuizView({ parts, vi }: { parts: SentencePart[]; vi?: string }) {
 
   return (
     <div className="space-y-2">
+      {/* Click-outside backdrop */}
+      {activePicker !== null && (
+        <div className="fixed inset-0 z-10" onClick={() => setActivePicker(null)} />
+      )}
+
       <div className="flex flex-wrap items-center gap-1.5">
         {parts.map((part, i) => {
           const isRevealed = states[i].revealed;

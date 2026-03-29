@@ -11,6 +11,8 @@ export const ROLE_COLORS = {
 
 export type SentenceRole = keyof typeof ROLE_COLORS;
 
+export const ALL_ROLES: SentenceRole[] = ['subject', 'verb', 'object', 'time', 'auxiliary', 'complement', 'connector', 'determiner'];
+
 export const ROLE_LABELS: Record<SentenceRole, string> = {
   subject: 'Chủ ngữ',
   verb: 'Động từ',

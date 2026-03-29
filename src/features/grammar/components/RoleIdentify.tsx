@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Lottie from 'lottie-react';
 import type { RoleIdentifyExercise } from '../../../lib/types';
-import { ROLE_COLORS, ROLE_LABELS, type SentenceRole } from '../constants/colors';
+import { ROLE_COLORS, ROLE_LABELS, ALL_ROLES, type SentenceRole } from '../constants/colors';
 import correctAnim from '../../../assets/lottie/correct-check.json';
 import wrongAnim from '../../../assets/lottie/wrong-shake.json';
 
@@ -10,8 +10,6 @@ interface Props {
   exercise: RoleIdentifyExercise;
   onAnswer: (correct: boolean, userAnswer: string) => void;
 }
-
-const ALL_ROLES: SentenceRole[] = ['subject', 'verb', 'object', 'time', 'auxiliary', 'complement', 'connector', 'determiner'];
 
 interface PartAnswer {
   role: SentenceRole | null;
@@ -43,12 +41,12 @@ export function RoleIdentify({ exercise, onAnswer }: Props) {
     setSubmitted(true);
 
     const results: Record<number, PartAnswer> = {};
-    let allCorrect = true;
+    let correctCount = 0;
     for (const idx of targetIndices) {
       const picked = answers[idx].role;
       const actual = parts[idx].role as SentenceRole;
       const correct = picked === actual;
-      if (!correct) allCorrect = false;
+      if (correct) correctCount++;
       results[idx] = { role: picked, correct };
     }
     setAnswers(results);
@@ -56,7 +54,9 @@ export function RoleIdentify({ exercise, onAnswer }: Props) {
     const userAnswerStr = targetIndices
       .map((idx) => `${parts[idx].text}=${answers[idx].role}`)
       .join(', ');
-    onAnswer(allCorrect, userAnswerStr);
+    // Partial credit: pass if >= 70% correct
+    const score = correctCount / targetIndices.length;
+    onAnswer(score >= 0.7, userAnswerStr);
   };
 
   return (
@@ -73,6 +73,11 @@ export function RoleIdentify({ exercise, onAnswer }: Props) {
             className="w-20 h-20"
           />
         </div>
+      )}
+
+      {/* Click-outside backdrop */}
+      {activePicker !== null && !submitted && (
+        <div className="fixed inset-0 z-10" onClick={() => setActivePicker(null)} />
       )}
 
       {/* Sentence with chips */}

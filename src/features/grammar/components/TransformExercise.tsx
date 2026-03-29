@@ -30,6 +30,7 @@ export function TransformExercise({ exercise, onAnswer }: Props) {
   const [submitted, setSubmitted] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [matchedAnswer, setMatchedAnswer] = useState<string | null>(null);
+  const [showHint, setShowHint] = useState(false);
 
   const handleSubmit = () => {
     if (!input.trim() || submitted) return;
@@ -77,11 +78,21 @@ export function TransformExercise({ exercise, onAnswer }: Props) {
         </p>
       </div>
 
-      {/* Hint */}
+      {/* Hint toggle */}
       {exercise.hint && !submitted && (
-        <p className="text-xs text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 px-3 py-1.5 rounded-lg border border-amber-200 dark:border-amber-800">
-          Hint: {exercise.hint}
-        </p>
+        showHint ? (
+          <p className="text-xs text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 px-3 py-1.5 rounded-lg border border-amber-200 dark:border-amber-800">
+            Hint: {exercise.hint}
+          </p>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setShowHint(true)}
+            className="text-xs text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-medium"
+          >
+            Show hint
+          </button>
+        )
       )}
 
       {/* Input */}
