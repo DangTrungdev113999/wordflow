@@ -11,6 +11,54 @@
           { "en": "I **visited** my grandma yesterday.", "vi": "Tôi đã thăm bà hôm qua." },
           { "en": "She **didn't go** to the party.", "vi": "Cô ấy không đi dự tiệc." },
           { "en": "**Did** you **see** the movie?", "vi": "Bạn có xem phim không?" }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject" },
+              { "text": "visited", "role": "verb", "tooltip": "visit + ed (regular verb)" },
+              { "text": "my grandma", "role": "object" },
+              { "text": "yesterday", "role": "time", "tooltip": "Dấu hiệu Past Simple" }
+            ],
+            "vi": "Tôi đã thăm bà hôm qua."
+          },
+          {
+            "parts": [
+              { "text": "She", "role": "subject" },
+              { "text": "didn't", "role": "auxiliary", "tooltip": "did + not → phủ định quá khứ" },
+              { "text": "go", "role": "verb", "tooltip": "Nguyên mẫu! Không phải went" },
+              { "text": "to the party", "role": "complement" }
+            ],
+            "vi": "Cô ấy không đi dự tiệc."
+          }
+        ],
+        "conjugation": {
+          "verb": "work / go",
+          "tense": "Past Simple",
+          "rows": [
+            { "pronoun": "I", "affirmative": "worked / went", "negative": "didn't work / go", "question": "Did I work / go?", "highlight": "base" },
+            { "pronoun": "You", "affirmative": "worked / went", "negative": "didn't work / go", "question": "Did you work / go?", "highlight": "base" },
+            { "pronoun": "He/She/It", "affirmative": "worked / went", "negative": "didn't work / go", "question": "Did he work / go?", "highlight": "base" },
+            { "pronoun": "We", "affirmative": "worked / went", "negative": "didn't work / go", "question": "Did we work / go?", "highlight": "base" },
+            { "pronoun": "They", "affirmative": "worked / went", "negative": "didn't work / go", "question": "Did they work / go?", "highlight": "base" }
+          ],
+          "notes": "Past Simple giống nhau ở tất cả các ngôi. Phủ định & nghi vấn dùng did + V nguyên mẫu."
+        },
+        "beforeAfter": [
+          {
+            "wrong": "She didn't went to school.",
+            "correct": "She didn't go to school.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "Sau didn't, động từ phải ở nguyên mẫu (go, không phải went)"
+          },
+          {
+            "wrong": "I eated lunch at noon.",
+            "correct": "I ate lunch at noon.",
+            "wrongHighlight": [1],
+            "correctHighlight": [1],
+            "explanation": "eat là irregular verb: eat → ate (không phải eated)"
+          }
         ]
       },
       {
@@ -19,6 +67,17 @@
         "examples": [
           { "en": "We **played** football yesterday.", "vi": "Chúng tôi chơi bóng đá hôm qua." },
           { "en": "He **went** to Japan last year.", "vi": "Anh ấy đi Nhật năm ngoái." }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "He", "role": "subject" },
+              { "text": "went", "role": "verb", "tooltip": "go → went (irregular)" },
+              { "text": "to Japan", "role": "complement" },
+              { "text": "last year", "role": "time", "tooltip": "Dấu hiệu Past Simple" }
+            ],
+            "vi": "Anh ấy đi Nhật năm ngoái."
+          }
         ]
       },
       {
@@ -29,6 +88,21 @@
           { "en": "**Last summer**, we **traveled** to Da Nang.", "vi": "Mùa hè trước, chúng tôi đi Đà Nẵng." }
         ]
       }
+    ]
+  },
+  "cheatSheet": {
+    "title": "Past Simple",
+    "formula": "S + V-ed/V2 | S + didn't + V | Did + S + V?",
+    "keyPoints": [
+      "Hành động đã xảy ra và kết thúc trong quá khứ",
+      "Tất cả các ngôi dùng giống nhau (không thêm -s)",
+      "Phủ định & nghi vấn: didn't/Did + V nguyên mẫu"
+    ],
+    "signalWords": ["yesterday", "last week", "last month", "ago", "in 2020", "when I was young"],
+    "commonMistakes": [
+      "She didn't went → She didn't go",
+      "I eated → I ate",
+      "Did he went? → Did he go?"
     ]
   },
   "exercises": [

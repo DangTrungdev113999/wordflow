@@ -224,6 +224,12 @@ export interface ContextProgressEntry {
   lastUpdated: number;
 }
 
+// Phase 11 — Grammar Bookmarks
+export interface GrammarBookmark {
+  lessonId: string;
+  createdAt: number;
+}
+
 // Phase 7 — Learn from Media
 export interface MediaSession {
   id: string;
