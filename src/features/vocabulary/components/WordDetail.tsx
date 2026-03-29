@@ -12,6 +12,8 @@ import type { VocabWord } from '../../../lib/types';
 import { AudioButton } from '../../../components/common/AudioButton';
 import { WordImage } from './WordImage';
 import { ActiveRecallBanner } from './ActiveRecallBanner';
+import { useLiveQuery } from 'dexie-react-hooks';
+import { db } from '../../../db/database';
 import { Skeleton } from '../../../components/ui/Skeleton';
 import { Card } from '../../../components/ui/Card';
 import { useContextProgress } from '../hooks/useContextProgress';
@@ -53,8 +55,10 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
   const [regenerating, setRegenerating] = useState(false);
   const [revealed, setRevealed] = useState(false);
 
-  const wordId = `${topicId ?? 'unknown'}::${word.word}`;
-  const { mastery } = useContextProgress(wordId);
+  const wordId = `${topicId ?? 'unknown'}:${word.word}`;
+  const { mastery, recordContextCorrect } = useContextProgress(wordId);
+  const wordProgress = useLiveQuery(() => db.wordProgress.get(wordId), [wordId]);
+  const hasBeenStudied = (wordProgress?.repetitions ?? 0) >= 1;
 
   // Reset revealed state when word changes
   useEffect(() => {
@@ -151,12 +155,15 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
         </AnimatePresence>
       </Card>
 
-      {/* Active Recall Banner — shown before reveal */}
-      <ActiveRecallBanner
-        wordId={wordId}
-        word={word.word}
-        onReveal={() => setRevealed(true)}
-      />
+      {/* Active Recall Banner — only for previously studied words */}
+      {hasBeenStudied && (
+        <ActiveRecallBanner
+          key={wordId}
+          wordId={wordId}
+          word={word.word}
+          onReveal={() => setRevealed(true)}
+        />
+      )}
 
       {/* Everything below only shows after user reveals */}
       <AnimatePresence>
@@ -246,7 +253,17 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
                   {richExamples.map((ex, i) => {
                     const isContextMastered = mastery.contextsCorrect.includes(ex.context);
                     return (
-                      <div key={i} className="flex gap-2.5">
+                      <button
+                        key={i}
+                        type="button"
+                        onClick={() => !isContextMastered && recordContextCorrect(ex.context)}
+                        className={cn(
+                          'flex gap-2.5 w-full text-left rounded-lg px-2 py-1.5 -mx-2 transition-colors',
+                          isContextMastered
+                            ? 'bg-emerald-50/50 dark:bg-emerald-950/20'
+                            : 'hover:bg-gray-50 dark:hover:bg-gray-800/50 active:bg-gray-100 dark:active:bg-gray-800 cursor-pointer'
+                        )}
+                      >
                         <span
                           className={cn(
                             'shrink-0 text-base mt-0.5 transition-opacity',
@@ -269,7 +286,7 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
                             </svg>
                           </span>
                         )}
-                      </div>
+                      </button>
                     );
                   })}
                 </div>
