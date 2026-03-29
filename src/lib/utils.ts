@@ -41,6 +41,16 @@ export function getLevelFromXP(xp: number): { level: number; title: string; next
   return { level: current.level, title: current.title, nextXP, progress };
 }
 
+/** Fisher-Yates shuffle (immutable — returns new array). */
+export function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 export function cn(...classes: (string | undefined | null | false)[]): string {
   return classes.filter(Boolean).join(' ');
 }

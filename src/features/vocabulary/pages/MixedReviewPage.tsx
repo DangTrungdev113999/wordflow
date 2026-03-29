@@ -7,6 +7,7 @@ import { MixedReviewPicker } from '../components/MixedReviewPicker';
 import { FlashcardDeck } from '../components/FlashcardDeck';
 import { QuizSession } from '../components/QuizSession';
 import { SessionSummary } from '../components/SessionSummary';
+import { ConfirmDialog } from '../../../components/ui/ConfirmDialog';
 
 import { useMixedReview, type MixedReviewConfig, type MixedWord, type MixedSourceFilter } from '../hooks/useMixedReview';
 import { useMnemonicForWord } from '../hooks/useMnemonicForWord';
@@ -15,18 +16,25 @@ import { db } from '../../../db/database';
 import { calculateSM2, createInitialProgress } from '../../../services/spacedRepetition';
 import { eventBus } from '../../../services/eventBus';
 import { getWeakWords, getSessionWeakWords, type WeakWord } from '../../../services/weakWordsService';
-import type { FlashcardRating, VocabWord } from '../../../lib/types';
+import { useToastStore } from '../../../stores/toastStore';
+import { shuffle } from '../../../lib/utils';
+import { XP_VALUES } from '../../../lib/constants';
+import type { FlashcardRating } from '../../../lib/types';
 import type { WordProgress } from '../../../db/models';
 
 type PageState = 'picker' | 'review' | 'complete';
 
-function shuffle<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
+interface ReviewStats {
+  correct: number;
+  incorrect: number;
+  total: number;
+  xpEarned: number;
+}
+
+function getFlashcardXP(rating: FlashcardRating, multiplier: number): number {
+  if (rating < 3) return 0;
+  const action = rating === 5 ? 'flashcard_easy' : rating === 2 ? 'flashcard_hard' : 'flashcard_correct';
+  return Math.round(XP_VALUES[action] * multiplier);
 }
 
 function generateMixedDistractors(
@@ -51,13 +59,14 @@ function FlashcardReview({
 }: {
   words: MixedWord[];
   progressMap: Record<string, WordProgress>;
-  onComplete: (stats: { correct: number; incorrect: number; total: number }, results: { wordId: string; correct: boolean }[]) => void;
+  onComplete: (stats: ReviewStats, results: { wordId: string; correct: boolean }[]) => void;
 }) {
   const [index, setIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [localProgress, setLocalProgress] = useState(progressMap);
-  const statsRef = useRef({ correct: 0, incorrect: 0, total: 0 });
+  const statsRef = useRef({ correct: 0, incorrect: 0, total: 0, xpEarned: 0 });
   const resultsRef = useRef<{ wordId: string; correct: boolean }[]>([]);
+  const learnedInSession = useRef(new Set<string>());
 
   const currentWord = words[index] ?? null;
   const { mnemonic, mnemonicType } = useMnemonicForWord(currentWord);
@@ -77,10 +86,12 @@ function FlashcardReview({
       setLocalProgress((prev) => ({ ...prev, [wordId]: newProgress }));
 
       const isCorrect = rating >= 3;
+      const xp = getFlashcardXP(rating, 1.5);
       statsRef.current = {
         correct: statsRef.current.correct + (isCorrect ? 1 : 0),
         incorrect: statsRef.current.incorrect + (isCorrect ? 0 : 1),
         total: statsRef.current.total + 1,
+        xpEarned: statsRef.current.xpEarned + xp,
       };
       resultsRef.current = [...resultsRef.current, { wordId, correct: isCorrect }];
 
@@ -90,7 +101,8 @@ function FlashcardReview({
         eventBus.emit('flashcard:incorrect', { wordId });
       }
 
-      if (!existing || existing.status === 'new') {
+      if ((!existing || existing.status === 'new') && !learnedInSession.current.has(wordId)) {
+        learnedInSession.current.add(wordId);
         eventBus.emit('word:learned', { wordId });
       }
 
@@ -132,7 +144,7 @@ function QuizReview({
 }: {
   words: MixedWord[];
   progressMap: Record<string, WordProgress>;
-  onComplete: (stats: { correct: number; incorrect: number; total: number }, results: { wordId: string; correct: boolean }[]) => void;
+  onComplete: (stats: ReviewStats, results: { wordId: string; correct: boolean }[]) => void;
 }) {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState<'en-to-vi' | 'vi-to-en'>('en-to-vi');
@@ -140,8 +152,9 @@ function QuizReview({
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [localProgress, setLocalProgress] = useState(progressMap);
-  const statsRef = useRef({ correct: 0, incorrect: 0, total: 0 });
+  const statsRef = useRef({ correct: 0, incorrect: 0, total: 0, xpEarned: 0 });
   const resultsRef = useRef<{ wordId: string; correct: boolean }[]>([]);
+  const learnedInSession = useRef(new Set<string>());
 
   const currentWord = words[index] ?? null;
 
@@ -179,10 +192,12 @@ function QuizReview({
       await db.wordProgress.put(newProgress);
       setLocalProgress((prev) => ({ ...prev, [wordId]: newProgress }));
 
+      const xp = getFlashcardXP(rating, 1.5);
       statsRef.current = {
         correct: statsRef.current.correct + (isCorrect ? 1 : 0),
         incorrect: statsRef.current.incorrect + (isCorrect ? 0 : 1),
         total: statsRef.current.total + 1,
+        xpEarned: statsRef.current.xpEarned + xp,
       };
       resultsRef.current = [...resultsRef.current, { wordId, correct: isCorrect }];
 
@@ -191,7 +206,8 @@ function QuizReview({
       } else {
         eventBus.emit('flashcard:incorrect', { wordId });
       }
-      if (!existing || existing.status === 'new') {
+      if ((!existing || existing.status === 'new') && !learnedInSession.current.has(wordId)) {
+        learnedInSession.current.add(wordId);
         eventBus.emit('word:learned', { wordId });
       }
 
@@ -230,28 +246,40 @@ export function MixedReviewPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const initialFilter = (searchParams.get('source') as MixedSourceFilter) || undefined;
+  const addToast = useToastStore((s) => s.addToast);
 
   const { stats, loading, selectWords, progressMap } = useMixedReview();
   const [pageState, setPageState] = useState<PageState>('picker');
   const [config, setConfig] = useState<MixedReviewConfig | null>(null);
   const [words, setWords] = useState<MixedWord[]>([]);
-  const [sessionStats, setSessionStats] = useState({ correct: 0, incorrect: 0, total: 0 });
+  const [sessionStats, setSessionStats] = useState<ReviewStats>({ correct: 0, incorrect: 0, total: 0, xpEarned: 0 });
   const [sessionResults, setSessionResults] = useState<{ wordId: string; correct: boolean }[]>([]);
   const [weakWords, setWeakWords] = useState<WeakWord[]>([]);
+  const [showLeaveConfirm, setShowLeaveConfirm] = useState(false);
 
   const handleStart = useCallback(
     (cfg: MixedReviewConfig) => {
       const selected = selectWords(cfg);
       if (selected.length === 0) return;
+
+      // Context mode not yet implemented — notify user of fallback
+      if (cfg.mode === 'context') {
+        addToast({
+          type: 'info',
+          title: 'Context mode chưa sẵn sàng',
+          description: 'Tạm sử dụng Flashcard thay thế.',
+        });
+      }
+
       setConfig(cfg);
       setWords(selected);
       setPageState('review');
     },
-    [selectWords],
+    [selectWords, addToast],
   );
 
   const handleComplete = useCallback(
-    (s: typeof sessionStats, results: typeof sessionResults) => {
+    (s: ReviewStats, results: typeof sessionResults) => {
       setSessionStats(s);
       setSessionResults(results);
       setPageState('complete');
@@ -305,7 +333,10 @@ export function MixedReviewPage() {
         ) : (
           <button
             onClick={() => {
-              if (pageState === 'review' && !confirm('Rời khỏi phiên ôn tập?')) return;
+              if (pageState === 'review') {
+                setShowLeaveConfirm(true);
+                return;
+              }
               setPageState('picker');
             }}
             className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -368,12 +399,12 @@ export function MixedReviewPage() {
               correct={sessionStats.correct}
               total={sessionStats.total}
               accuracy={accuracy}
-              xpEarned={Math.round(sessionStats.correct * (effectiveMode === 'flashcard' ? 5 : 8) * 1.5)}
+              xpEarned={sessionStats.xpEarned}
               weakWords={weakWords}
               onBack={() => navigate('/vocabulary')}
               onRetry={() => {
                 setPageState('picker');
-                setSessionStats({ correct: 0, incorrect: 0, total: 0 });
+                setSessionStats({ correct: 0, incorrect: 0, total: 0, xpEarned: 0 });
                 setSessionResults([]);
               }}
               backLabel="Từ vựng"
@@ -382,6 +413,17 @@ export function MixedReviewPage() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <ConfirmDialog
+        open={showLeaveConfirm}
+        onClose={() => setShowLeaveConfirm(false)}
+        onConfirm={() => setPageState('picker')}
+        title="Rời khỏi phiên ôn tập?"
+        description="Tiến trình hiện tại sẽ không được lưu."
+        confirmLabel="Rời đi"
+        cancelLabel="Tiếp tục"
+        variant="warning"
+      />
     </div>
   );
 }
