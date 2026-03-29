@@ -55,7 +55,7 @@ export interface DictionaryEntry {
 }
 
 // Grammar types
-export type QuizType = 'multiple_choice' | 'fill_blank' | 'error_correction' | 'sentence_order';
+export type QuizType = 'multiple_choice' | 'fill_blank' | 'error_correction' | 'sentence_order' | 'role_identify' | 'transform';
 
 export interface MultipleChoiceExercise {
   type: 'multiple_choice';
@@ -83,11 +83,28 @@ export interface SentenceOrderExercise {
   answer: string;
 }
 
+export interface RoleIdentifyExercise {
+  type: 'role_identify';
+  sentence: string;
+  parts: SentencePart[];
+  targetIndices: number[];
+}
+
+export interface TransformExercise {
+  type: 'transform';
+  instruction: string;
+  original: string;
+  acceptedAnswers: string[];
+  hint?: string;
+}
+
 export type GrammarExercise =
   | MultipleChoiceExercise
   | FillBlankExercise
   | ErrorCorrectionExercise
-  | SentenceOrderExercise;
+  | SentenceOrderExercise
+  | RoleIdentifyExercise
+  | TransformExercise;
 
 // Phase 11 — Visual Grammar types
 

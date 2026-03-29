@@ -8,16 +8,35 @@
         "heading": "In, On, At",
         "content": "**In:** bên trong (in the room, in the box, in Vietnam)\n**On:** trên bề mặt (on the table, on the wall, on the floor)\n**At:** tại một điểm (at school, at the door, at home)",
         "examples": [
+          { "en": "The book is **on** the table.", "vi": "Quyển sách ở trên bàn." },
+          { "en": "She is **in** the kitchen.", "vi": "Cô ấy ở trong bếp." },
+          { "en": "Wait **at** the bus stop.", "vi": "Đợi ở trạm xe buýt." }
+        ],
+        "coloredExamples": [
           {
-            "en": "The book is **on** the table.",
+            "parts": [
+              { "text": "The book", "role": "subject", "tooltip": "Chủ ngữ — vật được nói đến" },
+              { "text": "is", "role": "verb", "tooltip": "Động từ tobe — chỉ vị trí" },
+              { "text": "on", "role": "complement", "tooltip": "Giới từ chỉ nơi chốn — trên bề mặt" },
+              { "text": "the table", "role": "object", "tooltip": "Tân ngữ — bề mặt tiếp xúc" }
+            ],
             "vi": "Quyển sách ở trên bàn."
           },
           {
-            "en": "She is **in** the kitchen.",
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ — người" },
+              { "text": "is", "role": "verb", "tooltip": "Động từ tobe" },
+              { "text": "in", "role": "complement", "tooltip": "Giới từ — bên trong không gian" },
+              { "text": "the kitchen", "role": "object", "tooltip": "Tân ngữ — không gian bao quanh" }
+            ],
             "vi": "Cô ấy ở trong bếp."
           },
           {
-            "en": "Wait **at** the bus stop.",
+            "parts": [
+              { "text": "Wait", "role": "verb", "tooltip": "Động từ mệnh lệnh" },
+              { "text": "at", "role": "complement", "tooltip": "Giới từ — tại một điểm cụ thể" },
+              { "text": "the bus stop", "role": "object", "tooltip": "Tân ngữ — điểm cụ thể" }
+            ],
             "vi": "Đợi ở trạm xe buýt."
           }
         ]
@@ -26,112 +45,88 @@
         "heading": "Khác",
         "content": "**Between:** giữa hai thứ\n**Next to / Beside:** bên cạnh\n**Behind:** đằng sau\n**In front of:** đằng trước\n**Under:** bên dưới\n**Above / Over:** bên trên",
         "examples": [
+          { "en": "The bank is **between** the school and the hospital.", "vi": "Ngân hàng ở giữa trường học và bệnh viện." },
+          { "en": "The cat is **under** the bed.", "vi": "Con mèo ở dưới giường." }
+        ],
+        "coloredExamples": [
           {
-            "en": "The bank is **between** the school and the hospital.",
+            "parts": [
+              { "text": "The bank", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": "is", "role": "verb", "tooltip": "Động từ tobe" },
+              { "text": "between", "role": "complement", "tooltip": "Giới từ — giữa hai vật" },
+              { "text": "the school", "role": "object", "tooltip": "Vật thứ nhất" },
+              { "text": "and", "role": "connector", "tooltip": "Liên từ nối hai vật" },
+              { "text": "the hospital", "role": "object", "tooltip": "Vật thứ hai" }
+            ],
             "vi": "Ngân hàng ở giữa trường học và bệnh viện."
-          },
-          {
-            "en": "The cat is **under** the bed.",
-            "vi": "Con mèo ở dưới giường."
           }
         ]
       }
     ]
   },
   "exercises": [
+    { "type": "multiple_choice", "question": "The cat is ___ the box.", "options": ["in", "on", "at", "to"], "answer": 0 },
+    { "type": "multiple_choice", "question": "She lives ___ 42 Nguyen Hue Street.", "options": ["in", "on", "at", "to"], "answer": 2 },
+    { "type": "fill_blank", "question": "The picture is ___ the wall.", "acceptedAnswers": ["on"] },
+    { "type": "fill_blank", "question": "He is waiting ___ the door.", "acceptedAnswers": ["at"] },
+    { "type": "error_correction", "sentence": "The book is at the table.", "correctSentence": "The book is on the table.", "errorIndex": [3] },
+    { "type": "sentence_order", "words": ["is", "the", "park", "in", "she"], "answer": "She is in the park." },
+    { "type": "multiple_choice", "question": "The supermarket is ___ the bank and the school.", "options": ["under", "between", "above", "behind"], "answer": 1 },
+    { "type": "fill_blank", "question": "The lamp is ___ the desk.", "acceptedAnswers": ["on", "above"] },
+    { "type": "error_correction", "sentence": "I live on Hanoi.", "correctSentence": "I live in Hanoi.", "errorIndex": [2] },
+    { "type": "sentence_order", "words": ["the", "behind", "is", "house", "tree", "the"], "answer": "The tree is behind the house." },
     {
-      "type": "multiple_choice",
-      "question": "The cat is ___ the box.",
-      "options": [
-        "in",
-        "on",
-        "at",
-        "to"
+      "type": "role_identify",
+      "sentence": "The cat is under the bed.",
+      "parts": [
+        { "text": "The cat", "role": "subject", "tooltip": "Chủ ngữ" },
+        { "text": "is", "role": "verb", "tooltip": "Động từ tobe" },
+        { "text": "under", "role": "complement", "tooltip": "Giới từ — bên dưới" },
+        { "text": "the bed", "role": "object", "tooltip": "Tân ngữ" }
       ],
-      "answer": 0
+      "targetIndices": [0, 2]
     },
     {
-      "type": "multiple_choice",
-      "question": "She lives ___ 42 Nguyen Hue Street.",
-      "options": [
-        "in",
-        "on",
-        "at",
-        "to"
+      "type": "role_identify",
+      "sentence": "My keys are in the bag on the table.",
+      "parts": [
+        { "text": "My keys", "role": "subject", "tooltip": "Chủ ngữ" },
+        { "text": "are", "role": "verb", "tooltip": "Động từ tobe số nhiều" },
+        { "text": "in", "role": "complement", "tooltip": "Giới từ — bên trong" },
+        { "text": "the bag", "role": "object", "tooltip": "Tân ngữ" },
+        { "text": "on", "role": "complement", "tooltip": "Giới từ — trên bề mặt" },
+        { "text": "the table", "role": "object", "tooltip": "Tân ngữ" }
       ],
-      "answer": 2
+      "targetIndices": [2, 4]
     },
     {
-      "type": "fill_blank",
-      "question": "The picture is ___ the wall.",
-      "acceptedAnswers": [
-        "on"
-      ]
+      "type": "transform",
+      "instruction": "Sửa giới từ sai thành đúng",
+      "original": "She is on the classroom.",
+      "acceptedAnswers": ["She is in the classroom."],
+      "hint": "classroom là không gian bao quanh"
     },
     {
-      "type": "fill_blank",
-      "question": "He is waiting ___ the door.",
-      "acceptedAnswers": [
-        "at"
-      ]
-    },
-    {
-      "type": "error_correction",
-      "sentence": "The book is at the table.",
-      "correctSentence": "The book is on the table.",
-      "errorIndex": [
-        3
-      ]
-    },
-    {
-      "type": "sentence_order",
-      "words": [
-        "is",
-        "the",
-        "park",
-        "in",
-        "she"
-      ],
-      "answer": "She is in the park."
-    },
-    {
-      "type": "multiple_choice",
-      "question": "The supermarket is ___ the bank and the school.",
-      "options": [
-        "under",
-        "between",
-        "above",
-        "behind"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "fill_blank",
-      "question": "The lamp is ___ the desk.",
-      "acceptedAnswers": [
-        "on",
-        "above"
-      ]
-    },
-    {
-      "type": "error_correction",
-      "sentence": "I live on Hanoi.",
-      "correctSentence": "I live in Hanoi.",
-      "errorIndex": [
-        2
-      ]
-    },
-    {
-      "type": "sentence_order",
-      "words": [
-        "the",
-        "behind",
-        "is",
-        "house",
-        "tree",
-        "the"
-      ],
-      "answer": "The tree is behind the house."
+      "type": "transform",
+      "instruction": "Sửa giới từ sai thành đúng",
+      "original": "He works in his desk.",
+      "acceptedAnswers": ["He works at his desk."],
+      "hint": "'desk' là một điểm cụ thể, không phải không gian"
     }
-  ]
+  ],
+  "cheatSheet": {
+    "title": "Prepositions of Place",
+    "formula": "Subject + be + preposition + place",
+    "keyPoints": [
+      "IN: không gian bao quanh (room, city, country)",
+      "ON: bề mặt tiếp xúc (table, wall, floor)",
+      "AT: điểm cụ thể (bus stop, door, home)"
+    ],
+    "signalWords": ["in the room", "on the table", "at school", "between...and", "next to", "behind", "in front of", "under", "above"],
+    "commonMistakes": [
+      "I live on Hanoi → I live in Hanoi",
+      "The book is at the table → The book is on the table",
+      "She is on the classroom → She is in the classroom"
+    ]
+  }
 }

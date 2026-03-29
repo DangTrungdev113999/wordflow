@@ -8,16 +8,37 @@
         "heading": "In, On, At",
         "content": "**In:** tháng, năm, mùa, buổi (in March, in 2024, in summer, in the morning)\n**On:** ngày, thứ (on Monday, on March 5th, on my birthday)\n**At:** giờ, thời điểm cụ thể (at 9 AM, at night, at Christmas)",
         "examples": [
+          { "en": "I wake up **at** 6 AM.", "vi": "Tôi thức dậy lúc 6 giờ sáng." },
+          { "en": "She was born **in** 1995.", "vi": "Cô ấy sinh năm 1995." },
+          { "en": "We have class **on** Monday.", "vi": "Chúng tôi có lớp vào thứ Hai." }
+        ],
+        "coloredExamples": [
           {
-            "en": "I wake up **at** 6 AM.",
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": "wake up", "role": "verb", "tooltip": "Động từ — hành động thức dậy" },
+              { "text": "at", "role": "complement", "tooltip": "Giới từ thời gian — giờ cụ thể" },
+              { "text": "6 AM", "role": "time", "tooltip": "Thời gian — giờ chính xác" }
+            ],
             "vi": "Tôi thức dậy lúc 6 giờ sáng."
           },
           {
-            "en": "She was born **in** 1995.",
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": "was born", "role": "verb", "tooltip": "Động từ bị động — được sinh ra" },
+              { "text": "in", "role": "complement", "tooltip": "Giới từ thời gian — năm" },
+              { "text": "1995", "role": "time", "tooltip": "Thời gian — năm sinh" }
+            ],
             "vi": "Cô ấy sinh năm 1995."
           },
           {
-            "en": "We have class **on** Monday.",
+            "parts": [
+              { "text": "We", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": "have", "role": "verb", "tooltip": "Động từ — có" },
+              { "text": "class", "role": "object", "tooltip": "Tân ngữ — lớp học" },
+              { "text": "on", "role": "complement", "tooltip": "Giới từ thời gian — ngày/thứ" },
+              { "text": "Monday", "role": "time", "tooltip": "Thời gian — thứ trong tuần" }
+            ],
             "vi": "Chúng tôi có lớp vào thứ Hai."
           }
         ]
@@ -25,97 +46,68 @@
     ]
   },
   "exercises": [
+    { "type": "multiple_choice", "question": "I was born ___ July.", "options": ["in", "on", "at", "to"], "answer": 0 },
+    { "type": "multiple_choice", "question": "The meeting is ___ 3 PM.", "options": ["in", "on", "at", "to"], "answer": 2 },
+    { "type": "fill_blank", "question": "We go to church ___ Sundays.", "acceptedAnswers": ["on"] },
+    { "type": "fill_blank", "question": "She graduated ___ 2020.", "acceptedAnswers": ["in"] },
+    { "type": "error_correction", "sentence": "I will see you at Monday.", "correctSentence": "I will see you on Monday.", "errorIndex": [4] },
+    { "type": "sentence_order", "words": ["at", "wake", "I", "up", "6 AM"], "answer": "I wake up at 6 AM." },
+    { "type": "multiple_choice", "question": "It often rains ___ the afternoon.", "options": ["in", "on", "at", "for"], "answer": 0 },
+    { "type": "fill_blank", "question": "The shop closes ___ night.", "acceptedAnswers": ["at"] },
+    { "type": "error_correction", "sentence": "He arrived in 9 o'clock.", "correctSentence": "He arrived at 9 o'clock.", "errorIndex": [2] },
+    { "type": "sentence_order", "words": ["in", "born", "was", "she", "1990"], "answer": "She was born in 1990." },
     {
-      "type": "multiple_choice",
-      "question": "I was born ___ July.",
-      "options": [
-        "in",
-        "on",
-        "at",
-        "to"
+      "type": "role_identify",
+      "sentence": "We have class on Monday.",
+      "parts": [
+        { "text": "We", "role": "subject", "tooltip": "Chủ ngữ" },
+        { "text": "have", "role": "verb", "tooltip": "Động từ" },
+        { "text": "class", "role": "object", "tooltip": "Tân ngữ" },
+        { "text": "on", "role": "complement", "tooltip": "Giới từ thời gian — thứ" },
+        { "text": "Monday", "role": "time", "tooltip": "Thời gian — thứ trong tuần" }
       ],
-      "answer": 0
+      "targetIndices": [3, 4]
     },
     {
-      "type": "multiple_choice",
-      "question": "The meeting is ___ 3 PM.",
-      "options": [
-        "in",
-        "on",
-        "at",
-        "to"
+      "type": "role_identify",
+      "sentence": "I always study in the evening.",
+      "parts": [
+        { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+        { "text": "always", "role": "complement", "tooltip": "Trạng từ tần suất" },
+        { "text": "study", "role": "verb", "tooltip": "Động từ — học" },
+        { "text": "in", "role": "complement", "tooltip": "Giới từ thời gian — buổi" },
+        { "text": "the evening", "role": "time", "tooltip": "Thời gian — buổi tối" }
       ],
-      "answer": 2
+      "targetIndices": [0, 2, 4]
     },
     {
-      "type": "fill_blank",
-      "question": "We go to church ___ Sundays.",
-      "acceptedAnswers": [
-        "on"
-      ]
+      "type": "transform",
+      "instruction": "Sửa giới từ thời gian cho đúng",
+      "original": "She was born at 1995.",
+      "acceptedAnswers": ["She was born in 1995."],
+      "hint": "Năm dùng giới từ 'in'"
     },
     {
-      "type": "fill_blank",
-      "question": "She graduated ___ 2020.",
-      "acceptedAnswers": [
-        "in"
-      ]
-    },
-    {
-      "type": "error_correction",
-      "sentence": "I will see you at Monday.",
-      "correctSentence": "I will see you on Monday.",
-      "errorIndex": [
-        4
-      ]
-    },
-    {
-      "type": "sentence_order",
-      "words": [
-        "at",
-        "wake",
-        "I",
-        "up",
-        "6 AM"
-      ],
-      "answer": "I wake up at 6 AM."
-    },
-    {
-      "type": "multiple_choice",
-      "question": "It often rains ___ the afternoon.",
-      "options": [
-        "in",
-        "on",
-        "at",
-        "for"
-      ],
-      "answer": 0
-    },
-    {
-      "type": "fill_blank",
-      "question": "The shop closes ___ night.",
-      "acceptedAnswers": [
-        "at"
-      ]
-    },
-    {
-      "type": "error_correction",
-      "sentence": "He arrived in 9 o'clock.",
-      "correctSentence": "He arrived at 9 o'clock.",
-      "errorIndex": [
-        2
-      ]
-    },
-    {
-      "type": "sentence_order",
-      "words": [
-        "in",
-        "born",
-        "was",
-        "she",
-        "1990"
-      ],
-      "answer": "She was born in 1990."
+      "type": "transform",
+      "instruction": "Sửa giới từ thời gian cho đúng",
+      "original": "The party is in Saturday.",
+      "acceptedAnswers": ["The party is on Saturday."],
+      "hint": "Ngày/thứ dùng giới từ 'on'"
     }
-  ]
+  ],
+  "cheatSheet": {
+    "title": "Prepositions of Time",
+    "formula": "Subject + verb + at/in/on + time expression",
+    "keyPoints": [
+      "IN: tháng, năm, mùa, buổi (in March, in 2024, in winter, in the morning)",
+      "ON: ngày, thứ, ngày lễ cụ thể (on Monday, on July 4th, on my birthday)",
+      "AT: giờ, thời điểm cụ thể, đêm (at 3 PM, at noon, at night, at Christmas)"
+    ],
+    "signalWords": ["in the morning", "on Monday", "at 6 AM", "in 2024", "on my birthday", "at night", "in summer"],
+    "commonMistakes": [
+      "I will see you at Monday → I will see you on Monday",
+      "She was born at 1995 → She was born in 1995",
+      "He arrived in 9 o'clock → He arrived at 9 o'clock"
+    ]
+  }
 }
