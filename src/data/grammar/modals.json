@@ -2,6 +2,23 @@
   "id": "modals",
   "title": "Modal Verbs: Can, Must, Should",
   "level": "A2",
+  "cheatSheet": {
+    "title": "Modal Verbs",
+    "formula": "S + can/must/should + V (bare infinitive)",
+    "keyPoints": [
+      "Modal verbs are always followed by the base form of the verb (no 'to', no '-s')",
+      "Can = ability / permission, Must = obligation / prohibition, Should = advice",
+      "Negative: can't, mustn't, shouldn't",
+      "Questions: invert modal and subject — Can you...? Must we...? Should I...?"
+    ],
+    "signalWords": ["can", "can't", "must", "mustn't", "should", "shouldn't"],
+    "commonMistakes": [
+      "Adding 'to' after modal: 'must to go' → 'must go'",
+      "Adding '-s' to verb: 'can speaks' → 'can speak'",
+      "Using 'don't' for negation: 'don't must' → 'mustn't'",
+      "Confusing 'mustn't' (prohibition) with 'don't have to' (no obligation)"
+    ]
+  },
   "theory": {
     "sections": [
       {
@@ -11,7 +28,52 @@
           { "en": "She **can** speak three languages.", "vi": "Cô ấy có thể nói ba ngôn ngữ." },
           { "en": "I **can't** drive a car.", "vi": "Tôi không biết lái xe." },
           { "en": "**Can** you help me?", "vi": "Bạn có thể giúp tôi không?" }
-        ]
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "can", "role": "auxiliary", "tooltip": "Modal verb — khả năng" },
+              { "text": " " },
+              { "text": "speak", "role": "verb", "tooltip": "Động từ nguyên thể (bare infinitive)" },
+              { "text": " " },
+              { "text": "three languages", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Cô ấy có thể nói ba ngôn ngữ."
+          },
+          {
+            "parts": [
+              { "text": "Can", "role": "auxiliary", "tooltip": "Modal verb — câu hỏi đảo can lên đầu" },
+              { "text": " " },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "help", "role": "verb", "tooltip": "Động từ nguyên thể" },
+              { "text": " " },
+              { "text": "me", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "?" }
+            ],
+            "vi": "Bạn có thể giúp tôi không?"
+          }
+        ],
+        "beforeAfter": [{
+          "wrong": "She can speaks French fluently.",
+          "correct": "She can speak French fluently.",
+          "wrongHighlight": [2],
+          "correctHighlight": [2],
+          "explanation": "Sau modal verb (can), động từ luôn ở dạng nguyên thể — không thêm '-s'."
+        }],
+        "visualType": "formula",
+        "visualData": {
+          "title": "Modal Verb Formula",
+          "parts": [
+            { "label": "S", "color": "blue" },
+            { "label": "can / must / should", "color": "purple" },
+            { "label": "V (bare)", "color": "orange" }
+          ],
+          "example": "She can speak French."
+        }
       },
       {
         "heading": "Must / Mustn't",
@@ -19,7 +81,42 @@
         "examples": [
           { "en": "You **must** finish your homework.", "vi": "Bạn phải hoàn thành bài tập." },
           { "en": "You **mustn't** be late.", "vi": "Bạn không được đến muộn." }
-        ]
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "You", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "must", "role": "auxiliary", "tooltip": "Modal verb — bắt buộc" },
+              { "text": " " },
+              { "text": "finish", "role": "verb", "tooltip": "Động từ nguyên thể" },
+              { "text": " " },
+              { "text": "your homework", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Bạn phải hoàn thành bài tập."
+          },
+          {
+            "parts": [
+              { "text": "You", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "mustn't", "role": "auxiliary", "tooltip": "Modal verb phủ định — cấm" },
+              { "text": " " },
+              { "text": "smoke", "role": "verb", "tooltip": "Động từ nguyên thể" },
+              { "text": " " },
+              { "text": "here", "role": "complement", "tooltip": "Trạng từ nơi chốn" },
+              { "text": "." }
+            ],
+            "vi": "Bạn không được hút thuốc ở đây."
+          }
+        ],
+        "beforeAfter": [{
+          "wrong": "You must to study harder.",
+          "correct": "You must study harder.",
+          "wrongHighlight": [2],
+          "correctHighlight": [2],
+          "explanation": "Không dùng 'to' sau modal verb. 'must to study' → 'must study'."
+        }]
       },
       {
         "heading": "Should / Shouldn't",
@@ -27,7 +124,42 @@
         "examples": [
           { "en": "You **should** drink more water.", "vi": "Bạn nên uống nhiều nước hơn." },
           { "en": "You **shouldn't** stay up late.", "vi": "Bạn không nên thức khuya." }
-        ]
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "You", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "should", "role": "auxiliary", "tooltip": "Modal verb — lời khuyên" },
+              { "text": " " },
+              { "text": "drink", "role": "verb", "tooltip": "Động từ nguyên thể" },
+              { "text": " " },
+              { "text": "more water", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Bạn nên uống nhiều nước hơn."
+          },
+          {
+            "parts": [
+              { "text": "You", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "shouldn't", "role": "auxiliary", "tooltip": "Modal verb phủ định — khuyên không nên" },
+              { "text": " " },
+              { "text": "stay up", "role": "verb", "tooltip": "Động từ nguyên thể" },
+              { "text": " " },
+              { "text": "late", "role": "time", "tooltip": "Trạng từ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Bạn không nên thức khuya."
+          }
+        ],
+        "beforeAfter": [{
+          "wrong": "You should to eat more vegetables.",
+          "correct": "You should eat more vegetables.",
+          "wrongHighlight": [2],
+          "correctHighlight": [2],
+          "explanation": "Không dùng 'to' sau should. 'should to eat' → 'should eat'."
+        }]
       }
     ]
   },

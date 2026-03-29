@@ -24,12 +24,13 @@ export function ColoredSentence({ parts, vi, interactive = true, size = 'md' }: 
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-  const activePart = activeIndex !== null ? parts[activeIndex] : null;
+  const filteredParts = parts.filter(p => p.role && ROLE_COLORS[p.role]);
+  const activePart = activeIndex !== null ? filteredParts[activeIndex] : null;
 
   return (
     <div className="space-y-2">
       <div className="flex flex-wrap items-center gap-1.5">
-        {parts.map((part, i) => {
+        {parts.filter(p => p.role && ROLE_COLORS[p.role]).map((part, i) => {
           const colors = ROLE_COLORS[part.role];
           const isActive = activeIndex === i;
           return (

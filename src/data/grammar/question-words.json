@@ -2,6 +2,23 @@
   "id": "question-words",
   "title": "Question Words (Wh-)",
   "level": "A1",
+  "cheatSheet": {
+    "title": "Question Words (Wh-)",
+    "formula": "Wh- word + auxiliary + S + V?",
+    "keyPoints": [
+      "What = cái gì, Where = ở đâu, When = khi nào, Who = ai",
+      "Why = tại sao, How = như thế nào, Which = cái nào, Whose = của ai",
+      "Phải có trợ động từ (do/does/did/is/are/was/were) sau từ hỏi",
+      "Ngoại lệ: Who/What làm chủ ngữ thì không cần trợ động từ: Who called you?"
+    ],
+    "signalWords": ["what", "where", "when", "who", "why", "how", "which", "whose"],
+    "commonMistakes": [
+      "Thiếu trợ động từ: 'Where you live?' → 'Where do you live?'",
+      "Nhầm Who/What: 'Who is your favorite color?' → 'What is your favorite color?'",
+      "Sai trật tự: 'Where she does work?' → 'Where does she work?'",
+      "Dùng how much/how many sai: 'How many water?' → 'How much water?'"
+    ]
+  },
   "theory": {
     "sections": [
       {
@@ -20,7 +37,54 @@
             "en": "**Why** are you late?",
             "vi": "Tại sao bạn đến muộn?"
           }
-        ]
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "Where", "role": "complement", "tooltip": "Từ hỏi — hỏi nơi chốn" },
+              { "text": " " },
+              { "text": "do", "role": "auxiliary", "tooltip": "Trợ động từ (you → do)" },
+              { "text": " " },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "live", "role": "verb", "tooltip": "Động từ nguyên thể" },
+              { "text": "?" }
+            ],
+            "vi": "Bạn sống ở đâu?"
+          },
+          {
+            "parts": [
+              { "text": "Why", "role": "complement", "tooltip": "Từ hỏi — hỏi lý do" },
+              { "text": " " },
+              { "text": "are", "role": "auxiliary", "tooltip": "Trợ động từ (you → are)" },
+              { "text": " " },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "late", "role": "complement", "tooltip": "Tính từ bổ ngữ" },
+              { "text": "?" }
+            ],
+            "vi": "Tại sao bạn đến muộn?"
+          }
+        ],
+        "beforeAfter": [{
+          "wrong": "Where you live?",
+          "correct": "Where do you live?",
+          "wrongHighlight": [1],
+          "correctHighlight": [1, 2],
+          "explanation": "Câu hỏi Wh- cần trợ động từ (do/does/did) giữa từ hỏi và chủ ngữ. 'Where you live?' thiếu 'do'."
+        }],
+        "visualType": "formula",
+        "visualData": {
+          "title": "Question Words Formula",
+          "parts": [
+            { "label": "Wh-", "color": "green" },
+            { "label": "auxiliary", "color": "purple" },
+            { "label": "S", "color": "blue" },
+            { "label": "V", "color": "orange" },
+            { "label": "?", "color": "gray" }
+          ],
+          "example": "Where do you live?"
+        }
       }
     ]
   },

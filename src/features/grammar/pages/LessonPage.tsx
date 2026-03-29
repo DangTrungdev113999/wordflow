@@ -12,6 +12,7 @@ import { ConjugationGrid } from '../components/ConjugationGrid';
 import { BeforeAfterCard } from '../components/BeforeAfterCard';
 import { StepByStep } from '../components/StepByStep';
 import { CheatSheetCard } from '../components/CheatSheetCard';
+import { GrammarVisual } from '../components/GrammarVisual';
 import { db } from '../../../db/database';
 
 function renderBold(text: string): ReactNode[] {
@@ -145,6 +146,13 @@ export function LessonPage() {
                   <div className="pt-2">
                     <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Sai vs Đúng</div>
                     <BeforeAfterCard items={section.beforeAfter} />
+                  </div>
+                )}
+
+                {/* Section-level visual (timeline/comparison/formula) */}
+                {section.visualType && section.visualData && (
+                  <div className="pt-2">
+                    <GrammarVisual type={section.visualType} data={section.visualData} />
                   </div>
                 )}
               </motion.div>

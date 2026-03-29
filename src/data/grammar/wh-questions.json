@@ -2,6 +2,23 @@
   "id": "wh-questions",
   "title": "Wh- Questions Structure",
   "level": "A1",
+  "cheatSheet": {
+    "title": "Wh- Questions Structure",
+    "formula": "Wh- word + auxiliary + S + V (base form)?",
+    "keyPoints": [
+      "Trợ động từ (do/does/did) phải đứng trước chủ ngữ",
+      "Động từ chính luôn ở dạng nguyên thể khi có trợ động từ",
+      "Ngoại lệ: Wh- làm chủ ngữ → Who/What + V (không cần trợ động từ)",
+      "Với be/have: Wh + be/have + S + ...?"
+    ],
+    "signalWords": ["what", "where", "when", "who", "why", "how", "which", "whose", "how many", "how much"],
+    "commonMistakes": [
+      "'What does she wants?' → 'What does she want?' (có does thì V nguyên thể)",
+      "'Where she does work?' → 'Where does she work?' (sai trật tự S và aux)",
+      "'Who did called?' → 'Who called?' (Who làm chủ ngữ không cần did)",
+      "'How many water?' → 'How much water?' (water không đếm được)"
+    ]
+  },
   "theory": {
     "sections": [
       {
@@ -16,7 +33,56 @@
             "en": "**Who** called you?",
             "vi": "Ai gọi cho bạn?"
           }
-        ]
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "What", "role": "complement", "tooltip": "Từ hỏi — hỏi về sự vật/sự việc" },
+              { "text": " " },
+              { "text": "does", "role": "auxiliary", "tooltip": "Trợ động từ (she → does)" },
+              { "text": " " },
+              { "text": "she", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "want", "role": "verb", "tooltip": "Động từ nguyên thể (có does rồi → không thêm -s)" },
+              { "text": "?" }
+            ],
+            "vi": "Cô ấy muốn gì?"
+          },
+          {
+            "parts": [
+              { "text": "Where", "role": "complement", "tooltip": "Từ hỏi — hỏi nơi chốn" },
+              { "text": " " },
+              { "text": "did", "role": "auxiliary", "tooltip": "Trợ động từ (quá khứ → did)" },
+              { "text": " " },
+              { "text": "they", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "go", "role": "verb", "tooltip": "Động từ nguyên thể (có did rồi → V bare)" },
+              { "text": " " },
+              { "text": "yesterday", "role": "time", "tooltip": "Trạng từ thời gian" },
+              { "text": "?" }
+            ],
+            "vi": "Hôm qua họ đi đâu?"
+          }
+        ],
+        "beforeAfter": [{
+          "wrong": "What does she wants?",
+          "correct": "What does she want?",
+          "wrongHighlight": [3],
+          "correctHighlight": [3],
+          "explanation": "Khi đã có trợ động từ 'does', động từ chính phải ở dạng nguyên thể. 'wants' → 'want'."
+        }],
+        "visualType": "formula",
+        "visualData": {
+          "title": "Wh- Question Formula",
+          "parts": [
+            { "label": "Wh-", "color": "green" },
+            { "label": "auxiliary", "color": "purple" },
+            { "label": "S", "color": "blue" },
+            { "label": "V (base)", "color": "orange" },
+            { "label": "?", "color": "gray" }
+          ],
+          "example": "What does she want?"
+        }
       }
     ]
   },

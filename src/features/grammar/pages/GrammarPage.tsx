@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useGrammarStore } from '../../../stores/grammarStore';
 import { LessonCard } from '../components/LessonCard';
 import { PageTransition } from '../../../components/common/PageTransition';
+import { GrammarDashboard } from '../components/GrammarDashboard';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 16 },
@@ -27,7 +28,7 @@ export function GrammarPage() {
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
-          className="flex items-center gap-3 mb-6"
+          className="flex items-center gap-3 mb-5"
         >
           <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center">
             <BookOpen size={22} className="text-indigo-500" />
@@ -39,6 +40,11 @@ export function GrammarPage() {
             </p>
           </div>
         </motion.div>
+
+        {/* Dashboard */}
+        <div className="mb-6">
+          <GrammarDashboard />
+        </div>
 
         {a1Lessons.length > 0 && (
           <motion.div

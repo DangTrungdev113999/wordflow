@@ -2,6 +2,30 @@
   "id": "future-simple",
   "title": "Future Simple (will)",
   "level": "A2",
+  "cheatSheet": {
+    "title": "Future Simple (will)",
+    "formula": "S + will + V (nguyên thể) | S + won't + V | Will + S + V?",
+    "keyPoints": [
+      "Luôn dùng động từ nguyên thể sau will (KHÔNG chia)",
+      "Phủ định: will not = won't",
+      "Dùng cho: quyết định tức thì, dự đoán, lời hứa, đề nghị",
+      "Không dùng 'will' trong mệnh đề if (first conditional)"
+    ],
+    "signalWords": [
+      "tomorrow",
+      "next week/month/year",
+      "soon",
+      "later",
+      "I think",
+      "probably",
+      "in the future"
+    ],
+    "commonMistakes": [
+      "She will goes → She will go (sau will luôn là V nguyên thể)",
+      "They won't to come → They won't come (không dùng 'to' sau won't)",
+      "Will she comes? → Will she come? (V nguyên thể trong câu hỏi)"
+    ]
+  },
   "theory": {
     "sections": [
       {
@@ -16,7 +40,63 @@
             "en": "She **won't come** tomorrow.",
             "vi": "Cô ấy sẽ không đến ngày mai."
           }
-        ]
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": "will", "role": "auxiliary", "tooltip": "Trợ động từ tương lai" },
+              { "text": "help", "role": "verb", "tooltip": "Động từ nguyên thể" },
+              { "text": "you.", "role": "object", "tooltip": "Tân ngữ" }
+            ],
+            "vi": "Tôi sẽ giúp bạn."
+          },
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": "won't", "role": "auxiliary", "tooltip": "will not (phủ định)" },
+              { "text": "come", "role": "verb", "tooltip": "Động từ nguyên thể (không chia)" },
+              { "text": "tomorrow.", "role": "time", "tooltip": "Trạng từ thời gian" }
+            ],
+            "vi": "Cô ấy sẽ không đến ngày mai."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "She will goes to school.",
+            "correct": "She will go to school.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "Sau 'will' luôn dùng động từ nguyên thể — KHÔNG chia (goes → go)."
+          },
+          {
+            "wrong": "They won't to come.",
+            "correct": "They won't come.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "Sau 'won't' KHÔNG dùng 'to'. Trực tiếp dùng V nguyên thể."
+          }
+        ],
+        "conjugation": {
+          "verb": "go",
+          "tense": "Future Simple",
+          "rows": [
+            { "pronoun": "I", "affirmative": "I will go", "negative": "I won't go", "question": "Will I go?" },
+            { "pronoun": "You", "affirmative": "You will go", "negative": "You won't go", "question": "Will you go?" },
+            { "pronoun": "He/She/It", "affirmative": "He will go", "negative": "He won't go", "question": "Will he go?", "highlight": "base" },
+            { "pronoun": "We", "affirmative": "We will go", "negative": "We won't go", "question": "Will we go?" },
+            { "pronoun": "They", "affirmative": "They will go", "negative": "They won't go", "question": "Will they go?" }
+          ],
+          "notes": "Will không thay đổi theo ngôi — luôn là 'will' + V nguyên thể cho mọi chủ ngữ."
+        },
+        "visualType": "timeline",
+        "visualData": {
+          "tense": "Future Simple",
+          "markers": [
+            { "position": "present", "label": "now", "type": "point" },
+            { "position": "future", "label": "will + V (hành động tương lai)", "type": "point" }
+          ]
+        }
       },
       {
         "heading": "Cách dùng",
@@ -30,7 +110,38 @@
             "en": "I **will call** you tonight.",
             "vi": "Tôi sẽ gọi cho bạn tối nay."
           }
-        ]
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "It", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": "will", "role": "auxiliary", "tooltip": "Trợ động từ" },
+              { "text": "rain", "role": "verb", "tooltip": "V nguyên thể" },
+              { "text": "later.", "role": "time", "tooltip": "Trạng từ thời gian (dự đoán)" }
+            ],
+            "vi": "Lát nữa trời sẽ mưa."
+          },
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": "will", "role": "auxiliary", "tooltip": "Trợ động từ" },
+              { "text": "call", "role": "verb", "tooltip": "V nguyên thể" },
+              { "text": "you", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "tonight.", "role": "time", "tooltip": "Trạng từ thời gian (lời hứa)" }
+            ],
+            "vi": "Tôi sẽ gọi cho bạn tối nay."
+          }
+        ],
+        "visualType": "formula",
+        "visualData": {
+          "title": "Cấu trúc Future Simple",
+          "parts": [
+            { "label": "S", "color": "blue" },
+            { "label": "will", "color": "green" },
+            { "label": "V (nguyên thể)", "color": "orange" }
+          ],
+          "example": "I will help you."
+        }
       }
     ]
   },

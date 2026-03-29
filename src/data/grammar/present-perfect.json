@@ -2,10 +2,40 @@
   "id": "present-perfect",
   "title": "Present Perfect Tense",
   "level": "A2",
+  "cheatSheet": {
+    "title": "Present Perfect",
+    "formula": "S + have/has + V3 (past participle)",
+    "keyPoints": [
+      "I/You/We/They → have; He/She/It → has",
+      "Kinh nghiệm: Have you ever been to Paris?",
+      "Hành động bắt đầu quá khứ, kéo dài đến hiện tại: I have lived here for 5 years.",
+      "Hành động vừa xảy ra: She has just left.",
+      "V3 = past participle (gone, been, eaten, visited...)"
+    ],
+    "signalWords": ["ever", "never", "just", "already", "yet", "for", "since", "recently", "so far", "up to now"],
+    "commonMistakes": [
+      "'have went' → 'have gone/been' (dùng V3, không dùng V2)",
+      "'has ate' → 'has eaten' (V3 bất quy tắc)",
+      "'I have lived here since 5 years' → 'for 5 years' (since + mốc thời gian, for + khoảng thời gian)",
+      "Nhầm với Past Simple khi có thời gian xác định: 'I have seen him yesterday' → 'I saw him yesterday'"
+    ]
+  },
   "theory": {
     "sections": [
       {
         "heading": "Cấu trúc",
+        "conjugation": {
+          "verb": "visit",
+          "tense": "Present Perfect",
+          "rows": [
+            { "pronoun": "I", "affirmative": "I have visited", "negative": "I have not visited", "question": "Have I visited?" },
+            { "pronoun": "You", "affirmative": "You have visited", "negative": "You have not visited", "question": "Have you visited?" },
+            { "pronoun": "He/She/It", "affirmative": "He has visited", "negative": "He has not visited", "question": "Has he visited?", "highlight": "third-person" },
+            { "pronoun": "We", "affirmative": "We have visited", "negative": "We have not visited", "question": "Have we visited?" },
+            { "pronoun": "They", "affirmative": "They have visited", "negative": "They have not visited", "question": "Have they visited?" }
+          ],
+          "notes": "have → I / You / We / They; has → He / She / It. V3 của visit là visited (động từ có quy tắc)."
+        },
         "content": "**Khẳng định:** S + have/has + V3 (past participle)\n**Phủ định:** S + have/has + not + V3\n**Nghi vấn:** Have/Has + S + V3?",
         "examples": [
           {
@@ -16,7 +46,50 @@
             "en": "She **hasn't finished** her homework.",
             "vi": "Cô ấy chưa hoàn thành bài tập."
           }
-        ]
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "have", "role": "auxiliary", "tooltip": "Trợ động từ (I → have)" },
+              { "text": " " },
+              { "text": "visited", "role": "verb", "tooltip": "V3 — past participle" },
+              { "text": " " },
+              { "text": "Paris", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Tôi đã từng đến Paris."
+          },
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ (ngôi 3 → has)" },
+              { "text": " " },
+              { "text": "hasn't", "role": "auxiliary", "tooltip": "has not — phủ định" },
+              { "text": " " },
+              { "text": "finished", "role": "verb", "tooltip": "V3 — past participle" },
+              { "text": " " },
+              { "text": "her homework", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Cô ấy chưa hoàn thành bài tập."
+          }
+        ],
+        "beforeAfter": [{
+          "wrong": "I have went to London twice.",
+          "correct": "I have been to London twice.",
+          "wrongHighlight": [2],
+          "correctHighlight": [2],
+          "explanation": "Sau have/has phải dùng V3 (past participle). 'went' là V2 (past simple). Đúng: 'have been' hoặc 'have gone'."
+        }],
+        "visualType": "timeline",
+        "visualData": {
+          "tense": "Present Perfect",
+          "markers": [
+            { "position": "past", "label": "Bắt đầu hành động (quá khứ)", "type": "point" },
+            { "position": "present", "label": "Kết quả / vẫn tiếp diễn (hiện tại)", "type": "range" }
+          ]
+        }
       },
       {
         "heading": "Cách dùng",
@@ -34,7 +107,49 @@
             "en": "She **has just** left.",
             "vi": "Cô ấy vừa mới rời đi."
           }
-        ]
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "Have", "role": "auxiliary", "tooltip": "Trợ động từ — câu hỏi đảo lên đầu" },
+              { "text": " " },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "ever", "role": "time", "tooltip": "Signal word — kinh nghiệm" },
+              { "text": " " },
+              { "text": "been", "role": "verb", "tooltip": "V3 của 'be'" },
+              { "text": " " },
+              { "text": "to Japan", "role": "complement", "tooltip": "Bổ ngữ nơi chốn" },
+              { "text": "?" }
+            ],
+            "vi": "Bạn đã bao giờ đến Nhật chưa?"
+          },
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "have", "role": "auxiliary", "tooltip": "Trợ động từ" },
+              { "text": " " },
+              { "text": "lived", "role": "verb", "tooltip": "V3 — past participle" },
+              { "text": " " },
+              { "text": "here", "role": "complement", "tooltip": "Trạng từ nơi chốn" },
+              { "text": " " },
+              { "text": "for 5 years", "role": "time", "tooltip": "for + khoảng thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Tôi đã sống ở đây 5 năm."
+          }
+        ],
+        "visualType": "formula",
+        "visualData": {
+          "title": "Present Perfect Formula",
+          "parts": [
+            { "label": "S", "color": "blue" },
+            { "label": "have/has", "color": "purple" },
+            { "label": "V3", "color": "orange" }
+          ],
+          "example": "She has visited Paris."
+        }
       }
     ]
   },

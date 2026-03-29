@@ -2,6 +2,24 @@
   "id": "there-is-are",
   "title": "There is / There are",
   "level": "A1",
+  "cheatSheet": {
+    "title": "There is / There are",
+    "formula": "There is + singular noun / There are + plural noun",
+    "keyPoints": [
+      "There is + danh từ số ít hoặc không đếm được",
+      "There are + danh từ số nhiều",
+      "Phủ định: There isn't / There aren't",
+      "Nghi vấn: Is there...? / Are there...?",
+      "There is thường viết tắt: There's"
+    ],
+    "signalWords": ["a", "an", "some", "any", "many", "much", "a lot of", "no"],
+    "commonMistakes": [
+      "'There are a book' → 'There is a book' (a book = số ít → is)",
+      "'There is many cars' → 'There are many cars' (many cars = số nhiều → are)",
+      "Nhầm 'There' với 'Their' hoặc 'They're'",
+      "'It has a park' → 'There is a park' (dùng There is/are để nói về sự tồn tại)"
+    ]
+  },
   "theory": {
     "sections": [
       {
@@ -20,7 +38,63 @@
             "en": "**Is there** a bank near here?",
             "vi": "Có ngân hàng nào gần đây không?"
           }
-        ]
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "There", "role": "subject", "tooltip": "Chủ ngữ giả" },
+              { "text": " " },
+              { "text": "is", "role": "verb", "tooltip": "Động từ (số ít → is)" },
+              { "text": " " },
+              { "text": "a", "role": "determiner", "tooltip": "Mạo từ — số ít" },
+              { "text": " " },
+              { "text": "cat", "role": "object", "tooltip": "Danh từ số ít" },
+              { "text": " " },
+              { "text": "on the sofa", "role": "complement", "tooltip": "Trạng ngữ nơi chốn" },
+              { "text": "." }
+            ],
+            "vi": "Có một con mèo trên ghế sofa."
+          },
+          {
+            "parts": [
+              { "text": "There", "role": "subject", "tooltip": "Chủ ngữ giả" },
+              { "text": " " },
+              { "text": "are", "role": "verb", "tooltip": "Động từ (số nhiều → are)" },
+              { "text": " " },
+              { "text": "many", "role": "determiner", "tooltip": "Lượng từ — số nhiều" },
+              { "text": " " },
+              { "text": "books", "role": "object", "tooltip": "Danh từ số nhiều" },
+              { "text": " " },
+              { "text": "on the shelf", "role": "complement", "tooltip": "Trạng ngữ nơi chốn" },
+              { "text": "." }
+            ],
+            "vi": "Có nhiều sách trên kệ."
+          }
+        ],
+        "beforeAfter": [{
+          "wrong": "There are a book on the table.",
+          "correct": "There is a book on the table.",
+          "wrongHighlight": [1],
+          "correctHighlight": [1],
+          "explanation": "'a book' là danh từ số ít, phải dùng 'There is', không dùng 'There are'."
+        }],
+        "visualType": "comparison",
+        "visualData": {
+          "left": {
+            "name": "There is",
+            "formula": "There is + singular/uncountable noun",
+            "usage": "Danh từ số ít hoặc không đếm được",
+            "example": "There is a cat on the sofa.",
+            "signalWords": ["a", "an", "one", "some (uncountable)"]
+          },
+          "right": {
+            "name": "There are",
+            "formula": "There are + plural noun",
+            "usage": "Danh từ số nhiều",
+            "example": "There are many books on the shelf.",
+            "signalWords": ["many", "some", "a lot of", "two", "three"]
+          }
+        }
       }
     ]
   },
