@@ -11,6 +11,42 @@
           { "en": "I have **a** dog.", "vi": "Tôi có một con chó." },
           { "en": "She is **an** honest person.", "vi": "Cô ấy là người trung thực." },
           { "en": "He is **a** university student.", "vi": "Anh ấy là sinh viên đại học." }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject" },
+              { "text": "have", "role": "verb" },
+              { "text": "a", "role": "determiner", "tooltip": "'dog' bắt đầu bằng phụ âm /d/ → dùng 'a'" },
+              { "text": "dog", "role": "object" }
+            ],
+            "vi": "Tôi có một con chó."
+          },
+          {
+            "parts": [
+              { "text": "She", "role": "subject" },
+              { "text": "is", "role": "verb" },
+              { "text": "an", "role": "determiner", "tooltip": "'honest' phát âm /ˈɒnɪst/ — bắt đầu bằng nguyên âm → dùng 'an'" },
+              { "text": "honest person", "role": "complement" }
+            ],
+            "vi": "Cô ấy là người trung thực."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "She is a engineer.",
+            "correct": "She is an engineer.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "'engineer' bắt đầu bằng nguyên âm /e/ → dùng 'an', không phải 'a'"
+          },
+          {
+            "wrong": "He has an uniform.",
+            "correct": "He has a uniform.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "'uniform' phát âm /juː-/ bắt đầu bằng phụ âm → dùng 'a'"
+          }
         ]
       },
       {
@@ -20,6 +56,16 @@
           { "en": "Please close **the** door.", "vi": "Xin hãy đóng cửa lại." },
           { "en": "**The** sun rises in the east.", "vi": "Mặt trời mọc ở phía đông." },
           { "en": "She is **the** tallest girl in class.", "vi": "Cô ấy là cô gái cao nhất lớp." }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "The sun", "role": "subject", "tooltip": "Chỉ có một mặt trời → dùng 'the'" },
+              { "text": "rises", "role": "verb" },
+              { "text": "in the east", "role": "complement", "tooltip": "Phương hướng xác định → the" }
+            ],
+            "vi": "Mặt trời mọc ở phía đông."
+          }
         ]
       },
       {
@@ -28,8 +74,32 @@
         "examples": [
           { "en": "I love **music**.", "vi": "Tôi yêu âm nhạc." },
           { "en": "**Dogs** are friendly animals.", "vi": "Chó là động vật thân thiện." }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "I love the music.",
+            "correct": "I love music.",
+            "wrongHighlight": [2],
+            "correctHighlight": [],
+            "explanation": "Nói chung về 'music' (không xác định) → không dùng 'the'"
+          }
         ]
       }
+    ]
+  },
+  "cheatSheet": {
+    "title": "Articles: A, An, The",
+    "formula": "A + phụ âm | An + nguyên âm | The + xác định",
+    "keyPoints": [
+      "A/An: danh từ số ít, chưa xác định, lần đầu đề cập",
+      "The: đã biết, đã đề cập, duy nhất, so sánh nhất",
+      "Không mạo từ: danh từ chung (số nhiều/không đếm được), tên riêng"
+    ],
+    "signalWords": ["a", "an", "the"],
+    "commonMistakes": [
+      "a engineer → an engineer (nguyên âm)",
+      "an uniform → a uniform (phụ âm /juː/)",
+      "I love the music → I love music (nói chung)"
     ]
   },
   "exercises": [

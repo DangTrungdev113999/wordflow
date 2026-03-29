@@ -11,6 +11,55 @@
           { "en": "I **am studying** English now.", "vi": "Tôi đang học tiếng Anh." },
           { "en": "She **isn't working** today.", "vi": "Cô ấy không làm việc hôm nay." },
           { "en": "**Are** you **listening** to me?", "vi": "Bạn có đang nghe tôi không?" }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject" },
+              { "text": "am", "role": "auxiliary", "tooltip": "to be cho ngôi 1 số ít" },
+              { "text": "studying", "role": "verb", "tooltip": "study → studying (V-ing)" },
+              { "text": "English", "role": "object" },
+              { "text": "now", "role": "time", "tooltip": "Dấu hiệu Present Continuous" }
+            ],
+            "vi": "Tôi đang học tiếng Anh."
+          },
+          {
+            "parts": [
+              { "text": "She", "role": "subject" },
+              { "text": "isn't", "role": "auxiliary", "tooltip": "is + not → phủ định" },
+              { "text": "working", "role": "verb", "tooltip": "work → working" },
+              { "text": "today", "role": "time" }
+            ],
+            "vi": "Cô ấy không làm việc hôm nay."
+          }
+        ],
+        "conjugation": {
+          "verb": "work",
+          "tense": "Present Continuous",
+          "rows": [
+            { "pronoun": "I", "affirmative": "am working", "negative": "am not working", "question": "Am I working?", "highlight": "base" },
+            { "pronoun": "You", "affirmative": "are working", "negative": "aren't working", "question": "Are you working?", "highlight": "base" },
+            { "pronoun": "He/She/It", "affirmative": "is working", "negative": "isn't working", "question": "Is he working?", "highlight": "third-person" },
+            { "pronoun": "We", "affirmative": "are working", "negative": "aren't working", "question": "Are we working?", "highlight": "base" },
+            { "pronoun": "They", "affirmative": "are working", "negative": "aren't working", "question": "Are they working?", "highlight": "base" }
+          ],
+          "notes": "I → am | He/She/It → is | You/We/They → are"
+        },
+        "beforeAfter": [
+          {
+            "wrong": "He is play football now.",
+            "correct": "He is playing football now.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "Sau am/is/are phải dùng V-ing (playing, không phải play)"
+          },
+          {
+            "wrong": "She are cooking dinner.",
+            "correct": "She is cooking dinner.",
+            "wrongHighlight": [1],
+            "correctHighlight": [1],
+            "explanation": "She (ngôi 3 số ít) → dùng 'is', không phải 'are'"
+          }
         ]
       },
       {
@@ -20,6 +69,17 @@
           { "en": "Look! It **is raining**.", "vi": "Nhìn kìa! Trời đang mưa." },
           { "en": "I **am living** with my friend this month.", "vi": "Tháng này tôi đang sống với bạn." },
           { "en": "We **are meeting** tomorrow at 3 PM.", "vi": "Chúng tôi sẽ gặp nhau lúc 3h chiều mai." }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "Look!", "role": "connector", "tooltip": "Dấu hiệu Present Continuous" },
+              { "text": "It", "role": "subject" },
+              { "text": "is", "role": "auxiliary" },
+              { "text": "raining", "role": "verb", "tooltip": "Đang xảy ra ngay lúc nói" }
+            ],
+            "vi": "Nhìn kìa! Trời đang mưa."
+          }
         ]
       },
       {
@@ -30,6 +90,21 @@
           { "en": "**At the moment**, I **am reading** a book.", "vi": "Hiện tại, tôi đang đọc sách." }
         ]
       }
+    ]
+  },
+  "cheatSheet": {
+    "title": "Present Continuous",
+    "formula": "S + am/is/are + V-ing",
+    "keyPoints": [
+      "Hành động đang xảy ra ngay lúc nói",
+      "Tình huống tạm thời (this week, this month)",
+      "Kế hoạch tương lai gần đã sắp xếp"
+    ],
+    "signalWords": ["now", "right now", "at the moment", "currently", "look!", "listen!"],
+    "commonMistakes": [
+      "He is play → He is playing",
+      "She are cooking → She is cooking",
+      "I studying → I am studying"
     ]
   },
   "exercises": [

@@ -11,6 +11,119 @@
           { "en": "She **works** every day.", "vi": "Cô ấy làm việc mỗi ngày." },
           { "en": "I **don't like** coffee.", "vi": "Tôi không thích cà phê." },
           { "en": "**Do** you **speak** English?", "vi": "Bạn nói tiếng Anh không?" }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ ngôi 3 số ít → động từ thêm -s" },
+              { "text": "works", "role": "verb", "tooltip": "work + s vì chủ ngữ là She" },
+              { "text": "at the office", "role": "object", "tooltip": "Nơi làm việc" },
+              { "text": "every day", "role": "time", "tooltip": "Dấu hiệu Present Simple" }
+            ],
+            "vi": "Cô ấy làm việc ở văn phòng mỗi ngày."
+          },
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ ngôi 1 → dùng don't" },
+              { "text": "don't", "role": "auxiliary", "tooltip": "do + not → phủ định" },
+              { "text": "like", "role": "verb", "tooltip": "Động từ nguyên mẫu sau don't" },
+              { "text": "coffee", "role": "object", "tooltip": "Tân ngữ" }
+            ],
+            "vi": "Tôi không thích cà phê."
+          }
+        ],
+        "conjugation": {
+          "verb": "work",
+          "tense": "Present Simple",
+          "rows": [
+            { "pronoun": "I", "affirmative": "work", "negative": "don't work", "question": "Do I work?", "highlight": "base" },
+            { "pronoun": "You", "affirmative": "work", "negative": "don't work", "question": "Do you work?", "highlight": "base" },
+            { "pronoun": "He/She/It", "affirmative": "works", "negative": "doesn't work", "question": "Does he work?", "highlight": "third-person" },
+            { "pronoun": "We", "affirmative": "work", "negative": "don't work", "question": "Do we work?", "highlight": "base" },
+            { "pronoun": "They", "affirmative": "work", "negative": "don't work", "question": "Do they work?", "highlight": "base" }
+          ],
+          "notes": "Ngôi 3 số ít (He/She/It): thêm -s, dùng does/doesn't"
+        },
+        "steps": [
+          {
+            "title": "Bước 1: Câu khẳng định",
+            "content": "**S + V (s/es)**\nNgôi 1, 2 và số nhiều: giữ nguyên động từ\nNgôi 3 số ít (He/She/It): thêm **-s** hoặc **-es**",
+            "coloredExamples": [
+              {
+                "parts": [
+                  { "text": "She", "role": "subject", "tooltip": "Ngôi 3 số ít" },
+                  { "text": "works", "role": "verb", "tooltip": "work + s" },
+                  { "text": "every day", "role": "time", "tooltip": "Mỗi ngày" }
+                ],
+                "vi": "Cô ấy làm việc mỗi ngày."
+              },
+              {
+                "parts": [
+                  { "text": "They", "role": "subject", "tooltip": "Số nhiều → giữ nguyên V" },
+                  { "text": "play", "role": "verb", "tooltip": "Giữ nguyên, không thêm -s" },
+                  { "text": "football", "role": "object", "tooltip": "Tân ngữ" },
+                  { "text": "on Sundays", "role": "time", "tooltip": "Hàng tuần → Present Simple" }
+                ],
+                "vi": "Họ chơi bóng đá vào chủ nhật."
+              }
+            ]
+          },
+          {
+            "title": "Bước 2: Câu phủ định",
+            "content": "**S + do/does + not + V (nguyên mẫu)**\nI/You/We/They → **don't**\nHe/She/It → **doesn't**\nSau don't/doesn't, động từ luôn ở nguyên mẫu!",
+            "coloredExamples": [
+              {
+                "parts": [
+                  { "text": "He", "role": "subject", "tooltip": "Ngôi 3 số ít" },
+                  { "text": "doesn't", "role": "auxiliary", "tooltip": "does + not" },
+                  { "text": "like", "role": "verb", "tooltip": "Nguyên mẫu! Không phải likes" },
+                  { "text": "pizza", "role": "object" }
+                ],
+                "vi": "Anh ấy không thích pizza."
+              }
+            ],
+            "beforeAfter": [
+              {
+                "wrong": "He don't like pizza.",
+                "correct": "He doesn't like pizza.",
+                "wrongHighlight": [1],
+                "correctHighlight": [1],
+                "explanation": "Ngôi 3 số ít (He) dùng doesn't, không phải don't"
+              },
+              {
+                "wrong": "She doesn't likes coffee.",
+                "correct": "She doesn't like coffee.",
+                "wrongHighlight": [2],
+                "correctHighlight": [2],
+                "explanation": "Sau doesn't, động từ phải ở nguyên mẫu (like, không phải likes)"
+              }
+            ]
+          },
+          {
+            "title": "Bước 3: Câu nghi vấn",
+            "content": "**Do/Does + S + V (nguyên mẫu)?**\nDo cho I/You/We/They\nDoes cho He/She/It\nĐộng từ sau chủ ngữ luôn ở nguyên mẫu!",
+            "coloredExamples": [
+              {
+                "parts": [
+                  { "text": "Does", "role": "auxiliary", "tooltip": "Trợ động từ cho ngôi 3" },
+                  { "text": "she", "role": "subject" },
+                  { "text": "speak", "role": "verb", "tooltip": "Nguyên mẫu!" },
+                  { "text": "English", "role": "object" }
+                ],
+                "vi": "Cô ấy có nói tiếng Anh không?"
+              }
+            ]
+          },
+          {
+            "title": "Bước 4: Quy tắc thêm -s/-es",
+            "content": "Thêm **-es** sau: o, s, x, z, ch, sh\nPhụ âm + y → bỏ y, thêm **-ies**\nCòn lại → thêm **-s**",
+            "examples": [
+              { "en": "He **goes** to school. (go → goes)", "vi": "-es sau 'o'" },
+              { "en": "She **watches** TV. (watch → watches)", "vi": "-es sau 'ch'" },
+              { "en": "He **studies** hard. (study → studies)", "vi": "y → ies" },
+              { "en": "She **plays** guitar. (play → plays)", "vi": "nguyên âm + y → chỉ thêm s" }
+            ]
+          }
         ]
       },
       {
@@ -30,6 +143,21 @@
           { "en": "She **never** eats fast food.", "vi": "Cô ấy không bao giờ ăn đồ ăn nhanh." }
         ]
       }
+    ]
+  },
+  "cheatSheet": {
+    "title": "Present Simple",
+    "formula": "S + V(s/es) | S + don't/doesn't + V | Do/Does + S + V?",
+    "keyPoints": [
+      "Diễn tả thói quen, sự thật, lịch trình cố định",
+      "Ngôi 3 số ít (He/She/It): V thêm -s/-es",
+      "Phủ định & nghi vấn: động từ luôn nguyên mẫu"
+    ],
+    "signalWords": ["always", "usually", "often", "sometimes", "rarely", "never", "every day", "every week"],
+    "commonMistakes": [
+      "He don't → He doesn't",
+      "She doesn't likes → She doesn't like",
+      "Does he works? → Does he work?"
     ]
   },
   "exercises": [

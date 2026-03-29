@@ -89,10 +89,70 @@ export type GrammarExercise =
   | ErrorCorrectionExercise
   | SentenceOrderExercise;
 
+// Phase 11 — Visual Grammar types
+
+export interface SentencePart {
+  text: string;
+  role: 'subject' | 'verb' | 'object' | 'time' | 'auxiliary' | 'complement' | 'connector' | 'determiner';
+  tooltip?: string;
+}
+
+export interface ColoredExample {
+  parts: SentencePart[];
+  vi: string;
+  audio?: string;
+}
+
+export interface VerbConjugation {
+  pronoun: string;
+  affirmative: string;
+  negative: string;
+  question: string;
+  highlight?: 'base' | 'third-person' | 'irregular';
+}
+
+export interface ConjugationTable {
+  verb: string;
+  tense: string;
+  rows: VerbConjugation[];
+  notes?: string;
+}
+
+export interface BeforeAfter {
+  wrong: string;
+  correct: string;
+  wrongHighlight: number[];
+  correctHighlight: number[];
+  explanation: string;
+}
+
+export interface TheoryStep {
+  title: string;
+  content: string;
+  examples?: Array<{ en: string; vi: string }>;
+  coloredExamples?: ColoredExample[];
+  conjugation?: ConjugationTable;
+  beforeAfter?: BeforeAfter[];
+  visualType?: 'timeline' | 'diagram' | 'comparison';
+  visualData?: Record<string, unknown>;
+}
+
+export interface CheatSheet {
+  title: string;
+  formula: string;
+  keyPoints: string[];
+  signalWords: string[];
+  commonMistakes: string[];
+}
+
 export interface TheorySection {
   heading: string;
   content: string;
   examples: Array<{ en: string; vi: string }>;
+  coloredExamples?: ColoredExample[];
+  conjugation?: ConjugationTable;
+  beforeAfter?: BeforeAfter[];
+  steps?: TheoryStep[];
 }
 
 export interface GrammarLessonData {
@@ -103,6 +163,7 @@ export interface GrammarLessonData {
     sections: TheorySection[];
   };
   exercises: GrammarExercise[];
+  cheatSheet?: CheatSheet;
 }
 
 // Sentence Building types

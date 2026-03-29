@@ -1,11 +1,18 @@
 import { useParams, Link, useNavigate } from 'react-router';
 import { ArrowLeft, PlayCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLiveQuery } from 'dexie-react-hooks';
 import { useGrammarStore } from '../../../stores/grammarStore';
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, useCallback, type ReactNode } from 'react';
 import { Badge } from '../../../components/ui/Badge';
 import { Button } from '../../../components/ui/Button';
 import { PageTransition } from '../../../components/common/PageTransition';
+import { ColoredSentence } from '../components/ColoredSentence';
+import { ConjugationGrid } from '../components/ConjugationGrid';
+import { BeforeAfterCard } from '../components/BeforeAfterCard';
+import { StepByStep } from '../components/StepByStep';
+import { CheatSheetCard } from '../components/CheatSheetCard';
+import { db } from '../../../db/database';
 
 function renderBold(text: string): ReactNode[] {
   return text.split(/(\*\*.*?\*\*)/).map((part, i) =>
@@ -29,6 +36,21 @@ export function LessonPage() {
     if (lesson) setCurrentLesson(lesson);
     return () => setCurrentLesson(null);
   }, [lessonId, lessons, setCurrentLesson]);
+
+  const bookmark = useLiveQuery(
+    () => lessonId ? db.grammarBookmarks.get(lessonId) : undefined,
+    [lessonId]
+  );
+
+  const toggleBookmark = useCallback(async () => {
+    if (!lessonId) return;
+    const existing = await db.grammarBookmarks.get(lessonId);
+    if (existing) {
+      await db.grammarBookmarks.delete(lessonId);
+    } else {
+      await db.grammarBookmarks.put({ lessonId, createdAt: Date.now() });
+    }
+  }, [lessonId]);
 
   if (!currentLesson) {
     return <div className="p-6 text-center text-gray-500">Loading...</div>;
@@ -72,30 +94,76 @@ export function LessonPage() {
           </div>
         </motion.div>
 
-        {/* Theory sections */}
+        {/* Theory sections — steps sections get StepByStep, others render traditionally */}
         <motion.div
           className="space-y-6 mb-8"
           variants={sectionStagger}
           initial="hidden"
           animate="visible"
         >
-          {currentLesson.theory.sections.map((section, i) => (
-            <motion.div key={i} variants={sectionItem} className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800">
-              <h2 className="font-bold text-gray-900 dark:text-white mb-3">{section.heading}</h2>
-              <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed whitespace-pre-line mb-4">
-                {renderBold(section.content)}
-              </div>
-              <div className="space-y-2">
-                {section.examples.map((ex, j) => (
-                  <div key={j} className="pl-3 border-l-2 border-indigo-200 dark:border-indigo-800">
-                    <p className="text-sm text-gray-900 dark:text-white">{renderBold(ex.en)}</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 italic">{ex.vi}</p>
+          {currentLesson.theory.sections.map((section, i) =>
+            section.steps && section.steps.length > 0 ? (
+              <motion.div key={i} variants={sectionItem}>
+                <StepByStep steps={section.steps} lessonId={currentLesson.id} />
+              </motion.div>
+            ) : (
+              <motion.div key={i} variants={sectionItem} className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800 space-y-4">
+                <h2 className="font-bold text-gray-900 dark:text-white mb-3">{section.heading}</h2>
+                <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed whitespace-pre-line">
+                  {renderBold(section.content)}
+                </div>
+
+                {/* Plain examples */}
+                {section.examples.length > 0 && (
+                  <div className="space-y-2">
+                    {section.examples.map((ex, j) => (
+                      <div key={j} className="pl-3 border-l-2 border-indigo-200 dark:border-indigo-800">
+                        <p className="text-sm text-gray-900 dark:text-white">{renderBold(ex.en)}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 italic">{ex.vi}</p>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+                )}
+
+                {/* Colored examples */}
+                {section.coloredExamples && section.coloredExamples.length > 0 && (
+                  <div className="space-y-3 pt-2">
+                    <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Phân tích câu</div>
+                    {section.coloredExamples.map((ce, j) => (
+                      <ColoredSentence key={j} parts={ce.parts} vi={ce.vi} size="sm" />
+                    ))}
+                  </div>
+                )}
+
+                {/* Conjugation table */}
+                {section.conjugation && (
+                  <div className="pt-2">
+                    <ConjugationGrid table={section.conjugation} />
+                  </div>
+                )}
+
+                {/* Before/After */}
+                {section.beforeAfter && section.beforeAfter.length > 0 && (
+                  <div className="pt-2">
+                    <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Sai vs Đúng</div>
+                    <BeforeAfterCard items={section.beforeAfter} />
+                  </div>
+                )}
+              </motion.div>
+            )
+          )}
         </motion.div>
+
+        {/* Cheat Sheet */}
+        {currentLesson.cheatSheet && (
+          <div className="mb-6">
+            <CheatSheetCard
+              sheet={currentLesson.cheatSheet}
+              bookmarked={!!bookmark}
+              onBookmark={toggleBookmark}
+            />
+          </div>
+        )}
 
         {/* Start Quiz button */}
         <motion.div

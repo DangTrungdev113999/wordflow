@@ -2,60 +2,58 @@
 
 **Reviewer:** Marcus (Tech Lead)
 **Date:** 2026-03-29
-**Branch:** feature/phase10-5-gamification
-**Commit:** 65a3556
+**Branch:** feature/phase10-5-gamification (đã merge vào main)
+**Commits:** 65a3556, 7f249fe, 886232c
 
 ---
 
-## Status: NEEDS CHANGES (3 High, 1 Medium)
+## Status: NEEDS CHANGES (3 Medium)
 
 ### ✅ Những phần tốt
 
-- **useSessionStreak** — logic đúng, thresholds correct, XP math OK
-- **TimerBar** — RAF cleanup tốt, pause/resume correct, color transitions smooth
-- **MixedReviewPage** — full integration: StreakIndicator + xpBreakdown + timer ✅
-- **SessionSummary** — XP breakdown math checks out
-- **SessionPicker** — timed toggle default OFF, session-only state
+- **Streak system** — multipliers đúng (3→1.2x, 5→1.5x, 10→2x), state management clean, `stateRef` tránh stale closures
+- **TimerBar** — RAF-based countdown mượt, pause/resume đúng, cleanup cancel RAF on unmount
+- **SessionSummary** — XP breakdown clean, grid adaptive
+- **SessionPicker** — timed toggle chỉ hiện cho quiz/spelling, đúng
+- **ReviewSchedule** — forecast 7 ngày, overdue counting fix đúng (886232c)
 
-### 🔴 HIGH — Phải fix
+### 🔴 Issues cần fix
 
-#### 1. [HIGH] Overdue double-count trong ReviewSchedule
-**File:** `ReviewSchedule.tsx:29`
+#### 1. [MEDIUM] Hardcoded `MODE_RATING_MAP.quiz` cho spelling mode
+**File:** `useQuizSession.ts:122, 225`
 
-`totalDue = dueToday + overdueCount` nhưng `dueToday` (= `forecast[0]`) ĐÃ bao gồm overdue → đếm overdue 2 lần.
+Cả `handleSelect` và `handleTimeout` đều dùng `MODE_RATING_MAP.quiz`. Khi `mode=spelling`, correct answers nhận SM-2 quality `4` thay vì `5` → interval ngắn hơn intended.
 
-**Fix:** `totalDue = forecast[0]` (hoặc chỉ `dueToday`).
+**Fix:** `const ratingMap = MODE_RATING_MAP[modeParam] || MODE_RATING_MAP.quiz;`
 
-#### 2. [HIGH] FlashcardPage không dùng streak/xpBreakdown
-**File:** `FlashcardPage.tsx:14-26`
+#### 2. [MEDIUM] Duplicate answer-processing logic
+**File:** `useQuizSession.ts:110-247`
 
-Hook `useFlashcard` trả `streak`, `multiplier`, `bestStreak`, `xpBreakdown` nhưng page không destructure. Không có StreakIndicator, không có XP breakdown.
+`handleSelect` và `handleTimeout` cùng logic: SM-2 update → DB write → progress update → streak → event → results → advance. Dễ drift khi sửa 1 chỗ quên chỗ kia.
 
-**Fix:** Destructure và render StreakIndicator + truyền xpBreakdown vào SessionSummary.
+**Fix:** Extract `processAnswer(wordId, isCorrect, timeMs)` shared function.
 
-#### 3. [HIGH] QuizPage không dùng streak/timer/xpBreakdown
-**File:** `QuizPage.tsx:12-28`
+#### 3. [MEDIUM] Dead code `dueToday` + unused variables
+**File:** `useReviewSchedule.ts:48, 26, 21`
 
-Tương tự FlashcardPage — hook trả data nhưng page không dùng. Không có StreakIndicator, TimerBar, hay XP breakdown.
+- `dueToday = overdueCount + forecast[0] - overdueCount` = `forecast[0]` (dead code)
+- `dayAfterTomorrow` declared nhưng không dùng
+- `now` chỉ dùng 1 chỗ, có thể inline
 
-**Fix:** Destructure và render đầy đủ như MixedReviewPage.
+**Fix:** Xóa dead code, clean up unused vars.
 
-### 🟠 MEDIUM
+### 🟡 Nice-to-have (không block merge)
 
-#### 4. [MED] Timed param thiếu cho spelling mode
-**File:** `SessionPicker.tsx:94-97`
+#### 4. [LOW] No-op ternary trong StreakIndicator
+**File:** `StreakIndicator.tsx:43`
 
-`&timed=1` chỉ append cho quiz route, spelling route thiếu.
+3 branches đều return `'🔥'`. Nên differentiate hoặc simplify.
 
-**Fix:** Thêm timed param cho spelling route.
+#### 5. [LOW] Mixed bonus XP approximation
+**File:** `MixedReviewPage.tsx:544`
 
-### 🟡 LOW (không block merge)
-
-5. Dead code `dueToday` variable (`useReviewSchedule.ts:49`)
-6. StreakIndicator 3-way ternary trả cùng emoji (`StreakIndicator.tsx:41-43`)
-7. `stateRef` pattern trong useSessionStreak — functional updater cleaner
-8. `tick` omitted từ useEffect deps (`TimerBar.tsx:67`)
+Tính `base = xp / 1.5` không chính xác khi có incorrect answers (0 XP). Nên track base XP riêng.
 
 ### Summary
 
-Core logic (streak, timer, XP math) đúng. Vấn đề chính là **integration thiếu** — FlashcardPage và QuizPage chưa wire streak/timer/xpBreakdown vào UI, và ReviewSchedule đếm overdue 2 lần. Fix 3 HIGH + 1 MED rồi merge được.
+Timer, streak, review schedule implement tốt. 3 issues cần fix: spelling mode SM-2 rating sai, duplicate logic dễ drift, dead code. Fix xong là Phase 10 complete! 🎉

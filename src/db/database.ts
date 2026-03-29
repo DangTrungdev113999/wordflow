@@ -1,5 +1,5 @@
 import Dexie, { type Table } from 'dexie';
-import type { Word, WordProgress, GrammarLesson, DailyLog, UserProfile, DictionaryCache, DailyChallengeLog, DailyChallengeTask, CustomTopic, CustomWord, ChatConversation, ChatMessage, WritingSubmission, RoleplaySession, MediaSession, EnrichedWord, ContextProgressEntry } from './models';
+import type { Word, WordProgress, GrammarLesson, DailyLog, UserProfile, DictionaryCache, DailyChallengeLog, DailyChallengeTask, CustomTopic, CustomWord, ChatConversation, ChatMessage, WritingSubmission, RoleplaySession, MediaSession, EnrichedWord, ContextProgressEntry, GrammarBookmark } from './models';
 
 export class WordFlowDatabase extends Dexie {
   words!: Table<Word, string>;
@@ -18,6 +18,7 @@ export class WordFlowDatabase extends Dexie {
   mediaSessions!: Table<MediaSession, string>;
   enrichedWords!: Table<EnrichedWord, string>;
   contextProgress!: Table<ContextProgressEntry, string>;
+  grammarBookmarks!: Table<GrammarBookmark, string>;
 
   constructor() {
     super('WordFlowDB');
@@ -124,6 +125,11 @@ export class WordFlowDatabase extends Dexie {
     // Version 8 — Phase 10-4: Context Progress (Active Recall + Context Mastery)
     this.version(8).stores({
       contextProgress: 'wordId, contextMastered, lastUpdated',
+    });
+
+    // Version 9 — Phase 11: Grammar Bookmarks
+    this.version(9).stores({
+      grammarBookmarks: '&lessonId, createdAt',
     });
   }
 }
