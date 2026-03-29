@@ -216,6 +216,14 @@ export interface EnrichedWord {
   imageUpdatedAt?: number;
 }
 
+// Phase 10-4 — Context Progress (Active Recall + Context Mastery)
+export interface ContextProgressEntry {
+  wordId: string;
+  contextsCorrect: string[];   // e.g. ['daily', 'work', 'social']
+  contextMastered: boolean;    // true when >= 3 distinct contexts correct
+  lastUpdated: number;
+}
+
 // Phase 7 — Learn from Media
 export interface MediaSession {
   id: string;
