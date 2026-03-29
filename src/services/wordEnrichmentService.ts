@@ -90,9 +90,16 @@ async function doEnrichWord(
     const data = parseResponse(response.text);
     if (!data) return null;
 
-    // 3. Cache result
+    // 3. Cache result (preserve imageData from Phase 10)
     try {
-      await db.enrichedWords.put({ word, data, updatedAt: Date.now() });
+      const existing = await db.enrichedWords.get(word);
+      await db.enrichedWords.put({
+        word,
+        data,
+        updatedAt: Date.now(),
+        imageData: existing?.imageData,
+        imageUpdatedAt: existing?.imageUpdatedAt,
+      });
     } catch {
       // Cache write failure is non-critical
     }

@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useParams, Link } from 'react-router';
 import { Play } from 'lucide-react';
 import { useVocabularyStore } from '../../../stores/vocabularyStore';
 import { useTopicProgress } from '../hooks/useTopicProgress';
+import { prefetchTopicImages } from '../../../services/wordImageService';
 import { TopicHeader } from '../components/TopicHeader';
 import { WordFilterBar, type WordFilter, type WordSort } from '../components/WordFilterBar';
 import { WordCard } from '../components/WordCard';
@@ -25,6 +26,13 @@ export function TopicPage() {
   );
 
   const progress = useTopicProgress(topic ?? '', wordKeys);
+
+  // Prefetch images for this topic's words in background
+  useEffect(() => {
+    if (!topicData || !topic) return;
+    const words = topicData.words.map((w) => ({ word: w.word, meaning: w.meaning }));
+    prefetchTopicImages(words, topic);
+  }, [topicData, topic]);
 
   // Filter counts
   const counts = useMemo(() => {
@@ -123,6 +131,7 @@ export function TopicPage() {
             key={word.word}
             word={word}
             status={word.status === 'all' ? 'new' : word.status}
+            topicId={topic}
           />
         ))}
       </div>

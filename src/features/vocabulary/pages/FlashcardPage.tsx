@@ -79,6 +79,7 @@ export function FlashcardPage() {
         cardIndex={currentCardIndex}
         total={flashcardQueue.length}
         wordId={`${topic}:${currentWord.word}`}
+        topicId={topic}
       />
     </div>
   );

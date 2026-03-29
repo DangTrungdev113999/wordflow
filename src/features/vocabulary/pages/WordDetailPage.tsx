@@ -28,7 +28,7 @@ export function WordDetailPage() {
         </Link>
         <h1 className="font-semibold text-gray-900 dark:text-white">Word Detail</h1>
       </div>
-      <WordDetail word={wordData} />
+      <WordDetail word={wordData} topicId={wordData.topic} />
     </div>
   );
 }

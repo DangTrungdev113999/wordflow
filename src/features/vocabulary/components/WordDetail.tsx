@@ -2,14 +2,16 @@ import { useState, useEffect } from 'react';
 import { enrichWord, type EnrichedWordData } from '../../../services/enrichmentService';
 import type { VocabWord } from '../../../lib/types';
 import { AudioButton } from '../../../components/common/AudioButton';
+import { WordImage } from './WordImage';
 import { Skeleton } from '../../../components/ui/Skeleton';
 import { Card } from '../../../components/ui/Card';
 
 interface WordDetailProps {
   word: VocabWord;
+  topicId?: string;
 }
 
-export function WordDetail({ word }: WordDetailProps) {
+export function WordDetail({ word, topicId }: WordDetailProps) {
   const [enriched, setEnriched] = useState<EnrichedWordData | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -37,6 +39,11 @@ export function WordDetail({ word }: WordDetailProps) {
         </div>
         <p className="text-sm text-gray-500 dark:text-gray-400 italic mt-3">"{word.example}"</p>
       </Card>
+
+      {/* Word Image */}
+      <div className="flex justify-center">
+        <WordImage word={word.word} meaning={word.meaning} topicId={topicId} size="lg" className="rounded-2xl shadow-sm" />
+      </div>
 
       {/* Dictionary definitions */}
       {loading ? (

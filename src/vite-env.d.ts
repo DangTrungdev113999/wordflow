@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 declare module "*.css";
 
 // Web Speech Recognition API types
