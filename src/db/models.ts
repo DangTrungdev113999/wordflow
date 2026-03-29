@@ -179,14 +179,23 @@ export interface RoleplaySession {
 }
 
 // Phase 9 — Vocabulary Upgrade: enriched word cache
+
+export interface EnrichedExample {
+  sentence: string;
+  context: 'daily' | 'work' | 'social' | 'formal' | 'dialogue';
+  translation?: string;
+}
+
 export interface EnrichedWordData {
   partOfSpeech: string;
   examples: string[];
+  richExamples?: EnrichedExample[];
   synonyms: string[];
   antonyms: string[];
   wordFamily: string[];
   collocations: string[];
   mnemonic: string;
+  mnemonicType?: 'sound' | 'visual' | 'breakdown' | 'rhyme';
   frequency: number;
 }
 
