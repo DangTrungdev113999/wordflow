@@ -1,6 +1,7 @@
 import { FlipCard } from '../../../components/common/FlipCard';
 import { AudioButton } from '../../../components/common/AudioButton';
 import { PronunciationButton } from './PronunciationButton';
+import { WordImage } from './WordImage';
 import { Button } from '../../../components/ui/Button';
 import type { VocabWord } from '../../../lib/types';
 import { cn } from '../../../lib/utils';
@@ -13,9 +14,10 @@ interface FlashcardDeckProps {
   cardIndex: number;
   total: number;
   wordId?: string;
+  topicId?: string;
 }
 
-export function FlashcardDeck({ word, isFlipped, onFlip, onRate, cardIndex, total, wordId }: FlashcardDeckProps) {
+export function FlashcardDeck({ word, isFlipped, onFlip, onRate, cardIndex, total, wordId, topicId }: FlashcardDeckProps) {
   const progress = ((cardIndex + 1) / total) * 100;
 
   return (
@@ -35,19 +37,26 @@ export function FlashcardDeck({ word, isFlipped, onFlip, onRate, cardIndex, tota
       <FlipCard
         isFlipped={isFlipped}
         onClick={onFlip}
-        className="w-full h-64"
+        className="w-full h-[24rem]"
         front={
-          <div className="w-full h-full bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-3xl flex flex-col items-center justify-center gap-3 shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 p-6">
-            <span className="text-3xl font-bold text-white">{word.word}</span>
-            <span className="text-indigo-200 text-sm font-mono">{word.ipa}</span>
-            <div className="flex items-center gap-2 mt-2">
+          <div className="w-full h-full bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-3xl flex flex-col items-center justify-center gap-2 shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 px-6 py-5">
+            <WordImage
+              word={word.word}
+              meaning={word.meaning}
+              topicId={topicId}
+              size="lg"
+              className="shadow-md shadow-black/10"
+            />
+            <span className="text-2xl font-bold text-white mt-1">{word.word}</span>
+            <span className="text-indigo-200 text-sm font-mono -mt-0.5">{word.ipa}</span>
+            <div className="flex items-center gap-2">
               <AudioButton word={word.word} audioUrl={word.audioUrl} className="bg-white/20 hover:bg-white/30 text-white hover:text-white" />
               <span className="text-indigo-200 text-xs">Tap to reveal</span>
             </div>
           </div>
         }
         back={
-          <div className="w-full h-full bg-white dark:bg-gray-900 rounded-3xl border-2 border-indigo-200 dark:border-indigo-800 flex flex-col items-center justify-center gap-2 shadow-lg p-6 text-center">
+          <div className="w-full h-full bg-white dark:bg-gray-900 rounded-3xl border-2 border-indigo-200 dark:border-indigo-800 flex flex-col items-center justify-center gap-3 shadow-lg p-6 text-center">
             <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">{word.meaning}</p>
             <p className="text-sm text-gray-400 font-mono">{word.ipa}</p>
             <p className="text-sm text-gray-500 dark:text-gray-400 italic mt-1">"{word.example}"</p>

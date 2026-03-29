@@ -66,7 +66,7 @@ async function doEnrichWord(
   // 1. Check cache
   try {
     const cached = await db.enrichedWords.get(word);
-    if (cached && Date.now() - cached.updatedAt < CACHE_TTL) {
+    if (cached && cached.updatedAt > 0 && Date.now() - cached.updatedAt < CACHE_TTL) {
       return cached.data;
     }
   } catch {
@@ -90,9 +90,16 @@ async function doEnrichWord(
     const data = parseResponse(response.text);
     if (!data) return null;
 
-    // 3. Cache result
+    // 3. Cache result (preserve imageData from Phase 10)
     try {
-      await db.enrichedWords.put({ word, data, updatedAt: Date.now() });
+      const existing = await db.enrichedWords.get(word);
+      await db.enrichedWords.put({
+        word,
+        data,
+        updatedAt: Date.now(),
+        imageData: existing?.imageData,
+        imageUpdatedAt: existing?.imageUpdatedAt,
+      });
     } catch {
       // Cache write failure is non-critical
     }
@@ -167,7 +174,7 @@ export async function batchEnrichWords(
 export async function getCachedEnrichment(word: string): Promise<EnrichedWordData | null> {
   try {
     const cached = await db.enrichedWords.get(word.toLowerCase().trim());
-    if (cached && Date.now() - cached.updatedAt < CACHE_TTL) {
+    if (cached && cached.updatedAt > 0 && Date.now() - cached.updatedAt < CACHE_TTL) {
       return cached.data;
     }
     return null;

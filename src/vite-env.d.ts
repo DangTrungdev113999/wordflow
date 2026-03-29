@@ -1,4 +1,13 @@
+/// <reference types="vite/client" />
 declare module "*.css";
+
+interface ImportMetaEnv {
+  readonly VITE_UNSPLASH_ACCESS_KEY?: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
 
 // Web Speech Recognition API types
 interface SpeechRecognitionEvent extends Event {

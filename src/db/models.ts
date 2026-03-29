@@ -190,10 +190,21 @@ export interface EnrichedWordData {
   frequency: number;
 }
 
+// Phase 10 — Word Image System (Dual Coding)
+export interface WordImageData {
+  url: string;
+  source: 'unsplash' | 'emoji';
+  alt: string;
+  thumbUrl?: string;
+  fullUrl?: string;
+}
+
 export interface EnrichedWord {
   word: string; // primary key
   data: EnrichedWordData;
   updatedAt: number; // timestamp for TTL
+  imageData?: WordImageData;
+  imageUpdatedAt?: number;
 }
 
 // Phase 7 — Learn from Media
