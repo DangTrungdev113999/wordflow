@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { useChartTheme } from '../../../hooks/useChartTheme';
 import { Card } from '../../../components/ui/Card';
 import { db } from '../../../db/database';
 import type { DailyLog } from '../../../db/models';
 
 export function StatsChart() {
+  const chart = useChartTheme();
   const [logs, setLogs] = useState<DailyLog[]>([]);
 
   useEffect(() => {
@@ -35,11 +37,11 @@ export function StatsChart() {
       <h3 className="font-semibold text-gray-700 dark:text-gray-300 mb-3 text-sm">Last 7 Days</h3>
       <ResponsiveContainer width="100%" height={120}>
         <BarChart data={data} barSize={24}>
-          <XAxis dataKey="date" tick={{ fontSize: 10, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
+          <XAxis dataKey="date" tick={{ fontSize: 12, fill: chart.axis }} axisLine={false} tickLine={false} />
           <YAxis hide />
           <Tooltip
-            contentStyle={{ background: '#1f2937', border: 'none', borderRadius: 8, fontSize: 12 }}
-            labelStyle={{ color: '#e5e7eb' }}
+            contentStyle={{ background: chart.tooltipBg, border: 'none', borderRadius: 8, fontSize: 12 }}
+            labelStyle={{ color: chart.tooltipText }}
             itemStyle={{ color: '#818cf8' }}
           />
           <Bar dataKey="words" fill="#6366f1" radius={[4, 4, 0, 0]} name="Words" />

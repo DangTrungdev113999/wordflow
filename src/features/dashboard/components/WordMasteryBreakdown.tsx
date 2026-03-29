@@ -1,4 +1,5 @@
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { useChartTheme } from '../../../hooks/useChartTheme';
 import type { AnalyticsData } from '../hooks/useAnalytics';
 
 interface Props {
@@ -6,6 +7,7 @@ interface Props {
 }
 
 export function WordMasteryBreakdown({ data }: Props) {
+  const chart = useChartTheme();
   const total = data.reduce((s, d) => s + d.count, 0);
 
   if (total === 0) return null;
@@ -32,12 +34,12 @@ export function WordMasteryBreakdown({ data }: Props) {
         <text x="50%" y="42%" textAnchor="middle" dominantBaseline="middle" className="fill-gray-900 dark:fill-white" fontSize={22} fontWeight="bold">
           {total}
         </text>
-        <text x="50%" y="52%" textAnchor="middle" dominantBaseline="middle" className="fill-gray-400" fontSize={11}>
+        <text x="50%" y="52%" textAnchor="middle" dominantBaseline="middle" className="fill-gray-400" fontSize={12}>
           words
         </text>
         <Tooltip
-          contentStyle={{ background: '#1f2937', border: 'none', borderRadius: 8, fontSize: 12 }}
-          labelStyle={{ color: '#e5e7eb' }}
+          contentStyle={{ background: chart.tooltipBg, border: 'none', borderRadius: 8, fontSize: 12 }}
+          labelStyle={{ color: chart.tooltipText }}
         />
         <Legend
           verticalAlign="bottom"

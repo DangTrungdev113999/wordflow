@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { useChartTheme } from '../../../hooks/useChartTheme';
 import { useMistakeStore } from '../../../stores/mistakeStore';
 import type { MistakeType } from '../../../models/Mistake';
 
@@ -24,6 +25,7 @@ const TYPE_LABELS: Record<MistakeType, string> = {
 };
 
 export function MistakeStatsView() {
+  const chart = useChartTheme();
   const { mistakes } = useMistakeStore();
 
   const pieData = useMemo(() => {
@@ -121,8 +123,8 @@ export function MistakeStatsView() {
                   ))}
                 </Pie>
                 <Tooltip
-                  contentStyle={{ background: '#1f2937', border: 'none', borderRadius: 8, fontSize: 12 }}
-                  labelStyle={{ color: '#e5e7eb' }}
+                  contentStyle={{ background: chart.tooltipBg, border: 'none', borderRadius: 8, fontSize: 12 }}
+                  labelStyle={{ color: chart.tooltipText }}
                 />
               </PieChart>
             </ResponsiveContainer>
@@ -145,12 +147,12 @@ export function MistakeStatsView() {
           <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-4">Mistake Trend</h3>
           <ResponsiveContainer width="100%" height={200}>
             <LineChart data={trendData} margin={{ left: 0, right: 10, top: 5, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.2} />
-              <XAxis dataKey="date" tick={{ fontSize: 11 }} stroke="#9ca3af" />
-              <YAxis tick={{ fontSize: 11 }} stroke="#9ca3af" />
+              <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} opacity={0.3} />
+              <XAxis dataKey="date" tick={{ fontSize: 12 }} stroke={chart.axis} />
+              <YAxis tick={{ fontSize: 12 }} stroke={chart.axis} />
               <Tooltip
-                contentStyle={{ background: '#1f2937', border: 'none', borderRadius: 8, fontSize: 12 }}
-                labelStyle={{ color: '#e5e7eb' }}
+                contentStyle={{ background: chart.tooltipBg, border: 'none', borderRadius: 8, fontSize: 12 }}
+                labelStyle={{ color: chart.tooltipText }}
               />
               <Line type="monotone" dataKey="total" stroke="#6366f1" strokeWidth={2} dot={{ r: 2 }} name="Total" />
               <Line type="monotone" dataKey="newMistakes" stroke="#f43f5e" strokeWidth={1.5} strokeDasharray="4 4" dot={false} name="New" />

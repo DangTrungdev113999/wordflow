@@ -1,4 +1,5 @@
 import { RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from 'recharts';
+import { useChartTheme } from '../../../hooks/useChartTheme';
 import type { AnalyticsData } from '../hooks/useAnalytics';
 
 interface Props {
@@ -6,6 +7,8 @@ interface Props {
 }
 
 export function SkillRadar({ data }: Props) {
+  const chart = useChartTheme();
+
   if (data.every((d) => d.score === 0)) {
     return <p className="text-sm text-gray-400 text-center py-6">Start learning to see your skill breakdown.</p>;
   }
@@ -13,12 +16,12 @@ export function SkillRadar({ data }: Props) {
   return (
     <ResponsiveContainer width="100%" height={260}>
       <RadarChart data={data} cx="50%" cy="50%" outerRadius="70%">
-        <PolarGrid stroke="#d1d5db" />
-        <PolarAngleAxis dataKey="skill" tick={{ fontSize: 12, fill: '#6b7280' }} />
-        <PolarRadiusAxis domain={[0, 100]} tick={{ fontSize: 10 }} stroke="#9ca3af" />
+        <PolarGrid stroke={chart.polarGrid} />
+        <PolarAngleAxis dataKey="skill" tick={{ fontSize: 12, fill: chart.polarText }} />
+        <PolarRadiusAxis domain={[0, 100]} tick={{ fontSize: 12 }} stroke={chart.axis} />
         <Tooltip
-          contentStyle={{ background: '#1f2937', border: 'none', borderRadius: 8, fontSize: 12 }}
-          labelStyle={{ color: '#e5e7eb' }}
+          contentStyle={{ background: chart.tooltipBg, border: 'none', borderRadius: 8, fontSize: 12 }}
+          labelStyle={{ color: chart.tooltipText }}
           formatter={(value: number) => [`${value}%`]}
         />
         <Radar dataKey="score" stroke="#6366f1" fill="#6366f1" fillOpacity={0.3} />

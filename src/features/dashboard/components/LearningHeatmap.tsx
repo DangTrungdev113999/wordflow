@@ -78,7 +78,7 @@ export function LearningHeatmap({ data }: Props) {
         {/* Day labels */}
         <div className="flex flex-col justify-between mr-1" style={{ height: 7 * 18 - 4 }}>
           {['Mon', '', 'Wed', '', 'Fri', '', 'Sun'].map((label, i) => (
-            <span key={i} className="text-[10px] text-gray-400 leading-none" style={{ height: 14 }}>
+            <span key={i} className="text-xs text-gray-400 leading-none" style={{ height: 14 }}>
               {label}
             </span>
           ))}

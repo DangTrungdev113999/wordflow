@@ -103,14 +103,14 @@ export function PromptPicker({ prompts, onSelect }: PromptPickerProps) {
                     <h3 className="text-sm font-semibold text-gray-900 dark:text-white truncate group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                       {prompt.titleVi}
                     </h3>
-                    <span className={cn('px-1.5 py-0.5 text-[10px] font-bold rounded', LEVEL_COLORS[prompt.level] || '')}>
+                    <span className={cn('px-1.5 py-0.5 text-xs font-bold rounded', LEVEL_COLORS[prompt.level] || '')}>
                       {prompt.level}
                     </span>
                   </div>
                   <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">
                     {prompt.promptVi}
                   </p>
-                  <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-1.5">
+                  <p className="text-xs text-gray-400 dark:text-gray-500 mt-1.5">
                     {prompt.minWords}–{prompt.maxWords} từ
                   </p>
                 </div>

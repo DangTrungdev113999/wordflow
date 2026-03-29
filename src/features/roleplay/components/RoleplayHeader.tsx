@@ -41,7 +41,7 @@ export function RoleplayHeader({ scenario, turnCount, onEnd }: RoleplayHeaderPro
 
       {/* Goal reminder */}
       <div className="mt-2 px-3 py-1.5 bg-indigo-50 dark:bg-indigo-900/10 rounded-lg">
-        <p className="text-[11px] text-indigo-600 dark:text-indigo-400">
+        <p className="text-xs text-indigo-600 dark:text-indigo-400">
           <span className="font-semibold">Mục tiêu:</span> {scenario.goalVi}
         </p>
       </div>

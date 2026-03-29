@@ -64,7 +64,7 @@ export function MistakeJournalPage() {
                 <Icon size={16} />
                 {tab.label}
                 {tab.id === 'review' && dueCount > 0 && (
-                  <span className="inline-flex items-center justify-center w-5 h-5 text-[10px] font-bold text-white bg-red-500 rounded-full">
+                  <span className="inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full">
                     {dueCount > 99 ? '99+' : dueCount}
                   </span>
                 )}

@@ -73,7 +73,7 @@ export function StudyTimerWidget() {
           {formatTime(elapsedMs)}
         </span>
         {!isManual && isRunning && (
-          <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5">Auto-tracking</p>
+          <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Auto-tracking</p>
         )}
       </div>
 

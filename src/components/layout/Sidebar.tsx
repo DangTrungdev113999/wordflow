@@ -49,7 +49,7 @@ export function Sidebar() {
             <Icon size={20} />
             {label}
             {to === '/mistake-journal' && dueCount > 0 && (
-              <span className="ml-auto inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 text-[10px] font-bold text-white bg-red-500 rounded-full">
+              <span className="ml-auto inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 text-xs font-bold text-white bg-red-500 rounded-full">
                 {dueCount > 99 ? '99+' : dueCount}
               </span>
             )}

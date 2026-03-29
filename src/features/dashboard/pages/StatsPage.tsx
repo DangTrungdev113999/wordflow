@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { db } from '../../../db/database';
 import { useProgressStore } from '../../../stores/progressStore';
+import { useChartTheme } from '../../../hooks/useChartTheme';
 import { useAnalytics } from '../hooks/useAnalytics';
 import { SkillRadar } from '../components/SkillRadar';
 import { WordMasteryBreakdown } from '../components/WordMasteryBreakdown';
@@ -49,6 +50,7 @@ export function StatsPage() {
   const [logs, setLogs] = useState<DailyLog[]>([]);
   const { xp, totalWordsLearned, currentStreak, longestStreak, badges } = useProgressStore();
   const analytics = useAnalytics();
+  const chart = useChartTheme();
 
   useEffect(() => {
     db.dailyLogs.orderBy('date').reverse().limit(30).toArray().then((data) => {
@@ -115,10 +117,10 @@ export function StatsPage() {
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Words Per Day</h3>
                 <ResponsiveContainer width="100%" height={200}>
                   <BarChart data={chartData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                    <XAxis dataKey="date" tick={{ fontSize: 11 }} stroke="#9ca3af" />
-                    <YAxis tick={{ fontSize: 11 }} stroke="#9ca3af" />
-                    <Tooltip />
+                    <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
+                    <XAxis dataKey="date" tick={{ fontSize: 12 }} stroke={chart.axis} />
+                    <YAxis tick={{ fontSize: 12 }} stroke={chart.axis} />
+                    <Tooltip contentStyle={{ background: chart.tooltipBg, border: 'none', borderRadius: 8, fontSize: 12 }} labelStyle={{ color: chart.tooltipText }} />
                     <Bar dataKey="words" fill="#6366f1" radius={[4, 4, 0, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
@@ -129,10 +131,10 @@ export function StatsPage() {
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-3">XP History</h3>
                 <ResponsiveContainer width="100%" height={200}>
                   <LineChart data={chartData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                    <XAxis dataKey="date" tick={{ fontSize: 11 }} stroke="#9ca3af" />
-                    <YAxis tick={{ fontSize: 11 }} stroke="#9ca3af" />
-                    <Tooltip />
+                    <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
+                    <XAxis dataKey="date" tick={{ fontSize: 12 }} stroke={chart.axis} />
+                    <YAxis tick={{ fontSize: 12 }} stroke={chart.axis} />
+                    <Tooltip contentStyle={{ background: chart.tooltipBg, border: 'none', borderRadius: 8, fontSize: 12 }} labelStyle={{ color: chart.tooltipText }} />
                     <Line type="monotone" dataKey="xp" stroke="#8b5cf6" strokeWidth={2} dot={{ r: 3 }} />
                   </LineChart>
                 </ResponsiveContainer>

@@ -20,7 +20,7 @@ export function ChallengeTaskList({ tasks, activeTask }: Props) {
         return (
           <div
             key={type}
-            className={`flex items-center gap-1 px-2 py-1 rounded-full text-[11px] font-medium transition-colors whitespace-nowrap ${
+            className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium transition-colors whitespace-nowrap ${
               isDone
                 ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400'
                 : isActive

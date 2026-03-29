@@ -74,7 +74,7 @@ export function OnboardingPage() {
               </motion.div>
               <span
                 className={cn(
-                  'text-[11px] font-medium',
+                  'text-xs font-medium',
                   i <= currentStepIndex
                     ? 'text-indigo-600 dark:text-indigo-400'
                     : 'text-gray-400 dark:text-gray-500',

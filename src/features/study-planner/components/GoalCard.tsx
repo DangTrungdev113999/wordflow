@@ -79,7 +79,7 @@ export function GoalCard({ data, onRemove }: GoalCardProps) {
         {/* Info */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
-            <span className={`inline-flex px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full ${colors.bg} ${colors.text}`}>
+            <span className={`inline-flex px-2 py-0.5 text-xs font-semibold uppercase tracking-wider rounded-full ${colors.bg} ${colors.text}`}>
               {goal.type}
             </span>
           </div>

@@ -67,11 +67,11 @@ export function MistakeCard({ mistake, onDelete }: Props) {
 
       <div className="space-y-1.5">
         <div className="flex items-start gap-2">
-          <span className="shrink-0 mt-0.5 w-4 h-4 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center text-[10px] text-red-600 dark:text-red-400">✕</span>
+          <span className="shrink-0 mt-0.5 w-4 h-4 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center text-xs text-red-600 dark:text-red-400">✕</span>
           <p className="text-sm text-red-600 dark:text-red-400 line-through decoration-red-300/50">{mistake.userAnswer}</p>
         </div>
         <div className="flex items-start gap-2">
-          <span className="shrink-0 mt-0.5 w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-[10px] text-green-600 dark:text-green-400">✓</span>
+          <span className="shrink-0 mt-0.5 w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-xs text-green-600 dark:text-green-400">✓</span>
           <p className="text-sm font-medium text-green-600 dark:text-green-400">{mistake.correctAnswer}</p>
         </div>
       </div>

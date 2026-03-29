@@ -63,7 +63,7 @@ export function WeeklySchedule() {
 
           return (
             <div key={i} className="flex flex-col items-center">
-              <span className="text-[10px] font-medium text-gray-400 dark:text-gray-500 mb-1">
+              <span className="text-xs font-medium text-gray-400 dark:text-gray-500 mb-1">
                 {label}
               </span>
               <button
@@ -79,7 +79,7 @@ export function WeeklySchedule() {
                 {slot ? (
                   <>
                     <Clock size={12} />
-                    <span className="text-[10px] leading-none">{slot.startTime}</span>
+                    <span className="text-xs leading-none">{slot.startTime}</span>
                   </>
                 ) : (
                   <span className="text-lg leading-none">+</span>
@@ -133,7 +133,7 @@ export function WeeklySchedule() {
 
               <div className="flex gap-3">
                 <div>
-                  <label className="block text-[10px] font-medium text-gray-500 mb-1">Time</label>
+                  <label className="block text-xs font-medium text-gray-500 mb-1">Time</label>
                   <input
                     type="time"
                     value={editing.startTime}
@@ -142,7 +142,7 @@ export function WeeklySchedule() {
                   />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-medium text-gray-500 mb-1">
+                  <label className="block text-xs font-medium text-gray-500 mb-1">
                     Duration (min)
                   </label>
                   <input
@@ -160,7 +160,7 @@ export function WeeklySchedule() {
               </div>
 
               <div>
-                <label className="block text-[10px] font-medium text-gray-500 mb-1.5">
+                <label className="block text-xs font-medium text-gray-500 mb-1.5">
                   Focus Areas
                 </label>
                 <div className="flex flex-wrap gap-1.5">
