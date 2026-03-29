@@ -6,6 +6,7 @@ import { useEnrichedAudio } from '../../../hooks/useEnrichedAudio';
 import { FlashcardDeck } from '../components/FlashcardDeck';
 import { SessionSummary } from '../components/SessionSummary';
 import { getWeakWords, getSessionWeakWords, type WeakWord } from '../../../services/weakWordsService';
+import { getCachedEnrichment } from '../../../services/wordEnrichmentService';
 
 export function CustomFlashcardPage() {
   const { topicId } = useParams<{ topicId: string }>();
@@ -28,6 +29,15 @@ export function CustomFlashcardPage() {
 
   const { getAudioUrl } = useEnrichedAudio(flashcardQueue, currentCardIndex);
   const [weakWords, setWeakWords] = useState<WeakWord[]>([]);
+  const [mnemonic, setMnemonic] = useState<string | undefined>();
+
+  useEffect(() => {
+    if (!currentWord) { setMnemonic(undefined); return; }
+    setMnemonic(undefined);
+    getCachedEnrichment(currentWord.word).then((data) => {
+      setMnemonic(data?.mnemonic || undefined);
+    });
+  }, [currentWord]);
 
   useEffect(() => {
     if (!isSessionComplete) return;
@@ -77,6 +87,7 @@ export function CustomFlashcardPage() {
         cardIndex={currentCardIndex}
         total={flashcardQueue.length}
         wordId={`custom-${topicId}:${currentWord.word}`}
+        mnemonic={mnemonic}
       />
     </div>
   );

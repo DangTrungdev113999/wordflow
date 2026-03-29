@@ -15,9 +15,10 @@ interface FlashcardDeckProps {
   total: number;
   wordId?: string;
   topicId?: string;
+  mnemonic?: string;
 }
 
-export function FlashcardDeck({ word, isFlipped, onFlip, onRate, cardIndex, total, wordId, topicId }: FlashcardDeckProps) {
+export function FlashcardDeck({ word, isFlipped, onFlip, onRate, cardIndex, total, wordId, topicId, mnemonic }: FlashcardDeckProps) {
   const progress = ((cardIndex + 1) / total) * 100;
 
   return (
@@ -56,14 +57,24 @@ export function FlashcardDeck({ word, isFlipped, onFlip, onRate, cardIndex, tota
           </div>
         }
         back={
-          <div className="w-full h-full bg-white dark:bg-gray-900 rounded-3xl border-2 border-indigo-200 dark:border-indigo-800 flex flex-col items-center justify-center gap-3 shadow-lg p-6 text-center">
+          <div className="w-full h-full bg-white dark:bg-gray-900 rounded-3xl border-2 border-indigo-200 dark:border-indigo-800 flex flex-col items-center justify-center gap-2.5 shadow-lg p-6 text-center">
             <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">{word.meaning}</p>
             <p className="text-sm text-gray-400 font-mono">{word.ipa}</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 italic mt-1">"{word.example}"</p>
-            <div className="flex items-center gap-2 mt-2">
+            <p className="text-sm text-gray-500 dark:text-gray-400 italic">&quot;{word.example}&quot;</p>
+            <div className="flex items-center gap-2 mt-1">
               <AudioButton word={word.word} audioUrl={word.audioUrl} size="sm" />
               {wordId && <PronunciationButton word={word.word} wordId={wordId} />}
             </div>
+            {mnemonic && (
+              <div className="w-full mt-1 bg-amber-50 dark:bg-amber-950/40 border-l-4 border-amber-400 dark:border-amber-600 rounded-r-lg px-3 py-2 text-left">
+                <p className="text-[11px] font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider mb-0.5">
+                  Mẹo ghi nhớ
+                </p>
+                <p className="text-xs text-amber-800 dark:text-amber-300 leading-relaxed">
+                  {mnemonic}
+                </p>
+              </div>
+            )}
           </div>
         }
       />
