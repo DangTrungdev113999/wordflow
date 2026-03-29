@@ -117,7 +117,7 @@ export function ConjugationGrid({ table, highlightMode = 'changes' }: Conjugatio
                   ? 'border-orange-200 dark:border-orange-800 bg-orange-50/60 dark:bg-orange-900/15'
                   : isIrregular
                     ? 'border-amber-200 dark:border-amber-800 bg-amber-50/60 dark:bg-amber-900/15'
-                    : 'border-gray-150 dark:border-gray-800 bg-white dark:bg-gray-900'
+                    : 'border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900'
                 }
               `}
             >

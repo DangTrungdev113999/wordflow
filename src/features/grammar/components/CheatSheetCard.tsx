@@ -5,12 +5,11 @@ import type { CheatSheet } from '../../../lib/types';
 
 interface CheatSheetCardProps {
   sheet: CheatSheet;
-  lessonId: string;
   bookmarked?: boolean;
   onBookmark?: () => void;
 }
 
-export function CheatSheetCard({ sheet, lessonId, bookmarked = false, onBookmark }: CheatSheetCardProps) {
+export function CheatSheetCard({ sheet, bookmarked = false, onBookmark }: CheatSheetCardProps) {
   const [copied, setCopied] = useState(false);
 
   const handleShare = async () => {

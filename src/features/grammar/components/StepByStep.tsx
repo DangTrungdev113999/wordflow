@@ -25,13 +25,17 @@ const STORAGE_KEY = 'grammar-step-';
 
 export function StepByStep({ steps, lessonId }: StepByStepProps) {
   const [current, setCurrent] = useState(() => {
-    const saved = localStorage.getItem(STORAGE_KEY + lessonId);
-    const val = saved ? parseInt(saved, 10) : 0;
-    return val >= 0 && val < steps.length ? val : 0;
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY + lessonId);
+      const val = saved ? parseInt(saved, 10) : 0;
+      return val >= 0 && val < steps.length ? val : 0;
+    } catch {
+      return 0;
+    }
   });
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY + lessonId, String(current));
+    try { localStorage.setItem(STORAGE_KEY + lessonId, String(current)); } catch { /* Safari incognito */ }
   }, [current, lessonId]);
 
   const goNext = useCallback(() => setCurrent(c => Math.min(c + 1, steps.length - 1)), [steps.length]);

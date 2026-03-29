@@ -5,7 +5,8 @@ export const ROLE_COLORS = {
   time:       { bg: 'bg-purple-100 dark:bg-purple-900/40', text: 'text-purple-700 dark:text-purple-300', border: 'border-purple-300 dark:border-purple-700' },
   auxiliary:  { bg: 'bg-pink-100 dark:bg-pink-900/40',     text: 'text-pink-700 dark:text-pink-300',     border: 'border-pink-300 dark:border-pink-700' },
   complement: { bg: 'bg-teal-100 dark:bg-teal-900/40',     text: 'text-teal-700 dark:text-teal-300',     border: 'border-teal-300 dark:border-teal-700' },
-  connector:  { bg: 'bg-gray-100 dark:bg-gray-800',        text: 'text-gray-600 dark:text-gray-400',     border: 'border-gray-300 dark:border-gray-700' },
+  connector:   { bg: 'bg-gray-100 dark:bg-gray-800',        text: 'text-gray-600 dark:text-gray-400',     border: 'border-gray-300 dark:border-gray-700' },
+  determiner:  { bg: 'bg-amber-100 dark:bg-amber-900/40',    text: 'text-amber-700 dark:text-amber-300',   border: 'border-amber-300 dark:border-amber-700' },
 } as const;
 
 export type SentenceRole = keyof typeof ROLE_COLORS;
@@ -18,4 +19,5 @@ export const ROLE_LABELS: Record<SentenceRole, string> = {
   auxiliary: 'Trợ động từ',
   complement: 'Bổ ngữ',
   connector: 'Liên từ',
+  determiner: 'Mạo từ/Hạn định từ',
 };

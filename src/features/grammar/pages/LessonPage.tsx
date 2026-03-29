@@ -67,9 +67,6 @@ export function LessonPage() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' as const } },
   };
 
-  // Check if any section has steps → use StepByStep mode
-  const stepsSection = currentLesson.theory.sections.find(s => s.steps && s.steps.length > 0);
-
   return (
     <PageTransition>
       <div className="px-4 py-6 max-w-2xl mx-auto">
@@ -97,20 +94,19 @@ export function LessonPage() {
           </div>
         </motion.div>
 
-        {/* StepByStep mode — if steps data exists */}
-        {stepsSection?.steps ? (
-          <div className="mb-8">
-            <StepByStep steps={stepsSection.steps} lessonId={currentLesson.id} />
-          </div>
-        ) : (
-          /* Traditional theory sections with visual enhancements */
-          <motion.div
-            className="space-y-6 mb-8"
-            variants={sectionStagger}
-            initial="hidden"
-            animate="visible"
-          >
-            {currentLesson.theory.sections.map((section, i) => (
+        {/* Theory sections — steps sections get StepByStep, others render traditionally */}
+        <motion.div
+          className="space-y-6 mb-8"
+          variants={sectionStagger}
+          initial="hidden"
+          animate="visible"
+        >
+          {currentLesson.theory.sections.map((section, i) =>
+            section.steps && section.steps.length > 0 ? (
+              <motion.div key={i} variants={sectionItem}>
+                <StepByStep steps={section.steps} lessonId={currentLesson.id} />
+              </motion.div>
+            ) : (
               <motion.div key={i} variants={sectionItem} className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800 space-y-4">
                 <h2 className="font-bold text-gray-900 dark:text-white mb-3">{section.heading}</h2>
                 <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed whitespace-pre-line">
@@ -154,16 +150,15 @@ export function LessonPage() {
                   </div>
                 )}
               </motion.div>
-            ))}
-          </motion.div>
-        )}
+            )
+          )}
+        </motion.div>
 
         {/* Cheat Sheet */}
         {currentLesson.cheatSheet && (
           <div className="mb-6">
             <CheatSheetCard
               sheet={currentLesson.cheatSheet}
-              lessonId={currentLesson.id}
               bookmarked={!!bookmark}
               onBookmark={toggleBookmark}
             />

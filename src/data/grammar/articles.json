@@ -17,7 +17,7 @@
             "parts": [
               { "text": "I", "role": "subject" },
               { "text": "have", "role": "verb" },
-              { "text": "a", "role": "auxiliary", "tooltip": "'dog' bắt đầu bằng phụ âm /d/ → dùng 'a'" },
+              { "text": "a", "role": "determiner", "tooltip": "'dog' bắt đầu bằng phụ âm /d/ → dùng 'a'" },
               { "text": "dog", "role": "object" }
             ],
             "vi": "Tôi có một con chó."
@@ -26,7 +26,7 @@
             "parts": [
               { "text": "She", "role": "subject" },
               { "text": "is", "role": "verb" },
-              { "text": "an", "role": "auxiliary", "tooltip": "'honest' phát âm /ˈɒnɪst/ — bắt đầu bằng nguyên âm → dùng 'an'" },
+              { "text": "an", "role": "determiner", "tooltip": "'honest' phát âm /ˈɒnɪst/ — bắt đầu bằng nguyên âm → dùng 'an'" },
               { "text": "honest person", "role": "complement" }
             ],
             "vi": "Cô ấy là người trung thực."

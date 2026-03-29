@@ -93,7 +93,7 @@ export type GrammarExercise =
 
 export interface SentencePart {
   text: string;
-  role: 'subject' | 'verb' | 'object' | 'time' | 'auxiliary' | 'complement' | 'connector';
+  role: 'subject' | 'verb' | 'object' | 'time' | 'auxiliary' | 'complement' | 'connector' | 'determiner';
   tooltip?: string;
 }
 
