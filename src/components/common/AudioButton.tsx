@@ -14,7 +14,7 @@ export function AudioButton({ word, audioUrl, size = 'md', className }: AudioBut
 
   return (
     <button
-      onClick={() => play(word, audioUrl)}
+      onClick={(e) => { e.stopPropagation(); play(word, audioUrl); }}
       className={cn(
         'flex items-center justify-center rounded-full transition-all duration-200 active:scale-95',
         isPlaying

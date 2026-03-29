@@ -64,7 +64,7 @@ export function VocabPopup({ word, onClose }: Props) {
           animate={{ y: 0 }}
           exit={{ y: '100%' }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 rounded-t-2xl border-t border-gray-200 dark:border-gray-700 p-5 pb-8 safe-area-inset-bottom"
+          className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 rounded-t-2xl border-t border-gray-200 dark:border-gray-700 p-5 pb-[calc(2rem+env(safe-area-inset-bottom))]"
         >
           <div className="flex items-start justify-between mb-3">
             <div>
