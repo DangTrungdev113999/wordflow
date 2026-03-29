@@ -85,7 +85,7 @@ function FlashcardReview({
       resultsRef.current = [...resultsRef.current, { wordId, correct: isCorrect }];
 
       if (isCorrect) {
-        eventBus.emit('flashcard:correct', { wordId, rating });
+        eventBus.emit('flashcard:correct', { wordId, rating, multiplier: 1.5 });
       } else {
         eventBus.emit('flashcard:incorrect', { wordId });
       }
@@ -169,7 +169,7 @@ function QuizReview({
 
       const isCorrect = option === correctAnswer;
       const wordId = `${currentWord.topicId}:${currentWord.word}`;
-      const rating: FlashcardRating = isCorrect ? 5 : 0;
+      const rating: FlashcardRating = isCorrect ? 4 : 0;
 
       const existing = localProgress[wordId];
       const current = existing ?? createInitialProgress(wordId);
@@ -187,7 +187,7 @@ function QuizReview({
       resultsRef.current = [...resultsRef.current, { wordId, correct: isCorrect }];
 
       if (isCorrect) {
-        eventBus.emit('flashcard:correct', { wordId, rating: 5 });
+        eventBus.emit('flashcard:correct', { wordId, rating, multiplier: 1.5 });
       } else {
         eventBus.emit('flashcard:incorrect', { wordId });
       }

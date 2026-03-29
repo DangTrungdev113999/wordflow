@@ -4,7 +4,7 @@ import type { MistakeCollectedEvent } from '../models/Mistake';
 export type { DictationMode } from '../lib/types';
 
 type AppEvents = {
-  'flashcard:correct': { wordId: string; rating: 0 | 2 | 4 | 5 };
+  'flashcard:correct': { wordId: string; rating: 0 | 2 | 4 | 5; multiplier?: number };
   'flashcard:incorrect': { wordId: string };
   'quiz:complete': { lessonId: string; correct: number; total: number };
   'lesson:complete': { lessonId: string };

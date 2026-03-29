@@ -20,7 +20,7 @@ export function initEventSubscribers() {
   // Initialize mistake collector (Phase 8)
   initMistakeCollector();
   // flashcard:correct → XP + dailyLog
-  eventBus.on('flashcard:correct', ({ rating }) => {
+  eventBus.on('flashcard:correct', ({ rating, multiplier }) => {
     const { addXP } = useProgressStore.getState();
 
     let action: 'flashcard_easy' | 'flashcard_hard' | 'flashcard_correct';
@@ -28,7 +28,7 @@ export function initEventSubscribers() {
     else if (rating === 2) action = 'flashcard_hard';
     else action = 'flashcard_correct';
 
-    const xp = XP_VALUES[action];
+    const xp = Math.round(XP_VALUES[action] * (multiplier ?? 1));
     addXP(xp);
 
     // DailyLog is handled by word:learned / word:reviewed events from the hook
