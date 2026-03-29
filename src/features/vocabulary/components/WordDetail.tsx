@@ -50,36 +50,50 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
 
   // Fetch dictionary enrichment + AI enrichment in parallel
   useEffect(() => {
+    let cancelled = false;
     setLoading(true);
     setAiLoading(true);
 
     enrichWord(word.word).then((data) => {
+      if (cancelled) return;
       setEnriched(data);
       setLoading(false);
+    }).catch(() => {
+      if (!cancelled) setLoading(false);
     });
 
     enrichWordData(word.word, word.meaning).then((data) => {
+      if (cancelled) return;
       // Lazy migration: if cached data missing P10-2 fields, re-enrich
       if (data && needsReEnrichment(data)) {
         forceReEnrich(word.word, word.meaning).then((fresh) => {
-          setAiData(fresh);
+          if (cancelled) return;
+          setAiData(needsReEnrichment(fresh) ? data : fresh);
+          setAiLoading(false);
+        }).catch(() => {
+          if (cancelled) return;
+          setAiData(data); // keep old data on failure
           setAiLoading(false);
         });
       } else {
         setAiData(data);
         setAiLoading(false);
       }
+    }).catch(() => {
+      if (!cancelled) setAiLoading(false);
     });
+
+    return () => { cancelled = true; };
   }, [word.word, word.meaning]);
 
   const handleRegenerateMnemonic = useCallback(async () => {
     setRegenerating(true);
     const result = await regenerateMnemonic(word.word, word.meaning);
-    if (result && aiData) {
-      setAiData({ ...aiData, mnemonic: result.mnemonic, mnemonicType: result.mnemonicType });
+    if (result) {
+      setAiData((prev) => prev ? { ...prev, mnemonic: result.mnemonic, mnemonicType: result.mnemonicType } : prev);
     }
     setRegenerating(false);
-  }, [word.word, word.meaning, aiData]);
+  }, [word.word, word.meaning]);
 
   const audioUrl = enriched?.audioUrl ?? word.audioUrl;
 
