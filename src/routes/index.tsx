@@ -11,6 +11,7 @@ const WordDetailPage = lazy(() => import('../features/vocabulary/pages/WordDetai
 const GrammarPage = lazy(() => import('../features/grammar/pages/GrammarPage').then(m => ({ default: m.GrammarPage })));
 const LessonPage = lazy(() => import('../features/grammar/pages/LessonPage').then(m => ({ default: m.LessonPage })));
 const QuizPage = lazy(() => import('../features/grammar/pages/QuizPage').then(m => ({ default: m.QuizPage })));
+const VocabQuizPage = lazy(() => import('../features/vocabulary/pages/QuizPage').then(m => ({ default: m.QuizPage })));
 const AchievementsPage = lazy(() => import('../features/achievements/pages/AchievementsPage').then(m => ({ default: m.AchievementsPage })));
 const StatsPage = lazy(() => import('../features/dashboard/pages/StatsPage').then(m => ({ default: m.StatsPage })));
 const SettingsPage = lazy(() => import('../features/settings/pages/SettingsPage').then(m => ({ default: m.SettingsPage })));
@@ -60,6 +61,7 @@ export const router = createBrowserRouter([
       { path: 'vocabulary', element: withSuspense(VocabularyPage) },
       { path: 'vocabulary/:topic', element: withSuspense(TopicPage) },
       { path: 'vocabulary/:topic/learn', element: withSuspense(FlashcardPage) },
+      { path: 'vocabulary/:topic/quiz', element: withSuspense(VocabQuizPage) },
       { path: 'vocabulary/custom', element: withSuspense(CustomTopicsPage) },
       { path: 'vocabulary/custom/:topicId', element: withSuspense(CustomTopicDetailPage) },
       { path: 'vocabulary/custom/:topicId/learn', element: withSuspense(CustomFlashcardPage) },

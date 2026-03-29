@@ -7,6 +7,7 @@ import { TopicHeader } from '../components/TopicHeader';
 import { WordFilterBar, type WordFilter, type WordSort } from '../components/WordFilterBar';
 import { WordCard } from '../components/WordCard';
 import { Button } from '../../../components/ui/Button';
+import { SessionPicker } from '../components/SessionPicker';
 
 export function TopicPage() {
   const { topic } = useParams<{ topic: string }>();
@@ -15,6 +16,7 @@ export function TopicPage() {
 
   const [filter, setFilter] = useState<WordFilter>('all');
   const [sort, setSort] = useState<WordSort>('alpha');
+  const [showPicker, setShowPicker] = useState(false);
 
   // Build stable word keys for progress query
   const wordKeys = useMemo(
@@ -87,12 +89,18 @@ export function TopicPage() {
       />
 
       {/* Start button */}
-      <Link to={`/vocabulary/${topic}/learn`} className="block">
-        <Button size="lg" className="w-full gap-2">
-          <Play size={18} />
-          Start Flashcards
-        </Button>
-      </Link>
+      <Button size="lg" className="w-full gap-2" onClick={() => setShowPicker(true)}>
+        <Play size={18} />
+        Start Learning
+      </Button>
+
+      <SessionPicker
+        topicId={topic!}
+        wordCount={topicData.words.length}
+        isOpen={showPicker}
+        onClose={() => setShowPicker(false)}
+        onStart={() => setShowPicker(false)}
+      />
 
       {/* Filter + sort */}
       <WordFilterBar
