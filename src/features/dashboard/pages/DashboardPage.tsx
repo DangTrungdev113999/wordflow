@@ -12,6 +12,13 @@ import { ProgressBar } from '../../../components/ui/ProgressBar';
 import { TOPIC_ICONS, TOPIC_COLORS } from '../../../lib/constants';
 import { DailyChallengeCard } from '../../daily-challenge/components/DailyChallengeCard';
 
+function getGreeting(): string {
+  const hour = new Date().getHours();
+  if (hour >= 5 && hour < 12) return 'Good morning';
+  if (hour >= 12 && hour < 18) return 'Good afternoon';
+  return 'Good evening';
+}
+
 export function DashboardPage() {
   const { todayWordsLearned, todayWordsReviewed } = useProgressStore();
   const { dailyGoal } = useSettingsStore();
@@ -24,7 +31,7 @@ export function DashboardPage() {
     <div className="px-4 py-6 space-y-4 max-w-2xl mx-auto">
       {/* Greeting */}
       <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Good day! 👋</h1>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{getGreeting()}! 👋</h1>
         <p className="text-gray-500 dark:text-gray-400 text-sm mt-0.5">Keep up your learning streak!</p>
       </motion.div>
 

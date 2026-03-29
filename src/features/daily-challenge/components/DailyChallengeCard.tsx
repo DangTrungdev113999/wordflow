@@ -1,14 +1,29 @@
 import { Link } from 'react-router';
 import { ChevronRight, Flame } from 'lucide-react';
 import { Card } from '../../../components/ui/Card';
+import { Skeleton } from '../../../components/ui/Skeleton';
 import { useDailyChallenge } from '../hooks/useDailyChallenge';
 import { useProgressStore } from '../../../stores/progressStore';
+
+function DailyChallengeCardSkeleton() {
+  return (
+    <Card>
+      <div className="flex items-center justify-between">
+        <div className="space-y-2 flex-1">
+          <Skeleton className="h-4 w-32" />
+          <Skeleton className="h-3 w-48" />
+        </div>
+        <Skeleton className="h-7 w-16 rounded-full" />
+      </div>
+    </Card>
+  );
+}
 
 export function DailyChallengeCard() {
   const { content, tasks, completed, xpEarned, loading } = useDailyChallenge();
   const currentStreak = useProgressStore(s => s.currentStreak);
 
-  if (loading) return null;
+  if (loading) return <DailyChallengeCardSkeleton />;
 
   const doneCount = tasks.filter(t => t.completed).length;
   const started = doneCount > 0;

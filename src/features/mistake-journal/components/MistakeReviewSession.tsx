@@ -90,20 +90,27 @@ export function MistakeReviewSession({ onComplete }: Props) {
           exit={{ opacity: 0, x: -30 }}
           transition={{ duration: 0.2 }}
         >
+          {/* 3D Flip Card */}
           <div
-            className="relative min-h-[280px] bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden cursor-pointer"
+            className="relative cursor-pointer"
+            style={{ perspective: 1000 }}
             onClick={!isFlipped ? handleFlip : undefined}
           >
-            {/* Type badge */}
-            <div className="absolute top-4 left-4">
-              <span className="text-xs font-medium text-gray-400 capitalize">{current.type.replace('_', ' ')}</span>
-            </div>
-
-            {/* Card content */}
-            <div className="flex flex-col items-center justify-center min-h-[280px] p-8 text-center">
-              {!isFlipped ? (
-                /* Front: Question */
-                <>
+            <motion.div
+              animate={{ rotateY: isFlipped ? 180 : 0 }}
+              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+              style={{ transformStyle: 'preserve-3d' }}
+              className="relative min-h-[280px]"
+            >
+              {/* Front face */}
+              <div
+                className="absolute inset-0 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden"
+                style={{ backfaceVisibility: 'hidden' }}
+              >
+                <div className="absolute top-4 left-4">
+                  <span className="text-xs font-medium text-gray-400 capitalize">{current.type.replace('_', ' ')}</span>
+                </div>
+                <div className="flex flex-col items-center justify-center min-h-[280px] p-8 text-center">
                   <p className="text-base font-medium text-gray-800 dark:text-gray-200 leading-relaxed mb-6">
                     {current.question}
                   </p>
@@ -114,18 +121,26 @@ export function MistakeReviewSession({ onComplete }: Props) {
                     <RotateCcw size={14} />
                     <span>Tap to reveal answer</span>
                   </div>
-                </>
-              ) : (
-                /* Back: Answer */
-                <>
+                </div>
+              </div>
+
+              {/* Back face */}
+              <div
+                className="absolute inset-0 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm overflow-hidden"
+                style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+              >
+                <div className="absolute top-4 left-4">
+                  <span className="text-xs font-medium text-gray-400 capitalize">{current.type.replace('_', ' ')}</span>
+                </div>
+                <div className="flex flex-col items-center justify-center min-h-[280px] p-8 text-center">
                   <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{current.question}</p>
                   <p className="text-lg font-semibold text-emerald-600 dark:text-emerald-400 mb-2">{current.correctAnswer}</p>
                   {current.explanation && (
                     <p className="text-xs text-gray-500 dark:text-gray-400 italic mt-2 max-w-xs">{current.explanation}</p>
                   )}
-                </>
-              )}
-            </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
           {/* Rating buttons */}
@@ -133,7 +148,7 @@ export function MistakeReviewSession({ onComplete }: Props) {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
+              transition={{ delay: 0.3 }}
               className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2"
             >
               {RATING_BUTTONS.map(({ result, label, sublabel, color }) => (
@@ -143,7 +158,7 @@ export function MistakeReviewSession({ onComplete }: Props) {
                   className={`${color} rounded-xl py-3 px-2 text-center transition-all active:scale-95`}
                 >
                   <span className="block text-sm font-semibold">{label}</span>
-                  <span className="block text-[10px] opacity-80 mt-0.5 leading-tight">{sublabel}</span>
+                  <span className="block text-xs opacity-80 mt-0.5 leading-tight">{sublabel}</span>
                 </button>
               ))}
             </motion.div>

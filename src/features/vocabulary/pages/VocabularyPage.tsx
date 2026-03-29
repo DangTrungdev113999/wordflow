@@ -1,19 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
-import { BookOpen, Plus, ChevronRight } from 'lucide-react';
+import { BookOpen, Plus, ChevronRight, Search, X } from 'lucide-react';
 import { useVocabularyStore } from '../../../stores/vocabularyStore';
 import { TopicList } from '../components/TopicList';
 import { getTopics, getWords } from '../../../services/customTopicService';
+import { cn } from '../../../lib/utils';
 import type { CustomTopic } from '../../../db/models';
 
 interface TopicWithCount extends CustomTopic {
   wordCount: number;
 }
 
+type Filter = 'all' | 'built-in' | 'custom';
+
 export function VocabularyPage() {
   const { topics } = useVocabularyStore();
   const [customTopics, setCustomTopics] = useState<TopicWithCount[]>([]);
+  const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState<Filter>('all');
 
   useEffect(() => {
     getTopics().then(async (all) => {
@@ -27,6 +32,24 @@ export function VocabularyPage() {
     });
   }, []);
 
+  const query = search.toLowerCase().trim();
+
+  const filteredBuiltIn = useMemo(
+    () => topics.filter((t) => t.topicLabel.toLowerCase().includes(query)),
+    [topics, query],
+  );
+
+  const filteredCustom = useMemo(
+    () => customTopics.filter((t) => t.name.toLowerCase().includes(query)),
+    [customTopics, query],
+  );
+
+  const FILTERS: { key: Filter; label: string }[] = [
+    { key: 'all', label: 'All' },
+    { key: 'built-in', label: 'Built-in' },
+    { key: 'custom', label: 'My Lists' },
+  ];
+
   return (
     <div className="px-4 py-6 space-y-6 max-w-2xl mx-auto">
       <div>
@@ -37,9 +60,48 @@ export function VocabularyPage() {
         <p className="text-gray-500 dark:text-gray-400 mt-1">Choose a topic to start learning</p>
       </div>
 
-      <TopicList topics={topics} />
+      {/* Search + Filter */}
+      <div className="space-y-3">
+        <div className="relative">
+          <Search size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search topics..."
+            className="w-full pl-10 pr-10 py-2.5 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-400 transition-all"
+          />
+          {search && (
+            <button
+              onClick={() => setSearch('')}
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+            >
+              <X size={16} />
+            </button>
+          )}
+        </div>
+        <div className="flex gap-2">
+          {FILTERS.map((f) => (
+            <button
+              key={f.key}
+              onClick={() => setFilter(f.key)}
+              className={cn(
+                'px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all',
+                filter === f.key
+                  ? 'bg-indigo-500 text-white shadow-sm'
+                  : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700',
+              )}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {filter !== 'custom' && <TopicList topics={filteredBuiltIn} />}
 
       {/* Custom Word Lists Section */}
+      {filter !== 'built-in' && (
       <div className="pt-2">
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white">My Word Lists</h2>
@@ -52,9 +114,9 @@ export function VocabularyPage() {
           </Link>
         </div>
 
-        {customTopics.length > 0 ? (
+        {filteredCustom.length > 0 ? (
           <div className="grid gap-3">
-            {customTopics.slice(0, 3).map((topic, i) => (
+            {filteredCustom.slice(0, 3).map((topic, i) => (
               <motion.div
                 key={topic.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -92,6 +154,17 @@ export function VocabularyPage() {
           </Link>
         )}
       </div>
+      )}
+
+      {/* Empty search state */}
+      {query && filteredBuiltIn.length === 0 && filteredCustom.length === 0 && (
+        <div className="text-center py-12">
+          <Search size={32} className="mx-auto text-gray-300 dark:text-gray-600 mb-3" />
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            No topics found for "{search}"
+          </p>
+        </div>
+      )}
     </div>
   );
 }
