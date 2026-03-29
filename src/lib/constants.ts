@@ -1,3 +1,5 @@
+import type { FlashcardRating } from './types';
+
 export const XP_VALUES = {
   flashcard_correct: 10,
   flashcard_easy: 15,
@@ -7,6 +9,7 @@ export const XP_VALUES = {
   lesson_complete: 30,
   daily_goal_met: 100,
   streak_bonus: (streak: number) => Math.min(streak * 5, 50),
+  speed_bonus: 5,
   // Phase 4
   dictation_correct: 10,
   dictation_session_perfect: 30,
@@ -16,6 +19,24 @@ export const XP_VALUES = {
   chat_message_sent: 5,
   chat_no_correction_bonus: 10,
 } as const;
+
+/**
+ * SM-2 rating mapping per learning mode.
+ * Flashcard uses self-reported ratings (0/2/4/5).
+ * Quiz/context modes map binary correct/incorrect → SM-2 quality.
+ */
+export const MODE_RATING_MAP: Record<string, { correct: FlashcardRating; incorrect: FlashcardRating }> = {
+  quiz:      { correct: 4, incorrect: 0 },
+  context:   { correct: 4, incorrect: 0 },
+  spelling:  { correct: 5, incorrect: 0 },
+  match:     { correct: 4, incorrect: 0 },
+};
+
+/** Timer duration per mode (seconds per question) */
+export const TIMED_DURATION: Record<string, number> = {
+  quiz: 10,
+  spelling: 15,
+};
 
 export const LEVELS = [
   { level: 1, xpRequired: 0, title: 'Beginner' },

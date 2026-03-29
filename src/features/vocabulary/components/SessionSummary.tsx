@@ -1,10 +1,17 @@
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
-import { RotateCcw, Zap } from 'lucide-react';
+import { RotateCcw, Zap, Flame, Timer, Shuffle } from 'lucide-react';
 import { Button } from '../../../components/ui/Button';
 import { WeakWordsList } from './WeakWordsList';
 import type { WeakWord } from '../../../services/weakWordsService';
 import celebrationAnim from '../../../assets/lottie/celebration.json';
+
+export interface XPBreakdown {
+  base: number;
+  streakBonus: number;
+  mixedBonus?: number;
+  speedBonus?: number;
+}
 
 interface SessionSummaryProps {
   correct: number;
@@ -17,6 +24,46 @@ interface SessionSummaryProps {
   onRetry: () => void;
   backLabel?: string;
   title?: string;
+  bestStreak?: number;
+  xpBreakdown?: XPBreakdown;
+}
+
+function XPBreakdownCard({ breakdown, totalXP }: { breakdown: XPBreakdown; totalXP: number }) {
+  const lines: Array<{ label: string; value: number; icon: React.ReactNode; color: string }> = [
+    { label: 'Base XP', value: breakdown.base, icon: <Zap size={14} />, color: 'text-indigo-500' },
+  ];
+
+  if (breakdown.streakBonus > 0) {
+    lines.push({ label: 'Streak Bonus', value: breakdown.streakBonus, icon: <Flame size={14} />, color: 'text-amber-500' });
+  }
+  if (breakdown.mixedBonus && breakdown.mixedBonus > 0) {
+    lines.push({ label: 'Mixed 1.5x', value: breakdown.mixedBonus, icon: <Shuffle size={14} />, color: 'text-violet-500' });
+  }
+  if (breakdown.speedBonus && breakdown.speedBonus > 0) {
+    lines.push({ label: 'Speed Bonus', value: breakdown.speedBonus, icon: <Timer size={14} />, color: 'text-emerald-500' });
+  }
+
+  return (
+    <div className="w-full bg-gray-50 dark:bg-gray-800/60 rounded-2xl p-4 space-y-2">
+      {lines.map((line) => (
+        <div key={line.label} className="flex items-center justify-between text-sm">
+          <span className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+            <span className={line.color}>{line.icon}</span>
+            {line.label}
+          </span>
+          <span className="font-semibold text-gray-800 dark:text-gray-200 tabular-nums">
+            +{line.value}
+          </span>
+        </div>
+      ))}
+      <div className="border-t border-gray-200 dark:border-gray-700 pt-2 mt-2 flex items-center justify-between">
+        <span className="text-sm font-semibold text-gray-900 dark:text-white">Total</span>
+        <span className="text-lg font-bold text-indigo-600 dark:text-indigo-400 tabular-nums">
+          +{totalXP}
+        </span>
+      </div>
+    </div>
+  );
 }
 
 export function SessionSummary({
@@ -30,6 +77,8 @@ export function SessionSummary({
   onRetry,
   backLabel = 'Word List',
   title = 'Session Complete!',
+  bestStreak,
+  xpBreakdown,
 }: SessionSummaryProps) {
   return (
     <motion.div
@@ -52,7 +101,8 @@ export function SessionSummary({
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
+      {/* Stats grid — show best streak if available */}
+      <div className={`grid gap-3 w-full ${bestStreak && bestStreak >= 3 ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-1 sm:grid-cols-3'}`}>
         <div className="bg-green-50 dark:bg-green-900/20 rounded-2xl p-4">
           <p className="text-2xl font-bold text-green-600">
             {correct}/{total}
@@ -69,7 +119,20 @@ export function SessionSummary({
             XP Earned
           </p>
         </div>
+        {bestStreak != null && bestStreak >= 3 && (
+          <div className="bg-amber-50 dark:bg-amber-900/20 rounded-2xl p-4">
+            <p className="text-2xl font-bold text-amber-600">
+              {bestStreak}
+            </p>
+            <p className="text-xs text-amber-700 dark:text-amber-400">Best Streak</p>
+          </div>
+        )}
       </div>
+
+      {/* XP Breakdown */}
+      {xpBreakdown && (
+        <XPBreakdownCard breakdown={xpBreakdown} totalXP={xpEarned} />
+      )}
 
       {weakWords.length > 0 && (
         <div className="w-full">

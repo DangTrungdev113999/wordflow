@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { useQuizSession } from '../hooks/useQuizSession';
 import { QuizSession } from '../components/QuizSession';
 import { SessionSummary } from '../components/SessionSummary';
+import { StreakIndicator } from '../components/StreakIndicator';
+import { TimerBar } from '../components/TimerBar';
 import { getWeakWords, getSessionWeakWords, type WeakWord } from '../../../services/weakWordsService';
 
 export function QuizPage() {
@@ -21,10 +23,17 @@ export function QuizPage() {
     showFeedback,
     correctAnswer,
     handleSelect,
+    handleTimeout,
     results,
     accuracy,
     xpEarned,
+    xpBreakdown,
     words,
+    streak,
+    multiplier,
+    bestStreak,
+    isTimed,
+    timerDuration,
   } = useQuizSession(topic ?? '');
 
   const [weakWords, setWeakWords] = useState<WeakWord[]>([]);
@@ -61,6 +70,8 @@ export function QuizPage() {
         accuracy={accuracy}
         xpEarned={xpEarned}
         weakWords={weakWords}
+        bestStreak={bestStreak}
+        xpBreakdown={xpBreakdown}
         onPracticeWeakWords={
           weakWords.length > 0
             ? () => navigate(`/vocabulary/${topic}/learn?weak=true`)
@@ -86,11 +97,24 @@ export function QuizPage() {
         >
           <ArrowLeft size={20} className="text-gray-600 dark:text-gray-400" />
         </Link>
-        <h1 className="font-semibold text-gray-900 dark:text-white">
+        <h1 className="flex-1 font-semibold text-gray-900 dark:text-white">
           {topicData.topicLabel}
-          <span className="text-sm font-normal text-gray-400 ml-2">Quiz</span>
+          <span className="text-sm font-normal text-gray-400 ml-2">
+            Quiz{isTimed ? ' ⏱' : ''}
+          </span>
         </h1>
+        <StreakIndicator streak={streak} multiplier={multiplier} />
       </div>
+
+      {isTimed && (
+        <TimerBar
+          duration={timerDuration}
+          onTimeout={handleTimeout}
+          resetKey={currentIndex}
+          paused={showFeedback}
+          className="mb-4"
+        />
+      )}
 
       <QuizSession
         currentWord={currentWord}

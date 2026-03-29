@@ -20,7 +20,7 @@ import { calculateSM2, createInitialProgress } from '../../../services/spacedRep
 import { eventBus } from '../../../services/eventBus';
 import { getWeakWords, getSessionWeakWords, type WeakWord } from '../../../services/weakWordsService';
 import { shuffle } from '../../../lib/utils';
-import { XP_VALUES } from '../../../lib/constants';
+import { XP_VALUES, MODE_RATING_MAP } from '../../../lib/constants';
 import type { FlashcardRating } from '../../../lib/types';
 import type { WordProgress } from '../../../db/models';
 
@@ -196,7 +196,8 @@ function QuizReview({
 
       const isCorrect = option === correctAnswer;
       const wordId = `${currentWord.topicId}:${currentWord.word}`;
-      const rating: FlashcardRating = isCorrect ? 4 : 0;
+      const ratingMap = MODE_RATING_MAP.quiz;
+      const rating: FlashcardRating = isCorrect ? ratingMap.correct : ratingMap.incorrect;
 
       const existing = localProgress[wordId];
       const current = existing ?? createInitialProgress(wordId);
@@ -372,7 +373,8 @@ function ContextReview({
       const w = currentQ.word;
       const isCorrect = option.toLowerCase() === currentQ.correctAnswer.toLowerCase();
       const wordId = `${w.topicId}:${w.word}`;
-      const rating: FlashcardRating = isCorrect ? 4 : 0;
+      const ratingMap = MODE_RATING_MAP.context;
+      const rating: FlashcardRating = isCorrect ? ratingMap.correct : ratingMap.incorrect;
 
       // SM-2
       const existing = localProgress[wordId];

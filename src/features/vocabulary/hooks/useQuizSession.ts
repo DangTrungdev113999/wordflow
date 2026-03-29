@@ -2,12 +2,15 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router';
 import { useProgressStore } from '../../../stores/progressStore';
 import { useSettingsStore } from '../../../stores/settingsStore';
+import { useSessionStreak } from './useSessionStreak';
 import { db } from '../../../db/database';
 import { calculateSM2, createInitialProgress } from '../../../services/spacedRepetition';
 import { eventBus } from '../../../services/eventBus';
 import { useVocabSession } from './useVocabSession';
+import { XP_VALUES, MODE_RATING_MAP, TIMED_DURATION } from '../../../lib/constants';
 import type { VocabWord, FlashcardRating } from '../../../lib/types';
 import type { VocabSessionConfig, VocabSessionWordResult } from '../types';
+import type { XPBreakdown } from '../components/SessionSummary';
 
 function shuffle<T>(array: T[]): T[] {
   const shuffled = [...array];
@@ -50,6 +53,8 @@ export function useQuizSession(topicId: string) {
   const [searchParams] = useSearchParams();
   const countParam = parseInt(searchParams.get('count') ?? '10', 10);
   const filterParam = (searchParams.get('filter') ?? 'all') as VocabSessionConfig['wordsFilter'];
+  const isTimed = searchParams.get('timed') === '1';
+  const timerDuration = TIMED_DURATION.quiz ?? 10;
 
   const config: VocabSessionConfig = {
     topicId,
@@ -70,12 +75,14 @@ export function useQuizSession(topicId: string) {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [results, setResults] = useState<VocabSessionWordResult[]>([]);
-  const [xpEarned, setXpEarned] = useState(0);
+  const [baseXPTotal, setBaseXPTotal] = useState(0);
+  const [speedBonusTotal, setSpeedBonusTotal] = useState(0);
   const questionStartRef = useRef(Date.now());
 
   const { todayWordsLearned } = useProgressStore();
   const { dailyGoal } = useSettingsStore();
   const dailyGoalAwarded = useRef(false);
+  const { streak, multiplier, bestStreak, totalStreakBonus, recordAnswer: recordStreak } = useSessionStreak();
 
   const currentWord = words[currentIndex] ?? null;
   const isSessionComplete = currentIndex >= words.length && words.length > 0;
@@ -112,8 +119,9 @@ export function useQuizSession(topicId: string) {
     const wordId = `${topicId}:${currentWord.word}`;
     const timeMs = Date.now() - questionStartRef.current;
 
-    // SM-2 update
-    const rating: FlashcardRating = isCorrect ? 5 : 0;
+    // SM-2 update using shared rating map
+    const ratingMap = MODE_RATING_MAP.quiz;
+    const rating: FlashcardRating = isCorrect ? ratingMap.correct : ratingMap.incorrect;
     const existing = wordProgressMap[wordId];
     const current = existing ?? createInitialProgress(wordId);
     const sm2Result = calculateSM2(rating, current);
@@ -127,10 +135,21 @@ export function useQuizSession(topicId: string) {
     await db.wordProgress.put(newProgress);
     setWordProgressMap({ ...wordProgressMap, [wordId]: newProgress });
 
+    // XP + streak + speed bonus
+    const baseXP = isCorrect ? XP_VALUES.quiz_correct : 0;
+    recordStreak(isCorrect, baseXP);
+    if (isCorrect) {
+      setBaseXPTotal(prev => prev + baseXP);
+
+      // Speed bonus: answered within time limit in timed mode
+      if (isTimed && timeMs < timerDuration * 1000) {
+        setSpeedBonusTotal(prev => prev + XP_VALUES.speed_bonus);
+      }
+    }
+
     // XP events
     if (isCorrect) {
-      eventBus.emit('flashcard:correct', { wordId, rating: 5 });
-      setXpEarned(prev => prev + 15); // flashcard_easy XP
+      eventBus.emit('flashcard:correct', { wordId, rating });
     } else {
       eventBus.emit('flashcard:incorrect', { wordId });
     }
@@ -163,7 +182,7 @@ export function useQuizSession(topicId: string) {
     setTimeout(() => {
       setCurrentIndex(prev => prev + 1);
     }, 800);
-  }, [showFeedback, currentWord, correctAnswer, topicId, wordProgressMap, setWordProgressMap, todayWordsLearned, dailyGoal]);
+  }, [showFeedback, currentWord, correctAnswer, topicId, wordProgressMap, setWordProgressMap, todayWordsLearned, dailyGoal, isTimed, timerDuration, recordStreak]);
 
   // Emit mistakes when session completes
   const mistakeEmittedRef = useRef(false);
@@ -188,9 +207,49 @@ export function useQuizSession(topicId: string) {
     }
   }, [isSessionComplete]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  /** Timer timeout — auto-skip as incorrect */
+  const handleTimeout = useCallback(async () => {
+    if (showFeedback || !currentWord) return;
+
+    setSelectedOption(null);
+    setShowFeedback(true);
+
+    const wordId = `${topicId}:${currentWord.word}`;
+    const ratingMap = MODE_RATING_MAP.quiz;
+    const existing = wordProgressMap[wordId];
+    const current = existing ?? createInitialProgress(wordId);
+    const sm2Result = calculateSM2(ratingMap.incorrect, current);
+
+    const newProgress = { ...current, ...sm2Result, lastReview: Date.now() };
+    await db.wordProgress.put(newProgress);
+    setWordProgressMap({ ...wordProgressMap, [wordId]: newProgress });
+
+    recordStreak(false, 0);
+    eventBus.emit('flashcard:incorrect', { wordId });
+
+    setResults(prev => [...prev, {
+      wordId,
+      word: currentWord.word,
+      correct: false,
+      attempts: 1,
+      timeMs: timerDuration * 1000,
+    }]);
+
+    setTimeout(() => {
+      setCurrentIndex(prev => prev + 1);
+    }, 800);
+  }, [showFeedback, currentWord, topicId, wordProgressMap, setWordProgressMap, timerDuration, recordStreak]);
+
   const accuracy = results.length > 0
     ? Math.round((results.filter(r => r.correct).length / results.length) * 100)
     : 0;
+
+  const xpEarned = baseXPTotal + totalStreakBonus + speedBonusTotal;
+  const xpBreakdown: XPBreakdown = {
+    base: baseXPTotal,
+    streakBonus: totalStreakBonus,
+    speedBonus: speedBonusTotal > 0 ? speedBonusTotal : undefined,
+  };
 
   return {
     topic,
@@ -205,9 +264,18 @@ export function useQuizSession(topicId: string) {
     showFeedback,
     correctAnswer,
     handleSelect,
+    handleTimeout,
     results,
     accuracy,
     xpEarned,
+    xpBreakdown,
     totalTime: getElapsedTime(),
+    // Streak
+    streak,
+    multiplier,
+    bestStreak,
+    // Timer
+    isTimed,
+    timerDuration,
   };
 }
