@@ -8,11 +8,13 @@ import { FlashcardDeck } from '../components/FlashcardDeck';
 import { QuizSession } from '../components/QuizSession';
 import { ContextFillSession } from '../components/ContextFillSession';
 import { SessionSummary } from '../components/SessionSummary';
+import { StreakIndicator } from '../components/StreakIndicator';
 import { ConfirmDialog } from '../../../components/ui/ConfirmDialog';
 
 import { useMixedReview, type MixedReviewConfig, type MixedWord, type MixedSourceFilter } from '../hooks/useMixedReview';
 import { useMnemonicForWord } from '../hooks/useMnemonicForWord';
 import { useEnrichedAudio } from '../../../hooks/useEnrichedAudio';
+import { useSessionStreak } from '../hooks/useSessionStreak';
 import { db } from '../../../db/database';
 import { calculateSM2, createInitialProgress } from '../../../services/spacedRepetition';
 import { eventBus } from '../../../services/eventBus';
@@ -37,6 +39,13 @@ function getFlashcardXP(rating: FlashcardRating, multiplier: number): number {
   return Math.round(XP_VALUES[action] * multiplier);
 }
 
+function getBaseXP(rating: FlashcardRating): number {
+  if (rating < 3) return 0;
+  if (rating === 5) return XP_VALUES.flashcard_easy;
+  if (rating === 2) return XP_VALUES.flashcard_hard;
+  return XP_VALUES.flashcard_correct;
+}
+
 function generateMixedDistractors(
   correct: MixedWord,
   pool: MixedWord[],
@@ -56,10 +65,12 @@ function FlashcardReview({
   words,
   progressMap,
   onComplete,
+  onAnswer,
 }: {
   words: MixedWord[];
   progressMap: Record<string, WordProgress>;
   onComplete: (stats: ReviewStats, results: { wordId: string; correct: boolean }[]) => void;
+  onAnswer: (correct: boolean, baseXP: number) => void;
 }) {
   const [index, setIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -87,6 +98,7 @@ function FlashcardReview({
 
       const isCorrect = rating >= 3;
       const xp = getFlashcardXP(rating, 1.5);
+      onAnswer(isCorrect, getBaseXP(rating));
       statsRef.current = {
         correct: statsRef.current.correct + (isCorrect ? 1 : 0),
         incorrect: statsRef.current.incorrect + (isCorrect ? 0 : 1),
@@ -114,7 +126,7 @@ function FlashcardReview({
         setIndex(nextIdx);
       }
     },
-    [currentWord, index, words.length, localProgress, onComplete],
+    [currentWord, index, words.length, localProgress, onComplete, onAnswer],
   );
 
   if (!currentWord) return null;
@@ -141,10 +153,12 @@ function QuizReview({
   words,
   progressMap,
   onComplete,
+  onAnswer,
 }: {
   words: MixedWord[];
   progressMap: Record<string, WordProgress>;
   onComplete: (stats: ReviewStats, results: { wordId: string; correct: boolean }[]) => void;
+  onAnswer: (correct: boolean, baseXP: number) => void;
 }) {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState<'en-to-vi' | 'vi-to-en'>('en-to-vi');
@@ -193,6 +207,7 @@ function QuizReview({
       setLocalProgress((prev) => ({ ...prev, [wordId]: newProgress }));
 
       const xp = getFlashcardXP(rating, 1.5);
+      onAnswer(isCorrect, XP_VALUES.quiz_correct);
       statsRef.current = {
         correct: statsRef.current.correct + (isCorrect ? 1 : 0),
         incorrect: statsRef.current.incorrect + (isCorrect ? 0 : 1),
@@ -220,7 +235,7 @@ function QuizReview({
         }
       }, 800);
     },
-    [showFeedback, currentWord, correctAnswer, index, words.length, localProgress, onComplete],
+    [showFeedback, currentWord, correctAnswer, index, words.length, localProgress, onComplete, onAnswer],
   );
 
   if (!currentWord) return null;
@@ -306,10 +321,12 @@ function ContextReview({
   words,
   progressMap,
   onComplete,
+  onAnswer,
 }: {
   words: MixedWord[];
   progressMap: Record<string, WordProgress>;
   onComplete: (stats: ReviewStats, results: { wordId: string; correct: boolean }[]) => void;
+  onAnswer: (correct: boolean, baseXP: number) => void;
 }) {
   const [index, setIndex] = useState(0);
   const [questions, setQuestions] = useState<ContextQuestion[]>([]);
@@ -382,6 +399,7 @@ function ContextReview({
 
       // XP + stats
       const xp = getFlashcardXP(rating, 1.5);
+      onAnswer(isCorrect, XP_VALUES.quiz_correct);
       statsRef.current = {
         correct: statsRef.current.correct + (isCorrect ? 1 : 0),
         incorrect: statsRef.current.incorrect + (isCorrect ? 0 : 1),
@@ -409,7 +427,7 @@ function ContextReview({
         }
       }, 800);
     },
-    [showFeedback, currentQ, index, questions.length, localProgress, onComplete],
+    [showFeedback, currentQ, index, questions.length, localProgress, onComplete, onAnswer],
   );
 
   if (!ready) {
@@ -461,6 +479,14 @@ export function MixedReviewPage() {
   const [sessionResults, setSessionResults] = useState<{ wordId: string; correct: boolean }[]>([]);
   const [weakWords, setWeakWords] = useState<WeakWord[]>([]);
   const [showLeaveConfirm, setShowLeaveConfirm] = useState(false);
+  const { streak, multiplier, bestStreak, totalStreakBonus, recordAnswer, reset: resetStreak } = useSessionStreak();
+
+  const handleAnswer = useCallback(
+    (correct: boolean, baseXP: number) => {
+      recordAnswer(correct, baseXP);
+    },
+    [recordAnswer],
+  );
 
   const handleStart = useCallback(
     (cfg: MixedReviewConfig) => {
@@ -469,9 +495,10 @@ export function MixedReviewPage() {
 
       setConfig(cfg);
       setWords(selected);
+      resetStreak();
       setPageState('review');
     },
-    [selectWords],
+    [selectWords, resetStreak],
   );
 
   const handleComplete = useCallback(
@@ -514,6 +541,11 @@ export function MixedReviewPage() {
 
   const effectiveMode = config?.mode;
 
+  // Compute mixed bonus: the difference between 1.5x XP and base XP
+  const mixedBonusXP =
+    sessionStats.xpEarned > 0 ? Math.round(sessionStats.xpEarned - sessionStats.xpEarned / 1.5) : 0;
+  const baseXP = sessionStats.xpEarned - mixedBonusXP;
+
   return (
     <div className="px-4 py-6 max-w-2xl mx-auto">
       {/* Header */}
@@ -539,12 +571,13 @@ export function MixedReviewPage() {
             <ArrowLeft size={20} className="text-gray-600 dark:text-gray-400" />
           </button>
         )}
-        <h1 className="font-semibold text-gray-900 dark:text-white">
+        <h1 className="flex-1 font-semibold text-gray-900 dark:text-white">
           Ôn tập tổng hợp
           {pageState === 'review' && config && (
             <span className="text-sm font-normal text-gray-400 ml-2 capitalize">{effectiveMode}</span>
           )}
         </h1>
+        {pageState === 'review' && <StreakIndicator streak={streak} multiplier={multiplier} />}
       </div>
 
       <AnimatePresence mode="wait">
@@ -572,18 +605,21 @@ export function MixedReviewPage() {
                 words={words}
                 progressMap={progressMap}
                 onComplete={handleComplete}
+                onAnswer={handleAnswer}
               />
             ) : effectiveMode === 'context' ? (
               <ContextReview
                 words={words}
                 progressMap={progressMap}
                 onComplete={handleComplete}
+                onAnswer={handleAnswer}
               />
             ) : (
               <QuizReview
                 words={words}
                 progressMap={progressMap}
                 onComplete={handleComplete}
+                onAnswer={handleAnswer}
               />
             )}
           </motion.div>
@@ -600,13 +636,20 @@ export function MixedReviewPage() {
               correct={sessionStats.correct}
               total={sessionStats.total}
               accuracy={accuracy}
-              xpEarned={sessionStats.xpEarned}
+              xpEarned={sessionStats.xpEarned + totalStreakBonus}
               weakWords={weakWords}
+              bestStreak={bestStreak}
+              xpBreakdown={{
+                base: baseXP,
+                streakBonus: totalStreakBonus,
+                mixedBonus: mixedBonusXP,
+              }}
               onBack={() => navigate('/vocabulary')}
               onRetry={() => {
                 setPageState('picker');
                 setSessionStats({ correct: 0, incorrect: 0, total: 0, xpEarned: 0 });
                 setSessionResults([]);
+                resetStreak();
               }}
               backLabel="Từ vựng"
               title="Hoàn thành ôn tập!"

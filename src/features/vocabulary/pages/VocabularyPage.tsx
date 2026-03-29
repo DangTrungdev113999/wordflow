@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { BookOpen, Plus, ChevronRight, Search, X, Shuffle, Bell } from 'lucide-react';
 import { useVocabularyStore } from '../../../stores/vocabularyStore';
 import { TopicList } from '../components/TopicList';
+import { ReviewSchedule } from '../components/ReviewSchedule';
 import { getTopics, getWords } from '../../../services/customTopicService';
 import { db } from '../../../db/database';
 import { cn } from '../../../lib/utils';
@@ -101,6 +102,9 @@ export function VocabularyPage() {
           </span>
         </Link>
       )}
+
+      {/* Review Schedule Dashboard */}
+      <ReviewSchedule />
 
       {/* Search + Filter */}
       <div className="space-y-3">

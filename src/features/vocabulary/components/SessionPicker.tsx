@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Layers, HelpCircle, PenTool, Link2, FileText } from 'lucide-react';
+import { X, Layers, HelpCircle, PenTool, Link2, FileText, Timer } from 'lucide-react';
 import { Button } from '../../../components/ui/Button';
 import type { LearningMode, VocabSessionConfig } from '../types';
 import { cn } from '../../../lib/utils';
+
+const TIMED_MODES: Set<LearningMode> = new Set(['quiz', 'spelling']);
 
 interface SessionPickerProps {
   topicId: string;
@@ -74,6 +76,9 @@ export function SessionPicker({ topicId, wordCount: totalWords, isOpen, onClose,
   const [selectedMode, setSelectedMode] = useState<LearningMode>('quiz');
   const [selectedCount, setSelectedCount] = useState<number>(Math.min(10, totalWords));
   const [selectedFilter, setSelectedFilter] = useState<VocabSessionConfig['wordsFilter']>('all');
+  const [timedEnabled, setTimedEnabled] = useState(false);
+
+  const showTimedToggle = TIMED_MODES.has(selectedMode);
 
   const handleStart = () => {
     const config: VocabSessionConfig = {
@@ -89,7 +94,8 @@ export function SessionPicker({ topicId, wordCount: totalWords, isOpen, onClose,
     }
 
     if (selectedMode === 'quiz') {
-      navigate(`/vocabulary/${topicId}/quiz?count=${selectedCount}&filter=${selectedFilter}`);
+      const timedParam = timedEnabled ? '&timed=1' : '';
+      navigate(`/vocabulary/${topicId}/quiz?count=${selectedCount}&filter=${selectedFilter}${timedParam}`);
       return;
     }
 
@@ -240,6 +246,67 @@ export function SessionPicker({ topicId, wordCount: totalWords, isOpen, onClose,
                   })}
                 </div>
               </div>
+
+              {/* Timed challenge toggle */}
+              <AnimatePresence>
+                {showTimedToggle && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="mb-6 overflow-hidden"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setTimedEnabled((v) => !v)}
+                      className={cn(
+                        'flex items-center gap-3 w-full p-3.5 rounded-2xl text-left transition-all duration-200 border',
+                        timedEnabled
+                          ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-300 dark:border-amber-700'
+                          : 'bg-gray-50 dark:bg-gray-800/60 border-transparent hover:bg-gray-100 dark:hover:bg-gray-800',
+                      )}
+                    >
+                      <div
+                        className={cn(
+                          'flex items-center justify-center w-10 h-10 rounded-xl shrink-0',
+                          timedEnabled ? 'bg-amber-100 dark:bg-amber-900/40' : 'bg-white dark:bg-gray-700',
+                        )}
+                      >
+                        <Timer
+                          size={20}
+                          className={timedEnabled ? 'text-amber-600 dark:text-amber-400' : 'text-gray-500'}
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p
+                          className={cn(
+                            'font-semibold text-sm',
+                            timedEnabled ? 'text-amber-700 dark:text-amber-300' : 'text-gray-900 dark:text-white',
+                          )}
+                        >
+                          Timed Challenge
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                          {selectedMode === 'quiz' ? '10s' : '15s'} per word — bonus XP for speed
+                        </p>
+                      </div>
+                      <div
+                        className={cn(
+                          'w-11 h-6 rounded-full p-0.5 transition-colors duration-200 shrink-0',
+                          timedEnabled ? 'bg-amber-500' : 'bg-gray-300 dark:bg-gray-600',
+                        )}
+                      >
+                        <motion.div
+                          className="w-5 h-5 rounded-full bg-white shadow-sm"
+                          animate={{ x: timedEnabled ? 20 : 0 }}
+                          transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                        />
+                      </div>
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               {/* Start button */}
               <Button size="lg" className="w-full" onClick={handleStart}>
