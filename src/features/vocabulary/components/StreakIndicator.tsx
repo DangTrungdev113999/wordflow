@@ -37,7 +37,7 @@ export function StreakIndicator({ streak, multiplier, className }: StreakIndicat
             transition={{ type: 'spring', stiffness: 500, damping: 15 }}
             className="text-base leading-none"
           >
-            {streak >= 10 ? '🔥' : streak >= 5 ? '🔥' : '🔥'}
+            {streak >= 10 ? '💥' : streak >= 5 ? '🔥' : '⚡'}
           </motion.span>
 
           <motion.span

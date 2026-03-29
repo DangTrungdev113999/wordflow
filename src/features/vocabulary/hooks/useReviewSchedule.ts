@@ -18,12 +18,10 @@ export interface ReviewSchedule {
 export function useReviewSchedule(): ReviewSchedule {
   const schedule = useLiveQuery(async () => {
     const allProgress = await db.wordProgress.toArray();
-    const now = Date.now();
 
     // Day boundaries
-    const today = startOfDay(now);
+    const today = startOfDay(Date.now());
     const tomorrow = today + DAY_MS;
-    const dayAfterTomorrow = tomorrow + DAY_MS;
     const weekEnd = today + 7 * DAY_MS;
 
     let overdueCount = 0;
@@ -45,7 +43,6 @@ export function useReviewSchedule(): ReviewSchedule {
       }
     }
 
-    const dueToday = overdueCount + forecast[0] - overdueCount; // just forecast[0] includes overdue already
     const dueTomorrow = forecast[1];
     const dueThisWeek = forecast.reduce((a, b) => a + b, 0);
 

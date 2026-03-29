@@ -500,10 +500,14 @@ export function MixedReviewPage() {
   const [weakWords, setWeakWords] = useState<WeakWord[]>([]);
   const [showLeaveConfirm, setShowLeaveConfirm] = useState(false);
   const { streak, multiplier, bestStreak, totalStreakBonus, recordAnswer, reset: resetStreak } = useSessionStreak();
+  const baseXPAccum = useRef(0);
 
   const handleAnswer = useCallback(
     (correct: boolean, baseXP: number) => {
       recordAnswer(correct, baseXP);
+      if (correct) {
+        baseXPAccum.current += baseXP;
+      }
     },
     [recordAnswer],
   );
@@ -516,6 +520,7 @@ export function MixedReviewPage() {
       setConfig(cfg);
       setWords(selected);
       resetStreak();
+      baseXPAccum.current = 0;
       setPageState('review');
     },
     [selectWords, resetStreak],
@@ -561,10 +566,9 @@ export function MixedReviewPage() {
 
   const effectiveMode = config?.mode;
 
-  // Compute mixed bonus: the difference between 1.5x XP and base XP
-  const mixedBonusXP =
-    sessionStats.xpEarned > 0 ? Math.round(sessionStats.xpEarned - sessionStats.xpEarned / 1.5) : 0;
-  const baseXP = sessionStats.xpEarned - mixedBonusXP;
+  // Mixed bonus = total multiplied XP minus tracked base XP
+  const baseXP = baseXPAccum.current;
+  const mixedBonusXP = sessionStats.xpEarned > 0 ? sessionStats.xpEarned - baseXP : 0;
 
   return (
     <div className="px-4 py-6 max-w-2xl mx-auto">
@@ -670,6 +674,7 @@ export function MixedReviewPage() {
                 setSessionStats({ correct: 0, incorrect: 0, total: 0, xpEarned: 0 });
                 setSessionResults([]);
                 resetStreak();
+                baseXPAccum.current = 0;
               }}
               backLabel="Từ vựng"
               title="Hoàn thành ôn tập!"

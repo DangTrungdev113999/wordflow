@@ -110,18 +110,10 @@ export function useQuizSession(topicId: string) {
     ? (direction === 'en-to-vi' ? currentWord.meaning : currentWord.word)
     : '';
 
-  const handleSelect = useCallback(async (option: string) => {
-    if (showFeedback || !currentWord) return;
-
-    setSelectedOption(option);
-    setShowFeedback(true);
-
-    const isCorrect = option === correctAnswer;
-    const wordId = `${topicId}:${currentWord.word}`;
-    const timeMs = Date.now() - questionStartRef.current;
-
-    // SM-2 update using shared rating map
-    const ratingMap = MODE_RATING_MAP.quiz;
+  /** Shared answer-processing: SM-2 update → DB write → XP/streak → events → result → advance */
+  const processAnswer = useCallback(async (word: VocabWord, isCorrect: boolean, timeMs: number) => {
+    const wordId = `${topicId}:${word.word}`;
+    const ratingMap = MODE_RATING_MAP[modeParam] || MODE_RATING_MAP.quiz;
     const rating: FlashcardRating = isCorrect ? ratingMap.correct : ratingMap.incorrect;
     const existing = wordProgressMap[wordId];
     const current = existing ?? createInitialProgress(wordId);
@@ -142,7 +134,6 @@ export function useQuizSession(topicId: string) {
     if (isCorrect) {
       setBaseXPTotal(prev => prev + baseXP);
 
-      // Speed bonus: answered within time limit in timed mode
       if (isTimed && timeMs < timerDuration * 1000) {
         setSpeedBonusTotal(prev => prev + XP_VALUES.speed_bonus);
       }
@@ -173,7 +164,7 @@ export function useQuizSession(topicId: string) {
     // Record result
     setResults(prev => [...prev, {
       wordId,
-      word: currentWord.word,
+      word: word.word,
       correct: isCorrect,
       attempts: 1,
       timeMs,
@@ -183,7 +174,18 @@ export function useQuizSession(topicId: string) {
     setTimeout(() => {
       setCurrentIndex(prev => prev + 1);
     }, 800);
-  }, [showFeedback, currentWord, correctAnswer, topicId, wordProgressMap, setWordProgressMap, todayWordsLearned, dailyGoal, isTimed, timerDuration, recordStreak]);
+  }, [topicId, modeParam, wordProgressMap, setWordProgressMap, isTimed, timerDuration, todayWordsLearned, dailyGoal, recordStreak]);
+
+  const handleSelect = useCallback(async (option: string) => {
+    if (showFeedback || !currentWord) return;
+
+    setSelectedOption(option);
+    setShowFeedback(true);
+
+    const isCorrect = option === correctAnswer;
+    const timeMs = Date.now() - questionStartRef.current;
+    await processAnswer(currentWord, isCorrect, timeMs);
+  }, [showFeedback, currentWord, correctAnswer, processAnswer]);
 
   // Emit mistakes when session completes
   const mistakeEmittedRef = useRef(false);
@@ -215,31 +217,8 @@ export function useQuizSession(topicId: string) {
     setSelectedOption(null);
     setShowFeedback(true);
 
-    const wordId = `${topicId}:${currentWord.word}`;
-    const ratingMap = MODE_RATING_MAP.quiz;
-    const existing = wordProgressMap[wordId];
-    const current = existing ?? createInitialProgress(wordId);
-    const sm2Result = calculateSM2(ratingMap.incorrect, current);
-
-    const newProgress = { ...current, ...sm2Result, lastReview: Date.now() };
-    await db.wordProgress.put(newProgress);
-    setWordProgressMap({ ...wordProgressMap, [wordId]: newProgress });
-
-    recordStreak(false, 0);
-    eventBus.emit('flashcard:incorrect', { wordId });
-
-    setResults(prev => [...prev, {
-      wordId,
-      word: currentWord.word,
-      correct: false,
-      attempts: 1,
-      timeMs: timerDuration * 1000,
-    }]);
-
-    setTimeout(() => {
-      setCurrentIndex(prev => prev + 1);
-    }, 800);
-  }, [showFeedback, currentWord, topicId, wordProgressMap, setWordProgressMap, timerDuration, recordStreak]);
+    await processAnswer(currentWord, false, timerDuration * 1000);
+  }, [showFeedback, currentWord, timerDuration, processAnswer]);
 
   const accuracy = results.length > 0
     ? Math.round((results.filter(r => r.correct).length / results.length) * 100)
