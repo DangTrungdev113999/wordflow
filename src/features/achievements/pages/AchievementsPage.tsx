@@ -94,7 +94,7 @@ export function AchievementsPage() {
       <LevelProgress />
 
       {/* Progress Overview */}
-      <div className="mt-5 grid grid-cols-3 gap-3">
+      <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
         <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-3 text-center">
           <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">{earnedCount}</div>
           <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Earned</div>

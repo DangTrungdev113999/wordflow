@@ -10,7 +10,7 @@ type AppEvents = {
   'lesson:complete': { lessonId: string };
   'word:learned': { wordId: string };
   'word:mastered': { wordId: string };
-  'daily_goal:met': {};
+  'daily_goal:met': Record<string, never>;
   'streak:updated': { current: number };
   // Phase 4 events
   'dictation:correct': { wordId: string; mode: DictationMode };

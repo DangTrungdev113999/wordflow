@@ -55,7 +55,7 @@ export function SettingsPage() {
           {/* Theme */}
           <motion.div variants={sectionVariants} className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800 mb-4">
             <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Theme</h3>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               {themes.map(({ value, label, icon: Icon }) => (
                 <motion.button
                   key={value}

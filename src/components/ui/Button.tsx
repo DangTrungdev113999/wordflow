@@ -13,10 +13,10 @@ export function Button({ variant = 'primary', size = 'md', className, children, 
       className={cn(
         'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-950',
         {
-          primary: 'bg-primary text-white hover:bg-primary-hover shadow-sm shadow-indigo-200 dark:shadow-indigo-900 focus-visible:ring-primary',
-          secondary: 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus-visible:ring-primary',
-          ghost: 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus-visible:ring-primary',
-          danger: 'bg-danger text-white hover:bg-danger-hover focus-visible:ring-danger',
+          primary: 'bg-primary text-white hover:bg-primary-hover shadow-sm shadow-indigo-200 dark:shadow-indigo-900 ring-[var(--color-primary)]',
+          secondary: 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 ring-[var(--color-primary)]',
+          ghost: 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 ring-[var(--color-primary)]',
+          danger: 'bg-danger text-white hover:bg-danger-hover ring-[var(--color-danger)]',
         }[variant],
         {
           sm: 'px-3 py-1.5 text-sm gap-1.5',
