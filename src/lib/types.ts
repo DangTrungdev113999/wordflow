@@ -17,6 +17,17 @@ export interface VocabWord {
   ipa: string;
   example: string;
   audioUrl: string | null;
+
+  // Enriched fields (optional for backward compat)
+  partOfSpeech?: string;
+  examples?: string[];
+  synonyms?: string[];
+  antonyms?: string[];
+  wordFamily?: string[];
+  collocations?: string[];
+  imageUrl?: string | null;
+  frequency?: number; // 1-5 (1=most common)
+  mnemonic?: string;
 }
 
 export interface VocabTopic {

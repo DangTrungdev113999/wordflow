@@ -1,15 +1,71 @@
+import { useMemo, useState } from 'react';
 import { useParams, Link } from 'react-router';
-import { ArrowLeft, Play } from 'lucide-react';
+import { Play } from 'lucide-react';
 import { useVocabularyStore } from '../../../stores/vocabularyStore';
+import { useTopicProgress } from '../hooks/useTopicProgress';
+import { TopicHeader } from '../components/TopicHeader';
+import { WordFilterBar, type WordFilter, type WordSort } from '../components/WordFilterBar';
 import { WordCard } from '../components/WordCard';
 import { Button } from '../../../components/ui/Button';
-import { Badge } from '../../../components/ui/Badge';
-import { TOPIC_ICONS } from '../../../lib/constants';
 
 export function TopicPage() {
   const { topic } = useParams<{ topic: string }>();
   const { topics, wordProgressMap } = useVocabularyStore();
   const topicData = topics.find((t) => t.topic === topic);
+
+  const [filter, setFilter] = useState<WordFilter>('all');
+  const [sort, setSort] = useState<WordSort>('alpha');
+
+  // Build stable word keys for progress query
+  const wordKeys = useMemo(
+    () => topicData?.words.map((w) => `${topic}:${w.word}`) ?? [],
+    [topicData, topic],
+  );
+
+  const progress = useTopicProgress(topic ?? '', wordKeys);
+
+  // Filter counts
+  const counts = useMemo(() => {
+    if (!topicData) return { all: 0, new: 0, learning: 0, review: 0, mastered: 0 };
+    const c = { all: topicData.words.length, new: 0, learning: 0, review: 0, mastered: 0 };
+    for (const w of topicData.words) {
+      const status = wordProgressMap[`${topic}:${w.word}`]?.status ?? 'new';
+      c[status]++;
+    }
+    return c;
+  }, [topicData, topic, wordProgressMap]);
+
+  // Filtered + sorted words
+  const displayWords = useMemo(() => {
+    if (!topicData) return [];
+    let words = topicData.words.map((w) => ({
+      ...w,
+      status: (wordProgressMap[`${topic}:${w.word}`]?.status ?? 'new') as WordFilter,
+      lastReview: wordProgressMap[`${topic}:${w.word}`]?.lastReview ?? 0,
+    }));
+
+    // Apply filter
+    if (filter !== 'all') {
+      words = words.filter((w) => w.status === filter);
+    }
+
+    // Apply sort
+    switch (sort) {
+      case 'alpha':
+        words.sort((a, b) => a.word.localeCompare(b.word));
+        break;
+      case 'mastery': {
+        const ORDER = { new: 0, learning: 1, review: 2, mastered: 3 };
+        words.sort((a, b) => ORDER[a.status as keyof typeof ORDER] - ORDER[b.status as keyof typeof ORDER]);
+        break;
+      }
+      case 'frequency':
+        words.sort((a, b) => (b.lastReview || 0) - (a.lastReview || 0));
+        break;
+    }
+
+    return words;
+  }, [topicData, topic, wordProgressMap, filter, sort]);
 
   if (!topicData) {
     return (
@@ -22,20 +78,13 @@ export function TopicPage() {
 
   return (
     <div className="px-4 py-6 space-y-4 max-w-2xl mx-auto">
-      {/* Header */}
-      <div className="flex items-center gap-3">
-        <Link to="/vocabulary" className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-          <ArrowLeft size={20} className="text-gray-600 dark:text-gray-400" />
-        </Link>
-        <div className="flex-1">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl">{TOPIC_ICONS[topicData.topic] ?? '📝'}</span>
-            <h1 className="text-xl font-bold text-gray-900 dark:text-white">{topicData.topicLabel}</h1>
-            <Badge label={topicData.cefrLevel} variant="cefr" />
-          </div>
-          <p className="text-sm text-gray-500 dark:text-gray-400">{topicData.words.length} words</p>
-        </div>
-      </div>
+      <TopicHeader
+        topic={topicData.topic}
+        topicLabel={topicData.topicLabel}
+        cefrLevel={topicData.cefrLevel}
+        wordCount={topicData.words.length}
+        progress={progress}
+      />
 
       {/* Start button */}
       <Link to={`/vocabulary/${topic}/learn`} className="block">
@@ -45,19 +94,29 @@ export function TopicPage() {
         </Button>
       </Link>
 
+      {/* Filter + sort */}
+      <WordFilterBar
+        filter={filter}
+        sort={sort}
+        onFilterChange={setFilter}
+        onSortChange={setSort}
+        counts={counts}
+      />
+
       {/* Word list */}
       <div className="space-y-2">
-        {topicData.words.map((word) => {
-          const wordId = `${topic}:${word.word}`;
-          const progress = wordProgressMap[wordId];
-          return (
-            <WordCard
-              key={word.word}
-              word={word}
-              status={progress?.status ?? 'new'}
-            />
-          );
-        })}
+        {displayWords.length === 0 && (
+          <p className="text-center text-sm text-gray-400 dark:text-gray-500 py-8">
+            No words match this filter.
+          </p>
+        )}
+        {displayWords.map((word) => (
+          <WordCard
+            key={word.word}
+            word={word}
+            status={word.status === 'all' ? 'new' : word.status}
+          />
+        ))}
       </div>
     </div>
   );

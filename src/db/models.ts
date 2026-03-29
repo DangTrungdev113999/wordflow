@@ -178,6 +178,24 @@ export interface RoleplaySession {
   completedAt?: number;
 }
 
+// Phase 9 — Vocabulary Upgrade: enriched word cache
+export interface EnrichedWordData {
+  partOfSpeech: string;
+  examples: string[];
+  synonyms: string[];
+  antonyms: string[];
+  wordFamily: string[];
+  collocations: string[];
+  mnemonic: string;
+  frequency: number;
+}
+
+export interface EnrichedWord {
+  word: string; // primary key
+  data: EnrichedWordData;
+  updatedAt: number; // timestamp for TTL
+}
+
 // Phase 7 — Learn from Media
 export interface MediaSession {
   id: string;
