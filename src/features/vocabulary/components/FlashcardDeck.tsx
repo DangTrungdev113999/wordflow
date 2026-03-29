@@ -4,7 +4,15 @@ import { PronunciationButton } from './PronunciationButton';
 import { WordImage } from './WordImage';
 import { Button } from '../../../components/ui/Button';
 import type { VocabWord } from '../../../lib/types';
+import type { EnrichedWordData } from '../../../db/models';
 import { cn } from '../../../lib/utils';
+
+const MNEMONIC_TYPE_LABELS: Record<string, string> = {
+  sound: '\u00C2m',
+  visual: '\u1EA2nh',
+  breakdown: 'T\u00E1ch',
+  rhyme: 'V\u1EA7n',
+};
 
 interface FlashcardDeckProps {
   word: VocabWord;
@@ -16,9 +24,10 @@ interface FlashcardDeckProps {
   wordId?: string;
   topicId?: string;
   mnemonic?: string;
+  mnemonicType?: EnrichedWordData['mnemonicType'];
 }
 
-export function FlashcardDeck({ word, isFlipped, onFlip, onRate, cardIndex, total, wordId, topicId, mnemonic }: FlashcardDeckProps) {
+export function FlashcardDeck({ word, isFlipped, onFlip, onRate, cardIndex, total, wordId, topicId, mnemonic, mnemonicType }: FlashcardDeckProps) {
   const progress = ((cardIndex + 1) / total) * 100;
 
   return (
@@ -67,9 +76,16 @@ export function FlashcardDeck({ word, isFlipped, onFlip, onRate, cardIndex, tota
             </div>
             {mnemonic && (
               <div className="w-full mt-1 bg-amber-50 dark:bg-amber-950/40 border-l-4 border-amber-400 dark:border-amber-600 rounded-r-lg px-3 py-2 text-left">
-                <p className="text-[11px] font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider mb-0.5">
-                  Mẹo ghi nhớ
-                </p>
+                <div className="flex items-center gap-1.5 mb-0.5">
+                  <p className="text-[11px] font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
+                    M\u1EB9o ghi nh\u1EDB
+                  </p>
+                  {mnemonicType && MNEMONIC_TYPE_LABELS[mnemonicType] && (
+                    <span className="px-1.5 py-px text-[10px] font-medium rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400">
+                      {MNEMONIC_TYPE_LABELS[mnemonicType]}
+                    </span>
+                  )}
+                </div>
                 <p className="text-xs text-amber-800 dark:text-amber-300 leading-relaxed">
                   {mnemonic}
                 </p>

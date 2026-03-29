@@ -30,12 +30,15 @@ export function CustomFlashcardPage() {
   const { getAudioUrl } = useEnrichedAudio(flashcardQueue, currentCardIndex);
   const [weakWords, setWeakWords] = useState<WeakWord[]>([]);
   const [mnemonic, setMnemonic] = useState<string | undefined>();
+  const [mnemonicType, setMnemonicType] = useState<'sound' | 'visual' | 'breakdown' | 'rhyme' | undefined>();
 
   useEffect(() => {
-    if (!currentWord) { setMnemonic(undefined); return; }
+    if (!currentWord) { setMnemonic(undefined); setMnemonicType(undefined); return; }
     setMnemonic(undefined);
+    setMnemonicType(undefined);
     getCachedEnrichment(currentWord.word).then((data) => {
       setMnemonic(data?.mnemonic || undefined);
+      setMnemonicType(data?.mnemonicType);
     });
   }, [currentWord]);
 
@@ -88,6 +91,7 @@ export function CustomFlashcardPage() {
         total={flashcardQueue.length}
         wordId={`custom-${topicId}:${currentWord.word}`}
         mnemonic={mnemonic}
+        mnemonicType={mnemonicType}
       />
     </div>
   );
