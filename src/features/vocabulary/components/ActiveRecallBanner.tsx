@@ -19,7 +19,7 @@ const SELF_RATINGS = [
     color: 'bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 border-red-200 dark:border-red-800 hover:bg-red-100 dark:hover:bg-red-900/40',
   },
   {
-    rating: 2 as FlashcardRating,
+    rating: 3 as FlashcardRating,
     label: 'Mang máng',
     icon: '🤔',
     color: 'bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 border-amber-200 dark:border-amber-800 hover:bg-amber-100 dark:hover:bg-amber-900/40',

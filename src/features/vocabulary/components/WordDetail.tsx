@@ -7,7 +7,7 @@ import {
   forceReEnrich,
   regenerateMnemonic,
 } from '../../../services/wordEnrichmentService';
-import type { EnrichedWordData as AIEnrichedData, EnrichedExample } from '../../../db/models';
+import type { EnrichedWordData as AIEnrichedData } from '../../../db/models';
 import type { VocabWord } from '../../../lib/types';
 import { AudioButton } from '../../../components/common/AudioButton';
 import { WordImage } from './WordImage';
@@ -18,22 +18,7 @@ import { Skeleton } from '../../../components/ui/Skeleton';
 import { Card } from '../../../components/ui/Card';
 import { useContextProgress } from '../hooks/useContextProgress';
 import { cn } from '../../../lib/utils';
-
-const CONTEXT_ICONS: Record<EnrichedExample['context'], string> = {
-  daily: '\u{1F3E0}',
-  work: '\u{1F4BC}',
-  social: '\u{1F4AC}',
-  formal: '\u{1F4F0}',
-  dialogue: '\u{1F5E3}\uFE0F',
-};
-
-const CONTEXT_LABELS: Record<EnrichedExample['context'], string> = {
-  daily: 'Daily',
-  work: 'Work',
-  social: 'Social',
-  formal: 'Formal',
-  dialogue: 'Dialogue',
-};
+import { CONTEXT_ICONS, CONTEXT_LABELS } from '../constants/context';
 
 const MNEMONIC_TYPE_LABELS: Record<string, string> = {
   sound: 'Li\u00EAn t\u01B0\u1EDFng \u00E2m',
@@ -56,7 +41,7 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
   const [revealed, setRevealed] = useState(false);
 
   const wordId = `${topicId ?? 'unknown'}:${word.word}`;
-  const { mastery, recordContextCorrect } = useContextProgress(wordId);
+  const { mastery } = useContextProgress(wordId);
   const wordProgress = useLiveQuery(() => db.wordProgress.get(wordId), [wordId]);
   const hasBeenStudied = (wordProgress?.repetitions ?? 0) >= 1;
 
@@ -253,15 +238,13 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
                   {richExamples.map((ex, i) => {
                     const isContextMastered = mastery.contextsCorrect.includes(ex.context);
                     return (
-                      <button
+                      <div
                         key={i}
-                        type="button"
-                        onClick={() => !isContextMastered && recordContextCorrect(ex.context)}
                         className={cn(
                           'flex gap-2.5 w-full text-left rounded-lg px-2 py-1.5 -mx-2 transition-colors',
                           isContextMastered
                             ? 'bg-emerald-50/50 dark:bg-emerald-950/20'
-                            : 'hover:bg-gray-50 dark:hover:bg-gray-800/50 active:bg-gray-100 dark:active:bg-gray-800 cursor-pointer'
+                            : ''
                         )}
                       >
                         <span
@@ -286,7 +269,7 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
                             </svg>
                           </span>
                         )}
-                      </button>
+                      </div>
                     );
                   })}
                 </div>

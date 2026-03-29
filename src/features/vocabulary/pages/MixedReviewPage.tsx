@@ -311,9 +311,14 @@ async function buildContextQuestions(words: MixedWord[]): Promise<ContextQuestio
   return questions;
 }
 
-/** Replace the target word in a sentence with _____ (case-insensitive). */
+/** Replace the target word in a sentence with _____ (case-insensitive).
+ *  Handles compound words like "ice cream" where \b fails at internal spaces. */
 function blankWord(sentence: string, word: string): string | null {
-  const regex = new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+  const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  // Use \b only when the word starts/ends with a word character
+  const prefix = /^\w/.test(word) ? '\\b' : '';
+  const suffix = /\w$/.test(word) ? '\\b' : '';
+  const regex = new RegExp(`${prefix}${escaped}${suffix}`, 'i');
   if (!regex.test(sentence)) return null;
   return sentence.replace(regex, '_____');
 }
@@ -350,7 +355,7 @@ function ContextReview({
 
   const currentQ = questions[index] ?? null;
 
-  // Generate options for current question
+  // Generate options for current question (fallback to DB words if pool too small)
   useEffect(() => {
     if (!currentQ || questions.length === 0) return;
     const correct = currentQ.correctAnswer;
@@ -359,7 +364,20 @@ function ContextReview({
       .filter((w) => w.toLowerCase() !== correct.toLowerCase());
     const unique = [...new Set(distractors)];
     const picked = shuffle(unique).slice(0, 3);
-    setOptions(shuffle([correct, ...picked]));
+
+    if (picked.length < 3) {
+      // Fallback: pull random words from all topics in DB
+      db.words.toArray().then((allWords) => {
+        const extras = shuffle(
+          allWords
+            .map((w) => w.word)
+            .filter((w) => w.toLowerCase() !== correct.toLowerCase() && !picked.includes(w)),
+        ).slice(0, 3 - picked.length);
+        setOptions(shuffle([correct, ...picked, ...extras]));
+      });
+    } else {
+      setOptions(shuffle([correct, ...picked]));
+    }
     setSelectedOption(null);
     setShowFeedback(false);
   }, [index, questions]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -411,9 +429,9 @@ function ContextReview({
       resultsRef.current = [...resultsRef.current, { wordId, correct: isCorrect }];
 
       if (isCorrect) {
-        eventBus.emit('flashcard:correct', { wordId, rating, multiplier: 1.5 });
+        eventBus.emit('context:correct', { wordId, context: currentQ.context });
       } else {
-        eventBus.emit('flashcard:incorrect', { wordId });
+        eventBus.emit('context:incorrect', { wordId, context: currentQ.context });
       }
       if ((!existing || existing.status === 'new') && !learnedInSession.current.has(wordId)) {
         learnedInSession.current.add(wordId);

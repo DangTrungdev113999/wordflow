@@ -27,6 +27,9 @@ type AppEvents = {
   'chat:message-sent': { corrections: number };
   'writing:submitted': { score: number; wordCount: number };
   'roleplay:completed': { scenarioId: string; goalCompleted: boolean; fluency: number };
+  // Phase 10-4 — Context Fill-in-Blank
+  'context:correct': { wordId: string; context: string };
+  'context:incorrect': { wordId: string; context: string };
   // Phase 8 — Mistake Journal
   'mistakes:collected': MistakeCollectedEvent;
   // Phase 9 — Celebrations
