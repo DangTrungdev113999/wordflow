@@ -1,4 +1,5 @@
 import { ArrowLeft, FileText, Clock } from 'lucide-react';
+import { motion } from 'framer-motion';
 import type { WritingSubmission } from '../../../db/models';
 import { cn } from '../../../lib/utils';
 import writingPromptsData from '../../../data/writing-prompts.json';
@@ -22,10 +23,24 @@ function scoreColor(score: number): string {
   return 'text-red-500';
 }
 
+const listVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.06 } },
+};
+const listItem = {
+  hidden: { opacity: 0, y: 12 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: 'easeOut' as const } },
+};
+
 export function WritingHistory({ submissions, onSelect, onBack }: WritingHistoryProps) {
   return (
     <div>
-      <div className="flex items-center gap-3 mb-5">
+      <motion.div
+        initial={{ opacity: 0, x: -12 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+        className="flex items-center gap-3 mb-5"
+      >
         <button
           onClick={onBack}
           className="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -33,20 +48,27 @@ export function WritingHistory({ submissions, onSelect, onBack }: WritingHistory
           <ArrowLeft size={20} />
         </button>
         <h2 className="text-base font-semibold text-gray-900 dark:text-white">Lịch sử bài viết</h2>
-      </div>
+      </motion.div>
 
       {submissions.length === 0 ? (
-        <div className="text-center py-12">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+          className="text-center py-12"
+        >
           <FileText size={32} className="text-gray-300 dark:text-gray-600 mx-auto mb-3" />
           <p className="text-sm text-gray-400">Chưa có bài viết nào</p>
-        </div>
+        </motion.div>
       ) : (
-        <div className="space-y-2">
+        <motion.div className="space-y-2" variants={listVariants} initial="hidden" animate="visible">
           {submissions.map((sub) => {
             const prompt = promptMap.get(sub.promptId);
             return (
-              <button
+              <motion.button
                 key={sub.id}
+                variants={listItem}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => onSelect(sub)}
                 className="w-full text-left bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-4 hover:border-gray-200 dark:hover:border-gray-700 transition-colors"
               >
@@ -70,10 +92,10 @@ export function WritingHistory({ submissions, onSelect, onBack }: WritingHistory
                     </span>
                   )}
                 </div>
-              </button>
+              </motion.button>
             );
           })}
-        </div>
+        </motion.div>
       )}
     </div>
   );

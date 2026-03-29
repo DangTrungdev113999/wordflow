@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Send } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface DictationInputProps {
   onSubmit: (answer: string) => void;
@@ -18,7 +19,13 @@ export function DictationInput({ onSubmit, disabled }: DictationInputProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2">
+    <motion.form
+      onSubmit={handleSubmit}
+      className="flex gap-2"
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+    >
       <input
         type="text"
         value={value}
@@ -26,15 +33,16 @@ export function DictationInput({ onSubmit, disabled }: DictationInputProps) {
         placeholder="Type what you hear..."
         disabled={disabled}
         autoFocus
-        className="flex-1 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent disabled:opacity-50"
+        className="flex-1 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent disabled:opacity-50 transition-shadow"
       />
-      <button
+      <motion.button
         type="submit"
         disabled={disabled || !value.trim()}
+        whileTap={{ scale: 0.9 }}
         className="px-4 py-3 bg-indigo-500 text-white rounded-xl hover:bg-indigo-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <Send size={20} />
-      </button>
-    </form>
+      </motion.button>
+    </motion.form>
   );
 }

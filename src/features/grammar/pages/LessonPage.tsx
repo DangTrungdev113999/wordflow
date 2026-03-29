@@ -1,9 +1,11 @@
 import { useParams, Link, useNavigate } from 'react-router';
 import { ArrowLeft, PlayCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useGrammarStore } from '../../../stores/grammarStore';
 import { useEffect, type ReactNode } from 'react';
 import { Badge } from '../../../components/ui/Badge';
 import { Button } from '../../../components/ui/Button';
+import { PageTransition } from '../../../components/common/PageTransition';
 
 function renderBold(text: string): ReactNode[] {
   return text.split(/(\*\*.*?\*\*)/).map((part, i) =>
@@ -34,55 +36,82 @@ export function LessonPage() {
 
   const progress = lessonProgress[currentLesson.id];
 
+  const sectionStagger = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+  };
+  const sectionItem = {
+    hidden: { opacity: 0, y: 16 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: 'easeOut' as const } },
+  };
+
   return (
-    <div className="px-4 py-6 max-w-2xl mx-auto">
-      <div className="flex items-center gap-3 mb-6">
-        <Link to="/grammar" className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-          <ArrowLeft size={20} className="text-gray-600 dark:text-gray-400" />
-        </Link>
-        <div className="flex-1">
-          <h1 className="font-bold text-lg text-gray-900 dark:text-white">{currentLesson.title}</h1>
-          <div className="flex items-center gap-2 mt-0.5">
-            <Badge variant={currentLesson.level === 'A1' ? 'cefr' : 'default'}>
-              {currentLesson.level}
-            </Badge>
-            {progress && (
-              <span className="text-sm text-green-600 dark:text-green-400">
-                Best: {progress.bestScore}% · {progress.attempts} attempt{progress.attempts !== 1 ? 's' : ''}
-              </span>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Theory sections */}
-      <div className="space-y-6 mb-8">
-        {currentLesson.theory.sections.map((section, i) => (
-          <div key={i} className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800">
-            <h2 className="font-bold text-gray-900 dark:text-white mb-3">{section.heading}</h2>
-            <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed whitespace-pre-line mb-4">
-              {renderBold(section.content)}
-            </div>
-            <div className="space-y-2">
-              {section.examples.map((ex, j) => (
-                <div key={j} className="pl-3 border-l-2 border-indigo-200 dark:border-indigo-800">
-                  <p className="text-sm text-gray-900 dark:text-white">{renderBold(ex.en)}</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 italic">{ex.vi}</p>
-                </div>
-              ))}
+    <PageTransition>
+      <div className="px-4 py-6 max-w-2xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, x: -12 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+          className="flex items-center gap-3 mb-6"
+        >
+          <Link to="/grammar" className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+            <ArrowLeft size={20} className="text-gray-600 dark:text-gray-400" />
+          </Link>
+          <div className="flex-1">
+            <h1 className="font-bold text-lg text-gray-900 dark:text-white">{currentLesson.title}</h1>
+            <div className="flex items-center gap-2 mt-0.5">
+              <Badge variant={currentLesson.level === 'A1' ? 'cefr' : 'default'}>
+                {currentLesson.level}
+              </Badge>
+              {progress && (
+                <span className="text-sm text-green-600 dark:text-green-400">
+                  Best: {progress.bestScore}% · {progress.attempts} attempt{progress.attempts !== 1 ? 's' : ''}
+                </span>
+              )}
             </div>
           </div>
-        ))}
-      </div>
+        </motion.div>
 
-      {/* Start Quiz button */}
-      <Button
-        className="w-full py-4 text-lg"
-        onClick={() => navigate(`/grammar/${currentLesson.id}/quiz`)}
-      >
-        <PlayCircle size={22} className="mr-2" />
-        Start Quiz ({currentLesson.exercises.length} questions)
-      </Button>
-    </div>
+        {/* Theory sections */}
+        <motion.div
+          className="space-y-6 mb-8"
+          variants={sectionStagger}
+          initial="hidden"
+          animate="visible"
+        >
+          {currentLesson.theory.sections.map((section, i) => (
+            <motion.div key={i} variants={sectionItem} className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800">
+              <h2 className="font-bold text-gray-900 dark:text-white mb-3">{section.heading}</h2>
+              <div className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed whitespace-pre-line mb-4">
+                {renderBold(section.content)}
+              </div>
+              <div className="space-y-2">
+                {section.examples.map((ex, j) => (
+                  <div key={j} className="pl-3 border-l-2 border-indigo-200 dark:border-indigo-800">
+                    <p className="text-sm text-gray-900 dark:text-white">{renderBold(ex.en)}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 italic">{ex.vi}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Start Quiz button */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.3, ease: 'easeOut' }}
+        >
+          <Button
+            className="w-full py-4 text-lg"
+            onClick={() => navigate(`/grammar/${currentLesson.id}/quiz`)}
+          >
+            <PlayCircle size={22} className="mr-2" />
+            Start Quiz ({currentLesson.exercises.length} questions)
+          </Button>
+        </motion.div>
+      </div>
+    </PageTransition>
   );
 }
