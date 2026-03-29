@@ -1,12 +1,15 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router';
 import { useVocabularyStore } from '../../../stores/vocabularyStore';
 import { useProgressStore } from '../../../stores/progressStore';
 import { useSettingsStore } from '../../../stores/settingsStore';
+import { useSessionStreak } from './useSessionStreak';
 import { db } from '../../../db/database';
 import { calculateSM2, createInitialProgress } from '../../../services/spacedRepetition';
 import { eventBus } from '../../../services/eventBus';
+import { XP_VALUES } from '../../../lib/constants';
 import type { FlashcardRating } from '../../../lib/types';
+import type { XPBreakdown } from '../components/SessionSummary';
 
 export function useFlashcard(topicId: string) {
   const [searchParams] = useSearchParams();
@@ -33,6 +36,8 @@ export function useFlashcard(topicId: string) {
   const { todayWordsLearned, todayXP } = useProgressStore();
   const { dailyGoal } = useSettingsStore();
   const dailyGoalAwarded = useRef(false);
+  const { streak, multiplier, bestStreak, totalStreakBonus, recordAnswer: recordStreak } = useSessionStreak();
+  const [baseXPTotal, setBaseXPTotal] = useState(0);
 
   const currentWord = flashcardQueue[currentCardIndex];
   const isSessionComplete = currentCardIndex >= flashcardQueue.length && flashcardQueue.length > 0;
@@ -102,6 +107,13 @@ export function useFlashcard(topicId: string) {
     const isCorrect = rating >= 3;
     recordAnswer(isCorrect, wordId);
 
+    // Streak + XP tracking
+    const baseXP = isCorrect
+      ? (rating === 5 ? XP_VALUES.flashcard_easy : rating === 2 ? XP_VALUES.flashcard_hard : XP_VALUES.flashcard_correct)
+      : 0;
+    recordStreak(isCorrect, baseXP);
+    if (isCorrect) setBaseXPTotal(prev => prev + baseXP);
+
     // Emit events instead of direct calls
     if (isCorrect) {
       eventBus.emit('flashcard:correct', { wordId, rating: rating as 0 | 2 | 4 | 5 });
@@ -123,7 +135,7 @@ export function useFlashcard(topicId: string) {
     }
 
     nextCard();
-  }, [currentWord, currentTopic, topicId, wordProgressMap, nextCard, setWordProgressMap, recordAnswer, todayWordsLearned, dailyGoal]);
+  }, [currentWord, currentTopic, topicId, wordProgressMap, nextCard, setWordProgressMap, recordAnswer, recordStreak, todayWordsLearned, dailyGoal]);
 
   // Emit mistakes when session completes
   const mistakeEmittedRef = useRef(false);
@@ -148,6 +160,12 @@ export function useFlashcard(topicId: string) {
     }
   }, [isSessionComplete]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  const sessionXP = baseXPTotal + totalStreakBonus;
+  const xpBreakdown: XPBreakdown = {
+    base: baseXPTotal,
+    streakBonus: totalStreakBonus,
+  };
+
   return {
     currentTopic,
     currentWord,
@@ -159,6 +177,10 @@ export function useFlashcard(topicId: string) {
     isSessionComplete,
     flashcardQueue,
     currentCardIndex,
-    sessionXP: todayXP,
+    sessionXP,
+    xpBreakdown,
+    streak,
+    multiplier,
+    bestStreak,
   };
 }

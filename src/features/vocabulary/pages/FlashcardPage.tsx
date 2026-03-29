@@ -6,6 +6,7 @@ import { useEnrichedAudio } from '../../../hooks/useEnrichedAudio';
 import { useMnemonicForWord } from '../hooks/useMnemonicForWord';
 import { FlashcardDeck } from '../components/FlashcardDeck';
 import { SessionSummary } from '../components/SessionSummary';
+import { StreakIndicator } from '../components/StreakIndicator';
 import { getWeakWords, getSessionWeakWords, type WeakWord } from '../../../services/weakWordsService';
 
 export function FlashcardPage() {
@@ -23,6 +24,10 @@ export function FlashcardPage() {
     flashcardQueue,
     currentCardIndex,
     sessionXP,
+    xpBreakdown,
+    streak,
+    multiplier,
+    bestStreak,
   } = useFlashcard(topic ?? '');
 
   const { getAudioUrl } = useEnrichedAudio(flashcardQueue, currentCardIndex);
@@ -50,6 +55,8 @@ export function FlashcardPage() {
         accuracy={accuracy}
         xpEarned={sessionXP}
         weakWords={weakWords}
+        bestStreak={bestStreak}
+        xpBreakdown={xpBreakdown}
         onPracticeWeakWords={
           weakWords.length > 0
             ? () => navigate(`/vocabulary/${topic}/learn?weak=true`)
@@ -71,7 +78,8 @@ export function FlashcardPage() {
         <Link to={`/vocabulary/${topic}`} className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
           <ArrowLeft size={20} className="text-gray-600 dark:text-gray-400" />
         </Link>
-        <h1 className="font-semibold text-gray-900 dark:text-white">{currentTopic.topicLabel}</h1>
+        <h1 className="flex-1 font-semibold text-gray-900 dark:text-white">{currentTopic.topicLabel}</h1>
+        <StreakIndicator streak={streak} multiplier={multiplier} />
       </div>
       <FlashcardDeck
         word={{ ...currentWord, audioUrl: getAudioUrl(currentWord) }}

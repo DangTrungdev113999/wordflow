@@ -1,0 +1,6 @@
+[   82149ms] [ERROR] The final argument passed to %s changed size between renders. The order and size of this array must remain constant.
+
+Previous: %s
+Incoming: %s useEffect [afternoon] [afternoon, false] @ http://localhost:5179/node_modules/.vite/deps/react-dom_client.js?v=140ef8fb:5627
+[   90376ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5179/src/features/vocabulary/components/ActiveRecallBanner.tsx?t=1774770490274:0
+[   90377ms] [ERROR] [vite] Failed to reload /src/features/vocabulary/components/ActiveRecallBanner.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:5179/@vite/client:881
