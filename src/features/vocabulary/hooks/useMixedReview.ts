@@ -22,6 +22,7 @@ export interface MixedReviewStats {
   dueCount: number;
   weakCount: number;
   totalCount: number;
+  topicsWithProgress: number;
 }
 
 /**
@@ -107,7 +108,7 @@ function getAllWords(): MixedWord[] {
 }
 
 export function useMixedReview() {
-  const [stats, setStats] = useState<MixedReviewStats>({ dueCount: 0, weakCount: 0, totalCount: 0 });
+  const [stats, setStats] = useState<MixedReviewStats>({ dueCount: 0, weakCount: 0, totalCount: 0, topicsWithProgress: 0 });
   const [loading, setLoading] = useState(true);
   const [progressMap, setProgressMap] = useState<Record<string, WordProgress>>({});
 
@@ -124,8 +125,9 @@ export function useMixedReview() {
       const dueCount = all.filter((p) => p.nextReview <= now).length;
       const weakCount = all.filter((p) => p.easeFactor < 2.0).length;
       const totalCount = ALL_TOPICS.reduce((sum, t) => sum + t.words.length, 0);
+      const topicsWithProgress = new Set(all.map((p) => p.wordId.split(':')[0])).size;
 
-      setStats({ dueCount, weakCount, totalCount });
+      setStats({ dueCount, weakCount, totalCount, topicsWithProgress });
       setLoading(false);
     });
   }, []);

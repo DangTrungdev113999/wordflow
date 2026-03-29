@@ -288,6 +288,7 @@ export function MixedReviewPage() {
     ? Math.round((sessionStats.correct / sessionStats.total) * 100)
     : 0;
 
+  // TODO: Implement dedicated ContextReview component (P10-4). For now, context mode falls back to flashcard.
   const effectiveMode = config?.mode === 'context' ? 'flashcard' : config?.mode;
 
   return (
@@ -304,7 +305,7 @@ export function MixedReviewPage() {
         ) : (
           <button
             onClick={() => {
-              if (pageState === 'review' && !confirm('Leave this session?')) return;
+              if (pageState === 'review' && !confirm('Rời khỏi phiên ôn tập?')) return;
               setPageState('picker');
             }}
             className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -313,7 +314,7 @@ export function MixedReviewPage() {
           </button>
         )}
         <h1 className="font-semibold text-gray-900 dark:text-white">
-          Mixed Review
+          Ôn tập tổng hợp
           {pageState === 'review' && config && (
             <span className="text-sm font-normal text-gray-400 ml-2 capitalize">{effectiveMode}</span>
           )}
@@ -367,7 +368,7 @@ export function MixedReviewPage() {
               correct={sessionStats.correct}
               total={sessionStats.total}
               accuracy={accuracy}
-              xpEarned={Math.round(sessionStats.correct * 8 * 1.5)}
+              xpEarned={Math.round(sessionStats.correct * (effectiveMode === 'flashcard' ? 5 : 8) * 1.5)}
               weakWords={weakWords}
               onBack={() => navigate('/vocabulary')}
               onRetry={() => {
@@ -375,8 +376,8 @@ export function MixedReviewPage() {
                 setSessionStats({ correct: 0, incorrect: 0, total: 0 });
                 setSessionResults([]);
               }}
-              backLabel="Vocabulary"
-              title="Mixed Review Complete!"
+              backLabel="Từ vựng"
+              title="Hoàn thành ôn tập!"
             />
           </motion.div>
         )}

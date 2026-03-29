@@ -74,7 +74,7 @@ export function VocabularyPage() {
           className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-600 text-white text-sm font-semibold shadow-md shadow-indigo-200 dark:shadow-indigo-900/50 hover:shadow-lg transition-all active:scale-95 shrink-0"
         >
           <Shuffle size={16} />
-          Mixed Review
+          Ôn tổng hợp
         </Link>
       </div>
 
@@ -89,14 +89,14 @@ export function VocabularyPage() {
           </div>
           <div className="flex-1 min-w-0">
             <p className="font-semibold text-gray-900 dark:text-white text-sm">
-              {dueCount} words due for review today!
+              {dueCount} từ đến hạn ôn tập hôm nay!
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-400">
-              Spaced repetition keeps your memory strong
+              Ôn tập cách quãng giúp ghi nhớ lâu hơn
             </p>
           </div>
           <span className="text-sm font-semibold text-red-500 group-hover:text-red-600 dark:text-red-400 shrink-0">
-            Review now
+            Ôn ngay
             <ChevronRight size={14} className="inline ml-0.5" />
           </span>
         </Link>
