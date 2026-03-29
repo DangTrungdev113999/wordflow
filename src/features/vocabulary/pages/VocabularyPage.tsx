@@ -1,10 +1,11 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
-import { BookOpen, Plus, ChevronRight, Search, X } from 'lucide-react';
+import { BookOpen, Plus, ChevronRight, Search, X, Shuffle, Bell } from 'lucide-react';
 import { useVocabularyStore } from '../../../stores/vocabularyStore';
 import { TopicList } from '../components/TopicList';
 import { getTopics, getWords } from '../../../services/customTopicService';
+import { db } from '../../../db/database';
 import { cn } from '../../../lib/utils';
 import type { CustomTopic } from '../../../db/models';
 
@@ -19,6 +20,7 @@ export function VocabularyPage() {
   const [customTopics, setCustomTopics] = useState<TopicWithCount[]>([]);
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState<Filter>('all');
+  const [dueCount, setDueCount] = useState(0);
 
   useEffect(() => {
     getTopics().then(async (all) => {
@@ -30,6 +32,13 @@ export function VocabularyPage() {
       );
       setCustomTopics(withCounts);
     });
+
+    // Count due words for banner
+    db.wordProgress
+      .where('nextReview')
+      .belowOrEqual(Date.now())
+      .count()
+      .then(setDueCount);
   }, []);
 
   const query = search.toLowerCase().trim();
@@ -52,13 +61,46 @@ export function VocabularyPage() {
 
   return (
     <div className="px-4 py-6 space-y-6 max-w-2xl mx-auto">
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-          <BookOpen className="text-indigo-500" size={24} />
-          Vocabulary
-        </h1>
-        <p className="text-gray-500 dark:text-gray-400 mt-1">Choose a topic to start learning</p>
+      <div className="flex items-start justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+            <BookOpen className="text-indigo-500" size={24} />
+            Vocabulary
+          </h1>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">Choose a topic to start learning</p>
+        </div>
+        <Link
+          to="/vocabulary/mixed-review"
+          className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-600 text-white text-sm font-semibold shadow-md shadow-indigo-200 dark:shadow-indigo-900/50 hover:shadow-lg transition-all active:scale-95 shrink-0"
+        >
+          <Shuffle size={16} />
+          Ôn tổng hợp
+        </Link>
       </div>
+
+      {/* Due Review Banner */}
+      {dueCount >= 5 && (
+        <Link
+          to="/vocabulary/mixed-review?source=due"
+          className="flex items-center gap-3 p-4 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-2xl border border-red-200 dark:border-red-800/50 hover:shadow-md transition-all group"
+        >
+          <div className="w-10 h-10 rounded-xl bg-red-100 dark:bg-red-900/30 flex items-center justify-center shrink-0">
+            <Bell size={20} className="text-red-500" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="font-semibold text-gray-900 dark:text-white text-sm">
+              {dueCount} từ đến hạn ôn tập hôm nay!
+            </p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              Ôn tập cách quãng giúp ghi nhớ lâu hơn
+            </p>
+          </div>
+          <span className="text-sm font-semibold text-red-500 group-hover:text-red-600 dark:text-red-400 shrink-0">
+            Ôn ngay
+            <ChevronRight size={14} className="inline ml-0.5" />
+          </span>
+        </Link>
+      )}
 
       {/* Search + Filter */}
       <div className="space-y-3">
