@@ -78,7 +78,7 @@ export function FlashcardDeck({ word, isFlipped, onFlip, onRate, cardIndex, tota
               <div className="w-full mt-1 bg-amber-50 dark:bg-amber-950/40 border-l-4 border-amber-400 dark:border-amber-600 rounded-r-lg px-3 py-2 text-left">
                 <div className="flex items-center gap-1.5 mb-0.5">
                   <p className="text-[11px] font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
-                    M\u1EB9o ghi nh\u1EDB
+                    💡 M\u1EB9o ghi nh\u1EDB
                   </p>
                   {mnemonicType && MNEMONIC_TYPE_LABELS[mnemonicType] && (
                     <span className="px-1.5 py-px text-[10px] font-medium rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400">

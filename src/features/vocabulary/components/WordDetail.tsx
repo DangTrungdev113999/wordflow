@@ -130,7 +130,7 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-2">
                 <h2 className="font-semibold text-gray-700 dark:text-gray-300 text-sm uppercase tracking-wide">
-                  M\u1EB9o ghi nh\u1EDB
+                  💡 M\u1EB9o ghi nh\u1EDB
                 </h2>
                 {aiData.mnemonicType && (
                   <span className="px-2 py-0.5 text-xs font-medium rounded-full bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800">
@@ -145,11 +145,10 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
             <button
               onClick={handleRegenerateMnemonic}
               disabled={regenerating}
-              className="shrink-0 p-2 rounded-lg text-gray-400 hover:text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors disabled:opacity-50"
-              title="T\u1EA1o m\u1EB9o m\u1EDBi"
+              className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 dark:text-gray-400 dark:hover:text-indigo-400 dark:hover:bg-indigo-900/20 transition-colors disabled:opacity-50"
             >
               <svg
-                className={`w-4 h-4 ${regenerating ? 'animate-spin' : ''}`}
+                className={`w-3.5 h-3.5 ${regenerating ? 'animate-spin' : ''}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -157,6 +156,7 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
+              {regenerating ? 'Đang tạo...' : 'Tạo mới'}
             </button>
           </div>
         </Card>
