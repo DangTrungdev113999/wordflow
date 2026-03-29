@@ -60,10 +60,10 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
   const wordProgress = useLiveQuery(() => db.wordProgress.get(wordId), [wordId]);
   const hasBeenStudied = (wordProgress?.repetitions ?? 0) >= 1;
 
-  // Reset revealed state when word changes
+  // Reset revealed state when word changes; auto-reveal for new words (no active recall needed)
   useEffect(() => {
-    setRevealed(false);
-  }, [word.word]);
+    setRevealed(!hasBeenStudied);
+  }, [word.word, hasBeenStudied]);
 
   // Fetch dictionary enrichment + AI enrichment in parallel
   useEffect(() => {

@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { MixedReviewPicker } from '../components/MixedReviewPicker';
 import { FlashcardDeck } from '../components/FlashcardDeck';
 import { QuizSession } from '../components/QuizSession';
+import { ContextFillSession } from '../components/ContextFillSession';
 import { SessionSummary } from '../components/SessionSummary';
 import { ConfirmDialog } from '../../../components/ui/ConfirmDialog';
 
@@ -16,7 +17,6 @@ import { db } from '../../../db/database';
 import { calculateSM2, createInitialProgress } from '../../../services/spacedRepetition';
 import { eventBus } from '../../../services/eventBus';
 import { getWeakWords, getSessionWeakWords, type WeakWord } from '../../../services/weakWordsService';
-import { useToastStore } from '../../../stores/toastStore';
 import { shuffle } from '../../../lib/utils';
 import { XP_VALUES } from '../../../lib/constants';
 import type { FlashcardRating } from '../../../lib/types';
@@ -240,14 +240,219 @@ function QuizReview({
   );
 }
 
+// ─── Context Fill-in-Blank Mode ──────────────────────────────────────
+
+interface ContextQuestion {
+  word: MixedWord;
+  sentence: string;         // with _____ blank
+  context: 'daily' | 'work' | 'social' | 'formal' | 'dialogue';
+  translation?: string;
+  correctAnswer: string;    // the blanked word
+}
+
+/**
+ * Build fill-in-blank questions from richExamples.
+ * Falls back to word.example if no richExamples available.
+ */
+async function buildContextQuestions(words: MixedWord[]): Promise<ContextQuestion[]> {
+  const questions: ContextQuestion[] = [];
+
+  for (const w of words) {
+    const key = w.word.toLowerCase().trim();
+    const cached = await db.enrichedWords.get(key);
+    const rich = cached?.data?.richExamples;
+
+    if (rich && rich.length > 0) {
+      // Pick a random richExample for this word
+      const ex = rich[Math.floor(Math.random() * rich.length)];
+      const blanked = blankWord(ex.sentence, w.word);
+      if (blanked) {
+        questions.push({
+          word: w,
+          sentence: blanked,
+          context: ex.context,
+          translation: ex.translation,
+          correctAnswer: w.word,
+        });
+        continue;
+      }
+    }
+
+    // Fallback: use word.example
+    if (w.example) {
+      const blanked = blankWord(w.example, w.word);
+      if (blanked) {
+        questions.push({
+          word: w,
+          sentence: blanked,
+          context: 'daily',
+          correctAnswer: w.word,
+        });
+      }
+    }
+  }
+
+  return questions;
+}
+
+/** Replace the target word in a sentence with _____ (case-insensitive). */
+function blankWord(sentence: string, word: string): string | null {
+  const regex = new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+  if (!regex.test(sentence)) return null;
+  return sentence.replace(regex, '_____');
+}
+
+function ContextReview({
+  words,
+  progressMap,
+  onComplete,
+}: {
+  words: MixedWord[];
+  progressMap: Record<string, WordProgress>;
+  onComplete: (stats: ReviewStats, results: { wordId: string; correct: boolean }[]) => void;
+}) {
+  const [index, setIndex] = useState(0);
+  const [questions, setQuestions] = useState<ContextQuestion[]>([]);
+  const [options, setOptions] = useState<string[]>([]);
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [showFeedback, setShowFeedback] = useState(false);
+  const [ready, setReady] = useState(false);
+  const [localProgress, setLocalProgress] = useState(progressMap);
+  const statsRef = useRef({ correct: 0, incorrect: 0, total: 0, xpEarned: 0 });
+  const resultsRef = useRef<{ wordId: string; correct: boolean }[]>([]);
+  const learnedInSession = useRef(new Set<string>());
+
+  // Build questions on mount
+  useEffect(() => {
+    buildContextQuestions(words).then((qs) => {
+      setQuestions(qs);
+      setReady(true);
+    });
+  }, [words]);
+
+  const currentQ = questions[index] ?? null;
+
+  // Generate options for current question
+  useEffect(() => {
+    if (!currentQ || questions.length === 0) return;
+    const correct = currentQ.correctAnswer;
+    const distractors = questions
+      .map((q) => q.correctAnswer)
+      .filter((w) => w.toLowerCase() !== correct.toLowerCase());
+    const unique = [...new Set(distractors)];
+    const picked = shuffle(unique).slice(0, 3);
+    setOptions(shuffle([correct, ...picked]));
+    setSelectedOption(null);
+    setShowFeedback(false);
+  }, [index, questions]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const handleSelect = useCallback(
+    async (option: string) => {
+      if (showFeedback || !currentQ) return;
+      setSelectedOption(option);
+      setShowFeedback(true);
+
+      const w = currentQ.word;
+      const isCorrect = option.toLowerCase() === currentQ.correctAnswer.toLowerCase();
+      const wordId = `${w.topicId}:${w.word}`;
+      const rating: FlashcardRating = isCorrect ? 4 : 0;
+
+      // SM-2
+      const existing = localProgress[wordId];
+      const current = existing ?? createInitialProgress(wordId);
+      const sm2 = calculateSM2(rating, current);
+      const newProgress = { ...current, ...sm2, lastReview: Date.now() };
+      await db.wordProgress.put(newProgress);
+      setLocalProgress((prev) => ({ ...prev, [wordId]: newProgress }));
+
+      // Context mastery tracking
+      if (isCorrect) {
+        const ctxEntry = await db.contextProgress.get(wordId);
+        const currentCtx = ctxEntry?.contextsCorrect ?? [];
+        if (!currentCtx.includes(currentQ.context)) {
+          const updated = [...currentCtx, currentQ.context];
+          await db.contextProgress.put({
+            wordId,
+            contextsCorrect: updated,
+            contextMastered: updated.length >= 3,
+            lastUpdated: Date.now(),
+          });
+        }
+      }
+
+      // XP + stats
+      const xp = getFlashcardXP(rating, 1.5);
+      statsRef.current = {
+        correct: statsRef.current.correct + (isCorrect ? 1 : 0),
+        incorrect: statsRef.current.incorrect + (isCorrect ? 0 : 1),
+        total: statsRef.current.total + 1,
+        xpEarned: statsRef.current.xpEarned + xp,
+      };
+      resultsRef.current = [...resultsRef.current, { wordId, correct: isCorrect }];
+
+      if (isCorrect) {
+        eventBus.emit('flashcard:correct', { wordId, rating, multiplier: 1.5 });
+      } else {
+        eventBus.emit('flashcard:incorrect', { wordId });
+      }
+      if ((!existing || existing.status === 'new') && !learnedInSession.current.has(wordId)) {
+        learnedInSession.current.add(wordId);
+        eventBus.emit('word:learned', { wordId });
+      }
+
+      setTimeout(() => {
+        const nextIdx = index + 1;
+        if (nextIdx >= questions.length) {
+          onComplete(statsRef.current, resultsRef.current);
+        } else {
+          setIndex(nextIdx);
+        }
+      }, 800);
+    },
+    [showFeedback, currentQ, index, questions.length, localProgress, onComplete],
+  );
+
+  if (!ready) {
+    return (
+      <div className="flex items-center justify-center py-20">
+        <div className="w-6 h-6 border-2 border-violet-400 border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  if (questions.length === 0) {
+    return (
+      <div className="text-center py-16 text-gray-500 dark:text-gray-400">
+        <p className="text-sm">Chưa có dữ liệu ngữ cảnh cho các từ này.</p>
+        <p className="text-xs mt-1">Hãy mở từng từ trong Word Detail để AI tạo examples.</p>
+      </div>
+    );
+  }
+
+  if (!currentQ) return null;
+
+  return (
+    <ContextFillSession
+      sentence={currentQ.sentence}
+      context={currentQ.context}
+      translation={currentQ.translation}
+      currentIndex={index}
+      total={questions.length}
+      options={options}
+      selectedOption={selectedOption}
+      showFeedback={showFeedback}
+      correctAnswer={currentQ.correctAnswer}
+      onSelect={handleSelect}
+    />
+  );
+}
+
 // ─── Main Page ─────────────────────────────────────────────────────
 
 export function MixedReviewPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const initialFilter = (searchParams.get('source') as MixedSourceFilter) || undefined;
-  const addToast = useToastStore((s) => s.addToast);
-
   const { stats, loading, selectWords, progressMap } = useMixedReview();
   const [pageState, setPageState] = useState<PageState>('picker');
   const [config, setConfig] = useState<MixedReviewConfig | null>(null);
@@ -262,20 +467,11 @@ export function MixedReviewPage() {
       const selected = selectWords(cfg);
       if (selected.length === 0) return;
 
-      // Context mode not yet implemented — notify user of fallback
-      if (cfg.mode === 'context') {
-        addToast({
-          type: 'info',
-          title: 'Context mode chưa sẵn sàng',
-          description: 'Tạm sử dụng Flashcard thay thế.',
-        });
-      }
-
       setConfig(cfg);
       setWords(selected);
       setPageState('review');
     },
-    [selectWords, addToast],
+    [selectWords],
   );
 
   const handleComplete = useCallback(
@@ -316,8 +512,7 @@ export function MixedReviewPage() {
     ? Math.round((sessionStats.correct / sessionStats.total) * 100)
     : 0;
 
-  // TODO: Implement dedicated ContextReview component (P10-4). For now, context mode falls back to flashcard.
-  const effectiveMode = config?.mode === 'context' ? 'flashcard' : config?.mode;
+  const effectiveMode = config?.mode;
 
   return (
     <div className="px-4 py-6 max-w-2xl mx-auto">
@@ -374,6 +569,12 @@ export function MixedReviewPage() {
           >
             {effectiveMode === 'flashcard' ? (
               <FlashcardReview
+                words={words}
+                progressMap={progressMap}
+                onComplete={handleComplete}
+              />
+            ) : effectiveMode === 'context' ? (
+              <ContextReview
                 words={words}
                 progressMap={progressMap}
                 onComplete={handleComplete}
