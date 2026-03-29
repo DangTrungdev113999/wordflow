@@ -2,6 +2,29 @@
   "id": "imperative",
   "title": "Imperative Sentences",
   "level": "A1",
+  "cheatSheet": {
+    "title": "Imperative Sentences (Câu mệnh lệnh)",
+    "formula": "V + ... (khẳng định) | Don't + V + ... (phủ định)",
+    "keyPoints": [
+      "Không có chủ ngữ — bắt đầu bằng động từ nguyên thể",
+      "Phủ định: Don't + V (KHÔNG dùng 'Not + V')",
+      "Dùng để: ra lệnh, yêu cầu, hướng dẫn, khuyên bảo, mời",
+      "Thêm 'please' để lịch sự hơn"
+    ],
+    "signalWords": [
+      "please",
+      "don't",
+      "let's",
+      "be careful",
+      "stop",
+      "listen"
+    ],
+    "commonMistakes": [
+      "Not talk in class. → Don't talk in class. (dùng Don't, không dùng Not)",
+      "Don't to be late. → Don't be late. (không dùng 'to' sau Don't)",
+      "You open the door. → Open the door. (câu mệnh lệnh không có chủ ngữ)"
+    ]
+  },
   "theory": {
     "sections": [
       {
@@ -20,7 +43,51 @@
             "en": "**Turn** left at the traffic light.",
             "vi": "Rẽ trái ở đèn giao thông."
           }
-        ]
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "Open", "role": "verb", "tooltip": "Động từ nguyên thể (không chủ ngữ)" },
+              { "text": "the", "role": "determiner", "tooltip": "Mạo từ" },
+              { "text": "door,", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "please.", "role": "complement", "tooltip": "Lịch sự hơn" }
+            ],
+            "vi": "Xin hãy mở cửa."
+          },
+          {
+            "parts": [
+              { "text": "Don't", "role": "auxiliary", "tooltip": "Phủ định mệnh lệnh" },
+              { "text": "touch", "role": "verb", "tooltip": "Động từ nguyên thể" },
+              { "text": "that!", "role": "object", "tooltip": "Tân ngữ" }
+            ],
+            "vi": "Đừng chạm vào đó!"
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "Not talk in the library.",
+            "correct": "Don't talk in the library.",
+            "wrongHighlight": [0],
+            "correctHighlight": [0],
+            "explanation": "Phủ định mệnh lệnh dùng 'Don't + V', KHÔNG dùng 'Not + V'."
+          },
+          {
+            "wrong": "Don't to be late.",
+            "correct": "Don't be late.",
+            "wrongHighlight": [1],
+            "correctHighlight": [1],
+            "explanation": "Sau 'Don't' dùng V nguyên thể trực tiếp, KHÔNG thêm 'to'."
+          }
+        ],
+        "visualType": "formula",
+        "visualData": {
+          "title": "Cấu trúc câu mệnh lệnh",
+          "parts": [
+            { "label": "V", "color": "orange" },
+            { "label": "Object / Complement", "color": "blue" }
+          ],
+          "example": "Open the door, please."
+        }
       }
     ]
   },

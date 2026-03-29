@@ -150,7 +150,7 @@ export interface TheoryStep {
   coloredExamples?: ColoredExample[];
   conjugation?: ConjugationTable;
   beforeAfter?: BeforeAfter[];
-  visualType?: 'timeline' | 'diagram' | 'comparison';
+  visualType?: 'timeline' | 'diagram' | 'comparison' | 'formula';
   visualData?: Record<string, unknown>;
 }
 
@@ -170,6 +170,8 @@ export interface TheorySection {
   conjugation?: ConjugationTable;
   beforeAfter?: BeforeAfter[];
   steps?: TheoryStep[];
+  visualType?: 'timeline' | 'diagram' | 'comparison' | 'formula';
+  visualData?: Record<string, unknown>;
 }
 
 export interface GrammarLessonData {

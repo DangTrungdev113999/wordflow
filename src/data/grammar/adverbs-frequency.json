@@ -2,6 +2,30 @@
   "id": "adverbs-frequency",
   "title": "Adverbs of Frequency",
   "level": "A1",
+  "cheatSheet": {
+    "title": "Adverbs of Frequency",
+    "formula": "S + adv + V (thường) | S + be + adv",
+    "keyPoints": [
+      "Trạng từ tần suất đứng TRƯỚC động từ thường",
+      "Trạng từ tần suất đứng SAU động từ be / trợ động từ",
+      "Thang tần suất: always > usually > often > sometimes > rarely > never"
+    ],
+    "signalWords": [
+      "always",
+      "usually",
+      "often",
+      "sometimes",
+      "rarely",
+      "never",
+      "hardly ever",
+      "seldom"
+    ],
+    "commonMistakes": [
+      "I go always to school. → I always go to school.",
+      "She never is late. → She is never late.",
+      "He drinks usually tea. → He usually drinks tea."
+    ]
+  },
   "theory": {
     "sections": [
       {
@@ -20,7 +44,53 @@
             "en": "They **sometimes** go to the cinema.",
             "vi": "Họ thỉnh thoảng đi xem phim."
           }
-        ]
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": "always", "role": "time", "tooltip": "Trạng từ tần suất — trước động từ thường" },
+              { "text": "drink", "role": "verb", "tooltip": "Động từ thường" },
+              { "text": "coffee in the morning.", "role": "object", "tooltip": "Tân ngữ" }
+            ],
+            "vi": "Tôi luôn uống cà phê buổi sáng."
+          },
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": "is", "role": "verb", "tooltip": "Động từ be" },
+              { "text": "never", "role": "time", "tooltip": "Trạng từ tần suất — sau động từ be" },
+              { "text": "late.", "role": "complement", "tooltip": "Bổ ngữ" }
+            ],
+            "vi": "Cô ấy không bao giờ trễ."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "I go always to school by bus.",
+            "correct": "I always go to school by bus.",
+            "wrongHighlight": [2],
+            "correctHighlight": [1],
+            "explanation": "Trạng từ tần suất đứng TRƯỚC động từ thường, không phải sau."
+          },
+          {
+            "wrong": "She never is late for work.",
+            "correct": "She is never late for work.",
+            "wrongHighlight": [1, 2],
+            "correctHighlight": [1, 2],
+            "explanation": "Trạng từ tần suất đứng SAU động từ be, không phải trước."
+          }
+        ],
+        "visualType": "formula",
+        "visualData": {
+          "title": "Vị trí trạng từ tần suất",
+          "parts": [
+            { "label": "S", "color": "blue" },
+            { "label": "adv", "color": "green" },
+            { "label": "V (thường)", "color": "orange" }
+          ],
+          "example": "I always drink coffee."
+        }
       }
     ]
   },

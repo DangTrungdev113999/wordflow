@@ -2,10 +2,39 @@
   "id": "past-continuous",
   "title": "Past Continuous Tense",
   "level": "A2",
+  "cheatSheet": {
+    "title": "Past Continuous",
+    "formula": "S + was/were + V-ing",
+    "keyPoints": [
+      "I/He/She/It → was; You/We/They → were",
+      "Diễn tả hành động đang xảy ra tại một thời điểm trong quá khứ",
+      "Hai hành động xảy ra đồng thời: While S + was/were + V-ing, S + was/were + V-ing",
+      "Hành động đang xảy ra bị gián đoạn: S + was/were + V-ing + when + S + V(past simple)"
+    ],
+    "signalWords": ["at that time", "while", "when", "at 8 PM last night", "all day yesterday", "at this time yesterday"],
+    "commonMistakes": [
+      "'He were playing' → 'He was playing' (I/He/She/It dùng was)",
+      "'They was dancing' → 'They were dancing' (You/We/They dùng were)",
+      "Quên thêm -ing: 'was play' → 'was playing'",
+      "Nhầm với Past Simple khi diễn tả hành động đang diễn ra"
+    ]
+  },
   "theory": {
     "sections": [
       {
         "heading": "Cấu trúc",
+        "conjugation": {
+          "verb": "play",
+          "tense": "Past Continuous",
+          "rows": [
+            { "pronoun": "I", "affirmative": "I was playing", "negative": "I was not playing", "question": "Was I playing?" },
+            { "pronoun": "You", "affirmative": "You were playing", "negative": "You were not playing", "question": "Were you playing?" },
+            { "pronoun": "He/She/It", "affirmative": "He was playing", "negative": "He was not playing", "question": "Was he playing?", "highlight": "irregular" },
+            { "pronoun": "We", "affirmative": "We were playing", "negative": "We were not playing", "question": "Were we playing?" },
+            { "pronoun": "They", "affirmative": "They were playing", "negative": "They were not playing", "question": "Were they playing?" }
+          ],
+          "notes": "was → I / He / She / It; were → You / We / They"
+        },
         "content": "**Khẳng định:** S + was/were + V-ing\n**Phủ định:** S + was/were + not + V-ing\n**Nghi vấn:** Was/Were + S + V-ing?",
         "examples": [
           {
@@ -16,7 +45,52 @@
             "en": "They **were playing** football.",
             "vi": "Họ đang chơi bóng đá."
           }
-        ]
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "was", "role": "auxiliary", "tooltip": "Trợ động từ (I → was)" },
+              { "text": " " },
+              { "text": "reading", "role": "verb", "tooltip": "V-ing — hành động đang diễn ra" },
+              { "text": " " },
+              { "text": "a book", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Tôi đang đọc sách."
+          },
+          {
+            "parts": [
+              { "text": "They", "role": "subject", "tooltip": "Chủ ngữ (số nhiều → were)" },
+              { "text": " " },
+              { "text": "were", "role": "auxiliary", "tooltip": "Trợ động từ (They → were)" },
+              { "text": " " },
+              { "text": "not", "role": "auxiliary", "tooltip": "Phủ định" },
+              { "text": " " },
+              { "text": "playing", "role": "verb", "tooltip": "V-ing" },
+              { "text": " " },
+              { "text": "football", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Họ không đang chơi bóng đá."
+          }
+        ],
+        "beforeAfter": [{
+          "wrong": "He were playing tennis yesterday.",
+          "correct": "He was playing tennis yesterday.",
+          "wrongHighlight": [1],
+          "correctHighlight": [1],
+          "explanation": "He/She/It dùng 'was', không dùng 'were'. 'He were' → 'He was'."
+        }],
+        "visualType": "timeline",
+        "visualData": {
+          "tense": "Past Continuous",
+          "markers": [
+            { "position": "past", "label": "was/were + V-ing (hành động đang diễn ra)", "type": "range" },
+            { "position": "present", "label": "Now", "type": "point" }
+          ]
+        }
       },
       {
         "heading": "Cách dùng",
@@ -30,7 +104,51 @@
             "en": "I **was sleeping** when the phone **rang**.",
             "vi": "Tôi đang ngủ thì điện thoại reo."
           }
-        ]
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "While", "role": "connector", "tooltip": "Liên từ — hai hành động đồng thời" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "was cooking", "role": "verb", "tooltip": "Past Continuous — hành động đang diễn ra" },
+              { "text": ", " },
+              { "text": "he", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "was watching", "role": "verb", "tooltip": "Past Continuous — hành động đồng thời" },
+              { "text": " " },
+              { "text": "TV", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Trong khi tôi nấu ăn, anh ấy xem TV."
+          },
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "was sleeping", "role": "verb", "tooltip": "Past Continuous — hành động đang diễn ra" },
+              { "text": " " },
+              { "text": "when", "role": "connector", "tooltip": "Liên từ — bị gián đoạn bởi hành động khác" },
+              { "text": " " },
+              { "text": "the phone", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "rang", "role": "verb", "tooltip": "Past Simple — hành động gián đoạn" },
+              { "text": "." }
+            ],
+            "vi": "Tôi đang ngủ thì điện thoại reo."
+          }
+        ],
+        "visualType": "formula",
+        "visualData": {
+          "title": "Past Continuous Formula",
+          "parts": [
+            { "label": "S", "color": "blue" },
+            { "label": "was/were", "color": "purple" },
+            { "label": "V-ing", "color": "orange" }
+          ],
+          "example": "She was reading a book."
+        }
       }
     ]
   },

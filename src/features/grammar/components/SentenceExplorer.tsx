@@ -15,13 +15,15 @@ interface QuizPartState {
 }
 
 function ExploreView({ parts, vi }: { parts: SentencePart[]; vi?: string }) {
+  // Filter to only interactive parts (those with a valid role in ROLE_COLORS)
+  const roleParts = parts.filter(p => p.role && ROLE_COLORS[p.role]);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const activePart = activeIndex !== null ? parts[activeIndex] : null;
+  const activePart = activeIndex !== null ? roleParts[activeIndex] : null;
 
   return (
     <div className="space-y-2">
       <div className="flex flex-wrap items-center gap-1.5">
-        {parts.map((part, i) => {
+        {roleParts.map((part, i) => {
           const colors = ROLE_COLORS[part.role];
           const isActive = activeIndex === i;
           return (
@@ -74,14 +76,15 @@ function ExploreView({ parts, vi }: { parts: SentencePart[]; vi?: string }) {
 }
 
 function QuizView({ parts, vi }: { parts: SentencePart[]; vi?: string }) {
+  const roleParts = parts.filter(p => p.role && ROLE_COLORS[p.role]);
   const [states, setStates] = useState<QuizPartState[]>(
-    () => parts.map(() => ({ revealed: false, wrong: false }))
+    () => roleParts.map(() => ({ revealed: false, wrong: false }))
   );
   const [activePicker, setActivePicker] = useState<number | null>(null);
   const allRevealed = states.every((s) => s.revealed);
 
   const handlePick = useCallback((partIndex: number, role: SentenceRole) => {
-    if (role === parts[partIndex].role) {
+    if (role === roleParts[partIndex].role) {
       setStates((prev) => prev.map((s, i) => i === partIndex ? { revealed: true, wrong: false } : s));
       setActivePicker(null);
     } else {
@@ -90,10 +93,10 @@ function QuizView({ parts, vi }: { parts: SentencePart[]; vi?: string }) {
         setStates((prev) => prev.map((s, i) => i === partIndex ? { ...s, wrong: false } : s));
       }, 600);
     }
-  }, [parts]);
+  }, [roleParts]);
 
   const handleReset = () => {
-    setStates(parts.map(() => ({ revealed: false, wrong: false })));
+    setStates(roleParts.map(() => ({ revealed: false, wrong: false })));
     setActivePicker(null);
   };
 
@@ -105,9 +108,9 @@ function QuizView({ parts, vi }: { parts: SentencePart[]; vi?: string }) {
       )}
 
       <div className="flex flex-wrap items-center gap-1.5">
-        {parts.map((part, i) => {
-          const isRevealed = states[i].revealed;
-          const isWrong = states[i].wrong;
+        {roleParts.map((part, i) => {
+          const isRevealed = states[i]?.revealed;
+          const isWrong = states[i]?.wrong;
           const isPicking = activePicker === i;
           const colors = ROLE_COLORS[part.role];
 

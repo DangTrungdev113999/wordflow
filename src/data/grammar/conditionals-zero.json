@@ -2,6 +2,29 @@
   "id": "conditionals-zero",
   "title": "Zero & First Conditional",
   "level": "A2",
+  "cheatSheet": {
+    "title": "Zero & First Conditional",
+    "formula": "Zero: If + present simple, present simple | First: If + present simple, will + V",
+    "keyPoints": [
+      "Zero conditional: sự thật hiển nhiên, quy luật tự nhiên (luôn đúng)",
+      "First conditional: tình huống có thể xảy ra trong tương lai",
+      "Mệnh đề if luôn dùng present simple — KHÔNG dùng will",
+      "Có thể đảo thứ tự: main clause + if + clause (không cần dấu phẩy)"
+    ],
+    "signalWords": [
+      "if",
+      "when",
+      "unless",
+      "tomorrow",
+      "next week",
+      "probably"
+    ],
+    "commonMistakes": [
+      "If it will rain → If it rains (không dùng will trong mệnh đề if)",
+      "If you heat water, it will boil. → If you heat water, it boils. (zero dùng present simple cả 2 vế)",
+      "If you will study, you pass. → If you study, you will pass."
+    ]
+  },
   "theory": {
     "sections": [
       {
@@ -16,7 +39,57 @@
             "en": "If it rains, the grass **gets** wet.",
             "vi": "Nếu trời mưa, cỏ ướt."
           }
-        ]
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": "heat", "role": "verb", "tooltip": "Present simple (mệnh đề if)" },
+              { "text": "water,", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "it", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": "boils.", "role": "verb", "tooltip": "Present simple (mệnh đề chính)" }
+            ],
+            "vi": "Nếu bạn đun nước, nó sôi."
+          },
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": "it", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": "rains,", "role": "verb", "tooltip": "Present simple" },
+              { "text": "the grass", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": "gets", "role": "verb", "tooltip": "Present simple" },
+              { "text": "wet.", "role": "complement", "tooltip": "Bổ ngữ" }
+            ],
+            "vi": "Nếu trời mưa, cỏ ướt."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "If you will heat water, it boils.",
+            "correct": "If you heat water, it boils.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "Mệnh đề if KHÔNG dùng 'will'. Zero conditional dùng present simple ở cả hai vế."
+          }
+        ],
+        "visualType": "comparison",
+        "visualData": {
+          "left": {
+            "name": "Zero Conditional",
+            "formula": "If + present simple, present simple",
+            "usage": "Sự thật, quy luật (luôn đúng)",
+            "example": "If you heat water, it boils.",
+            "signalWords": ["always", "every time", "when"]
+          },
+          "right": {
+            "name": "First Conditional",
+            "formula": "If + present simple, will + V",
+            "usage": "Khả năng xảy ra trong tương lai",
+            "example": "If it rains, I will stay home.",
+            "signalWords": ["tomorrow", "next week", "probably"]
+          }
+        }
       },
       {
         "heading": "First Conditional",
@@ -29,6 +102,46 @@
           {
             "en": "If you **study** hard, you **will pass**.",
             "vi": "Nếu bạn học chăm, bạn sẽ đậu."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": "it", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": "rains,", "role": "verb", "tooltip": "Present simple (mệnh đề if)" },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": "will stay", "role": "verb", "tooltip": "will + V (mệnh đề chính)" },
+              { "text": "home.", "role": "complement", "tooltip": "Bổ ngữ" }
+            ],
+            "vi": "Nếu trời mưa, tôi sẽ ở nhà."
+          },
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": "study", "role": "verb", "tooltip": "Present simple" },
+              { "text": "hard,", "role": "complement", "tooltip": "Trạng từ" },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": "will pass.", "role": "verb", "tooltip": "will + V" }
+            ],
+            "vi": "Nếu bạn học chăm, bạn sẽ đậu."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "If it will rain, I stay home.",
+            "correct": "If it rains, I will stay home.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2, 4, 5],
+            "explanation": "Mệnh đề if dùng present simple (không dùng will). Mệnh đề chính dùng will + V."
+          },
+          {
+            "wrong": "If you will eat too much, you get sick.",
+            "correct": "If you eat too much, you will get sick.",
+            "wrongHighlight": [2],
+            "correctHighlight": [5],
+            "explanation": "KHÔNG dùng 'will' trong mệnh đề if. 'Will' chỉ dùng ở mệnh đề chính."
           }
         ]
       }

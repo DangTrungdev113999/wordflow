@@ -2,6 +2,29 @@
   "id": "conjunctions",
   "title": "Conjunctions: And, But, Or, So, Because",
   "level": "A1",
+  "cheatSheet": {
+    "title": "Conjunctions (Liên từ)",
+    "formula": "Clause 1 + conjunction + Clause 2",
+    "keyPoints": [
+      "AND: thêm thông tin, liệt kê",
+      "BUT: tương phản, trái ngược",
+      "OR: lựa chọn giữa 2+ khả năng",
+      "SO: kết quả (nguyên nhân → SO → kết quả)",
+      "BECAUSE: nguyên nhân (kết quả → BECAUSE → nguyên nhân)"
+    ],
+    "signalWords": [
+      "and",
+      "but",
+      "or",
+      "so",
+      "because"
+    ],
+    "commonMistakes": [
+      "I stayed home so it was raining. → ...because it was raining. (so = kết quả, because = nguyên nhân)",
+      "I like cats because dogs. → I like cats and dogs. (because nối mệnh đề, and nối danh từ)",
+      "She is tired so happy. → She is tired but happy. (tương phản dùng but, không dùng so)"
+    ]
+  },
   "theory": {
     "sections": [
       {
@@ -20,7 +43,51 @@
             "en": "I stayed home **because** it was raining.",
             "vi": "Tôi ở nhà vì trời mưa."
           }
-        ]
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I was hungry", "role": "subject", "tooltip": "Mệnh đề 1 (nguyên nhân)" },
+              { "text": "so", "role": "connector", "tooltip": "Liên từ chỉ kết quả" },
+              { "text": "I ate a sandwich.", "role": "complement", "tooltip": "Mệnh đề 2 (kết quả)" }
+            ],
+            "vi": "Tôi đói nên tôi ăn sandwich."
+          },
+          {
+            "parts": [
+              { "text": "I stayed home", "role": "subject", "tooltip": "Mệnh đề chính (kết quả)" },
+              { "text": "because", "role": "connector", "tooltip": "Liên từ chỉ nguyên nhân" },
+              { "text": "it was raining.", "role": "complement", "tooltip": "Mệnh đề phụ (nguyên nhân)" }
+            ],
+            "vi": "Tôi ở nhà vì trời mưa."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "I stayed home so it was raining.",
+            "correct": "I stayed home because it was raining.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3],
+            "explanation": "'So' chỉ kết quả, 'because' chỉ nguyên nhân. Ở nhà là kết quả, trời mưa là nguyên nhân → dùng 'because'."
+          },
+          {
+            "wrong": "I like cats because dogs.",
+            "correct": "I like cats and dogs.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3],
+            "explanation": "'Because' nối hai mệnh đề (có chủ-vị). Để nối hai danh từ, dùng 'and'."
+          }
+        ],
+        "visualType": "formula",
+        "visualData": {
+          "title": "Cấu trúc liên từ",
+          "parts": [
+            { "label": "Clause 1", "color": "blue" },
+            { "label": "Conjunction", "color": "green" },
+            { "label": "Clause 2", "color": "orange" }
+          ],
+          "example": "I was tired, so I went to bed."
+        }
       }
     ]
   },
