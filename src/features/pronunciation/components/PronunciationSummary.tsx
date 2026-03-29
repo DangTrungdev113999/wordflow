@@ -45,7 +45,7 @@ export function PronunciationSummary({
       </div>
 
       {/* Stats grid */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-4 text-center">
           <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">{passedCount}/{total}</p>
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Passed</p>

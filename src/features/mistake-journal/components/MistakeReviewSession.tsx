@@ -134,7 +134,7 @@ export function MistakeReviewSession({ onComplete }: Props) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="mt-4 grid grid-cols-4 gap-2"
+              className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2"
             >
               {RATING_BUTTONS.map(({ result, label, sublabel, color }) => (
                 <button

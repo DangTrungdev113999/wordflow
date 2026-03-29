@@ -7,6 +7,7 @@ import { MistakeList } from '../components/MistakeList';
 import { MistakeStatsView } from '../components/MistakeStats';
 import { PatternAnalysis } from '../components/PatternAnalysis';
 import { Button } from '../../../components/ui/Button';
+import { ConfirmDialog } from '../../../components/ui/ConfirmDialog';
 
 type Tab = 'review' | 'browse' | 'stats';
 
@@ -19,6 +20,7 @@ const TABS: { id: Tab; label: string; icon: typeof RotateCcw }[] = [
 export function MistakeJournalPage() {
   const [activeTab, setActiveTab] = useState<Tab>('review');
   const [showPatterns, setShowPatterns] = useState(false);
+  const [showClearConfirm, setShowClearConfirm] = useState(false);
   const { getDueForReview, clearResolved, mistakes } = useMistakeStore();
   const dueCount = getDueForReview().length;
 
@@ -101,7 +103,7 @@ export function MistakeJournalPage() {
                 <Button
                   variant="secondary"
                   className="gap-1.5 text-xs text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20"
-                  onClick={clearResolved}
+                  onClick={() => setShowClearConfirm(true)}
                 >
                   <Trash2 size={14} />
                   Clear Mastered
@@ -123,6 +125,15 @@ export function MistakeJournalPage() {
           </>
         )}
       </motion.div>
+
+      <ConfirmDialog
+        open={showClearConfirm}
+        onClose={() => setShowClearConfirm(false)}
+        onConfirm={clearResolved}
+        title="Clear mastered mistakes?"
+        description="All fully mastered mistakes will be permanently removed. Mistakes still in progress will be kept."
+        confirmLabel="Clear All"
+      />
     </div>
   );
 }

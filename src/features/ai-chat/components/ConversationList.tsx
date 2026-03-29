@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router';
 import { Plus, MessageSquare, Trash2 } from 'lucide-react';
+import { ConfirmDialog } from '../../../components/ui/ConfirmDialog';
 import type { ChatConversation } from '../../../db/models';
 import { cn } from '../../../lib/utils';
 
@@ -25,6 +27,7 @@ function formatDate(ts: number): string {
 
 export function ConversationList({ conversations, onNew, onDelete }: ConversationListProps) {
   const { conversationId } = useParams();
+  const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
 
   return (
     <div className="space-y-2">
@@ -84,9 +87,7 @@ export function ConversationList({ conversations, onNew, onDelete }: Conversatio
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  if (window.confirm('Xóa cuộc trò chuyện này?')) {
-                    onDelete(c.id);
-                  }
+                  setDeleteTarget(c.id);
                 }}
                 className="p-2 mr-1 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 text-gray-400 hover:text-red-500 transition-all"
               >
@@ -96,6 +97,17 @@ export function ConversationList({ conversations, onNew, onDelete }: Conversatio
           ))}
         </div>
       )}
+      <ConfirmDialog
+        open={deleteTarget != null}
+        onClose={() => setDeleteTarget(null)}
+        onConfirm={() => {
+          if (deleteTarget) onDelete(deleteTarget);
+          setDeleteTarget(null);
+        }}
+        title="Delete conversation?"
+        description="This conversation and all its messages will be permanently deleted."
+        confirmLabel="Delete"
+      />
     </div>
   );
 }

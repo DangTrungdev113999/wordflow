@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Plus, ChevronRight, Trash2, FolderOpen } from 'lucide-react';
 import { Button } from '../../../components/ui/Button';
+import { ConfirmDialog } from '../../../components/ui/ConfirmDialog';
 import { CreateTopicModal } from '../components/CreateTopicModal';
 import { getTopics, deleteTopic, getWords, createTopic } from '../../../services/customTopicService';
 import type { CustomTopic } from '../../../db/models';
@@ -15,6 +16,7 @@ export function CustomTopicsPage() {
   const [topics, setTopics] = useState<TopicWithCount[]>([]);
   const [showCreate, setShowCreate] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [deleteTarget, setDeleteTarget] = useState<number | null>(null);
 
   async function loadTopics() {
     const all = await getTopics();
@@ -35,10 +37,16 @@ export function CustomTopicsPage() {
     loadTopics();
   }
 
-  async function handleDelete(e: React.MouseEvent, topicId: number) {
+  function handleDeleteClick(e: React.MouseEvent, topicId: number) {
     e.preventDefault();
     e.stopPropagation();
-    await deleteTopic(topicId);
+    setDeleteTarget(topicId);
+  }
+
+  async function handleDeleteConfirm() {
+    if (deleteTarget == null) return;
+    await deleteTopic(deleteTarget);
+    setDeleteTarget(null);
     loadTopics();
   }
 
@@ -95,8 +103,8 @@ export function CustomTopicsPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <button
-                    onClick={(e) => handleDelete(e, topic.id!)}
-                    className="p-2 rounded-lg text-gray-300 dark:text-gray-600 hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors opacity-0 group-hover:opacity-100"
+                    onClick={(e) => handleDeleteClick(e, topic.id!)}
+                    className="p-2 rounded-lg text-gray-300 dark:text-gray-600 hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors opacity-100 sm:opacity-0 sm:group-hover:opacity-100"
                   >
                     <Trash2 size={16} />
                   </button>
@@ -109,6 +117,14 @@ export function CustomTopicsPage() {
       )}
 
       <CreateTopicModal open={showCreate} onClose={() => setShowCreate(false)} onCreate={handleCreate} />
+      <ConfirmDialog
+        open={deleteTarget != null}
+        onClose={() => setDeleteTarget(null)}
+        onConfirm={handleDeleteConfirm}
+        title="Delete topic?"
+        description="This will permanently delete this topic and all its words. This action cannot be undone."
+        confirmLabel="Delete"
+      />
     </div>
   );
 }

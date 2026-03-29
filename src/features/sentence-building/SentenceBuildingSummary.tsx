@@ -39,7 +39,7 @@ export function SentenceBuildingSummary({
       </div>
 
       {/* Stats grid */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-2xl p-4 text-center">
           <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
             {correctCount}/{totalCount}

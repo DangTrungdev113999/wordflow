@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Trash2 } from 'lucide-react';
 import type { Mistake } from '../../../models/Mistake';
 import { Badge } from '../../../components/ui/Badge';
+import { ConfirmDialog } from '../../../components/ui/ConfirmDialog';
 
 const TYPE_COLORS: Record<string, string> = {
   vocabulary: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400',
@@ -30,6 +32,7 @@ interface Props {
 }
 
 export function MistakeCard({ mistake, onDelete }: Props) {
+  const [showConfirm, setShowConfirm] = useState(false);
   const isDue = mistake.nextReview <= new Date().toISOString().split('T')[0];
 
   return (
@@ -52,8 +55,8 @@ export function MistakeCard({ mistake, onDelete }: Props) {
         </div>
         {onDelete && (
           <button
-            onClick={() => onDelete(mistake.id)}
-            className="opacity-0 group-hover:opacity-100 p-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 text-gray-400 hover:text-red-500 transition-all"
+            onClick={() => setShowConfirm(true)}
+            className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 p-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 text-gray-400 hover:text-red-500 transition-all"
           >
             <Trash2 size={14} />
           </button>
@@ -82,6 +85,16 @@ export function MistakeCard({ mistake, onDelete }: Props) {
         <span>Interval: {mistake.interval}d</span>
         <span>Next: {mistake.nextReview}</span>
       </div>
+      {onDelete && (
+        <ConfirmDialog
+          open={showConfirm}
+          onClose={() => setShowConfirm(false)}
+          onConfirm={() => onDelete(mistake.id)}
+          title="Delete mistake?"
+          description="This mistake will be permanently removed from your journal."
+          confirmLabel="Delete"
+        />
+      )}
     </motion.div>
   );
 }

@@ -149,19 +149,25 @@ export function PronunciationCard({
         ) : (
           <motion.button
             whileTap={{ scale: 0.95 }}
+            animate={isListening ? { scale: [1, 1.08, 1] } : {}}
+            transition={isListening ? { duration: 1.6, repeat: Infinity, ease: 'easeInOut' } : {}}
             onClick={onRecord}
             disabled={isListening}
             className={cn(
               'w-20 h-20 rounded-full flex items-center justify-center transition-all shadow-lg',
               isListening
-                ? 'bg-red-500 text-white shadow-red-200 dark:shadow-red-900 animate-pulse'
+                ? 'bg-red-500 text-white shadow-red-200 dark:shadow-red-900'
                 : 'bg-indigo-500 text-white shadow-indigo-200 dark:shadow-indigo-900 hover:bg-indigo-600 active:bg-indigo-700',
             )}
           >
             {isListening ? (
               <div className="relative">
                 <Mic size={28} />
-                <span className="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full animate-ping" />
+                <motion.span
+                  className="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full"
+                  animate={{ opacity: [1, 0.4, 1] }}
+                  transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+                />
               </div>
             ) : lastResult && !isWordDone ? (
               <RotateCcw size={28} />

@@ -52,7 +52,7 @@ export function SessionSummary({
         </p>
       </div>
 
-      <div className="grid grid-cols-3 gap-3 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full">
         <div className="bg-green-50 dark:bg-green-900/20 rounded-2xl p-4">
           <p className="text-2xl font-bold text-green-600">
             {correct}/{total}

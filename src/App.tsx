@@ -1,4 +1,5 @@
-import { Outlet, useLocation, useNavigate } from 'react-router';
+import { useLocation, useNavigate, useOutlet } from 'react-router';
+import { AnimatePresence } from 'framer-motion';
 import { useTheme } from './hooks/useTheme';
 import { useDaily } from './hooks/useDaily';
 import { useAchievements } from './hooks/useAchievements';
@@ -17,6 +18,7 @@ export default function App() {
   const { recordActivity } = useDaily();
   const location = useLocation();
   const navigate = useNavigate();
+  const outlet = useOutlet();
 
   useEffect(() => {
     async function init() {
@@ -51,7 +53,11 @@ export default function App() {
       <div className={!isFullscreen ? 'lg:ml-64' : ''}>
         {!isFullscreen && <Header />}
         <main className={!isFullscreen ? 'pb-20 lg:pb-6' : 'pb-0'}>
-          <Outlet />
+          <AnimatePresence mode="wait">
+            <div key={location.pathname}>
+              {outlet}
+            </div>
+          </AnimatePresence>
         </main>
         {!isFullscreen && <BottomNav />}
       </div>

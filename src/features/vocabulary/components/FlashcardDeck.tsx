@@ -60,7 +60,7 @@ export function FlashcardDeck({ word, isFlipped, onFlip, onRate, cardIndex, tota
       />
 
       {/* Rating buttons — only visible when flipped */}
-      <div className={cn('grid grid-cols-4 gap-2 w-full transition-all duration-300', isFlipped ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none')}>
+      <div className={cn('grid grid-cols-2 sm:grid-cols-4 gap-2 w-full transition-all duration-300', isFlipped ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none')}>
         {([
           { rating: 0 as const, label: 'Again', color: 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-800' },
           { rating: 2 as const, label: 'Hard', color: 'bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 border border-orange-200 dark:border-orange-800' },

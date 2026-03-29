@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Trash2 } from 'lucide-react';
+import { ConfirmDialog } from '../../../components/ui/ConfirmDialog';
 import { METRIC_LABELS, METRIC_UNITS } from '../../../models/StudyPlan';
 import type { GoalProgress } from '../../../hooks/useStudyProgress';
 
@@ -17,6 +19,7 @@ interface GoalCardProps {
 }
 
 export function GoalCard({ data, onRemove }: GoalCardProps) {
+  const [showConfirm, setShowConfirm] = useState(false);
   const { goal, current, percentage, isComplete } = data;
   const colors = METRIC_COLORS[goal.metric] ?? METRIC_COLORS.words;
   const radius = 40;
@@ -32,8 +35,8 @@ export function GoalCard({ data, onRemove }: GoalCardProps) {
       }`}
     >
       <button
-        onClick={() => onRemove(goal.id)}
-        className="absolute top-3 right-3 p-1.5 rounded-lg text-gray-300 dark:text-gray-700 opacity-0 group-hover:opacity-100 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all"
+        onClick={() => setShowConfirm(true)}
+        className="absolute top-3 right-3 p-1.5 rounded-lg text-gray-300 dark:text-gray-700 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all"
         title="Remove goal"
       >
         <Trash2 size={14} />
@@ -97,6 +100,14 @@ export function GoalCard({ data, onRemove }: GoalCardProps) {
           )}
         </div>
       </div>
+      <ConfirmDialog
+        open={showConfirm}
+        onClose={() => setShowConfirm(false)}
+        onConfirm={() => onRemove(goal.id)}
+        title="Remove goal?"
+        description="This goal and its progress tracking will be removed."
+        confirmLabel="Remove"
+      />
     </motion.div>
   );
 }
