@@ -21,6 +21,10 @@ function getExerciseQuestion(ex: GrammarExercise): string {
       return ex.sentence;
     case 'sentence_order':
       return `Order: ${ex.words.join(', ')}`;
+    case 'role_identify':
+      return ex.sentence;
+    case 'transform':
+      return `${ex.instruction}: ${ex.original}`;
   }
 }
 
@@ -34,6 +38,10 @@ function getExerciseCorrectAnswer(ex: GrammarExercise): string {
       return ex.correctSentence;
     case 'sentence_order':
       return ex.answer;
+    case 'role_identify':
+      return ex.targetIndices.map((i) => `${ex.parts[i].text}=${ex.parts[i].role}`).join(', ');
+    case 'transform':
+      return ex.acceptedAnswers[0];
   }
 }
 

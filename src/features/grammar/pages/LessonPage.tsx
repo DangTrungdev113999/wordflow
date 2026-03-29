@@ -7,7 +7,7 @@ import { useEffect, useCallback, type ReactNode } from 'react';
 import { Badge } from '../../../components/ui/Badge';
 import { Button } from '../../../components/ui/Button';
 import { PageTransition } from '../../../components/common/PageTransition';
-import { ColoredSentence } from '../components/ColoredSentence';
+import { SentenceExplorer } from '../components/SentenceExplorer';
 import { ConjugationGrid } from '../components/ConjugationGrid';
 import { BeforeAfterCard } from '../components/BeforeAfterCard';
 import { StepByStep } from '../components/StepByStep';
@@ -125,13 +125,11 @@ export function LessonPage() {
                   </div>
                 )}
 
-                {/* Colored examples */}
+                {/* Colored examples — interactive SentenceExplorer */}
                 {section.coloredExamples && section.coloredExamples.length > 0 && (
-                  <div className="space-y-3 pt-2">
-                    <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Phân tích câu</div>
-                    {section.coloredExamples.map((ce, j) => (
-                      <ColoredSentence key={j} parts={ce.parts} vi={ce.vi} size="sm" />
-                    ))}
+                  <div className="pt-2">
+                    <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Phân tích câu</div>
+                    <SentenceExplorer examples={section.coloredExamples} />
                   </div>
                 )}
 

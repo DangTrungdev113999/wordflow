@@ -3,20 +3,24 @@ import { MultipleChoice } from './MultipleChoice';
 import { FillBlank } from './FillBlank';
 import { ErrorCorrection } from './ErrorCorrection';
 import { SentenceOrder } from './SentenceOrder';
+import { RoleIdentify } from './RoleIdentify';
+import { TransformExercise } from './TransformExercise';
 
 interface Props {
   exercise: GrammarExercise;
   onAnswer: (correct: boolean, userAnswer: string) => void;
 }
 
-export function QuizRenderer({ exercise, onAnswer }: Props) {
-  const typeLabel: Record<string, string> = {
-    multiple_choice: 'Multiple Choice',
-    fill_blank: 'Fill in the Blank',
-    error_correction: 'Error Correction',
-    sentence_order: 'Sentence Order',
-  };
+const typeLabel: Record<string, string> = {
+  multiple_choice: 'Multiple Choice',
+  fill_blank: 'Fill in the Blank',
+  error_correction: 'Error Correction',
+  sentence_order: 'Sentence Order',
+  role_identify: 'Role Identify',
+  transform: 'Transform',
+};
 
+export function QuizRenderer({ exercise, onAnswer }: Props) {
   return (
     <div className="space-y-3">
       <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400">
@@ -33,6 +37,12 @@ export function QuizRenderer({ exercise, onAnswer }: Props) {
       )}
       {exercise.type === 'sentence_order' && (
         <SentenceOrder exercise={exercise} onAnswer={onAnswer} />
+      )}
+      {exercise.type === 'role_identify' && (
+        <RoleIdentify exercise={exercise} onAnswer={onAnswer} />
+      )}
+      {exercise.type === 'transform' && (
+        <TransformExercise exercise={exercise} onAnswer={onAnswer} />
       )}
     </div>
   );

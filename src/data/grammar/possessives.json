@@ -8,12 +8,26 @@
         "heading": "Tính từ sở hữu",
         "content": "**my, your, his, her, its, our, their**\nĐặt trước danh từ",
         "examples": [
+          { "en": "This is **my** book.", "vi": "Đây là sách của tôi." },
+          { "en": "**Their** house is big.", "vi": "Nhà của họ rất lớn." }
+        ],
+        "coloredExamples": [
           {
-            "en": "This is **my** book.",
+            "parts": [
+              { "text": "This", "role": "subject", "tooltip": "Chủ ngữ — đại từ chỉ định" },
+              { "text": "is", "role": "verb", "tooltip": "Động từ tobe" },
+              { "text": "my", "role": "determiner", "tooltip": "Tính từ sở hữu — của tôi" },
+              { "text": "book", "role": "object", "tooltip": "Tân ngữ — vật được sở hữu" }
+            ],
             "vi": "Đây là sách của tôi."
           },
           {
-            "en": "**Their** house is big.",
+            "parts": [
+              { "text": "Their", "role": "determiner", "tooltip": "Tính từ sở hữu — của họ" },
+              { "text": "house", "role": "subject", "tooltip": "Chủ ngữ — vật được sở hữu" },
+              { "text": "is", "role": "verb", "tooltip": "Động từ tobe" },
+              { "text": "big", "role": "complement", "tooltip": "Bổ ngữ — tính từ mô tả" }
+            ],
             "vi": "Nhà của họ rất lớn."
           }
         ]
@@ -22,108 +36,84 @@
         "heading": "Sở hữu cách ('s)",
         "content": "Thêm **'s** sau danh từ để chỉ sở hữu\nDanh từ số nhiều tận cùng -s: chỉ thêm **'**",
         "examples": [
+          { "en": "**John's** car is new.", "vi": "Xe của John mới." },
+          { "en": "The **students'** books are on the desk.", "vi": "Sách của các học sinh ở trên bàn." }
+        ],
+        "coloredExamples": [
           {
-            "en": "**John's** car is new.",
+            "parts": [
+              { "text": "John's", "role": "determiner", "tooltip": "Sở hữu cách — của John" },
+              { "text": "car", "role": "subject", "tooltip": "Chủ ngữ — vật được sở hữu" },
+              { "text": "is", "role": "verb", "tooltip": "Động từ tobe" },
+              { "text": "new", "role": "complement", "tooltip": "Bổ ngữ — tính từ" }
+            ],
             "vi": "Xe của John mới."
-          },
-          {
-            "en": "The **students'** books are on the desk.",
-            "vi": "Sách của các học sinh ở trên bàn."
           }
         ]
       }
     ]
   },
   "exercises": [
+    { "type": "multiple_choice", "question": "This is ___ bag.", "options": ["me", "my", "I", "mine"], "answer": 1 },
+    { "type": "multiple_choice", "question": "___ name is Sarah.", "options": ["She", "Her", "Hers", "She's"], "answer": 1 },
+    { "type": "fill_blank", "question": "The dog lost ___ bone.", "acceptedAnswers": ["its"] },
+    { "type": "fill_blank", "question": "That is ___ (Tom) house.", "acceptedAnswers": ["Tom's"] },
+    { "type": "error_correction", "sentence": "This is mine book.", "correctSentence": "This is my book.", "errorIndex": [2] },
+    { "type": "sentence_order", "words": ["is", "car", "his", "new"], "answer": "His car is new." },
+    { "type": "multiple_choice", "question": "The children played with ___ toys.", "options": ["they", "their", "them", "theirs"], "answer": 1 },
+    { "type": "fill_blank", "question": "Is this ___ (you) phone?", "acceptedAnswers": ["your"] },
+    { "type": "error_correction", "sentence": "Her go to school every day.", "correctSentence": "She goes to school every day.", "errorIndex": [0] },
+    { "type": "sentence_order", "words": ["our", "is", "beautiful", "garden"], "answer": "Our garden is beautiful." },
     {
-      "type": "multiple_choice",
-      "question": "This is ___ bag.",
-      "options": [
-        "me",
-        "my",
-        "I",
-        "mine"
+      "type": "role_identify",
+      "sentence": "This is my book.",
+      "parts": [
+        { "text": "This", "role": "subject", "tooltip": "Chủ ngữ — đại từ chỉ định" },
+        { "text": "is", "role": "verb", "tooltip": "Động từ tobe" },
+        { "text": "my", "role": "determiner", "tooltip": "Tính từ sở hữu — của tôi" },
+        { "text": "book", "role": "object", "tooltip": "Tân ngữ — vật được sở hữu" }
       ],
-      "answer": 1
+      "targetIndices": [2, 3]
     },
     {
-      "type": "multiple_choice",
-      "question": "___ name is Sarah.",
-      "options": [
-        "She",
-        "Her",
-        "Hers",
-        "She's"
+      "type": "role_identify",
+      "sentence": "John's car is new.",
+      "parts": [
+        { "text": "John's", "role": "determiner", "tooltip": "Sở hữu cách — của John" },
+        { "text": "car", "role": "subject", "tooltip": "Chủ ngữ" },
+        { "text": "is", "role": "verb", "tooltip": "Động từ tobe" },
+        { "text": "new", "role": "complement", "tooltip": "Bổ ngữ — tính từ mô tả" }
       ],
-      "answer": 1
+      "targetIndices": [0, 1, 3]
     },
     {
-      "type": "fill_blank",
-      "question": "The dog lost ___ bone.",
-      "acceptedAnswers": [
-        "its"
-      ]
+      "type": "transform",
+      "instruction": "Sửa đại từ sở hữu sai thành tính từ sở hữu",
+      "original": "This is mine book.",
+      "acceptedAnswers": ["This is my book."],
+      "hint": "'mine' là đại từ sở hữu, trước danh từ dùng 'my'"
     },
     {
-      "type": "fill_blank",
-      "question": "That is ___ (Tom) house.",
-      "acceptedAnswers": [
-        "Tom's"
-      ]
-    },
-    {
-      "type": "error_correction",
-      "sentence": "This is mine book.",
-      "correctSentence": "This is my book.",
-      "errorIndex": [
-        2
-      ]
-    },
-    {
-      "type": "sentence_order",
-      "words": [
-        "is",
-        "car",
-        "his",
-        "new"
-      ],
-      "answer": "His car is new."
-    },
-    {
-      "type": "multiple_choice",
-      "question": "The children played with ___ toys.",
-      "options": [
-        "they",
-        "their",
-        "them",
-        "theirs"
-      ],
-      "answer": 1
-    },
-    {
-      "type": "fill_blank",
-      "question": "Is this ___ (you) phone?",
-      "acceptedAnswers": [
-        "your"
-      ]
-    },
-    {
-      "type": "error_correction",
-      "sentence": "Her go to school every day.",
-      "correctSentence": "She goes to school every day.",
-      "errorIndex": [
-        0
-      ]
-    },
-    {
-      "type": "sentence_order",
-      "words": [
-        "our",
-        "is",
-        "beautiful",
-        "garden"
-      ],
-      "answer": "Our garden is beautiful."
+      "type": "transform",
+      "instruction": "Chuyển sang dùng sở hữu cách ('s)",
+      "original": "The car of Tom is red.",
+      "acceptedAnswers": ["Tom's car is red."],
+      "hint": "Dùng 's thay vì 'of' cho người"
     }
-  ]
+  ],
+  "cheatSheet": {
+    "title": "Possessives",
+    "formula": "possessive adjective + noun / noun + 's + noun",
+    "keyPoints": [
+      "Tính từ sở hữu: my, your, his, her, its, our, their + danh từ",
+      "Sở hữu cách: thêm 's sau danh từ chỉ người (John's car)",
+      "Số nhiều tận cùng -s: chỉ thêm ' (the students' books)"
+    ],
+    "signalWords": ["my", "your", "his", "her", "its", "our", "their", "'s"],
+    "commonMistakes": [
+      "This is mine book → This is my book",
+      "Her go to school → She goes to school",
+      "The car of Tom → Tom's car"
+    ]
+  }
 }

@@ -8,12 +8,26 @@
         "heading": "Danh từ đếm được",
         "content": "Có thể đếm: a book, two cats, three apples\nDùng **a/an** với số ít, **some/many/few** với số nhiều",
         "examples": [
+          { "en": "I have **three** books.", "vi": "Tôi có ba quyển sách." },
+          { "en": "There are **many** students.", "vi": "Có nhiều học sinh." }
+        ],
+        "coloredExamples": [
           {
-            "en": "I have **three** books.",
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": "have", "role": "verb", "tooltip": "Động từ — sở hữu" },
+              { "text": "three", "role": "determiner", "tooltip": "Lượng từ — số đếm được" },
+              { "text": "books", "role": "object", "tooltip": "Tân ngữ — danh từ đếm được số nhiều" }
+            ],
             "vi": "Tôi có ba quyển sách."
           },
           {
-            "en": "There are **many** students.",
+            "parts": [
+              { "text": "There", "role": "subject", "tooltip": "Chủ ngữ giả" },
+              { "text": "are", "role": "verb", "tooltip": "Động từ tobe số nhiều" },
+              { "text": "many", "role": "determiner", "tooltip": "Lượng từ — nhiều (đếm được)" },
+              { "text": "students", "role": "object", "tooltip": "Tân ngữ — danh từ đếm được" }
+            ],
             "vi": "Có nhiều học sinh."
           }
         ]
@@ -22,12 +36,26 @@
         "heading": "Danh từ không đếm được",
         "content": "Không thể đếm: water, rice, money, information\nDùng **some/much/little**, KHÔNG dùng a/an",
         "examples": [
+          { "en": "I need **some** water.", "vi": "Tôi cần chút nước." },
+          { "en": "There is **much** traffic today.", "vi": "Hôm nay có nhiều xe cộ." }
+        ],
+        "coloredExamples": [
           {
-            "en": "I need **some** water.",
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": "need", "role": "verb", "tooltip": "Động từ — cần" },
+              { "text": "some", "role": "determiner", "tooltip": "Lượng từ — một ít (không đếm được)" },
+              { "text": "water", "role": "object", "tooltip": "Tân ngữ — danh từ không đếm được" }
+            ],
             "vi": "Tôi cần chút nước."
           },
           {
-            "en": "There is **much** traffic today.",
+            "parts": [
+              { "text": "There", "role": "subject", "tooltip": "Chủ ngữ giả" },
+              { "text": "is", "role": "verb", "tooltip": "Động từ tobe số ít (không đếm được = số ít)" },
+              { "text": "much", "role": "determiner", "tooltip": "Lượng từ — nhiều (không đếm được)" },
+              { "text": "traffic", "role": "object", "tooltip": "Tân ngữ — danh từ không đếm được" }
+            ],
             "vi": "Hôm nay có nhiều xe cộ."
           }
         ]
@@ -35,99 +63,68 @@
     ]
   },
   "exercises": [
+    { "type": "multiple_choice", "question": "Can I have ___ water?", "options": ["a", "an", "some", "many"], "answer": 2 },
+    { "type": "multiple_choice", "question": "There are ___ apples on the table.", "options": ["much", "a", "some", "a lot"], "answer": 2 },
+    { "type": "fill_blank", "question": "I don't have ___ money.", "acceptedAnswers": ["much", "any"] },
+    { "type": "fill_blank", "question": "How ___ eggs do we need?", "acceptedAnswers": ["many"] },
+    { "type": "error_correction", "sentence": "I need a information.", "correctSentence": "I need some information.", "errorIndex": [2] },
+    { "type": "sentence_order", "words": ["much", "how", "rice", "is", "there", "?"], "answer": "How much rice is there?" },
+    { "type": "multiple_choice", "question": "She has ___ friends at school.", "options": ["much", "a", "many", "a lot"], "answer": 2 },
+    { "type": "fill_blank", "question": "There is very ___ milk left.", "acceptedAnswers": ["little"] },
+    { "type": "error_correction", "sentence": "He has much books.", "correctSentence": "He has many books.", "errorIndex": [2] },
+    { "type": "sentence_order", "words": ["any", "there", "sugar", "is", "?"], "answer": "Is there any sugar?" },
     {
-      "type": "multiple_choice",
-      "question": "Can I have ___ water?",
-      "options": [
-        "a",
-        "an",
-        "some",
-        "many"
+      "type": "role_identify",
+      "sentence": "I need some water.",
+      "parts": [
+        { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+        { "text": "need", "role": "verb", "tooltip": "Động từ" },
+        { "text": "some", "role": "determiner", "tooltip": "Lượng từ — dùng cho danh từ không đếm được" },
+        { "text": "water", "role": "object", "tooltip": "Tân ngữ — danh từ không đếm được" }
       ],
-      "answer": 2
+      "targetIndices": [2, 3]
     },
     {
-      "type": "multiple_choice",
-      "question": "There are ___ apples on the table.",
-      "options": [
-        "much",
-        "a",
-        "some",
-        "a lot"
+      "type": "role_identify",
+      "sentence": "There are many students in the class.",
+      "parts": [
+        { "text": "There", "role": "subject", "tooltip": "Chủ ngữ giả" },
+        { "text": "are", "role": "verb", "tooltip": "Động từ tobe số nhiều" },
+        { "text": "many", "role": "determiner", "tooltip": "Lượng từ — nhiều (đếm được)" },
+        { "text": "students", "role": "object", "tooltip": "Tân ngữ — danh từ đếm được" },
+        { "text": "in", "role": "complement", "tooltip": "Giới từ nơi chốn" },
+        { "text": "the class", "role": "object", "tooltip": "Tân ngữ — nơi chốn" }
       ],
-      "answer": 2
+      "targetIndices": [1, 2, 3]
     },
     {
-      "type": "fill_blank",
-      "question": "I don't have ___ money.",
-      "acceptedAnswers": [
-        "much",
-        "any"
-      ]
+      "type": "transform",
+      "instruction": "Sửa lượng từ cho đúng (uncountable noun)",
+      "original": "I need a information about the course.",
+      "acceptedAnswers": ["I need some information about the course."],
+      "hint": "'information' là danh từ không đếm được, không dùng 'a'"
     },
     {
-      "type": "fill_blank",
-      "question": "How ___ eggs do we need?",
-      "acceptedAnswers": [
-        "many"
-      ]
-    },
-    {
-      "type": "error_correction",
-      "sentence": "I need a information.",
-      "correctSentence": "I need some information.",
-      "errorIndex": [
-        2
-      ]
-    },
-    {
-      "type": "sentence_order",
-      "words": [
-        "much",
-        "how",
-        "rice",
-        "is",
-        "there",
-        "?"
-      ],
-      "answer": "How much rice is there?"
-    },
-    {
-      "type": "multiple_choice",
-      "question": "She has ___ friends at school.",
-      "options": [
-        "much",
-        "a",
-        "many",
-        "a lot"
-      ],
-      "answer": 2
-    },
-    {
-      "type": "fill_blank",
-      "question": "There is very ___ milk left.",
-      "acceptedAnswers": [
-        "little"
-      ]
-    },
-    {
-      "type": "error_correction",
-      "sentence": "He has much books.",
-      "correctSentence": "He has many books.",
-      "errorIndex": [
-        2
-      ]
-    },
-    {
-      "type": "sentence_order",
-      "words": [
-        "any",
-        "there",
-        "sugar",
-        "is",
-        "?"
-      ],
-      "answer": "Is there any sugar?"
+      "type": "transform",
+      "instruction": "Thay 'much' bằng lượng từ đúng cho danh từ đếm được",
+      "original": "He has much books at home.",
+      "acceptedAnswers": ["He has many books at home."],
+      "hint": "'books' là danh từ đếm được — dùng 'many' thay 'much'"
     }
-  ]
+  ],
+  "cheatSheet": {
+    "title": "Countable & Uncountable Nouns",
+    "formula": "Countable: a/an + singular, some/many/few + plural\nUncountable: some/much/little + noun (no a/an)",
+    "keyPoints": [
+      "Đếm được: dùng a/an (số ít), many/few/some (số nhiều), How many...?",
+      "Không đếm được: dùng some/much/little, How much...?",
+      "Không dùng a/an với danh từ không đếm được"
+    ],
+    "signalWords": ["many", "much", "few", "little", "some", "any", "a/an", "How many", "How much"],
+    "commonMistakes": [
+      "I need a information → I need some information",
+      "He has much books → He has many books",
+      "How much eggs? → How many eggs?"
+    ]
+  }
 }
