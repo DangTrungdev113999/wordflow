@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getWordImage, TOPIC_EMOJI_MAP } from '../../../services/wordImageService';
+import { getWordImage } from '../../../services/wordImageService';
 import type { WordImageData } from '../../../db/models';
 import { cn } from '../../../lib/utils';
 
@@ -23,6 +23,7 @@ export function WordImage({ word, meaning, topicId, size, className }: WordImage
   const [loading, setLoading] = useState(true);
   const [imgLoaded, setImgLoaded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const cancelledRef = useRef(false);
   const [isVisible, setIsVisible] = useState(false);
 
   // Lazy — only fetch when element enters viewport
@@ -46,21 +47,31 @@ export function WordImage({ word, meaning, topicId, size, className }: WordImage
 
   useEffect(() => {
     if (!isVisible) return;
-    let cancelled = false;
+    cancelledRef.current = false;
     setLoading(true);
     setImgLoaded(false);
 
-    getWordImage(word, meaning, topicId).then((data) => {
-      if (!cancelled) {
-        setImageData(data);
-        setLoading(false);
-      }
-    });
+    getWordImage(word, meaning, topicId)
+      .then((data) => {
+        if (!cancelledRef.current) {
+          setImageData(data);
+          setLoading(false);
+        }
+      })
+      .catch(() => {
+        if (!cancelledRef.current) {
+          setImageData({ url: '', source: 'emoji', alt: '📝' });
+          setLoading(false);
+        }
+      });
 
-    return () => { cancelled = true; };
+    return () => { cancelledRef.current = true; };
   }, [word, meaning, topicId, isVisible]);
 
-  const handleImgLoad = useCallback(() => setImgLoaded(true), []);
+  // Guard onLoad against firing after unmount
+  const handleImgLoad = useCallback(() => {
+    if (!cancelledRef.current) setImgLoaded(true);
+  }, []);
 
   const { px, emoji: emojiSize, rounded } = SIZE_CONFIG[size];
   const imgUrl =
@@ -69,8 +80,6 @@ export function WordImage({ word, meaning, topicId, size, className }: WordImage
         ? imageData.thumbUrl || imageData.url
         : imageData.url
       : null;
-
-  const topicEmoji = TOPIC_EMOJI_MAP[topicId ?? ''] || '📝';
 
   return (
     <div
@@ -124,7 +133,7 @@ export function WordImage({ word, meaning, topicId, size, className }: WordImage
           )}
         >
           <span className={cn(emojiSize, 'select-none leading-none')} role="img" aria-label={word}>
-            {topicEmoji}
+            {imageData?.alt || '📝'}
           </span>
         </div>
       )}

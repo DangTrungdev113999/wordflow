@@ -66,7 +66,7 @@ async function doEnrichWord(
   // 1. Check cache
   try {
     const cached = await db.enrichedWords.get(word);
-    if (cached && Date.now() - cached.updatedAt < CACHE_TTL) {
+    if (cached && cached.updatedAt > 0 && Date.now() - cached.updatedAt < CACHE_TTL) {
       return cached.data;
     }
   } catch {
@@ -174,7 +174,7 @@ export async function batchEnrichWords(
 export async function getCachedEnrichment(word: string): Promise<EnrichedWordData | null> {
   try {
     const cached = await db.enrichedWords.get(word.toLowerCase().trim());
-    if (cached && Date.now() - cached.updatedAt < CACHE_TTL) {
+    if (cached && cached.updatedAt > 0 && Date.now() - cached.updatedAt < CACHE_TTL) {
       return cached.data;
     }
     return null;

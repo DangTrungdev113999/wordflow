@@ -193,7 +193,7 @@ export interface EnrichedWordData {
 // Phase 10 — Word Image System (Dual Coding)
 export interface WordImageData {
   url: string;
-  source: 'unsplash' | 'placeholder' | 'emoji';
+  source: 'unsplash' | 'emoji';
   alt: string;
   thumbUrl?: string;
   fullUrl?: string;

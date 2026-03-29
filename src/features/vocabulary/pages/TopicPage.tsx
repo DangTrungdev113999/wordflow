@@ -28,6 +28,7 @@ export function TopicPage() {
   const progress = useTopicProgress(topic ?? '', wordKeys);
 
   // Prefetch images for this topic's words in background
+  // prefetchTopicImages auto-cancels previous prefetch when called again
   useEffect(() => {
     if (!topicData || !topic) return;
     const words = topicData.words.map((w) => ({ word: w.word, meaning: w.meaning }));
