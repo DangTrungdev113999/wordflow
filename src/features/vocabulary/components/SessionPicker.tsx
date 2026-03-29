@@ -93,9 +93,10 @@ export function SessionPicker({ topicId, wordCount: totalWords, isOpen, onClose,
       return;
     }
 
-    if (selectedMode === 'quiz') {
+    if (selectedMode === 'quiz' || selectedMode === 'spelling') {
       const timedParam = timedEnabled ? '&timed=1' : '';
-      navigate(`/vocabulary/${topicId}/quiz?count=${selectedCount}&filter=${selectedFilter}${timedParam}`);
+      const modeParam = selectedMode !== 'quiz' ? `&mode=${selectedMode}` : '';
+      navigate(`/vocabulary/${topicId}/quiz?count=${selectedCount}&filter=${selectedFilter}${modeParam}${timedParam}`);
       return;
     }
 

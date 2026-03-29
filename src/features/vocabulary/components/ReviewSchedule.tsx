@@ -24,7 +24,7 @@ export function ReviewSchedule() {
 
   if (loading) return null;
 
-  const totalDue = dueToday + overdueCount;
+  const totalDue = dueToday;
   const hasWork = dueThisWeek > 0 || overdueCount > 0;
 
   if (!hasWork) return null;

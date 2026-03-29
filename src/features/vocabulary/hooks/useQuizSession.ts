@@ -53,8 +53,9 @@ export function useQuizSession(topicId: string) {
   const [searchParams] = useSearchParams();
   const countParam = parseInt(searchParams.get('count') ?? '10', 10);
   const filterParam = (searchParams.get('filter') ?? 'all') as VocabSessionConfig['wordsFilter'];
+  const modeParam = searchParams.get('mode') ?? 'quiz';
   const isTimed = searchParams.get('timed') === '1';
-  const timerDuration = TIMED_DURATION.quiz ?? 10;
+  const timerDuration = TIMED_DURATION[modeParam] ?? 10;
 
   const config: VocabSessionConfig = {
     topicId,
