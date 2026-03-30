@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router';
-import { LayoutDashboard, BookOpen, Headphones, BookOpenText, PenTool, Sparkles, BarChart2, Trophy, Settings, Puzzle, Newspaper, RotateCcw, CalendarDays } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Headphones, BookOpenText, PenTool, Sparkles, BarChart2, Trophy, Settings, Puzzle, Newspaper, RotateCcw, CalendarDays, Languages } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { useProgressStore } from '../../stores/progressStore';
 import { useMistakeStore } from '../../stores/mistakeStore';
@@ -7,6 +7,7 @@ import { useMistakeStore } from '../../stores/mistakeStore';
 const navItems = [
   { to: '/', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/vocabulary', label: 'Vocabulary', icon: BookOpen },
+  { to: '/word-usage', label: 'Word Usage', icon: Languages },
   { to: '/listening', label: 'Listening', icon: Headphones },
   { to: '/reading', label: 'Reading', icon: BookOpenText },
   { to: '/grammar', label: 'Grammar', icon: PenTool },
