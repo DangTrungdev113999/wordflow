@@ -5,3 +5,4 @@ firebase-debug.log
 test-results/
 *.png
 .playwright-mcp/*.log
+docs/reviews/phase14-1-review.md

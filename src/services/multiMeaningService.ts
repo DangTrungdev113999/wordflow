@@ -106,7 +106,7 @@ async function fetchDictionaryMeanings(word: string): Promise<MultiMeaningWord |
         senses.push({
           id: `${word}-${pos}-${senseIndex}`,
           partOfSpeech: pos,
-          meaning: def.definition,
+          meaning: '',
           meaningEn: def.definition,
           examples,
           frequency: senseIndex <= 2 ? 1 : senseIndex <= 4 ? 2 : 3,
@@ -119,14 +119,53 @@ async function fetchDictionaryMeanings(word: string): Promise<MultiMeaningWord |
 
     if (senses.length < 2) return null;
 
-    return {
+    const result: MultiMeaningWord = {
       word,
       ipa,
       totalSenses: senses.length,
       senses,
     };
+
+    await enrichVietnameseMeanings(result);
+
+    return result;
   } catch {
     return null;
+  }
+}
+
+async function enrichVietnameseMeanings(data: MultiMeaningWord): Promise<void> {
+  if (!aiService.hasAnyProvider()) return;
+
+  const sensesNeedingTranslation = data.senses.filter(s => !s.meaning);
+  if (sensesNeedingTranslation.length === 0) return;
+
+  try {
+    const definitions = sensesNeedingTranslation.map((s, i) =>
+      `${i + 1}. (${s.partOfSpeech}) ${s.meaningEn}`
+    ).join('\n');
+
+    const response = await aiService.chat(
+      [
+        { role: 'system', content: 'You translate English word definitions to Vietnamese. Respond ONLY with valid JSON, no markdown or extra text.' },
+        {
+          role: 'user',
+          content: `Translate these English definitions of "${data.word}" to concise Vietnamese meanings (2-5 words each).\n\n${definitions}\n\nRespond as JSON array of strings, e.g. ["nghĩa 1", "nghĩa 2"]`,
+        },
+      ],
+      { feature: 'multi-meaning', maxTokens: 256, temperature: 0.2 },
+    );
+
+    const parsed: string[] = JSON.parse(response.text);
+    if (Array.isArray(parsed)) {
+      sensesNeedingTranslation.forEach((sense, i) => {
+        if (parsed[i] && typeof parsed[i] === 'string') {
+          sense.meaning = parsed[i];
+        }
+      });
+    }
+  } catch {
+    // AI enrichment is best-effort; senses remain with meaning: ''
   }
 }
 
