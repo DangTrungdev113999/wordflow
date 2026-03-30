@@ -1,4 +1,0 @@
-[      89ms] [WARNING] No routes matched location "/vocabulary/daily-life/flashcard"  @ http://localhost:5173/node_modules/.vite/deps/react-router.js?v=140ef8fb:645
-[      90ms] [WARNING] No routes matched location "/vocabulary/daily-life/flashcard"  @ http://localhost:5173/node_modules/.vite/deps/react-router.js?v=140ef8fb:645
-[      90ms] [ERROR] Error handled by React Router default ErrorBoundary: ErrorResponseImpl @ http://localhost:5173/node_modules/.vite/deps/react-router.js?v=140ef8fb:6315
-[      90ms] [ERROR] Error handled by React Router default ErrorBoundary: ErrorResponseImpl @ http://localhost:5173/node_modules/.vite/deps/react-router.js?v=140ef8fb:6315
