@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { useSearchParams } from 'react-router';
 import { motion } from 'framer-motion';
 import { RotateCcw, List, BarChart3, Brain, Trash2 } from 'lucide-react';
 import { useMistakeStore } from '../../../stores/mistakeStore';
@@ -18,7 +19,11 @@ const TABS: { id: Tab; label: string; icon: typeof RotateCcw }[] = [
 ];
 
 export function MistakeJournalPage() {
-  const [activeTab, setActiveTab] = useState<Tab>('review');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeTab = (searchParams.get('tab') as Tab) || 'review';
+  const setActiveTab = (tab: Tab) => {
+    setSearchParams(prev => { prev.set('tab', tab); return prev; }, { replace: true });
+  };
   const [showPatterns, setShowPatterns] = useState(false);
   const [showClearConfirm, setShowClearConfirm] = useState(false);
   const { getDueForReview, clearResolved, mistakes } = useMistakeStore();

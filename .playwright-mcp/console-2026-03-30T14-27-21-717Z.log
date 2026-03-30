@@ -1,0 +1,8 @@
+[    5067ms] [WARNING] The width(0) and height(0) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:5173/wordflow/node_modules/.vite/deps/recharts.js?v=140ef8fb:6196
+[    5068ms] [WARNING] The width(0) and height(0) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width. @ http://localhost:5173/wordflow/node_modules/.vite/deps/recharts.js?v=140ef8fb:6196

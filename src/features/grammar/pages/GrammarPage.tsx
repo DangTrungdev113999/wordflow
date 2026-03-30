@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { BookOpen, Compass } from 'lucide-react';
+import { useSearchParams } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useGrammarStore } from '../../../stores/grammarStore';
 import { LessonCard } from '../components/LessonCard';
@@ -47,8 +47,16 @@ const cardVariants = {
 
 export function GrammarPage() {
   const { lessons, lessonProgress } = useGrammarStore();
-  const [activeTab, setActiveTab] = useState<Tab>('lessons');
-  const [levelFilter, setLevelFilter] = useState<LevelFilter>('all');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeTab = (searchParams.get('tab') as Tab) || 'lessons';
+  const levelFilter = (searchParams.get('level') as LevelFilter) || 'all';
+
+  const setActiveTab = (tab: Tab) => {
+    setSearchParams(prev => { prev.set('tab', tab); prev.delete('level'); return prev; }, { replace: true });
+  };
+  const setLevelFilter = (level: LevelFilter) => {
+    setSearchParams(prev => { prev.set('level', level); return prev; }, { replace: true });
+  };
 
   const levels: CEFRLevel[] = ['A1', 'A2', 'B1', 'B2'];
   const visibleLevels = levelFilter === 'all' ? levels : [levelFilter];
