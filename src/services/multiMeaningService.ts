@@ -1,6 +1,7 @@
 import { db } from '../db/database';
 import { MULTI_MEANING_SEEDS } from '../data/multiMeaningSeeds';
 import { DICTIONARY_API_BASE } from '../lib/constants';
+import { aiService } from './ai/aiService';
 import type { MultiMeaningWord, WordSense, SenseExample } from '../features/word-usage/models';
 
 const CACHE_TTL = 30 * 24 * 60 * 60 * 1000; // 30 days

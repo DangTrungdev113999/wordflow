@@ -4,6 +4,9 @@ export type Theme = 'light' | 'dark' | 'system';
 export type FlashcardRating = 0 | 2 | 4 | 5;
 export type DictationMode = 'word' | 'phrase' | 'sentence' | 'quiz';
 
+/** Alias: DictationMode + future modes from Phase 14 */
+export type ListeningMode = DictationMode;
+
 export interface SessionResult {
   wordId: string;
   correct: boolean;

@@ -55,7 +55,6 @@ export function PairQuizInline({ quiz, word1, word2 }: PairQuizInlineProps) {
 
   // Collect all unique choice words across the quiz
   const choices = [word1, word2];
-  // Also include the correct answer and other common forms
   if (!choices.includes(item.correct)) {
     choices.push(item.correct);
   }
