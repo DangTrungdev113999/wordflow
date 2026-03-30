@@ -35,6 +35,7 @@ const LearnMediaPage = lazy(() => import('../features/learn-media/LearnMediaPage
 const MistakeJournalPage = lazy(() => import('../features/mistake-journal/pages/MistakeJournalPage').then(m => ({ default: m.MistakeJournalPage })));
 const StudyPlannerPage = lazy(() => import('../features/study-planner/pages/StudyPlannerPage').then(m => ({ default: m.StudyPlannerPage })));
 const MixedReviewPage = lazy(() => import('../features/vocabulary/pages/MixedReviewPage').then(m => ({ default: m.MixedReviewPage })));
+const ReferencePage = lazy(() => import('../features/grammar/pages/ReferencePage').then(m => ({ default: m.ReferencePage })));
 
 function PageLoader() {
   return (
@@ -70,6 +71,7 @@ export const router = createBrowserRouter([
       { path: 'vocabulary/custom/:topicId/learn', element: withSuspense(CustomFlashcardPage) },
       { path: 'vocabulary/word/:word', element: withSuspense(WordDetailPage) },
       { path: 'grammar', element: withSuspense(GrammarPage) },
+      { path: 'grammar/reference', element: withSuspense(ReferencePage) },
       { path: 'grammar/bookmarks', element: withSuspense(BookmarkedSheetsPage) },
       { path: 'grammar/:lessonId', element: withSuspense(LessonPage) },
       { path: 'grammar/:lessonId/quiz', element: withSuspense(QuizPage) },
