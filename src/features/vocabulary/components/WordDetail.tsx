@@ -16,6 +16,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../../db/database';
 import { Skeleton } from '../../../components/ui/Skeleton';
 import { Card } from '../../../components/ui/Card';
+import { MultiMeaningCard } from '../../word-usage/components/MultiMeaningCard';
 import { useContextProgress } from '../hooks/useContextProgress';
 import { cn } from '../../../lib/utils';
 import { CONTEXT_ICONS, CONTEXT_LABELS } from '../constants/context';
@@ -330,6 +331,9 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
                 </div>
               </Card>
             )}
+
+            {/* Multi-meaning senses (shows when word has ≥2 senses) */}
+            <MultiMeaningCard word={word.word} compact />
           </motion.div>
         )}
       </AnimatePresence>

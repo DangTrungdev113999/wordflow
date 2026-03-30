@@ -46,6 +46,11 @@ const ArticlesPage = lazy(() => import('../features/grammar/pages/ArticlesPage')
 const CommonMistakesPage = lazy(() => import('../features/grammar/pages/CommonMistakesPage').then(m => ({ default: m.CommonMistakesPage })));
 const FalseFriendsPage = lazy(() => import('../features/grammar/pages/FalseFriendsPage').then(m => ({ default: m.FalseFriendsPage })));
 const GrammarPatternsPage = lazy(() => import('../features/grammar/pages/GrammarPatternsPage').then(m => ({ default: m.GrammarPatternsPage })));
+const WordUsageHubPage = lazy(() => import('../features/word-usage/pages/WordUsageHubPage').then(m => ({ default: m.WordUsageHubPage })));
+const MultiMeaningListPage = lazy(() => import('../features/word-usage/pages/MultiMeaningListPage').then(m => ({ default: m.MultiMeaningListPage })));
+const MultiMeaningDetailPage = lazy(() => import('../features/word-usage/pages/MultiMeaningDetailPage').then(m => ({ default: m.MultiMeaningDetailPage })));
+const ConfusingPairsPage = lazy(() => import('../features/word-usage/pages/ConfusingPairsPage').then(m => ({ default: m.ConfusingPairsPage })));
+const ConfusingPairDetailPage = lazy(() => import('../features/word-usage/pages/ConfusingPairDetailPage').then(m => ({ default: m.ConfusingPairDetailPage })));
 
 function PageLoader() {
   return (
@@ -118,6 +123,11 @@ export const router = createBrowserRouter([
       { path: 'learn-media/:sessionId', element: withSuspense(LearnMediaPage) },
       { path: 'mistake-journal', element: withSuspense(MistakeJournalPage) },
       { path: 'study-planner', element: withSuspense(StudyPlannerPage) },
+      { path: 'word-usage', element: withSuspense(WordUsageHubPage) },
+      { path: 'word-usage/multi-meaning', element: withSuspense(MultiMeaningListPage) },
+      { path: 'word-usage/multi-meaning/:word', element: withSuspense(MultiMeaningDetailPage) },
+      { path: 'word-usage/confusing-pairs', element: withSuspense(ConfusingPairsPage) },
+      { path: 'word-usage/confusing-pairs/:id', element: withSuspense(ConfusingPairDetailPage) },
       { path: 'settings', element: withSuspense(SettingsPage) },
       { path: 'onboarding', element: withSuspense(OnboardingPage) },
     ],

@@ -1,5 +1,6 @@
 import Dexie, { type Table } from 'dexie';
 import type { Word, WordProgress, GrammarLesson, DailyLog, UserProfile, DictionaryCache, DailyChallengeLog, DailyChallengeTask, CustomTopic, CustomWord, ChatConversation, ChatMessage, WritingSubmission, RoleplaySession, MediaSession, EnrichedWord, ContextProgressEntry, GrammarBookmark } from './models';
+import type { MultiMeaningWordCache, ConfusingPairCache, PhrasalVerbCache, CollocationCache, GrammarPatternCache } from '../features/word-usage/models';
 
 export class WordFlowDatabase extends Dexie {
   words!: Table<Word, string>;
@@ -19,6 +20,11 @@ export class WordFlowDatabase extends Dexie {
   enrichedWords!: Table<EnrichedWord, string>;
   contextProgress!: Table<ContextProgressEntry, string>;
   grammarBookmarks!: Table<GrammarBookmark, string>;
+  multiMeaningWords!: Table<MultiMeaningWordCache, string>;
+  confusingPairsCache!: Table<ConfusingPairCache, number>;
+  phrasalVerbs!: Table<PhrasalVerbCache, number>;
+  collocations!: Table<CollocationCache, number>;
+  grammarPatterns!: Table<GrammarPatternCache, number>;
 
   constructor() {
     super('WordFlowDB');
@@ -130,6 +136,15 @@ export class WordFlowDatabase extends Dexie {
     // Version 9 — Phase 11: Grammar Bookmarks
     this.version(9).stores({
       grammarBookmarks: '&lessonId, createdAt',
+    });
+
+    // Version 10 — Phase 13: Word Usage & Context Guide
+    this.version(10).stores({
+      multiMeaningWords: 'word, updatedAt',
+      confusingPairsCache: '++id, word1, word2, category',
+      phrasalVerbs: '++id, baseVerb, particle, updatedAt',
+      collocations: '++id, word, category, updatedAt',
+      grammarPatterns: '++id, pattern, category',
     });
   }
 }
