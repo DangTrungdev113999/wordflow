@@ -27,9 +27,9 @@ const SORT_CYCLE: string[] = ['alpha', 'baseVerb', 'level', 'frequency'];
 const SEARCH_FIELDS: (keyof PhrasalVerb)[] = ['verb', 'meaning', 'baseVerb'];
 
 const FREQUENCY_DOTS: Record<number, string> = {
-  1: 'text-emerald-500',
-  2: 'text-amber-500',
-  3: 'text-gray-400 dark:text-gray-500',
+  1: 'bg-emerald-500',
+  2: 'bg-amber-500',
+  3: 'bg-gray-400 dark:bg-gray-500',
 };
 
 const filterFn = (item: PhrasalVerb, filters: Record<string, string>) => {
@@ -119,7 +119,7 @@ export function PhrasalVerbLookup() {
           <ArrowUpDown size={13} />
           {SORT_LABELS[sortBy || 'alpha']}
         </button>
-        <span className="text-xs text-gray-400 dark:text-gray-500 ml-auto">
+        <span className="text-xs bg-gray-400 dark:bg-gray-500 ml-auto">
           {resultCount} / {PHRASAL_VERBS.length} phrasal verbs
         </span>
       </div>
@@ -187,7 +187,7 @@ export function PhrasalVerbLookup() {
       <div className="space-y-1">
         {results.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-sm text-gray-400 dark:text-gray-500">Không tìm thấy phrasal verb nào</p>
+            <p className="text-sm bg-gray-400 dark:bg-gray-500">Không tìm thấy phrasal verb nào</p>
           </div>
         ) : (
           results.map(verb => (
@@ -261,7 +261,7 @@ function VerbRow({ verb, expanded, onToggle }: {
                 <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border ${verb.separable ? 'bg-emerald-50 dark:bg-emerald-900/25 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800' : 'bg-blue-50 dark:bg-blue-900/25 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800'}`}>
                   {verb.separable ? '✂️ Separable' : '🔗 Inseparable'}
                 </span>
-                <span className="text-xs text-gray-400 dark:text-gray-500">
+                <span className="text-xs bg-gray-400 dark:bg-gray-500">
                   {verb.separable
                     ? `Có thể tách: ${verb.baseVerb} + object + ${verb.particle}`
                     : `Không tách được: luôn dùng ${verb.verb} liền nhau`}
@@ -280,7 +280,7 @@ function VerbRow({ verb, expanded, onToggle }: {
                 {verb.examples.map((ex, idx) => (
                   <div key={idx} className="space-y-0.5">
                     <p className="text-sm text-gray-900 dark:text-white leading-relaxed">{ex.en}</p>
-                    <p className="text-xs text-gray-400 dark:text-gray-500 italic">{ex.vi}</p>
+                    <p className="text-xs bg-gray-400 dark:bg-gray-500 italic">{ex.vi}</p>
                   </div>
                 ))}
               </div>
