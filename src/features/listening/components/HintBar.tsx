@@ -11,30 +11,34 @@ interface HintBarProps {
   disabled?: boolean;
 }
 
-const HINT_COLORS: Record<HintType, { bg: string; border: string; text: string; activeBg: string }> = {
+const HINT_COLORS: Record<HintType, { bg: string; border: string; text: string; activeBg: string; hoverBg: string }> = {
   'first-letter': {
     bg: 'bg-violet-50 dark:bg-violet-950/40',
     border: 'border-violet-200 dark:border-violet-800/60',
     text: 'text-violet-700 dark:text-violet-300',
     activeBg: 'bg-violet-100 dark:bg-violet-900/50',
+    hoverBg: 'hover:bg-violet-100 dark:hover:bg-violet-900/50',
   },
   'ipa': {
     bg: 'bg-sky-50 dark:bg-sky-950/40',
     border: 'border-sky-200 dark:border-sky-800/60',
     text: 'text-sky-700 dark:text-sky-300',
     activeBg: 'bg-sky-100 dark:bg-sky-900/50',
+    hoverBg: 'hover:bg-sky-100 dark:hover:bg-sky-900/50',
   },
   'meaning': {
     bg: 'bg-amber-50 dark:bg-amber-950/40',
     border: 'border-amber-200 dark:border-amber-800/60',
     text: 'text-amber-700 dark:text-amber-300',
     activeBg: 'bg-amber-100 dark:bg-amber-900/50',
+    hoverBg: 'hover:bg-amber-100 dark:hover:bg-amber-900/50',
   },
   'slow-replay': {
     bg: 'bg-emerald-50 dark:bg-emerald-950/40',
     border: 'border-emerald-200 dark:border-emerald-800/60',
     text: 'text-emerald-700 dark:text-emerald-300',
     activeBg: 'bg-emerald-100 dark:bg-emerald-900/50',
+    hoverBg: 'hover:bg-emerald-100 dark:hover:bg-emerald-900/50',
   },
 };
 
@@ -58,21 +62,23 @@ export function HintBar({ hints, usedHints, onUseHint, revealedValues, disabled 
       <div className="flex flex-wrap gap-2">
         {availableHints.map(hint => {
           const isUsed = usedHints.includes(hint.type);
+          const isReplayable = hint.type === 'slow-replay';
+          const isClickable = isReplayable ? !disabled : !isUsed && !disabled;
           const colors = HINT_COLORS[hint.type];
 
           return (
             <motion.button
               key={hint.type}
-              whileTap={!isUsed && !disabled ? { scale: 0.96 } : undefined}
-              onClick={() => !isUsed && !disabled && onUseHint(hint.type)}
-              disabled={isUsed || disabled}
+              whileTap={isClickable ? { scale: 0.96 } : undefined}
+              onClick={() => isClickable && onUseHint(hint.type)}
+              disabled={!isClickable}
               className={cn(
                 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-sm font-medium transition-all',
-                isUsed
+                isUsed && !isReplayable
                   ? `${colors.activeBg} ${colors.border} ${colors.text} opacity-70`
-                  : disabled
+                  : !isClickable
                     ? 'bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-600 cursor-not-allowed'
-                    : `${colors.bg} ${colors.border} ${colors.text} hover:${colors.activeBg} cursor-pointer`,
+                    : `${colors.bg} ${colors.border} ${colors.text} ${colors.hoverBg} cursor-pointer`,
               )}
             >
               <span className="text-base leading-none">{hint.icon}</span>

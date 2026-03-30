@@ -23,6 +23,10 @@ export function useHints({ availableHints, currentWord, onSlowReplay }: UseHints
   }, [availableHints]);
 
   const useHint = useCallback((type: HintType): string | undefined => {
+    if (type === 'slow-replay' && usedHintsForCurrent.includes(type)) {
+      onSlowReplay?.();
+      return undefined; // no additional XP penalty
+    }
     if (usedHintsForCurrent.includes(type)) return revealedValues[type];
     if (!currentWord) return undefined;
 
