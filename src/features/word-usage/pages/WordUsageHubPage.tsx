@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Card } from '../../../components/ui/Card';
 import { MULTI_MEANING_SEEDS } from '../../../data/multiMeaningSeeds';
 import { CONFUSING_PAIRS } from '../../../data/confusingPairs';
+import { PHRASAL_VERBS } from '../../../data/phrasalVerbs';
+import { COLLOCATIONS } from '../../../data/collocations';
 import { cn } from '../../../lib/utils';
 
 interface FeatureCard {
@@ -45,10 +47,10 @@ const features: FeatureCard[] = [
     icon: '🔗',
     title: 'Phrasal Verbs',
     description: 'Cụm động từ thông dụng nhóm theo động từ gốc',
-    count: 0,
+    count: PHRASAL_VERBS.length,
     countLabel: 'cụm',
     path: '/word-usage/phrasal-verbs',
-    enabled: false,
+    enabled: true,
     gradient: 'from-violet-500 to-purple-600',
   },
   {
@@ -56,10 +58,10 @@ const features: FeatureCard[] = [
     icon: '🤝',
     title: 'Collocations',
     description: 'Các kết hợp từ tự nhiên trong tiếng Anh',
-    count: 0,
+    count: COLLOCATIONS.length,
     countLabel: 'cụm',
     path: '/word-usage/collocations',
-    enabled: false,
+    enabled: true,
     gradient: 'from-amber-500 to-orange-600',
   },
   {
