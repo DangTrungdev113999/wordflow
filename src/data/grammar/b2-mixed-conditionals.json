@@ -1,0 +1,387 @@
+{
+  "id": "b2-mixed-conditionals",
+  "title": "Mixed Conditionals",
+  "level": "B2",
+  "prerequisites": ["b1-conditionals-2", "b2-conditionals-3"],
+  "relatedReference": ["tense-comparison"],
+  "cheatSheet": {
+    "title": "Mixed Conditionals",
+    "formula": "If + S + had + V3, S + would + V / If + S + V2, S + would have + V3",
+    "keyPoints": [
+      "Mixed Conditional = trộn thời gian giữa mệnh đề if và mệnh đề chính",
+      "Loại 1 (Past → Present): If + had + V3, S + would + V — điều kiện quá khứ, kết quả hiện tại",
+      "Loại 2 (Present → Past): If + S + V2, S + would have + V3 — điều kiện hiện tại, kết quả quá khứ",
+      "Loại 1 thường gặp hơn Loại 2 trong thực tế",
+      "Dùng khi thời gian của nguyên nhân và kết quả KHÁC NHAU",
+      "So sánh: Third Conditional = cả 2 mệnh đề đều quá khứ | Mixed = khác thời gian"
+    ],
+    "signalWords": ["if", "had", "would", "would have", "now", "today"],
+    "commonMistakes": [
+      "'If I had studied medicine, I would have been a doctor now.' → 'If I had studied medicine, I would be a doctor now.' (kết quả hiện tại dùng 'would + V', không dùng 'would have + V3')",
+      "'If I would be taller, I would have joined the team.' → 'If I were taller, I would have joined the team.' (mệnh đề if KHÔNG dùng 'would')",
+      "Nhầm Mixed với Third: 'If I had saved money, I would have been rich now.' → '...I would be rich now.' (kết quả ở hiện tại → would + V)",
+      "Không nhận ra khi nào cần Mixed: nếu nguyên nhân và kết quả ở KHÁC thời gian → dùng Mixed"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Past → Present (Quá khứ → Hiện tại)",
+        "content": "**Công thức:** If + S + had + V3, S + would + V (bare infinitive)\n\n**Ý nghĩa:** Điều kiện xảy ra (hoặc không xảy ra) trong QUÁ KHỨ → Kết quả ảnh hưởng đến HIỆN TẠI.\n\nĐây là loại Mixed Conditional phổ biến nhất. Mệnh đề if dùng Past Perfect (giống Third Conditional), nhưng mệnh đề chính dùng 'would + V' (giống Second Conditional) vì kết quả vẫn còn ảnh hưởng đến bây giờ.\n\n**So sánh với Third Conditional:**\n- Third: If I had studied medicine, I **would have become** a doctor. (đã trở thành — cả nguyên nhân và kết quả đều ở quá khứ)\n- Mixed: If I had studied medicine, I **would be** a doctor **now**. (bây giờ sẽ là — nguyên nhân quá khứ, kết quả hiện tại)\n\n**Có thể thay would bằng:**\n- **could** + V: If I had learned to swim, I could join the team now.\n- **might** + V: If she had taken that job, she might live abroad now.",
+        "examples": [
+          {
+            "en": "If I **had studied** medicine, I **would be** a doctor **now**.",
+            "vi": "Nếu tôi đã học y, bây giờ tôi sẽ là bác sĩ. (quá khứ: không học y → hiện tại: không phải bác sĩ)"
+          },
+          {
+            "en": "If she **hadn't moved** to London, she **wouldn't live** here **today**.",
+            "vi": "Nếu cô ấy không chuyển đến London, hôm nay cô ấy sẽ không sống ở đây."
+          },
+          {
+            "en": "If he **had eaten** breakfast, he **wouldn't be** hungry **now**.",
+            "vi": "Nếu anh ấy đã ăn sáng, bây giờ anh ấy sẽ không đói."
+          },
+          {
+            "en": "If they **had saved** money, they **could buy** a house **today**.",
+            "vi": "Nếu họ đã tiết kiệm tiền, hôm nay họ có thể mua nhà."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": " " },
+              { "text": "had studied", "role": "verb", "tooltip": "Past Perfect — điều kiện quá khứ (thực tế: KHÔNG học)" },
+              { "text": " " },
+              { "text": "medicine,", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "would be", "role": "verb", "tooltip": "would + V — kết quả HIỆN TẠI (không phải 'would have been')" },
+              { "text": " " },
+              { "text": "a doctor", "role": "complement", "tooltip": "Bổ ngữ" },
+              { "text": " " },
+              { "text": "now", "role": "time", "tooltip": "Bây giờ — chỉ thời gian hiện tại" },
+              { "text": "." }
+            ],
+            "vi": "Nếu tôi đã học y, bây giờ tôi sẽ là bác sĩ."
+          },
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": " " },
+              { "text": "he", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": " " },
+              { "text": "had eaten", "role": "verb", "tooltip": "Past Perfect — hành động quá khứ không xảy ra" },
+              { "text": " " },
+              { "text": "breakfast,", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "he", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "wouldn't be", "role": "verb", "tooltip": "would not + V — kết quả hiện tại" },
+              { "text": " " },
+              { "text": "hungry", "role": "complement", "tooltip": "Bổ ngữ tính từ — trạng thái hiện tại" },
+              { "text": " " },
+              { "text": "now", "role": "time", "tooltip": "Signal word — hiện tại" },
+              { "text": "." }
+            ],
+            "vi": "Nếu anh ấy đã ăn sáng, bây giờ anh ấy sẽ không đói."
+          },
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": " " },
+              { "text": "they", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": " " },
+              { "text": "had saved", "role": "verb", "tooltip": "Past Perfect — quá khứ không có thật" },
+              { "text": " " },
+              { "text": "money,", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "they", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "could buy", "role": "verb", "tooltip": "could + V — khả năng hiện tại" },
+              { "text": " " },
+              { "text": "a house", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "today", "role": "time", "tooltip": "Signal word — hiện tại" },
+              { "text": "." }
+            ],
+            "vi": "Nếu họ đã tiết kiệm tiền, hôm nay họ có thể mua nhà."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "If I had studied medicine, I would have been a doctor now.",
+            "correct": "If I had studied medicine, I would be a doctor now.",
+            "wrongHighlight": [7, 8, 9],
+            "correctHighlight": [7, 8],
+            "explanation": "Kết quả ở HIỆN TẠI ('now') → dùng 'would + V' (would be), KHÔNG dùng 'would have + V3' (would have been). 'would have been' chỉ dùng khi kết quả cũng ở quá khứ (Third Conditional)."
+          },
+          {
+            "wrong": "If I would have studied medicine, I would be a doctor now.",
+            "correct": "If I had studied medicine, I would be a doctor now.",
+            "wrongHighlight": [2, 3],
+            "correctHighlight": [2],
+            "explanation": "Mệnh đề if KHÔNG dùng 'would have'. Dùng Past Perfect (had + V3): 'had studied'."
+          }
+        ]
+      },
+      {
+        "heading": "Present → Past (Hiện tại → Quá khứ)",
+        "content": "**Công thức:** If + S + V2 (past simple), S + would have + V3\n\n**Ý nghĩa:** Điều kiện là tình trạng thường trực ở HIỆN TẠI → Kết quả đã xảy ra (hoặc không xảy ra) trong QUÁ KHỨ.\n\nLoại Mixed Conditional này ít gặp hơn nhưng rất hữu ích. Mệnh đề if dùng Past Simple (giống Second Conditional — nói về hiện tại), mệnh đề chính dùng 'would have + V3' (giống Third Conditional — nói về quá khứ).\n\n**So sánh:**\n- Second: If I **were** taller, I **would play** basketball. (hiện tại → hiện tại)\n- Mixed: If I **were** taller, I **would have played** basketball in high school. (hiện tại → quá khứ)\n\n**Lưu ý:** Điều kiện trong mệnh đề if là đặc điểm, tính cách, tình trạng THƯỜNG TRỰC — không phải hành động trong quá khứ.\n- If I **spoke** French (tình trạng hiện tại — tôi KHÔNG nói được tiếng Pháp)\n- If she **weren't** so shy (tính cách — cô ấy nhút nhát)\n- If he **were** more careful (đặc điểm — anh ấy hay bất cẩn)",
+        "examples": [
+          {
+            "en": "If I **spoke** French, I **would have applied** for that job in Paris.",
+            "vi": "Nếu tôi nói được tiếng Pháp, tôi đã ứng tuyển công việc ở Paris rồi. (hiện tại: không nói được → quá khứ: không ứng tuyển)"
+          },
+          {
+            "en": "If she **weren't** so shy, she **would have talked** to him at the party.",
+            "vi": "Nếu cô ấy không nhút nhát, cô ấy đã nói chuyện với anh ấy ở bữa tiệc rồi."
+          },
+          {
+            "en": "If he **were** more careful, he **wouldn't have made** that mistake.",
+            "vi": "Nếu anh ấy cẩn thận hơn, anh ấy đã không mắc lỗi đó."
+          },
+          {
+            "en": "If I **didn't like** spicy food, I **wouldn't have ordered** this dish.",
+            "vi": "Nếu tôi không thích đồ cay, tôi đã không gọi món này."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": " " },
+              { "text": "spoke", "role": "verb", "tooltip": "Past Simple — tình trạng HIỆN TẠI không có thật (thực tế: KHÔNG nói được)" },
+              { "text": " " },
+              { "text": "French,", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "would have applied", "role": "verb", "tooltip": "would have + V3 — kết quả QUÁ KHỨ" },
+              { "text": " " },
+              { "text": "for that job in Paris", "role": "complement", "tooltip": "Bổ ngữ — sự kiện đã qua" },
+              { "text": "." }
+            ],
+            "vi": "Nếu tôi nói được tiếng Pháp, tôi đã ứng tuyển công việc ở Paris rồi."
+          },
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": " " },
+              { "text": "she", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": " " },
+              { "text": "weren't", "role": "verb", "tooltip": "Past Simple (subjunctive) — tính cách hiện tại (thực tế: CÔ ẤY nhút nhát)" },
+              { "text": " " },
+              { "text": "so shy,", "role": "complement", "tooltip": "Bổ ngữ tính từ — đặc điểm thường trực" },
+              { "text": " " },
+              { "text": "she", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "would have talked", "role": "verb", "tooltip": "would have + V3 — hành động quá khứ không xảy ra" },
+              { "text": " " },
+              { "text": "to him at the party", "role": "complement", "tooltip": "Bổ ngữ — sự kiện cụ thể trong quá khứ" },
+              { "text": "." }
+            ],
+            "vi": "Nếu cô ấy không nhút nhát, cô ấy đã nói chuyện với anh ấy ở bữa tiệc rồi."
+          },
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": " " },
+              { "text": "he", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": " " },
+              { "text": "were", "role": "verb", "tooltip": "Subjunctive 'were' — đặc điểm hiện tại (thực tế: anh ấy KHÔNG cẩn thận)" },
+              { "text": " " },
+              { "text": "more careful,", "role": "complement", "tooltip": "Bổ ngữ — tính cách" },
+              { "text": " " },
+              { "text": "he", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "wouldn't have made", "role": "verb", "tooltip": "would not have + V3 — kết quả quá khứ phủ định" },
+              { "text": " " },
+              { "text": "that mistake", "role": "object", "tooltip": "Tân ngữ — sự kiện cụ thể đã xảy ra" },
+              { "text": "." }
+            ],
+            "vi": "Nếu anh ấy cẩn thận hơn, anh ấy đã không mắc lỗi đó."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "If I had spoken French, I would have applied for that job.",
+            "correct": "If I spoke French, I would have applied for that job.",
+            "wrongHighlight": [2, 3],
+            "correctHighlight": [2],
+            "explanation": "Điều kiện là tình trạng HIỆN TẠI (tôi không nói được tiếng Pháp — bây giờ vẫn vậy) → dùng Past Simple (spoke), KHÔNG dùng Past Perfect (had spoken). Dùng Past Perfect chỉ khi điều kiện là sự kiện cụ thể trong quá khứ."
+          },
+          {
+            "wrong": "If he was more careful, he wouldn't have made that mistake.",
+            "correct": "If he were more careful, he wouldn't have made that mistake.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "Với động từ 'be' trong câu điều kiện, dùng 'were' (subjunctive) cho tất cả ngôi, kể cả he/she/it."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "If I had taken that job, I ___ in New York now. (Past → Present)",
+      "options": [
+        "will live",
+        "would live",
+        "would have lived",
+        "had lived"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "If she ___ French, she would have gotten that job in Paris. (Present → Past)",
+      "options": [
+        "speaks",
+        "spoke",
+        "had spoken",
+        "would speak"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "If he had saved money when he was young, he ___ retired now. (Past → Present)",
+      "options": [
+        "would be",
+        "would have been",
+        "will be",
+        "had been"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "If I ___ so afraid of heights, I would have gone skydiving last summer. (Present → Past)",
+      "options": [
+        "am not",
+        "wasn't",
+        "weren't",
+        "hadn't been"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "If I had studied harder at university, I ___ (have) a better job now. (Past → Present)",
+      "acceptedAnswers": [
+        "would have"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "If she ___ (not/be) so lazy, she would have finished the project on time. (Present → Past)",
+      "acceptedAnswers": [
+        "weren't",
+        "wasn't",
+        "were not"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "If he had listened to his parents, he ___ (not/be) in trouble now. (Past → Present)",
+      "acceptedAnswers": [
+        "wouldn't be",
+        "would not be"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "If I ___ (like) coffee, I would have accepted your offer yesterday. (Present → Past)",
+      "acceptedAnswers": [
+        "liked"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "If I had studied medicine, I would have been a doctor now.",
+      "correctSentence": "If I had studied medicine, I would be a doctor now.",
+      "errorIndex": [7, 8, 9]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "If I would be taller, I would have joined the basketball team.",
+      "correctSentence": "If I were taller, I would have joined the basketball team.",
+      "errorIndex": [2, 3]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "If she had spoken English, she would have applied for the job.",
+      "correctSentence": "If she spoke English, she would have applied for the job.",
+      "errorIndex": [2, 3]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["if", "I", "had", "learned", "to", "drive", "I", "would", "have", "a", "car", "now"],
+      "answer": "If I had learned to drive I would have a car now."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["if", "she", "weren't", "so", "shy", "she", "would", "have", "talked", "to", "him"],
+      "answer": "If she weren't so shy she would have talked to him."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng Mixed Conditional (Past → Present):",
+      "original": "I didn't learn English as a child, so I can't speak it fluently now.",
+      "acceptedAnswers": [
+        "If I had learned English as a child, I could speak it fluently now.",
+        "If I had learned English as a child, I would speak it fluently now.",
+        "If I had learnt English as a child, I could speak it fluently now.",
+        "If I had learnt English as a child, I would speak it fluently now."
+      ],
+      "hint": "If + S + had + V3, S + would/could + V + now"
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng Mixed Conditional (Present → Past):",
+      "original": "He is careless, so he made that mistake yesterday.",
+      "acceptedAnswers": [
+        "If he weren't so careless, he wouldn't have made that mistake yesterday.",
+        "If he were more careful, he wouldn't have made that mistake yesterday.",
+        "If he weren't so careless, he would not have made that mistake yesterday.",
+        "If he were not so careless, he wouldn't have made that mistake yesterday."
+      ],
+      "hint": "If + S + weren't/were + adj, S + wouldn't have + V3"
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Chọn loại Mixed Conditional đúng: 'If I had been born in Japan, I ___ Japanese now.'",
+      "options": [
+        "would have spoken",
+        "would speak",
+        "spoke",
+        "had spoken"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "If they had invested wisely, they ___ (be) millionaires today. (Past → Present)",
+      "acceptedAnswers": [
+        "would be"
+      ]
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng Mixed Conditional (Past → Present):",
+      "original": "She didn't go to university, so she doesn't have a degree now.",
+      "acceptedAnswers": [
+        "If she had gone to university, she would have a degree now.",
+        "If she had gone to university, she would have a degree today."
+      ],
+      "hint": "If + S + had + V3, S + would + V + now"
+    }
+  ]
+}

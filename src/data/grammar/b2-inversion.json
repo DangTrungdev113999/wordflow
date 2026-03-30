@@ -1,0 +1,383 @@
+{
+  "id": "b2-inversion",
+  "title": "Inversion",
+  "level": "B2",
+  "prerequisites": ["b1-conditionals-2"],
+  "relatedReference": ["grammar-patterns"],
+  "cheatSheet": {
+    "title": "Đảo ngữ (Inversion)",
+    "formula": "Negative adverb + auxiliary + S + V",
+    "keyPoints": [
+      "Đảo ngữ = đưa trợ động từ lên trước chủ ngữ để nhấn mạnh.",
+      "Thường dùng trong văn viết trang trọng, bài luận, văn chương.",
+      "Not only...but also: Not only + aux + S + V, but S also + V",
+      "Hardly/Scarcely...when: Hardly + had + S + V3, when + S + V(past)",
+      "No sooner...than: No sooner + had + S + V3, than + S + V(past)",
+      "Never/Seldom/Rarely/Little + aux + S + V",
+      "Only after/Only when/Only by + ... + aux + S + V",
+      "Đảo ngữ trong câu điều kiện formal: Were/Had/Should + S + V (bỏ 'if')"
+    ],
+    "signalWords": ["not only", "hardly", "no sooner", "never", "seldom", "rarely", "little", "only after", "only when"],
+    "commonMistakes": [
+      "'Not only he is smart but also hardworking.' → 'Not only is he smart, but he is also hardworking.' (phải đảo trợ động từ lên trước S)",
+      "'Hardly I had finished when the phone rang.' → 'Hardly had I finished when the phone rang.' (had đảo lên trước I)",
+      "'Never I have seen such a beautiful sunset.' → 'Never have I seen such a beautiful sunset.' (have đảo lên trước I)",
+      "'Seldom she goes out at night.' → 'Seldom does she go out at night.' (thêm does và đảo lên trước S)"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Inversion với Negative Adverbials",
+        "content": "Khi một **trạng từ/cụm trạng từ mang nghĩa phủ định hoặc hạn chế** đứng đầu câu, ta phải **đảo trợ động từ lên trước chủ ngữ** (như câu hỏi).\n\n**Công thức chung:** Negative adverb + auxiliary + S + V (+ ...)\n\n**Các cấu trúc phổ biến:**\n\n1. **Not only...but also** (Không chỉ...mà còn)\n   Not only + aux + S + V, but + S + also + V\n\n2. **Hardly/Scarcely...when** (Vừa mới...thì)\n   Hardly/Scarcely + had + S + V3, when + S + V(past simple)\n\n3. **No sooner...than** (Vừa mới...thì)\n   No sooner + had + S + V3, than + S + V(past simple)\n\n4. **Never / Seldom / Rarely** (Không bao giờ / Hiếm khi)\n   Never/Seldom/Rarely + aux + S + V\n\n5. **Little** (Ít ai biết / Ít ai ngờ)\n   Little + aux + S + V (= S không hề biết/ngờ rằng...)\n\n6. **Only after / Only when / Only by**\n   Only after/when/by + ..., + aux + S + V\n\n**Lưu ý:** Nếu câu gốc không có trợ động từ (dùng thì hiện tại đơn/quá khứ đơn), thêm **do/does/did** khi đảo.\n- She rarely goes → Rarely **does** she go...\n- He never complained → Never **did** he complain...",
+        "examples": [
+          {
+            "en": "**Not only does** he speak English, **but** he **also** speaks French.",
+            "vi": "Anh ấy không chỉ nói tiếng Anh mà còn nói tiếng Pháp."
+          },
+          {
+            "en": "**Hardly had** I sat down **when** the phone rang.",
+            "vi": "Tôi vừa mới ngồi xuống thì điện thoại reo."
+          },
+          {
+            "en": "**No sooner had** she left **than** it started to rain.",
+            "vi": "Cô ấy vừa mới rời đi thì trời bắt đầu mưa."
+          },
+          {
+            "en": "**Never have** I seen such a beautiful sunset.",
+            "vi": "Chưa bao giờ tôi thấy hoàng hôn đẹp đến vậy."
+          },
+          {
+            "en": "**Seldom does** she complain about anything.",
+            "vi": "Cô ấy hiếm khi phàn nàn về bất cứ điều gì."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "Not only", "role": "connector", "tooltip": "Trạng từ phủ định — bắt buộc đảo ngữ" },
+              { "text": " " },
+              { "text": "does", "role": "auxiliary", "tooltip": "Trợ động từ — đảo lên trước chủ ngữ" },
+              { "text": " " },
+              { "text": "he", "role": "subject", "tooltip": "Chủ ngữ — đứng SAU trợ động từ" },
+              { "text": " " },
+              { "text": "speak", "role": "verb", "tooltip": "Động từ chính (bare infinitive vì có does)" },
+              { "text": " " },
+              { "text": "English,", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "but he also speaks French", "role": "complement", "tooltip": "Mệnh đề 'but also' — không đảo ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Anh ấy không chỉ nói tiếng Anh mà còn nói tiếng Pháp."
+          },
+          {
+            "parts": [
+              { "text": "Hardly", "role": "connector", "tooltip": "Trạng từ phủ định — 'vừa mới'" },
+              { "text": " " },
+              { "text": "had", "role": "auxiliary", "tooltip": "Trợ động từ (past perfect) — đảo lên trước S" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "sat down", "role": "verb", "tooltip": "Quá khứ phân từ (V3) của 'sit down'" },
+              { "text": " " },
+              { "text": "when", "role": "connector", "tooltip": "Liên từ thời gian — Hardly...when" },
+              { "text": " " },
+              { "text": "the phone", "role": "subject", "tooltip": "Chủ ngữ mệnh đề 2" },
+              { "text": " " },
+              { "text": "rang", "role": "verb", "tooltip": "Past simple — mệnh đề 2 không đảo" },
+              { "text": "." }
+            ],
+            "vi": "Tôi vừa mới ngồi xuống thì điện thoại reo."
+          },
+          {
+            "parts": [
+              { "text": "Never", "role": "connector", "tooltip": "Trạng từ phủ định — 'chưa bao giờ'" },
+              { "text": " " },
+              { "text": "have", "role": "auxiliary", "tooltip": "Trợ động từ (present perfect) — đảo lên trước S" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "seen", "role": "verb", "tooltip": "Quá khứ phân từ (V3) của 'see'" },
+              { "text": " " },
+              { "text": "such a beautiful sunset", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Chưa bao giờ tôi thấy hoàng hôn đẹp đến vậy."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "Not only he is smart but also hardworking.",
+            "correct": "Not only is he smart, but he is also hardworking.",
+            "wrongHighlight": [2, 3],
+            "correctHighlight": [2, 3],
+            "explanation": "Sau 'Not only', phải đảo trợ động từ lên trước chủ ngữ: 'Not only is he...' (không phải 'Not only he is...'). Mệnh đề 'but also' giữ nguyên trật tự."
+          },
+          {
+            "wrong": "Never I have seen such a thing.",
+            "correct": "Never have I seen such a thing.",
+            "wrongHighlight": [1, 2],
+            "correctHighlight": [1, 2],
+            "explanation": "Sau 'Never', phải đảo trợ động từ 'have' lên trước chủ ngữ 'I': 'Never have I...' (không phải 'Never I have...')."
+          }
+        ]
+      },
+      {
+        "heading": "Inversion trong Conditionals (Formal)",
+        "content": "Trong văn viết trang trọng (formal English), ta có thể **bỏ 'if'** và **đảo trợ động từ lên đầu câu** trong câu điều kiện.\n\n**1. Conditional 2 — Were + S + ... (giả định hiện tại)**\n- If I were rich → **Were I rich**, I would travel the world.\n- Dùng **were** cho tất cả ngôi (kể cả he/she/it).\n- KHÔNG dùng 'was' trong đảo ngữ.\n\n**2. Conditional 3 — Had + S + V3 (giả định quá khứ)**\n- If I had known → **Had I known**, I would have helped.\n- Đảo 'had' lên đầu, bỏ 'if'.\n\n**3. Should + S + V (nếu lỡ/nhỡ)**\n- If you should need help → **Should you need** help, call me.\n- Diễn tả khả năng ít xảy ra, lịch sự hơn 'if'.\n\n**Lưu ý:**\n- Đảo ngữ trong conditionals chủ yếu dùng trong **văn viết formal** (hợp đồng, thư tín, bài luận).\n- Trong giao tiếp hàng ngày, dùng 'if' bình thường.\n- Phủ định: **Were it not for...** = If it were not for... (Nếu không có...)",
+        "examples": [
+          {
+            "en": "**Were I** you, I would accept the offer.",
+            "vi": "Nếu tôi là bạn, tôi sẽ nhận lời đề nghị. (= If I were you)"
+          },
+          {
+            "en": "**Had she studied** harder, she would have passed the exam.",
+            "vi": "Nếu cô ấy học chăm hơn, cô ấy đã đỗ kỳ thi rồi. (= If she had studied)"
+          },
+          {
+            "en": "**Should you need** any assistance, please do not hesitate to contact us.",
+            "vi": "Nếu quý khách cần hỗ trợ, xin đừng ngần ngại liên hệ chúng tôi. (= If you should need)"
+          },
+          {
+            "en": "**Had I known** about the traffic, I would have left earlier.",
+            "vi": "Nếu tôi biết về tình trạng giao thông, tôi đã rời đi sớm hơn."
+          },
+          {
+            "en": "**Were it not for** your help, I couldn't have finished on time.",
+            "vi": "Nếu không nhờ sự giúp đỡ của bạn, tôi không thể hoàn thành đúng hạn."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "Were", "role": "auxiliary", "tooltip": "Trợ động từ đảo lên đầu — thay cho 'If I were'" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ — đứng sau trợ động từ" },
+              { "text": " " },
+              { "text": "you,", "role": "complement", "tooltip": "Bổ ngữ" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "would accept", "role": "verb", "tooltip": "would + V — kết quả giả định" },
+              { "text": " " },
+              { "text": "the offer", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Nếu tôi là bạn, tôi sẽ nhận lời đề nghị."
+          },
+          {
+            "parts": [
+              { "text": "Had", "role": "auxiliary", "tooltip": "Trợ động từ đảo lên đầu — thay cho 'If she had'" },
+              { "text": " " },
+              { "text": "she", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "studied", "role": "verb", "tooltip": "Quá khứ phân từ (V3) — past perfect" },
+              { "text": " " },
+              { "text": "harder,", "role": "complement", "tooltip": "Trạng từ — mức độ" },
+              { "text": " " },
+              { "text": "she", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "would have passed", "role": "verb", "tooltip": "would have + V3 — conditional 3" },
+              { "text": " " },
+              { "text": "the exam", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Nếu cô ấy học chăm hơn, cô ấy đã đỗ kỳ thi rồi."
+          },
+          {
+            "parts": [
+              { "text": "Should", "role": "auxiliary", "tooltip": "Trợ động từ đảo lên đầu — thay cho 'If you should'" },
+              { "text": " " },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "need", "role": "verb", "tooltip": "Động từ chính (bare infinitive)" },
+              { "text": " " },
+              { "text": "any assistance,", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "please", "role": "complement", "tooltip": "Từ lịch sự" },
+              { "text": " " },
+              { "text": "do not hesitate", "role": "verb", "tooltip": "Động từ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "to contact us", "role": "complement", "tooltip": "Bổ ngữ — to-infinitive" },
+              { "text": "." }
+            ],
+            "vi": "Nếu quý khách cần hỗ trợ, xin đừng ngần ngại liên hệ chúng tôi."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "Was I you, I would study abroad.",
+            "correct": "Were I you, I would study abroad.",
+            "wrongHighlight": [0],
+            "correctHighlight": [0],
+            "explanation": "Trong đảo ngữ conditional, luôn dùng 'were' (không phải 'was') cho tất cả ngôi, kể cả I/he/she/it."
+          },
+          {
+            "wrong": "If had I known, I would have helped.",
+            "correct": "Had I known, I would have helped.",
+            "wrongHighlight": [0],
+            "correctHighlight": [0],
+            "explanation": "Khi đảo ngữ, phải bỏ 'if'. Đảo 'had' lên đầu câu thay vì giữ cả 'if' lẫn đảo ngữ."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "Never ___ such a delicious meal.",
+      "options": [
+        "I have eaten",
+        "have I eaten",
+        "I ate",
+        "did I ate"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Not only ___ English, but she also speaks Japanese.",
+      "options": [
+        "she speaks",
+        "speaks she",
+        "does she speak",
+        "she does speak"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Hardly ___ the door when the storm began.",
+      "options": [
+        "I had closed",
+        "I closed",
+        "had I closed",
+        "did I close"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ I known about the meeting, I would have attended.",
+      "options": [
+        "If",
+        "Had",
+        "Should",
+        "Were"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ you require further information, please contact our office.",
+      "options": [
+        "Were",
+        "Had",
+        "Should",
+        "Would"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "No sooner ___ (have/she/arrive) than the meeting started.",
+      "acceptedAnswers": [
+        "had she arrived"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "Rarely ___ (do/he/make) mistakes in his work.",
+      "acceptedAnswers": [
+        "does he make"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "Seldom ___ (have/we/see) such dedication from a student.",
+      "acceptedAnswers": [
+        "have we seen"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "Little ___ (do/they/know) what was about to happen.",
+      "acceptedAnswers": [
+        "did they know"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "Not only he speaks French but also German.",
+      "correctSentence": "Not only does he speak French but also German.",
+      "errorIndex": [2, 3]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "Hardly I had finished eating when the doorbell rang.",
+      "correctSentence": "Hardly had I finished eating when the doorbell rang.",
+      "errorIndex": [1, 2]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "Never I have been so embarrassed in my life.",
+      "correctSentence": "Never have I been so embarrassed in my life.",
+      "errorIndex": [1, 2]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "Was I the president, I would change the education system.",
+      "correctSentence": "Were I the president, I would change the education system.",
+      "errorIndex": [0]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["never", "have", "I", "seen", "such", "a", "talented", "performer"],
+      "answer": "Never have I seen such a talented performer."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["hardly", "had", "we", "left", "the", "house", "when", "it", "started", "raining"],
+      "answer": "Hardly had we left the house when it started raining."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng đảo ngữ bắt đầu bằng 'Never':",
+      "original": "I have never experienced such kindness.",
+      "acceptedAnswers": [
+        "Never have I experienced such kindness."
+      ],
+      "hint": "Never + have + S + V3"
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng đảo ngữ bắt đầu bằng 'Not only':",
+      "original": "She is not only intelligent but also very creative.",
+      "acceptedAnswers": [
+        "Not only is she intelligent, but she is also very creative.",
+        "Not only is she intelligent but also very creative.",
+        "Not only is she intelligent but she is also very creative."
+      ],
+      "hint": "Not only + auxiliary + S + V..."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu điều kiện dùng đảo ngữ formal (bỏ 'if'):",
+      "original": "If I had known the truth, I would have told you.",
+      "acceptedAnswers": [
+        "Had I known the truth, I would have told you."
+      ],
+      "hint": "Had + S + V3, S + would have + V3"
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng đảo ngữ bắt đầu bằng 'Seldom':",
+      "original": "She seldom goes out after dark.",
+      "acceptedAnswers": [
+        "Seldom does she go out after dark."
+      ],
+      "hint": "Seldom + does/did + S + V (bare infinitive)"
+    }
+  ]
+}

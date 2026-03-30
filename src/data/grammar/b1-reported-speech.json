@@ -1,0 +1,380 @@
+{
+  "id": "b1-reported-speech",
+  "title": "Reported Speech (Basics)",
+  "level": "B1",
+  "cheatSheet": {
+    "title": "Reported Speech",
+    "formula": "S + said (that) + S + V(backshift)",
+    "keyPoints": [
+      "Tense backshift: present → past, past → past perfect, will → would, can → could",
+      "Pronoun changes: I → he/she, my → his/her, we → they, our → their",
+      "Time changes: today → that day, now → then, yesterday → the day before, tomorrow → the next day",
+      "Place changes: here → there, this → that, these → those",
+      "'that' có thể lược bỏ: He said (that) he was tired."
+    ],
+    "signalWords": ["said", "told", "asked", "that", "reported", "explained", "mentioned"],
+    "commonMistakes": [
+      "'He said he is tired' → 'He said he was tired' (quên lùi thì)",
+      "'She said me she was happy' → 'She told me she was happy' (said + that, told + người nghe)",
+      "'He said that I am a teacher' → 'He said that he was a teacher' (quên đổi đại từ)",
+      "'She said she will come tomorrow' → 'She said she would come the next day' (quên đổi will → would, tomorrow → the next day)"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc câu tường thuật",
+        "content": "**Câu trực tiếp (Direct Speech):** Lời nói nguyên văn, đặt trong dấu ngoặc kép.\n**Câu tường thuật (Reported Speech):** Thuật lại lời nói, không dùng dấu ngoặc kép.\n\n**Công thức:**\n- **said:** S + said + (that) + S + V(backshift)\n- **told:** S + told + người nghe + (that) + S + V(backshift)\n\n**Lưu ý:** 'said' không có tân ngữ trực tiếp. 'told' luôn có tân ngữ (người nghe).",
+        "examples": [
+          {
+            "en": "Direct: \"I **am** happy.\"\nReported: She **said** (that) she **was** happy.",
+            "vi": "Cô ấy nói rằng cô ấy vui."
+          },
+          {
+            "en": "Direct: \"I **like** coffee.\"\nReported: He **told** me (that) he **liked** coffee.",
+            "vi": "Anh ấy nói với tôi rằng anh ấy thích cà phê."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ — người nói" },
+              { "text": " " },
+              { "text": "said", "role": "verb", "tooltip": "Động từ tường thuật" },
+              { "text": " " },
+              { "text": "that", "role": "connector", "tooltip": "Liên từ 'that' (có thể lược bỏ)" },
+              { "text": " " },
+              { "text": "she", "role": "subject", "tooltip": "Đại từ đã đổi: I → she" },
+              { "text": " " },
+              { "text": "was", "role": "auxiliary", "tooltip": "Lùi thì: am → was" },
+              { "text": " " },
+              { "text": "happy", "role": "complement", "tooltip": "Tính từ bổ ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Cô ấy nói rằng cô ấy vui."
+          },
+          {
+            "parts": [
+              { "text": "He", "role": "subject", "tooltip": "Chủ ngữ — người nói" },
+              { "text": " " },
+              { "text": "told", "role": "verb", "tooltip": "Động từ tường thuật (told + người nghe)" },
+              { "text": " " },
+              { "text": "me", "role": "object", "tooltip": "Người nghe (tân ngữ)" },
+              { "text": " " },
+              { "text": "that", "role": "connector", "tooltip": "Liên từ 'that'" },
+              { "text": " " },
+              { "text": "he", "role": "subject", "tooltip": "Đại từ đã đổi: I → he" },
+              { "text": " " },
+              { "text": "liked", "role": "verb", "tooltip": "Lùi thì: like → liked" },
+              { "text": " " },
+              { "text": "coffee", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Anh ấy nói với tôi rằng anh ấy thích cà phê."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "She said me that she was happy.",
+            "correct": "She told me that she was happy.",
+            "wrongHighlight": [1],
+            "correctHighlight": [1],
+            "explanation": "'said' không đi với tân ngữ trực tiếp. Dùng 'told + người nghe' hoặc 'said + that'."
+          },
+          {
+            "wrong": "He said that I am a teacher.",
+            "correct": "He said that he was a teacher.",
+            "wrongHighlight": [3, 4],
+            "correctHighlight": [3, 4],
+            "explanation": "Phải đổi đại từ (I → he) và lùi thì (am → was) khi chuyển sang câu tường thuật."
+          }
+        ]
+      },
+      {
+        "heading": "Quy tắc lùi thì (Tense Backshift)",
+        "content": "Khi động từ tường thuật ở quá khứ (said, told), thì trong câu tường thuật phải lùi một bậc:\n\n| Direct Speech | Reported Speech |\n|---|---|\n| Present Simple (am/is/are, V1) | Past Simple (was/were, V2) |\n| Present Continuous (am/is/are + V-ing) | Past Continuous (was/were + V-ing) |\n| Past Simple (V2) | Past Perfect (had + V3) |\n| Present Perfect (have/has + V3) | Past Perfect (had + V3) |\n| will | would |\n| can | could |\n| may | might |\n| must | had to |",
+        "examples": [
+          {
+            "en": "\"I **work** here.\" → He said he **worked** there.",
+            "vi": "Anh ấy nói anh ấy làm việc ở đó. (Present → Past)"
+          },
+          {
+            "en": "\"I **am studying**.\" → She said she **was studying**.",
+            "vi": "Cô ấy nói cô ấy đang học. (Present Continuous → Past Continuous)"
+          },
+          {
+            "en": "\"I **bought** a car.\" → He said he **had bought** a car.",
+            "vi": "Anh ấy nói anh ấy đã mua xe. (Past → Past Perfect)"
+          },
+          {
+            "en": "\"I **will come**.\" → She said she **would come**.",
+            "vi": "Cô ấy nói cô ấy sẽ đến. (will → would)"
+          },
+          {
+            "en": "\"I **can swim**.\" → He said he **could swim**.",
+            "vi": "Anh ấy nói anh ấy có thể bơi. (can → could)"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "He", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "said", "role": "verb", "tooltip": "Động từ tường thuật (quá khứ)" },
+              { "text": " " },
+              { "text": "he", "role": "subject", "tooltip": "Đại từ đã đổi: I → he" },
+              { "text": " " },
+              { "text": "had bought", "role": "verb", "tooltip": "Lùi thì: bought (past) → had bought (past perfect)" },
+              { "text": " " },
+              { "text": "a car", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Anh ấy nói anh ấy đã mua xe."
+          },
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "said", "role": "verb", "tooltip": "Động từ tường thuật" },
+              { "text": " " },
+              { "text": "she", "role": "subject", "tooltip": "Đại từ đã đổi: I → she" },
+              { "text": " " },
+              { "text": "would", "role": "auxiliary", "tooltip": "Lùi thì: will → would" },
+              { "text": " " },
+              { "text": "come", "role": "verb", "tooltip": "Động từ nguyên thể (sau would)" },
+              { "text": "." }
+            ],
+            "vi": "Cô ấy nói cô ấy sẽ đến."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "He said he is tired.",
+            "correct": "He said he was tired.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3],
+            "explanation": "Khi động từ tường thuật ở quá khứ (said), phải lùi thì: is → was."
+          },
+          {
+            "wrong": "She said she will come tomorrow.",
+            "correct": "She said she would come the next day.",
+            "wrongHighlight": [3, 5],
+            "correctHighlight": [3, 5, 6],
+            "explanation": "will → would (lùi thì), tomorrow → the next day (đổi trạng từ thời gian)."
+          }
+        ]
+      },
+      {
+        "heading": "Đổi đại từ, trạng từ thời gian và nơi chốn",
+        "content": "**Đại từ:**\n- I → he/she\n- my → his/her\n- me → him/her\n- we → they\n- our → their\n- us → them\n\n**Trạng từ thời gian:**\n- today → that day\n- tonight → that night\n- yesterday → the day before / the previous day\n- tomorrow → the next day / the following day\n- last week → the week before / the previous week\n- next month → the following month\n- ago → before / earlier\n- now → then\n\n**Trạng từ nơi chốn:**\n- here → there\n- this → that\n- these → those",
+        "examples": [
+          {
+            "en": "\"I will call you **today**.\" → She said she would call me **that day**.",
+            "vi": "Cô ấy nói cô ấy sẽ gọi cho tôi ngày hôm đó."
+          },
+          {
+            "en": "\"**My** sister lives **here**.\" → He said **his** sister lived **there**.",
+            "vi": "Anh ấy nói chị gái anh ấy sống ở đó."
+          },
+          {
+            "en": "\"I saw them **yesterday**.\" → She said she had seen them **the day before**.",
+            "vi": "Cô ấy nói cô ấy đã gặp họ ngày hôm trước."
+          },
+          {
+            "en": "\"We are leaving **tomorrow**.\" → They said they were leaving **the next day**.",
+            "vi": "Họ nói họ sẽ rời đi ngày hôm sau."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "said", "role": "verb", "tooltip": "Động từ tường thuật" },
+              { "text": " " },
+              { "text": "she", "role": "subject", "tooltip": "I → she (đổi đại từ)" },
+              { "text": " " },
+              { "text": "would", "role": "auxiliary", "tooltip": "will → would (lùi thì)" },
+              { "text": " " },
+              { "text": "call", "role": "verb", "tooltip": "Động từ chính" },
+              { "text": " " },
+              { "text": "me", "role": "object", "tooltip": "you → me (đổi đại từ)" },
+              { "text": " " },
+              { "text": "that day", "role": "time", "tooltip": "today → that day (đổi thời gian)" },
+              { "text": "." }
+            ],
+            "vi": "Cô ấy nói cô ấy sẽ gọi cho tôi ngày hôm đó."
+          },
+          {
+            "parts": [
+              { "text": "He", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "said", "role": "verb", "tooltip": "Động từ tường thuật" },
+              { "text": " " },
+              { "text": "his", "role": "determiner", "tooltip": "my → his (đổi tính từ sở hữu)" },
+              { "text": " " },
+              { "text": "sister", "role": "subject", "tooltip": "Chủ ngữ mệnh đề phụ" },
+              { "text": " " },
+              { "text": "lived", "role": "verb", "tooltip": "lives → lived (lùi thì)" },
+              { "text": " " },
+              { "text": "there", "role": "complement", "tooltip": "here → there (đổi nơi chốn)" },
+              { "text": "." }
+            ],
+            "vi": "Anh ấy nói chị gái anh ấy sống ở đó."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "He said that my sister lives here.",
+            "correct": "He said that his sister lived there.",
+            "wrongHighlight": [3, 4, 5],
+            "correctHighlight": [3, 4, 5],
+            "explanation": "Phải đổi: my → his (đại từ sở hữu), lives → lived (lùi thì), here → there (nơi chốn)."
+          },
+          {
+            "wrong": "She said she had seen them yesterday.",
+            "correct": "She said she had seen them the day before.",
+            "wrongHighlight": [6],
+            "correctHighlight": [6, 7, 8],
+            "explanation": "yesterday → the day before / the previous day (đổi trạng từ thời gian)."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "\"I am tired.\" → She said she ___ tired.",
+      "options": [
+        "is",
+        "was",
+        "am",
+        "were"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "\"I will help you.\" → He said he ___ help me.",
+      "options": [
+        "will",
+        "shall",
+        "would",
+        "can"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "\"We are leaving tomorrow.\" → They said they were leaving ___.",
+      "options": [
+        "tomorrow",
+        "the next day",
+        "yesterday",
+        "today"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "She ___ me that she was busy.",
+      "options": [
+        "said",
+        "told",
+        "say",
+        "tell"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "\"I like chocolate.\" → She said she ___ chocolate.",
+      "acceptedAnswers": [
+        "liked"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "\"I can speak French.\" → He said he ___ speak French.",
+      "acceptedAnswers": [
+        "could"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "\"I bought a new phone.\" → She said she ___ a new phone.",
+      "acceptedAnswers": [
+        "had bought"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "He said me that he was busy.",
+      "correctSentence": "He told me that he was busy.",
+      "errorIndex": [1]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "She said she will come the next day.",
+      "correctSentence": "She said she would come the next day.",
+      "errorIndex": [3]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "He said that I was a doctor.",
+      "correctSentence": "He said that he was a doctor.",
+      "errorIndex": [3]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["said", "she", "she", "tired", "that", "was"],
+      "answer": "She said that she was tired."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["told", "he", "could", "me", "he", "swim"],
+      "answer": "He told me he could swim."
+    },
+    {
+      "type": "transform",
+      "instruction": "Chuyển câu trực tiếp sang câu tường thuật (dùng 'said').",
+      "original": "\"I am studying English.\"",
+      "acceptedAnswers": [
+        "He said he was studying English.",
+        "She said she was studying English.",
+        "He said that he was studying English.",
+        "She said that she was studying English."
+      ],
+      "hint": "am studying → was studying (lùi thì), I → he/she (đổi đại từ)."
+    },
+    {
+      "type": "transform",
+      "instruction": "Chuyển câu trực tiếp sang câu tường thuật (dùng 'told me').",
+      "original": "\"I will call you tomorrow.\"",
+      "acceptedAnswers": [
+        "He told me he would call me the next day.",
+        "She told me she would call me the next day.",
+        "He told me that he would call me the next day.",
+        "She told me that she would call me the next day.",
+        "He told me he would call me the following day.",
+        "She told me she would call me the following day."
+      ],
+      "hint": "will → would, you → me, tomorrow → the next day."
+    },
+    {
+      "type": "transform",
+      "instruction": "Chuyển câu trực tiếp sang câu tường thuật (dùng 'said').",
+      "original": "\"I have finished my homework.\"",
+      "acceptedAnswers": [
+        "He said he had finished his homework.",
+        "She said she had finished her homework.",
+        "He said that he had finished his homework.",
+        "She said that she had finished her homework."
+      ],
+      "hint": "have finished → had finished (lùi thì), my → his/her (đổi đại từ sở hữu)."
+    }
+  ],
+  "prerequisites": ["past-simple", "present-perfect"],
+  "relatedReference": ["common-mistakes"]
+}

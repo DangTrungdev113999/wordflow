@@ -1,0 +1,342 @@
+{
+  "id": "b1-past-perfect",
+  "title": "Past Perfect",
+  "level": "B1",
+  "cheatSheet": {
+    "title": "Past Perfect",
+    "formula": "S + had + V3 (past participle)",
+    "keyPoints": [
+      "Tất cả các ngôi đều dùng 'had' (không chia)",
+      "Hành động xảy ra TRƯỚC một hành động khác trong quá khứ: She had left before I arrived.",
+      "Dùng để thiết lập thứ tự thời gian giữa 2 sự kiện quá khứ",
+      "Thường đi kèm Past Simple trong câu ghép",
+      "V3 = past participle (gone, eaten, finished, written...)"
+    ],
+    "signalWords": ["before", "after", "by the time", "when", "already", "just", "never...before", "until", "as soon as", "by then"],
+    "commonMistakes": [
+      "'had went' → 'had gone' (sau had phải dùng V3, không dùng V2)",
+      "'After I finished, I had gone home.' → 'After I had finished, I went home.' (Past Perfect cho hành động xảy ra TRƯỚC)",
+      "'When I arrived, she left.' → 'When I arrived, she had left.' (cần Past Perfect để chỉ thứ tự trước-sau)",
+      "Dùng Past Perfect khi không cần thiết: 'I had eaten pizza yesterday.' → 'I ate pizza yesterday.' (chỉ có 1 hành động → dùng Past Simple)"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc",
+        "conjugation": {
+          "verb": "finish",
+          "tense": "Past Perfect",
+          "rows": [
+            { "pronoun": "I", "affirmative": "I had finished", "negative": "I had not finished", "question": "Had I finished?" },
+            { "pronoun": "You", "affirmative": "You had finished", "negative": "You had not finished", "question": "Had you finished?" },
+            { "pronoun": "He/She/It", "affirmative": "He had finished", "negative": "He had not finished", "question": "Had he finished?" },
+            { "pronoun": "We", "affirmative": "We had finished", "negative": "We had not finished", "question": "Had we finished?" },
+            { "pronoun": "They", "affirmative": "They had finished", "negative": "They had not finished", "question": "Had they finished?" }
+          ],
+          "notes": "Tất cả các ngôi đều dùng 'had'. Viết tắt: hadn't = had not. 'd = had (I'd finished). V3 của finish là finished (động từ có quy tắc)."
+        },
+        "content": "**Khẳng định:** S + had + V3 (past participle)\n**Phủ định:** S + had + not + V3\n**Nghi vấn:** Had + S + V3?\n\nPast Perfect diễn tả hành động xảy ra và hoàn thành TRƯỚC một thời điểm hoặc hành động khác trong quá khứ. Nó là \"quá khứ của quá khứ\".",
+        "examples": [
+          {
+            "en": "She **had left** before I arrived.",
+            "vi": "Cô ấy đã rời đi trước khi tôi đến."
+          },
+          {
+            "en": "I **hadn't eaten** anything, so I was very hungry.",
+            "vi": "Tôi chưa ăn gì cả, nên tôi rất đói."
+          },
+          {
+            "en": "**Had** you **finished** your homework before the teacher came?",
+            "vi": "Bạn đã hoàn thành bài tập trước khi giáo viên đến chưa?"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "had", "role": "auxiliary", "tooltip": "Trợ động từ — Past Perfect (giống cho mọi ngôi)" },
+              { "text": " " },
+              { "text": "left", "role": "verb", "tooltip": "V3 — past participle của 'leave'" },
+              { "text": " " },
+              { "text": "before", "role": "connector", "tooltip": "Liên từ chỉ thời gian — trước khi" },
+              { "text": " " },
+              { "text": "I arrived", "role": "complement", "tooltip": "Mệnh đề Past Simple — hành động xảy ra SAU" },
+              { "text": "." }
+            ],
+            "vi": "Cô ấy đã rời đi trước khi tôi đến."
+          },
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "hadn't", "role": "auxiliary", "tooltip": "had not — phủ định Past Perfect" },
+              { "text": " " },
+              { "text": "eaten", "role": "verb", "tooltip": "V3 — past participle của 'eat'" },
+              { "text": " " },
+              { "text": "anything", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": ", " },
+              { "text": "so", "role": "connector", "tooltip": "Liên từ — vì vậy" },
+              { "text": " " },
+              { "text": "I was very hungry", "role": "complement", "tooltip": "Kết quả — diễn tả bằng Past Simple" },
+              { "text": "." }
+            ],
+            "vi": "Tôi chưa ăn gì cả, nên tôi rất đói."
+          },
+          {
+            "parts": [
+              { "text": "Had", "role": "auxiliary", "tooltip": "Trợ động từ — câu hỏi đảo lên đầu" },
+              { "text": " " },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "finished", "role": "verb", "tooltip": "V3 — past participle" },
+              { "text": " " },
+              { "text": "your homework", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "before the teacher came", "role": "time", "tooltip": "Mệnh đề thời gian — Past Simple" },
+              { "text": "?" }
+            ],
+            "vi": "Bạn đã hoàn thành bài tập trước khi giáo viên đến chưa?"
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "She had went to school before I called.",
+            "correct": "She had gone to school before I called.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "Sau 'had' phải dùng V3 (past participle). 'went' là V2 (past simple). V3 của 'go' là 'gone'."
+          },
+          {
+            "wrong": "After I finished dinner, I had watched TV.",
+            "correct": "After I had finished dinner, I watched TV.",
+            "wrongHighlight": [1, 2, 6, 7],
+            "correctHighlight": [1, 2, 3, 6],
+            "explanation": "Past Perfect dùng cho hành động xảy ra TRƯỚC (finished dinner). Hành động xảy ra SAU dùng Past Simple (watched TV)."
+          }
+        ]
+      },
+      {
+        "heading": "Cách dùng",
+        "content": "1. **Hành động xảy ra trước một hành động khác trong quá khứ** (before, after, when, by the time)\n→ Past Perfect cho hành động TRƯỚC, Past Simple cho hành động SAU\n\n2. **Kinh nghiệm tính đến một thời điểm trong quá khứ** (never...before)\n→ It was the first time / He had never...\n\n3. **Nguyên nhân - kết quả trong quá khứ**\n→ Giải thích tại sao điều gì đó xảy ra: \"I was tired because I had worked all night.\"\n\n4. **Reported speech (câu tường thuật)**\n→ Past Simple → Past Perfect: \"I lost my key.\" → She said she had lost her key.\n\n**Mẹo nhớ:** Hãy tưởng tượng 2 điểm trên dòng thời gian quá khứ. Past Perfect = điểm xa hơn (trước). Past Simple = điểm gần hơn (sau).",
+        "examples": [
+          {
+            "en": "**By the time** we arrived, the movie **had** already **started**.",
+            "vi": "Khi chúng tôi đến, bộ phim đã bắt đầu rồi."
+          },
+          {
+            "en": "I **had never seen** snow **before** I visited Canada.",
+            "vi": "Tôi chưa bao giờ nhìn thấy tuyết trước khi đến Canada."
+          },
+          {
+            "en": "He was late because he **had missed** the bus.",
+            "vi": "Anh ấy trễ vì đã lỡ xe buýt."
+          },
+          {
+            "en": "**After** she **had read** the book, she returned it to the library.",
+            "vi": "Sau khi cô ấy đọc xong cuốn sách, cô ấy trả lại cho thư viện."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "By the time", "role": "connector", "tooltip": "Liên từ thời gian — tính đến lúc" },
+              { "text": " " },
+              { "text": "we", "role": "subject", "tooltip": "Chủ ngữ mệnh đề phụ" },
+              { "text": " " },
+              { "text": "arrived", "role": "verb", "tooltip": "Past Simple — hành động xảy ra SAU" },
+              { "text": ", " },
+              { "text": "the movie", "role": "subject", "tooltip": "Chủ ngữ mệnh đề chính" },
+              { "text": " " },
+              { "text": "had", "role": "auxiliary", "tooltip": "Trợ động từ Past Perfect" },
+              { "text": " " },
+              { "text": "already", "role": "time", "tooltip": "Signal word — đã rồi" },
+              { "text": " " },
+              { "text": "started", "role": "verb", "tooltip": "V3 — hành động xảy ra TRƯỚC" },
+              { "text": "." }
+            ],
+            "vi": "Khi chúng tôi đến, bộ phim đã bắt đầu rồi."
+          },
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "had", "role": "auxiliary", "tooltip": "Trợ động từ Past Perfect" },
+              { "text": " " },
+              { "text": "never", "role": "time", "tooltip": "Signal word — chưa bao giờ" },
+              { "text": " " },
+              { "text": "seen", "role": "verb", "tooltip": "V3 của 'see' — past participle" },
+              { "text": " " },
+              { "text": "snow", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "before", "role": "connector", "tooltip": "Liên từ — trước khi" },
+              { "text": " " },
+              { "text": "I visited Canada", "role": "complement", "tooltip": "Mệnh đề Past Simple — mốc thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Tôi chưa bao giờ nhìn thấy tuyết trước khi đến Canada."
+          },
+          {
+            "parts": [
+              { "text": "After", "role": "connector", "tooltip": "Liên từ — sau khi" },
+              { "text": " " },
+              { "text": "she", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "had", "role": "auxiliary", "tooltip": "Trợ động từ Past Perfect" },
+              { "text": " " },
+              { "text": "read", "role": "verb", "tooltip": "V3 của 'read' — hành động xảy ra TRƯỚC" },
+              { "text": " " },
+              { "text": "the book", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": ", " },
+              { "text": "she returned it to the library", "role": "complement", "tooltip": "Mệnh đề Past Simple — hành động xảy ra SAU" },
+              { "text": "." }
+            ],
+            "vi": "Sau khi cô ấy đọc xong cuốn sách, cô ấy trả lại cho thư viện."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "When I arrived, she left.",
+            "correct": "When I arrived, she had already left.",
+            "wrongHighlight": [4],
+            "correctHighlight": [4, 5],
+            "explanation": "Cả hai mệnh đề đều dùng Past Simple sẽ không rõ thứ tự trước-sau. Dùng Past Perfect ('had left') để chỉ rõ cô ấy đã rời đi TRƯỚC khi tôi đến."
+          },
+          {
+            "wrong": "I had eaten pizza yesterday.",
+            "correct": "I ate pizza yesterday.",
+            "wrongHighlight": [1, 2],
+            "correctHighlight": [1],
+            "explanation": "Chỉ có một hành động trong quá khứ với thời gian xác định ('yesterday') → dùng Past Simple. Past Perfect cần có hành động thứ hai để so sánh thứ tự."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "When I got home, my wife ___ dinner.",
+      "options": [
+        "cooked",
+        "has cooked",
+        "had already cooked",
+        "was cooking"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "By the time the ambulance arrived, the patient ___.",
+      "options": [
+        "died",
+        "has died",
+        "had died",
+        "was dying"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "She told me that she ___ the email.",
+      "options": [
+        "sent",
+        "has sent",
+        "had sent",
+        "sends"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "I ___ never ___ such a beautiful sunset before that trip.",
+      "options": [
+        "have ... seen",
+        "had ... seen",
+        "did ... see",
+        "was ... seeing"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "After he ___ (finish) his homework, he went out to play.",
+      "acceptedAnswers": [
+        "had finished"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "The train ___ (already/leave) by the time we reached the station.",
+      "acceptedAnswers": [
+        "had already left"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "She was angry because he ___ (not/call) her.",
+      "acceptedAnswers": [
+        "hadn't called",
+        "had not called"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "After I had ate breakfast, I went to work.",
+      "correctSentence": "After I had eaten breakfast, I went to work.",
+      "errorIndex": [3]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "When she arrived, the concert already started.",
+      "correctSentence": "When she arrived, the concert had already started.",
+      "errorIndex": [5]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "I had went to that restaurant before it closed.",
+      "correctSentence": "I had gone to that restaurant before it closed.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["had", "she", "before", "left", "I", "arrived"],
+      "answer": "She had left before I arrived."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["eaten", "had", "already", "they", "we", "when", "came"],
+      "answer": "They had already eaten when we came."
+    },
+    {
+      "type": "transform",
+      "instruction": "Nối hai câu dùng 'after' và Past Perfect",
+      "original": "She finished the report. Then she went home.",
+      "acceptedAnswers": [
+        "After she had finished the report, she went home.",
+        "She went home after she had finished the report."
+      ],
+      "hint": "After + Past Perfect, Past Simple"
+    },
+    {
+      "type": "transform",
+      "instruction": "Nối hai câu dùng 'by the time' và Past Perfect",
+      "original": "The rain stopped. We arrived at the park.",
+      "acceptedAnswers": [
+        "By the time we arrived at the park, the rain had stopped.",
+        "The rain had stopped by the time we arrived at the park."
+      ],
+      "hint": "By the time + Past Simple, Past Perfect"
+    },
+    {
+      "type": "fill_blank",
+      "question": "It was the best movie I ___ (ever/see).",
+      "acceptedAnswers": [
+        "had ever seen"
+      ]
+    }
+  ],
+  "prerequisites": ["past-simple", "present-perfect"],
+  "relatedReference": ["tense-comparison"]
+}

@@ -1,0 +1,336 @@
+{
+  "id": "b1-relative-clauses",
+  "title": "Relative Clauses (who/which/that)",
+  "level": "B1",
+  "cheatSheet": {
+    "title": "Mệnh đề quan hệ xác định",
+    "formula": "N + who/which/that + V...",
+    "keyPoints": [
+      "who = dùng cho người: The man who lives next door is friendly.",
+      "which = dùng cho vật/động vật: The book which I bought is interesting.",
+      "that = dùng cho cả người và vật: The teacher that helped me was kind.",
+      "Mệnh đề quan hệ xác định giúp xác định rõ danh từ đứng trước.",
+      "Có thể lược bỏ đại từ quan hệ khi nó đóng vai trò tân ngữ (object relative clause)."
+    ],
+    "signalWords": ["who", "which", "that", "whom", "whose", "where", "when"],
+    "commonMistakes": [
+      "'The man which called' → 'The man who/that called' (dùng who/that cho người, không dùng which)",
+      "'The book who I read' → 'The book which/that I read' (dùng which/that cho vật, không dùng who)",
+      "'The girl that she is tall' → 'The girl that/who is tall' (không lặp lại chủ ngữ sau đại từ quan hệ)",
+      "'I met a man lives in Paris' → 'I met a man who/that lives in Paris' (thiếu đại từ quan hệ khi nó là chủ ngữ)"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc mệnh đề quan hệ (who/which/that)",
+        "content": "Mệnh đề quan hệ xác định (defining relative clause) dùng để thêm thông tin cần thiết cho danh từ, giúp người nghe/đọc hiểu rõ ta đang nói về ai hoặc cái gì.\n\n**who** — dùng cho **người** (thay thế chủ ngữ hoặc tân ngữ chỉ người)\n**which** — dùng cho **vật, động vật** (thay thế chủ ngữ hoặc tân ngữ chỉ vật)\n**that** — dùng cho **cả người và vật** (thay thế who hoặc which trong mệnh đề xác định)\n\n**Cấu trúc:**\n- Chủ ngữ: N + who/which/that + V + ...\n- Tân ngữ: N + who/which/that + S + V + ...",
+        "examples": [
+          {
+            "en": "The woman **who** works here is my aunt.",
+            "vi": "Người phụ nữ làm việc ở đây là dì tôi. (who = chủ ngữ, chỉ người)"
+          },
+          {
+            "en": "The car **which** is parked outside belongs to Tom.",
+            "vi": "Chiếc xe đậu bên ngoài là của Tom. (which = chủ ngữ, chỉ vật)"
+          },
+          {
+            "en": "The teacher **that** helped me was very kind.",
+            "vi": "Giáo viên đã giúp tôi rất tốt bụng. (that = chủ ngữ, thay who)"
+          },
+          {
+            "en": "The movie **that** we watched last night was exciting.",
+            "vi": "Bộ phim chúng tôi xem tối qua rất hay. (that = tân ngữ, thay which)"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "The woman", "role": "subject", "tooltip": "Danh từ chính (người) — được mệnh đề quan hệ bổ nghĩa" },
+              { "text": " " },
+              { "text": "who", "role": "connector", "tooltip": "Đại từ quan hệ — thay thế cho 'the woman', dùng cho người" },
+              { "text": " " },
+              { "text": "works", "role": "verb", "tooltip": "Động từ trong mệnh đề quan hệ" },
+              { "text": " " },
+              { "text": "here", "role": "complement", "tooltip": "Trạng từ nơi chốn" },
+              { "text": " " },
+              { "text": "is", "role": "auxiliary", "tooltip": "Động từ chính của câu" },
+              { "text": " " },
+              { "text": "my aunt", "role": "complement", "tooltip": "Bổ ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Người phụ nữ làm việc ở đây là dì tôi."
+          },
+          {
+            "parts": [
+              { "text": "The car", "role": "subject", "tooltip": "Danh từ chính (vật) — được mệnh đề quan hệ bổ nghĩa" },
+              { "text": " " },
+              { "text": "which", "role": "connector", "tooltip": "Đại từ quan hệ — thay thế cho 'the car', dùng cho vật" },
+              { "text": " " },
+              { "text": "is parked", "role": "verb", "tooltip": "Động từ trong mệnh đề quan hệ (bị động)" },
+              { "text": " " },
+              { "text": "outside", "role": "complement", "tooltip": "Trạng từ nơi chốn" },
+              { "text": " " },
+              { "text": "belongs to", "role": "verb", "tooltip": "Động từ chính của câu" },
+              { "text": " " },
+              { "text": "Tom", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Chiếc xe đậu bên ngoài là của Tom."
+          },
+          {
+            "parts": [
+              { "text": "The teacher", "role": "subject", "tooltip": "Danh từ chính (người)" },
+              { "text": " " },
+              { "text": "that", "role": "connector", "tooltip": "Đại từ quan hệ — thay cho who, dùng cho cả người và vật" },
+              { "text": " " },
+              { "text": "helped", "role": "verb", "tooltip": "Động từ trong mệnh đề quan hệ (quá khứ)" },
+              { "text": " " },
+              { "text": "me", "role": "object", "tooltip": "Tân ngữ trong mệnh đề quan hệ" },
+              { "text": " " },
+              { "text": "was", "role": "auxiliary", "tooltip": "Động từ chính của câu" },
+              { "text": " " },
+              { "text": "very kind", "role": "complement", "tooltip": "Bổ ngữ — tính từ" },
+              { "text": "." }
+            ],
+            "vi": "Giáo viên đã giúp tôi rất tốt bụng."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "The man which called you is my brother.",
+            "correct": "The man who called you is my brother.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "Dùng 'who' hoặc 'that' cho người, không dùng 'which'. 'which' chỉ dùng cho vật."
+          },
+          {
+            "wrong": "The girl that she is wearing a red dress is my sister.",
+            "correct": "The girl that is wearing a red dress is my sister.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3],
+            "explanation": "Không lặp lại chủ ngữ (she) sau đại từ quan hệ 'that'. Đại từ quan hệ đã thay thế cho 'the girl'."
+          }
+        ],
+        "visualType": "formula",
+        "visualData": {
+          "title": "Relative Clause Formula",
+          "parts": [
+            { "label": "N (người/vật)", "color": "blue" },
+            { "label": "who / which / that", "color": "purple" },
+            { "label": "V ...", "color": "orange" }
+          ],
+          "example": "The woman who works here is my aunt."
+        }
+      },
+      {
+        "heading": "Khi nào lược bỏ đại từ quan hệ",
+        "content": "Trong mệnh đề quan hệ xác định, ta **có thể lược bỏ** đại từ quan hệ (who/which/that) khi nó đóng vai trò **tân ngữ** (object) — tức là sau đại từ quan hệ có một chủ ngữ khác.\n\n**Lược bỏ được (tân ngữ):** The book ~~that~~ I bought is good. → Sau 'that' có 'I' (chủ ngữ khác)\n**KHÔNG lược bỏ được (chủ ngữ):** The man who lives here... → 'who' là chủ ngữ của 'lives'\n\n**Cách nhận biết:**\n- Nếu sau đại từ quan hệ là **động từ** → đại từ quan hệ là **chủ ngữ** → KHÔNG lược bỏ\n- Nếu sau đại từ quan hệ là **danh từ/đại từ (chủ ngữ khác)** → đại từ quan hệ là **tân ngữ** → CÓ THỂ lược bỏ",
+        "examples": [
+          {
+            "en": "The book **(that)** I bought yesterday is very interesting.",
+            "vi": "Cuốn sách (mà) tôi mua hôm qua rất hay. (that = tân ngữ → lược bỏ được)"
+          },
+          {
+            "en": "The man **who** lives next door is a doctor.",
+            "vi": "Người đàn ông sống cạnh nhà là bác sĩ. (who = chủ ngữ → KHÔNG lược bỏ)"
+          },
+          {
+            "en": "The food **(which)** she cooked was delicious.",
+            "vi": "Đồ ăn (mà) cô ấy nấu rất ngon. (which = tân ngữ → lược bỏ được)"
+          },
+          {
+            "en": "The girl **(that)** I met at the party is a singer.",
+            "vi": "Cô gái (mà) tôi gặp ở bữa tiệc là ca sĩ. (that = tân ngữ → lược bỏ được)"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "The book", "role": "subject", "tooltip": "Danh từ chính (vật)" },
+              { "text": " " },
+              { "text": "(that)", "role": "connector", "tooltip": "Đại từ quan hệ — tân ngữ → có thể lược bỏ" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ khác — chứng tỏ 'that' là tân ngữ" },
+              { "text": " " },
+              { "text": "bought", "role": "verb", "tooltip": "Động từ trong mệnh đề quan hệ" },
+              { "text": " " },
+              { "text": "yesterday", "role": "time", "tooltip": "Trạng từ thời gian" },
+              { "text": " " },
+              { "text": "is", "role": "auxiliary", "tooltip": "Động từ chính của câu" },
+              { "text": " " },
+              { "text": "very interesting", "role": "complement", "tooltip": "Bổ ngữ — tính từ" },
+              { "text": "." }
+            ],
+            "vi": "Cuốn sách (mà) tôi mua hôm qua rất hay."
+          },
+          {
+            "parts": [
+              { "text": "The man", "role": "subject", "tooltip": "Danh từ chính (người)" },
+              { "text": " " },
+              { "text": "who", "role": "connector", "tooltip": "Đại từ quan hệ — chủ ngữ → KHÔNG thể lược bỏ" },
+              { "text": " " },
+              { "text": "lives", "role": "verb", "tooltip": "Động từ — ngay sau 'who' → who là chủ ngữ" },
+              { "text": " " },
+              { "text": "next door", "role": "complement", "tooltip": "Trạng từ nơi chốn" },
+              { "text": " " },
+              { "text": "is", "role": "auxiliary", "tooltip": "Động từ chính của câu" },
+              { "text": " " },
+              { "text": "a doctor", "role": "complement", "tooltip": "Bổ ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Người đàn ông sống cạnh nhà là bác sĩ."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "I met a man lives in Paris.",
+            "correct": "I met a man who lives in Paris.",
+            "wrongHighlight": [4],
+            "correctHighlight": [4, 5],
+            "explanation": "Khi đại từ quan hệ là chủ ngữ (không có chủ ngữ khác sau nó), bắt buộc phải có 'who/which/that'. Không được lược bỏ."
+          },
+          {
+            "wrong": "The cake which she made it was delicious.",
+            "correct": "The cake which she made was delicious.",
+            "wrongHighlight": [5],
+            "correctHighlight": [4],
+            "explanation": "Không thêm 'it' sau động từ trong mệnh đề quan hệ. 'which' đã thay thế cho tân ngữ 'the cake', không cần 'it' nữa."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "The boy ___ won the race is my cousin.",
+      "options": [
+        "which",
+        "who",
+        "whom",
+        "whose"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The book ___ is on the table belongs to Sarah.",
+      "options": [
+        "who",
+        "whom",
+        "which",
+        "whose"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In which sentence can we omit the relative pronoun?",
+      "options": [
+        "The man who lives here is friendly.",
+        "The cake that she made was delicious.",
+        "The dog which is barking is mine.",
+        "The teacher who teaches us is strict."
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The students ___ passed the exam were very happy.",
+      "options": [
+        "which",
+        "whom",
+        "that",
+        "whose"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "The doctor ___ treated me was very professional.",
+      "acceptedAnswers": [
+        "who",
+        "that"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "The phone ___ I bought last week is already broken.",
+      "acceptedAnswers": [
+        "which",
+        "that"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "She is the person ___ helped me move to my new apartment.",
+      "acceptedAnswers": [
+        "who",
+        "that"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "The man which called you is my father.",
+      "correctSentence": "The man who called you is my father.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "The cat who is sleeping on the sofa is very cute.",
+      "correctSentence": "The cat which is sleeping on the sofa is very cute.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "The dress that she bought it was expensive.",
+      "correctSentence": "The dress that she bought was expensive.",
+      "errorIndex": [5]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["who", "the", "woman", "next door", "lives", "is", "my", "teacher"],
+      "answer": "The woman who lives next door is my teacher."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["the", "movie", "that", "watched", "we", "was", "boring"],
+      "answer": "The movie that we watched was boring."
+    },
+    {
+      "type": "transform",
+      "instruction": "Nối hai câu thành một câu dùng mệnh đề quan hệ: 'I have a friend. She speaks five languages.'",
+      "original": "I have a friend. She speaks five languages.",
+      "acceptedAnswers": [
+        "I have a friend who speaks five languages.",
+        "I have a friend that speaks five languages."
+      ],
+      "hint": "Dùng 'who' hoặc 'that' để thay thế 'she' và nối hai câu."
+    },
+    {
+      "type": "transform",
+      "instruction": "Nối hai câu thành một câu dùng mệnh đề quan hệ: 'The pizza was cold. We ordered it online.'",
+      "original": "The pizza was cold. We ordered it online.",
+      "acceptedAnswers": [
+        "The pizza which we ordered online was cold.",
+        "The pizza that we ordered online was cold.",
+        "The pizza we ordered online was cold."
+      ],
+      "hint": "Dùng 'which' hoặc 'that' để thay thế 'it' và nối hai câu. Có thể lược bỏ đại từ quan hệ vì nó là tân ngữ."
+    },
+    {
+      "type": "transform",
+      "instruction": "Nối hai câu thành một câu dùng mệnh đề quan hệ: 'The hotel was excellent. We stayed at it last summer.'",
+      "original": "The hotel was excellent. We stayed at it last summer.",
+      "acceptedAnswers": [
+        "The hotel that we stayed at last summer was excellent.",
+        "The hotel which we stayed at last summer was excellent.",
+        "The hotel we stayed at last summer was excellent."
+      ],
+      "hint": "Dùng 'which' hoặc 'that' để thay thế 'it'. Giữ lại giới từ 'at'."
+    }
+  ],
+  "prerequisites": ["present-simple", "past-simple"],
+  "relatedReference": ["grammar-patterns"]
+}

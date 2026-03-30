@@ -1,0 +1,354 @@
+{
+  "id": "b2-wish-if-only",
+  "title": "Wish / If Only",
+  "level": "B2",
+  "cheatSheet": {
+    "title": "Wish / If Only",
+    "formula": "S + wish/if only + S + V2 (present) / had V3 (past) / would V (future)",
+    "keyPoints": [
+      "Wish/If only + V2 (past simple): ước về hiện tại — điều không có thật BÂY GIỜ",
+      "Wish/If only + had V3 (past perfect): ước về quá khứ — tiếc nuối điều ĐÃ XẢY RA",
+      "Wish/If only + would + V: ước về tương lai / phàn nàn — muốn ai đó THAY ĐỔI",
+      "Với 'be': dùng 'were' cho tất cả ngôi (I wish I were..., NOT I wish I was...)",
+      "If only = wish nhưng mang cảm xúc MẠNH HƠN",
+      "Wish + would: KHÔNG dùng khi chủ ngữ 2 mệnh đề giống nhau cho ước muốn hiện tại"
+    ],
+    "signalWords": ["wish", "if only", "would", "could", "had"],
+    "commonMistakes": [
+      "'I wish I am taller' → 'I wish I were taller' (sau wish phải dùng V2/were, không dùng thì hiện tại)",
+      "'I wish I can speak French' → 'I wish I could speak French' (can → could sau wish)",
+      "'I wish I didn't go to the party yesterday' → 'I wish I hadn't gone to the party yesterday' (quá khứ → had + V3)",
+      "'I wish I would be rich' → 'I wish I were rich' (wish + would không dùng khi cùng chủ ngữ cho ước hiện tại, dùng V2/were)"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Wish/If only cho hiện tại & tương lai",
+        "content": "**1. Ước về hiện tại (điều không có thật bây giờ):**\nS + wish / if only + S + V2 (past simple)\n\nDùng past simple nhưng KHÔNG nói về quá khứ — diễn tả điều **trái ngược với thực tế hiện tại**.\n- I wish I **knew** the answer. (= Tôi không biết đáp án → ước gì biết)\n- If only I **had** more time. (= Tôi không có nhiều thời gian → ước gì có)\n- Với 'be': luôn dùng **were** (subjunctive): I wish I **were** taller.\n- can → **could**: I wish I **could** fly.\n\n**2. Ước về tương lai / Phàn nàn:**\nS + wish / if only + S + **would** + V\n\nDùng khi muốn ai đó hoặc điều gì đó **thay đổi trong tương lai**, thường mang tính phàn nàn.\n- I wish it **would stop** raining. (= Tôi muốn trời ngừng mưa)\n- If only he **would listen** to me. (= Tôi ước anh ấy chịu nghe tôi)\n\n**⚠️ Quy tắc quan trọng:** Không dùng wish + would khi **hai mệnh đề cùng chủ ngữ** để diễn tả ước muốn hiện tại:\n- ❌ I wish I would be rich. → ✅ I wish I **were** rich.\n- ❌ She wishes she would know. → ✅ She wishes she **knew**.\n- Nhưng CÓ THỂ dùng khi chủ ngữ khác nhau: I wish **he** would call me.",
+        "examples": [
+          {
+            "en": "I wish I **were** taller.",
+            "vi": "Tôi ước gì tôi cao hơn. (thực tế: tôi không cao)"
+          },
+          {
+            "en": "If only I **had** more money.",
+            "vi": "Giá mà tôi có nhiều tiền hơn. (thực tế: tôi không có nhiều tiền)"
+          },
+          {
+            "en": "She wishes she **could speak** Japanese.",
+            "vi": "Cô ấy ước gì nói được tiếng Nhật. (thực tế: cô ấy không nói được)"
+          },
+          {
+            "en": "I wish it **would stop** raining.",
+            "vi": "Tôi ước gì trời ngừng mưa. (phàn nàn — muốn thay đổi)"
+          },
+          {
+            "en": "If only he **would listen** to me!",
+            "vi": "Giá mà anh ấy chịu nghe tôi! (phàn nàn)"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "wish", "role": "verb", "tooltip": "Động từ 'wish' — diễn tả ước muốn" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ mệnh đề phụ (cùng chủ ngữ → dùng were)" },
+              { "text": " " },
+              { "text": "were", "role": "verb", "tooltip": "Subjunctive 'were' — dùng cho tất cả ngôi (KHÔNG dùng 'was')" },
+              { "text": " " },
+              { "text": "taller", "role": "complement", "tooltip": "Tính từ so sánh — trái với thực tế hiện tại" },
+              { "text": "." }
+            ],
+            "vi": "Tôi ước gì tôi cao hơn."
+          },
+          {
+            "parts": [
+              { "text": "If only", "role": "connector", "tooltip": "If only = wish nhưng cảm xúc mạnh hơn" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "had", "role": "verb", "tooltip": "V2 (past simple) — diễn tả ước muốn hiện tại" },
+              { "text": " " },
+              { "text": "more money", "role": "object", "tooltip": "Tân ngữ — điều trái với thực tế" },
+              { "text": "." }
+            ],
+            "vi": "Giá mà tôi có nhiều tiền hơn."
+          },
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "wish", "role": "verb", "tooltip": "Động từ 'wish'" },
+              { "text": " " },
+              { "text": "it", "role": "subject", "tooltip": "Chủ ngữ mệnh đề phụ (khác chủ ngữ → có thể dùng would)" },
+              { "text": " " },
+              { "text": "would", "role": "auxiliary", "tooltip": "would — ước về tương lai / phàn nàn" },
+              { "text": " " },
+              { "text": "stop", "role": "verb", "tooltip": "V nguyên mẫu sau would" },
+              { "text": " " },
+              { "text": "raining", "role": "complement", "tooltip": "V-ing — gerund sau 'stop'" },
+              { "text": "." }
+            ],
+            "vi": "Tôi ước gì trời ngừng mưa."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "I wish I am taller.",
+            "correct": "I wish I were taller.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3],
+            "explanation": "Sau 'wish' phải dùng past simple / subjunctive. Với 'be' → dùng 'were' cho tất cả ngôi, KHÔNG dùng thì hiện tại 'am'."
+          },
+          {
+            "wrong": "I wish I would be rich.",
+            "correct": "I wish I were rich.",
+            "wrongHighlight": [3, 4],
+            "correctHighlight": [3],
+            "explanation": "Khi hai mệnh đề cùng chủ ngữ (I...I) và ước về hiện tại, dùng V2/were. KHÔNG dùng 'wish + would' khi cùng chủ ngữ cho ước hiện tại."
+          }
+        ]
+      },
+      {
+        "heading": "Wish/If only cho quá khứ — had + V3",
+        "content": "**Cấu trúc:**\nS + wish / if only + S + **had** + V3 (past participle)\n\nDùng Past Perfect để diễn tả **tiếc nuối về quá khứ** — ước rằng điều gì đó đã xảy ra khác đi.\n\n**Khi nào dùng:**\n1. **Tiếc nuối điều đã làm:** I wish I hadn't said that. (= Tôi đã nói điều đó → tiếc nuối)\n2. **Ước điều đã không xảy ra:** If only I had studied harder. (= Tôi đã không học chăm → ước gì đã học)\n3. **Tiếc nuối cơ hội đã bỏ lỡ:** She wishes she had accepted the offer. (= Cô ấy đã từ chối → tiếc)\n\n**So sánh 3 dạng:**\n| Thời gian | Cấu trúc | Ví dụ |\n|-----------|----------|-------|\n| Hiện tại | wish + V2/were | I wish I **were** rich. |\n| Quá khứ | wish + had V3 | I wish I **had studied** harder. |\n| Tương lai | wish + would V | I wish he **would call**. |\n\n**Mẹo nhớ:** Wish \"lùi\" 1 thì so với thời gian thực:\n- Hiện tại → Past Simple\n- Quá khứ → Past Perfect\n- Tương lai → would + V (giống Second Conditional)",
+        "examples": [
+          {
+            "en": "I wish I **had studied** harder for the exam.",
+            "vi": "Tôi ước gì tôi đã học chăm hơn cho kỳ thi. (tiếc nuối — đã không học chăm)"
+          },
+          {
+            "en": "If only she **hadn't left** so early.",
+            "vi": "Giá mà cô ấy đã không rời đi sớm như vậy."
+          },
+          {
+            "en": "He wishes he **had taken** that job offer.",
+            "vi": "Anh ấy ước gì đã nhận lời đề nghị công việc đó."
+          },
+          {
+            "en": "If only we **had known** about the traffic, we would have left earlier.",
+            "vi": "Giá mà chúng tôi biết về tình trạng giao thông, chúng tôi đã rời đi sớm hơn."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "wish", "role": "verb", "tooltip": "Động từ 'wish'" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ mệnh đề phụ" },
+              { "text": " " },
+              { "text": "had", "role": "auxiliary", "tooltip": "had — Past Perfect cho ước quá khứ" },
+              { "text": " " },
+              { "text": "studied", "role": "verb", "tooltip": "V3 — past participle của 'study'" },
+              { "text": " " },
+              { "text": "harder", "role": "complement", "tooltip": "Trạng từ so sánh" },
+              { "text": " " },
+              { "text": "for the exam", "role": "complement", "tooltip": "Bổ ngữ — mục đích" },
+              { "text": "." }
+            ],
+            "vi": "Tôi ước gì tôi đã học chăm hơn cho kỳ thi."
+          },
+          {
+            "parts": [
+              { "text": "If only", "role": "connector", "tooltip": "If only — cảm xúc tiếc nuối mạnh" },
+              { "text": " " },
+              { "text": "she", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "hadn't", "role": "auxiliary", "tooltip": "had not — phủ định Past Perfect" },
+              { "text": " " },
+              { "text": "left", "role": "verb", "tooltip": "V3 — past participle của 'leave'" },
+              { "text": " " },
+              { "text": "so early", "role": "time", "tooltip": "Trạng từ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Giá mà cô ấy đã không rời đi sớm như vậy."
+          },
+          {
+            "parts": [
+              { "text": "He", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "wishes", "role": "verb", "tooltip": "wishes (ngôi 3 số ít → thêm -es)" },
+              { "text": " " },
+              { "text": "he", "role": "subject", "tooltip": "Chủ ngữ mệnh đề phụ" },
+              { "text": " " },
+              { "text": "had", "role": "auxiliary", "tooltip": "had — Past Perfect" },
+              { "text": " " },
+              { "text": "taken", "role": "verb", "tooltip": "V3 — past participle của 'take'" },
+              { "text": " " },
+              { "text": "that job offer", "role": "object", "tooltip": "Tân ngữ — cơ hội đã bỏ lỡ" },
+              { "text": "." }
+            ],
+            "vi": "Anh ấy ước gì đã nhận lời đề nghị công việc đó."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "I wish I didn't go to the party yesterday.",
+            "correct": "I wish I hadn't gone to the party yesterday.",
+            "wrongHighlight": [3, 4],
+            "correctHighlight": [3, 4],
+            "explanation": "Ước về quá khứ cần Past Perfect (had + V3). 'didn't go' là Past Simple → chỉ dùng cho ước hiện tại. Ước quá khứ: 'hadn't gone' (had not + V3)."
+          },
+          {
+            "wrong": "If only I studied harder last year.",
+            "correct": "If only I had studied harder last year.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3, 4],
+            "explanation": "'last year' chỉ rõ quá khứ → cần Past Perfect 'had studied'. Past Simple 'studied' chỉ dùng khi ước về hiện tại (trái nghĩa thực tế bây giờ)."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "I wish I ___ speak French fluently.",
+      "options": [
+        "can",
+        "could",
+        "will",
+        "would"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "If only she ___ here right now.",
+      "options": [
+        "is",
+        "was",
+        "were",
+        "would be"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "I wish I ___ harder for the exam last week.",
+      "options": [
+        "study",
+        "studied",
+        "had studied",
+        "would study"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "She wishes her neighbor ___ making so much noise.",
+      "options": [
+        "stops",
+        "stopped",
+        "would stop",
+        "had stopped"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "I wish I ___ that rude comment at the meeting yesterday.",
+      "options": [
+        "didn't make",
+        "don't make",
+        "hadn't made",
+        "wouldn't make"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "I wish I ___ (be) taller. I'm only 160 cm.",
+      "acceptedAnswers": [
+        "were"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "If only I ___ (not/spend) so much money last month.",
+      "acceptedAnswers": [
+        "hadn't spent",
+        "had not spent"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "She wishes she ___ (can) play the piano.",
+      "acceptedAnswers": [
+        "could"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "I wish it ___ (stop) raining. I want to go outside!",
+      "acceptedAnswers": [
+        "would stop"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "I wish I am younger.",
+      "correctSentence": "I wish I were younger.",
+      "errorIndex": [3]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "She wishes she can drive.",
+      "correctSentence": "She wishes she could drive.",
+      "errorIndex": [3]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "I wish I didn't eat so much at the party last night.",
+      "correctSentence": "I wish I hadn't eaten so much at the party last night.",
+      "errorIndex": [3, 4]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["wish", "I", "speak", "I", "could", "Japanese"],
+      "answer": "I wish I could speak Japanese."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["only", "had", "if", "I", "the", "taken", "opportunity"],
+      "answer": "If only I had taken the opportunity."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng 'wish' để diễn tả ước muốn",
+      "original": "I don't have a car.",
+      "acceptedAnswers": [
+        "I wish I had a car.",
+        "I wish I had a car"
+      ],
+      "hint": "Ước hiện tại → wish + V2 (past simple)"
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng 'wish' để diễn tả tiếc nuối",
+      "original": "I didn't study abroad when I had the chance.",
+      "acceptedAnswers": [
+        "I wish I had studied abroad when I had the chance.",
+        "I wish I had studied abroad."
+      ],
+      "hint": "Tiếc nuối quá khứ → wish + had + V3"
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng 'if only'",
+      "original": "It's a pity I can't swim.",
+      "acceptedAnswers": [
+        "If only I could swim.",
+        "If only I could swim"
+      ],
+      "hint": "can → could sau if only"
+    }
+  ],
+  "prerequisites": ["b1-conditionals-2"],
+  "relatedReference": ["tense-comparison"]
+}

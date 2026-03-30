@@ -6,13 +6,30 @@ import { LessonCard } from '../components/LessonCard';
 import { GrammarDashboard } from '../components/GrammarDashboard';
 import { ReferenceCard } from '../components/ReferenceCard';
 import { REFERENCE_CARDS } from '../../../data/reference/cards';
+import type { CEFRLevel } from '../../../lib/types';
 
 type Tab = 'lessons' | 'reference';
+type LevelFilter = 'all' | CEFRLevel;
 
 const TABS: { id: Tab; label: string; icon: typeof BookOpen }[] = [
   { id: 'lessons', label: 'Lessons', icon: BookOpen },
   { id: 'reference', label: 'Reference', icon: Compass },
 ];
+
+const LEVEL_FILTERS: { id: LevelFilter; label: string; subtitle: string }[] = [
+  { id: 'all', label: 'All', subtitle: '' },
+  { id: 'A1', label: 'A1', subtitle: 'Beginner' },
+  { id: 'A2', label: 'A2', subtitle: 'Elementary' },
+  { id: 'B1', label: 'B1', subtitle: 'Intermediate' },
+  { id: 'B2', label: 'B2', subtitle: 'Upper-Int' },
+];
+
+const LEVEL_META: Record<CEFRLevel, { subtitle: string; delay: number }> = {
+  A1: { subtitle: 'Beginner', delay: 0 },
+  A2: { subtitle: 'Elementary', delay: 0.1 },
+  B1: { subtitle: 'Intermediate', delay: 0.2 },
+  B2: { subtitle: 'Upper-Intermediate', delay: 0.3 },
+};
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 16 },
@@ -31,9 +48,13 @@ const cardVariants = {
 export function GrammarPage() {
   const { lessons, lessonProgress } = useGrammarStore();
   const [activeTab, setActiveTab] = useState<Tab>('lessons');
+  const [levelFilter, setLevelFilter] = useState<LevelFilter>('all');
 
-  const a1Lessons = lessons.filter((l) => l.level === 'A1');
-  const a2Lessons = lessons.filter((l) => l.level === 'A2');
+  const levels: CEFRLevel[] = ['A1', 'A2', 'B1', 'B2'];
+  const visibleLevels = levelFilter === 'all' ? levels : [levelFilter];
+  const lessonsByLevel = Object.fromEntries(
+    levels.map((lv) => [lv, lessons.filter((l) => l.level === lv)])
+  ) as Record<CEFRLevel, typeof lessons>;
 
   return (
     <div className="px-4 py-6 max-w-2xl mx-auto">
@@ -102,45 +123,50 @@ export function GrammarPage() {
               <GrammarDashboard />
             </div>
 
-            {a1Lessons.length > 0 && (
-              <motion.div
-                className="mb-6"
-                variants={sectionVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
-                  Level A1 — Beginner
-                </h2>
-                <div className="space-y-3">
-                  {a1Lessons.map((lesson) => (
-                    <motion.div key={lesson.id} variants={cardVariants}>
-                      <LessonCard lesson={lesson} progress={lessonProgress[lesson.id]} />
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
+            {/* Level Filter */}
+            <div className="flex gap-1.5 mb-5 overflow-x-auto pb-1">
+              {LEVEL_FILTERS.map((lf) => (
+                <button
+                  key={lf.id}
+                  onClick={() => setLevelFilter(lf.id)}
+                  className={`px-3 py-1.5 text-xs font-medium rounded-lg whitespace-nowrap transition-colors ${
+                    levelFilter === lf.id
+                      ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300'
+                      : 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  }`}
+                >
+                  {lf.label}{lf.subtitle ? ` · ${lf.subtitle}` : ''}
+                </button>
+              ))}
+            </div>
 
-            {a2Lessons.length > 0 && (
-              <motion.div
-                variants={sectionVariants}
-                initial="hidden"
-                animate="visible"
-                transition={{ delay: 0.15 }}
-              >
-                <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
-                  Level A2 — Elementary
-                </h2>
-                <div className="space-y-3">
-                  {a2Lessons.map((lesson) => (
-                    <motion.div key={lesson.id} variants={cardVariants}>
-                      <LessonCard lesson={lesson} progress={lessonProgress[lesson.id]} />
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
+            {/* Lesson sections by level */}
+            {visibleLevels.map((lv) => {
+              const lvLessons = lessonsByLevel[lv];
+              if (lvLessons.length === 0) return null;
+              const meta = LEVEL_META[lv];
+              return (
+                <motion.div
+                  key={lv}
+                  className="mb-6"
+                  variants={sectionVariants}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ delay: meta.delay }}
+                >
+                  <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
+                    Level {lv} — {meta.subtitle}
+                  </h2>
+                  <div className="space-y-3">
+                    {lvLessons.map((lesson) => (
+                      <motion.div key={lesson.id} variants={cardVariants}>
+                        <LessonCard lesson={lesson} progress={lessonProgress[lesson.id]} />
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
           </motion.div>
         )}
 

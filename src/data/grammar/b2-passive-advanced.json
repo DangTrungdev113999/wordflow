@@ -1,0 +1,358 @@
+{
+  "id": "b2-passive-advanced",
+  "title": "Advanced Passive: Have / Get Something Done",
+  "level": "B2",
+  "cheatSheet": {
+    "title": "Causative Passive: Have / Get Something Done",
+    "formula": "S + have/get + O + V3 (past participle)",
+    "keyPoints": [
+      "Have something done: nhờ/thuê ai đó làm gì (dịch vụ, chuyên môn)",
+      "Get something done: tương tự 'have sth done' nhưng informal hơn",
+      "Dùng cho dịch vụ: I had my hair cut (Tôi đi cắt tóc — nhờ thợ cắt)",
+      "Dùng cho trải nghiệm xấu (misfortune): She had her wallet stolen (Cô ấy bị mất ví)",
+      "Chia thì ở 'have/get', V3 giữ nguyên: had sth done, will have sth done, have had sth done"
+    ],
+    "signalWords": ["have", "get", "had", "got", "done", "repaired", "cut"],
+    "commonMistakes": [
+      "'I cut my hair yesterday' → 'I had my hair cut yesterday' (nếu nhờ thợ cắt, phải dùng causative)",
+      "'I had someone to repair my car' → 'I had someone repair my car' hoặc 'I had my car repaired' (sai cấu trúc)",
+      "'She had her car wash' → 'She had her car washed' (phải dùng V3, không phải V1)",
+      "'I got painted my house' → 'I got my house painted' (sai trật tự: O phải đứng trước V3)"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc: Have something done vs Get something done",
+        "conjugation": {
+          "verb": "repair (the car)",
+          "tense": "Causative Passive — Have/Get sth done",
+          "rows": [
+            { "pronoun": "Present Simple", "affirmative": "I have my car repaired", "negative": "I don't have my car repaired", "question": "Do you have your car repaired?" },
+            { "pronoun": "Past Simple", "affirmative": "I had my car repaired", "negative": "I didn't have my car repaired", "question": "Did you have your car repaired?", "highlight": "past-singular" },
+            { "pronoun": "Present Perfect", "affirmative": "I have had my car repaired", "negative": "I haven't had my car repaired", "question": "Have you had your car repaired?" },
+            { "pronoun": "Future (will)", "affirmative": "I will have my car repaired", "negative": "I won't have my car repaired", "question": "Will you have your car repaired?" },
+            { "pronoun": "Present Simple (get)", "affirmative": "I get my car repaired", "negative": "I don't get my car repaired", "question": "Do you get your car repaired?" },
+            { "pronoun": "Past Simple (get)", "affirmative": "I got my car repaired", "negative": "I didn't get my car repaired", "question": "Did you get your car repaired?", "highlight": "past-singular" },
+            { "pronoun": "Going to (get)", "affirmative": "I'm going to get my car repaired", "negative": "I'm not going to get my car repaired", "question": "Are you going to get your car repaired?" }
+          ],
+          "notes": "Have sth done (formal hơn) và Get sth done (informal hơn) đều mang nghĩa nhờ/thuê ai làm gì. Chia thì ở have/get, V3 luôn giữ nguyên."
+        },
+        "content": "**Công thức chung:**\n- **Have sth done:** S + have + O (vật) + V3\n- **Get sth done:** S + get + O (vật) + V3\n\n**So sánh với Active Causative:**\n- **Active:** S + have + người + V (bare inf): *I had the mechanic repair my car.* (Tôi nhờ thợ sửa xe)\n- **Passive:** S + have + vật + V3: *I had my car repaired.* (Tôi đã sửa xe — nhờ ai đó)\n- **Active (get):** S + get + người + to V: *I got the mechanic to repair my car.*\n- **Passive (get):** S + get + vật + V3: *I got my car repaired.*\n\n**Lưu ý quan trọng:** Trong causative passive, ta KHÔNG nói ai làm vì không quan trọng hoặc đã rõ (thợ chuyên nghiệp).",
+        "examples": [
+          {
+            "en": "I **had my hair cut** last Saturday.",
+            "vi": "Tôi đã đi cắt tóc thứ Bảy tuần trước. (nhờ thợ cắt, không tự cắt)"
+          },
+          {
+            "en": "We're going to **get the house painted** next month.",
+            "vi": "Chúng tôi sẽ thuê sơn nhà tháng tới."
+          },
+          {
+            "en": "She **has her nails done** every two weeks.",
+            "vi": "Cô ấy đi làm móng hai tuần một lần."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ — người nhờ/thuê dịch vụ" },
+              { "text": " " },
+              { "text": "had", "role": "auxiliary", "tooltip": "have (past simple) — chia thì ở đây" },
+              { "text": " " },
+              { "text": "my hair", "role": "object", "tooltip": "Tân ngữ — vật được tác động" },
+              { "text": " " },
+              { "text": "cut", "role": "verb", "tooltip": "V3 (past participle) của 'cut' — luôn giữ nguyên" },
+              { "text": " " },
+              { "text": "last Saturday", "role": "time", "tooltip": "Trạng từ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Tôi đã đi cắt tóc thứ Bảy tuần trước."
+          },
+          {
+            "parts": [
+              { "text": "We", "role": "subject", "tooltip": "Chủ ngữ — người thuê dịch vụ" },
+              { "text": "'re going to " },
+              { "text": "get", "role": "auxiliary", "tooltip": "get (causative) — informal hơn have" },
+              { "text": " " },
+              { "text": "the house", "role": "object", "tooltip": "Tân ngữ — vật được tác động" },
+              { "text": " " },
+              { "text": "painted", "role": "verb", "tooltip": "V3 (past participle) của 'paint'" },
+              { "text": " " },
+              { "text": "next month", "role": "time", "tooltip": "Trạng từ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Chúng tôi sẽ thuê sơn nhà tháng tới."
+          },
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "has", "role": "auxiliary", "tooltip": "have (present simple, ngôi 3 → has)" },
+              { "text": " " },
+              { "text": "her nails", "role": "object", "tooltip": "Tân ngữ — vật được tác động" },
+              { "text": " " },
+              { "text": "done", "role": "verb", "tooltip": "V3 (past participle) của 'do'" },
+              { "text": " " },
+              { "text": "every two weeks", "role": "time", "tooltip": "Trạng từ tần suất" },
+              { "text": "." }
+            ],
+            "vi": "Cô ấy đi làm móng hai tuần một lần."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "She had her car wash yesterday.",
+            "correct": "She had her car washed yesterday.",
+            "wrongHighlight": [4],
+            "correctHighlight": [4],
+            "explanation": "Sau tân ngữ phải dùng V3 (past participle). 'wash' là V1, phải đổi thành 'washed' (V3)."
+          },
+          {
+            "wrong": "I got painted my house last summer.",
+            "correct": "I got my house painted last summer.",
+            "wrongHighlight": [2, 3, 4],
+            "correctHighlight": [2, 3, 4],
+            "explanation": "Trật tự đúng: get + O (vật) + V3. Tân ngữ 'my house' phải đứng trước V3 'painted'."
+          }
+        ]
+      },
+      {
+        "heading": "Cách dùng: Dịch vụ, Trải nghiệm, Rủi ro",
+        "content": "**1. Dịch vụ chuyên nghiệp (Services):**\nDùng khi thuê/nhờ ai đó có chuyên môn làm gì cho mình.\n- *I had my teeth checked.* (Tôi đi khám răng)\n- *She gets her car serviced every year.* (Cô ấy đưa xe đi bảo dưỡng mỗi năm)\n\n**2. Trải nghiệm / Rủi ro (Experiences & Misfortune):**\nDùng để nói về sự việc xảy ra với mình (thường là không mong muốn).\n- *He had his wallet stolen on the bus.* (Anh ấy bị trộm ví trên xe buýt)\n- *They got their house broken into.* (Nhà họ bị đột nhập)\n\n**3. Hoàn thành công việc (Getting things done):**\nNhấn mạnh việc đã được hoàn thành, không quan trọng ai làm.\n- *I need to get this report finished by Friday.* (Tôi cần hoàn thành báo cáo trước thứ Sáu)\n- *We must have the invitations sent out soon.* (Chúng ta phải gửi thiệp mời sớm)\n\n**Lưu ý:** Với nghĩa rủi ro/misfortune, chủ ngữ KHÔNG chủ động nhờ ai — sự việc xảy ra ngoài ý muốn.",
+        "examples": [
+          {
+            "en": "I **have my eyes tested** every year.",
+            "vi": "Tôi đi kiểm tra mắt mỗi năm. (dịch vụ y tế)"
+          },
+          {
+            "en": "He **had his phone stolen** at the concert.",
+            "vi": "Anh ấy bị trộm điện thoại ở buổi hòa nhạc. (rủi ro — ngoài ý muốn)"
+          },
+          {
+            "en": "We need to **get the roof fixed** before winter.",
+            "vi": "Chúng tôi cần thuê sửa mái nhà trước mùa đông. (hoàn thành công việc)"
+          },
+          {
+            "en": "She **had her passport renewed** at the embassy.",
+            "vi": "Cô ấy đã gia hạn hộ chiếu ở đại sứ quán. (dịch vụ hành chính)"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "He", "role": "subject", "tooltip": "Chủ ngữ — người bị ảnh hưởng (nạn nhân)" },
+              { "text": " " },
+              { "text": "had", "role": "auxiliary", "tooltip": "have (past simple) — sự việc đã xảy ra" },
+              { "text": " " },
+              { "text": "his phone", "role": "object", "tooltip": "Tân ngữ — vật bị tác động" },
+              { "text": " " },
+              { "text": "stolen", "role": "verb", "tooltip": "V3 (past participle) của 'steal' — hành động xảy ra ngoài ý muốn" },
+              { "text": " " },
+              { "text": "at the concert", "role": "complement", "tooltip": "Bổ ngữ nơi chốn" },
+              { "text": "." }
+            ],
+            "vi": "Anh ấy bị trộm điện thoại ở buổi hòa nhạc."
+          },
+          {
+            "parts": [
+              { "text": "We", "role": "subject", "tooltip": "Chủ ngữ — người cần dịch vụ" },
+              { "text": " need to " },
+              { "text": "get", "role": "auxiliary", "tooltip": "get (causative) — nhờ ai đó làm" },
+              { "text": " " },
+              { "text": "the roof", "role": "object", "tooltip": "Tân ngữ — vật cần được sửa" },
+              { "text": " " },
+              { "text": "fixed", "role": "verb", "tooltip": "V3 (past participle) của 'fix'" },
+              { "text": " " },
+              { "text": "before winter", "role": "time", "tooltip": "Trạng từ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Chúng tôi cần thuê sửa mái nhà trước mùa đông."
+          },
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ — người sử dụng dịch vụ" },
+              { "text": " " },
+              { "text": "had", "role": "auxiliary", "tooltip": "have (past simple)" },
+              { "text": " " },
+              { "text": "her passport", "role": "object", "tooltip": "Tân ngữ — vật được tác động" },
+              { "text": " " },
+              { "text": "renewed", "role": "verb", "tooltip": "V3 (past participle) của 'renew'" },
+              { "text": " " },
+              { "text": "at the embassy", "role": "complement", "tooltip": "Bổ ngữ nơi chốn" },
+              { "text": "." }
+            ],
+            "vi": "Cô ấy đã gia hạn hộ chiếu ở đại sứ quán."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "I cut my hair yesterday.",
+            "correct": "I had my hair cut yesterday.",
+            "wrongHighlight": [1],
+            "correctHighlight": [1, 2, 3, 4],
+            "explanation": "'I cut my hair' có nghĩa là TỰ cắt. Nếu nhờ thợ cắt, phải dùng 'had my hair cut' (causative)."
+          },
+          {
+            "wrong": "I had someone to repair my car.",
+            "correct": "I had someone repair my car.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3],
+            "explanation": "Active causative với 'have': have + người + V (bare infinitive, không có 'to'). Hoặc dùng passive: 'I had my car repaired.'"
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "I need to ___ my eyes tested. I can't see very well.",
+      "options": [
+        "have",
+        "get to",
+        "having",
+        "be"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "She ___ her dress dry-cleaned before the wedding.",
+      "options": [
+        "got",
+        "made",
+        "did",
+        "took"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "They ___ their house broken into while they were on holiday.",
+      "options": [
+        "got",
+        "made",
+        "did",
+        "had"
+      ],
+      "answer": 3
+    },
+    {
+      "type": "multiple_choice",
+      "question": "We're going to ___ the kitchen redecorated next month.",
+      "options": [
+        "make",
+        "have",
+        "do",
+        "let"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "He had his laptop ___ at the repair shop.",
+      "options": [
+        "fix",
+        "fixing",
+        "fixed",
+        "to fix"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "I ___ my car ___ (service) every six months.",
+      "acceptedAnswers": [
+        "have my car serviced",
+        "get my car serviced"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "She ___ her photo ___ (take) for the passport.",
+      "acceptedAnswers": [
+        "had her photo taken",
+        "got her photo taken"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "We need to ___ the windows ___ (clean) — they're filthy!",
+      "acceptedAnswers": [
+        "have the windows cleaned",
+        "get the windows cleaned"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "He ___ his wallet ___ (steal) on the train yesterday.",
+      "acceptedAnswers": [
+        "had his wallet stolen",
+        "got his wallet stolen"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "I had my car wash at the garage last week.",
+      "correctSentence": "I had my car washed at the garage last week.",
+      "errorIndex": [4]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "She got cut her hair at the new salon.",
+      "correctSentence": "She got her hair cut at the new salon.",
+      "errorIndex": [2, 3, 4]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "They had someone to install the new software.",
+      "correctSentence": "They had someone install the new software.",
+      "errorIndex": [3]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["had", "she", "her", "yesterday", "nails", "done"],
+      "answer": "She had her nails done yesterday."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["get", "to", "need", "I", "fixed", "my", "phone"],
+      "answer": "I need to get my phone fixed."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu sử dụng cấu trúc 'have something done'.",
+      "original": "A mechanic repaired my car.",
+      "acceptedAnswers": [
+        "I had my car repaired.",
+        "I had my car repaired"
+      ],
+      "hint": "Dùng: S + had + O (vật) + V3. Không cần nói ai làm (mechanic)."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu sử dụng cấu trúc 'get something done'.",
+      "original": "A decorator is going to paint our house.",
+      "acceptedAnswers": [
+        "We're going to get our house painted.",
+        "We are going to get our house painted.",
+        "We're going to get our house painted",
+        "We are going to get our house painted"
+      ],
+      "hint": "Dùng: S + be going to + get + O + V3."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu sử dụng cấu trúc 'have something done' (rủi ro).",
+      "original": "Someone stole her bag on the metro.",
+      "acceptedAnswers": [
+        "She had her bag stolen on the metro.",
+        "She had her bag stolen on the metro"
+      ],
+      "hint": "Causative dùng cho rủi ro: S + had + O + V3. 'steal' → V3: 'stolen'."
+    }
+  ],
+  "prerequisites": ["b1-passive-voice"],
+  "relatedReference": ["grammar-patterns"]
+}

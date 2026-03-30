@@ -1,0 +1,362 @@
+{
+  "id": "b1-modal-perfect",
+  "title": "Modal + Have + Past Participle",
+  "level": "B1",
+  "cheatSheet": {
+    "title": "Modal Perfect",
+    "formula": "S + modal + have + V3 (past participle)",
+    "keyPoints": [
+      "should have + V3: lẽ ra nên (hối tiếc/phê phán) — You should have studied harder.",
+      "could have + V3: lẽ ra có thể (khả năng đã không xảy ra) — She could have won the race.",
+      "would have + V3: lẽ ra sẽ (giả định không thực) — I would have helped you.",
+      "must have + V3: chắc hẳn đã (suy đoán chắc chắn về quá khứ) — He must have forgotten.",
+      "might have + V3: có lẽ đã (suy đoán không chắc chắn) — They might have left early.",
+      "Modal + have + V3 luôn nói về quá khứ, dù modal ở dạng hiện tại."
+    ],
+    "signalWords": ["should have", "could have", "would have", "must have", "might have", "may have"],
+    "commonMistakes": [
+      "'should has done' → 'should have done' (luôn dùng 'have', không chia theo ngôi)",
+      "'must have went' → 'must have gone' (sau have phải dùng V3, không dùng V2)",
+      "'should have study' → 'should have studied' (V3, không dùng nguyên thể)",
+      "Nhầm 'must have' (suy đoán quá khứ) với 'must' (bắt buộc hiện tại): 'He must have been tired' ≠ 'He must be tired'"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc Modal + Have + V3",
+        "content": "Cấu trúc **modal + have + V3** dùng để nói về quá khứ — thể hiện suy đoán, hối tiếc, phê phán hoặc khả năng đã không xảy ra.\n\n**Khẳng định:** S + modal + have + V3\n**Phủ định:** S + modal + not + have + V3\n**Nghi vấn:** Modal + S + have + V3?\n\n**Lưu ý quan trọng:**\n- Luôn dùng **have** (không chia has/had)\n- Sau have là **V3** (past participle), không phải V1 hay V2\n- Viết tắt phổ biến: should've, could've, would've, must've, might've",
+        "examples": [
+          {
+            "en": "You **should have told** me earlier.",
+            "vi": "Lẽ ra bạn nên nói với tôi sớm hơn. (hối tiếc)"
+          },
+          {
+            "en": "She **could have passed** the exam if she had studied.",
+            "vi": "Cô ấy lẽ ra có thể đậu nếu cô ấy học bài. (khả năng không xảy ra)"
+          },
+          {
+            "en": "He **must have forgotten** about the meeting.",
+            "vi": "Chắc hẳn anh ấy đã quên về cuộc họp. (suy đoán chắc chắn)"
+          },
+          {
+            "en": "They **might have already left**.",
+            "vi": "Có lẽ họ đã rời đi rồi. (suy đoán không chắc)"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "You", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "should", "role": "auxiliary", "tooltip": "Modal verb — hối tiếc/phê phán" },
+              { "text": " " },
+              { "text": "have", "role": "auxiliary", "tooltip": "Have — luôn giữ nguyên, không chia" },
+              { "text": " " },
+              { "text": "told", "role": "verb", "tooltip": "V3 (past participle) của 'tell'" },
+              { "text": " " },
+              { "text": "me", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "earlier", "role": "time", "tooltip": "Trạng từ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Lẽ ra bạn nên nói với tôi sớm hơn."
+          },
+          {
+            "parts": [
+              { "text": "He", "role": "subject", "tooltip": "Chủ ngữ (ngôi 3 nhưng vẫn dùng 'have', KHÔNG dùng 'has')" },
+              { "text": " " },
+              { "text": "must", "role": "auxiliary", "tooltip": "Modal verb — suy đoán chắc chắn về quá khứ" },
+              { "text": " " },
+              { "text": "have", "role": "auxiliary", "tooltip": "Have — không đổi thành 'has'" },
+              { "text": " " },
+              { "text": "forgotten", "role": "verb", "tooltip": "V3 (past participle) của 'forget'" },
+              { "text": " " },
+              { "text": "about the meeting", "role": "complement", "tooltip": "Bổ ngữ — giới từ + danh từ" },
+              { "text": "." }
+            ],
+            "vi": "Chắc hẳn anh ấy đã quên về cuộc họp."
+          },
+          {
+            "parts": [
+              { "text": "They", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "might", "role": "auxiliary", "tooltip": "Modal verb — suy đoán không chắc chắn" },
+              { "text": " " },
+              { "text": "have", "role": "auxiliary", "tooltip": "Have — giữ nguyên" },
+              { "text": " " },
+              { "text": "already", "role": "time", "tooltip": "Trạng từ — đã rồi" },
+              { "text": " " },
+              { "text": "left", "role": "verb", "tooltip": "V3 (past participle) của 'leave'" },
+              { "text": "." }
+            ],
+            "vi": "Có lẽ họ đã rời đi rồi."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "She should has done her homework.",
+            "correct": "She should have done her homework.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "Sau modal verb, luôn dùng 'have' — không chia thành 'has' dù chủ ngữ là ngôi 3 (he/she/it)."
+          },
+          {
+            "wrong": "They must have went home early.",
+            "correct": "They must have gone home early.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3],
+            "explanation": "Sau 'have' phải dùng V3 (past participle). 'went' là V2 (past simple). Đúng: 'gone' (V3 của go)."
+          }
+        ],
+        "visualType": "formula",
+        "visualData": {
+          "title": "Modal Perfect Formula",
+          "parts": [
+            { "label": "S", "color": "blue" },
+            { "label": "modal (should/could/would/must/might)", "color": "purple" },
+            { "label": "have", "color": "green" },
+            { "label": "V3", "color": "orange" }
+          ],
+          "example": "She should have studied harder."
+        }
+      },
+      {
+        "heading": "Cách dùng từng modal",
+        "content": "**1. should have + V3 — Lẽ ra nên (hối tiếc / phê phán)**\nDùng khi ai đó đã KHÔNG làm điều nên làm, hoặc ĐÃ làm điều không nên làm.\n→ I should have studied harder. (Tôi lẽ ra nên học chăm hơn — nhưng đã không học)\n→ You shouldn't have said that. (Lẽ ra bạn không nên nói vậy — nhưng đã nói)\n\n**2. could have + V3 — Lẽ ra có thể (khả năng đã bỏ lỡ)**\nDùng khi có khả năng làm gì đó nhưng đã không làm.\n→ We could have won the game. (Lẽ ra chúng ta có thể thắng — nhưng đã không thắng)\n\n**3. would have + V3 — Lẽ ra sẽ (giả định không thực)**\nDùng trong câu điều kiện loại 3 hoặc nói về điều đã không xảy ra.\n→ I would have helped you if I had known. (Lẽ ra tôi sẽ giúp nếu tôi biết)\n\n**4. must have + V3 — Chắc hẳn đã (suy đoán rất chắc)**\nDùng khi suy luận logic về quá khứ dựa trên bằng chứng.\n→ She must have been very tired. (Chắc hẳn cô ấy đã rất mệt)\n\n**5. might/may have + V3 — Có lẽ đã (suy đoán không chắc)**\nDùng khi phỏng đoán về quá khứ mà không chắc chắn.\n→ He might have missed the bus. (Có lẽ anh ấy đã lỡ xe buýt)",
+        "examples": [
+          {
+            "en": "I **should have listened** to your advice.",
+            "vi": "Lẽ ra tôi nên nghe lời khuyên của bạn. (hối tiếc — đã không nghe)"
+          },
+          {
+            "en": "You **shouldn't have eaten** so much cake.",
+            "vi": "Lẽ ra bạn không nên ăn nhiều bánh vậy. (phê phán — đã ăn nhiều)"
+          },
+          {
+            "en": "We **could have taken** a taxi instead of walking.",
+            "vi": "Lẽ ra chúng ta có thể bắt taxi thay vì đi bộ. (khả năng đã bỏ lỡ)"
+          },
+          {
+            "en": "I **would have called** you, but my phone died.",
+            "vi": "Lẽ ra tôi sẽ gọi bạn, nhưng hết pin. (giả định không thực)"
+          },
+          {
+            "en": "The ground is wet. It **must have rained** last night.",
+            "vi": "Mặt đất ướt. Chắc hẳn đã mưa tối qua. (suy đoán chắc chắn)"
+          },
+          {
+            "en": "She's not here. She **might have gone** home already.",
+            "vi": "Cô ấy không ở đây. Có lẽ cô ấy đã về nhà rồi. (suy đoán không chắc)"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "should", "role": "auxiliary", "tooltip": "Modal — hối tiếc (lẽ ra nên)" },
+              { "text": " " },
+              { "text": "have", "role": "auxiliary", "tooltip": "Have — cố định" },
+              { "text": " " },
+              { "text": "listened", "role": "verb", "tooltip": "V3 (past participle) của 'listen'" },
+              { "text": " " },
+              { "text": "to your advice", "role": "complement", "tooltip": "Bổ ngữ — giới từ + danh từ" },
+              { "text": "." }
+            ],
+            "vi": "Lẽ ra tôi nên nghe lời khuyên của bạn."
+          },
+          {
+            "parts": [
+              { "text": "We", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "could", "role": "auxiliary", "tooltip": "Modal — khả năng đã bỏ lỡ (lẽ ra có thể)" },
+              { "text": " " },
+              { "text": "have", "role": "auxiliary", "tooltip": "Have — cố định" },
+              { "text": " " },
+              { "text": "taken", "role": "verb", "tooltip": "V3 (past participle) của 'take'" },
+              { "text": " " },
+              { "text": "a taxi", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "instead of walking", "role": "complement", "tooltip": "Cụm bổ nghĩa — so sánh hai phương án" },
+              { "text": "." }
+            ],
+            "vi": "Lẽ ra chúng ta có thể bắt taxi thay vì đi bộ."
+          },
+          {
+            "parts": [
+              { "text": "It", "role": "subject", "tooltip": "Chủ ngữ giả (thời tiết)" },
+              { "text": " " },
+              { "text": "must", "role": "auxiliary", "tooltip": "Modal — suy đoán chắc chắn (chắc hẳn đã)" },
+              { "text": " " },
+              { "text": "have", "role": "auxiliary", "tooltip": "Have — cố định" },
+              { "text": " " },
+              { "text": "rained", "role": "verb", "tooltip": "V3 (past participle) của 'rain'" },
+              { "text": " " },
+              { "text": "last night", "role": "time", "tooltip": "Trạng từ thời gian — tối qua" },
+              { "text": "." }
+            ],
+            "vi": "Chắc hẳn đã mưa tối qua."
+          },
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "might", "role": "auxiliary", "tooltip": "Modal — suy đoán không chắc (có lẽ đã)" },
+              { "text": " " },
+              { "text": "have", "role": "auxiliary", "tooltip": "Have — cố định" },
+              { "text": " " },
+              { "text": "gone", "role": "verb", "tooltip": "V3 (past participle) của 'go'" },
+              { "text": " " },
+              { "text": "home", "role": "complement", "tooltip": "Trạng từ nơi chốn" },
+              { "text": " " },
+              { "text": "already", "role": "time", "tooltip": "Trạng từ — đã rồi" },
+              { "text": "." }
+            ],
+            "vi": "Có lẽ cô ấy đã về nhà rồi."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "You should have study for the test.",
+            "correct": "You should have studied for the test.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3],
+            "explanation": "Sau 'have' phải dùng V3 (past participle). 'study' là V1 (nguyên thể). Đúng: 'studied' (V3)."
+          },
+          {
+            "wrong": "He must had left before we arrived.",
+            "correct": "He must have left before we arrived.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "Sau modal verb luôn dùng 'have' (nguyên thể), không dùng 'had'. Modal + have + V3 là cấu trúc cố định."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "You look sunburned. You ___ sunscreen.",
+      "options": [
+        "should wear",
+        "should have worn",
+        "must wear",
+        "could wear"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "She knew the answer but didn't raise her hand. She ___ the question.",
+      "options": [
+        "must have answered",
+        "should answered",
+        "could have answered",
+        "would answered"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The streets are wet. It ___ during the night.",
+      "options": [
+        "must rain",
+        "must have rained",
+        "should have rained",
+        "could rain"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "He didn't come to school today. He ___ sick.",
+      "options": [
+        "might be",
+        "should have been",
+        "might have been",
+        "would have been"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "I failed the exam. I ___ (should/study) harder.",
+      "acceptedAnswers": [
+        "should have studied"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "She's not answering the phone. She ___ (must/leave) already.",
+      "acceptedAnswers": [
+        "must have left"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "We missed the train. We ___ (could/take) a taxi instead.",
+      "acceptedAnswers": [
+        "could have taken"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "I ___ (would/help) you, but I was busy.",
+      "acceptedAnswers": [
+        "would have helped"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "She should has told me the truth.",
+      "correctSentence": "She should have told me the truth.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "They must have went to the wrong address.",
+      "correctSentence": "They must have gone to the wrong address.",
+      "errorIndex": [3]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "He could have catch the ball if he had tried.",
+      "correctSentence": "He could have caught the ball if he had tried.",
+      "errorIndex": [3]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["should", "you", "have", "me", "told", "earlier"],
+      "answer": "You should have told me earlier."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["have", "must", "she", "the", "forgotten", "meeting"],
+      "answer": "She must have forgotten the meeting."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng 'should have': 'It was a mistake not to bring an umbrella.' (Lẽ ra nên mang ô.)",
+      "original": "It was a mistake not to bring an umbrella.",
+      "acceptedAnswers": [
+        "I should have brought an umbrella.",
+        "We should have brought an umbrella.",
+        "You should have brought an umbrella."
+      ],
+      "hint": "Dùng 'should have + V3' để diễn tả hối tiếc. V3 của 'bring' là 'brought'."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng 'must have': 'I'm sure she was very happy when she heard the news.'",
+      "original": "I'm sure she was very happy when she heard the news.",
+      "acceptedAnswers": [
+        "She must have been very happy when she heard the news."
+      ],
+      "hint": "Dùng 'must have + V3' để diễn tả suy đoán chắc chắn về quá khứ. V3 của 'be' là 'been'."
+    }
+  ],
+  "prerequisites": ["modals", "present-perfect"],
+  "relatedReference": ["common-mistakes"]
+}

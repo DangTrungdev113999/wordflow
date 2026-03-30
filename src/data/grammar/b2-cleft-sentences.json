@@ -1,0 +1,363 @@
+{
+  "id": "b2-cleft-sentences",
+  "title": "Cleft Sentences",
+  "level": "B2",
+  "cheatSheet": {
+    "title": "Câu chẻ (Cleft Sentences)",
+    "formula": "It is/was + focus + that/who + rest / What + S + V + is/was + focus",
+    "keyPoints": [
+      "It-cleft: It is/was + thành phần nhấn mạnh + that/who + phần còn lại.",
+      "Wh-cleft: What + S + V + is/was + thành phần nhấn mạnh.",
+      "Dùng 'who' khi nhấn mạnh người, 'that' cho mọi trường hợp khác.",
+      "Có thể nhấn mạnh chủ ngữ, tân ngữ, trạng ngữ thời gian/nơi chốn, hoặc lý do.",
+      "Wh-cleft mở rộng: The thing that...is, The reason why...is, The person who...is, All I want is..."
+    ],
+    "signalWords": ["it is", "it was", "what", "the thing that", "the reason why", "the person who", "all I want"],
+    "commonMistakes": [
+      "'It was him who helped me.' → Đúng trong giao tiếp, nhưng 'It was he who helped me.' đúng ngữ pháp trang trọng.",
+      "'What I need is money.' — đúng ✓ / 'What I need is a money.' — sai (money không đếm được)",
+      "'It was because of the rain that we stayed home.' — đúng ✓ / 'It was because the rain that...' — sai (thiếu 'of')",
+      "'It was yesterday that I met her.' — đúng ✓ / 'It was yesterday when I met her.' — sai (dùng 'that', không dùng 'when' trong it-cleft)"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "It-cleft: Câu chẻ với It is/was...that/who",
+        "content": "Câu chẻ It-cleft dùng để **nhấn mạnh** một thành phần trong câu bằng cách đưa nó vào vị trí sau 'It is/was'.\n\n**Công thức:**\nIt + is/was + **thành phần nhấn mạnh** + that/who + phần còn lại\n\n**Dùng 'who'** khi nhấn mạnh **người**, **'that'** cho mọi trường hợp khác (vật, thời gian, nơi chốn, lý do).\n\n**Ví dụ chuyển đổi:**\n- Câu gốc: **John** bought a car yesterday.\n- Nhấn mạnh chủ ngữ: It was **John** who/that bought a car yesterday.\n- Nhấn mạnh tân ngữ: It was **a car** that John bought yesterday.\n- Nhấn mạnh thời gian: It was **yesterday** that John bought a car.\n\n**Lưu ý:** Động từ 'is' dùng cho sự việc hiện tại/sự thật chung. 'Was' dùng cho sự việc quá khứ.",
+        "examples": [
+          {
+            "en": "It was **my mother** who taught me how to cook.",
+            "vi": "Chính mẹ tôi là người đã dạy tôi nấu ăn. (nhấn mạnh người)"
+          },
+          {
+            "en": "It was **the noise** that woke me up.",
+            "vi": "Chính tiếng ồn đã đánh thức tôi dậy. (nhấn mạnh vật/nguyên nhân)"
+          },
+          {
+            "en": "It was **in Paris** that they first met.",
+            "vi": "Chính ở Paris là nơi họ gặp nhau lần đầu. (nhấn mạnh nơi chốn)"
+          },
+          {
+            "en": "It is **honesty** that I value the most.",
+            "vi": "Chính sự trung thực là điều tôi trân trọng nhất. (nhấn mạnh tân ngữ)"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "It", "role": "subject", "tooltip": "Chủ ngữ giả — bắt đầu câu chẻ" },
+              { "text": " " },
+              { "text": "was", "role": "auxiliary", "tooltip": "Động từ tobe — quá khứ vì sự việc đã xảy ra" },
+              { "text": " " },
+              { "text": "my mother", "role": "complement", "tooltip": "Thành phần được nhấn mạnh — người" },
+              { "text": " " },
+              { "text": "who", "role": "connector", "tooltip": "Dùng 'who' vì nhấn mạnh người" },
+              { "text": " " },
+              { "text": "taught", "role": "verb", "tooltip": "Động từ chính — dạy" },
+              { "text": " " },
+              { "text": "me", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "how to cook", "role": "complement", "tooltip": "Bổ ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Chính mẹ tôi là người đã dạy tôi nấu ăn."
+          },
+          {
+            "parts": [
+              { "text": "It", "role": "subject", "tooltip": "Chủ ngữ giả" },
+              { "text": " " },
+              { "text": "was", "role": "auxiliary", "tooltip": "Động từ tobe — quá khứ" },
+              { "text": " " },
+              { "text": "the noise", "role": "complement", "tooltip": "Thành phần được nhấn mạnh — vật/nguyên nhân" },
+              { "text": " " },
+              { "text": "that", "role": "connector", "tooltip": "Dùng 'that' vì nhấn mạnh vật" },
+              { "text": " " },
+              { "text": "woke", "role": "verb", "tooltip": "Động từ chính — đánh thức" },
+              { "text": " " },
+              { "text": "me", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "up", "role": "complement", "tooltip": "Tiểu từ (phrasal verb: wake up)" },
+              { "text": "." }
+            ],
+            "vi": "Chính tiếng ồn đã đánh thức tôi dậy."
+          },
+          {
+            "parts": [
+              { "text": "It", "role": "subject", "tooltip": "Chủ ngữ giả" },
+              { "text": " " },
+              { "text": "was", "role": "auxiliary", "tooltip": "Động từ tobe — quá khứ" },
+              { "text": " " },
+              { "text": "in Paris", "role": "complement", "tooltip": "Thành phần được nhấn mạnh — nơi chốn" },
+              { "text": " " },
+              { "text": "that", "role": "connector", "tooltip": "Dùng 'that' cho nơi chốn (không dùng 'where' trong it-cleft)" },
+              { "text": " " },
+              { "text": "they", "role": "subject", "tooltip": "Chủ ngữ của mệnh đề phụ" },
+              { "text": " " },
+              { "text": "first met", "role": "verb", "tooltip": "Động từ — gặp nhau lần đầu" },
+              { "text": "." }
+            ],
+            "vi": "Chính ở Paris là nơi họ gặp nhau lần đầu."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "It was yesterday when I saw her.",
+            "correct": "It was yesterday that I saw her.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3],
+            "explanation": "Trong câu chẻ It-cleft, luôn dùng 'that' (hoặc 'who' cho người), không dùng 'when/where/which'."
+          },
+          {
+            "wrong": "It was because the traffic that I was late.",
+            "correct": "It was because of the traffic that I was late.",
+            "wrongHighlight": [2, 3],
+            "correctHighlight": [2, 3, 4],
+            "explanation": "Khi nhấn mạnh lý do, dùng 'because of + danh từ' (không phải 'because + danh từ')."
+          }
+        ]
+      },
+      {
+        "heading": "Wh-cleft: Câu chẻ với What / The thing that / The reason why",
+        "content": "Câu chẻ Wh-cleft (hay pseudo-cleft) đưa thành phần nhấn mạnh về **cuối câu** bằng cách bắt đầu với mệnh đề 'What...'.\n\n**Các dạng Wh-cleft:**\n- **What** + S + V + is/was + thành phần nhấn mạnh\n- **The thing that** + S + V + is/was + thành phần nhấn mạnh\n- **The reason why** + S + V + is/was + thành phần nhấn mạnh\n- **The person who** + S + V + is/was + thành phần nhấn mạnh\n- **The place where** + S + V + is/was + thành phần nhấn mạnh\n- **All** + S + V + is/was + thành phần nhấn mạnh\n\n**Ví dụ chuyển đổi:**\n- Câu gốc: I need more time.\n- Wh-cleft: What I need is **more time**.\n\n**Lưu ý:** Wh-cleft thường dùng trong giao tiếp hàng ngày, nghe tự nhiên và thân thiện hơn It-cleft.",
+        "examples": [
+          {
+            "en": "**What** I love about this city **is** the food.",
+            "vi": "Điều tôi yêu thích ở thành phố này là đồ ăn."
+          },
+          {
+            "en": "**The thing that** surprised me **was** his reaction.",
+            "vi": "Điều khiến tôi ngạc nhiên là phản ứng của anh ấy."
+          },
+          {
+            "en": "**The reason why** she left **was** the low salary.",
+            "vi": "Lý do cô ấy nghỉ việc là mức lương thấp."
+          },
+          {
+            "en": "**All** I want **is** a cup of coffee.",
+            "vi": "Tất cả những gì tôi muốn là một ly cà phê."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "What", "role": "connector", "tooltip": "Đại từ quan hệ — bắt đầu mệnh đề Wh-cleft" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ trong mệnh đề wh" },
+              { "text": " " },
+              { "text": "love", "role": "verb", "tooltip": "Động từ trong mệnh đề wh" },
+              { "text": " " },
+              { "text": "about this city", "role": "complement", "tooltip": "Cụm giới từ bổ nghĩa" },
+              { "text": " " },
+              { "text": "is", "role": "auxiliary", "tooltip": "Động từ nối — kết nối mệnh đề wh với phần nhấn mạnh" },
+              { "text": " " },
+              { "text": "the food", "role": "object", "tooltip": "Thành phần được nhấn mạnh — đặt cuối câu" },
+              { "text": "." }
+            ],
+            "vi": "Điều tôi yêu thích ở thành phố này là đồ ăn."
+          },
+          {
+            "parts": [
+              { "text": "The reason why", "role": "connector", "tooltip": "Cụm mở đầu Wh-cleft — nhấn mạnh lý do" },
+              { "text": " " },
+              { "text": "she", "role": "subject", "tooltip": "Chủ ngữ trong mệnh đề" },
+              { "text": " " },
+              { "text": "left", "role": "verb", "tooltip": "Động từ — nghỉ việc/rời đi" },
+              { "text": " " },
+              { "text": "was", "role": "auxiliary", "tooltip": "Động từ nối — quá khứ" },
+              { "text": " " },
+              { "text": "the low salary", "role": "complement", "tooltip": "Thành phần được nhấn mạnh — lý do" },
+              { "text": "." }
+            ],
+            "vi": "Lý do cô ấy nghỉ việc là mức lương thấp."
+          },
+          {
+            "parts": [
+              { "text": "All", "role": "connector", "tooltip": "Đại từ — 'tất cả', dạng rút gọn của Wh-cleft" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "want", "role": "verb", "tooltip": "Động từ" },
+              { "text": " " },
+              { "text": "is", "role": "auxiliary", "tooltip": "Động từ nối" },
+              { "text": " " },
+              { "text": "a cup of coffee", "role": "object", "tooltip": "Thành phần được nhấn mạnh — đặt cuối" },
+              { "text": "." }
+            ],
+            "vi": "Tất cả những gì tôi muốn là một ly cà phê."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "What I need are more time.",
+            "correct": "What I need is more time.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3],
+            "explanation": "Động từ 'be' trong Wh-cleft chia theo thành phần nhấn mạnh. 'more time' là danh từ không đếm được (số ít) → dùng 'is'."
+          },
+          {
+            "wrong": "The thing what bothers me is the noise.",
+            "correct": "The thing that bothers me is the noise.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "Sau 'the thing', dùng 'that' (đại từ quan hệ), không dùng 'what'. 'What' chỉ đứng đầu câu trong Wh-cleft."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "It ___ Tom who broke the window.",
+      "options": [
+        "is",
+        "was",
+        "were",
+        "has"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "It was ___ that I wanted to visit, not London.",
+      "options": [
+        "Paris",
+        "to Paris",
+        "in Paris",
+        "at Paris"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ surprised me was her kindness.",
+      "options": [
+        "It",
+        "That",
+        "What",
+        "Which"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "It was my sister ___ won the competition.",
+      "options": [
+        "which",
+        "whom",
+        "who",
+        "what"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The reason ___ he quit was the long working hours.",
+      "options": [
+        "that",
+        "what",
+        "which",
+        "why"
+      ],
+      "answer": 3
+    },
+    {
+      "type": "fill_blank",
+      "question": "It was ___ that I met her for the first time. (nhấn mạnh: in college)",
+      "acceptedAnswers": [
+        "in college"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "___ I really need is a good night's sleep.",
+      "acceptedAnswers": [
+        "What"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "It is ___ who always helps me with my homework. (nhấn mạnh: my father)",
+      "acceptedAnswers": [
+        "my father"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "The thing ___ annoys me is his attitude.",
+      "acceptedAnswers": [
+        "that"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "It was yesterday when she arrived.",
+      "correctSentence": "It was yesterday that she arrived.",
+      "errorIndex": [3]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "The thing what I like about him is his humor.",
+      "correctSentence": "The thing that I like about him is his humor.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "It was because the rain that the match was canceled.",
+      "correctSentence": "It was because of the rain that the match was canceled.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["it", "was", "who", "Mary", "the cake", "baked"],
+      "answer": "It was Mary who baked the cake."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["what", "need", "I", "more", "is", "time"],
+      "answer": "What I need is more time."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng It-cleft để nhấn mạnh phần in đậm: **The manager** approved the budget.",
+      "original": "The manager approved the budget.",
+      "acceptedAnswers": [
+        "It was the manager who approved the budget.",
+        "It was the manager that approved the budget."
+      ],
+      "hint": "It was + phần nhấn mạnh (the manager) + who/that + phần còn lại."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng Wh-cleft (What...): I admire her determination.",
+      "original": "I admire her determination.",
+      "acceptedAnswers": [
+        "What I admire is her determination.",
+        "What I admire about her is her determination."
+      ],
+      "hint": "What + S + V + is + thành phần nhấn mạnh."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng It-cleft để nhấn mạnh phần in đậm: She lost her keys **at the park**.",
+      "original": "She lost her keys at the park.",
+      "acceptedAnswers": [
+        "It was at the park that she lost her keys."
+      ],
+      "hint": "It was + at the park (nơi chốn) + that + phần còn lại."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng 'The reason why...': He was late because of the traffic jam.",
+      "original": "He was late because of the traffic jam.",
+      "acceptedAnswers": [
+        "The reason why he was late was the traffic jam.",
+        "The reason why he was late was because of the traffic jam."
+      ],
+      "hint": "The reason why + S + V + was + thành phần nhấn mạnh."
+    }
+  ],
+  "prerequisites": ["b1-relative-clauses"],
+  "relatedReference": ["grammar-patterns"]
+}

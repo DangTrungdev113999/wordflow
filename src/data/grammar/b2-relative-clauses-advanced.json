@@ -1,0 +1,366 @@
+{
+  "id": "b2-relative-clauses-advanced",
+  "title": "Non-defining Relative Clauses",
+  "level": "B2",
+  "prerequisites": ["b1-relative-clauses"],
+  "relatedReference": ["grammar-patterns"],
+  "cheatSheet": {
+    "title": "Mệnh đề quan hệ không xác định (Non-defining Relative Clauses)",
+    "formula": ", + who/which/whose/where/when + clause, ...",
+    "keyPoints": [
+      "Thêm thông tin phụ, KHÔNG cần thiết để xác định danh từ — bỏ đi câu vẫn đúng nghĩa.",
+      "Luôn có dấu phẩy (,) ngăn cách mệnh đề quan hệ với mệnh đề chính.",
+      "KHÔNG dùng 'that' — chỉ dùng who/which/whose/where/when/whom.",
+      "KHÔNG được lược bỏ đại từ quan hệ (khác với defining relative clause).",
+      "'which' có thể bổ nghĩa cho cả mệnh đề đứng trước, không chỉ một danh từ.",
+      "Giới từ + whom/which: dùng trong văn viết trang trọng (to whom, in which...)."
+    ],
+    "signalWords": ["who", "which", "whose", "where", "when", "whom"],
+    "commonMistakes": [
+      "'My brother, that lives in London, is a doctor.' → 'My brother, who lives in London, is a doctor.' (KHÔNG dùng 'that' trong non-defining)",
+      "'My car which is red is parked outside.' → 'My car, which is red, is parked outside.' (thiếu dấu phẩy = thành defining clause, sai nghĩa)",
+      "'He passed the exam, that made his parents happy.' → 'He passed the exam, which made his parents happy.' (which thay cho cả mệnh đề, không dùng that)",
+      "'My boss, I work for, is very strict.' → 'My boss, who I work for, is very strict.' (không được lược bỏ đại từ quan hệ trong non-defining)"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc: Defining vs Non-defining",
+        "content": "**Defining Relative Clause (Mệnh đề quan hệ xác định — B1):**\n- Cung cấp thông tin **cần thiết** để xác định danh từ.\n- KHÔNG có dấu phẩy.\n- Có thể dùng **that** thay who/which.\n- Có thể lược bỏ đại từ quan hệ khi nó là tân ngữ.\n- Ví dụ: The woman **who lives next door** is my aunt. (Người phụ nữ nào? → người sống cạnh nhà)\n\n**Non-defining Relative Clause (Mệnh đề quan hệ không xác định — B2):**\n- Cung cấp thông tin **phụ, bổ sung** — bỏ đi câu vẫn rõ nghĩa.\n- **Luôn có dấu phẩy** ngăn cách.\n- **KHÔNG dùng 'that'** — chỉ dùng who/which/whose/where/when/whom.\n- **KHÔNG được lược bỏ** đại từ quan hệ.\n- Ví dụ: **My sister, who lives in London,** is a teacher. (Chỉ có một chị/em gái, thông tin 'sống ở London' là phụ)\n\n**Cấu trúc:**\n- S + , + who/which/whose/where/when + clause, + V...\n- Hoặc: S + V + O, + which + clause. (which bổ nghĩa cho cả câu trước)",
+        "examples": [
+          {
+            "en": "**My mother, who** is 60 years old, **still works** every day.",
+            "vi": "Mẹ tôi, người mà 60 tuổi, vẫn làm việc mỗi ngày. (thông tin tuổi là phụ)"
+          },
+          {
+            "en": "**Paris, which** is the capital of France, **attracts** millions of tourists.",
+            "vi": "Paris, thủ đô của Pháp, thu hút hàng triệu du khách. (ai cũng biết Paris là gì)"
+          },
+          {
+            "en": "**Mr. Smith, whose** daughter won the competition, **was** very proud.",
+            "vi": "Ông Smith, người mà con gái ông ấy đã thắng cuộc thi, rất tự hào."
+          },
+          {
+            "en": "The students, **who** had studied hard, **all passed** the exam.",
+            "vi": "Các sinh viên, những người đã học chăm chỉ, đều đỗ kỳ thi. (tất cả sinh viên đều đỗ)"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "My mother", "role": "subject", "tooltip": "Danh từ chính — đã xác định (mẹ tôi), không cần mệnh đề quan hệ để nhận diện" },
+              { "text": ", " },
+              { "text": "who", "role": "connector", "tooltip": "Đại từ quan hệ — cho người, KHÔNG dùng 'that'" },
+              { "text": " " },
+              { "text": "is 60 years old", "role": "complement", "tooltip": "Thông tin phụ — bỏ đi câu vẫn đúng nghĩa" },
+              { "text": ", " },
+              { "text": "still works", "role": "verb", "tooltip": "Động từ chính của câu" },
+              { "text": " " },
+              { "text": "every day", "role": "time", "tooltip": "Trạng từ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Mẹ tôi, người mà 60 tuổi, vẫn làm việc mỗi ngày."
+          },
+          {
+            "parts": [
+              { "text": "Paris", "role": "subject", "tooltip": "Danh từ riêng — đã xác định, không cần bổ nghĩa để nhận diện" },
+              { "text": ", " },
+              { "text": "which", "role": "connector", "tooltip": "Đại từ quan hệ — cho vật/nơi chốn, KHÔNG dùng 'that'" },
+              { "text": " " },
+              { "text": "is", "role": "auxiliary", "tooltip": "Động từ trong mệnh đề quan hệ" },
+              { "text": " " },
+              { "text": "the capital of France", "role": "complement", "tooltip": "Thông tin phụ" },
+              { "text": ", " },
+              { "text": "attracts", "role": "verb", "tooltip": "Động từ chính của câu" },
+              { "text": " " },
+              { "text": "millions of tourists", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Paris, thủ đô của Pháp, thu hút hàng triệu du khách."
+          },
+          {
+            "parts": [
+              { "text": "Mr. Smith", "role": "subject", "tooltip": "Danh từ riêng — đã xác định" },
+              { "text": ", " },
+              { "text": "whose", "role": "connector", "tooltip": "Đại từ quan hệ sở hữu — 'con gái của ông ấy'" },
+              { "text": " " },
+              { "text": "daughter", "role": "subject", "tooltip": "Chủ ngữ trong mệnh đề quan hệ" },
+              { "text": " " },
+              { "text": "won", "role": "verb", "tooltip": "Động từ trong mệnh đề quan hệ" },
+              { "text": " " },
+              { "text": "the competition", "role": "object", "tooltip": "Tân ngữ trong mệnh đề quan hệ" },
+              { "text": ", " },
+              { "text": "was", "role": "auxiliary", "tooltip": "Động từ chính của câu" },
+              { "text": " " },
+              { "text": "very proud", "role": "complement", "tooltip": "Bổ ngữ tính từ" },
+              { "text": "." }
+            ],
+            "vi": "Ông Smith, người mà con gái ông ấy đã thắng cuộc thi, rất tự hào."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "My brother, that lives in London, is a doctor.",
+            "correct": "My brother, who lives in London, is a doctor.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "Trong mệnh đề quan hệ không xác định (non-defining), KHÔNG được dùng 'that'. Phải dùng 'who' (cho người) hoặc 'which' (cho vật)."
+          },
+          {
+            "wrong": "My car which is red is parked outside.",
+            "correct": "My car, which is red, is parked outside.",
+            "wrongHighlight": [2, 5],
+            "correctHighlight": [1, 5],
+            "explanation": "Thiếu dấu phẩy biến mệnh đề thành defining clause (= tôi có nhiều xe, chiếc màu đỏ). Thêm dấu phẩy = non-defining (= tôi chỉ có 1 xe, nó màu đỏ)."
+          }
+        ]
+      },
+      {
+        "heading": "Cách dùng nâng cao: which cho cả mệnh đề & giới từ + whom",
+        "content": "**1. 'which' bổ nghĩa cho cả mệnh đề đứng trước:**\n- Không chỉ bổ nghĩa cho một danh từ, mà cho **toàn bộ ý/sự kiện** trước dấu phẩy.\n- Cấu trúc: S + V + O, **which** + V...\n- Ví dụ: He passed the exam, **which** surprised everyone. ('which' = việc anh ấy đỗ)\n- **Lưu ý:** KHÔNG dùng 'what' thay 'which' trong trường hợp này.\n\n**2. Giới từ + whom/which (formal):**\n- Trong văn viết trang trọng, giới từ đứng trước đại từ quan hệ.\n- **whom** (không phải who) khi có giới từ đứng trước.\n- Cấu trúc: N, + preposition + whom/which + S + V\n- Ví dụ: The manager, **to whom** I spoke, was very helpful.\n- So sánh informal: The manager, **who** I spoke **to**, was very helpful.\n\n**3. Một số đại từ quan hệ khác trong non-defining:**\n- **where** = in which (nơi chốn): London, where I was born, is a great city.\n- **when** = at/in which (thời gian): In 2020, when the pandemic started, everything changed.\n- **whose** = of whom/of which (sở hữu): The teacher, whose class I attended, retired last year.",
+        "examples": [
+          {
+            "en": "She won the first prize, **which** made her parents very happy.",
+            "vi": "Cô ấy đoạt giải nhất, điều đó khiến bố mẹ cô ấy rất vui. (which = việc đoạt giải)"
+          },
+          {
+            "en": "The professor, **to whom** I wrote the letter, replied immediately.",
+            "vi": "Vị giáo sư, người mà tôi viết thư cho, đã trả lời ngay."
+          },
+          {
+            "en": "He quit his job, **which** I thought was a bad decision.",
+            "vi": "Anh ấy nghỉ việc, điều mà tôi nghĩ là một quyết định tồi."
+          },
+          {
+            "en": "London, **where** I spent my childhood, has changed a lot.",
+            "vi": "London, nơi tôi đã trải qua thời thơ ấu, đã thay đổi rất nhiều."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "won", "role": "verb", "tooltip": "Động từ chính" },
+              { "text": " " },
+              { "text": "the first prize", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": ", " },
+              { "text": "which", "role": "connector", "tooltip": "Đại từ quan hệ — thay cho CẢ mệnh đề 'She won the first prize'" },
+              { "text": " " },
+              { "text": "made", "role": "verb", "tooltip": "Động từ trong mệnh đề quan hệ" },
+              { "text": " " },
+              { "text": "her parents", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "very happy", "role": "complement", "tooltip": "Bổ ngữ tính từ" },
+              { "text": "." }
+            ],
+            "vi": "Cô ấy đoạt giải nhất, điều đó khiến bố mẹ cô ấy rất vui."
+          },
+          {
+            "parts": [
+              { "text": "The professor", "role": "subject", "tooltip": "Danh từ chính" },
+              { "text": ", " },
+              { "text": "to whom", "role": "connector", "tooltip": "Giới từ + whom — formal, thay vì 'who...to'" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ trong mệnh đề quan hệ" },
+              { "text": " " },
+              { "text": "wrote", "role": "verb", "tooltip": "Động từ trong mệnh đề quan hệ" },
+              { "text": " " },
+              { "text": "the letter", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": ", " },
+              { "text": "replied", "role": "verb", "tooltip": "Động từ chính của câu" },
+              { "text": " " },
+              { "text": "immediately", "role": "time", "tooltip": "Trạng từ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Vị giáo sư, người mà tôi viết thư cho, đã trả lời ngay."
+          },
+          {
+            "parts": [
+              { "text": "London", "role": "subject", "tooltip": "Danh từ riêng — nơi chốn" },
+              { "text": ", " },
+              { "text": "where", "role": "connector", "tooltip": "Đại từ quan hệ chỉ nơi chốn — = in which" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ trong mệnh đề quan hệ" },
+              { "text": " " },
+              { "text": "spent", "role": "verb", "tooltip": "Động từ trong mệnh đề quan hệ" },
+              { "text": " " },
+              { "text": "my childhood", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": ", " },
+              { "text": "has changed", "role": "verb", "tooltip": "Động từ chính của câu (present perfect)" },
+              { "text": " " },
+              { "text": "a lot", "role": "complement", "tooltip": "Bổ ngữ" },
+              { "text": "." }
+            ],
+            "vi": "London, nơi tôi đã trải qua thời thơ ấu, đã thay đổi rất nhiều."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "He passed the exam, that made his parents happy.",
+            "correct": "He passed the exam, which made his parents happy.",
+            "wrongHighlight": [5],
+            "correctHighlight": [5],
+            "explanation": "Khi 'which' thay cho cả mệnh đề trước, KHÔNG dùng 'that'. Chỉ 'which' mới có thể bổ nghĩa cho cả mệnh đề."
+          },
+          {
+            "wrong": "The manager, who I spoke to him, was helpful.",
+            "correct": "The manager, who I spoke to, was helpful.",
+            "wrongHighlight": [6],
+            "correctHighlight": [5],
+            "explanation": "Không thêm đại từ (him/her/it) sau giới từ trong mệnh đề quan hệ. 'who' đã thay thế cho 'the manager', không cần 'him' nữa."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "My grandmother, ___ is 85 years old, still goes for a walk every morning.",
+      "options": [
+        "that",
+        "who",
+        "which",
+        "whom"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The Mona Lisa, ___ is in the Louvre Museum, was painted by Leonardo da Vinci.",
+      "options": [
+        "that",
+        "who",
+        "which",
+        "where"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "He didn't get the promotion, ___ was very disappointing.",
+      "options": [
+        "that",
+        "what",
+        "which",
+        "who"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The teacher, ___ students always get high marks, won an award.",
+      "options": [
+        "who",
+        "which",
+        "whose",
+        "whom"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which sentence is a correct NON-DEFINING relative clause?",
+      "options": [
+        "The man that I met yesterday was kind.",
+        "My father, who works at a bank, is retiring soon.",
+        "The book that is on the table is mine.",
+        "People who exercise regularly are healthier."
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Dr. Nguyen, ___ I have known for ten years, is an excellent surgeon.",
+      "acceptedAnswers": [
+        "who",
+        "whom"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "The company offered me the job, ___ was a great relief.",
+      "acceptedAnswers": [
+        "which"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "Hanoi, ___ I was born, has changed dramatically over the years.",
+      "acceptedAnswers": [
+        "where"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "Mrs. Tran, ___ son is in my class, called the school yesterday.",
+      "acceptedAnswers": [
+        "whose"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "My sister, that is a nurse, works at the central hospital.",
+      "correctSentence": "My sister, who is a nurse, works at the central hospital.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "He resigned from his job, what shocked everyone.",
+      "correctSentence": "He resigned from his job, which shocked everyone.",
+      "errorIndex": [5]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "The CEO, I sent the email to, hasn't replied yet.",
+      "correctSentence": "The CEO, who I sent the email to, hasn't replied yet.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "Tokyo which is the capital of Japan hosted the Olympics in 2021.",
+      "correctSentence": "Tokyo, which is the capital of Japan, hosted the Olympics in 2021.",
+      "errorIndex": [1, 7]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["my", "uncle", "who", "lives", "in", "Da Nang", "is", "a", "fisherman"],
+      "answer": "My uncle, who lives in Da Nang, is a fisherman."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["she", "passed", "the", "test", "which", "surprised", "everyone"],
+      "answer": "She passed the test, which surprised everyone."
+    },
+    {
+      "type": "transform",
+      "instruction": "Nối hai câu bằng mệnh đề quan hệ không xác định: 'My neighbour is very friendly. She moved here last month.'",
+      "original": "My neighbour is very friendly. She moved here last month.",
+      "acceptedAnswers": [
+        "My neighbour, who moved here last month, is very friendly.",
+        "My neighbour, who is very friendly, moved here last month."
+      ],
+      "hint": "Dùng 'who' (không dùng 'that') và nhớ thêm dấu phẩy."
+    },
+    {
+      "type": "transform",
+      "instruction": "Nối hai câu bằng mệnh đề quan hệ không xác định: 'He failed the driving test. This made him feel terrible.'",
+      "original": "He failed the driving test. This made him feel terrible.",
+      "acceptedAnswers": [
+        "He failed the driving test, which made him feel terrible."
+      ],
+      "hint": "Dùng 'which' để thay cho cả sự kiện 'He failed the driving test'."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu ở dạng formal hơn: 'The director, who I reported to, was very supportive.'",
+      "original": "The director, who I reported to, was very supportive.",
+      "acceptedAnswers": [
+        "The director, to whom I reported, was very supportive."
+      ],
+      "hint": "Chuyển giới từ 'to' lên trước đại từ quan hệ và đổi 'who' thành 'whom'."
+    }
+  ]
+}

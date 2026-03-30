@@ -1,0 +1,348 @@
+{
+  "id": "b1-passive-voice",
+  "title": "Passive Voice (Present & Past)",
+  "level": "B1",
+  "cheatSheet": {
+    "title": "Passive Voice",
+    "formula": "S + be + V3 (past participle)",
+    "keyPoints": [
+      "Present passive: am/is/are + V3",
+      "Past passive: was/were + V3",
+      "Dùng khi không biết hoặc không quan trọng ai thực hiện hành động",
+      "Nhấn mạnh đối tượng chịu tác động thay vì người thực hiện",
+      "Thêm 'by + agent' nếu muốn nói rõ ai thực hiện"
+    ],
+    "signalWords": ["by", "was", "were", "is", "are", "been", "get"],
+    "commonMistakes": [
+      "'The cake baked by mom' → 'The cake was baked by mom' (thiếu be)",
+      "'The letter is write by her' → 'The letter is written by her' (phải dùng V3)",
+      "'English is spoke here' → 'English is spoken here' (V3 bất quy tắc)",
+      "'The window was break yesterday' → 'The window was broken yesterday' (V3 của break là broken)"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc",
+        "conjugation": {
+          "verb": "make",
+          "tense": "Passive Voice (Present & Past)",
+          "rows": [
+            { "pronoun": "I", "affirmative": "I am made", "negative": "I am not made", "question": "Am I made?" },
+            { "pronoun": "You", "affirmative": "You are made", "negative": "You are not made", "question": "Are you made?" },
+            { "pronoun": "He/She/It", "affirmative": "He is made", "negative": "He is not made", "question": "Is he made?", "highlight": "third-person" },
+            { "pronoun": "We", "affirmative": "We are made", "negative": "We are not made", "question": "Are we made?" },
+            { "pronoun": "They", "affirmative": "They are made", "negative": "They are not made", "question": "Are they made?" },
+            { "pronoun": "I/He/She/It (past)", "affirmative": "He was made", "negative": "He was not made", "question": "Was he made?", "highlight": "past-singular" },
+            { "pronoun": "You/We/They (past)", "affirmative": "They were made", "negative": "They were not made", "question": "Were they made?", "highlight": "past-plural" }
+          ],
+          "notes": "Active: Someone makes it → Passive: It is made (by someone). Tân ngữ của câu chủ động trở thành chủ ngữ câu bị động."
+        },
+        "content": "**Công thức chung:** S + be + V3 (+ by + agent)\n\n**Chuyển đổi Active → Passive:**\n- Tân ngữ (O) → Chủ ngữ (S)\n- Động từ → be + V3\n- Chủ ngữ (S) → by + agent (có thể lược bỏ)\n\n**Khẳng định:** S + am/is/are/was/were + V3\n**Phủ định:** S + am/is/are/was/were + not + V3\n**Nghi vấn:** Am/Is/Are/Was/Were + S + V3?",
+        "examples": [
+          {
+            "en": "Active: Someone **cleans** the office every day.\nPassive: The office **is cleaned** every day.",
+            "vi": "Văn phòng được dọn dẹp mỗi ngày."
+          },
+          {
+            "en": "Active: They **built** this bridge in 1990.\nPassive: This bridge **was built** in 1990.",
+            "vi": "Cây cầu này được xây vào năm 1990."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "The office", "role": "subject", "tooltip": "Chủ ngữ (đối tượng chịu tác động)" },
+              { "text": " " },
+              { "text": "is", "role": "auxiliary", "tooltip": "Động từ be (present)" },
+              { "text": " " },
+              { "text": "cleaned", "role": "verb", "tooltip": "V3 — past participle" },
+              { "text": " " },
+              { "text": "every day", "role": "time", "tooltip": "Trạng từ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Văn phòng được dọn dẹp mỗi ngày."
+          },
+          {
+            "parts": [
+              { "text": "This bridge", "role": "subject", "tooltip": "Chủ ngữ (đối tượng chịu tác động)" },
+              { "text": " " },
+              { "text": "was", "role": "auxiliary", "tooltip": "Động từ be (past)" },
+              { "text": " " },
+              { "text": "built", "role": "verb", "tooltip": "V3 — past participle của 'build'" },
+              { "text": " " },
+              { "text": "in 1990", "role": "time", "tooltip": "Trạng từ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Cây cầu này được xây vào năm 1990."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "The cake baked by my mom.",
+            "correct": "The cake was baked by my mom.",
+            "wrongHighlight": [1],
+            "correctHighlight": [2, 3],
+            "explanation": "Câu bị động luôn cần động từ 'be'. Thiếu 'was' → sai ngữ pháp."
+          },
+          {
+            "wrong": "The letter is write by her.",
+            "correct": "The letter is written by her.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3],
+            "explanation": "Sau 'be' trong câu bị động phải dùng V3 (past participle). 'write' → 'written'."
+          }
+        ]
+      },
+      {
+        "heading": "Present Passive (Bị động thì hiện tại đơn)",
+        "content": "**Công thức:** S + am/is/are + V3\n\nDùng khi:\n- Mô tả sự thật, thói quen, quy trình ở hiện tại\n- Nói về điều xảy ra thường xuyên mà không cần biết ai làm\n- Quy tắc, luật lệ chung",
+        "examples": [
+          {
+            "en": "English **is spoken** in many countries.",
+            "vi": "Tiếng Anh được nói ở nhiều quốc gia."
+          },
+          {
+            "en": "These cars **are made** in Japan.",
+            "vi": "Những chiếc xe này được sản xuất tại Nhật Bản."
+          },
+          {
+            "en": "The rooms **are cleaned** every morning.",
+            "vi": "Các phòng được dọn dẹp mỗi sáng."
+          },
+          {
+            "en": "Coffee **is not grown** in England.",
+            "vi": "Cà phê không được trồng ở Anh."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "English", "role": "subject", "tooltip": "Chủ ngữ — đối tượng chịu tác động" },
+              { "text": " " },
+              { "text": "is", "role": "auxiliary", "tooltip": "be (ngôi 3 số ít → is)" },
+              { "text": " " },
+              { "text": "spoken", "role": "verb", "tooltip": "V3 — past participle của 'speak'" },
+              { "text": " " },
+              { "text": "in many countries", "role": "complement", "tooltip": "Bổ ngữ nơi chốn" },
+              { "text": "." }
+            ],
+            "vi": "Tiếng Anh được nói ở nhiều quốc gia."
+          },
+          {
+            "parts": [
+              { "text": "These cars", "role": "subject", "tooltip": "Chủ ngữ (số nhiều → are)" },
+              { "text": " " },
+              { "text": "are", "role": "auxiliary", "tooltip": "be (số nhiều → are)" },
+              { "text": " " },
+              { "text": "made", "role": "verb", "tooltip": "V3 — past participle của 'make'" },
+              { "text": " " },
+              { "text": "in Japan", "role": "complement", "tooltip": "Bổ ngữ nơi chốn" },
+              { "text": "." }
+            ],
+            "vi": "Những chiếc xe này được sản xuất tại Nhật Bản."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "English is spoke in many countries.",
+            "correct": "English is spoken in many countries.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "'spoke' là V2 (past simple). Câu bị động cần V3: 'spoken'."
+          }
+        ]
+      },
+      {
+        "heading": "Past Passive (Bị động thì quá khứ đơn)",
+        "content": "**Công thức:** S + was/were + V3\n\nDùng khi:\n- Mô tả hành động đã xảy ra trong quá khứ mà đối tượng chịu tác động được nhấn mạnh\n- Kể lại sự kiện lịch sử\n- Không biết hoặc không cần nói ai đã thực hiện hành động",
+        "examples": [
+          {
+            "en": "The Eiffel Tower **was built** in 1889.",
+            "vi": "Tháp Eiffel được xây vào năm 1889."
+          },
+          {
+            "en": "The thieves **were caught** by the police.",
+            "vi": "Những tên trộm đã bị bắt bởi cảnh sát."
+          },
+          {
+            "en": "The window **was broken** during the storm.",
+            "vi": "Cửa sổ bị vỡ trong cơn bão."
+          },
+          {
+            "en": "The emails **were not sent** yesterday.",
+            "vi": "Các email đã không được gửi hôm qua."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "The Eiffel Tower", "role": "subject", "tooltip": "Chủ ngữ — đối tượng chịu tác động" },
+              { "text": " " },
+              { "text": "was", "role": "auxiliary", "tooltip": "be (quá khứ, số ít → was)" },
+              { "text": " " },
+              { "text": "built", "role": "verb", "tooltip": "V3 — past participle của 'build'" },
+              { "text": " " },
+              { "text": "in 1889", "role": "time", "tooltip": "Trạng từ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Tháp Eiffel được xây vào năm 1889."
+          },
+          {
+            "parts": [
+              { "text": "The thieves", "role": "subject", "tooltip": "Chủ ngữ (số nhiều → were)" },
+              { "text": " " },
+              { "text": "were", "role": "auxiliary", "tooltip": "be (quá khứ, số nhiều → were)" },
+              { "text": " " },
+              { "text": "caught", "role": "verb", "tooltip": "V3 — past participle của 'catch'" },
+              { "text": " " },
+              { "text": "by", "role": "connector", "tooltip": "Giới từ chỉ tác nhân" },
+              { "text": " " },
+              { "text": "the police", "role": "complement", "tooltip": "Tác nhân (agent) — người thực hiện hành động" },
+              { "text": "." }
+            ],
+            "vi": "Những tên trộm đã bị bắt bởi cảnh sát."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "The window was break during the storm.",
+            "correct": "The window was broken during the storm.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3],
+            "explanation": "Sau was/were phải dùng V3. 'break' là V1 (nguyên thể). Đúng: 'broken' (V3)."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "The homework ___ by the students every day.",
+      "options": [
+        "does",
+        "is done",
+        "was done",
+        "done"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "This song ___ by a famous singer last year.",
+      "options": [
+        "is sung",
+        "was sung",
+        "sang",
+        "sings"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The letters ___ every morning.",
+      "options": [
+        "are delivered",
+        "were delivered",
+        "delivered",
+        "is delivered"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "fill_blank",
+      "question": "The report ___ (write) by the manager yesterday.",
+      "acceptedAnswers": [
+        "was written"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "These products ___ (make) in Germany.",
+      "acceptedAnswers": [
+        "are made"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "The room ___ (not/clean) last week.",
+      "acceptedAnswers": [
+        "was not cleaned",
+        "wasn't cleaned"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "The book was wrote by a famous author.",
+      "correctSentence": "The book was written by a famous author.",
+      "errorIndex": [3]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "Many languages is spoken in India.",
+      "correctSentence": "Many languages are spoken in India.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["is", "the", "every", "cleaned", "office", "day"],
+      "answer": "The office is cleaned every day."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["was", "the", "in", "bridge", "built", "1995"],
+      "answer": "The bridge was built in 1995."
+    },
+    {
+      "type": "transform",
+      "instruction": "Chuyển câu chủ động sang bị động.",
+      "original": "Someone cleans the office every day.",
+      "acceptedAnswers": [
+        "The office is cleaned every day.",
+        "The office is cleaned every day"
+      ],
+      "hint": "Tân ngữ 'the office' trở thành chủ ngữ. Dùng is + V3."
+    },
+    {
+      "type": "transform",
+      "instruction": "Chuyển câu chủ động sang bị động.",
+      "original": "They built the hospital in 2010.",
+      "acceptedAnswers": [
+        "The hospital was built in 2010.",
+        "The hospital was built in 2010"
+      ],
+      "hint": "Quá khứ → was/were + V3. 'built' vừa là V2 vừa là V3."
+    },
+    {
+      "type": "transform",
+      "instruction": "Chuyển câu chủ động sang bị động.",
+      "original": "People speak English all over the world.",
+      "acceptedAnswers": [
+        "English is spoken all over the world.",
+        "English is spoken all over the world"
+      ],
+      "hint": "Hiện tại đơn → is/are + V3. V3 của 'speak' là 'spoken'."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The pyramids ___ thousands of years ago.",
+      "options": [
+        "are built",
+        "were built",
+        "built",
+        "was built"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "Spanish ___ (speak) in many countries in South America.",
+      "acceptedAnswers": [
+        "is spoken"
+      ]
+    }
+  ],
+  "prerequisites": ["present-simple", "past-simple"],
+  "relatedReference": ["common-mistakes"]
+}
