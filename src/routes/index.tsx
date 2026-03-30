@@ -72,6 +72,7 @@ export const router = createBrowserRouter([
       { path: 'vocabulary/word/:word', element: withSuspense(WordDetailPage) },
       { path: 'grammar', element: withSuspense(GrammarPage) },
       { path: 'grammar/reference', element: withSuspense(ReferencePage) },
+      { path: 'grammar/reference/:tool', element: withSuspense(ReferencePage) },
       { path: 'grammar/bookmarks', element: withSuspense(BookmarkedSheetsPage) },
       { path: 'grammar/:lessonId', element: withSuspense(LessonPage) },
       { path: 'grammar/:lessonId/quiz', element: withSuspense(QuizPage) },

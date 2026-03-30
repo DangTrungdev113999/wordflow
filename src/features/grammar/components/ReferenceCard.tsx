@@ -9,9 +9,9 @@ interface ReferenceCardProps {
   title: string;
   description: string;
   count: string;
-  accentColor: string;       // tailwind color name e.g. 'indigo', 'emerald'
-  accentBg: string;          // e.g. 'bg-indigo-50 dark:bg-indigo-900/30'
-  accentText: string;        // e.g. 'text-indigo-500'
+  accentColor: string;
+  accentBg: string;
+  accentText: string;
 }
 
 export function ReferenceCard({
@@ -20,16 +20,17 @@ export function ReferenceCard({
   title,
   description,
   count,
+  accentColor,
   accentBg,
   accentText,
 }: ReferenceCardProps) {
   return (
-    <Link to={to} className="block group">
+    <Link to={to} className="block group" aria-label={`${title} — ${description}`}>
       <motion.div
         whileHover={{ y: -2 }}
         whileTap={{ scale: 0.98 }}
         transition={{ duration: 0.15 }}
-        className="flex items-start gap-4 p-4 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 group-hover:border-gray-200 dark:group-hover:border-gray-700 transition-colors"
+        className={`flex items-start gap-4 p-4 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 group-hover:border-${accentColor}-200 dark:group-hover:border-${accentColor}-800 transition-colors`}
       >
         <div
           className={`w-11 h-11 rounded-xl ${accentBg} flex items-center justify-center flex-shrink-0`}

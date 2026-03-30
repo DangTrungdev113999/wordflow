@@ -862,7 +862,7 @@ export const PHRASAL_VERBS: PhrasalVerb[] = [
     meaning: 'tỏa ra, phát ra (mùi, nhiệt, ánh sáng)',
     baseVerb: 'give',
     particle: 'off',
-    separable: true,
+    separable: false,
     examples: [
       { en: 'The flowers give off a sweet scent.', vi: 'Hoa tỏa ra hương thơm ngọt ngào.' },
       { en: 'The heater gives off a lot of heat.', vi: 'Máy sưởi tỏa ra nhiều nhiệt.' },
@@ -890,7 +890,7 @@ export const PHRASAL_VERBS: PhrasalVerb[] = [
     meaning: 'chia tay; giải tán',
     baseVerb: 'break',
     particle: 'up',
-    separable: false,
+    separable: true,
     examples: [
       { en: 'They broke up after three years together.', vi: 'Họ chia tay sau ba năm bên nhau.' },
       { en: 'The police broke up the protest.', vi: 'Cảnh sát giải tán cuộc biểu tình.' },

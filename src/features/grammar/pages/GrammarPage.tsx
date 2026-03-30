@@ -5,116 +5,13 @@ import { useGrammarStore } from '../../../stores/grammarStore';
 import { LessonCard } from '../components/LessonCard';
 import { GrammarDashboard } from '../components/GrammarDashboard';
 import { ReferenceCard } from '../components/ReferenceCard';
-import {
-  Table2,
-  GitCompareArrows,
-  MessageCircle,
-  Zap,
-  MapPin,
-  FileText,
-  AlertTriangle,
-  Ghost,
-  Braces,
-} from 'lucide-react';
+import { REFERENCE_CARDS } from '../../../data/reference/cards';
 
 type Tab = 'lessons' | 'reference';
 
 const TABS: { id: Tab; label: string; icon: typeof BookOpen }[] = [
   { id: 'lessons', label: 'Lessons', icon: BookOpen },
   { id: 'reference', label: 'Reference', icon: Compass },
-];
-
-const REFERENCE_CARDS = [
-  {
-    to: '/grammar/reference/irregular-verbs',
-    icon: Table2,
-    title: 'Irregular Verbs',
-    description: 'Bảng động từ bất quy tắc V1-V2-V3',
-    count: '~120 verbs',
-    accentBg: 'bg-violet-50 dark:bg-violet-900/30',
-    accentText: 'text-violet-500',
-    accentColor: 'violet',
-  },
-  {
-    to: '/grammar/reference/tense-compare',
-    icon: GitCompareArrows,
-    title: 'Tense Comparison',
-    description: 'So sánh các thì song song',
-    count: '7 pairs',
-    accentBg: 'bg-indigo-50 dark:bg-indigo-900/30',
-    accentText: 'text-indigo-500',
-    accentColor: 'indigo',
-  },
-  {
-    to: '/grammar/reference/collocations',
-    icon: MessageCircle,
-    title: 'Collocations',
-    description: 'Make vs Do, Say vs Tell...',
-    count: '8 groups',
-    accentBg: 'bg-emerald-50 dark:bg-emerald-900/30',
-    accentText: 'text-emerald-500',
-    accentColor: 'emerald',
-  },
-  {
-    to: '/grammar/reference/phrasal-verbs',
-    icon: Zap,
-    title: 'Phrasal Verbs',
-    description: 'Cụm động từ phổ biến',
-    count: '~100 verbs',
-    accentBg: 'bg-amber-50 dark:bg-amber-900/30',
-    accentText: 'text-amber-500',
-    accentColor: 'amber',
-  },
-  {
-    to: '/grammar/reference/prepositions',
-    icon: MapPin,
-    title: 'Prepositions',
-    description: 'Giới từ in/on/at',
-    count: '3 categories',
-    accentBg: 'bg-sky-50 dark:bg-sky-900/30',
-    accentText: 'text-sky-500',
-    accentColor: 'sky',
-  },
-  {
-    to: '/grammar/reference/articles',
-    icon: FileText,
-    title: 'Articles',
-    description: 'Mạo từ a/an/the',
-    count: '4 types',
-    accentBg: 'bg-teal-50 dark:bg-teal-900/30',
-    accentText: 'text-teal-500',
-    accentColor: 'teal',
-  },
-  {
-    to: '/grammar/reference/common-mistakes',
-    icon: AlertTriangle,
-    title: 'Common Mistakes',
-    description: 'Lỗi người Việt hay mắc',
-    count: '~40 items',
-    accentBg: 'bg-rose-50 dark:bg-rose-900/30',
-    accentText: 'text-rose-500',
-    accentColor: 'rose',
-  },
-  {
-    to: '/grammar/reference/false-friends',
-    icon: Ghost,
-    title: 'False Friends',
-    description: 'Từ dễ nhầm nghĩa',
-    count: '~30 items',
-    accentBg: 'bg-orange-50 dark:bg-orange-900/30',
-    accentText: 'text-orange-500',
-    accentColor: 'orange',
-  },
-  {
-    to: '/grammar/reference/grammar-patterns',
-    icon: Braces,
-    title: 'Grammar Patterns',
-    description: 'Mẫu câu thường gặp',
-    count: '~40 patterns',
-    accentBg: 'bg-fuchsia-50 dark:bg-fuchsia-900/30',
-    accentText: 'text-fuchsia-500',
-    accentColor: 'fuchsia',
-  },
 ];
 
 const sectionVariants = {
@@ -159,10 +56,12 @@ export function GrammarPage() {
       </motion.div>
 
       {/* Tabs */}
-      <div className="flex gap-1 p-1 bg-gray-100 dark:bg-gray-800/60 rounded-xl mb-6">
+      <div className="flex gap-1 p-1 bg-gray-100 dark:bg-gray-800/60 rounded-xl mb-6" role="tablist">
         {TABS.map((tab) => (
           <button
             key={tab.id}
+            role="tab"
+            aria-selected={activeTab === tab.id}
             onClick={() => setActiveTab(tab.id)}
             className="relative flex-1 flex items-center justify-center gap-2 py-2 text-sm font-medium rounded-lg transition-colors"
           >
@@ -192,6 +91,7 @@ export function GrammarPage() {
         {activeTab === 'lessons' && (
           <motion.div
             key="lessons"
+            role="tabpanel"
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -12 }}
@@ -247,6 +147,7 @@ export function GrammarPage() {
         {activeTab === 'reference' && (
           <motion.div
             key="reference"
+            role="tabpanel"
             initial={{ opacity: 0, x: 12 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 12 }}

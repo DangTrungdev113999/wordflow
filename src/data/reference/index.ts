@@ -9,3 +9,4 @@ export { ARTICLE_RULES, type ArticleRule } from './articles';
 export { COMMON_MISTAKES, type CommonMistake } from './common-mistakes';
 export { FALSE_FRIENDS, type FalseFriend } from './false-friends';
 export { GRAMMAR_PATTERNS, type GrammarPattern } from './grammar-patterns';
+export { REFERENCE_CARDS, type ReferenceCardData } from './cards';
