@@ -65,6 +65,8 @@ function withSuspense(Component: React.ComponentType) {
   );
 }
 
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -120,4 +122,4 @@ export const router = createBrowserRouter([
       { path: 'onboarding', element: withSuspense(OnboardingPage) },
     ],
   },
-]);
+], { basename });
