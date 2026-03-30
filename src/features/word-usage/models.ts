@@ -140,9 +140,48 @@ export interface CollocationCache {
   updatedAt: number;
 }
 
+// ──────────────────────────────────────────────────
+// Phase 13-3: Grammar Patterns
+// ──────────────────────────────────────────────────
+
+export type GrammarCategory =
+  | 'verb-pattern'
+  | 'used-to'
+  | 'conditional'
+  | 'reported-speech'
+  | 'passive';
+
+export interface GrammarForm {
+  structure: string;        // "remember + V-ing"
+  meaning: string;          // Vietnamese: "nhớ đã làm gì (quá khứ)"
+  example: SenseExample;
+  usage: string;            // Vietnamese giải thích khi nào dùng
+}
+
+export interface GrammarQuizItem {
+  sentence: string;         // "I remember _____ (lock) the door."
+  options: string[];        // ["locking", "to lock"]
+  correct: number;          // index of correct option
+  explanation: string;      // Vietnamese
+}
+
+export interface GrammarQuiz {
+  items: GrammarQuizItem[];
+}
+
+export interface GrammarPattern {
+  id: string;               // "remember-ving-vs-to-v"
+  pattern: string;          // "remember + V-ing vs remember + to V"
+  category: GrammarCategory;
+  forms: GrammarForm[];
+  commonMistake: string;    // Vietnamese
+  memoryTip: string;        // Vietnamese
+  quiz?: GrammarQuiz;
+}
+
 export interface GrammarPatternCache {
   id?: number;
   pattern: string;
   category: string;
-  data: unknown;
+  data: GrammarPattern;
 }

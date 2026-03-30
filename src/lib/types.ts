@@ -5,9 +5,6 @@ export type FlashcardRating = 0 | 2 | 4 | 5;
 export type DictationMode = 'word' | 'phrase' | 'sentence' | 'quiz';
 export type ListeningMode = DictationMode | 'fill-blank' | 'speed' | 'listen-choose';
 
-/** Alias: DictationMode + future modes from Phase 14 */
-export type ListeningMode = DictationMode;
-
 export interface SessionResult {
   wordId: string;
   correct: boolean;

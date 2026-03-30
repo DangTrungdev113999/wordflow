@@ -18,6 +18,8 @@ export const XP_VALUES = {
   // Phase 6 — AI Features
   chat_message_sent: 5,
   chat_no_correction_bonus: 10,
+  // Phase 13 — Usage Quiz
+  usage_quiz_correct: 10,
   // Phase 14 — Hint penalties (negative)
   hint_first_letter: -2,
   hint_ipa: -3,

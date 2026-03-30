@@ -55,7 +55,7 @@ export function useFillBlank(topic: string) {
       return {
         word,
         sentence: word.example,
-        blankedSentence: found ? blanked : word.example.replace(word.word, '_'.repeat(Math.max(word.word.length, 5))),
+        blankedSentence: found ? blanked : word.example.replace(new RegExp(`\\b${escapeRegex(word.word)}\\b`, 'i'), '_'.repeat(Math.max(word.word.length, 5))),
         answers: [word.word],
       };
     });

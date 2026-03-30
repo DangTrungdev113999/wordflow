@@ -63,14 +63,10 @@ export function SpeedListeningSession({ topic }: SpeedListeningSessionProps) {
     if (!currentItem) return;
     setHasPlayed(true);
     setIsPlaying(true);
-    try {
-      await playAudio(currentItem.word.word, {
-        rate: currentSpeed,
-        onEnd: () => setIsPlaying(false),
-      });
-    } finally {
-      setTimeout(() => setIsPlaying(false), 500);
-    }
+    await playAudio(currentItem.word.word, {
+      rate: currentSpeed,
+      onEnd: () => setIsPlaying(false),
+    });
   }, [currentItem, currentSpeed]);
 
   const handleSubmit = useCallback((e: React.FormEvent) => {

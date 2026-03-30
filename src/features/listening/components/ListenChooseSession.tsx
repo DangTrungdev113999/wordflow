@@ -61,11 +61,10 @@ export function ListenChooseSession({ topic }: ListenChooseSessionProps) {
     if (!currentQuestion) return;
     setHasPlayed(true);
     setIsPlaying(true);
-    try {
-      await playAudio(currentQuestion.audio, { rate: currentQuestion.audioRate });
-    } finally {
-      setTimeout(() => setIsPlaying(false), 500);
-    }
+    await playAudio(currentQuestion.audio, {
+      rate: currentQuestion.audioRate,
+      onEnd: () => setIsPlaying(false),
+    });
   }, [currentQuestion]);
 
   // Auto-play audio when question appears
