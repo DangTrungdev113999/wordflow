@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Trophy, RotateCcw, ArrowLeft, Lightbulb } from 'lucide-react';
+import { Trophy, RotateCcw, ArrowLeft } from 'lucide-react';
 import type { VocabWord } from '../../../lib/types';
 
 interface IncorrectAnswer {
@@ -26,8 +26,8 @@ export function DictationSessionSummary({
   incorrectAnswers,
   onPracticeAgain,
   onBack,
-  hintsUsed = 0,
-  hintXpDeducted = 0,
+  hintsUsed,
+  hintXpDeducted,
 }: DictationSessionSummaryProps) {
   const accuracy = total > 0 ? Math.round((correctCount / total) * 100) : 0;
   const isPerfect = correctCount === total;
@@ -39,7 +39,7 @@ export function DictationSessionSummary({
       className="space-y-6"
     >
       <div className="text-center space-y-3">
-        <div className="text-5xl">{isPerfect ? '\u{1F389}' : accuracy >= 70 ? '\u{1F44F}' : '\u{1F4AA}'}</div>
+        <div className="text-5xl">{isPerfect ? '🎉' : accuracy >= 70 ? '👏' : '💪'}</div>
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Session Complete!</h2>
       </div>
 
@@ -61,13 +61,10 @@ export function DictationSessionSummary({
         </div>
       </div>
 
-      {/* Hint usage summary */}
-      {hintsUsed > 0 && (
-        <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50">
-          <Lightbulb size={16} className="text-amber-500 shrink-0" />
-          <span className="text-sm text-amber-700 dark:text-amber-300">
-            G\u1EE3i \u00fd \u0111\u00e3 d\u00f9ng: {hintsUsed}
-            <span className="ml-1.5 font-medium text-amber-600 dark:text-amber-400">(-{hintXpDeducted} XP)</span>
+      {hintsUsed != null && hintsUsed > 0 && (
+        <div className="p-3 bg-amber-50 dark:bg-amber-900/20 rounded-xl border border-amber-200 dark:border-amber-800/40 text-sm text-center">
+          <span className="text-amber-700 dark:text-amber-300">
+            Hints used: {hintsUsed} (−{hintXpDeducted ?? 0} XP)
           </span>
         </div>
       )}

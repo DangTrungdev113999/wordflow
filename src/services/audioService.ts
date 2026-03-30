@@ -95,6 +95,20 @@ export async function playWordAudio(word: string, audioUrl?: string | null): Pro
   return playAudio(word, { rate: 0.9 });
 }
 
+export function playAudio(
+  text: string,
+  options?: { rate?: number; onEnd?: () => void },
+): void {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US';
+    utterance.rate = options?.rate ?? 0.9;
+    if (options?.onEnd) utterance.onend = options.onEnd;
+    window.speechSynthesis.speak(utterance);
+  }
+}
+
 export function stopAudio(): void {
   if (currentAudio) {
     currentAudio.pause();

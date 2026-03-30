@@ -1,18 +1,27 @@
 import { motion } from 'framer-motion';
 import { cn } from '../../../lib/utils';
-import type { DictationMode } from '../../../lib/types';
+import type { ListeningMode } from '../../../lib/types';
 
 interface DictationModeSelectorProps {
-  mode: DictationMode;
-  onChange: (mode: DictationMode) => void;
+  mode: ListeningMode;
+  onChange: (mode: ListeningMode) => void;
 }
 
-const modes: { value: DictationMode; label: string }[] = [
+const dictationModes: { value: ListeningMode; label: string }[] = [
   { value: 'word', label: 'Word' },
   { value: 'phrase', label: 'Phrase' },
   { value: 'sentence', label: 'Sentence' },
   { value: 'quiz', label: 'Quiz' },
 ];
+
+const advancedModes: { value: ListeningMode; label: string; color: string }[] = [
+  { value: 'fill-blank', label: 'Fill-blank', color: 'text-amber-600 dark:text-amber-400' },
+  { value: 'speed', label: 'Speed', color: 'text-orange-600 dark:text-orange-400' },
+  { value: 'listen-choose', label: 'Listen & Choose', color: 'text-violet-600 dark:text-violet-400' },
+];
+
+const isDictationMode = (m: ListeningMode): boolean =>
+  dictationModes.some(dm => dm.value === m);
 
 export function DictationModeSelector({ mode, onChange }: DictationModeSelectorProps) {
   return (
@@ -20,29 +29,57 @@ export function DictationModeSelector({ mode, onChange }: DictationModeSelectorP
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
-      className="flex bg-gray-100 dark:bg-gray-800 rounded-xl p-1 relative"
+      className="space-y-2"
     >
-      {modes.map(m => (
-        <button
-          key={m.value}
-          onClick={() => onChange(m.value)}
-          className={cn(
-            'flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-colors relative z-10',
-            mode === m.value
-              ? 'text-indigo-600 dark:text-indigo-400'
-              : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
-          )}
-        >
-          {mode === m.value && (
-            <motion.div
-              layoutId="dictation-mode-indicator"
-              className="absolute inset-0 bg-white dark:bg-gray-700 rounded-lg shadow-sm"
-              transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-            />
-          )}
-          <span className="relative z-10">{m.label}</span>
-        </button>
-      ))}
+      {/* Row 1: Dictation modes */}
+      <div className="flex bg-gray-100 dark:bg-gray-800 rounded-xl p-1 relative">
+        {dictationModes.map(m => (
+          <button
+            key={m.value}
+            onClick={() => onChange(m.value)}
+            className={cn(
+              'flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-colors relative z-10',
+              mode === m.value
+                ? 'text-indigo-600 dark:text-indigo-400'
+                : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
+            )}
+          >
+            {mode === m.value && isDictationMode(mode) && (
+              <motion.div
+                layoutId="listening-mode-indicator"
+                className="absolute inset-0 bg-white dark:bg-gray-700 rounded-lg shadow-sm"
+                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+              />
+            )}
+            <span className="relative z-10">{m.label}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* Row 2: Advanced modes */}
+      <div className="flex bg-gray-100 dark:bg-gray-800 rounded-xl p-1 relative">
+        {advancedModes.map(m => (
+          <button
+            key={m.value}
+            onClick={() => onChange(m.value)}
+            className={cn(
+              'flex-1 py-2 px-2 rounded-lg text-sm font-medium transition-colors relative z-10',
+              mode === m.value
+                ? m.color
+                : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
+            )}
+          >
+            {mode === m.value && !isDictationMode(mode) && (
+              <motion.div
+                layoutId="listening-mode-indicator"
+                className="absolute inset-0 bg-white dark:bg-gray-700 rounded-lg shadow-sm"
+                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+              />
+            )}
+            <span className="relative z-10 text-xs sm:text-sm">{m.label}</span>
+          </button>
+        ))}
+      </div>
     </motion.div>
   );
 }

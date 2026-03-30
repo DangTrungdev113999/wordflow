@@ -5,15 +5,34 @@ import { ALL_TOPICS } from '../../../data/vocabulary/_index';
 import { TOPIC_ICONS, TOPIC_COLORS } from '../../../lib/constants';
 import { Badge } from '../../../components/ui/Badge';
 import { DictationModeSelector } from '../components/DictationModeSelector';
-import type { DictationMode } from '../../../lib/types';
+import type { ListeningMode } from '../../../lib/types';
 
-const VALID_MODES: DictationMode[] = ['word', 'phrase', 'sentence', 'quiz'];
+const VALID_MODES: ListeningMode[] = ['word', 'phrase', 'sentence', 'quiz', 'fill-blank', 'speed', 'listen-choose'];
+
+function getModeUrl(topicSlug: string, mode: ListeningMode): string {
+  switch (mode) {
+    case 'fill-blank':    return `/listening/${topicSlug}/fill-blank`;
+    case 'speed':         return `/listening/${topicSlug}/speed`;
+    case 'listen-choose': return `/listening/${topicSlug}/listen-choose`;
+    default:              return `/listening/${topicSlug}/practice?mode=${mode}`;
+  }
+}
+
+const MODE_DESCRIPTIONS: Record<ListeningMode, string> = {
+  word:            'Listen to words and type them',
+  phrase:          'Listen to phrases and type them',
+  sentence:        'Listen to full sentences',
+  quiz:            'Multiple choice listening quiz',
+  'fill-blank':    'Listen and fill missing words',
+  'speed':         'Type at increasing speeds',
+  'listen-choose': 'Listen and pick the right answer',
+};
 
 export function ListeningPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const rawMode = searchParams.get('mode');
-  const mode = VALID_MODES.includes(rawMode as DictationMode) ? (rawMode as DictationMode) : 'word';
-  const setMode = (m: DictationMode) => {
+  const mode = VALID_MODES.includes(rawMode as ListeningMode) ? (rawMode as ListeningMode) : 'word';
+  const setMode = (m: ListeningMode) => {
     setSearchParams(prev => { prev.set('mode', m); return prev; }, { replace: true });
   };
 
@@ -24,7 +43,7 @@ export function ListeningPage() {
           <Headphones className="text-indigo-500" size={24} />
           Listening Practice
         </h1>
-        <p className="text-gray-500 dark:text-gray-400 mt-1">Listen and type what you hear</p>
+        <p className="text-gray-500 dark:text-gray-400 mt-1">{MODE_DESCRIPTIONS[mode]}</p>
       </div>
 
       <DictationModeSelector mode={mode} onChange={setMode} />
@@ -38,7 +57,7 @@ export function ListeningPage() {
             transition={{ delay: i * 0.07 }}
           >
             <Link
-              to={`/listening/${topic.topic}/practice?mode=${mode}`}
+              to={getModeUrl(topic.topic, mode)}
               className="flex items-center gap-4 p-4 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-indigo-200 dark:hover:border-indigo-800 transition-all hover:shadow-md group"
             >
               <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${TOPIC_COLORS[topic.topic] ?? 'from-indigo-400 to-indigo-600'} flex items-center justify-center text-2xl shadow-sm`}>
