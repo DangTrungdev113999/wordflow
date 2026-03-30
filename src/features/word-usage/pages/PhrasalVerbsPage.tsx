@@ -8,12 +8,6 @@ import { useUsageSearch } from '../hooks/useUsageSearch';
 import { cn } from '../../../lib/utils';
 import type { PhrasalVerb } from '../models';
 
-// Precomputed counts — static data, no need to recalculate per render
-const COUNTS: Record<string, number> = { all: PHRASAL_VERBS.length };
-for (const v of PHRASAL_VERB_BASE_VERBS) {
-  COUNTS[v] = PHRASAL_VERBS.filter(pv => pv.baseVerb === v).length;
-}
-
 export function PhrasalVerbsPage() {
   const navigate = useNavigate();
   const [baseVerb, setBaseVerb] = useState<string>('all');
@@ -27,6 +21,11 @@ export function PhrasalVerbsPage() {
     [],
   );
   const { search, setSearch, filtered } = useUsageSearch(itemsByBase, getSearchable);
+
+  const counts: Record<string, number> = { all: PHRASAL_VERBS.length };
+  for (const v of PHRASAL_VERB_BASE_VERBS) {
+    counts[v] = PHRASAL_VERBS.filter(pv => pv.baseVerb === v).length;
+  }
 
   return (
     <div className="max-w-2xl mx-auto space-y-4">
@@ -68,7 +67,7 @@ export function PhrasalVerbsPage() {
           )}
         >
           All
-          <span className="ml-1 opacity-60">{COUNTS.all}</span>
+          <span className="ml-1 opacity-60">{counts.all}</span>
         </button>
         {PHRASAL_VERB_BASE_VERBS.map(v => (
           <button
@@ -82,7 +81,7 @@ export function PhrasalVerbsPage() {
             )}
           >
             {v}
-            <span className="ml-1 opacity-60">{COUNTS[v]}</span>
+            <span className="ml-1 opacity-60">{counts[v]}</span>
           </button>
         ))}
       </div>

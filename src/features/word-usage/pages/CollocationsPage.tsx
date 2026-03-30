@@ -10,14 +10,6 @@ import type { Collocation, CollocationCategory } from '../models';
 
 type FilterCategory = CollocationCategory | 'all';
 
-// Precomputed counts — static data, no need to recalculate per render
-const COUNTS: Record<string, number> = { all: COLLOCATIONS.length };
-for (const cat of COLLOCATION_CATEGORIES) {
-  if (cat.value !== 'all') {
-    COUNTS[cat.value] = COLLOCATIONS.filter(c => c.category === cat.value).length;
-  }
-}
-
 export function CollocationsPage() {
   const navigate = useNavigate();
   const [category, setCategory] = useState<FilterCategory>('all');
@@ -31,6 +23,13 @@ export function CollocationsPage() {
     [],
   );
   const { search, setSearch, filtered } = useUsageSearch(itemsByCat, getSearchable);
+
+  const counts: Record<string, number> = { all: COLLOCATIONS.length };
+  for (const cat of COLLOCATION_CATEGORIES) {
+    if (cat.value !== 'all') {
+      counts[cat.value] = COLLOCATIONS.filter(c => c.category === cat.value).length;
+    }
+  }
 
   return (
     <div className="max-w-2xl mx-auto space-y-4">
@@ -74,7 +73,7 @@ export function CollocationsPage() {
             )}
           >
             {cat.label}
-            <span className="ml-1 opacity-60">{COUNTS[cat.value]}</span>
+            <span className="ml-1 opacity-60">{counts[cat.value]}</span>
           </button>
         ))}
       </div>

@@ -1,135 +1,60 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { Lightbulb } from 'lucide-react';
 import { cn } from '../../../lib/utils';
 import type { HintType, HintConfig } from '../types';
 
 interface HintBarProps {
   hints: HintConfig[];
   usedHints: HintType[];
-  onUseHint: (type: HintType) => string | undefined;
-  revealedValues: Partial<Record<HintType, string>>;
+  onUseHint: (type: HintType) => void;
+  revealedValues: Record<HintType, string | null>;
   disabled?: boolean;
 }
 
-const HINT_COLORS: Record<HintType, { bg: string; border: string; text: string; activeBg: string; hoverBg: string }> = {
-  'first-letter': {
-    bg: 'bg-violet-50 dark:bg-violet-950/40',
-    border: 'border-violet-200 dark:border-violet-800/60',
-    text: 'text-violet-700 dark:text-violet-300',
-    activeBg: 'bg-violet-100 dark:bg-violet-900/50',
-    hoverBg: 'hover:bg-violet-100 dark:hover:bg-violet-900/50',
-  },
-  'ipa': {
-    bg: 'bg-sky-50 dark:bg-sky-950/40',
-    border: 'border-sky-200 dark:border-sky-800/60',
-    text: 'text-sky-700 dark:text-sky-300',
-    activeBg: 'bg-sky-100 dark:bg-sky-900/50',
-    hoverBg: 'hover:bg-sky-100 dark:hover:bg-sky-900/50',
-  },
-  'meaning': {
-    bg: 'bg-amber-50 dark:bg-amber-950/40',
-    border: 'border-amber-200 dark:border-amber-800/60',
-    text: 'text-amber-700 dark:text-amber-300',
-    activeBg: 'bg-amber-100 dark:bg-amber-900/50',
-    hoverBg: 'hover:bg-amber-100 dark:hover:bg-amber-900/50',
-  },
-  'slow-replay': {
-    bg: 'bg-emerald-50 dark:bg-emerald-950/40',
-    border: 'border-emerald-200 dark:border-emerald-800/60',
-    text: 'text-emerald-700 dark:text-emerald-300',
-    activeBg: 'bg-emerald-100 dark:bg-emerald-900/50',
-    hoverBg: 'hover:bg-emerald-100 dark:hover:bg-emerald-900/50',
-  },
-};
-
 export function HintBar({ hints, usedHints, onUseHint, revealedValues, disabled }: HintBarProps) {
-  const availableHints = hints.filter(h => h.available);
-  if (availableHints.length === 0) return null;
-
-  const hasRevealed = Object.keys(revealedValues).length > 0;
+  if (hints.length === 0) return null;
 
   return (
-    <div className="space-y-2.5">
-      {/* Header */}
-      <div className="flex items-center gap-1.5">
-        <Lightbulb size={14} className="text-gray-400 dark:text-gray-500" />
-        <span className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-          Gợi ý
-        </span>
-      </div>
-
-      {/* Hint buttons */}
+    <div className="space-y-2">
       <div className="flex flex-wrap gap-2">
-        {availableHints.map(hint => {
+        {hints.map(hint => {
           const isUsed = usedHints.includes(hint.type);
-          const isReplayable = hint.type === 'slow-replay';
-          const isClickable = isReplayable ? !disabled : !isUsed && !disabled;
-          const colors = HINT_COLORS[hint.type];
-
           return (
-            <motion.button
+            <button
               key={hint.type}
-              whileTap={isClickable ? { scale: 0.96 } : undefined}
-              onClick={() => isClickable && onUseHint(hint.type)}
-              disabled={!isClickable}
+              onClick={() => onUseHint(hint.type)}
+              disabled={disabled}
               className={cn(
-                'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-sm font-medium transition-all',
-                isUsed && !isReplayable
-                  ? `${colors.activeBg} ${colors.border} ${colors.text} opacity-70`
-                  : !isClickable
-                    ? 'bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-600 cursor-not-allowed'
-                    : `${colors.bg} ${colors.border} ${colors.text} ${colors.hoverBg} cursor-pointer`,
+                'px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5 border',
+                isUsed
+                  ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-400'
+                  : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-indigo-300 dark:hover:border-indigo-700',
+                disabled && !isUsed && 'opacity-50 cursor-not-allowed',
               )}
             >
-              <span className="text-base leading-none">{hint.icon}</span>
+              <span>{hint.icon}</span>
               <span>{hint.label}</span>
-              <span className={cn(
-                'text-xs font-normal',
-                isUsed ? 'line-through opacity-60' : 'opacity-70',
-              )}>
-                -{hint.xpPenalty}XP
-              </span>
-              {isUsed && (
-                <span className="ml-0.5 text-xs opacity-60">{'\u2713'}</span>
-              )}
-            </motion.button>
+              {!isUsed && <span className="text-[10px] text-gray-400">−{hint.xpPenalty}xp</span>}
+            </button>
           );
         })}
       </div>
 
-      {/* Revealed values */}
       <AnimatePresence>
-        {hasRevealed && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="space-y-1.5 overflow-hidden"
-          >
-            {(Object.entries(revealedValues) as [HintType, string | undefined][]).map(([type, value]) => {
-              if (!value) return null;
-              const colors = HINT_COLORS[type];
-              const config = hints.find(h => h.type === type);
-
-              return (
-                <motion.div
-                  key={type}
-                  initial={{ opacity: 0, x: -8 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  className={cn(
-                    'flex items-center gap-2 px-3 py-2 rounded-lg border',
-                    colors.bg, colors.border,
-                  )}
-                >
-                  <span className="text-sm leading-none">{config?.icon}</span>
-                  <span className={cn('text-sm font-medium', colors.text)}>
-                    {value}
-                  </span>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        )}
+        {usedHints.map(type => {
+          const value = revealedValues[type];
+          if (!value || type === 'slow-replay') return null;
+          return (
+            <motion.div
+              key={type}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="px-3 py-2 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg text-sm text-indigo-700 dark:text-indigo-300"
+            >
+              {value}
+            </motion.div>
+          );
+        })}
       </AnimatePresence>
     </div>
   );

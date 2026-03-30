@@ -1,4 +1,4 @@
-import type { DictationMode } from '../../lib/types';
+import type { ListeningMode } from '../../lib/types';
 
 export type HintType = 'first-letter' | 'ipa' | 'meaning' | 'slow-replay';
 
@@ -17,16 +17,19 @@ export interface HintState {
 }
 
 export const HINT_CONFIGS: Record<HintType, Omit<HintConfig, 'available'>> = {
-  'first-letter': { type: 'first-letter', label: 'Chữ cái đầu', icon: '\u{1F524}', xpPenalty: 2 },
-  'ipa':          { type: 'ipa',          label: 'Phiên âm IPA', icon: '\u{1F5E3}\uFE0F', xpPenalty: 3 },
-  'meaning':      { type: 'meaning',      label: 'Nghĩa ti\u1EBFng Vi\u1EC7t', icon: '\u{1F1FB}\u{1F1F3}', xpPenalty: 4 },
-  'slow-replay':  { type: 'slow-replay',  label: 'Nghe ch\u1EADm 0.75x', icon: '\u{1F422}', xpPenalty: 1 },
+  'first-letter': { type: 'first-letter', label: 'Chữ cái đầu', icon: '🔤', xpPenalty: 2 },
+  'ipa':          { type: 'ipa',          label: 'Phiên âm IPA', icon: '🗣️', xpPenalty: 3 },
+  'meaning':      { type: 'meaning',      label: 'Nghĩa tiếng Việt', icon: '🇻🇳', xpPenalty: 4 },
+  'slow-replay':  { type: 'slow-replay',  label: 'Nghe chậm 0.75x', icon: '🐢', xpPenalty: 1 },
 };
 
-/** Which hints are available per dictation mode */
-export const MODE_HINT_AVAILABILITY: Record<DictationMode, HintType[]> = {
-  word:     ['first-letter', 'ipa', 'meaning', 'slow-replay'],
-  phrase:   ['meaning', 'slow-replay'],
-  sentence: ['meaning', 'slow-replay'],
-  quiz:     ['ipa', 'slow-replay'],
+/** Which hints are available per listening mode */
+export const MODE_HINT_AVAILABILITY: Record<ListeningMode, HintType[]> = {
+  word:            ['first-letter', 'ipa', 'meaning', 'slow-replay'],
+  phrase:          ['meaning', 'slow-replay'],
+  sentence:        ['meaning', 'slow-replay'],
+  quiz:            ['ipa', 'slow-replay'],
+  'fill-blank':    ['first-letter', 'ipa', 'meaning', 'slow-replay'],
+  'speed':         ['meaning'],
+  'listen-choose': ['ipa', 'slow-replay'],
 };
