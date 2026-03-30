@@ -4,13 +4,17 @@ import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
 import { useDictation } from '../hooks/useDictation';
 import { useDictationAudio } from '../hooks/useDictationAudio';
+import { useHints } from '../hooks/useHints';
 import { DictationPlayer } from '../components/DictationPlayer';
 import { DictationInput } from '../components/DictationInput';
 import { DictationResult } from '../components/DictationResult';
 import { DictationSessionSummary } from '../components/DictationSessionSummary';
+import { HintBar } from '../components/HintBar';
 import { ListeningQuizSession } from '../components/ListeningQuizSession';
 import { ALL_TOPICS } from '../../../data/vocabulary/_index';
 import { TOPIC_ICONS } from '../../../lib/constants';
+import { playAudio } from '../../../services/audioService';
+import { MODE_HINT_AVAILABILITY } from '../types';
 import type { DictationMode } from '../../../lib/types';
 
 const VALID_MODES: DictationMode[] = ['word', 'phrase', 'sentence', 'quiz'];
@@ -39,16 +43,36 @@ export function DictationSessionPage() {
   const [hasPlayed, setHasPlayed] = useState(false);
   const [showExitConfirm, setShowExitConfirm] = useState(false);
 
+  const handleSlowReplay = useCallback(() => {
+    if (!currentItem) return;
+    if (mode === 'sentence' || mode === 'phrase') {
+      playAudio(currentItem.target, { rate: 0.75 });
+    } else {
+      playAudio(currentItem.word.word, { rate: 0.75 });
+    }
+  }, [currentItem, mode]);
+
+  const {
+    hints,
+    usedHints,
+    revealedValues,
+    useHint,
+    hintState,
+    resetHints,
+  } = useHints({
+    availableHints: MODE_HINT_AVAILABILITY[mode] ?? [],
+    currentWord: currentItem?.word ?? null,
+    onSlowReplay: handleSlowReplay,
+  });
+
   const topicData = ALL_TOPICS.find(t => t.topic === topic);
   const topicLabel = topicData?.topicLabel ?? topic;
-  const topicIcon = TOPIC_ICONS[topic!] ?? '📝';
+  const topicIcon = TOPIC_ICONS[topic!] ?? '\u{1F4DD}';
 
   const handlePlay = useCallback(() => {
     if (!currentItem) return;
     setHasPlayed(true);
-    if (mode === 'sentence') {
-      playSentence(currentItem.target);
-    } else if (mode === 'phrase') {
+    if (mode === 'sentence' || mode === 'phrase') {
       playSentence(currentItem.target);
     } else {
       play(currentItem.word.word, currentItem.word.audioUrl);
@@ -57,8 +81,13 @@ export function DictationSessionPage() {
 
   const handleNext = useCallback(() => {
     setHasPlayed(false);
+    resetHints();
     next();
-  }, [next]);
+  }, [next, resetHints]);
+
+  // XP with hint deductions
+  const baseXP = xpEarned;
+  const finalXP = Math.max(0, baseXP - hintState.xpDeducted);
 
   // Quiz mode: delegate to dedicated component
   if (mode === 'quiz') {
@@ -80,10 +109,12 @@ export function DictationSessionPage() {
         <DictationSessionSummary
           correctCount={correctCount}
           total={total}
-          xpEarned={xpEarned}
+          xpEarned={finalXP}
           incorrectAnswers={incorrectAnswers}
           onPracticeAgain={() => navigate(0)}
           onBack={() => navigate('/listening')}
+          hintsUsed={hintState.totalHintsUsed}
+          hintXpDeducted={hintState.xpDeducted}
         />
       </div>
     );
@@ -130,6 +161,17 @@ export function DictationSessionPage() {
           disabled={!!lastResult}
         />
       </div>
+
+      {/* Hint Bar */}
+      {!lastResult && (
+        <HintBar
+          hints={hints}
+          usedHints={usedHints}
+          onUseHint={useHint}
+          revealedValues={revealedValues}
+          disabled={!hasPlayed}
+        />
+      )}
 
       {/* Input or Result */}
       {lastResult ? (

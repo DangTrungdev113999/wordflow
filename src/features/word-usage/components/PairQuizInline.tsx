@@ -14,23 +14,7 @@ export function PairQuizInline({ quiz, word1, word2 }: PairQuizInlineProps) {
   const [selected, setSelected] = useState<string | null>(null);
   const [results, setResults] = useState<boolean[]>([]);
 
-  const item = quiz.sentences[currentIndex];
-  if (!item) return null;
-
-  const isAnswered = selected !== null;
-  const isCorrect = selected === item.correct;
   const isComplete = results.length === quiz.sentences.length;
-
-  const handleSelect = (word: string) => {
-    if (isAnswered) return;
-    setSelected(word);
-  };
-
-  const handleNext = () => {
-    setResults(prev => [...prev, isCorrect]);
-    setSelected(null);
-    setCurrentIndex(prev => prev + 1);
-  };
 
   if (isComplete) {
     const score = results.filter(Boolean).length;
@@ -52,9 +36,25 @@ export function PairQuizInline({ quiz, word1, word2 }: PairQuizInlineProps) {
     );
   }
 
+  const item = quiz.sentences[currentIndex];
+  if (!item) return null;
+
+  const isAnswered = selected !== null;
+  const isCorrect = selected === item.correct;
+
+  const handleSelect = (word: string) => {
+    if (isAnswered) return;
+    setSelected(word);
+  };
+
+  const handleNext = () => {
+    setResults(prev => [...prev, isCorrect]);
+    setSelected(null);
+    setCurrentIndex(prev => prev + 1);
+  };
+
   // Collect all unique choice words across the quiz
   const choices = [word1, word2];
-  // Also include the correct answer and other common forms
   if (!choices.includes(item.correct)) {
     choices.push(item.correct);
   }

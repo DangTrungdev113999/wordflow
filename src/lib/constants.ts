@@ -18,6 +18,11 @@ export const XP_VALUES = {
   // Phase 6 — AI Features
   chat_message_sent: 5,
   chat_no_correction_bonus: 10,
+  // Phase 14 — Hint penalties (negative)
+  hint_first_letter: -2,
+  hint_ipa: -3,
+  hint_meaning: -4,
+  hint_slow_replay: -1,
 } as const;
 
 /**
