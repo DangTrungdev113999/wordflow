@@ -24,7 +24,7 @@ const PATTERN_STYLES: Record<string, { bg: string; text: string; border: string;
     border: 'border-violet-200 dark:border-violet-800',
     label: 'ABC — all different',
   },
-  ABD: {
+  ABA: {
     bg: 'bg-amber-50 dark:bg-amber-900/25',
     text: 'text-amber-700 dark:text-amber-400',
     border: 'border-amber-200 dark:border-amber-800',
@@ -39,6 +39,8 @@ const FREQUENCY_DOTS: Record<number, string> = {
   2: 'text-amber-500',
   3: 'text-gray-400 dark:text-gray-500',
 };
+
+const SEARCH_FIELDS: (keyof IrregularVerb)[] = ['base', 'past', 'pastParticiple', 'meaning'];
 
 const filterFn = (item: IrregularVerb, filters: Record<string, string>) => {
   if (filters.pattern && filters.pattern !== 'all' && item.pattern !== filters.pattern) return false;
@@ -58,7 +60,7 @@ export function IrregularVerbsTable() {
 
   const {
     query, setQuery, filters, setFilter, sortBy, setSortBy, results, resultCount,
-  } = useReferenceSearch<IrregularVerb>(IRREGULAR_VERBS, ['base', 'past', 'pastParticiple', 'meaning'], {
+  } = useReferenceSearch<IrregularVerb>(IRREGULAR_VERBS, SEARCH_FIELDS, {
     filterFn,
     sortFn,
   });
@@ -91,6 +93,7 @@ export function IrregularVerbsTable() {
           value={query}
           onChange={e => setQuery(e.target.value)}
           placeholder="Tìm verb: go, went, gone, đi..."
+          aria-label="Tìm kiếm irregular verb"
           className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-violet-500/30 focus:border-violet-300 dark:focus:border-violet-600 transition-all"
         />
         {query && (

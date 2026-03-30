@@ -23,7 +23,7 @@ export function TenseCompare() {
     <div className="space-y-5">
       {/* Tab navigation */}
       <div className="flex items-center gap-2">
-        <button onClick={prev} className="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors flex-shrink-0">
+        <button onClick={prev} aria-label="So sánh trước" className="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors flex-shrink-0">
           <ChevronLeft size={16} className="text-gray-600 dark:text-gray-400" />
         </button>
 
@@ -43,7 +43,7 @@ export function TenseCompare() {
           </div>
         </div>
 
-        <button onClick={next} className="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors flex-shrink-0">
+        <button onClick={next} aria-label="So sánh tiếp" className="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors flex-shrink-0">
           <ChevronRight size={16} className="text-gray-600 dark:text-gray-400" />
         </button>
       </div>
@@ -67,6 +67,7 @@ export function TenseCompare() {
           <button
             key={i}
             onClick={() => setActiveIdx(i)}
+            aria-label={`Chuyển đến so sánh ${i + 1}`}
             className={`h-1.5 rounded-full transition-all ${i === activeIdx ? 'w-6 bg-indigo-500' : 'w-1.5 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400'}`}
           />
         ))}

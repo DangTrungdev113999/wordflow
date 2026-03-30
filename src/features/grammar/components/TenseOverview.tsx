@@ -213,6 +213,7 @@ export function TenseOverview() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 + i * 0.08 }}
                     onClick={() => setActiveTense(activeTense === tense.id ? null : tense.id)}
+                    aria-expanded={activeTense === tense.id}
                     className={`w-full text-left px-3 py-2.5 rounded-xl border transition-all ${activeTense === tense.id
                       ? `${tense.colorBg} ${tense.colorBorder} shadow-sm`
                       : 'bg-white dark:bg-gray-800/60 border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700'}`}
@@ -248,6 +249,7 @@ export function TenseOverview() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.1 + i * 0.06 }}
                       onClick={() => setActiveTense(activeTense === tense.id ? null : tense.id)}
+                      aria-expanded={activeTense === tense.id}
                       className={`w-full text-left px-3 py-2.5 rounded-xl border transition-all ${activeTense === tense.id
                         ? `${tense.colorBg} ${tense.colorBorder} shadow-sm`
                         : 'bg-white dark:bg-gray-800/60 border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700'}`}
@@ -282,7 +284,7 @@ export function TenseOverview() {
                 <h3 className={`text-lg font-bold ${active.colorText}`}>{active.name}</h3>
                 <p className={`font-mono text-sm mt-0.5 ${active.colorText} opacity-70`}>{active.structure}</p>
               </div>
-              <button onClick={() => setActiveTense(null)} className="w-7 h-7 rounded-lg bg-white/60 dark:bg-gray-800/60 flex items-center justify-center hover:bg-white dark:hover:bg-gray-800 transition-colors">
+              <button onClick={() => setActiveTense(null)} aria-label="Đóng chi tiết thì" className="w-7 h-7 rounded-lg bg-white/60 dark:bg-gray-800/60 flex items-center justify-center hover:bg-white dark:hover:bg-gray-800 transition-colors">
                 <X size={14} className="text-gray-500" />
               </button>
             </div>
