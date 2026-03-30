@@ -39,6 +39,13 @@ const ReferencePage = lazy(() => import('../features/grammar/pages/ReferencePage
 const IrregularVerbsPage = lazy(() => import('../features/grammar/pages/IrregularVerbsPage').then(m => ({ default: m.IrregularVerbsPage })));
 const TenseComparePage = lazy(() => import('../features/grammar/pages/TenseComparePage').then(m => ({ default: m.TenseComparePage })));
 const TenseOverviewPage = lazy(() => import('../features/grammar/pages/TenseOverviewPage').then(m => ({ default: m.TenseOverviewPage })));
+const CollocationsPage = lazy(() => import('../features/grammar/pages/CollocationsPage').then(m => ({ default: m.CollocationsPage })));
+const PhrasalVerbsPage = lazy(() => import('../features/grammar/pages/PhrasalVerbsPage').then(m => ({ default: m.PhrasalVerbsPage })));
+const PrepositionGuidePage = lazy(() => import('../features/grammar/pages/PrepositionGuidePage').then(m => ({ default: m.PrepositionGuidePage })));
+const ArticlesPage = lazy(() => import('../features/grammar/pages/ArticlesPage').then(m => ({ default: m.ArticlesPage })));
+const CommonMistakesPage = lazy(() => import('../features/grammar/pages/CommonMistakesPage').then(m => ({ default: m.CommonMistakesPage })));
+const FalseFriendsPage = lazy(() => import('../features/grammar/pages/FalseFriendsPage').then(m => ({ default: m.FalseFriendsPage })));
+const GrammarPatternsPage = lazy(() => import('../features/grammar/pages/GrammarPatternsPage').then(m => ({ default: m.GrammarPatternsPage })));
 
 function PageLoader() {
   return (
@@ -78,6 +85,13 @@ export const router = createBrowserRouter([
       { path: 'grammar/reference/irregular-verbs', element: withSuspense(IrregularVerbsPage) },
       { path: 'grammar/reference/tense-compare', element: withSuspense(TenseComparePage) },
       { path: 'grammar/reference/tense-overview', element: withSuspense(TenseOverviewPage) },
+      { path: 'grammar/reference/collocations', element: withSuspense(CollocationsPage) },
+      { path: 'grammar/reference/phrasal-verbs', element: withSuspense(PhrasalVerbsPage) },
+      { path: 'grammar/reference/prepositions', element: withSuspense(PrepositionGuidePage) },
+      { path: 'grammar/reference/articles', element: withSuspense(ArticlesPage) },
+      { path: 'grammar/reference/common-mistakes', element: withSuspense(CommonMistakesPage) },
+      { path: 'grammar/reference/false-friends', element: withSuspense(FalseFriendsPage) },
+      { path: 'grammar/reference/grammar-patterns', element: withSuspense(GrammarPatternsPage) },
       { path: 'grammar/reference/:tool', element: withSuspense(ReferencePage) },
       { path: 'grammar/bookmarks', element: withSuspense(BookmarkedSheetsPage) },
       { path: 'grammar/:lessonId', element: withSuspense(LessonPage) },
