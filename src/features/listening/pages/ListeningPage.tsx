@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import { Headphones, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router';
+import { Link, useSearchParams } from 'react-router';
 import { motion } from 'framer-motion';
 import { ALL_TOPICS } from '../../../data/vocabulary/_index';
 import { TOPIC_ICONS, TOPIC_COLORS } from '../../../lib/constants';
@@ -8,8 +7,15 @@ import { Badge } from '../../../components/ui/Badge';
 import { DictationModeSelector } from '../components/DictationModeSelector';
 import type { DictationMode } from '../../../lib/types';
 
+const VALID_MODES: DictationMode[] = ['word', 'phrase', 'sentence', 'quiz'];
+
 export function ListeningPage() {
-  const [mode, setMode] = useState<DictationMode>('word');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const rawMode = searchParams.get('mode');
+  const mode = VALID_MODES.includes(rawMode as DictationMode) ? (rawMode as DictationMode) : 'word';
+  const setMode = (m: DictationMode) => {
+    setSearchParams(prev => { prev.set('mode', m); return prev; }, { replace: true });
+  };
 
   return (
     <div className="px-4 py-6 space-y-6 max-w-2xl mx-auto">

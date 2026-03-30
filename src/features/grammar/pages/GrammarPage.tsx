@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { BookOpen, Compass } from 'lucide-react';
+import { useSearchParams } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useGrammarStore } from '../../../stores/grammarStore';
 import { LessonCard } from '../components/LessonCard';
@@ -10,6 +10,9 @@ import type { CEFRLevel } from '../../../lib/types';
 
 type Tab = 'lessons' | 'reference';
 type LevelFilter = 'all' | CEFRLevel;
+
+const VALID_TABS: Tab[] = ['lessons', 'reference'];
+const VALID_LEVELS: LevelFilter[] = ['all', 'A1', 'A2', 'B1', 'B2'];
 
 const TABS: { id: Tab; label: string; icon: typeof BookOpen }[] = [
   { id: 'lessons', label: 'Lessons', icon: BookOpen },
@@ -47,8 +50,18 @@ const cardVariants = {
 
 export function GrammarPage() {
   const { lessons, lessonProgress } = useGrammarStore();
-  const [activeTab, setActiveTab] = useState<Tab>('lessons');
-  const [levelFilter, setLevelFilter] = useState<LevelFilter>('all');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const rawTab = searchParams.get('tab');
+  const activeTab = VALID_TABS.includes(rawTab as Tab) ? (rawTab as Tab) : 'lessons';
+  const rawLevel = searchParams.get('level');
+  const levelFilter = VALID_LEVELS.includes(rawLevel as LevelFilter) ? (rawLevel as LevelFilter) : 'all';
+
+  const setActiveTab = (tab: Tab) => {
+    setSearchParams(prev => { prev.set('tab', tab); prev.delete('level'); return prev; }, { replace: true });
+  };
+  const setLevelFilter = (level: LevelFilter) => {
+    setSearchParams(prev => { prev.set('level', level); return prev; }, { replace: true });
+  };
 
   const levels: CEFRLevel[] = ['A1', 'A2', 'B1', 'B2'];
   const visibleLevels = levelFilter === 'all' ? levels : [levelFilter];

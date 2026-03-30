@@ -13,11 +13,14 @@ import { ALL_TOPICS } from '../../../data/vocabulary/_index';
 import { TOPIC_ICONS } from '../../../lib/constants';
 import type { DictationMode } from '../../../lib/types';
 
+const VALID_MODES: DictationMode[] = ['word', 'phrase', 'sentence', 'quiz'];
+
 export function DictationSessionPage() {
   const { topic } = useParams<{ topic: string }>();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const mode = (searchParams.get('mode') as DictationMode) || 'word';
+  const rawMode = searchParams.get('mode');
+  const mode = VALID_MODES.includes(rawMode as DictationMode) ? (rawMode as DictationMode) : 'word';
 
   const {
     currentItem,
