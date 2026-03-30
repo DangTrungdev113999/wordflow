@@ -51,6 +51,11 @@ const MultiMeaningListPage = lazy(() => import('../features/word-usage/pages/Mul
 const MultiMeaningDetailPage = lazy(() => import('../features/word-usage/pages/MultiMeaningDetailPage').then(m => ({ default: m.MultiMeaningDetailPage })));
 const ConfusingPairsPage = lazy(() => import('../features/word-usage/pages/ConfusingPairsPage').then(m => ({ default: m.ConfusingPairsPage })));
 const ConfusingPairDetailPage = lazy(() => import('../features/word-usage/pages/ConfusingPairDetailPage').then(m => ({ default: m.ConfusingPairDetailPage })));
+const WordUsagePhrasalVerbsPage = lazy(() => import('../features/word-usage/pages/PhrasalVerbsPage').then(m => ({ default: m.PhrasalVerbsPage })));
+const WordUsageCollocationsPage = lazy(() => import('../features/word-usage/pages/CollocationsPage').then(m => ({ default: m.CollocationsPage })));
+const FillBlankPage = lazy(() => import('../features/listening/pages/FillBlankPage').then(m => ({ default: m.FillBlankPage })));
+const SpeedListeningPage = lazy(() => import('../features/listening/pages/SpeedListeningPage').then(m => ({ default: m.SpeedListeningPage })));
+const ListenChoosePage = lazy(() => import('../features/listening/pages/ListenChoosePage').then(m => ({ default: m.ListenChoosePage })));
 
 function PageLoader() {
   return (
@@ -107,6 +112,9 @@ export const router = createBrowserRouter([
       { path: 'stats', element: withSuspense(StatsPage) },
       { path: 'listening', element: withSuspense(ListeningPage) },
       { path: 'listening/:topic/practice', element: withSuspense(DictationSessionPage) },
+      { path: 'listening/:topic/fill-blank', element: withSuspense(FillBlankPage) },
+      { path: 'listening/:topic/speed', element: withSuspense(SpeedListeningPage) },
+      { path: 'listening/:topic/listen-choose', element: withSuspense(ListenChoosePage) },
       { path: 'pronunciation', element: withSuspense(PronunciationPage) },
       { path: 'reading', element: withSuspense(ReadingPage) },
       { path: 'reading/:passageId', element: withSuspense(ReadingSessionPage) },
@@ -128,6 +136,8 @@ export const router = createBrowserRouter([
       { path: 'word-usage/multi-meaning/:word', element: withSuspense(MultiMeaningDetailPage) },
       { path: 'word-usage/confusing-pairs', element: withSuspense(ConfusingPairsPage) },
       { path: 'word-usage/confusing-pairs/:id', element: withSuspense(ConfusingPairDetailPage) },
+      { path: 'word-usage/phrasal-verbs', element: withSuspense(WordUsagePhrasalVerbsPage) },
+      { path: 'word-usage/collocations', element: withSuspense(WordUsageCollocationsPage) },
       { path: 'settings', element: withSuspense(SettingsPage) },
       { path: 'onboarding', element: withSuspense(OnboardingPage) },
     ],
