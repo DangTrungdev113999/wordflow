@@ -3,6 +3,18 @@ import { ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { LucideIcon } from 'lucide-react';
 
+const hoverBorderByColor: Record<string, string> = {
+  violet: 'group-hover:border-violet-200 dark:group-hover:border-violet-800',
+  indigo: 'group-hover:border-indigo-200 dark:group-hover:border-indigo-800',
+  emerald: 'group-hover:border-emerald-200 dark:group-hover:border-emerald-800',
+  amber: 'group-hover:border-amber-200 dark:group-hover:border-amber-800',
+  sky: 'group-hover:border-sky-200 dark:group-hover:border-sky-800',
+  teal: 'group-hover:border-teal-200 dark:group-hover:border-teal-800',
+  rose: 'group-hover:border-rose-200 dark:group-hover:border-rose-800',
+  orange: 'group-hover:border-orange-200 dark:group-hover:border-orange-800',
+  fuchsia: 'group-hover:border-fuchsia-200 dark:group-hover:border-fuchsia-800',
+};
+
 interface ReferenceCardProps {
   to: string;
   icon: LucideIcon;
@@ -30,7 +42,7 @@ export function ReferenceCard({
         whileHover={{ y: -2 }}
         whileTap={{ scale: 0.98 }}
         transition={{ duration: 0.15 }}
-        className={`flex items-start gap-4 p-4 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 group-hover:border-${accentColor}-200 dark:group-hover:border-${accentColor}-800 transition-colors`}
+        className={`flex items-start gap-4 p-4 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 ${hoverBorderByColor[accentColor] ?? ''} transition-colors`}
       >
         <div
           className={`w-11 h-11 rounded-xl ${accentBg} flex items-center justify-center flex-shrink-0`}
