@@ -12,6 +12,8 @@ import { ConfirmDialog } from '../../../components/ui/ConfirmDialog';
 
 type Tab = 'review' | 'browse' | 'stats';
 
+const VALID_TABS: Tab[] = ['review', 'browse', 'stats'];
+
 const TABS: { id: Tab; label: string; icon: typeof RotateCcw }[] = [
   { id: 'review', label: 'Review', icon: RotateCcw },
   { id: 'browse', label: 'Browse', icon: List },
@@ -20,7 +22,8 @@ const TABS: { id: Tab; label: string; icon: typeof RotateCcw }[] = [
 
 export function MistakeJournalPage() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const activeTab = (searchParams.get('tab') as Tab) || 'review';
+  const rawTab = searchParams.get('tab');
+  const activeTab = VALID_TABS.includes(rawTab as Tab) ? (rawTab as Tab) : 'review';
   const setActiveTab = (tab: Tab) => {
     setSearchParams(prev => { prev.set('tab', tab); return prev; }, { replace: true });
   };

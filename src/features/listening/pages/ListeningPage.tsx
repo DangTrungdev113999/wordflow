@@ -7,9 +7,12 @@ import { Badge } from '../../../components/ui/Badge';
 import { DictationModeSelector } from '../components/DictationModeSelector';
 import type { DictationMode } from '../../../lib/types';
 
+const VALID_MODES: DictationMode[] = ['word', 'phrase', 'sentence', 'quiz'];
+
 export function ListeningPage() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const mode = (searchParams.get('mode') as DictationMode) || 'word';
+  const rawMode = searchParams.get('mode');
+  const mode = VALID_MODES.includes(rawMode as DictationMode) ? (rawMode as DictationMode) : 'word';
   const setMode = (m: DictationMode) => {
     setSearchParams(prev => { prev.set('mode', m); return prev; }, { replace: true });
   };

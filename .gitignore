@@ -3,3 +3,5 @@ dist/
 .DS_Store
 firebase-debug.log
 test-results/
+*.png
+.playwright-mcp/*.log
