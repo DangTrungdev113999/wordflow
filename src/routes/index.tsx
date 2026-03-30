@@ -36,6 +36,9 @@ const MistakeJournalPage = lazy(() => import('../features/mistake-journal/pages/
 const StudyPlannerPage = lazy(() => import('../features/study-planner/pages/StudyPlannerPage').then(m => ({ default: m.StudyPlannerPage })));
 const MixedReviewPage = lazy(() => import('../features/vocabulary/pages/MixedReviewPage').then(m => ({ default: m.MixedReviewPage })));
 const ReferencePage = lazy(() => import('../features/grammar/pages/ReferencePage').then(m => ({ default: m.ReferencePage })));
+const IrregularVerbsPage = lazy(() => import('../features/grammar/pages/IrregularVerbsPage').then(m => ({ default: m.IrregularVerbsPage })));
+const TenseComparePage = lazy(() => import('../features/grammar/pages/TenseComparePage').then(m => ({ default: m.TenseComparePage })));
+const TenseOverviewPage = lazy(() => import('../features/grammar/pages/TenseOverviewPage').then(m => ({ default: m.TenseOverviewPage })));
 
 function PageLoader() {
   return (
@@ -72,6 +75,9 @@ export const router = createBrowserRouter([
       { path: 'vocabulary/word/:word', element: withSuspense(WordDetailPage) },
       { path: 'grammar', element: withSuspense(GrammarPage) },
       { path: 'grammar/reference', element: withSuspense(ReferencePage) },
+      { path: 'grammar/reference/irregular-verbs', element: withSuspense(IrregularVerbsPage) },
+      { path: 'grammar/reference/tense-compare', element: withSuspense(TenseComparePage) },
+      { path: 'grammar/reference/tense-overview', element: withSuspense(TenseOverviewPage) },
       { path: 'grammar/reference/:tool', element: withSuspense(ReferencePage) },
       { path: 'grammar/bookmarks', element: withSuspense(BookmarkedSheetsPage) },
       { path: 'grammar/:lessonId', element: withSuspense(LessonPage) },

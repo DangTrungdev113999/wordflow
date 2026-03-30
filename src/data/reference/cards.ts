@@ -2,6 +2,7 @@ import type { LucideIcon } from 'lucide-react';
 import {
   Table2,
   GitCompareArrows,
+  Clock,
   MessageCircle,
   Zap,
   MapPin,
@@ -49,6 +50,18 @@ export const REFERENCE_CARDS: ReferenceCardData[] = [
     accentColor: 'indigo',
     section: 'tools',
     keywords: ['tense', 'comparison', 'thì', 'so sánh', 'present', 'past', 'future'],
+  },
+  {
+    to: '/grammar/reference/tense-overview',
+    icon: Clock,
+    title: 'Tense Overview',
+    description: 'Tổng quan 9 thì trên timeline: Past, Present, Future',
+    count: '9 tenses',
+    accentBg: 'bg-cyan-50 dark:bg-cyan-900/30',
+    accentText: 'text-cyan-500',
+    accentColor: 'cyan',
+    section: 'tools',
+    keywords: ['tense', 'overview', 'timeline', 'thì', 'tổng quan', 'past', 'present', 'future'],
   },
   // Quick Lookup
   {

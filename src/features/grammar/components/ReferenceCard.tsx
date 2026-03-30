@@ -13,6 +13,7 @@ const hoverBorderByColor: Record<string, string> = {
   rose: 'group-hover:border-rose-200 dark:group-hover:border-rose-800',
   orange: 'group-hover:border-orange-200 dark:group-hover:border-orange-800',
   fuchsia: 'group-hover:border-fuchsia-200 dark:group-hover:border-fuchsia-800',
+  cyan: 'group-hover:border-cyan-200 dark:group-hover:border-cyan-800',
 };
 
 interface ReferenceCardProps {
