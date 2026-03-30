@@ -70,12 +70,65 @@ export interface ConfusingPairCache {
   updatedAt: number;
 }
 
-// Future P13-2/P13-3 types (for Dexie schema)
+// ──────────────────────────────────────────────────
+// Phase 13-2: Phrasal Verbs
+// ──────────────────────────────────────────────────
+
+export interface PhrasalVerbExample {
+  sentence: string;
+  translation: string;
+}
+
+export interface PhrasalVerb {
+  id: string;
+  verb: string;        // full phrasal verb, e.g. "give up"
+  baseVerb: string;    // e.g. "give"
+  particle: string;    // e.g. "up"
+  meaning: string;     // Vietnamese
+  meaningEn: string;   // English
+  examples: PhrasalVerbExample[];
+  level: 'A2' | 'B1' | 'B2';
+  synonyms?: string[];
+  note?: string;
+}
+
+// ──────────────────────────────────────────────────
+// Phase 13-2: Collocations
+// ──────────────────────────────────────────────────
+
+export type CollocationCategory =
+  | 'verb-noun'
+  | 'adj-noun'
+  | 'noun-noun'
+  | 'adv-adj'
+  | 'verb-prep'
+  | 'business';
+
+export interface CollocationExample {
+  sentence: string;
+  translation: string;
+}
+
+export interface Collocation {
+  id: string;
+  collocation: string;        // e.g. "make a decision"
+  category: CollocationCategory;
+  meaning: string;            // Vietnamese
+  examples: CollocationExample[];
+  correct: string;            // Natural usage
+  incorrect: string;          // Common mistake
+  note?: string;
+}
+
+// ──────────────────────────────────────────────────
+// Dexie cache types
+// ──────────────────────────────────────────────────
+
 export interface PhrasalVerbCache {
   id?: number;
   baseVerb: string;
   particle: string;
-  data: unknown;
+  data: PhrasalVerb;
   updatedAt: number;
 }
 
@@ -83,7 +136,7 @@ export interface CollocationCache {
   id?: number;
   word: string;
   category: string;
-  data: unknown;
+  data: Collocation;
   updatedAt: number;
 }
 
