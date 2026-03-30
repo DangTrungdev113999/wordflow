@@ -1,0 +1,362 @@
+{
+  "id": "b2-reported-speech-advanced",
+  "title": "Advanced Reported Speech",
+  "level": "B2",
+  "cheatSheet": {
+    "title": "Advanced Reported Speech",
+    "formula": "S + reporting verb + (that) + clause / S + verb + O + to-inf",
+    "keyPoints": [
+      "Reporting verbs nâng cao: advise, suggest, warn, promise, refuse, offer, remind, encourage, deny, admit",
+      "Mỗi verb có pattern riêng: verb + to-inf, verb + O + to-inf, verb + V-ing, verb + that-clause",
+      "suggest/recommend + V-ing hoặc + (that) + S + should + V / S + V (subjunctive)",
+      "Không lùi thì khi: sự thật hiển nhiên, vừa mới nói, reporting verb ở hiện tại",
+      "deny + V-ing (phủ nhận đã làm): He denied stealing the money."
+    ],
+    "signalWords": ["told", "advised", "suggested", "warned", "promised", "refused", "offered", "reminded"],
+    "commonMistakes": [
+      "'He suggested me to go' → 'He suggested (that) I (should) go' hoặc 'He suggested going' (suggest không dùng verb + O + to-inf)",
+      "'She denied to steal' → 'She denied stealing' (deny + V-ing, không dùng to-inf)",
+      "'He promised that he comes' → 'He promised that he would come' (vẫn phải lùi thì sau promised)",
+      "'She warned me don't touch it' → 'She warned me not to touch it' (warn + O + (not) to-inf)"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Reporting Verbs nâng cao — Cấu trúc từng nhóm",
+        "content": "**Nhóm 1: verb + to-infinitive**\n- agree, offer, promise, refuse, threaten\n- *He **agreed to help** me.* / *She **refused to answer**.*\n\n**Nhóm 2: verb + Object + to-infinitive**\n- advise, encourage, invite, remind, warn, tell, ask, order, persuade, beg\n- *She **advised me to study** harder.* / *He **warned them not to go** out.*\n\n**Nhóm 3: verb + V-ing**\n- admit, deny, suggest, recommend\n- *He **admitted cheating** on the test.* / *She **denied taking** the money.*\n\n**Nhóm 4: verb + (that) + clause**\n- admit, agree, claim, complain, deny, explain, insist, promise, suggest, warn\n- *He **claimed that** he was innocent.* / *She **insisted that** she was right.*\n\n**Lưu ý đặc biệt với suggest/recommend:**\n- suggest/recommend + V-ing: *He suggested **going** to the beach.*\n- suggest/recommend + (that) + S + (should) + V: *He suggested that we **(should) go** to the beach.*\n- KHÔNG dùng: ~~suggest + O + to-inf~~ (He suggested me to go ✗)",
+        "examples": [
+          {
+            "en": "Direct: \"I'll help you move house.\"\nReported: He **offered to help** me move house.",
+            "vi": "Anh ấy đề nghị giúp tôi chuyển nhà."
+          },
+          {
+            "en": "Direct: \"Don't forget to lock the door.\"\nReported: She **reminded me to lock** the door.",
+            "vi": "Cô ấy nhắc tôi khóa cửa."
+          },
+          {
+            "en": "Direct: \"No, I won't do it.\"\nReported: He **refused to do** it.",
+            "vi": "Anh ấy từ chối làm điều đó."
+          },
+          {
+            "en": "Direct: \"Yes, I took the money.\"\nReported: She **admitted taking** the money.",
+            "vi": "Cô ấy thừa nhận đã lấy tiền."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ — người khuyên" },
+              { "text": " " },
+              { "text": "advised", "role": "verb", "tooltip": "Reporting verb — advise (khuyên)" },
+              { "text": " " },
+              { "text": "me", "role": "object", "tooltip": "Tân ngữ — người được khuyên" },
+              { "text": " " },
+              { "text": "to study", "role": "verb", "tooltip": "to-infinitive — hành động được khuyên" },
+              { "text": " " },
+              { "text": "harder", "role": "complement", "tooltip": "Bổ ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Cô ấy khuyên tôi học chăm hơn."
+          },
+          {
+            "parts": [
+              { "text": "He", "role": "subject", "tooltip": "Chủ ngữ — người cảnh báo" },
+              { "text": " " },
+              { "text": "warned", "role": "verb", "tooltip": "Reporting verb — warn (cảnh báo)" },
+              { "text": " " },
+              { "text": "them", "role": "object", "tooltip": "Tân ngữ — người được cảnh báo" },
+              { "text": " " },
+              { "text": "not to go", "role": "verb", "tooltip": "not + to-infinitive — hành động bị cảnh báo" },
+              { "text": " " },
+              { "text": "out alone", "role": "complement", "tooltip": "Bổ ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Anh ấy cảnh báo họ không ra ngoài một mình."
+          },
+          {
+            "parts": [
+              { "text": "He", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "suggested", "role": "verb", "tooltip": "Reporting verb — suggest (gợi ý)" },
+              { "text": " " },
+              { "text": "going", "role": "verb", "tooltip": "V-ing — suggest + V-ing (không dùng to-inf)" },
+              { "text": " " },
+              { "text": "to the beach", "role": "complement", "tooltip": "Bổ ngữ nơi chốn" },
+              { "text": "." }
+            ],
+            "vi": "Anh ấy gợi ý đi biển."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "He suggested me to go to the doctor.",
+            "correct": "He suggested that I (should) go to the doctor.",
+            "wrongHighlight": [2, 3],
+            "correctHighlight": [2, 3, 4, 5],
+            "explanation": "'suggest' KHÔNG dùng pattern verb + O + to-inf. Dùng: suggest + V-ing hoặc suggest + (that) + S + (should) + V."
+          },
+          {
+            "wrong": "She denied to steal the money.",
+            "correct": "She denied stealing the money.",
+            "wrongHighlight": [2, 3],
+            "correctHighlight": [2],
+            "explanation": "'deny' đi với V-ing, không dùng to-infinitive. deny + V-ing = phủ nhận đã làm gì."
+          }
+        ]
+      },
+      {
+        "heading": "Exceptions & Special Cases — Ngoại lệ khi tường thuật",
+        "content": "**1. Không lùi thì khi:**\n- **Sự thật hiển nhiên / khoa học:** *He said the Earth **revolves** around the Sun.* (vẫn dùng present)\n- **Vừa mới nói:** *She **says** she **is** coming.* (reporting verb ở hiện tại → không lùi thì)\n- **Tình huống vẫn đúng:** *He said he **lives** in Paris.* (nếu vẫn đang sống ở Paris)\n\n**2. Modal verbs đặc biệt:**\n- would, could, might, should, ought to → KHÔNG đổi (đã ở dạng quá khứ/giả định)\n- *\"I might be late.\" → She said she **might** be late.* (giữ nguyên)\n- must → had to (bắt buộc) HOẶC giữ nguyên must (suy đoán)\n  - *\"You must leave.\" → He told me I **had to** leave.* (bắt buộc)\n  - *\"She must be tired.\" → He said she **must** be tired.* (suy đoán → giữ nguyên)\n\n**3. Reported questions:**\n- Yes/No: S + asked + if/whether + S + V (bỏ dấu hỏi, trật tự câu khẳng định)\n  - *\"Are you coming?\" → She asked **if I was coming**.*\n- Wh-: S + asked + wh-word + S + V\n  - *\"Where do you live?\" → He asked **where I lived**.*\n\n**4. Reported requests & commands:**\n- S + asked/told + O + (not) to-infinitive\n  - *\"Please open the window.\" → She asked me **to open** the window.*\n  - *\"Don't run!\" → The teacher told them **not to run**.*",
+        "examples": [
+          {
+            "en": "\"The sun rises in the east.\" → The teacher said the sun **rises** in the east.",
+            "vi": "Giáo viên nói mặt trời mọc ở phía đông. (sự thật → không lùi thì)"
+          },
+          {
+            "en": "\"I might be late tonight.\" → She said she **might** be late that night.",
+            "vi": "Cô ấy nói cô ấy có thể đến muộn tối đó. (might → giữ nguyên)"
+          },
+          {
+            "en": "\"Where did you buy that jacket?\" → He asked me **where I had bought** that jacket.",
+            "vi": "Anh ấy hỏi tôi mua chiếc áo khoác đó ở đâu."
+          },
+          {
+            "en": "\"Please don't make any noise.\" → She asked us **not to make** any noise.",
+            "vi": "Cô ấy yêu cầu chúng tôi không gây ồn."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "The teacher", "role": "subject", "tooltip": "Chủ ngữ — người nói" },
+              { "text": " " },
+              { "text": "said", "role": "verb", "tooltip": "Reporting verb (past)" },
+              { "text": " " },
+              { "text": "the sun", "role": "subject", "tooltip": "Chủ ngữ mệnh đề phụ" },
+              { "text": " " },
+              { "text": "rises", "role": "verb", "tooltip": "Present simple — KHÔNG lùi thì (sự thật khoa học)" },
+              { "text": " " },
+              { "text": "in the east", "role": "complement", "tooltip": "Bổ ngữ nơi chốn" },
+              { "text": "." }
+            ],
+            "vi": "Giáo viên nói mặt trời mọc ở phía đông."
+          },
+          {
+            "parts": [
+              { "text": "He", "role": "subject", "tooltip": "Chủ ngữ — người hỏi" },
+              { "text": " " },
+              { "text": "asked", "role": "verb", "tooltip": "Reporting verb cho câu hỏi" },
+              { "text": " " },
+              { "text": "me", "role": "object", "tooltip": "Tân ngữ — người được hỏi" },
+              { "text": " " },
+              { "text": "where", "role": "connector", "tooltip": "Từ hỏi wh- (giữ nguyên)" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Đại từ đã đổi: you → I" },
+              { "text": " " },
+              { "text": "had bought", "role": "verb", "tooltip": "Lùi thì: bought (past) → had bought (past perfect)" },
+              { "text": " " },
+              { "text": "that jacket", "role": "object", "tooltip": "Tân ngữ — this → that (đổi chỉ định)" },
+              { "text": "." }
+            ],
+            "vi": "Anh ấy hỏi tôi mua chiếc áo khoác đó ở đâu."
+          },
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ — người yêu cầu" },
+              { "text": " " },
+              { "text": "asked", "role": "verb", "tooltip": "Reporting verb cho request" },
+              { "text": " " },
+              { "text": "us", "role": "object", "tooltip": "Tân ngữ — người được yêu cầu" },
+              { "text": " " },
+              { "text": "not to make", "role": "verb", "tooltip": "not + to-infinitive — phủ định yêu cầu" },
+              { "text": " " },
+              { "text": "any noise", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Cô ấy yêu cầu chúng tôi không gây ồn."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "He asked me where did I buy that jacket.",
+            "correct": "He asked me where I had bought that jacket.",
+            "wrongHighlight": [5, 6, 7],
+            "correctHighlight": [5, 6, 7],
+            "explanation": "Reported question dùng trật tự câu khẳng định (S + V), không đảo ngữ. Và phải lùi thì: did buy → had bought."
+          },
+          {
+            "wrong": "She warned me don't touch the wire.",
+            "correct": "She warned me not to touch the wire.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3, 4],
+            "explanation": "Reported command/warning: verb + O + (not) to-infinitive. Không dùng 'don't' trực tiếp."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "\"I'll help you with the project.\" → She ___ to help me with the project.",
+      "options": [
+        "suggested",
+        "offered",
+        "told",
+        "advised"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "\"No, I won't lend you the money.\" → He ___ to lend me the money.",
+      "options": [
+        "denied",
+        "rejected",
+        "refused",
+        "declined"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "\"You should see a doctor.\" → She ___ me to see a doctor.",
+      "options": [
+        "suggested",
+        "recommended",
+        "advised",
+        "said"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "\"Don't touch the hot stove!\" → Mom ___ the children not to touch the hot stove.",
+      "options": [
+        "said",
+        "told",
+        "warned",
+        "suggested"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "He suggested ___ to the cinema.",
+      "options": [
+        "to go",
+        "going",
+        "me to go",
+        "that go"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "\"I'm sorry I broke the vase.\" → He admitted ___ the vase.",
+      "acceptedAnswers": [
+        "breaking",
+        "having broken"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "\"No, I didn't take the money.\" → She denied ___ the money.",
+      "acceptedAnswers": [
+        "taking",
+        "having taken"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "\"I'll definitely be there on time.\" → He promised ___ there on time.",
+      "acceptedAnswers": [
+        "to be"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "\"Don't forget to bring your passport.\" → She reminded me ___ my passport.",
+      "acceptedAnswers": [
+        "to bring"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "\"Are you coming to the party?\" → He asked me ___ I was coming to the party.",
+      "acceptedAnswers": [
+        "if",
+        "whether"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "He suggested me to take a taxi.",
+      "correctSentence": "He suggested taking a taxi.",
+      "errorIndex": [2, 3]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "She denied to eat the last cookie.",
+      "correctSentence": "She denied eating the last cookie.",
+      "errorIndex": [2, 3]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "He asked me where did I live.",
+      "correctSentence": "He asked me where I lived.",
+      "errorIndex": [4, 5, 6]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["warned", "she", "not", "me", "to", "late", "be"],
+      "answer": "She warned me not to be late."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["offered", "he", "me", "to", "home", "drive"],
+      "answer": "He offered to drive me home."
+    },
+    {
+      "type": "transform",
+      "instruction": "Tường thuật lại câu sử dụng reporting verb trong ngoặc.",
+      "original": "\"You should apply for the job.\" (advised)",
+      "acceptedAnswers": [
+        "He advised me to apply for the job.",
+        "She advised me to apply for the job.",
+        "He advised me to apply for the job",
+        "She advised me to apply for the job"
+      ],
+      "hint": "advise + O + to-infinitive: advised me to apply..."
+    },
+    {
+      "type": "transform",
+      "instruction": "Tường thuật lại câu sử dụng reporting verb trong ngoặc.",
+      "original": "\"Let's go to the beach.\" (suggested)",
+      "acceptedAnswers": [
+        "He suggested going to the beach.",
+        "She suggested going to the beach.",
+        "He suggested that they go to the beach.",
+        "She suggested that they go to the beach.",
+        "He suggested going to the beach",
+        "She suggested going to the beach"
+      ],
+      "hint": "suggest + V-ing hoặc suggest + (that) + S + V. Không dùng suggest + O + to-inf."
+    },
+    {
+      "type": "transform",
+      "instruction": "Tường thuật lại câu hỏi.",
+      "original": "\"Where do you work?\" (asked me)",
+      "acceptedAnswers": [
+        "He asked me where I worked.",
+        "She asked me where I worked.",
+        "He asked me where I worked",
+        "She asked me where I worked"
+      ],
+      "hint": "Reported question: asked + O + wh-word + S + V (trật tự khẳng định, lùi thì)."
+    }
+  ],
+  "prerequisites": ["b1-reported-speech"],
+  "relatedReference": ["grammar-patterns"]
+}

@@ -1,0 +1,391 @@
+{
+  "id": "b2-conditionals-3",
+  "title": "Third Conditional",
+  "level": "B2",
+  "prerequisites": ["b1-conditionals-2", "b1-past-perfect"],
+  "relatedReference": ["tense-comparison"],
+  "cheatSheet": {
+    "title": "Third Conditional",
+    "formula": "If + S + had + V3, S + would have + V3",
+    "keyPoints": [
+      "Diễn tả điều kiện không có thật trong QUÁ KHỨ — sự việc đã xảy ra rồi, không thể thay đổi",
+      "Mệnh đề if dùng Past Perfect (had + V3)",
+      "Mệnh đề chính dùng would have + V3 (past participle)",
+      "Thường dùng để nói về sự hối tiếc, tiếc nuối (regret)",
+      "Có thể thay would have bằng could have / might have (mức độ chắc chắn khác nhau)",
+      "So sánh: Second = giả định hiện tại | Third = giả định quá khứ (đã xảy ra rồi)"
+    ],
+    "signalWords": ["if", "had", "would have", "could have", "might have"],
+    "commonMistakes": [
+      "'If I would have studied...' → 'If I had studied...' (mệnh đề if KHÔNG dùng 'would have')",
+      "'If I had knew...' → 'If I had known...' (sau 'had' phải dùng V3, không dùng V2)",
+      "'If he had came...' → 'If he had come...' (V3 của 'come' là 'come', không phải 'came')",
+      "Nhầm với Second: 'If I had more money, I would have bought it.' → Chọn Second hoặc Third, không trộn lẫn",
+      "Quên 'have' trong mệnh đề chính: 'I would gone' → 'I would have gone'"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc",
+        "conjugation": {
+          "verb": "go",
+          "tense": "Third Conditional",
+          "rows": [
+            { "pronoun": "I", "affirmative": "If I had gone, I would have seen it.", "negative": "If I hadn't gone, I wouldn't have seen it.", "question": "Would I have seen it if I had gone?" },
+            { "pronoun": "You", "affirmative": "If you had gone, you would have seen it.", "negative": "If you hadn't gone, you wouldn't have seen it.", "question": "Would you have seen it if you had gone?" },
+            { "pronoun": "He/She/It", "affirmative": "If he had gone, he would have seen it.", "negative": "If he hadn't gone, he wouldn't have seen it.", "question": "Would he have seen it if he had gone?" },
+            { "pronoun": "We", "affirmative": "If we had gone, we would have seen it.", "negative": "If we hadn't gone, we wouldn't have seen it.", "question": "Would we have seen it if we had gone?" },
+            { "pronoun": "They", "affirmative": "If they had gone, they would have seen it.", "negative": "If they hadn't gone, they wouldn't have seen it.", "question": "Would they have seen it if they had gone?" }
+          ],
+          "notes": "Tất cả các ngôi đều dùng 'had + V3' trong mệnh đề if và 'would have + V3' trong mệnh đề chính. Viết tắt: hadn't = had not, wouldn't = would not, 'd = had (I'd gone)."
+        },
+        "content": "**Khẳng định:** If + S + had + V3, S + would have + V3\n**Phủ định:** If + S + hadn't + V3, S + wouldn't have + V3\n**Nghi vấn:** Would + S + have + V3 + if + S + had + V3?\n\n**Lưu ý quan trọng:**\n- Past Perfect trong mệnh đề if diễn tả điều kiện KHÔNG CÓ THẬT trong quá khứ.\n- 'would have + V3' diễn tả kết quả giả định — điều LẼ RA đã xảy ra nhưng KHÔNG xảy ra.\n- Mệnh đề if và mệnh đề chính có thể đổi vị trí. Khi mệnh đề if đứng trước, dùng dấu phẩy.\n\n**Có thể thay would have bằng:**\n- **could have** + V3: khả năng giả định (If I had tried, I could have succeeded.)\n- **might have** + V3: khả năng không chắc chắn (If she had called, he might have answered.)",
+        "examples": [
+          {
+            "en": "If I **had studied** harder, I **would have passed** the exam.",
+            "vi": "Nếu tôi đã học chăm hơn, tôi đã đỗ kỳ thi rồi. (thực tế: không học chăm → trượt)"
+          },
+          {
+            "en": "If she **hadn't missed** the bus, she **wouldn't have been** late.",
+            "vi": "Nếu cô ấy không lỡ xe buýt, cô ấy đã không bị trễ. (thực tế: lỡ xe → trễ)"
+          },
+          {
+            "en": "**Would** you **have accepted** the job if they **had offered** it to you?",
+            "vi": "Bạn có nhận công việc đó không nếu họ đã đề nghị bạn?"
+          },
+          {
+            "en": "If we **had left** earlier, we **could have caught** the train.",
+            "vi": "Nếu chúng ta đi sớm hơn, chúng ta đã có thể bắt kịp tàu."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": " " },
+              { "text": "had studied", "role": "verb", "tooltip": "Past Perfect — điều kiện không có thật trong quá khứ" },
+              { "text": " " },
+              { "text": "harder,", "role": "complement", "tooltip": "Trạng từ so sánh" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "would have passed", "role": "verb", "tooltip": "would have + V3 — kết quả giả định quá khứ" },
+              { "text": " " },
+              { "text": "the exam", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Nếu tôi đã học chăm hơn, tôi đã đỗ kỳ thi rồi."
+          },
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": " " },
+              { "text": "she", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": " " },
+              { "text": "hadn't missed", "role": "verb", "tooltip": "Past Perfect phủ định — had not + V3" },
+              { "text": " " },
+              { "text": "the bus,", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "she", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "wouldn't have been", "role": "verb", "tooltip": "would not have + V3 — phủ định" },
+              { "text": " " },
+              { "text": "late", "role": "complement", "tooltip": "Bổ ngữ tính từ" },
+              { "text": "." }
+            ],
+            "vi": "Nếu cô ấy không lỡ xe buýt, cô ấy đã không bị trễ."
+          },
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": " " },
+              { "text": "we", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": " " },
+              { "text": "had left", "role": "verb", "tooltip": "Past Perfect — giả định quá khứ" },
+              { "text": " " },
+              { "text": "earlier,", "role": "time", "tooltip": "Trạng từ thời gian" },
+              { "text": " " },
+              { "text": "we", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "could have caught", "role": "verb", "tooltip": "could have + V3 — khả năng giả định" },
+              { "text": " " },
+              { "text": "the train", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Nếu chúng ta đi sớm hơn, chúng ta đã có thể bắt kịp tàu."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "If I would have studied harder, I would have passed.",
+            "correct": "If I had studied harder, I would have passed.",
+            "wrongHighlight": [2, 3],
+            "correctHighlight": [2],
+            "explanation": "Mệnh đề if KHÔNG dùng 'would have'. Phải dùng Past Perfect (had + V3): 'had studied'."
+          },
+          {
+            "wrong": "If he had knew the answer, he would have told us.",
+            "correct": "If he had known the answer, he would have told us.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3],
+            "explanation": "Sau 'had' phải dùng V3 (past participle). 'knew' là V2. V3 của 'know' là 'known'."
+          }
+        ]
+      },
+      {
+        "heading": "Cách dùng",
+        "content": "1. **Hối tiếc về quá khứ (Regret):**\n   Diễn tả sự tiếc nuối vì đã làm hoặc không làm điều gì đó.\n   - If I had saved more money, I would have bought that car. (tiếc vì không tiết kiệm)\n   - If she hadn't quit her job, she would have gotten a promotion. (tiếc vì đã nghỉ việc)\n\n2. **Tưởng tượng kết quả khác trong quá khứ:**\n   Suy nghĩ về điều gì LẼ RA đã xảy ra nếu tình huống khác đi.\n   - If Columbus hadn't discovered America, history would have been very different.\n   - If I had taken that flight, I might have been in the accident.\n\n3. **Phê bình / nhận xét về hành động trong quá khứ:**\n   Dùng để đánh giá hành động đã xảy ra.\n   - If you had listened to me, you wouldn't have lost your money.\n   - If they had planned better, the project would have succeeded.\n\n4. **Giải thích nguyên nhân trong quá khứ:**\n   - I failed the test because I didn't study. → If I had studied, I would have passed.\n   - She was late because she missed the bus. → If she hadn't missed the bus, she wouldn't have been late.\n\n**Mẹo nhớ:** Third Conditional = \"Giá mà...\" trong tiếng Việt. Mọi thứ đều đã xảy ra rồi, không thể thay đổi.",
+        "examples": [
+          {
+            "en": "If I **had known** about the meeting, I **would have attended**.",
+            "vi": "Nếu tôi biết về cuộc họp, tôi đã tham dự rồi. (thực tế: không biết → không tham dự)"
+          },
+          {
+            "en": "If you **had told** me the truth, I **wouldn't have been** angry.",
+            "vi": "Nếu bạn nói thật với tôi, tôi đã không giận. (thực tế: không nói thật → giận)"
+          },
+          {
+            "en": "If it **hadn't rained**, we **would have gone** to the beach.",
+            "vi": "Nếu trời không mưa, chúng ta đã đi biển rồi. (thực tế: trời mưa → không đi)"
+          },
+          {
+            "en": "She **might have survived** if the ambulance **had arrived** sooner.",
+            "vi": "Cô ấy có thể đã sống sót nếu xe cấp cứu đến sớm hơn."
+          },
+          {
+            "en": "If they **had invested** in Bitcoin early, they **could have become** millionaires.",
+            "vi": "Nếu họ đầu tư vào Bitcoin sớm, họ đã có thể trở thành triệu phú."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": " " },
+              { "text": "had known", "role": "verb", "tooltip": "Past Perfect — thực tế: tôi KHÔNG biết" },
+              { "text": " " },
+              { "text": "about the meeting,", "role": "complement", "tooltip": "Bổ ngữ" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "would have attended", "role": "verb", "tooltip": "would have + V3 — kết quả giả định" },
+              { "text": "." }
+            ],
+            "vi": "Nếu tôi biết về cuộc họp, tôi đã tham dự rồi."
+          },
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": " " },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": " " },
+              { "text": "had told", "role": "verb", "tooltip": "Past Perfect — thực tế: bạn KHÔNG nói thật" },
+              { "text": " " },
+              { "text": "me the truth,", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "wouldn't have been", "role": "verb", "tooltip": "would not have + V3 — phủ định" },
+              { "text": " " },
+              { "text": "angry", "role": "complement", "tooltip": "Bổ ngữ tính từ" },
+              { "text": "." }
+            ],
+            "vi": "Nếu bạn nói thật với tôi, tôi đã không giận."
+          },
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": " " },
+              { "text": "it", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": " " },
+              { "text": "hadn't rained,", "role": "verb", "tooltip": "Past Perfect phủ định — thực tế: trời MƯA" },
+              { "text": " " },
+              { "text": "we", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "would have gone", "role": "verb", "tooltip": "would have + V3 — kết quả giả định" },
+              { "text": " " },
+              { "text": "to the beach", "role": "complement", "tooltip": "Bổ ngữ nơi chốn" },
+              { "text": "." }
+            ],
+            "vi": "Nếu trời không mưa, chúng ta đã đi biển rồi."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "If he had came earlier, he would have met her.",
+            "correct": "If he had come earlier, he would have met her.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3],
+            "explanation": "Sau 'had' phải dùng V3 (past participle). 'came' là V2. V3 của 'come' là 'come' (bất quy tắc: come-came-come)."
+          },
+          {
+            "wrong": "If I studied harder, I would have passed the exam.",
+            "correct": "If I had studied harder, I would have passed the exam.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2, 3],
+            "explanation": "Third Conditional yêu cầu Past Perfect (had + V3) trong mệnh đề if. 'studied' (past simple) → 'had studied' (past perfect). Đừng trộn Second và Third Conditional."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "If I ___ the truth, I would have told you.",
+      "options": [
+        "know",
+        "knew",
+        "had known",
+        "would know"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "If she had studied harder, she ___ the exam.",
+      "options": [
+        "will pass",
+        "would pass",
+        "would have passed",
+        "had passed"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "If they ___ the map, they wouldn't have gotten lost.",
+      "options": [
+        "brought",
+        "had brought",
+        "would bring",
+        "have brought"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "We ___ the concert if we had bought tickets earlier.",
+      "options": [
+        "would see",
+        "would have seen",
+        "had seen",
+        "will have seen"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "If I ___ (know) about the party, I would have come.",
+      "acceptedAnswers": [
+        "had known"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "If he ___ (not/miss) the bus, he wouldn't have been late.",
+      "acceptedAnswers": [
+        "hadn't missed",
+        "had not missed"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "She would have gotten the job if she ___ (prepare) better for the interview.",
+      "acceptedAnswers": [
+        "had prepared"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "If we ___ (leave) earlier, we could have caught the train.",
+      "acceptedAnswers": [
+        "had left"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "If I would have known, I would have helped you.",
+      "correctSentence": "If I had known, I would have helped you.",
+      "errorIndex": [2, 3]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "If she had went to the doctor, she would have felt better.",
+      "correctSentence": "If she had gone to the doctor, she would have felt better.",
+      "errorIndex": [3]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "If they had studied, they would passed the test.",
+      "correctSentence": "If they had studied, they would have passed the test.",
+      "errorIndex": [7]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["if", "I", "had", "known", "I", "would", "have", "told", "you"],
+      "answer": "If I had known I would have told you."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["she", "would", "have", "come", "if", "you", "had", "invited", "her"],
+      "answer": "She would have come if you had invited her."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng câu điều kiện loại 3:",
+      "original": "I didn't study, so I failed the exam.",
+      "acceptedAnswers": [
+        "If I had studied, I would have passed the exam.",
+        "If I had studied, I wouldn't have failed the exam.",
+        "If I had studied, I would not have failed the exam."
+      ],
+      "hint": "If + S + had + V3, S + would have + V3"
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng câu điều kiện loại 3:",
+      "original": "She didn't wake up early, so she missed the flight.",
+      "acceptedAnswers": [
+        "If she had woken up early, she wouldn't have missed the flight.",
+        "If she had woken up early, she would not have missed the flight."
+      ],
+      "hint": "If + S + had + V3, S + wouldn't have + V3"
+    },
+    {
+      "type": "multiple_choice",
+      "question": "If the weather ___ better, we would have had a picnic.",
+      "options": [
+        "was",
+        "had been",
+        "would be",
+        "has been"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "They ___ (might/win) the match if they had practiced more.",
+      "acceptedAnswers": [
+        "might have won"
+      ]
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng câu điều kiện loại 3:",
+      "original": "He didn't take an umbrella, so he got wet.",
+      "acceptedAnswers": [
+        "If he had taken an umbrella, he wouldn't have got wet.",
+        "If he had taken an umbrella, he wouldn't have gotten wet.",
+        "If he had taken an umbrella, he would not have got wet.",
+        "If he had taken an umbrella, he would not have gotten wet."
+      ],
+      "hint": "If + S + had + V3, S + wouldn't have + V3"
+    }
+  ]
+}

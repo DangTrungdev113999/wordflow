@@ -1,0 +1,325 @@
+{
+  "id": "b1-present-perfect-continuous",
+  "title": "Present Perfect Continuous",
+  "level": "B1",
+  "cheatSheet": {
+    "title": "Present Perfect Continuous",
+    "formula": "S + have/has + been + V-ing",
+    "keyPoints": [
+      "I/You/We/They → have been; He/She/It → has been",
+      "Nhấn mạnh quá trình / thời gian kéo dài: I have been studying for 3 hours.",
+      "Hành động vừa dừng, kết quả nhìn thấy được: She has been crying. (mắt đỏ)",
+      "Khác Present Perfect Simple: nhấn mạnh duration thay vì result/completion",
+      "Không dùng với stative verbs (know, like, believe...)"
+    ],
+    "signalWords": ["for", "since", "all day", "all morning", "all week", "how long", "lately", "recently"],
+    "commonMistakes": [
+      "'has been work' → 'has been working' (phải dùng V-ing sau been)",
+      "'have been knowing' → 'have known' (stative verb không dùng continuous)",
+      "'I have been waited for 2 hours' → 'I have been waiting for 2 hours' (V-ing, không phải V3)",
+      "Nhầm với Present Perfect Simple: 'I have been reading 3 books' → 'I have read 3 books' (đếm số lượng hoàn thành → dùng Simple)"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc",
+        "conjugation": {
+          "verb": "work",
+          "tense": "Present Perfect Continuous",
+          "rows": [
+            { "pronoun": "I", "affirmative": "I have been working", "negative": "I have not been working", "question": "Have I been working?" },
+            { "pronoun": "You", "affirmative": "You have been working", "negative": "You have not been working", "question": "Have you been working?" },
+            { "pronoun": "He/She/It", "affirmative": "He has been working", "negative": "He has not been working", "question": "Has he been working?", "highlight": "third-person" },
+            { "pronoun": "We", "affirmative": "We have been working", "negative": "We have not been working", "question": "Have we been working?" },
+            { "pronoun": "They", "affirmative": "They have been working", "negative": "They have not been working", "question": "Have they been working?" }
+          ],
+          "notes": "have → I / You / We / They; has → He / She / It. Luôn dùng 'been' + V-ing. Viết tắt: haven't / hasn't."
+        },
+        "content": "**Khẳng định:** S + have/has + been + V-ing\n**Phủ định:** S + have/has + not + been + V-ing\n**Nghi vấn:** Have/Has + S + been + V-ing?\n\nThì Present Perfect Continuous kết hợp hai ý: hành động bắt đầu trong quá khứ và vẫn đang tiếp diễn hoặc vừa mới dừng.",
+        "examples": [
+          {
+            "en": "I **have been working** here for 5 years.",
+            "vi": "Tôi đã làm việc ở đây 5 năm rồi (và vẫn đang làm)."
+          },
+          {
+            "en": "She **hasn't been sleeping** well lately.",
+            "vi": "Gần đây cô ấy ngủ không ngon."
+          },
+          {
+            "en": "**Have** you **been waiting** long?",
+            "vi": "Bạn đợi lâu chưa?"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "have", "role": "auxiliary", "tooltip": "Trợ động từ (I → have)" },
+              { "text": " " },
+              { "text": "been working", "role": "verb", "tooltip": "been + V-ing — cấu trúc Present Perfect Continuous" },
+              { "text": " " },
+              { "text": "here", "role": "complement", "tooltip": "Trạng từ nơi chốn" },
+              { "text": " " },
+              { "text": "for 5 years", "role": "time", "tooltip": "for + khoảng thời gian — signal word" },
+              { "text": "." }
+            ],
+            "vi": "Tôi đã làm việc ở đây 5 năm rồi (và vẫn đang làm)."
+          },
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ (ngôi 3 → has)" },
+              { "text": " " },
+              { "text": "hasn't", "role": "auxiliary", "tooltip": "has not — phủ định" },
+              { "text": " " },
+              { "text": "been sleeping", "role": "verb", "tooltip": "been + V-ing — phủ định continuous" },
+              { "text": " " },
+              { "text": "well", "role": "complement", "tooltip": "Trạng từ chỉ cách thức" },
+              { "text": " " },
+              { "text": "lately", "role": "time", "tooltip": "Signal word — gần đây" },
+              { "text": "." }
+            ],
+            "vi": "Gần đây cô ấy ngủ không ngon."
+          },
+          {
+            "parts": [
+              { "text": "Have", "role": "auxiliary", "tooltip": "Trợ động từ — câu hỏi đảo lên đầu" },
+              { "text": " " },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "been waiting", "role": "verb", "tooltip": "been + V-ing" },
+              { "text": " " },
+              { "text": "long", "role": "time", "tooltip": "Trạng từ chỉ thời gian" },
+              { "text": "?" }
+            ],
+            "vi": "Bạn đợi lâu chưa?"
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "I has been work here for 5 years.",
+            "correct": "I have been working here for 5 years.",
+            "wrongHighlight": [1, 3],
+            "correctHighlight": [1, 3],
+            "explanation": "'I' đi với 'have', không phải 'has'. Sau 'been' phải dùng V-ing: 'working', không phải nguyên mẫu 'work'."
+          },
+          {
+            "wrong": "She has been knowing him since 2019.",
+            "correct": "She has known him since 2019.",
+            "wrongHighlight": [2, 3],
+            "correctHighlight": [2],
+            "explanation": "'know' là stative verb (động từ trạng thái), không dùng được ở dạng continuous. Dùng Present Perfect Simple: 'has known'."
+          }
+        ]
+      },
+      {
+        "heading": "Cách dùng",
+        "content": "1. **Hành động bắt đầu trong quá khứ, tiếp tục đến hiện tại** (nhấn mạnh thời gian kéo dài)\n→ Dùng với 'for' (khoảng thời gian) hoặc 'since' (mốc thời gian)\n\n2. **Hành động vừa dừng, kết quả nhìn thấy được ở hiện tại**\n→ Giải thích tình trạng hiện tại bằng hành động vừa xảy ra\n\n3. **So sánh với Present Perfect Simple:**\n- Continuous: nhấn mạnh quá trình, thời gian → \"I have been reading this book.\" (đang đọc, chưa xong)\n- Simple: nhấn mạnh kết quả, hoàn thành → \"I have read this book.\" (đã đọc xong)\n\n**Lưu ý:** Không dùng continuous với stative verbs: know, like, love, believe, belong, want, need, prefer, understand, hate, own...",
+        "examples": [
+          {
+            "en": "It **has been raining** all day.",
+            "vi": "Trời mưa suốt cả ngày (và vẫn đang mưa)."
+          },
+          {
+            "en": "You look tired. **Have** you **been running**?",
+            "vi": "Trông bạn mệt. Bạn vừa chạy bộ à?"
+          },
+          {
+            "en": "They **have been studying** English **since** 2020.",
+            "vi": "Họ đã học tiếng Anh từ năm 2020 (và vẫn đang học)."
+          },
+          {
+            "en": "He **has been cooking** all morning. The kitchen smells great!",
+            "vi": "Anh ấy nấu ăn suốt buổi sáng. Bếp thơm quá!"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "It", "role": "subject", "tooltip": "Chủ ngữ (it → has)" },
+              { "text": " " },
+              { "text": "has", "role": "auxiliary", "tooltip": "Trợ động từ (ngôi 3)" },
+              { "text": " " },
+              { "text": "been raining", "role": "verb", "tooltip": "been + V-ing — hành động kéo dài" },
+              { "text": " " },
+              { "text": "all day", "role": "time", "tooltip": "Signal word — suốt cả ngày" },
+              { "text": "." }
+            ],
+            "vi": "Trời mưa suốt cả ngày (và vẫn đang mưa)."
+          },
+          {
+            "parts": [
+              { "text": "They", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "have", "role": "auxiliary", "tooltip": "Trợ động từ" },
+              { "text": " " },
+              { "text": "been studying", "role": "verb", "tooltip": "been + V-ing — hành động kéo dài đến hiện tại" },
+              { "text": " " },
+              { "text": "English", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "since 2020", "role": "time", "tooltip": "since + mốc thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Họ đã học tiếng Anh từ năm 2020 (và vẫn đang học)."
+          },
+          {
+            "parts": [
+              { "text": "He", "role": "subject", "tooltip": "Chủ ngữ (ngôi 3 → has)" },
+              { "text": " " },
+              { "text": "has", "role": "auxiliary", "tooltip": "Trợ động từ" },
+              { "text": " " },
+              { "text": "been cooking", "role": "verb", "tooltip": "been + V-ing — hành động vừa dừng, kết quả nhìn thấy" },
+              { "text": " " },
+              { "text": "all morning", "role": "time", "tooltip": "Signal word — suốt buổi sáng" },
+              { "text": "." }
+            ],
+            "vi": "Anh ấy nấu ăn suốt buổi sáng. Bếp thơm quá!"
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "I have been reading 3 books this month.",
+            "correct": "I have read 3 books this month.",
+            "wrongHighlight": [2, 3],
+            "correctHighlight": [2],
+            "explanation": "Khi đếm số lượng hoàn thành (3 books), dùng Present Perfect Simple. Continuous nhấn mạnh quá trình, không phải số lượng."
+          },
+          {
+            "wrong": "She has been waited for you since 3 o'clock.",
+            "correct": "She has been waiting for you since 3 o'clock.",
+            "wrongHighlight": [3],
+            "correctHighlight": [3],
+            "explanation": "Sau 'been' phải dùng V-ing: 'waiting', không phải V3 'waited'. Đây là Present Perfect Continuous, không phải passive voice."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "I ___ for you for an hour!",
+      "options": [
+        "wait",
+        "waited",
+        "have been waiting",
+        "am waiting"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "She looks tired. She ___ all day.",
+      "options": [
+        "works",
+        "worked",
+        "has been working",
+        "is working"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "How long ___ English?",
+      "options": [
+        "do you study",
+        "have you been studying",
+        "are you studying",
+        "did you study"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "It ___ (rain) since morning. The streets are wet.",
+      "acceptedAnswers": [
+        "has been raining"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "We ___ (wait) here for over two hours!",
+      "acceptedAnswers": [
+        "have been waiting"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "He ___ (not/sleep) well lately.",
+      "acceptedAnswers": [
+        "hasn't been sleeping",
+        "has not been sleeping"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "They have been play football all afternoon.",
+      "correctSentence": "They have been playing football all afternoon.",
+      "errorIndex": [3]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "She has been knowing him for ten years.",
+      "correctSentence": "She has known him for ten years.",
+      "errorIndex": [2, 3]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["been", "has", "she", "all", "studying", "day"],
+      "answer": "She has been studying all day."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["have", "how", "you", "long", "been", "here", "living", "?"],
+      "answer": "How long have you been living here?"
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng Present Perfect Continuous",
+      "original": "He started working at 8 a.m. He is still working now.",
+      "acceptedAnswers": [
+        "He has been working since 8 a.m.",
+        "He has been working since 8 a.m"
+      ],
+      "hint": "since + mốc thời gian"
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng Present Perfect Continuous",
+      "original": "It started raining two hours ago. It is still raining.",
+      "acceptedAnswers": [
+        "It has been raining for two hours.",
+        "It has been raining for 2 hours."
+      ],
+      "hint": "for + khoảng thời gian"
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Your eyes are red. ___ you ___?",
+      "options": [
+        "Are ... crying",
+        "Have ... been crying",
+        "Did ... cry",
+        "Do ... cry"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "They ___ (travel) around Europe since June.",
+      "acceptedAnswers": [
+        "have been traveling",
+        "have been travelling"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "I have been waited for the bus for 30 minutes.",
+      "correctSentence": "I have been waiting for the bus for 30 minutes.",
+      "errorIndex": [3]
+    }
+  ],
+  "prerequisites": ["present-perfect"],
+  "relatedReference": ["tense-comparison"]
+}

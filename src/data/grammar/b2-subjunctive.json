@@ -1,0 +1,373 @@
+{
+  "id": "b2-subjunctive",
+  "title": "Subjunctive Mood",
+  "level": "B2",
+  "cheatSheet": {
+    "title": "Thức giả định (Subjunctive)",
+    "formula": "It is + adj + that + S + V(bare infinitive)",
+    "keyPoints": [
+      "Sau động từ đề nghị/yêu cầu (suggest, recommend, insist, demand, propose): S + V + that + S + V(bare infinitive)",
+      "Sau tính từ (important, essential, vital, necessary, crucial): It is + adj + that + S + V(bare infinitive)",
+      "Động từ ở thức giả định luôn ở dạng nguyên thể (bare infinitive), không chia theo ngôi.",
+      "Phủ định: S + V + that + S + NOT + V(bare infinitive) — 'not' đặt trước động từ nguyên thể.",
+      "Bị động: S + V + that + S + be + V3 (be giữ nguyên dạng nguyên thể)."
+    ],
+    "signalWords": ["suggest", "recommend", "insist", "demand", "propose", "important", "essential", "vital", "necessary", "crucial"],
+    "commonMistakes": [
+      "'He suggested that she goes home.' → 'He suggested that she go home.' (không thêm -s cho ngôi ba số ít)",
+      "'It is important that he is on time.' → 'It is important that he be on time.' (dùng 'be', không dùng 'is')",
+      "'The doctor recommended that she should take rest.' → 'The doctor recommended that she take rest.' (dùng bare infinitive, không cần 'should')",
+      "'They insisted that he doesn't leave.' → 'They insisted that he not leave.' (phủ định dùng 'not + V', không dùng 'doesn't')"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Subjunctive sau động từ đề nghị / yêu cầu",
+        "content": "Thức giả định (subjunctive) được dùng sau các động từ diễn tả lời đề nghị, yêu cầu, mệnh lệnh hoặc khuyến nghị. Động từ trong mệnh đề 'that' luôn ở **dạng nguyên thể** (bare infinitive), bất kể chủ ngữ là ngôi nào.\n\n**Các động từ thường gặp:**\n- **suggest** — đề nghị\n- **recommend** — khuyến nghị\n- **insist** — khăng khăng, nhấn mạnh\n- **demand** — yêu cầu, đòi hỏi\n- **propose** — đề xuất\n- **request** — yêu cầu, đề nghị\n- **require** — yêu cầu, đòi hỏi\n- **urge** — thúc giục\n\n**Công thức:**\nS + suggest/recommend/insist/demand/propose + **that** + S + **V(bare infinitive)**\n\n**Phủ định:**\nS + suggest... + that + S + **not** + V(bare infinitive)\n\n**Lưu ý:** Trong tiếng Anh Anh (British English), có thể dùng 'should + V' thay cho bare infinitive, nhưng trong tiếng Anh Mỹ (American English), thức giả định là chuẩn.",
+        "examples": [
+          {
+            "en": "The teacher **suggested** that he **study** harder.",
+            "vi": "Giáo viên đề nghị rằng anh ấy học chăm hơn. (study, không phải studies)"
+          },
+          {
+            "en": "They **insisted** that she **be** present at the meeting.",
+            "vi": "Họ khăng khăng rằng cô ấy phải có mặt tại cuộc họp. (be, không phải is/was)"
+          },
+          {
+            "en": "The manager **demanded** that the report **be submitted** by Friday.",
+            "vi": "Quản lý yêu cầu rằng báo cáo phải được nộp trước thứ Sáu. (bị động: be + V3)"
+          },
+          {
+            "en": "I **recommend** that she **not travel** alone at night.",
+            "vi": "Tôi khuyên rằng cô ấy không nên đi một mình vào ban đêm. (phủ định: not + V)"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "The teacher", "role": "subject", "tooltip": "Chủ ngữ chính" },
+              { "text": " " },
+              { "text": "suggested", "role": "verb", "tooltip": "Động từ đề nghị — kích hoạt subjunctive" },
+              { "text": " " },
+              { "text": "that", "role": "connector", "tooltip": "Liên từ dẫn mệnh đề subjunctive" },
+              { "text": " " },
+              { "text": "he", "role": "subject", "tooltip": "Chủ ngữ mệnh đề phụ (ngôi 3 số ít)" },
+              { "text": " " },
+              { "text": "study", "role": "verb", "tooltip": "Bare infinitive — KHÔNG thêm -s dù chủ ngữ là he" },
+              { "text": " " },
+              { "text": "harder", "role": "complement", "tooltip": "Trạng từ so sánh" },
+              { "text": "." }
+            ],
+            "vi": "Giáo viên đề nghị rằng anh ấy học chăm hơn."
+          },
+          {
+            "parts": [
+              { "text": "They", "role": "subject", "tooltip": "Chủ ngữ chính" },
+              { "text": " " },
+              { "text": "insisted", "role": "verb", "tooltip": "Động từ nhấn mạnh — kích hoạt subjunctive" },
+              { "text": " " },
+              { "text": "that", "role": "connector", "tooltip": "Liên từ dẫn mệnh đề subjunctive" },
+              { "text": " " },
+              { "text": "she", "role": "subject", "tooltip": "Chủ ngữ mệnh đề phụ" },
+              { "text": " " },
+              { "text": "be", "role": "verb", "tooltip": "Bare infinitive — dùng 'be', KHÔNG dùng 'is/was'" },
+              { "text": " " },
+              { "text": "present", "role": "complement", "tooltip": "Tính từ bổ ngữ — có mặt" },
+              { "text": " " },
+              { "text": "at the meeting", "role": "complement", "tooltip": "Cụm giới từ chỉ nơi chốn" },
+              { "text": "." }
+            ],
+            "vi": "Họ khăng khăng rằng cô ấy phải có mặt tại cuộc họp."
+          },
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ chính" },
+              { "text": " " },
+              { "text": "recommend", "role": "verb", "tooltip": "Động từ khuyến nghị — kích hoạt subjunctive" },
+              { "text": " " },
+              { "text": "that", "role": "connector", "tooltip": "Liên từ dẫn mệnh đề subjunctive" },
+              { "text": " " },
+              { "text": "she", "role": "subject", "tooltip": "Chủ ngữ mệnh đề phụ" },
+              { "text": " " },
+              { "text": "not", "role": "auxiliary", "tooltip": "Phủ định — đặt 'not' trước động từ nguyên thể" },
+              { "text": " " },
+              { "text": "travel", "role": "verb", "tooltip": "Bare infinitive — KHÔNG dùng 'doesn't travel'" },
+              { "text": " " },
+              { "text": "alone at night", "role": "complement", "tooltip": "Trạng ngữ — một mình vào ban đêm" },
+              { "text": "." }
+            ],
+            "vi": "Tôi khuyên rằng cô ấy không nên đi một mình vào ban đêm."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "He suggested that she goes to the doctor.",
+            "correct": "He suggested that she go to the doctor.",
+            "wrongHighlight": [4],
+            "correctHighlight": [4],
+            "explanation": "Sau 'suggest that', động từ phải ở dạng nguyên thể (bare infinitive): 'go', không phải 'goes'. Không chia theo ngôi."
+          },
+          {
+            "wrong": "They insisted that he doesn't leave early.",
+            "correct": "They insisted that he not leave early.",
+            "wrongHighlight": [4],
+            "correctHighlight": [4, 5],
+            "explanation": "Phủ định trong subjunctive: dùng 'not + V(bare infinitive)', không dùng 'doesn't/don't'."
+          }
+        ]
+      },
+      {
+        "heading": "Subjunctive sau tính từ",
+        "content": "Thức giả định cũng được dùng sau một số tính từ diễn tả sự cần thiết, quan trọng, cấp bách, theo cấu trúc: **It is + adj + that + S + V(bare infinitive)**.\n\n**Các tính từ thường gặp:**\n- **important** — quan trọng\n- **essential** — thiết yếu\n- **vital** — sống còn, cực kỳ quan trọng\n- **necessary** — cần thiết\n- **crucial** — then chốt\n- **imperative** — bắt buộc, cấp thiết\n- **desirable** — đáng mong muốn\n- **urgent** — khẩn cấp\n\n**Công thức:**\nIt is/was + adj + **that** + S + **V(bare infinitive)**\n\n**Lưu ý:** Cấu trúc này thường dùng trong văn viết trang trọng (formal writing), báo cáo, hợp đồng, quy định.",
+        "examples": [
+          {
+            "en": "It is **essential** that every student **attend** the orientation.",
+            "vi": "Điều thiết yếu là mọi sinh viên phải tham dự buổi định hướng. (attend, không phải attends)"
+          },
+          {
+            "en": "It is **necessary** that he **be** informed of the changes.",
+            "vi": "Điều cần thiết là anh ấy phải được thông báo về những thay đổi. (be, không phải is)"
+          },
+          {
+            "en": "It was **crucial** that the team **submit** the proposal on time.",
+            "vi": "Điều then chốt là đội phải nộp đề xuất đúng hạn. (submit, không phải submits/submitted)"
+          },
+          {
+            "en": "It is **vital** that this information **not be shared** publicly.",
+            "vi": "Điều sống còn là thông tin này không được chia sẻ công khai. (phủ định bị động: not be + V3)"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "It", "role": "subject", "tooltip": "Chủ ngữ giả (formal subject)" },
+              { "text": " " },
+              { "text": "is", "role": "auxiliary", "tooltip": "Động từ tobe" },
+              { "text": " " },
+              { "text": "essential", "role": "complement", "tooltip": "Tính từ — kích hoạt subjunctive trong mệnh đề that" },
+              { "text": " " },
+              { "text": "that", "role": "connector", "tooltip": "Liên từ dẫn mệnh đề subjunctive" },
+              { "text": " " },
+              { "text": "every student", "role": "subject", "tooltip": "Chủ ngữ mệnh đề phụ (số ít)" },
+              { "text": " " },
+              { "text": "attend", "role": "verb", "tooltip": "Bare infinitive — KHÔNG thêm -s dù 'every student' là số ít" },
+              { "text": " " },
+              { "text": "the orientation", "role": "object", "tooltip": "Tân ngữ — buổi định hướng" },
+              { "text": "." }
+            ],
+            "vi": "Điều thiết yếu là mọi sinh viên phải tham dự buổi định hướng."
+          },
+          {
+            "parts": [
+              { "text": "It", "role": "subject", "tooltip": "Chủ ngữ giả" },
+              { "text": " " },
+              { "text": "is", "role": "auxiliary", "tooltip": "Động từ tobe" },
+              { "text": " " },
+              { "text": "necessary", "role": "complement", "tooltip": "Tính từ — kích hoạt subjunctive" },
+              { "text": " " },
+              { "text": "that", "role": "connector", "tooltip": "Liên từ dẫn mệnh đề subjunctive" },
+              { "text": " " },
+              { "text": "he", "role": "subject", "tooltip": "Chủ ngữ mệnh đề phụ (ngôi 3 số ít)" },
+              { "text": " " },
+              { "text": "be", "role": "verb", "tooltip": "Bare infinitive — dùng 'be', KHÔNG dùng 'is'" },
+              { "text": " " },
+              { "text": "informed", "role": "verb", "tooltip": "Quá khứ phân từ (bị động: be + V3)" },
+              { "text": " " },
+              { "text": "of the changes", "role": "complement", "tooltip": "Cụm giới từ bổ nghĩa" },
+              { "text": "." }
+            ],
+            "vi": "Điều cần thiết là anh ấy phải được thông báo về những thay đổi."
+          },
+          {
+            "parts": [
+              { "text": "It", "role": "subject", "tooltip": "Chủ ngữ giả" },
+              { "text": " " },
+              { "text": "is", "role": "auxiliary", "tooltip": "Động từ tobe" },
+              { "text": " " },
+              { "text": "vital", "role": "complement", "tooltip": "Tính từ — kích hoạt subjunctive" },
+              { "text": " " },
+              { "text": "that", "role": "connector", "tooltip": "Liên từ dẫn mệnh đề subjunctive" },
+              { "text": " " },
+              { "text": "this information", "role": "subject", "tooltip": "Chủ ngữ mệnh đề phụ" },
+              { "text": " " },
+              { "text": "not", "role": "auxiliary", "tooltip": "Phủ định — đặt trước 'be'" },
+              { "text": " " },
+              { "text": "be shared", "role": "verb", "tooltip": "Bị động: not + be + V3 (subjunctive)" },
+              { "text": " " },
+              { "text": "publicly", "role": "complement", "tooltip": "Trạng từ — một cách công khai" },
+              { "text": "." }
+            ],
+            "vi": "Điều sống còn là thông tin này không được chia sẻ công khai."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "It is important that he is on time.",
+            "correct": "It is important that he be on time.",
+            "wrongHighlight": [5],
+            "correctHighlight": [5],
+            "explanation": "Sau 'It is important that', dùng bare infinitive: 'be', không phải 'is'. Đây là thức giả định."
+          },
+          {
+            "wrong": "It was necessary that the document was signed.",
+            "correct": "It was necessary that the document be signed.",
+            "wrongHighlight": [6],
+            "correctHighlight": [6],
+            "explanation": "Trong subjunctive, dùng 'be + V3' cho bị động, không dùng 'was signed'. Thức giả định không thay đổi theo thì."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "The doctor recommended that she ___ more rest.",
+      "options": [
+        "gets",
+        "get",
+        "getting",
+        "got"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "It is essential that every employee ___ the safety training.",
+      "options": [
+        "completes",
+        "complete",
+        "completed",
+        "is completing"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The manager insisted that the meeting ___ postponed.",
+      "options": [
+        "is",
+        "was",
+        "be",
+        "been"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "It is vital that he ___ the instructions carefully.",
+      "options": [
+        "follows",
+        "follow",
+        "followed",
+        "is following"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "They proposed that the company ___ a new policy.",
+      "options": [
+        "adopts",
+        "adopted",
+        "adopt",
+        "adopting"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "The professor suggested that the student ___ the assignment again.",
+      "acceptedAnswers": [
+        "redo",
+        "do"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "It is necessary that each participant ___ a form before the event.",
+      "acceptedAnswers": [
+        "complete",
+        "fill out",
+        "submit"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "The committee demanded that the director ___ immediately.",
+      "acceptedAnswers": [
+        "resign"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "It is crucial that this report ___ submitted by tomorrow.",
+      "acceptedAnswers": [
+        "be"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "He suggested that she goes to the hospital.",
+      "correctSentence": "He suggested that she go to the hospital.",
+      "errorIndex": [4]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "It is important that everyone are prepared.",
+      "correctSentence": "It is important that everyone be prepared.",
+      "errorIndex": [5]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "They demanded that he doesn't attend the party.",
+      "correctSentence": "They demanded that he not attend the party.",
+      "errorIndex": [4]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["recommended", "the", "that", "doctor", "she", "take", "a", "break"],
+      "answer": "The doctor recommended that she take a break."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["is", "it", "that", "necessary", "he", "on time", "be"],
+      "answer": "It is necessary that he be on time."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng cấu trúc subjunctive với 'suggest that'.",
+      "original": "\"You should apply for the scholarship.\" (She suggested...)",
+      "acceptedAnswers": [
+        "She suggested that he apply for the scholarship.",
+        "She suggested that she apply for the scholarship.",
+        "She suggested that I apply for the scholarship.",
+        "She suggested that you apply for the scholarship."
+      ],
+      "hint": "Sau 'suggested that', dùng bare infinitive: apply (không thêm -s, không dùng should)."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng cấu trúc 'It is important that...'.",
+      "original": "He must arrive on time.",
+      "acceptedAnswers": [
+        "It is important that he arrive on time.",
+        "It is important that he be on time."
+      ],
+      "hint": "Dùng bare infinitive: 'arrive' (không phải 'arrives')."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng cấu trúc subjunctive với 'insist that'.",
+      "original": "\"The project must be completed this week.\" (The boss insisted...)",
+      "acceptedAnswers": [
+        "The boss insisted that the project be completed this week.",
+        "The boss insisted that the project be finished this week."
+      ],
+      "hint": "Bị động trong subjunctive: be + V3 (be completed)."
+    }
+  ],
+  "prerequisites": ["b1-reported-speech"],
+  "relatedReference": ["grammar-patterns"]
+}

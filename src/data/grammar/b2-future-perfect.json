@@ -1,0 +1,372 @@
+{
+  "id": "b2-future-perfect",
+  "title": "Future Perfect & Future Perfect Continuous",
+  "level": "B2",
+  "cheatSheet": {
+    "title": "Future Perfect & Future Perfect Continuous",
+    "formula": "S + will have + V3 / S + will have been + V-ing",
+    "keyPoints": [
+      "Future Perfect: hành động sẽ HOÀN THÀNH trước một thời điểm trong tương lai",
+      "Future Perfect Continuous: nhấn mạnh THỜI GIAN KÉO DÀI của hành động tính đến một mốc tương lai",
+      "Tất cả các ngôi đều dùng 'will have' (không chia)",
+      "Future Perfect → kết quả: By next year, I will have graduated.",
+      "Future Perfect Continuous → quá trình: By next year, I will have been studying for 4 years.",
+      "Phủ định: will not have + V3 / will not have been + V-ing"
+    ],
+    "signalWords": ["by", "by the time", "by next year", "by then", "before", "for", "since", "by 2030"],
+    "commonMistakes": [
+      "'I will finished by tomorrow' → 'I will have finished by tomorrow' (thiếu 'have' — cần will have + V3)",
+      "'By next month, I will live here for 10 years' → 'By next month, I will have lived / will have been living here for 10 years' (cần Future Perfect khi nói đến mốc tương lai)",
+      "'She will have been write the report' → 'She will have been writing the report' (sau 'been' phải dùng V-ing)",
+      "'By the time he arrives, I will leave' → 'By the time he arrives, I will have left' (hành động hoàn thành trước → Future Perfect)"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Future Perfect — will have + V3",
+        "conjugation": {
+          "verb": "finish",
+          "tense": "Future Perfect",
+          "rows": [
+            { "pronoun": "I", "affirmative": "I will have finished", "negative": "I will not have finished", "question": "Will I have finished?" },
+            { "pronoun": "You", "affirmative": "You will have finished", "negative": "You will not have finished", "question": "Will you have finished?" },
+            { "pronoun": "He/She/It", "affirmative": "He will have finished", "negative": "He will not have finished", "question": "Will he have finished?" },
+            { "pronoun": "We", "affirmative": "We will have finished", "negative": "We will not have finished", "question": "Will we have finished?" },
+            { "pronoun": "They", "affirmative": "They will have finished", "negative": "They will not have finished", "question": "Will they have finished?" }
+          ],
+          "notes": "Tất cả các ngôi đều dùng 'will have'. Viết tắt: won't have = will not have. 'll have = will have (I'll have finished). V3 = past participle."
+        },
+        "content": "**Khẳng định:** S + will have + V3 (past participle)\n**Phủ định:** S + will not (won't) have + V3\n**Nghi vấn:** Will + S + have + V3?\n\nFuture Perfect diễn tả hành động sẽ **hoàn thành trước một thời điểm** hoặc **trước một sự kiện khác** trong tương lai.\n\n**Khi nào dùng:**\n1. **Hành động hoàn thành trước mốc thời gian tương lai:** By 2030, scientists will have discovered a cure.\n2. **Hành động hoàn thành trước một sự kiện tương lai khác:** By the time you arrive, I will have cooked dinner.\n3. **Dự đoán về kết quả đã hoàn thành:** She will have graduated by June.\n\n**Lưu ý:** Mệnh đề thời gian (by the time, before, when) dùng **thì hiện tại**, KHÔNG dùng will:\n- By the time he **arrives** (KHÔNG: will arrive), I will have left.",
+        "examples": [
+          {
+            "en": "By next year, I **will have graduated** from university.",
+            "vi": "Đến năm sau, tôi sẽ đã tốt nghiệp đại học."
+          },
+          {
+            "en": "She **won't have finished** the report by 5 o'clock.",
+            "vi": "Cô ấy sẽ chưa hoàn thành báo cáo trước 5 giờ."
+          },
+          {
+            "en": "**Will** you **have left** by the time I get there?",
+            "vi": "Bạn sẽ rời đi trước khi tôi đến đó chứ?"
+          },
+          {
+            "en": "By the time the movie starts, we **will have found** our seats.",
+            "vi": "Trước khi phim bắt đầu, chúng tôi sẽ đã tìm được chỗ ngồi."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "By next year", "role": "time", "tooltip": "Mốc thời gian tương lai — signal word" },
+              { "text": ", " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "will", "role": "auxiliary", "tooltip": "Trợ động từ tương lai" },
+              { "text": " " },
+              { "text": "have", "role": "auxiliary", "tooltip": "have — cấu trúc Perfect" },
+              { "text": " " },
+              { "text": "graduated", "role": "verb", "tooltip": "V3 — past participle của 'graduate'" },
+              { "text": " " },
+              { "text": "from university", "role": "complement", "tooltip": "Bổ ngữ nơi chốn" },
+              { "text": "." }
+            ],
+            "vi": "Đến năm sau, tôi sẽ đã tốt nghiệp đại học."
+          },
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "won't", "role": "auxiliary", "tooltip": "will not — phủ định" },
+              { "text": " " },
+              { "text": "have", "role": "auxiliary", "tooltip": "have — cấu trúc Perfect" },
+              { "text": " " },
+              { "text": "finished", "role": "verb", "tooltip": "V3 — past participle của 'finish'" },
+              { "text": " " },
+              { "text": "the report", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "by 5 o'clock", "role": "time", "tooltip": "Mốc thời gian — trước 5 giờ" },
+              { "text": "." }
+            ],
+            "vi": "Cô ấy sẽ chưa hoàn thành báo cáo trước 5 giờ."
+          },
+          {
+            "parts": [
+              { "text": "By the time", "role": "connector", "tooltip": "Liên từ thời gian — tính đến lúc" },
+              { "text": " " },
+              { "text": "the movie", "role": "subject", "tooltip": "Chủ ngữ mệnh đề phụ" },
+              { "text": " " },
+              { "text": "starts", "role": "verb", "tooltip": "Present Simple — mệnh đề thời gian KHÔNG dùng will" },
+              { "text": ", " },
+              { "text": "we", "role": "subject", "tooltip": "Chủ ngữ mệnh đề chính" },
+              { "text": " " },
+              { "text": "will have", "role": "auxiliary", "tooltip": "will have — Future Perfect" },
+              { "text": " " },
+              { "text": "found", "role": "verb", "tooltip": "V3 — past participle của 'find'" },
+              { "text": " " },
+              { "text": "our seats", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Trước khi phim bắt đầu, chúng tôi sẽ đã tìm được chỗ ngồi."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "By the time he arrives, I will leave.",
+            "correct": "By the time he arrives, I will have left.",
+            "wrongHighlight": [7, 8],
+            "correctHighlight": [7, 8, 9],
+            "explanation": "Khi hành động hoàn thành TRƯỚC một sự kiện tương lai, cần Future Perfect ('will have left'), không dùng Simple Future ('will leave')."
+          },
+          {
+            "wrong": "I will finished this project by Friday.",
+            "correct": "I will have finished this project by Friday.",
+            "wrongHighlight": [1, 2],
+            "correctHighlight": [1, 2, 3],
+            "explanation": "Sau 'will' cần 'have + V3' để tạo Future Perfect. Không thể dùng 'will + V3' trực tiếp — phải có 'have' ở giữa."
+          }
+        ]
+      },
+      {
+        "heading": "Future Perfect Continuous — will have been + V-ing",
+        "content": "**Khẳng định:** S + will have been + V-ing\n**Phủ định:** S + will not (won't) have been + V-ing\n**Nghi vấn:** Will + S + have been + V-ing?\n\nFuture Perfect Continuous nhấn mạnh **thời gian kéo dài** của một hành động tính đến một mốc trong tương lai. Hành động có thể vẫn đang tiếp diễn tại mốc đó.\n\n**Khi nào dùng:**\n1. **Nhấn mạnh duration (thời gian kéo dài):** By June, I will have been working here for 10 years.\n2. **Giải thích nguyên nhân của tình trạng tương lai:** He will be tired because he will have been driving for 8 hours.\n\n**So sánh Future Perfect vs Future Perfect Continuous:**\n- **Perfect (kết quả):** By 6 PM, I will have written 3 reports. → Nhấn mạnh số lượng hoàn thành\n- **Perfect Continuous (quá trình):** By 6 PM, I will have been writing for 5 hours. → Nhấn mạnh thời gian kéo dài\n\n**Lưu ý:** Không dùng continuous với stative verbs (know, believe, own...): By next year, I will have **known** her for 20 years. (KHÔNG: will have been knowing)",
+        "examples": [
+          {
+            "en": "By December, she **will have been teaching** for 20 years.",
+            "vi": "Đến tháng 12, cô ấy sẽ đã giảng dạy được 20 năm."
+          },
+          {
+            "en": "By the time we arrive, they **will have been waiting** for over an hour.",
+            "vi": "Khi chúng ta đến, họ sẽ đã đợi hơn một tiếng rồi."
+          },
+          {
+            "en": "Next month, I **will have been living** in this city for 5 years.",
+            "vi": "Tháng tới, tôi sẽ sống ở thành phố này được 5 năm."
+          },
+          {
+            "en": "He **won't have been sleeping** long when the alarm goes off.",
+            "vi": "Anh ấy sẽ chưa ngủ được bao lâu khi chuông báo thức reo."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "By December", "role": "time", "tooltip": "Mốc thời gian tương lai — signal word" },
+              { "text": ", " },
+              { "text": "she", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "will have been", "role": "auxiliary", "tooltip": "will have been — Future Perfect Continuous" },
+              { "text": " " },
+              { "text": "teaching", "role": "verb", "tooltip": "V-ing — nhấn mạnh quá trình kéo dài" },
+              { "text": " " },
+              { "text": "for 20 years", "role": "time", "tooltip": "for + khoảng thời gian — duration" },
+              { "text": "." }
+            ],
+            "vi": "Đến tháng 12, cô ấy sẽ đã giảng dạy được 20 năm."
+          },
+          {
+            "parts": [
+              { "text": "By the time", "role": "connector", "tooltip": "Liên từ thời gian — tính đến lúc" },
+              { "text": " " },
+              { "text": "we", "role": "subject", "tooltip": "Chủ ngữ mệnh đề phụ" },
+              { "text": " " },
+              { "text": "arrive", "role": "verb", "tooltip": "Present Simple — mệnh đề thời gian" },
+              { "text": ", " },
+              { "text": "they", "role": "subject", "tooltip": "Chủ ngữ mệnh đề chính" },
+              { "text": " " },
+              { "text": "will have been", "role": "auxiliary", "tooltip": "Future Perfect Continuous" },
+              { "text": " " },
+              { "text": "waiting", "role": "verb", "tooltip": "V-ing — nhấn mạnh hành động kéo dài" },
+              { "text": " " },
+              { "text": "for over an hour", "role": "time", "tooltip": "for + khoảng thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Khi chúng ta đến, họ sẽ đã đợi hơn một tiếng rồi."
+          },
+          {
+            "parts": [
+              { "text": "Next month", "role": "time", "tooltip": "Mốc thời gian tương lai" },
+              { "text": ", " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "will have been", "role": "auxiliary", "tooltip": "Future Perfect Continuous" },
+              { "text": " " },
+              { "text": "living", "role": "verb", "tooltip": "V-ing — hành động kéo dài" },
+              { "text": " " },
+              { "text": "in this city", "role": "complement", "tooltip": "Bổ ngữ nơi chốn" },
+              { "text": " " },
+              { "text": "for 5 years", "role": "time", "tooltip": "for + khoảng thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Tháng tới, tôi sẽ sống ở thành phố này được 5 năm."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "By next year, I will have been know her for a decade.",
+            "correct": "By next year, I will have known her for a decade.",
+            "wrongHighlight": [5, 6, 7],
+            "correctHighlight": [5, 6],
+            "explanation": "'know' là stative verb (động từ trạng thái), không dùng continuous. Dùng Future Perfect: 'will have known'."
+          },
+          {
+            "wrong": "By 6 PM, she will have been write the essay for 3 hours.",
+            "correct": "By 6 PM, she will have been writing the essay for 3 hours.",
+            "wrongHighlight": [7],
+            "correctHighlight": [7],
+            "explanation": "Sau 'will have been' phải dùng V-ing: 'writing', không phải nguyên mẫu 'write'. Đây là cấu trúc continuous."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "By the time you arrive, I ___ dinner.",
+      "options": [
+        "will cook",
+        "will have cooked",
+        "have cooked",
+        "am cooking"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "By 2030, scientists ___ a cure for the disease.",
+      "options": [
+        "will find",
+        "found",
+        "will have found",
+        "have found"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Next month, she ___ at this company for 15 years.",
+      "options": [
+        "will work",
+        "will have been working",
+        "is working",
+        "has been working"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "By the time the plane lands, we ___ for 12 hours.",
+      "options": [
+        "will fly",
+        "will be flying",
+        "will have been flying",
+        "have been flying"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "I ___ the book by Friday, so you can borrow it then.",
+      "options": [
+        "will finish",
+        "will have finished",
+        "am finishing",
+        "have finished"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "By next summer, they ___ (build) the new bridge.",
+      "acceptedAnswers": [
+        "will have built"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "By the end of this year, I ___ (learn) English for 10 years.",
+      "acceptedAnswers": [
+        "will have been learning"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "She ___ (not/finish) the assignment by tomorrow morning.",
+      "acceptedAnswers": [
+        "won't have finished",
+        "will not have finished"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "By the time he retires, he ___ (work) here for 30 years.",
+      "acceptedAnswers": [
+        "will have been working",
+        "will have worked"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "By next week, I will finished reading this novel.",
+      "correctSentence": "By next week, I will have finished reading this novel.",
+      "errorIndex": [5]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "By the time she arrives, we will have been wait for two hours.",
+      "correctSentence": "By the time she arrives, we will have been waiting for two hours.",
+      "errorIndex": [10]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "By 2030, they will have been know each other for 20 years.",
+      "correctSentence": "By 2030, they will have known each other for 20 years.",
+      "errorIndex": [6, 7]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["will", "by", "have", "I", "tomorrow", "finished", "the", "project"],
+      "answer": "By tomorrow, I will have finished the project."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["have", "she", "for", "will", "been", "teaching", "20", "years"],
+      "answer": "She will have been teaching for 20 years."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng Future Perfect với 'by the time'",
+      "original": "I will finish my homework. Then my friends will come.",
+      "acceptedAnswers": [
+        "By the time my friends come, I will have finished my homework.",
+        "I will have finished my homework by the time my friends come."
+      ],
+      "hint": "By the time + Present Simple, Future Perfect"
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng Future Perfect Continuous",
+      "original": "She started working here in 2020. In 2030, she will still be working here.",
+      "acceptedAnswers": [
+        "By 2030, she will have been working here for 10 years.",
+        "She will have been working here for 10 years by 2030."
+      ],
+      "hint": "Tính khoảng thời gian: 2020 → 2030 = 10 years"
+    },
+    {
+      "type": "multiple_choice",
+      "question": "By the end of this course, we ___ all 12 units.",
+      "options": [
+        "will study",
+        "will have studied",
+        "are studying",
+        "studied"
+      ],
+      "answer": 1
+    }
+  ],
+  "prerequisites": ["b1-present-perfect-continuous"],
+  "relatedReference": ["tense-comparison"]
+}

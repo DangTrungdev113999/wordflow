@@ -1,0 +1,359 @@
+{
+  "id": "b1-conditionals-1",
+  "title": "First Conditional",
+  "level": "B1",
+  "prerequisites": ["conditionals-zero", "future-simple"],
+  "relatedReference": ["grammar-patterns"],
+  "cheatSheet": {
+    "title": "First Conditional",
+    "formula": "If + S + V(present simple), S + will + V",
+    "keyPoints": [
+      "Diễn tả điều kiện có thể xảy ra ở hiện tại hoặc tương lai",
+      "Mệnh đề if luôn dùng present simple — KHÔNG dùng will",
+      "Mệnh đề chính dùng will + V (bare infinitive)",
+      "unless = if ... not (trừ khi)",
+      "Có thể dùng: as long as, provided that, on condition that thay cho if",
+      "Có thể đảo thứ tự: S + will + V + if + S + V (không cần dấu phẩy)"
+    ],
+    "signalWords": ["if", "when", "unless", "as long as", "provided that", "on condition that", "in case"],
+    "commonMistakes": [
+      "'If it will rain' → 'If it rains' (không dùng will trong mệnh đề if)",
+      "'Unless you will not hurry' → 'Unless you hurry' (unless = if not, không thêm not)",
+      "'If you study, you pass.' → 'If you study, you will pass.' (mệnh đề chính cần will)",
+      "'If she will come, I will be happy.' → 'If she comes, I will be happy.' (present simple sau if)"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Cấu trúc",
+        "content": "**Khẳng định:** If + S + V(present simple), S + will + V\n**Phủ định:** If + S + don't/doesn't + V, S + won't + V\n**Nghi vấn:** Will + S + V + if + S + V(present simple)?\n\n**Lưu ý:** Mệnh đề if luôn chia ở present simple, dù ý nghĩa nói về tương lai. Will chỉ xuất hiện ở mệnh đề chính.\n\n**unless = if ... not:**\n- Unless you study hard, you will fail. = If you don't study hard, you will fail.\n\n**as long as / provided that:**\n- I will help you as long as you ask politely.\n- You can go out provided that you finish your homework.",
+        "examples": [
+          {
+            "en": "If it **rains** tomorrow, I **will stay** home.",
+            "vi": "Nếu ngày mai trời mưa, tôi sẽ ở nhà."
+          },
+          {
+            "en": "If you **don't hurry**, you **will miss** the bus.",
+            "vi": "Nếu bạn không nhanh lên, bạn sẽ lỡ xe buýt."
+          },
+          {
+            "en": "**Unless** you **study**, you **won't pass** the exam.",
+            "vi": "Trừ khi bạn học bài, bạn sẽ không đậu kỳ thi."
+          },
+          {
+            "en": "I **will go** out **as long as** it **doesn't rain**.",
+            "vi": "Tôi sẽ ra ngoài miễn là trời không mưa."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": " " },
+              { "text": "it", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": " " },
+              { "text": "rains", "role": "verb", "tooltip": "Present simple (mệnh đề if — KHÔNG dùng will)" },
+              { "text": " " },
+              { "text": "tomorrow,", "role": "time", "tooltip": "Trạng từ thời gian" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "will stay", "role": "verb", "tooltip": "will + V (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "home", "role": "complement", "tooltip": "Bổ ngữ nơi chốn" },
+              { "text": "." }
+            ],
+            "vi": "Nếu ngày mai trời mưa, tôi sẽ ở nhà."
+          },
+          {
+            "parts": [
+              { "text": "Unless", "role": "connector", "tooltip": "unless = if ... not (trừ khi)" },
+              { "text": " " },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề unless)" },
+              { "text": " " },
+              { "text": "study,", "role": "verb", "tooltip": "Present simple (KHÔNG thêm not sau unless)" },
+              { "text": " " },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "won't pass", "role": "verb", "tooltip": "will not + V (phủ định)" },
+              { "text": " " },
+              { "text": "the exam", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Trừ khi bạn học bài, bạn sẽ không đậu kỳ thi."
+          },
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "will help", "role": "verb", "tooltip": "will + V (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "you", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "as long as", "role": "connector", "tooltip": "Miễn là (= if)" },
+              { "text": " " },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề điều kiện)" },
+              { "text": " " },
+              { "text": "ask", "role": "verb", "tooltip": "Present simple" },
+              { "text": " " },
+              { "text": "politely", "role": "complement", "tooltip": "Trạng từ cách thức" },
+              { "text": "." }
+            ],
+            "vi": "Tôi sẽ giúp bạn miễn là bạn hỏi lịch sự."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "If it will rain tomorrow, I will stay home.",
+            "correct": "If it rains tomorrow, I will stay home.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "Mệnh đề if KHÔNG dùng 'will'. Luôn dùng present simple sau 'if', dù nói về tương lai."
+          },
+          {
+            "wrong": "Unless you will not study, you will fail.",
+            "correct": "Unless you study, you will fail.",
+            "wrongHighlight": [2, 3],
+            "correctHighlight": [2],
+            "explanation": "'Unless' đã mang nghĩa phủ định (= if ... not). Không thêm 'not' hoặc 'will' sau unless."
+          }
+        ]
+      },
+      {
+        "heading": "Cách dùng",
+        "content": "1. **Dự đoán có thật / khả năng cao:** Tình huống hoàn toàn có thể xảy ra trong tương lai.\n   - If you eat too much, you will feel sick.\n\n2. **Lời hứa / đe dọa / cảnh báo:**\n   - If you behave well, I will buy you a gift. (hứa hẹn)\n   - If you touch my phone, I will tell Mom. (đe dọa)\n\n3. **Đề nghị / gợi ý:**\n   - If you are tired, I will drive. (đề nghị)\n\n4. **Dùng với unless (= if not):**\n   - Unless it stops raining, we won't go out.\n   - = If it doesn't stop raining, we won't go out.\n\n5. **So sánh với Zero Conditional:**\n   - Zero: If you heat water, it boils. (sự thật luôn đúng)\n   - First: If you heat the water, it will boil. (tình huống cụ thể, có thể xảy ra)\n\n**Có thể thay will bằng:** can, may, might, should (mức độ chắc chắn khác nhau)\n   - If it rains, we might cancel the trip.",
+        "examples": [
+          {
+            "en": "If you **eat** too much, you **will feel** sick.",
+            "vi": "Nếu bạn ăn quá nhiều, bạn sẽ bị ốm."
+          },
+          {
+            "en": "If you **behave** well, I **will buy** you a gift.",
+            "vi": "Nếu con ngoan, mẹ sẽ mua quà cho con."
+          },
+          {
+            "en": "**Unless** it **stops** raining, we **won't go** out.",
+            "vi": "Trừ khi trời tạnh mưa, chúng ta sẽ không ra ngoài."
+          },
+          {
+            "en": "If it **rains**, we **might cancel** the trip.",
+            "vi": "Nếu trời mưa, chúng ta có thể hủy chuyến đi."
+          },
+          {
+            "en": "**Will** you **help** me if I **ask** nicely?",
+            "vi": "Bạn sẽ giúp tôi nếu tôi nhờ lịch sự chứ?"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": " " },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": " " },
+              { "text": "eat", "role": "verb", "tooltip": "Present simple" },
+              { "text": " " },
+              { "text": "too much,", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "will feel", "role": "verb", "tooltip": "will + V — dự đoán tương lai" },
+              { "text": " " },
+              { "text": "sick", "role": "complement", "tooltip": "Bổ ngữ tính từ" },
+              { "text": "." }
+            ],
+            "vi": "Nếu bạn ăn quá nhiều, bạn sẽ bị ốm."
+          },
+          {
+            "parts": [
+              { "text": "If", "role": "connector", "tooltip": "Liên từ điều kiện" },
+              { "text": " " },
+              { "text": "it", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": " " },
+              { "text": "rains,", "role": "verb", "tooltip": "Present simple" },
+              { "text": " " },
+              { "text": "we", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "might", "role": "auxiliary", "tooltip": "Modal verb — khả năng không chắc chắn" },
+              { "text": " " },
+              { "text": "cancel", "role": "verb", "tooltip": "V (bare infinitive)" },
+              { "text": " " },
+              { "text": "the trip", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Nếu trời mưa, chúng ta có thể hủy chuyến đi."
+          },
+          {
+            "parts": [
+              { "text": "Will", "role": "auxiliary", "tooltip": "Trợ động từ — câu hỏi đảo lên đầu" },
+              { "text": " " },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề chính)" },
+              { "text": " " },
+              { "text": "help", "role": "verb", "tooltip": "V (bare infinitive)" },
+              { "text": " " },
+              { "text": "me", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "if", "role": "connector", "tooltip": "Liên từ điều kiện (đặt sau — không cần dấu phẩy)" },
+              { "text": " " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ (mệnh đề if)" },
+              { "text": " " },
+              { "text": "ask", "role": "verb", "tooltip": "Present simple" },
+              { "text": " " },
+              { "text": "nicely", "role": "complement", "tooltip": "Trạng từ cách thức" },
+              { "text": "?" }
+            ],
+            "vi": "Bạn sẽ giúp tôi nếu tôi nhờ lịch sự chứ?"
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "If she will come, I will be happy.",
+            "correct": "If she comes, I will be happy.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "Mệnh đề if dùng present simple, KHÔNG dùng 'will'. Ngôi 3 số ít thêm -s: comes."
+          },
+          {
+            "wrong": "If you study hard, you pass the exam.",
+            "correct": "If you study hard, you will pass the exam.",
+            "wrongHighlight": [5],
+            "correctHighlight": [5, 6],
+            "explanation": "First conditional: mệnh đề chính cần 'will + V'. Nếu bỏ will thành zero conditional (sự thật chung), ý nghĩa thay đổi."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "If you ___ hard, you will succeed.",
+      "options": [
+        "will work",
+        "work",
+        "worked",
+        "working"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "If she ___ the bus, she will be late for school.",
+      "options": [
+        "will miss",
+        "missed",
+        "misses",
+        "miss"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ you come to the party if I invite you?",
+      "options": [
+        "Do",
+        "Will",
+        "Are",
+        "Did"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "If it ___ (rain) tomorrow, we will cancel the picnic.",
+      "acceptedAnswers": [
+        "rains"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "Unless you ___ (hurry), you will miss the train.",
+      "acceptedAnswers": [
+        "hurry"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "If I ___ (have) enough money, I will buy a new laptop.",
+      "acceptedAnswers": [
+        "have"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "If it will snow tonight, we will build a snowman.",
+      "correctSentence": "If it snows tonight, we will build a snowman.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "Unless you will not finish your homework, you can't go out.",
+      "correctSentence": "Unless you finish your homework, you can't go out.",
+      "errorIndex": [2, 3]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["if", "study", "you", "will", "you", "pass", "the exam"],
+      "answer": "If you study you will pass the exam."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["I", "will", "call", "you", "if", "I", "arrive", "early"],
+      "answer": "I will call you if I arrive early."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng 'unless':",
+      "original": "If you don't leave now, you will be late.",
+      "acceptedAnswers": [
+        "Unless you leave now, you will be late.",
+        "Unless you leave now you will be late."
+      ],
+      "hint": "unless = if ... not"
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu dùng 'if':",
+      "original": "Unless he apologizes, I won't forgive him.",
+      "acceptedAnswers": [
+        "If he doesn't apologize, I won't forgive him.",
+        "If he does not apologize, I won't forgive him.",
+        "If he doesn't apologize, I will not forgive him.",
+        "If he does not apologize, I will not forgive him."
+      ],
+      "hint": "unless = if ... not"
+    },
+    {
+      "type": "multiple_choice",
+      "question": "I won't go to the beach ___ the weather improves.",
+      "options": [
+        "if",
+        "unless",
+        "when",
+        "because"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "fill_blank",
+      "question": "If you ___ (not/eat) breakfast, you will be hungry later.",
+      "acceptedAnswers": [
+        "don't eat",
+        "do not eat"
+      ]
+    },
+    {
+      "type": "transform",
+      "instruction": "Hoàn thành câu điều kiện loại 1:",
+      "original": "She / not study / fail the test",
+      "acceptedAnswers": [
+        "If she doesn't study, she will fail the test.",
+        "If she does not study, she will fail the test.",
+        "She will fail the test if she doesn't study.",
+        "She will fail the test if she does not study."
+      ],
+      "hint": "If + S + don't/doesn't + V, S + will + V"
+    }
+  ]
+}

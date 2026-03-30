@@ -1,0 +1,434 @@
+{
+  "id": "b1-gerund-infinitive",
+  "title": "Gerund vs Infinitive",
+  "level": "B1",
+  "cheatSheet": {
+    "title": "Gerund vs Infinitive",
+    "formula": "Verb + V-ing (gerund) OR Verb + to V (infinitive) — tùy thuộc động từ chính",
+    "keyPoints": [
+      "V + V-ing: enjoy, avoid, finish, mind, suggest, practice, keep, consider, deny, imagine",
+      "V + to V: want, need, decide, plan, hope, agree, offer, promise, refuse, learn",
+      "V + cả hai (nghĩa khác nhau): stop, remember, forget, try, regret",
+      "stop + V-ing = dừng làm việc đang làm; stop + to V = dừng lại để làm việc khác",
+      "remember/forget + V-ing = nhớ/quên việc đã làm; remember/forget + to V = nhớ/quên việc cần làm"
+    ],
+    "signalWords": ["enjoy", "avoid", "finish", "mind", "suggest", "want", "need", "decide", "hope", "agree", "stop", "remember", "forget", "try", "regret"],
+    "commonMistakes": [
+      "'I enjoy to swim' → 'I enjoy swimming' (enjoy + V-ing)",
+      "'She avoids to talk' → 'She avoids talking' (avoid + V-ing)",
+      "'I want going' → 'I want to go' (want + to V)",
+      "'He stopped to smoke' ≠ 'He stopped smoking' (nghĩa hoàn toàn khác: dừng lại để hút thuốc ≠ bỏ hút thuốc)"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Verb + V-ing (Gerund) — Động từ theo sau bởi danh động từ",
+        "content": "**Một số động từ luôn đi với V-ing (gerund) phía sau.**\n\nDanh sách phổ biến:\n- **enjoy** (thích), **avoid** (tránh), **finish** (hoàn thành)\n- **mind** (phiền), **suggest** (gợi ý), **practice** (luyện tập)\n- **keep** (tiếp tục), **consider** (cân nhắc), **deny** (phủ nhận)\n- **imagine** (tưởng tượng), **miss** (nhớ), **risk** (mạo hiểm)\n- **give up** (từ bỏ), **can't help** (không thể không), **feel like** (muốn)\n\nMẹo nhớ: Các động từ chỉ cảm xúc, sự tránh né, hoặc hoàn thành thường đi với V-ing.",
+        "examples": [
+          {
+            "en": "I **enjoy swimming** in the ocean.",
+            "vi": "Tôi thích bơi ở biển."
+          },
+          {
+            "en": "She **avoids eating** fast food.",
+            "vi": "Cô ấy tránh ăn đồ ăn nhanh."
+          },
+          {
+            "en": "He **finished writing** the report.",
+            "vi": "Anh ấy đã hoàn thành việc viết báo cáo."
+          },
+          {
+            "en": "Do you **mind closing** the window?",
+            "vi": "Bạn có phiền đóng cửa sổ không?"
+          },
+          {
+            "en": "They **keep talking** during the movie.",
+            "vi": "Họ cứ nói chuyện suốt bộ phim."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "enjoy", "role": "verb", "tooltip": "Động từ chính — luôn đi với V-ing" },
+              { "text": " " },
+              { "text": "swimming", "role": "complement", "tooltip": "V-ing (gerund) — danh động từ làm tân ngữ" },
+              { "text": " " },
+              { "text": "in the ocean", "role": "complement", "tooltip": "Trạng ngữ nơi chốn" },
+              { "text": "." }
+            ],
+            "vi": "Tôi thích bơi ở biển."
+          },
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "avoids", "role": "verb", "tooltip": "Động từ chính — luôn đi với V-ing" },
+              { "text": " " },
+              { "text": "eating", "role": "complement", "tooltip": "V-ing (gerund)" },
+              { "text": " " },
+              { "text": "fast food", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Cô ấy tránh ăn đồ ăn nhanh."
+          },
+          {
+            "parts": [
+              { "text": "Do", "role": "auxiliary", "tooltip": "Trợ động từ — câu hỏi" },
+              { "text": " " },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "mind", "role": "verb", "tooltip": "Động từ chính — luôn đi với V-ing" },
+              { "text": " " },
+              { "text": "closing", "role": "complement", "tooltip": "V-ing (gerund)" },
+              { "text": " " },
+              { "text": "the window", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "?" }
+            ],
+            "vi": "Bạn có phiền đóng cửa sổ không?"
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "I enjoy to swim in the ocean.",
+            "correct": "I enjoy swimming in the ocean.",
+            "wrongHighlight": [2, 3],
+            "correctHighlight": [2],
+            "explanation": "'enjoy' luôn đi với V-ing, không dùng 'to V'. Sai: enjoy to swim → Đúng: enjoy swimming."
+          },
+          {
+            "wrong": "She avoids to eat fast food.",
+            "correct": "She avoids eating fast food.",
+            "wrongHighlight": [2, 3],
+            "correctHighlight": [2],
+            "explanation": "'avoid' luôn đi với V-ing. Sai: avoid to eat → Đúng: avoid eating."
+          }
+        ]
+      },
+      {
+        "heading": "Verb + to V (Infinitive) — Động từ theo sau bởi to + nguyên mẫu",
+        "content": "**Một số động từ luôn đi với to + V (infinitive) phía sau.**\n\nDanh sách phổ biến:\n- **want** (muốn), **need** (cần), **decide** (quyết định)\n- **plan** (dự định), **hope** (hy vọng), **agree** (đồng ý)\n- **offer** (đề nghị), **promise** (hứa), **refuse** (từ chối)\n- **learn** (học), **expect** (kỳ vọng), **afford** (đủ khả năng)\n- **pretend** (giả vờ), **manage** (xoay xở), **seem** (có vẻ)\n\nMẹo nhớ: Các động từ chỉ ý định, mong muốn, kế hoạch thường đi với to V.",
+        "examples": [
+          {
+            "en": "I **want to learn** Japanese.",
+            "vi": "Tôi muốn học tiếng Nhật."
+          },
+          {
+            "en": "She **decided to quit** her job.",
+            "vi": "Cô ấy quyết định nghỉ việc."
+          },
+          {
+            "en": "They **agreed to help** us.",
+            "vi": "Họ đồng ý giúp chúng tôi."
+          },
+          {
+            "en": "He **promised to call** me later.",
+            "vi": "Anh ấy hứa sẽ gọi cho tôi sau."
+          },
+          {
+            "en": "We **can't afford to buy** a new car.",
+            "vi": "Chúng tôi không đủ khả năng mua ô tô mới."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "want", "role": "verb", "tooltip": "Động từ chính — luôn đi với to V" },
+              { "text": " " },
+              { "text": "to learn", "role": "complement", "tooltip": "to + V nguyên mẫu (infinitive)" },
+              { "text": " " },
+              { "text": "Japanese", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Tôi muốn học tiếng Nhật."
+          },
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "decided", "role": "verb", "tooltip": "Động từ chính (quá khứ) — luôn đi với to V" },
+              { "text": " " },
+              { "text": "to quit", "role": "complement", "tooltip": "to + V nguyên mẫu (infinitive)" },
+              { "text": " " },
+              { "text": "her job", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "." }
+            ],
+            "vi": "Cô ấy quyết định nghỉ việc."
+          },
+          {
+            "parts": [
+              { "text": "He", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "promised", "role": "verb", "tooltip": "Động từ chính — luôn đi với to V" },
+              { "text": " " },
+              { "text": "to call", "role": "complement", "tooltip": "to + V nguyên mẫu (infinitive)" },
+              { "text": " " },
+              { "text": "me", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "later", "role": "time", "tooltip": "Trạng từ chỉ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Anh ấy hứa sẽ gọi cho tôi sau."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "I want going to the beach.",
+            "correct": "I want to go to the beach.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2, 3],
+            "explanation": "'want' luôn đi với 'to V', không dùng V-ing. Sai: want going → Đúng: want to go."
+          },
+          {
+            "wrong": "She decided leaving early.",
+            "correct": "She decided to leave early.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2, 3],
+            "explanation": "'decide' luôn đi với 'to V'. Sai: decided leaving → Đúng: decided to leave."
+          }
+        ]
+      },
+      {
+        "heading": "Verb + V-ing / to V (nghĩa thay đổi) — Động từ đi với cả hai",
+        "content": "**Một số động từ có thể đi với cả V-ing và to V, nhưng nghĩa sẽ thay đổi.**\n\n**stop:**\n- stop + V-ing = dừng hẳn việc đang làm: 'He stopped smoking.' (Anh ấy bỏ hút thuốc.)\n- stop + to V = dừng lại để làm việc khác: 'He stopped to smoke.' (Anh ấy dừng lại để hút thuốc.)\n\n**remember:**\n- remember + V-ing = nhớ việc đã làm: 'I remember locking the door.' (Tôi nhớ đã khóa cửa.)\n- remember + to V = nhớ việc cần làm: 'Remember to lock the door.' (Nhớ khóa cửa nhé.)\n\n**forget:**\n- forget + V-ing = quên việc đã làm: 'I'll never forget meeting you.' (Tôi sẽ không bao giờ quên lần gặp bạn.)\n- forget + to V = quên việc cần làm: 'I forgot to buy milk.' (Tôi quên mua sữa.)\n\n**try:**\n- try + V-ing = thử làm gì (xem kết quả): 'Try adding more salt.' (Thử thêm muối xem.)\n- try + to V = cố gắng làm gì: 'I tried to open the door.' (Tôi cố gắng mở cửa.)\n\n**regret:**\n- regret + V-ing = hối tiếc đã làm: 'I regret saying that.' (Tôi hối tiếc đã nói điều đó.)\n- regret + to V = lấy làm tiếc khi thông báo: 'I regret to inform you...' (Tôi lấy làm tiếc phải thông báo...)",
+        "examples": [
+          {
+            "en": "He **stopped smoking** last year.",
+            "vi": "Anh ấy bỏ hút thuốc năm ngoái. (dừng hẳn)"
+          },
+          {
+            "en": "He **stopped to smoke** outside the building.",
+            "vi": "Anh ấy dừng lại để hút thuốc bên ngoài tòa nhà."
+          },
+          {
+            "en": "I **remember locking** the door this morning.",
+            "vi": "Tôi nhớ đã khóa cửa sáng nay. (nhớ việc đã xảy ra)"
+          },
+          {
+            "en": "**Remember to lock** the door before you leave.",
+            "vi": "Nhớ khóa cửa trước khi bạn đi nhé. (nhớ việc cần làm)"
+          },
+          {
+            "en": "I **forgot to buy** milk on the way home.",
+            "vi": "Tôi quên mua sữa trên đường về nhà. (quên việc cần làm)"
+          },
+          {
+            "en": "**Try turning** the computer off and on again.",
+            "vi": "Thử tắt rồi bật lại máy tính xem. (thử xem kết quả)"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "He", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "stopped", "role": "verb", "tooltip": "Động từ chính" },
+              { "text": " " },
+              { "text": "smoking", "role": "complement", "tooltip": "V-ing → dừng hẳn việc hút thuốc (bỏ thuốc)" },
+              { "text": " " },
+              { "text": "last year", "role": "time", "tooltip": "Trạng từ chỉ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Anh ấy bỏ hút thuốc năm ngoái."
+          },
+          {
+            "parts": [
+              { "text": "He", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "stopped", "role": "verb", "tooltip": "Động từ chính" },
+              { "text": " " },
+              { "text": "to smoke", "role": "complement", "tooltip": "to V → dừng lại để hút thuốc (mục đích)" },
+              { "text": " " },
+              { "text": "outside the building", "role": "complement", "tooltip": "Trạng ngữ nơi chốn" },
+              { "text": "." }
+            ],
+            "vi": "Anh ấy dừng lại để hút thuốc bên ngoài tòa nhà."
+          },
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "remember", "role": "verb", "tooltip": "Động từ chính" },
+              { "text": " " },
+              { "text": "locking", "role": "complement", "tooltip": "V-ing → nhớ việc ĐÃ LÀM (quá khứ)" },
+              { "text": " " },
+              { "text": "the door", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "this morning", "role": "time", "tooltip": "Trạng từ chỉ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Tôi nhớ đã khóa cửa sáng nay."
+          },
+          {
+            "parts": [
+              { "text": "Remember", "role": "verb", "tooltip": "Động từ chính — câu mệnh lệnh" },
+              { "text": " " },
+              { "text": "to lock", "role": "complement", "tooltip": "to V → nhớ việc CẦN LÀM (tương lai)" },
+              { "text": " " },
+              { "text": "the door", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": " " },
+              { "text": "before you leave", "role": "time", "tooltip": "Mệnh đề trạng ngữ chỉ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Nhớ khóa cửa trước khi bạn đi nhé."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "He stopped to smoke last year.",
+            "correct": "He stopped smoking last year.",
+            "wrongHighlight": [2, 3],
+            "correctHighlight": [2],
+            "explanation": "'stopped to smoke' = dừng lại để hút thuốc (sai nghĩa). Muốn nói 'bỏ thuốc' → dùng 'stopped smoking'."
+          },
+          {
+            "wrong": "I forgot buying milk.",
+            "correct": "I forgot to buy milk.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2, 3],
+            "explanation": "'forgot buying' = quên rằng mình đã mua (ít dùng). Muốn nói 'quên mua' (chưa làm) → dùng 'forgot to buy'."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "I enjoy ___ books in my free time.",
+      "options": [
+        "read",
+        "to read",
+        "reading",
+        "to reading"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "She decided ___ a new car.",
+      "options": [
+        "buying",
+        "to buy",
+        "buy",
+        "to buying"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "He stopped ___ because the doctor told him to. (Anh ấy bỏ hút thuốc.)",
+      "options": [
+        "to smoke",
+        "smoke",
+        "smoking",
+        "to smoking"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Remember ___ your homework before class tomorrow.",
+      "options": [
+        "doing",
+        "to do",
+        "do",
+        "did"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "I can't afford ___ a new laptop right now.",
+      "options": [
+        "buying",
+        "buy",
+        "to buy",
+        "to buying"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "She avoids ___ (eat) junk food.",
+      "acceptedAnswers": [
+        "eating"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "I hope ___ (visit) Paris next summer.",
+      "acceptedAnswers": [
+        "to visit"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "He suggested ___ (go) to the cinema tonight.",
+      "acceptedAnswers": [
+        "going"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "They promised ___ (help) us move to the new house.",
+      "acceptedAnswers": [
+        "to help"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "I enjoy to play tennis on weekends.",
+      "correctSentence": "I enjoy playing tennis on weekends.",
+      "errorIndex": [2, 3]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "She wants going to the party.",
+      "correctSentence": "She wants to go to the party.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "He finished to write the essay.",
+      "correctSentence": "He finished writing the essay.",
+      "errorIndex": [2, 3]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["enjoy", "I", "in", "swimming", "the", "ocean"],
+      "answer": "I enjoy swimming in the ocean."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["decided", "she", "to", "study", "abroad"],
+      "answer": "She decided to study abroad."
+    },
+    {
+      "type": "transform",
+      "instruction": "Hoàn thành câu sử dụng gerund (V-ing).",
+      "original": "He keeps ___ (talk) during the lesson.",
+      "acceptedAnswers": [
+        "He keeps talking during the lesson."
+      ],
+      "hint": "keep + V-ing"
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu sử dụng 'refuse + to V'.",
+      "original": "He said 'No, I won't help you.'",
+      "acceptedAnswers": [
+        "He refused to help.",
+        "He refused to help me.",
+        "He refused to help you."
+      ],
+      "hint": "refuse + to V"
+    }
+  ],
+  "prerequisites": ["present-simple"],
+  "relatedReference": ["grammar-patterns"]
+}

@@ -1,0 +1,364 @@
+{
+  "id": "b1-used-to",
+  "title": "Used to / Be used to / Get used to",
+  "level": "B1",
+  "cheatSheet": {
+    "title": "Used to / Be used to / Get used to",
+    "formula": "used to + V (bare) | be used to + V-ing/N | get used to + V-ing/N",
+    "keyPoints": [
+      "used to + V: thói quen trong quá khứ, bây giờ không còn nữa — 'I used to play football.'",
+      "be used to + V-ing/N: đã quen với việc gì đó (trạng thái) — 'I am used to waking up early.'",
+      "get used to + V-ing/N: đang dần quen với việc gì đó (quá trình) — 'I'm getting used to the noise.'",
+      "Phủ định: didn't use to + V | Nghi vấn: Did ... use to + V?",
+      "'be used to' và 'get used to' có thể chia ở mọi thì (am/is/are/was/were used to...)"
+    ],
+    "signalWords": ["used to", "be used to", "get used to", "anymore", "in the past", "when I was young", "no longer", "not ... anymore"],
+    "commonMistakes": [
+      "'I used to smoking' → 'I used to smoke' (used to + V nguyên mẫu) hoặc 'I am used to smoking' (be used to + V-ing)",
+      "'I didn't used to' → 'I didn't use to' (sau didn't, bỏ -d)",
+      "'I am used to wake up early' → 'I am used to waking up early' (be used to + V-ing, không phải V nguyên mẫu)",
+      "'He use to live here' → 'He used to live here' (luôn viết 'used to', không phải 'use to' ở câu khẳng định)"
+    ]
+  },
+  "theory": {
+    "sections": [
+      {
+        "heading": "Used to + V (bare infinitive) — Thói quen quá khứ",
+        "content": "**Cấu trúc dùng để nói về thói quen hoặc trạng thái trong quá khứ, nhưng bây giờ không còn nữa.**\n\n**Khẳng định:** S + used to + V (bare)\n**Phủ định:** S + didn't use to + V (bare)\n**Nghi vấn:** Did + S + use to + V (bare)?\n\nLưu ý: Trong câu phủ định và nghi vấn, viết **use to** (không có -d) vì 'did/didn't' đã mang nghĩa quá khứ.",
+        "examples": [
+          {
+            "en": "I **used to smoke**, but I quit last year.",
+            "vi": "Tôi từng hút thuốc, nhưng tôi đã bỏ năm ngoái."
+          },
+          {
+            "en": "She **used to live** in London before moving to Paris.",
+            "vi": "Cô ấy từng sống ở London trước khi chuyển đến Paris."
+          },
+          {
+            "en": "**Did** you **use to** play the piano?",
+            "vi": "Bạn có từng chơi piano không?"
+          },
+          {
+            "en": "We **didn't use to** have a car.",
+            "vi": "Chúng tôi từng không có ô tô."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "used to", "role": "auxiliary", "tooltip": "Cấu trúc chỉ thói quen quá khứ" },
+              { "text": " " },
+              { "text": "smoke", "role": "verb", "tooltip": "V nguyên mẫu (bare infinitive)" },
+              { "text": ", but " },
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "quit", "role": "verb", "tooltip": "Động từ — quá khứ đơn" },
+              { "text": " " },
+              { "text": "last year", "role": "time", "tooltip": "Trạng từ chỉ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Tôi từng hút thuốc, nhưng tôi đã bỏ năm ngoái."
+          },
+          {
+            "parts": [
+              { "text": "Did", "role": "auxiliary", "tooltip": "Trợ động từ — câu hỏi quá khứ" },
+              { "text": " " },
+              { "text": "you", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "use to", "role": "auxiliary", "tooltip": "Sau 'did', viết 'use to' (không có -d)" },
+              { "text": " " },
+              { "text": "play", "role": "verb", "tooltip": "V nguyên mẫu" },
+              { "text": " " },
+              { "text": "the piano", "role": "object", "tooltip": "Tân ngữ" },
+              { "text": "?" }
+            ],
+            "vi": "Bạn có từng chơi piano không?"
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "He use to live here.",
+            "correct": "He used to live here.",
+            "wrongHighlight": [1],
+            "correctHighlight": [1],
+            "explanation": "Câu khẳng định luôn viết 'used to' (có -d). Chỉ bỏ -d sau 'did/didn't'."
+          },
+          {
+            "wrong": "I didn't used to like coffee.",
+            "correct": "I didn't use to like coffee.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "Sau 'didn't', viết 'use to' (không có -d) vì 'didn't' đã thể hiện thì quá khứ."
+          }
+        ]
+      },
+      {
+        "heading": "Be used to + V-ing / Noun — Đã quen với",
+        "content": "**Dùng để diễn tả ai đó đã quen với một việc gì đó (trạng thái đã quen).**\n\n**Cấu trúc:** S + be (am/is/are/was/were) + used to + V-ing / Noun\n\nCó thể dùng ở mọi thì bằng cách thay đổi 'be':\n- Hiện tại: I **am** used to ...\n- Quá khứ: I **was** used to ...\n- Tương lai: I **will be** used to ...",
+        "examples": [
+          {
+            "en": "I **am used to waking** up early.",
+            "vi": "Tôi đã quen với việc dậy sớm."
+          },
+          {
+            "en": "She **is used to** the cold weather.",
+            "vi": "Cô ấy đã quen với thời tiết lạnh."
+          },
+          {
+            "en": "They **were used to working** long hours.",
+            "vi": "Họ đã quen với việc làm việc nhiều giờ."
+          },
+          {
+            "en": "**Are** you **used to living** alone?",
+            "vi": "Bạn có quen với việc sống một mình không?"
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "am", "role": "auxiliary", "tooltip": "Động từ 'be' — hiện tại (I → am)" },
+              { "text": " " },
+              { "text": "used to", "role": "connector", "tooltip": "Cụm cố định: be used to = đã quen với" },
+              { "text": " " },
+              { "text": "waking up", "role": "verb", "tooltip": "V-ing — danh động từ sau 'be used to'" },
+              { "text": " " },
+              { "text": "early", "role": "complement", "tooltip": "Trạng từ bổ nghĩa" },
+              { "text": "." }
+            ],
+            "vi": "Tôi đã quen với việc dậy sớm."
+          },
+          {
+            "parts": [
+              { "text": "She", "role": "subject", "tooltip": "Chủ ngữ (ngôi 3 → is)" },
+              { "text": " " },
+              { "text": "is", "role": "auxiliary", "tooltip": "Động từ 'be' — hiện tại" },
+              { "text": " " },
+              { "text": "used to", "role": "connector", "tooltip": "be used to = đã quen với" },
+              { "text": " " },
+              { "text": "the cold weather", "role": "object", "tooltip": "Danh từ (noun) — sau 'be used to' có thể là N hoặc V-ing" },
+              { "text": "." }
+            ],
+            "vi": "Cô ấy đã quen với thời tiết lạnh."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "I am used to wake up early.",
+            "correct": "I am used to waking up early.",
+            "wrongHighlight": [4],
+            "correctHighlight": [4],
+            "explanation": "Sau 'be used to' phải dùng V-ing hoặc danh từ, không dùng V nguyên mẫu."
+          },
+          {
+            "wrong": "She is use to the noise.",
+            "correct": "She is used to the noise.",
+            "wrongHighlight": [2],
+            "correctHighlight": [2],
+            "explanation": "Luôn viết 'used to' (có -d) trong cấu trúc 'be used to'."
+          }
+        ]
+      },
+      {
+        "heading": "Get used to + V-ing / Noun — Đang dần quen với",
+        "content": "**Dùng để diễn tả quá trình dần dần quen với một việc gì đó (quá trình thích nghi).**\n\n**Cấu trúc:** S + get/got/getting + used to + V-ing / Noun\n\nSự khác biệt với 'be used to':\n- **be used to**: đã quen rồi (trạng thái) — 'I am used to the noise.' (Tôi đã quen với tiếng ồn rồi.)\n- **get used to**: đang dần quen (quá trình) — 'I'm getting used to the noise.' (Tôi đang dần quen với tiếng ồn.)\n\nCó thể dùng ở nhiều thì:\n- Hiện tại tiếp diễn: I **am getting** used to ...\n- Quá khứ: I **got** used to ...\n- Tương lai: I **will get** used to ...",
+        "examples": [
+          {
+            "en": "I'm **getting used to** the weather here.",
+            "vi": "Tôi đang dần quen với thời tiết ở đây."
+          },
+          {
+            "en": "He **got used to** living alone after a few months.",
+            "vi": "Anh ấy đã dần quen với việc sống một mình sau vài tháng."
+          },
+          {
+            "en": "You'll **get used to** working night shifts.",
+            "vi": "Bạn sẽ dần quen với việc làm ca đêm."
+          },
+          {
+            "en": "I can't **get used to** this new software.",
+            "vi": "Tôi không thể quen được với phần mềm mới này."
+          }
+        ],
+        "coloredExamples": [
+          {
+            "parts": [
+              { "text": "I", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": "'m " },
+              { "text": "getting", "role": "auxiliary", "tooltip": "get (hiện tại tiếp diễn) — quá trình dần quen" },
+              { "text": " " },
+              { "text": "used to", "role": "connector", "tooltip": "get used to = đang dần quen với" },
+              { "text": " " },
+              { "text": "the weather", "role": "object", "tooltip": "Danh từ — thứ đang dần quen" },
+              { "text": " " },
+              { "text": "here", "role": "complement", "tooltip": "Trạng từ nơi chốn" },
+              { "text": "." }
+            ],
+            "vi": "Tôi đang dần quen với thời tiết ở đây."
+          },
+          {
+            "parts": [
+              { "text": "He", "role": "subject", "tooltip": "Chủ ngữ" },
+              { "text": " " },
+              { "text": "got", "role": "auxiliary", "tooltip": "get (quá khứ) — đã dần quen" },
+              { "text": " " },
+              { "text": "used to", "role": "connector", "tooltip": "get used to = đã dần quen với" },
+              { "text": " " },
+              { "text": "living", "role": "verb", "tooltip": "V-ing — danh động từ" },
+              { "text": " " },
+              { "text": "alone", "role": "complement", "tooltip": "Trạng từ bổ nghĩa" },
+              { "text": " " },
+              { "text": "after a few months", "role": "time", "tooltip": "Trạng ngữ chỉ thời gian" },
+              { "text": "." }
+            ],
+            "vi": "Anh ấy đã dần quen với việc sống một mình sau vài tháng."
+          }
+        ],
+        "beforeAfter": [
+          {
+            "wrong": "I used to smoking.",
+            "correct": "I am used to smoking.",
+            "wrongHighlight": [1, 2, 3],
+            "correctHighlight": [1, 2, 3, 4],
+            "explanation": "Nếu muốn nói 'đã quen hút thuốc' → dùng 'be used to + V-ing'. Nếu muốn nói 'từng hút thuốc' → dùng 'used to + V': 'I used to smoke.'"
+          },
+          {
+            "wrong": "I'm getting used to wake up early.",
+            "correct": "I'm getting used to waking up early.",
+            "wrongHighlight": [4],
+            "correctHighlight": [4],
+            "explanation": "Sau 'get used to' phải dùng V-ing hoặc danh từ, không dùng V nguyên mẫu."
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "I ___ play football every weekend, but now I don't have time.",
+      "options": [
+        "am used to",
+        "used to",
+        "get used to",
+        "use to"
+      ],
+      "answer": 1
+    },
+    {
+      "type": "multiple_choice",
+      "question": "She ___ the hot weather because she's lived in Thailand for 10 years.",
+      "options": [
+        "used to",
+        "is getting used to",
+        "is used to",
+        "gets used to"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "He just moved to Japan. He ___ the food there.",
+      "options": [
+        "used to",
+        "is used to",
+        "is getting used to",
+        "was used to"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "multiple_choice",
+      "question": "___ you use to ride a bicycle to school?",
+      "options": [
+        "Are",
+        "Do",
+        "Did",
+        "Were"
+      ],
+      "answer": 2
+    },
+    {
+      "type": "fill_blank",
+      "question": "I ___ (used to / live) in a small village when I was a child.",
+      "acceptedAnswers": [
+        "used to live"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "She is ___ (used to / cook) for herself now.",
+      "acceptedAnswers": [
+        "used to cooking"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "We didn't ___ have a television.",
+      "acceptedAnswers": [
+        "use to"
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "question": "He's slowly getting ___ (used to / work) at night.",
+      "acceptedAnswers": [
+        "used to working"
+      ]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "I used to smoking when I was young.",
+      "correctSentence": "I used to smoke when I was young.",
+      "errorIndex": [3]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "She is used to wake up at 6 a.m.",
+      "correctSentence": "She is used to waking up at 6 a.m.",
+      "errorIndex": [4]
+    },
+    {
+      "type": "error_correction",
+      "sentence": "We didn't used to eat spicy food.",
+      "correctSentence": "We didn't use to eat spicy food.",
+      "errorIndex": [2]
+    },
+    {
+      "type": "sentence_order",
+      "words": ["used", "to", "she", "play", "the", "piano"],
+      "answer": "She used to play the piano."
+    },
+    {
+      "type": "sentence_order",
+      "words": ["getting", "I'm", "used", "to", "early", "waking", "up"],
+      "answer": "I'm getting used to waking up early."
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu sử dụng 'used to'.",
+      "original": "When I was a child, I played in the park every day.",
+      "acceptedAnswers": [
+        "I used to play in the park every day.",
+        "I used to play in the park every day when I was a child."
+      ],
+      "hint": "used to + V nguyên mẫu"
+    },
+    {
+      "type": "transform",
+      "instruction": "Viết lại câu sử dụng 'be used to'.",
+      "original": "Living alone is normal for her now.",
+      "acceptedAnswers": [
+        "She is used to living alone.",
+        "She is used to living alone now.",
+        "She's used to living alone."
+      ],
+      "hint": "be used to + V-ing"
+    }
+  ],
+  "prerequisites": ["past-simple"],
+  "relatedReference": ["grammar-patterns", "common-mistakes"]
+}

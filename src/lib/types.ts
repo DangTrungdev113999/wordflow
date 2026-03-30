@@ -183,6 +183,8 @@ export interface GrammarLessonData {
   };
   exercises: GrammarExercise[];
   cheatSheet?: CheatSheet;
+  prerequisites?: string[];
+  relatedReference?: string[];
 }
 
 // Sentence Building types
