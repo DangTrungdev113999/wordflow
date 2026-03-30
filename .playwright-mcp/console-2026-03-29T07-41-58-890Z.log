@@ -1,2 +1,0 @@
-[  258812ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:5179/src/features/vocabulary/components/ActiveRecallBanner.tsx?t=1774770377680:0
-[  258812ms] [ERROR] [vite] Failed to reload /src/features/vocabulary/components/ActiveRecallBanner.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:5179/@vite/client:881
