@@ -94,7 +94,6 @@ export function useAccentExposure(topic: string) {
   const [isComplete, setIsComplete] = useState(false);
   const [showCompare, setShowCompare] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [seenAccents] = useState<Set<Accent>>(new Set());
 
   const currentItem = items[currentIndex] ?? null;
   const total = items.length;
@@ -114,6 +113,7 @@ export function useAccentExposure(topic: string) {
 
     await playAudio(currentItem.word.word, {
       rate: 0.9,
+      pitch: config.pitch,
       voice: voiceName,
       lang: config.lang,
       onEnd: () => setIsPlaying(false),
@@ -125,6 +125,7 @@ export function useAccentExposure(topic: string) {
     const voiceName = findAccentVoice(accent);
     await playAudio(word, {
       rate: 0.9,
+      pitch: config.pitch,
       voice: voiceName,
       lang: config.lang,
     });
@@ -134,16 +135,12 @@ export function useAccentExposure(topic: string) {
     if (!currentItem) return;
     const correct = checkAnswer(input, currentItem.word.word);
 
-    // Track first-time accent exposure
-    const isNewAccent = !seenAccents.has(currentItem.accent);
-    if (isNewAccent) seenAccents.add(currentItem.accent);
-
     const result: AnswerResult = { question: currentItem, userAnswer: input, correct };
     setLastResult(result);
     answersRef.current = [...answersRef.current, result];
     setAnswers(prev => [...prev, result]);
     setShowCompare(true);
-  }, [currentItem, seenAccents]);
+  }, [currentItem]);
 
   const next = useCallback(() => {
     setLastResult(null);

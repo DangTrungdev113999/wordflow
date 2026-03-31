@@ -2,6 +2,7 @@ let currentAudio: HTMLAudioElement | null = null;
 
 export interface PlayOptions {
   rate?: number;          // 0.5 - 2.0, default 1.0
+  pitch?: number;         // 0.1 - 2.0, default 1.0
   voice?: string;         // voice name or 'male'|'female' shortcut
   lang?: string;          // default 'en-US'
   onEnd?: () => void;     // callback when done
@@ -45,6 +46,7 @@ export async function playAudio(text: string, options?: PlayOptions): Promise<vo
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = lang;
       utterance.rate = rate;
+      utterance.pitch = options?.pitch ?? 1.0;
 
       const voice = findVoice(options?.voice);
       if (voice) utterance.voice = voice;

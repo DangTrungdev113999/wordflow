@@ -1,4 +1,4 @@
-import { Headphones, ChevronRight, Mic, Puzzle, Dumbbell, BookOpen } from 'lucide-react';
+import { Headphones, ChevronRight, Mic, Puzzle, Dumbbell, BookOpen, BarChart3 } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router';
 import { motion } from 'framer-motion';
 import { ALL_TOPICS } from '../../../data/vocabulary/_index';
@@ -6,6 +6,7 @@ import { TOPIC_ICONS, TOPIC_COLORS } from '../../../lib/constants';
 import { Badge } from '../../../components/ui/Badge';
 import { DictationModeSelector } from '../components/DictationModeSelector';
 import { cn } from '../../../lib/utils';
+import { useProgressStore } from '../../../stores/progressStore';
 import type { ListeningMode } from '../../../lib/types';
 
 const VALID_MODES: ListeningMode[] = [
@@ -66,7 +67,12 @@ function getCategoryForMode(mode: ListeningMode): string {
   }
 }
 
+// TODO: Implement ListeningStats tracking service (models.ts:290) to track
+// per-mode sessions, correct counts, best streak, and accent exposure.
+// Currently showing global XP as a placeholder until listening-specific tracking is added.
+
 export function ListeningPage() {
+  const { xp, todayXP, currentStreak } = useProgressStore();
   const [searchParams, setSearchParams] = useSearchParams();
   const rawMode = searchParams.get('mode');
   const mode = VALID_MODES.includes(rawMode as ListeningMode) ? (rawMode as ListeningMode) : 'word';
@@ -136,6 +142,28 @@ export function ListeningPage() {
             </Link>
           </motion.div>
         ))}
+      </div>
+
+      {/* Stats summary */}
+      <div className="mt-2 p-4 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800">
+        <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1.5 mb-3">
+          <BarChart3 size={14} />
+          Your Stats
+        </h3>
+        <div className="grid grid-cols-3 gap-4 text-center">
+          <div>
+            <p className="text-xl font-bold text-indigo-600 dark:text-indigo-400">{xp.toLocaleString()}</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">Total XP</p>
+          </div>
+          <div>
+            <p className="text-xl font-bold text-emerald-600 dark:text-emerald-400">{todayXP}</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">Today XP</p>
+          </div>
+          <div>
+            <p className="text-xl font-bold text-amber-600 dark:text-amber-400">{currentStreak}</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">Day Streak</p>
+          </div>
+        </div>
       </div>
     </div>
   );
