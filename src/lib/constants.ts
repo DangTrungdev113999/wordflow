@@ -28,6 +28,11 @@ export const XP_VALUES = {
   // Phase 14-3 — Conversation + Story Listening
   listening_comprehension_correct: 15,
   listening_comprehension_perfect: 20,
+  // Phase 14-4 — Accent Exposure + Note-taking
+  accent_correct: 10,
+  accent_new_bonus: 5,
+  accent_session_perfect: 30,
+  note_taking_per_point: 20,
 } as const;
 
 /**

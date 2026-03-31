@@ -33,6 +33,9 @@ type AppEvents = {
   // Phase 14-3 — Conversation + Story Listening
   'listening:conversation': { topic: string; questionsCorrect: number; totalQuestions: number };
   'listening:story': { topic: string; questionsCorrect: number; totalQuestions: number };
+  // Phase 14-4 — Accent Exposure + Note-taking
+  'listening:accent': { topic: string; accent: string; correct: number; total: number };
+  'listening:notes_scored': { topic: string; matchedPoints: number; totalPoints: number };
   // Phase 8 — Mistake Journal
   'mistakes:collected': MistakeCollectedEvent;
   // Phase 9 — Celebrations

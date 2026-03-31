@@ -11,30 +11,69 @@ const dictationModes: { value: ListeningMode; label: string }[] = [
   { value: 'word', label: 'Word' },
   { value: 'phrase', label: 'Phrase' },
   { value: 'sentence', label: 'Sentence' },
-  { value: 'quiz', label: 'Quiz' },
 ];
 
-const advancedModes: { value: ListeningMode; label: string; color: string }[] = [
+const interactiveModes: { value: ListeningMode; label: string; color: string }[] = [
+  { value: 'quiz', label: 'Quiz', color: 'text-amber-600 dark:text-amber-400' },
   { value: 'fill-blank', label: 'Fill-blank', color: 'text-amber-600 dark:text-amber-400' },
+  { value: 'listen-choose', label: 'Choose', color: 'text-amber-600 dark:text-amber-400' },
+];
+
+const challengeModes: { value: ListeningMode; label: string; color: string }[] = [
   { value: 'speed', label: 'Speed', color: 'text-orange-600 dark:text-orange-400' },
-  { value: 'listen-choose', label: 'Listen & Choose', color: 'text-violet-600 dark:text-violet-400' },
+  { value: 'accent', label: 'Accent', color: 'text-sky-600 dark:text-sky-400' },
 ];
 
 const comprehensionModes: { value: ListeningMode; label: string; color: string }[] = [
   { value: 'conversation', label: 'Conversation', color: 'text-teal-600 dark:text-teal-400' },
-  { value: 'story', label: 'News/Story', color: 'text-emerald-600 dark:text-emerald-400' },
+  { value: 'story', label: 'Story', color: 'text-emerald-600 dark:text-emerald-400' },
+  { value: 'note-taking', label: 'Notes', color: 'text-violet-600 dark:text-violet-400' },
 ];
 
-type ModeRow = 'dictation' | 'advanced' | 'comprehension';
+type ModeRow = 'dictation' | 'interactive' | 'challenge' | 'comprehension';
 
 function getModeRow(m: ListeningMode): ModeRow {
   if (dictationModes.some(dm => dm.value === m)) return 'dictation';
-  if (advancedModes.some(am => am.value === m)) return 'advanced';
+  if (interactiveModes.some(am => am.value === m)) return 'interactive';
+  if (challengeModes.some(cm => cm.value === m)) return 'challenge';
   return 'comprehension';
 }
 
 export function DictationModeSelector({ mode, onChange }: DictationModeSelectorProps) {
   const activeRow = getModeRow(mode);
+
+  const renderRow = (
+    modes: { value: ListeningMode; label: string; color?: string }[],
+    rowId: ModeRow,
+  ) => (
+    <div className="flex bg-gray-100 dark:bg-gray-800 rounded-xl p-1 relative">
+      {modes.map(m => {
+        const isActive = mode === m.value;
+        const activeColor = 'color' in m && m.color ? m.color : 'text-indigo-600 dark:text-indigo-400';
+        return (
+          <button
+            key={m.value}
+            onClick={() => onChange(m.value)}
+            className={cn(
+              'flex-1 py-2 px-2 rounded-lg text-sm font-medium transition-colors relative z-10',
+              isActive
+                ? activeColor
+                : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300',
+            )}
+          >
+            {isActive && activeRow === rowId && (
+              <motion.div
+                layoutId="listening-mode-indicator"
+                className="absolute inset-0 bg-white dark:bg-gray-700 rounded-lg shadow-sm"
+                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+              />
+            )}
+            <span className="relative z-10 text-xs sm:text-sm">{m.label}</span>
+          </button>
+        );
+      })}
+    </div>
+  );
 
   return (
     <motion.div
@@ -43,80 +82,10 @@ export function DictationModeSelector({ mode, onChange }: DictationModeSelectorP
       transition={{ duration: 0.3, ease: 'easeOut' }}
       className="space-y-2"
     >
-      {/* Row 1: Dictation modes */}
-      <div className="flex bg-gray-100 dark:bg-gray-800 rounded-xl p-1 relative">
-        {dictationModes.map(m => (
-          <button
-            key={m.value}
-            onClick={() => onChange(m.value)}
-            className={cn(
-              'flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-colors relative z-10',
-              mode === m.value
-                ? 'text-indigo-600 dark:text-indigo-400'
-                : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
-            )}
-          >
-            {mode === m.value && activeRow === 'dictation' && (
-              <motion.div
-                layoutId="listening-mode-indicator"
-                className="absolute inset-0 bg-white dark:bg-gray-700 rounded-lg shadow-sm"
-                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-              />
-            )}
-            <span className="relative z-10">{m.label}</span>
-          </button>
-        ))}
-      </div>
-
-      {/* Row 2: Advanced modes */}
-      <div className="flex bg-gray-100 dark:bg-gray-800 rounded-xl p-1 relative">
-        {advancedModes.map(m => (
-          <button
-            key={m.value}
-            onClick={() => onChange(m.value)}
-            className={cn(
-              'flex-1 py-2 px-2 rounded-lg text-sm font-medium transition-colors relative z-10',
-              mode === m.value
-                ? m.color
-                : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
-            )}
-          >
-            {mode === m.value && activeRow === 'advanced' && (
-              <motion.div
-                layoutId="listening-mode-indicator"
-                className="absolute inset-0 bg-white dark:bg-gray-700 rounded-lg shadow-sm"
-                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-              />
-            )}
-            <span className="relative z-10 text-xs sm:text-sm">{m.label}</span>
-          </button>
-        ))}
-      </div>
-
-      {/* Row 3: Comprehension modes (AI content) */}
-      <div className="flex bg-gray-100 dark:bg-gray-800 rounded-xl p-1 relative">
-        {comprehensionModes.map(m => (
-          <button
-            key={m.value}
-            onClick={() => onChange(m.value)}
-            className={cn(
-              'flex-1 py-2 px-2 rounded-lg text-sm font-medium transition-colors relative z-10',
-              mode === m.value
-                ? m.color
-                : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
-            )}
-          >
-            {mode === m.value && activeRow === 'comprehension' && (
-              <motion.div
-                layoutId="listening-mode-indicator"
-                className="absolute inset-0 bg-white dark:bg-gray-700 rounded-lg shadow-sm"
-                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-              />
-            )}
-            <span className="relative z-10 text-xs sm:text-sm">{m.label}</span>
-          </button>
-        ))}
-      </div>
+      {renderRow(dictationModes, 'dictation')}
+      {renderRow(interactiveModes, 'interactive')}
+      {renderRow(challengeModes, 'challenge')}
+      {renderRow(comprehensionModes, 'comprehension')}
     </motion.div>
   );
 }

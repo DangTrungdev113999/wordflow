@@ -59,6 +59,8 @@ const SpeedListeningPage = lazy(() => import('../features/listening/pages/SpeedL
 const ListenChoosePage = lazy(() => import('../features/listening/pages/ListenChoosePage').then(m => ({ default: m.ListenChoosePage })));
 const ConversationPage = lazy(() => import('../features/listening/pages/ConversationPage').then(m => ({ default: m.ConversationPage })));
 const StoryPage = lazy(() => import('../features/listening/pages/StoryPage').then(m => ({ default: m.StoryPage })));
+const AccentPage = lazy(() => import('../features/listening/pages/AccentPage').then(m => ({ default: m.AccentPage })));
+const NoteTakingPage = lazy(() => import('../features/listening/pages/NoteTakingPage').then(m => ({ default: m.NoteTakingPage })));
 
 function PageLoader() {
   return (
@@ -120,6 +122,8 @@ export const router = createBrowserRouter([
       { path: 'listening/:topic/listen-choose', element: withSuspense(ListenChoosePage) },
       { path: 'listening/:topic/conversation', element: withSuspense(ConversationPage) },
       { path: 'listening/:topic/story', element: withSuspense(StoryPage) },
+      { path: 'listening/:topic/accent', element: withSuspense(AccentPage) },
+      { path: 'listening/:topic/note-taking', element: withSuspense(NoteTakingPage) },
       { path: 'pronunciation', element: withSuspense(PronunciationPage) },
       { path: 'reading', element: withSuspense(ReadingPage) },
       { path: 'reading/:passageId', element: withSuspense(ReadingSessionPage) },
