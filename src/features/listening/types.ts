@@ -34,4 +34,6 @@ export const MODE_HINT_AVAILABILITY: Record<ListeningMode, HintType[]> = {
   'listen-choose': ['ipa', 'slow-replay'],
   'conversation':  ['meaning', 'slow-replay'],
   'story':         ['meaning', 'slow-replay'],
+  'accent':        ['first-letter', 'ipa', 'slow-replay'],
+  'note-taking':   ['meaning', 'slow-replay'],
 };

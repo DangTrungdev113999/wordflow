@@ -284,6 +284,19 @@ export interface ListeningContentRecord {
   createdAt: number;
 }
 
+// Phase 14-4 — Listening Stats
+export type Accent = 'us' | 'uk' | 'au';
+
+export interface ListeningStats {
+  totalSessions: number;
+  totalCorrect: number;
+  totalXP: number;
+  hintsUsed: number;
+  bestStreak: number;
+  modeBreakdown: Record<string, { sessions: number; correct: number }>;
+  accentExposure: Record<Accent, number>;
+}
+
 // Phase 7 — Learn from Media
 export interface MediaSession {
   id: string;
