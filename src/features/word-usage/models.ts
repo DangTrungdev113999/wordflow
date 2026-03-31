@@ -140,9 +140,48 @@ export interface CollocationCache {
   updatedAt: number;
 }
 
+// ──────────────────────────────────────────────────
+// Phase 13-3: Grammar Patterns
+// ──────────────────────────────────────────────────
+
+export type GrammarCategory =
+  | 'verb-pattern'
+  | 'used-to'
+  | 'conditional'
+  | 'reported-speech'
+  | 'passive';
+
+export interface GrammarForm {
+  structure: string;
+  meaning: string;
+  example: SenseExample;
+  usage: string;
+}
+
+export interface GrammarQuizItem {
+  sentence: string;
+  options: string[];
+  correct: number;
+  explanation: string;
+}
+
+export interface GrammarQuiz {
+  items: GrammarQuizItem[];
+}
+
+export interface GrammarPattern {
+  id: string;
+  pattern: string;
+  category: GrammarCategory;
+  forms: GrammarForm[];
+  commonMistake: string;
+  memoryTip: string;
+  quiz?: GrammarQuiz;
+}
+
 export interface GrammarPatternCache {
   id?: number;
   pattern: string;
   category: string;
-  data: unknown;
+  data: GrammarPattern;
 }

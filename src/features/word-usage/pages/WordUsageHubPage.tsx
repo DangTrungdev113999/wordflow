@@ -5,6 +5,7 @@ import { MULTI_MEANING_SEEDS } from '../../../data/multiMeaningSeeds';
 import { CONFUSING_PAIRS } from '../../../data/confusingPairs';
 import { PHRASAL_VERBS } from '../../../data/phrasalVerbs';
 import { COLLOCATIONS } from '../../../data/collocations';
+import { GRAMMAR_PATTERNS } from '../../../data/grammarPatterns';
 import { cn } from '../../../lib/utils';
 
 interface FeatureCard {
@@ -69,10 +70,10 @@ const features: FeatureCard[] = [
     icon: '📐',
     title: 'Grammar Patterns',
     description: 'Mẫu ngữ pháp phụ thuộc ngữ cảnh',
-    count: 0,
+    count: GRAMMAR_PATTERNS.length,
     countLabel: 'mẫu',
-    path: '/word-usage/grammar-patterns',
-    enabled: false,
+    path: '/word-usage/grammar',
+    enabled: true,
     gradient: 'from-rose-500 to-pink-600',
   },
 ];
