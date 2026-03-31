@@ -1,0 +1,291 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - img [ref=e7]
+        - generic [ref=e10]: Study Timer
+      - button [ref=e11]:
+        - img [ref=e12]
+    - generic [ref=e14]:
+      - text: 00:28
+      - paragraph [ref=e15]: Auto-tracking
+    - generic [ref=e16]:
+      - button "Pause" [ref=e17]:
+        - img [ref=e18]
+        - text: Pause
+      - button "Stop" [ref=e21]:
+        - img [ref=e22]
+        - text: Stop
+  - complementary [ref=e24]:
+    - generic [ref=e25]:
+      - generic [ref=e26]: 📚
+      - heading "WordFlow" [level=1] [ref=e27]
+    - navigation [ref=e28]:
+      - link "Dashboard" [ref=e29] [cursor=pointer]:
+        - /url: /wordflow
+        - img [ref=e30]
+        - text: Dashboard
+      - link "Vocabulary" [ref=e35] [cursor=pointer]:
+        - /url: /wordflow/vocabulary
+        - img [ref=e36]
+        - text: Vocabulary
+      - link "Word Usage" [ref=e38] [cursor=pointer]:
+        - /url: /wordflow/word-usage
+        - img [ref=e39]
+        - text: Word Usage
+      - link "Listening" [ref=e43] [cursor=pointer]:
+        - /url: /wordflow/listening
+        - img [ref=e44]
+        - text: Listening
+      - link "Reading" [ref=e46] [cursor=pointer]:
+        - /url: /wordflow/reading
+        - img [ref=e47]
+        - text: Reading
+      - link "Grammar" [ref=e49] [cursor=pointer]:
+        - /url: /wordflow/grammar
+        - img [ref=e50]
+        - text: Grammar
+      - link "Sentences" [ref=e55] [cursor=pointer]:
+        - /url: /wordflow/sentence-building
+        - img [ref=e56]
+        - text: Sentences
+      - link "Learn from Media" [ref=e58] [cursor=pointer]:
+        - /url: /wordflow/learn-media
+        - img [ref=e59]
+        - text: Learn from Media
+      - link "Mistake Journal" [ref=e62] [cursor=pointer]:
+        - /url: /wordflow/mistake-journal
+        - img [ref=e63]
+        - text: Mistake Journal
+      - link "Study Planner" [ref=e66] [cursor=pointer]:
+        - /url: /wordflow/study-planner
+        - img [ref=e67]
+        - text: Study Planner
+      - link "AI" [ref=e69] [cursor=pointer]:
+        - /url: /wordflow/ai
+        - img [ref=e70]
+        - text: AI
+      - link "Statistics" [ref=e72] [cursor=pointer]:
+        - /url: /wordflow/stats
+        - img [ref=e73]
+        - text: Statistics
+      - link "Achievements" [ref=e74] [cursor=pointer]:
+        - /url: /wordflow/achievements
+        - img [ref=e75]
+        - text: Achievements
+      - link "Settings" [ref=e81] [cursor=pointer]:
+        - /url: /wordflow/settings
+        - img [ref=e82]
+        - text: Settings
+    - generic [ref=e85]:
+      - paragraph [ref=e86]: Level 1 — Beginner
+      - paragraph [ref=e87]: 0 XP
+  - generic [ref=e88]:
+    - banner [ref=e89]:
+      - generic [ref=e90]:
+        - generic [ref=e91]:
+          - img [ref=e93]
+          - generic [ref=e95]: WordFlow
+        - button "Toggle theme" [ref=e96]:
+          - img [ref=e97]
+    - main [ref=e103]:
+      - generic [ref=e108]:
+        - generic [ref=e109]:
+          - heading "Listening Practice" [level=1] [ref=e110]:
+            - img [ref=e111]
+            - text: Listening Practice
+          - paragraph [ref=e113]: Listen to AI conversations and answer questions
+        - generic [ref=e114]:
+          - generic [ref=e115]:
+            - button "Word" [ref=e116]
+            - button "Phrase" [ref=e118]
+            - button "Sentence" [ref=e119]
+            - button "Quiz" [ref=e120]
+          - generic [ref=e121]:
+            - button "Fill-blank" [ref=e122]
+            - button "Speed" [ref=e123]
+            - button "Listen & Choose" [ref=e124]
+          - generic [ref=e125]:
+            - button "Conversation" [active] [ref=e126]: Conversation
+            - button "News/Story" [ref=e127]
+        - generic [ref=e128]:
+          - link "🏠 Daily Life 25 words A1" [ref=e130] [cursor=pointer]:
+            - /url: /wordflow/listening/daily-life/conversation
+            - generic [ref=e131]: 🏠
+            - generic [ref=e132]:
+              - heading "Daily Life" [level=3] [ref=e133]
+              - paragraph [ref=e134]: 25 words
+            - generic [ref=e135]:
+              - generic [ref=e136]: A1
+              - img [ref=e137]
+          - link "🍔 Food & Drink 25 words A1" [ref=e140] [cursor=pointer]:
+            - /url: /wordflow/listening/food-drink/conversation
+            - generic [ref=e141]: 🍔
+            - generic [ref=e142]:
+              - heading "Food & Drink" [level=3] [ref=e143]
+              - paragraph [ref=e144]: 25 words
+            - generic [ref=e145]:
+              - generic [ref=e146]: A1
+              - img [ref=e147]
+          - link "✈️ Travel 25 words A1" [ref=e150] [cursor=pointer]:
+            - /url: /wordflow/listening/travel/conversation
+            - generic [ref=e151]: ✈️
+            - generic [ref=e152]:
+              - heading "Travel" [level=3] [ref=e153]
+              - paragraph [ref=e154]: 25 words
+            - generic [ref=e155]:
+              - generic [ref=e156]: A1
+              - img [ref=e157]
+          - link "👨‍👩‍👧‍👦 Family & Relationships 25 words A1" [ref=e160] [cursor=pointer]:
+            - /url: /wordflow/listening/family/conversation
+            - generic [ref=e161]: 👨‍👩‍👧‍👦
+            - generic [ref=e162]:
+              - heading "Family & Relationships" [level=3] [ref=e163]
+              - paragraph [ref=e164]: 25 words
+            - generic [ref=e165]:
+              - generic [ref=e166]: A1
+              - img [ref=e167]
+          - link "❤️ Health & Body 25 words A1" [ref=e170] [cursor=pointer]:
+            - /url: /wordflow/listening/health/conversation
+            - generic [ref=e171]: ❤️
+            - generic [ref=e172]:
+              - heading "Health & Body" [level=3] [ref=e173]
+              - paragraph [ref=e174]: 25 words
+            - generic [ref=e175]:
+              - generic [ref=e176]: A1
+              - img [ref=e177]
+          - link "📚 Education 25 words A1" [ref=e180] [cursor=pointer]:
+            - /url: /wordflow/listening/education/conversation
+            - generic [ref=e181]: 📚
+            - generic [ref=e182]:
+              - heading "Education" [level=3] [ref=e183]
+              - paragraph [ref=e184]: 25 words
+            - generic [ref=e185]:
+              - generic [ref=e186]: A1
+              - img [ref=e187]
+          - link "⚽ Sports & Fitness 25 words A1" [ref=e190] [cursor=pointer]:
+            - /url: /wordflow/listening/sports/conversation
+            - generic [ref=e191]: ⚽
+            - generic [ref=e192]:
+              - heading "Sports & Fitness" [level=3] [ref=e193]
+              - paragraph [ref=e194]: 25 words
+            - generic [ref=e195]:
+              - generic [ref=e196]: A1
+              - img [ref=e197]
+          - link "😊 Emotions & Feelings 25 words A1" [ref=e200] [cursor=pointer]:
+            - /url: /wordflow/listening/emotions/conversation
+            - generic [ref=e201]: 😊
+            - generic [ref=e202]:
+              - heading "Emotions & Feelings" [level=3] [ref=e203]
+              - paragraph [ref=e204]: 25 words
+            - generic [ref=e205]:
+              - generic [ref=e206]: A1
+              - img [ref=e207]
+          - link "🌿 Nature & Weather 25 words A1" [ref=e210] [cursor=pointer]:
+            - /url: /wordflow/listening/nature/conversation
+            - generic [ref=e211]: 🌿
+            - generic [ref=e212]:
+              - heading "Nature & Weather" [level=3] [ref=e213]
+              - paragraph [ref=e214]: 25 words
+            - generic [ref=e215]:
+              - generic [ref=e216]: A1
+              - img [ref=e217]
+          - link "👗 Clothing & Fashion 25 words A1" [ref=e220] [cursor=pointer]:
+            - /url: /wordflow/listening/clothing/conversation
+            - generic [ref=e221]: 👗
+            - generic [ref=e222]:
+              - heading "Clothing & Fashion" [level=3] [ref=e223]
+              - paragraph [ref=e224]: 25 words
+            - generic [ref=e225]:
+              - generic [ref=e226]: A1
+              - img [ref=e227]
+          - link "🛍️ Shopping 25 words A1" [ref=e230] [cursor=pointer]:
+            - /url: /wordflow/listening/shopping/conversation
+            - generic [ref=e231]: 🛍️
+            - generic [ref=e232]:
+              - heading "Shopping" [level=3] [ref=e233]
+              - paragraph [ref=e234]: 25 words
+            - generic [ref=e235]:
+              - generic [ref=e236]: A1
+              - img [ref=e237]
+          - link "🏡 Home & Furniture 25 words A1" [ref=e240] [cursor=pointer]:
+            - /url: /wordflow/listening/home/conversation
+            - generic [ref=e241]: 🏡
+            - generic [ref=e242]:
+              - heading "Home & Furniture" [level=3] [ref=e243]
+              - paragraph [ref=e244]: 25 words
+            - generic [ref=e245]:
+              - generic [ref=e246]: A1
+              - img [ref=e247]
+          - link "👔 Jobs & Work 25 words A1" [ref=e250] [cursor=pointer]:
+            - /url: /wordflow/listening/work/conversation
+            - generic [ref=e251]: 👔
+            - generic [ref=e252]:
+              - heading "Jobs & Work" [level=3] [ref=e253]
+              - paragraph [ref=e254]: 25 words
+            - generic [ref=e255]:
+              - generic [ref=e256]: A1
+              - img [ref=e257]
+          - link "🚌 Transportation 25 words A1" [ref=e260] [cursor=pointer]:
+            - /url: /wordflow/listening/transportation/conversation
+            - generic [ref=e261]: 🚌
+            - generic [ref=e262]:
+              - heading "Transportation" [level=3] [ref=e263]
+              - paragraph [ref=e264]: 25 words
+            - generic [ref=e265]:
+              - generic [ref=e266]: A1
+              - img [ref=e267]
+          - link "⏰ Time & Numbers 25 words A1" [ref=e270] [cursor=pointer]:
+            - /url: /wordflow/listening/time-numbers/conversation
+            - generic [ref=e271]: ⏰
+            - generic [ref=e272]:
+              - heading "Time & Numbers" [level=3] [ref=e273]
+              - paragraph [ref=e274]: 25 words
+            - generic [ref=e275]:
+              - generic [ref=e276]: A1
+              - img [ref=e277]
+          - link "🎬 Entertainment & Media 25 words A2" [ref=e280] [cursor=pointer]:
+            - /url: /wordflow/listening/entertainment/conversation
+            - generic [ref=e281]: 🎬
+            - generic [ref=e282]:
+              - heading "Entertainment & Media" [level=3] [ref=e283]
+              - paragraph [ref=e284]: 25 words
+            - generic [ref=e285]:
+              - generic [ref=e286]: A2
+              - img [ref=e287]
+          - link "💬 Communication & Social 25 words A2" [ref=e290] [cursor=pointer]:
+            - /url: /wordflow/listening/communication/conversation
+            - generic [ref=e291]: 💬
+            - generic [ref=e292]:
+              - heading "Communication & Social" [level=3] [ref=e293]
+              - paragraph [ref=e294]: 25 words
+            - generic [ref=e295]:
+              - generic [ref=e296]: A2
+              - img [ref=e297]
+          - link "💼 Business 25 words A2" [ref=e300] [cursor=pointer]:
+            - /url: /wordflow/listening/business/conversation
+            - generic [ref=e301]: 💼
+            - generic [ref=e302]:
+              - heading "Business" [level=3] [ref=e303]
+              - paragraph [ref=e304]: 25 words
+            - generic [ref=e305]:
+              - generic [ref=e306]: A2
+              - img [ref=e307]
+          - link "💻 Technology 25 words A2" [ref=e310] [cursor=pointer]:
+            - /url: /wordflow/listening/technology/conversation
+            - generic [ref=e311]: 💻
+            - generic [ref=e312]:
+              - heading "Technology" [level=3] [ref=e313]
+              - paragraph [ref=e314]: 25 words
+            - generic [ref=e315]:
+              - generic [ref=e316]: A2
+              - img [ref=e317]
+          - link "🌍 Environment & Science 25 words A2" [ref=e320] [cursor=pointer]:
+            - /url: /wordflow/listening/environment/conversation
+            - generic [ref=e321]: 🌍
+            - generic [ref=e322]:
+              - heading "Environment & Science" [level=3] [ref=e323]
+              - paragraph [ref=e324]: 25 words
+            - generic [ref=e325]:
+              - generic [ref=e326]: A2
+              - img [ref=e327]

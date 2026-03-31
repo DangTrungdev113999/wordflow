@@ -1,5 +1,5 @@
 import Dexie, { type Table } from 'dexie';
-import type { Word, WordProgress, GrammarLesson, DailyLog, UserProfile, DictionaryCache, DailyChallengeLog, DailyChallengeTask, CustomTopic, CustomWord, ChatConversation, ChatMessage, WritingSubmission, RoleplaySession, MediaSession, EnrichedWord, ContextProgressEntry, GrammarBookmark } from './models';
+import type { Word, WordProgress, GrammarLesson, DailyLog, UserProfile, DictionaryCache, DailyChallengeLog, DailyChallengeTask, CustomTopic, CustomWord, ChatConversation, ChatMessage, WritingSubmission, RoleplaySession, MediaSession, EnrichedWord, ContextProgressEntry, GrammarBookmark, ListeningContentRecord } from './models';
 import type { MultiMeaningWordCache, ConfusingPairCache, PhrasalVerbCache, CollocationCache, GrammarPatternCache } from '../features/word-usage/models';
 
 export class WordFlowDatabase extends Dexie {
@@ -25,6 +25,7 @@ export class WordFlowDatabase extends Dexie {
   phrasalVerbs!: Table<PhrasalVerbCache, number>;
   collocations!: Table<CollocationCache, number>;
   grammarPatterns!: Table<GrammarPatternCache, number>;
+  listeningContent!: Table<ListeningContentRecord, string>;
 
   constructor() {
     super('WordFlowDB');
@@ -145,6 +146,11 @@ export class WordFlowDatabase extends Dexie {
       phrasalVerbs: '++id, baseVerb, particle, updatedAt',
       collocations: '++id, word, category, updatedAt',
       grammarPatterns: '++id, pattern, category',
+    });
+
+    // Version 11 — Phase 14-3: Listening Content Cache (AI conversations + stories)
+    this.version(11).stores({
+      listeningContent: '&id, topic, type, createdAt',
     });
   }
 }

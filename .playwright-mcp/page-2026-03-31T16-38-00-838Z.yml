@@ -1,0 +1,157 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e139]:
+      - generic [ref=e140]:
+        - generic [ref=e141]:
+          - img [ref=e142]
+          - generic [ref=e145]: Study Timer
+        - button [ref=e146]:
+          - img [ref=e147]
+      - generic [ref=e149]: 00:12
+      - generic [ref=e150]:
+        - button "Resume" [ref=e151]:
+          - img [ref=e152]
+          - text: Resume
+        - button "Stop" [ref=e154]:
+          - img [ref=e155]
+          - text: Stop
+    - complementary [ref=e157]:
+      - generic [ref=e158]:
+        - generic [ref=e159]: 📚
+        - heading "WordFlow" [level=1] [ref=e160]
+      - navigation [ref=e161]:
+        - link "Dashboard" [ref=e162] [cursor=pointer]:
+          - /url: /wordflow
+          - img [ref=e163]
+          - text: Dashboard
+        - link "Vocabulary" [ref=e168] [cursor=pointer]:
+          - /url: /wordflow/vocabulary
+          - img [ref=e169]
+          - text: Vocabulary
+        - link "Word Usage" [ref=e171] [cursor=pointer]:
+          - /url: /wordflow/word-usage
+          - img [ref=e172]
+          - text: Word Usage
+        - link "Listening" [ref=e176] [cursor=pointer]:
+          - /url: /wordflow/listening
+          - img [ref=e177]
+          - text: Listening
+        - link "Reading" [ref=e179] [cursor=pointer]:
+          - /url: /wordflow/reading
+          - img [ref=e180]
+          - text: Reading
+        - link "Grammar" [ref=e182] [cursor=pointer]:
+          - /url: /wordflow/grammar
+          - img [ref=e183]
+          - text: Grammar
+        - link "Sentences" [ref=e188] [cursor=pointer]:
+          - /url: /wordflow/sentence-building
+          - img [ref=e189]
+          - text: Sentences
+        - link "Learn from Media" [ref=e191] [cursor=pointer]:
+          - /url: /wordflow/learn-media
+          - img [ref=e192]
+          - text: Learn from Media
+        - link "Mistake Journal" [ref=e195] [cursor=pointer]:
+          - /url: /wordflow/mistake-journal
+          - img [ref=e196]
+          - text: Mistake Journal
+        - link "Study Planner" [ref=e199] [cursor=pointer]:
+          - /url: /wordflow/study-planner
+          - img [ref=e200]
+          - text: Study Planner
+        - link "AI" [ref=e202] [cursor=pointer]:
+          - /url: /wordflow/ai
+          - img [ref=e203]
+          - text: AI
+        - link "Statistics" [ref=e205] [cursor=pointer]:
+          - /url: /wordflow/stats
+          - img [ref=e206]
+          - text: Statistics
+        - link "Achievements" [ref=e207] [cursor=pointer]:
+          - /url: /wordflow/achievements
+          - img [ref=e208]
+          - text: Achievements
+        - link "Settings" [ref=e214] [cursor=pointer]:
+          - /url: /wordflow/settings
+          - img [ref=e215]
+          - text: Settings
+      - generic [ref=e218]:
+        - paragraph [ref=e219]: Level 1 — Beginner
+        - paragraph [ref=e220]: 0 XP
+    - generic [ref=e95]:
+      - banner [ref=e221]:
+        - generic [ref=e222]:
+          - generic [ref=e223]:
+            - img [ref=e225]
+            - generic [ref=e227]: WordFlow
+          - button "Toggle theme" [ref=e228]:
+            - img [ref=e229]
+      - main [ref=e110]:
+        - generic [ref=e237]:
+          - generic [ref=e238]:
+            - heading "Good evening! 👋" [level=1] [ref=e239]
+            - paragraph [ref=e240]: Keep up your learning streak!
+          - generic [ref=e243]:
+            - generic [ref=e244]:
+              - img [ref=e245]
+              - generic [ref=e249]: Daily Goal
+            - generic [ref=e250]: 0/10 words
+          - 'link "🎯 Today''s Challenge Word: translate·5 tasks Start" [ref=e254] [cursor=pointer]':
+            - /url: /wordflow/daily-challenge
+            - generic [ref=e256]:
+              - generic [ref=e257]:
+                - paragraph [ref=e258]: 🎯 Today's Challenge
+                - paragraph [ref=e259]: "Word: translate·5 tasks"
+              - generic [ref=e260]: Start
+          - generic [ref=e261]:
+            - generic [ref=e262]:
+              - generic [ref=e263]:
+                - img [ref=e265]
+                - generic [ref=e266]: "1"
+              - generic [ref=e267]:
+                - paragraph [ref=e268]: Current Streak
+                - paragraph [ref=e269]: "Best: 1 days"
+            - generic [ref=e271]:
+              - generic [ref=e272]:
+                - img [ref=e274]
+                - generic [ref=e276]: Level 1 — Beginner
+              - generic [ref=e277]: 0 / 200 XP
+          - link "Pronunciation Practice Improve your speaking skills" [ref=e281] [cursor=pointer]:
+            - /url: /wordflow/pronunciation
+            - img [ref=e283]
+            - generic [ref=e287]:
+              - paragraph [ref=e288]: Pronunciation Practice
+              - paragraph [ref=e289]: Improve your speaking skills
+            - img [ref=e290]
+          - generic [ref=e292]:
+            - heading "Quick Start" [level=2] [ref=e293]:
+              - img [ref=e294]
+              - text: Quick Start
+            - generic [ref=e296]:
+              - link "🏠 Daily Life 25 words" [ref=e297] [cursor=pointer]:
+                - /url: /wordflow/vocabulary/daily-life/learn
+                - generic [ref=e298]: 🏠
+                - generic [ref=e299]:
+                  - paragraph [ref=e300]: Daily Life
+                  - paragraph [ref=e301]: 25 words
+                - img [ref=e302]
+              - link "🍔 Food & Drink 25 words" [ref=e304] [cursor=pointer]:
+                - /url: /wordflow/vocabulary/food-drink/learn
+                - generic [ref=e305]: 🍔
+                - generic [ref=e306]:
+                  - paragraph [ref=e307]: Food & Drink
+                  - paragraph [ref=e308]: 25 words
+                - img [ref=e309]
+              - link "✈️ Travel 25 words" [ref=e311] [cursor=pointer]:
+                - /url: /wordflow/vocabulary/travel/learn
+                - generic [ref=e312]: ✈️
+                - generic [ref=e313]:
+                  - paragraph [ref=e314]: Travel
+                  - paragraph [ref=e315]: 25 words
+                - img [ref=e316]
+          - generic [ref=e319]:
+            - heading "Last 7 Days" [level=3] [ref=e320]
+            - img [ref=e323]:
+              - generic [ref=e327]: 03-31
+  - generic [ref=e328]: 03-31

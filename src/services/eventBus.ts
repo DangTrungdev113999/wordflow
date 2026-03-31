@@ -30,6 +30,9 @@ type AppEvents = {
   // Phase 10-4 — Context Fill-in-Blank
   'context:correct': { wordId: string; context: string };
   'context:incorrect': { wordId: string; context: string };
+  // Phase 14-3 — Conversation + Story Listening
+  'listening:conversation': { topic: string; questionsCorrect: number; totalQuestions: number };
+  'listening:story': { topic: string; questionsCorrect: number; totalQuestions: number };
   // Phase 8 — Mistake Journal
   'mistakes:collected': MistakeCollectedEvent;
   // Phase 9 — Celebrations

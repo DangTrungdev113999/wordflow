@@ -88,6 +88,28 @@ export function initEventSubscribers() {
     }
   });
 
+  // listening:conversation → XP for comprehension quiz
+  eventBus.on('listening:conversation', ({ questionsCorrect, totalQuestions }) => {
+    const { addXP } = useProgressStore.getState();
+    const xp = questionsCorrect * XP_VALUES.listening_comprehension_correct;
+    addXP(xp);
+    if (questionsCorrect === totalQuestions) {
+      addXP(XP_VALUES.listening_comprehension_perfect);
+    }
+    void logBonusXP(xp + (questionsCorrect === totalQuestions ? XP_VALUES.listening_comprehension_perfect : 0));
+  });
+
+  // listening:story → XP for comprehension quiz
+  eventBus.on('listening:story', ({ questionsCorrect, totalQuestions }) => {
+    const { addXP } = useProgressStore.getState();
+    const xp = questionsCorrect * XP_VALUES.listening_comprehension_correct;
+    addXP(xp);
+    if (questionsCorrect === totalQuestions) {
+      addXP(XP_VALUES.listening_comprehension_perfect);
+    }
+    void logBonusXP(xp + (questionsCorrect === totalQuestions ? XP_VALUES.listening_comprehension_perfect : 0));
+  });
+
   // daily_challenge:complete → bonus XP + toast
   eventBus.on('daily_challenge:complete', () => {
     const { addXP } = useProgressStore.getState();
