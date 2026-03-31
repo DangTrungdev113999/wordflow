@@ -1,10 +1,9 @@
 import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowLeft, Search } from 'lucide-react';
 import { GRAMMAR_PATTERNS, GRAMMAR_CATEGORIES } from '../../../data/grammarPatterns';
 import { GrammarCompareCard } from '../components/GrammarCompareCard';
-import { UsageQuizSession } from '../components/UsageQuizSession';
 import { useUsageSearch } from '../hooks/useUsageSearch';
 import { cn } from '../../../lib/utils';
 import type { GrammarPattern, GrammarCategory } from '../models';
@@ -22,7 +21,6 @@ for (const cat of GRAMMAR_CATEGORIES) {
 export function GrammarPatternsPage() {
   const navigate = useNavigate();
   const [category, setCategory] = useState<FilterCategory>('all');
-  const [quizPattern, setQuizPattern] = useState<GrammarPattern | null>(null);
 
   const itemsByCat = category === 'all'
     ? GRAMMAR_PATTERNS
@@ -30,36 +28,10 @@ export function GrammarPatternsPage() {
 
   const getSearchable = useCallback(
     (p: GrammarPattern) =>
-      `${p.pattern} ${p.forms.map(f => `${f.structure} ${f.meaning}`).join(' ')} ${p.commonMistake} ${p.memoryTip}`,
+      `${p.pattern} ${p.forms.map(f => `${f.structure} ${f.meaning}`).join(' ')} ${p.commonMistake}`,
     [],
   );
   const { search, setSearch, filtered } = useUsageSearch(itemsByCat, getSearchable);
-
-  // Quiz overlay
-  if (quizPattern?.quiz) {
-    return (
-      <div className="max-w-2xl mx-auto space-y-4">
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => setQuizPattern(null)}
-            className="p-2 -ml-2 rounded-xl text-gray-400 hover:text-gray-600 hover:bg-gray-100 dark:hover:text-gray-300 dark:hover:bg-gray-800 transition-colors"
-          >
-            <ArrowLeft size={20} />
-          </button>
-          <div>
-            <h1 className="text-xl font-bold text-gray-900 dark:text-white">Quiz</h1>
-            <p className="text-xs text-gray-400">{quizPattern.pattern}</p>
-          </div>
-        </div>
-
-        <UsageQuizSession
-          items={quizPattern.quiz.items}
-          title={quizPattern.pattern}
-          onClose={() => setQuizPattern(null)}
-        />
-      </div>
-    );
-  }
 
   return (
     <div className="max-w-2xl mx-auto space-y-4">
@@ -108,25 +80,18 @@ export function GrammarPatternsPage() {
         ))}
       </div>
 
-      {/* Pattern list */}
-      <div className="space-y-3">
-        <AnimatePresence mode="popLayout">
-          {filtered.map((item, i) => (
-            <motion.div
-              key={item.id}
-              layout
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ delay: Math.min(i * 0.03, 0.4), duration: 0.25 }}
-            >
-              <GrammarCompareCard
-                pattern={item}
-                onStartQuiz={item.quiz ? () => setQuizPattern(item) : undefined}
-              />
-            </motion.div>
-          ))}
-        </AnimatePresence>
+      {/* List */}
+      <div className="space-y-2">
+        {filtered.map((item, i) => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: Math.min(i * 0.02, 0.5), duration: 0.2 }}
+          >
+            <GrammarCompareCard pattern={item} />
+          </motion.div>
+        ))}
 
         {filtered.length === 0 && (
           <p className="text-center text-sm text-gray-400 py-8">Không tìm thấy grammar pattern nào</p>

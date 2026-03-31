@@ -152,17 +152,17 @@ export type GrammarCategory =
   | 'passive';
 
 export interface GrammarForm {
-  structure: string;        // "remember + V-ing"
-  meaning: string;          // Vietnamese: "nhớ đã làm gì (quá khứ)"
+  structure: string;
+  meaning: string;
   example: SenseExample;
-  usage: string;            // Vietnamese giải thích khi nào dùng
+  usage: string;
 }
 
 export interface GrammarQuizItem {
-  sentence: string;         // "I remember _____ (lock) the door."
-  options: string[];        // ["locking", "to lock"]
-  correct: number;          // index of correct option
-  explanation: string;      // Vietnamese
+  sentence: string;
+  options: string[];
+  correct: number;
+  explanation: string;
 }
 
 export interface GrammarQuiz {
@@ -170,12 +170,12 @@ export interface GrammarQuiz {
 }
 
 export interface GrammarPattern {
-  id: string;               // "remember-ving-vs-to-v"
-  pattern: string;          // "remember + V-ing vs remember + to V"
+  id: string;
+  pattern: string;
   category: GrammarCategory;
   forms: GrammarForm[];
-  commonMistake: string;    // Vietnamese
-  memoryTip: string;        // Vietnamese
+  commonMistake: string;
+  memoryTip: string;
   quiz?: GrammarQuiz;
 }
 

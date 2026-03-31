@@ -53,7 +53,7 @@ const ConfusingPairsPage = lazy(() => import('../features/word-usage/pages/Confu
 const ConfusingPairDetailPage = lazy(() => import('../features/word-usage/pages/ConfusingPairDetailPage').then(m => ({ default: m.ConfusingPairDetailPage })));
 const WordUsagePhrasalVerbsPage = lazy(() => import('../features/word-usage/pages/PhrasalVerbsPage').then(m => ({ default: m.PhrasalVerbsPage })));
 const WordUsageCollocationsPage = lazy(() => import('../features/word-usage/pages/CollocationsPage').then(m => ({ default: m.CollocationsPage })));
-const WordUsageGrammarPage = lazy(() => import('../features/word-usage/pages/GrammarPatternsPage').then(m => ({ default: m.GrammarPatternsPage })));
+const WordUsageGrammarPatternsPage = lazy(() => import('../features/word-usage/pages/GrammarPatternsPage').then(m => ({ default: m.GrammarPatternsPage })));
 const FillBlankPage = lazy(() => import('../features/listening/pages/FillBlankPage').then(m => ({ default: m.FillBlankPage })));
 const SpeedListeningPage = lazy(() => import('../features/listening/pages/SpeedListeningPage').then(m => ({ default: m.SpeedListeningPage })));
 const ListenChoosePage = lazy(() => import('../features/listening/pages/ListenChoosePage').then(m => ({ default: m.ListenChoosePage })));
@@ -139,7 +139,7 @@ export const router = createBrowserRouter([
       { path: 'word-usage/confusing-pairs/:id', element: withSuspense(ConfusingPairDetailPage) },
       { path: 'word-usage/phrasal-verbs', element: withSuspense(WordUsagePhrasalVerbsPage) },
       { path: 'word-usage/collocations', element: withSuspense(WordUsageCollocationsPage) },
-      { path: 'word-usage/grammar', element: withSuspense(WordUsageGrammarPage) },
+      { path: 'word-usage/grammar', element: withSuspense(WordUsageGrammarPatternsPage) },
       { path: 'settings', element: withSuspense(SettingsPage) },
       { path: 'onboarding', element: withSuspense(OnboardingPage) },
     ],
