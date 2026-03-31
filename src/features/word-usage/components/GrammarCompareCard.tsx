@@ -4,6 +4,7 @@ import { ChevronDown } from 'lucide-react';
 import { Card } from '../../../components/ui/Card';
 import type { GrammarPattern } from '../models';
 import { cn } from '../../../lib/utils';
+import { useProgressStore } from '../../../stores/progressStore';
 
 interface GrammarCompareCardProps {
   pattern: GrammarPattern;
@@ -166,6 +167,7 @@ function QuizSection({ quiz }: { quiz: NonNullable<GrammarPattern['quiz']> }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [results, setResults] = useState<boolean[]>([]);
+  const addXP = useProgressStore(s => s.addXP);
 
   const isComplete = results.length === quiz.items.length;
 
@@ -197,6 +199,9 @@ function QuizSection({ quiz }: { quiz: NonNullable<GrammarPattern['quiz']> }) {
         <p className="text-xs text-gray-400 mt-1">
           {score === results.length ? 'Xuất sắc! Bạn nắm vững mẫu ngữ pháp này!' : 'Hãy đọc lại phần so sánh phía trên nhé.'}
         </p>
+        {score > 0 && (
+          <p className="text-xs text-amber-500 mt-1">+{score * 10} XP</p>
+        )}
         <button
           onClick={reset}
           className="mt-2 text-xs font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-700"
@@ -219,6 +224,7 @@ function QuizSection({ quiz }: { quiz: NonNullable<GrammarPattern['quiz']> }) {
   };
 
   const handleNext = () => {
+    if (isCorrect) addXP(10);
     setResults(prev => [...prev, isCorrect]);
     setSelected(null);
     setCurrentIndex(prev => prev + 1);

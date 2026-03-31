@@ -54,10 +54,9 @@ const ConfusingPairDetailPage = lazy(() => import('../features/word-usage/pages/
 const WordUsagePhrasalVerbsPage = lazy(() => import('../features/word-usage/pages/PhrasalVerbsPage').then(m => ({ default: m.PhrasalVerbsPage })));
 const WordUsageCollocationsPage = lazy(() => import('../features/word-usage/pages/CollocationsPage').then(m => ({ default: m.CollocationsPage })));
 const WordUsageGrammarPatternsPage = lazy(() => import('../features/word-usage/pages/GrammarPatternsPage').then(m => ({ default: m.GrammarPatternsPage })));
-// TODO: listening sub-pages — files not yet created
-// const FillBlankPage = lazy(() => import('../features/listening/pages/FillBlankPage').then(m => ({ default: m.FillBlankPage })));
-// const SpeedListeningPage = lazy(() => import('../features/listening/pages/SpeedListeningPage').then(m => ({ default: m.SpeedListeningPage })));
-// const ListenChoosePage = lazy(() => import('../features/listening/pages/ListenChoosePage').then(m => ({ default: m.ListenChoosePage })));
+const FillBlankPage = lazy(() => import('../features/listening/pages/FillBlankPage').then(m => ({ default: m.FillBlankPage })));
+const SpeedListeningPage = lazy(() => import('../features/listening/pages/SpeedListeningPage').then(m => ({ default: m.SpeedListeningPage })));
+const ListenChoosePage = lazy(() => import('../features/listening/pages/ListenChoosePage').then(m => ({ default: m.ListenChoosePage })));
 
 function PageLoader() {
   return (
@@ -114,10 +113,9 @@ export const router = createBrowserRouter([
       { path: 'stats', element: withSuspense(StatsPage) },
       { path: 'listening', element: withSuspense(ListeningPage) },
       { path: 'listening/:topic/practice', element: withSuspense(DictationSessionPage) },
-      // TODO: listening sub-pages — files not yet created
-      // { path: 'listening/:topic/fill-blank', element: withSuspense(FillBlankPage) },
-      // { path: 'listening/:topic/speed', element: withSuspense(SpeedListeningPage) },
-      // { path: 'listening/:topic/listen-choose', element: withSuspense(ListenChoosePage) },
+      { path: 'listening/:topic/fill-blank', element: withSuspense(FillBlankPage) },
+      { path: 'listening/:topic/speed', element: withSuspense(SpeedListeningPage) },
+      { path: 'listening/:topic/listen-choose', element: withSuspense(ListenChoosePage) },
       { path: 'pronunciation', element: withSuspense(PronunciationPage) },
       { path: 'reading', element: withSuspense(ReadingPage) },
       { path: 'reading/:passageId', element: withSuspense(ReadingSessionPage) },
