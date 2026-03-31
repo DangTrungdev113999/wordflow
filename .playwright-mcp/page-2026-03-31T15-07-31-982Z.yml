@@ -1,0 +1,130 @@
+- generic [ref=e3]:
+  - button "Start Timer" [ref=e4]:
+    - img [ref=e5]
+    - generic [ref=e8]: Start Timer
+  - complementary [ref=e9]:
+    - generic [ref=e10]:
+      - generic [ref=e11]: 📚
+      - heading "WordFlow" [level=1] [ref=e12]
+    - navigation [ref=e13]:
+      - link "Dashboard" [ref=e14] [cursor=pointer]:
+        - /url: /wordflow
+        - img [ref=e15]
+        - text: Dashboard
+      - link "Vocabulary" [ref=e20] [cursor=pointer]:
+        - /url: /wordflow/vocabulary
+        - img [ref=e21]
+        - text: Vocabulary
+      - link "Word Usage" [ref=e23] [cursor=pointer]:
+        - /url: /wordflow/word-usage
+        - img [ref=e24]
+        - text: Word Usage
+      - link "Listening" [ref=e28] [cursor=pointer]:
+        - /url: /wordflow/listening
+        - img [ref=e29]
+        - text: Listening
+      - link "Reading" [ref=e31] [cursor=pointer]:
+        - /url: /wordflow/reading
+        - img [ref=e32]
+        - text: Reading
+      - link "Grammar" [ref=e34] [cursor=pointer]:
+        - /url: /wordflow/grammar
+        - img [ref=e35]
+        - text: Grammar
+      - link "Sentences" [ref=e40] [cursor=pointer]:
+        - /url: /wordflow/sentence-building
+        - img [ref=e41]
+        - text: Sentences
+      - link "Learn from Media" [ref=e43] [cursor=pointer]:
+        - /url: /wordflow/learn-media
+        - img [ref=e44]
+        - text: Learn from Media
+      - link "Mistake Journal" [ref=e47] [cursor=pointer]:
+        - /url: /wordflow/mistake-journal
+        - img [ref=e48]
+        - text: Mistake Journal
+      - link "Study Planner" [ref=e51] [cursor=pointer]:
+        - /url: /wordflow/study-planner
+        - img [ref=e52]
+        - text: Study Planner
+      - link "AI" [ref=e54] [cursor=pointer]:
+        - /url: /wordflow/ai
+        - img [ref=e55]
+        - text: AI
+      - link "Statistics" [ref=e57] [cursor=pointer]:
+        - /url: /wordflow/stats
+        - img [ref=e58]
+        - text: Statistics
+      - link "Achievements" [ref=e59] [cursor=pointer]:
+        - /url: /wordflow/achievements
+        - img [ref=e60]
+        - text: Achievements
+      - link "Settings" [ref=e66] [cursor=pointer]:
+        - /url: /wordflow/settings
+        - img [ref=e67]
+        - text: Settings
+    - generic [ref=e70]:
+      - paragraph [ref=e71]: Level 1 — Beginner
+      - paragraph [ref=e72]: 0 XP
+  - generic [ref=e73]:
+    - banner [ref=e74]:
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - img [ref=e78]
+          - generic [ref=e80]: WordFlow
+        - button "Toggle theme" [ref=e81]:
+          - img [ref=e82]
+    - main [ref=e88]:
+      - generic [ref=e93]:
+        - generic [ref=e94]:
+          - button [ref=e95]:
+            - img [ref=e96]
+          - generic [ref=e98]:
+            - heading "Grammar Patterns" [level=1] [ref=e99]
+            - paragraph [ref=e100]: 29 mẫu ngữ pháp
+        - generic [ref=e101]:
+          - img [ref=e102]
+          - textbox "Tìm grammar pattern..." [ref=e105]
+        - generic [ref=e106]:
+          - button "Tất cả29" [ref=e107]
+          - button "Verb Patterns10" [ref=e108]
+          - button "Used to4" [ref=e109]
+          - button "Conditionals5" [active] [ref=e110]
+          - button "Reported Speech5" [ref=e111]
+          - button "Passive Voice5" [ref=e112]
+        - generic [ref=e113]:
+          - button "Zero Conditional Conditional sự thật chung, luôn đúng · khi... thì... (luôn đúng)" [ref=e215]:
+            - generic [ref=e216]:
+              - generic [ref=e217]:
+                - generic [ref=e218]: Zero Conditional
+                - generic [ref=e219]: Conditional
+              - paragraph [ref=e220]: sự thật chung, luôn đúng · khi... thì... (luôn đúng)
+            - img [ref=e222]
+          - button "First Conditional Conditional nếu... thì sẽ... (có thể xảy ra) · nếu... có thể sẽ..." [ref=e226]:
+            - generic [ref=e227]:
+              - generic [ref=e228]:
+                - generic [ref=e229]: First Conditional
+                - generic [ref=e230]: Conditional
+              - paragraph [ref=e231]: nếu... thì sẽ... (có thể xảy ra) · nếu... có thể sẽ...
+            - img [ref=e233]
+          - button "Second Conditional Conditional nếu... (không thật) thì sẽ... · nếu tôi là... (giả định)" [ref=e237]:
+            - generic [ref=e238]:
+              - generic [ref=e239]:
+                - generic [ref=e240]: Second Conditional
+                - generic [ref=e241]: Conditional
+              - paragraph [ref=e242]: nếu... (không thật) thì sẽ... · nếu tôi là... (giả định)
+            - img [ref=e244]
+          - button "Third Conditional Conditional nếu đã... thì đã sẽ... (quá khứ không thật) · nếu đã... thì đã có thể..." [ref=e248]:
+            - generic [ref=e249]:
+              - generic [ref=e250]:
+                - generic [ref=e251]: Third Conditional
+                - generic [ref=e252]: Conditional
+              - paragraph [ref=e253]: nếu đã... thì đã sẽ... (quá khứ không thật) · nếu đã... thì đã có thể...
+            - img [ref=e255]
+          - button "Mixed Conditional Conditional nếu quá khứ khác → hiện tại khác · nếu hiện tại khác → quá khứ khác" [ref=e369]:
+            - generic [ref=e370]:
+              - generic [ref=e371]:
+                - generic [ref=e372]: Mixed Conditional
+                - generic [ref=e373]: Conditional
+              - paragraph [ref=e374]: nếu quá khứ khác → hiện tại khác · nếu hiện tại khác → quá khứ khác
+            - img [ref=e376]

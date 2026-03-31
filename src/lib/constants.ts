@@ -25,6 +25,9 @@ export const XP_VALUES = {
   hint_ipa: -3,
   hint_meaning: -4,
   hint_slow_replay: -1,
+  // Phase 14-3 — Conversation + Story Listening
+  listening_comprehension_correct: 15,
+  listening_comprehension_perfect: 20,
 } as const;
 
 /**

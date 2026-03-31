@@ -7,13 +7,15 @@ import { Badge } from '../../../components/ui/Badge';
 import { DictationModeSelector } from '../components/DictationModeSelector';
 import type { ListeningMode } from '../../../lib/types';
 
-const VALID_MODES: ListeningMode[] = ['word', 'phrase', 'sentence', 'quiz', 'fill-blank', 'speed', 'listen-choose'];
+const VALID_MODES: ListeningMode[] = ['word', 'phrase', 'sentence', 'quiz', 'fill-blank', 'speed', 'listen-choose', 'conversation', 'story'];
 
 function getModeUrl(topicSlug: string, mode: ListeningMode): string {
   switch (mode) {
     case 'fill-blank':    return `/listening/${topicSlug}/fill-blank`;
     case 'speed':         return `/listening/${topicSlug}/speed`;
     case 'listen-choose': return `/listening/${topicSlug}/listen-choose`;
+    case 'conversation':  return `/listening/${topicSlug}/conversation`;
+    case 'story':         return `/listening/${topicSlug}/story`;
     default:              return `/listening/${topicSlug}/practice?mode=${mode}`;
   }
 }
@@ -26,6 +28,8 @@ const MODE_DESCRIPTIONS: Record<ListeningMode, string> = {
   'fill-blank':    'Listen and fill missing words',
   'speed':         'Type at increasing speeds',
   'listen-choose': 'Listen and pick the right answer',
+  'conversation':  'Listen to AI conversations and answer questions',
+  'story':         'Listen to AI stories and test comprehension',
 };
 
 export function ListeningPage() {

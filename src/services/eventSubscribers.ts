@@ -88,6 +88,22 @@ export function initEventSubscribers() {
     }
   });
 
+  // listening:conversation → XP for comprehension quiz
+  eventBus.on('listening:conversation', ({ questionsCorrect }) => {
+    const { addXP } = useProgressStore.getState();
+    const xp = questionsCorrect * XP_VALUES.listening_comprehension_correct;
+    addXP(xp);
+    void logBonusXP(xp);
+  });
+
+  // listening:story → XP for comprehension quiz
+  eventBus.on('listening:story', ({ questionsCorrect }) => {
+    const { addXP } = useProgressStore.getState();
+    const xp = questionsCorrect * XP_VALUES.listening_comprehension_correct;
+    addXP(xp);
+    void logBonusXP(xp);
+  });
+
   // daily_challenge:complete → bonus XP + toast
   eventBus.on('daily_challenge:complete', () => {
     const { addXP } = useProgressStore.getState();

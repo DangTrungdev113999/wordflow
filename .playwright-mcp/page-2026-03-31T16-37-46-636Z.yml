@@ -1,0 +1,94 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e6]: 🦉
+    - generic [ref=e7]:
+      - paragraph [ref=e8]: 🦉 Night Owl
+      - paragraph [ref=e9]: Study after 10 PM
+    - button [ref=e10]:
+      - img [ref=e11]
+  - generic [ref=e14]:
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - img [ref=e17]
+        - generic [ref=e20]: Study Timer
+      - button [ref=e21]:
+        - img [ref=e22]
+    - generic [ref=e24]:
+      - text: 00:00
+      - paragraph [ref=e25]: Auto-tracking
+    - button "Pause" [ref=e27]:
+      - img [ref=e28]
+      - text: Pause
+  - complementary [ref=e31]:
+    - generic [ref=e32]:
+      - generic [ref=e33]: 📚
+      - heading "WordFlow" [level=1] [ref=e34]
+    - navigation [ref=e35]:
+      - link "Dashboard" [ref=e36] [cursor=pointer]:
+        - /url: /wordflow
+        - img [ref=e37]
+        - text: Dashboard
+      - link "Vocabulary" [ref=e42] [cursor=pointer]:
+        - /url: /wordflow/vocabulary
+        - img [ref=e43]
+        - text: Vocabulary
+      - link "Word Usage" [ref=e45] [cursor=pointer]:
+        - /url: /wordflow/word-usage
+        - img [ref=e46]
+        - text: Word Usage
+      - link "Listening" [ref=e50] [cursor=pointer]:
+        - /url: /wordflow/listening
+        - img [ref=e51]
+        - text: Listening
+      - link "Reading" [ref=e53] [cursor=pointer]:
+        - /url: /wordflow/reading
+        - img [ref=e54]
+        - text: Reading
+      - link "Grammar" [ref=e56] [cursor=pointer]:
+        - /url: /wordflow/grammar
+        - img [ref=e57]
+        - text: Grammar
+      - link "Sentences" [ref=e62] [cursor=pointer]:
+        - /url: /wordflow/sentence-building
+        - img [ref=e63]
+        - text: Sentences
+      - link "Learn from Media" [ref=e65] [cursor=pointer]:
+        - /url: /wordflow/learn-media
+        - img [ref=e66]
+        - text: Learn from Media
+      - link "Mistake Journal" [ref=e69] [cursor=pointer]:
+        - /url: /wordflow/mistake-journal
+        - img [ref=e70]
+        - text: Mistake Journal
+      - link "Study Planner" [ref=e73] [cursor=pointer]:
+        - /url: /wordflow/study-planner
+        - img [ref=e74]
+        - text: Study Planner
+      - link "AI" [ref=e76] [cursor=pointer]:
+        - /url: /wordflow/ai
+        - img [ref=e77]
+        - text: AI
+      - link "Statistics" [ref=e79] [cursor=pointer]:
+        - /url: /wordflow/stats
+        - img [ref=e80]
+        - text: Statistics
+      - link "Achievements" [ref=e81] [cursor=pointer]:
+        - /url: /wordflow/achievements
+        - img [ref=e82]
+        - text: Achievements
+      - link "Settings" [ref=e88] [cursor=pointer]:
+        - /url: /wordflow/settings
+        - img [ref=e89]
+        - text: Settings
+    - generic [ref=e92]:
+      - paragraph [ref=e93]: Level 1 — Beginner
+      - paragraph [ref=e94]: 0 XP
+  - generic [ref=e95]:
+    - banner [ref=e96]:
+      - generic [ref=e97]:
+        - generic [ref=e98]:
+          - img [ref=e100]
+          - generic [ref=e102]: WordFlow
+        - button "Toggle theme" [ref=e103]:
+          - img [ref=e104]
+    - main [ref=e110]

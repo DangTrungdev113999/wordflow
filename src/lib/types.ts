@@ -3,7 +3,7 @@ export type WordStatus = 'new' | 'learning' | 'review' | 'mastered';
 export type Theme = 'light' | 'dark' | 'system';
 export type FlashcardRating = 0 | 2 | 4 | 5;
 export type DictationMode = 'word' | 'phrase' | 'sentence' | 'quiz';
-export type ListeningMode = DictationMode | 'fill-blank' | 'speed' | 'listen-choose';
+export type ListeningMode = DictationMode | 'fill-blank' | 'speed' | 'listen-choose' | 'conversation' | 'story';
 
 export interface SessionResult {
   wordId: string;

@@ -230,6 +230,60 @@ export interface GrammarBookmark {
   createdAt: number;
 }
 
+// Phase 14-3 — Conversation + Story Listening
+
+export interface Speaker {
+  name: string;
+  voice: 'male' | 'female';
+}
+
+export interface ConversationLine {
+  speaker: string;
+  text: string;
+  translation: string;
+  highlightWords?: string[];
+}
+
+export interface ComprehensionQuestion {
+  question: string;
+  options: string[];
+  correctIndex: number;
+  explanation: string;
+  relatedLine: number;
+}
+
+export interface ConversationContent {
+  id: string;
+  topic: string;
+  title: string;
+  cefrLevel: CEFRLevel;
+  speakers: Speaker[];
+  lines: ConversationLine[];
+  questions: ComprehensionQuestion[];
+  keyVocab: string[];
+  durationEstimate: number;
+}
+
+export interface StoryContent {
+  id: string;
+  topic: string;
+  title: string;
+  cefrLevel: CEFRLevel;
+  paragraphs: string[];
+  translation: string[];
+  questions: ComprehensionQuestion[];
+  keyVocab: string[];
+  durationEstimate: number;
+}
+
+export interface ListeningContentRecord {
+  id: string;
+  topic: string;
+  type: 'conversation' | 'story';
+  content: ConversationContent | StoryContent;
+  createdAt: number;
+}
+
 // Phase 7 — Learn from Media
 export interface MediaSession {
   id: string;
