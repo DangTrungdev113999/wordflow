@@ -44,6 +44,22 @@ export async function generateStory(
   return promise;
 }
 
+// --------------- helpers ---------------
+
+function stripMarkdownFences(text: string): string {
+  return text.replace(/^```(?:json)?\s*\n?/i, '').replace(/\n?```\s*$/i, '').trim();
+}
+
+function safeParseJSON(text: string): Record<string, unknown> {
+  const cleaned = stripMarkdownFences(text);
+  try {
+    return JSON.parse(cleaned);
+  } catch (e) {
+    console.error('[listeningContentService] Failed to parse AI response:', e, '\nRaw text:', text);
+    throw new Error('Failed to parse AI response as JSON');
+  }
+}
+
 // --------------- internals ---------------
 
 async function getCached<T>(id: string): Promise<T | null> {
@@ -108,7 +124,17 @@ JSON format:
     { feature: 'listening-conversation', maxTokens: 2048, temperature: 0.7 },
   );
 
-  const parsed = JSON.parse(response.text);
+  const parsed = safeParseJSON(response.text);
+  if (!Array.isArray(parsed.speakers) || parsed.speakers.length === 0) {
+    throw new Error('AI response missing required field: speakers');
+  }
+  if (!Array.isArray(parsed.lines) || parsed.lines.length === 0) {
+    throw new Error('AI response missing required field: lines');
+  }
+  if (!Array.isArray(parsed.questions) || parsed.questions.length === 0) {
+    throw new Error('AI response missing required field: questions');
+  }
+
   const content: ConversationContent = {
     id: cacheKey,
     topic,
@@ -167,7 +193,14 @@ JSON format:
     { feature: 'listening-story', maxTokens: 2048, temperature: 0.7 },
   );
 
-  const parsed = JSON.parse(response.text);
+  const parsed = safeParseJSON(response.text);
+  if (!Array.isArray(parsed.paragraphs) || parsed.paragraphs.length === 0) {
+    throw new Error('AI response missing required field: paragraphs');
+  }
+  if (!Array.isArray(parsed.questions) || parsed.questions.length === 0) {
+    throw new Error('AI response missing required field: questions');
+  }
+
   const content: StoryContent = {
     id: cacheKey,
     topic,

@@ -197,7 +197,7 @@ export function useStoryListening(topic: string): UseStoryListeningReturn {
 
   useEffect(() => {
     if (isQuizComplete) {
-      eventBus.emit('listening:story', { topic, questionsCorrect: correctCount });
+      eventBus.emit('listening:story', { topic, questionsCorrect: correctCount, totalQuestions });
     }
   }, [isQuizComplete, topic, correctCount]);
 

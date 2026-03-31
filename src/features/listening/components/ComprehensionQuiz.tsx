@@ -27,6 +27,33 @@ interface ComprehensionQuizProps {
 
 const OPTION_LABELS = ['A', 'B', 'C', 'D'];
 
+const ACCENT_CLASSES: Record<string, { text: string; textDark: string; bg: string; bgHover: string; border: string; borderDark: string; hoverBg: string; hoverBgDark: string }> = {
+  teal: {
+    text: 'text-teal-600', textDark: 'dark:text-teal-400',
+    bg: 'bg-teal-500', bgHover: 'hover:bg-teal-600',
+    border: 'hover:border-teal-300', borderDark: 'dark:hover:border-teal-700',
+    hoverBg: 'hover:bg-teal-50/50', hoverBgDark: 'dark:hover:bg-teal-900/10',
+  },
+  emerald: {
+    text: 'text-emerald-600', textDark: 'dark:text-emerald-400',
+    bg: 'bg-emerald-500', bgHover: 'hover:bg-emerald-600',
+    border: 'hover:border-emerald-300', borderDark: 'dark:hover:border-emerald-700',
+    hoverBg: 'hover:bg-emerald-50/50', hoverBgDark: 'dark:hover:bg-emerald-900/10',
+  },
+  blue: {
+    text: 'text-blue-600', textDark: 'dark:text-blue-400',
+    bg: 'bg-blue-500', bgHover: 'hover:bg-blue-600',
+    border: 'hover:border-blue-300', borderDark: 'dark:hover:border-blue-700',
+    hoverBg: 'hover:bg-blue-50/50', hoverBgDark: 'dark:hover:bg-blue-900/10',
+  },
+  purple: {
+    text: 'text-purple-600', textDark: 'dark:text-purple-400',
+    bg: 'bg-purple-500', bgHover: 'hover:bg-purple-600',
+    border: 'hover:border-purple-300', borderDark: 'dark:hover:border-purple-700',
+    hoverBg: 'hover:bg-purple-50/50', hoverBgDark: 'dark:hover:bg-purple-900/10',
+  },
+};
+
 export function ComprehensionQuiz({
   questions,
   currentIndex,
@@ -41,6 +68,7 @@ export function ComprehensionQuiz({
   onBack,
   accentColor = 'teal',
 }: ComprehensionQuizProps) {
+  const accent = ACCENT_CLASSES[accentColor] ?? ACCENT_CLASSES.teal;
   const question = questions[currentIndex];
   const currentAnswer = answers.find(a => a.questionIndex === currentIndex);
   const hasAnswered = !!currentAnswer;
@@ -70,11 +98,11 @@ export function ComprehensionQuiz({
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-4 text-center">
-            <p className={cn('text-2xl font-bold', `text-${accentColor}-600 dark:text-${accentColor}-400`)}>{correctCount}/{questions.length}</p>
+            <p className={cn('text-2xl font-bold', `${accent.text} ${accent.textDark}`)}>{correctCount}/{questions.length}</p>
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Correct</p>
           </div>
           <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-4 text-center">
-            <p className={cn('text-2xl font-bold', `text-${accentColor}-600 dark:text-${accentColor}-400`)}>{accuracy}%</p>
+            <p className={cn('text-2xl font-bold', `${accent.text} ${accent.textDark}`)}>{accuracy}%</p>
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Accuracy</p>
           </div>
           <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-4 text-center">
@@ -128,7 +156,7 @@ export function ComprehensionQuiz({
             onClick={onPracticeAgain}
             className={cn(
               'flex-1 py-3 rounded-xl text-white font-medium transition-colors flex items-center justify-center gap-2',
-              `bg-${accentColor}-500 hover:bg-${accentColor}-600`,
+              `${accent.bg} ${accent.bgHover}`,
             )}
           >
             <RotateCcw size={18} /> Again
@@ -150,7 +178,7 @@ export function ComprehensionQuiz({
         </div>
         <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
           <motion.div
-            className={cn('h-full rounded-full', `bg-${accentColor}-500`)}
+            className={cn('h-full rounded-full', `${accent.bg}`)}
             initial={{ width: 0 }}
             animate={{ width: `${(currentIndex / questions.length) * 100}%` }}
             transition={{ duration: 0.3 }}
@@ -188,7 +216,7 @@ export function ComprehensionQuiz({
                 whileTap={!submitted ? { scale: 0.98 } : undefined}
                 className={cn(
                   'w-full text-left p-4 rounded-2xl border-2 transition-all flex items-start gap-3',
-                  !submitted && `border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:border-${accentColor}-300 dark:hover:border-${accentColor}-700 hover:bg-${accentColor}-50/50 dark:hover:bg-${accentColor}-900/10`,
+                  !submitted && `border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 ${accent.border} ${accent.borderDark} ${accent.hoverBg} ${accent.hoverBgDark}`,
                   submitted && isThisCorrect && 'border-green-500 bg-green-50 dark:bg-green-900/20',
                   submitted && isThisSelected && !isThisCorrect && 'border-red-500 bg-red-50 dark:bg-red-900/20',
                   submitted && !isThisCorrect && !isThisSelected && 'border-gray-200 dark:border-gray-700 opacity-40',
@@ -233,7 +261,7 @@ export function ComprehensionQuiz({
               onClick={onNext}
               className={cn(
                 'w-full py-3 rounded-xl text-white font-semibold transition-colors flex items-center justify-center gap-2',
-                `bg-${accentColor}-500 hover:bg-${accentColor}-600`,
+                `${accent.bg} ${accent.bgHover}`,
               )}
             >
               Next <ArrowRight size={18} />

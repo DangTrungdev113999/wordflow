@@ -31,8 +31,8 @@ type AppEvents = {
   'context:correct': { wordId: string; context: string };
   'context:incorrect': { wordId: string; context: string };
   // Phase 14-3 — Conversation + Story Listening
-  'listening:conversation': { topic: string; questionsCorrect: number };
-  'listening:story': { topic: string; questionsCorrect: number };
+  'listening:conversation': { topic: string; questionsCorrect: number; totalQuestions: number };
+  'listening:story': { topic: string; questionsCorrect: number; totalQuestions: number };
   // Phase 8 — Mistake Journal
   'mistakes:collected': MistakeCollectedEvent;
   // Phase 9 — Celebrations

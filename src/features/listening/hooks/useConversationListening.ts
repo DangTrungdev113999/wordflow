@@ -216,7 +216,7 @@ export function useConversationListening(topic: string): UseConversationListenin
   // Emit event on quiz complete
   useEffect(() => {
     if (isQuizComplete) {
-      eventBus.emit('listening:conversation', { topic, questionsCorrect: correctCount });
+      eventBus.emit('listening:conversation', { topic, questionsCorrect: correctCount, totalQuestions });
     }
   }, [isQuizComplete, topic, correctCount]);
 
