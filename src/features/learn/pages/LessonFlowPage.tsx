@@ -12,6 +12,7 @@ import {
   Check,
   PenLine,
   Award,
+  Volume2,
 } from 'lucide-react';
 import { Button } from '../../../components/ui/Button';
 import { Confetti } from '../../../components/common/Confetti';
@@ -23,6 +24,7 @@ import { useLessonStore } from '../../../stores/lessonStore';
 import { useProgressStore } from '../../../stores/progressStore';
 import { useToastStore } from '../../../stores/toastStore';
 import { eventBus } from '../../../services/eventBus';
+import { useAudio } from '../../../hooks/useAudio';
 import { PracticePhase } from '../components/PracticePhase';
 import { PhaseIntro } from '../components/PhaseIntro';
 import type { LessonPhase } from '../../../data/learning-path/types';
@@ -110,6 +112,34 @@ function PhaseStepper({
 
 // ── Sub-components ──
 
+function SpeakerButton({
+  word,
+  audioUrl,
+  isPlaying,
+  play,
+}: {
+  word: string;
+  audioUrl?: string | null;
+  isPlaying: boolean;
+  play: (word: string, audioUrl?: string | null) => void;
+}) {
+  return (
+    <button
+      onClick={(e) => {
+        e.stopPropagation();
+        play(word, audioUrl);
+      }}
+      className={cn(
+        'w-9 h-9 rounded-full bg-indigo-500/10 hover:bg-indigo-500/20 flex items-center justify-center transition-colors',
+        isPlaying && 'animate-pulse',
+      )}
+      aria-label={`Nghe phát âm "${word}"`}
+    >
+      <Volume2 size={18} className="text-indigo-500" />
+    </button>
+  );
+}
+
 function VocabPhase({
   words,
   onComplete,
@@ -120,9 +150,18 @@ function VocabPhase({
   const selected = useMemo(() => shuffle(words).slice(0, 10), [words]);
   const [current, setCurrent] = useState(0);
   const [flipped, setFlipped] = useState(false);
+  const { isPlaying, play } = useAudio();
 
   const word = selected[current];
   const isLast = current === selected.length - 1;
+
+  // Auto-play pronunciation when switching to a new word
+  useEffect(() => {
+    if (word) {
+      play(word.word, word.audioUrl);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [current]);
 
   const handleNext = () => {
     if (isLast) {
@@ -155,6 +194,7 @@ function VocabPhase({
           style={{ transformStyle: 'preserve-3d' }}
           className="relative w-full"
         >
+          {/* Front face */}
           <div
             className="rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-lg p-8 min-h-[220px] flex flex-col items-center justify-center"
             style={{ backfaceVisibility: 'hidden' }}
@@ -162,18 +202,39 @@ function VocabPhase({
             <p className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
               {word?.word}
             </p>
-            <p className="text-sm text-gray-400 dark:text-gray-500">{word?.ipa}</p>
+            <div className="flex items-center gap-2">
+              <p className="text-sm text-gray-400 dark:text-gray-500">{word?.ipa}</p>
+              {word && (
+                <SpeakerButton
+                  word={word.word}
+                  audioUrl={word.audioUrl}
+                  isPlaying={isPlaying}
+                  play={play}
+                />
+              )}
+            </div>
             <p className="text-xs text-gray-300 dark:text-gray-600 mt-6">
               Nhấn để lật thẻ
             </p>
           </div>
+          {/* Back face */}
           <div
             className="absolute inset-0 rounded-2xl border border-indigo-200 dark:border-indigo-800 bg-gradient-to-br from-indigo-50 to-white dark:from-indigo-950/40 dark:to-gray-900 shadow-lg p-8 min-h-[220px] flex flex-col items-center justify-center"
             style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
           >
-            <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 mb-3">
-              {word?.meaning}
-            </p>
+            <div className="flex items-center gap-2 mb-3">
+              <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+                {word?.meaning}
+              </p>
+              {word && (
+                <SpeakerButton
+                  word={word.word}
+                  audioUrl={word.audioUrl}
+                  isPlaying={isPlaying}
+                  play={play}
+                />
+              )}
+            </div>
             <p className="text-sm text-gray-600 dark:text-gray-300 text-center leading-relaxed italic">
               "{word?.example}"
             </p>
