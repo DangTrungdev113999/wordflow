@@ -29,6 +29,15 @@ const AI_FEATURES = [
     gradient: 'from-orange-400 to-rose-500',
     available: true,
   },
+  {
+    title: 'Learn from Media',
+    titleVi: 'Học qua Media',
+    description: 'Học tiếng Anh từ video, bài hát & podcast yêu thích',
+    icon: '📺',
+    to: '/learn-media',
+    gradient: 'from-cyan-400 to-blue-500',
+    available: true,
+  },
 ];
 
 export function AIHubPage() {

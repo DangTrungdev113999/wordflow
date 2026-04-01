@@ -5,7 +5,7 @@ import { useDaily } from './hooks/useDaily';
 import { useAchievements } from './hooks/useAchievements';
 import { Header } from './components/layout/Header';
 import { BottomNav } from './components/layout/BottomNav';
-import { Sidebar } from './components/layout/Sidebar';
+
 import { ToastContainer } from './components/common/ToastContainer';
 import { Confetti } from './components/common/Confetti';
 import { StudyTimerWidget } from './features/study-planner/components/StudyTimerWidget';
@@ -46,17 +46,16 @@ export default function App() {
     recordActivity();
   }, [location.pathname]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const isFullscreen = location.pathname.includes('/learn') || location.pathname.includes('/quiz') || location.pathname === '/onboarding';
+  const isFullscreen = (location.pathname.endsWith('/learn') && location.pathname !== '/learn') || location.pathname.includes('/quiz') || location.pathname === '/onboarding';
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors">
       <Confetti active={showConfetti} onComplete={dismissConfetti} />
       <ToastContainer />
       {!isFullscreen && <StudyTimerWidget />}
-      {!isFullscreen && <Sidebar />}
-      <div className={!isFullscreen ? 'lg:ml-64' : ''}>
+      <div>
         {!isFullscreen && <Header />}
-        <main className={!isFullscreen ? 'pb-20 lg:pb-6' : 'pb-0'}>
+        <main className={!isFullscreen ? 'pb-20' : 'pb-0'}>
           <AnimatePresence mode="wait">
             <div key={location.pathname}>
               {outlet}
