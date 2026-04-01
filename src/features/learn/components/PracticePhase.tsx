@@ -52,7 +52,7 @@ function generateExercises(vocabTopic: string, words: VocabWord[]): PracticeExer
   const picked = shuffle(wordsWithExamples).slice(0, Math.min(3, wordsWithExamples.length));
 
   return picked.map((w) => {
-    const regex = new RegExp(`\\b${escapeRegex(w.word)}\\w*\\b`, 'gi');
+    const regex = new RegExp(`\\b${escapeRegex(w.word)}\\b`, 'gi');
     const blanked = w.example.replace(regex, '___');
     const hasBlanked = blanked !== w.example;
 

@@ -30,8 +30,6 @@ import type { VocabWord } from '../../../lib/types';
 
 // ── Constants ──
 
-const ALL_PHASES: LessonPhase[] = ['vocab', 'grammar', 'practice', 'quiz'];
-
 const PHASE_LABELS: Record<LessonPhase, string> = {
   vocab: 'Từ vựng',
   grammar: 'Ngữ pháp',
@@ -643,7 +641,6 @@ export function LessonFlowPage() {
   const navigate = useNavigate();
   const { startLesson, completePhase, completeLesson, getLessonStatus, progress } =
     useLessonStore();
-  const addXP = useProgressStore((s) => s.addXP);
   const incrementWordsLearned = useProgressStore((s) => s.incrementWordsLearned);
 
   const result = findLesson(lessonId ?? '');
@@ -731,7 +728,7 @@ export function LessonFlowPage() {
     );
   }
 
-  const phases = ALL_PHASES;
+  const phases = lesson.phases;
   const phaseIdx = completed ? phases.length : phases.indexOf(phase);
   const introAdjust = showingIntro ? 0 : 0.5;
   const progressPct = completed
@@ -773,10 +770,10 @@ export function LessonFlowPage() {
         prev.includes('quiz') ? prev : [...prev, 'quiz'],
       );
 
-      // Only award XP on first completion — prevent XP farming
-      if (getLessonStatus(lessonId) !== 'completed') {
-        addXP(totalXP);
+      const isFirstCompletion = getLessonStatus(lessonId) !== 'completed';
 
+      // Only award XP + words on first completion — prevent XP farming
+      if (isFirstCompletion) {
         // Increment words learned for vocab words in this lesson
         const wordCount = Math.min(vocabTopic.words.length, 10);
         for (let i = 0; i < wordCount; i++) {
@@ -788,11 +785,15 @@ export function LessonFlowPage() {
 
       // Emit events for achievement engine
       eventBus.emit('lesson:complete', { lessonId });
-      eventBus.emit('quiz:complete', {
-        lessonId,
-        correct: score,
-        total,
-      });
+
+      // Only emit quiz:complete on first completion — XP is handled by subscriber
+      if (isFirstCompletion) {
+        eventBus.emit('quiz:complete', {
+          lessonId,
+          correct: score,
+          total,
+        });
+      }
     }
     setCompleted(true);
   };
