@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
 import {
@@ -17,27 +18,43 @@ import { useProgressStore } from '../../../stores/progressStore';
 import { useSettingsStore } from '../../../stores/settingsStore';
 import { useVocabularyStore } from '../../../stores/vocabularyStore';
 import { useMistakeStore } from '../../../stores/mistakeStore';
+import { useDailyChallenge } from '../../daily-challenge/hooks/useDailyChallenge';
 import { StatsChart } from '../components/StatsChart';
 import { getLevelFromXP } from '../../../lib/utils';
+
+// Fix 3: Animation variants as module-level constants (avoid re-creation each render)
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.05 } },
+};
+const fadeUp = {
+  hidden: { opacity: 0, y: 12 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
+};
 
 export function DashboardPage() {
   const { xp, currentStreak, todayWordsLearned, todayWordsReviewed } = useProgressStore();
   const { dailyGoal } = useSettingsStore();
   const { topics, wordProgressMap } = useVocabularyStore();
   const dueCount = useMistakeStore((s) => s.getDueForReview().length);
+  const { completed: dailyChallengeCompleted } = useDailyChallenge();
 
   const { level, title: levelTitle, progress: xpProgress } = getLevelFromXP(xp);
   const todayTotal = todayWordsLearned + todayWordsReviewed;
   const goalProgress = Math.min(100, (todayTotal / dailyGoal) * 100);
 
-  // Find first topic with partial progress (some words started, not all done)
-  const incompleteTopic = topics.find((t) => {
-    const learnedCount = t.words.filter((w) => {
-      const p = wordProgressMap[w.word];
-      return p && p.status !== 'new';
-    }).length;
-    return learnedCount > 0 && learnedCount < t.words.length;
-  });
+  // Fix 1: Memoize O(topics × words) computation
+  const incompleteTopic = useMemo(
+    () =>
+      topics.find((t) => {
+        const learnedCount = t.words.filter((w) => {
+          const p = wordProgressMap[w.word];
+          return p && p.status !== 'new';
+        }).length;
+        return learnedCount > 0 && learnedCount < t.words.length;
+      }),
+    [topics, wordProgressMap],
+  );
 
   // Session items by priority: review → continue topic → daily challenge
   const sessionItems: Array<{
@@ -65,7 +82,8 @@ export function DashboardPage() {
     });
   }
 
-  if (sessionItems.length < 3) {
+  // Fix 2: Only show Daily Challenge if not yet completed today
+  if (!dailyChallengeCompleted && sessionItems.length < 3) {
     sessionItems.push({
       icon: <Target size={18} />,
       text: 'Daily Challenge',
@@ -112,15 +130,6 @@ export function DashboardPage() {
       to: '/learn',
     });
   }
-
-  const stagger = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.05 } },
-  };
-  const fadeUp = {
-    hidden: { opacity: 0, y: 12 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
-  };
 
   return (
     <motion.div
