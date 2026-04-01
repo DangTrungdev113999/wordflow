@@ -1,4 +1,4 @@
-export type LessonPhase = 'vocab' | 'grammar' | 'quiz';
+export type LessonPhase = 'vocab' | 'grammar' | 'practice' | 'quiz';
 
 export interface Lesson {
   id: string;

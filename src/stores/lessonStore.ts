@@ -64,7 +64,7 @@ export const useLessonStore = create<LessonState>()(
           const completedPhases = current.completedPhases.includes(phase)
             ? current.completedPhases
             : [...current.completedPhases, phase];
-          const phases: LessonPhase[] = ['vocab', 'grammar', 'quiz'];
+          const phases: LessonPhase[] = ['vocab', 'grammar', 'practice', 'quiz'];
           const nextIdx = phases.indexOf(phase) + 1;
           const nextPhase = nextIdx < phases.length ? phases[nextIdx] : null;
           return {
@@ -87,7 +87,7 @@ export const useLessonStore = create<LessonState>()(
             [lessonId]: {
               status: 'completed',
               currentPhase: null,
-              completedPhases: ['vocab', 'grammar', 'quiz'],
+              completedPhases: ['vocab', 'grammar', 'practice', 'quiz'],
               score,
               xpEarned: xp,
               completedAt: new Date().toISOString(),
