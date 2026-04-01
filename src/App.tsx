@@ -46,7 +46,7 @@ export default function App() {
     recordActivity();
   }, [location.pathname]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const isFullscreen = (location.pathname.endsWith('/learn') && location.pathname !== '/learn') || location.pathname.includes('/quiz') || location.pathname === '/onboarding';
+  const isFullscreen = (location.pathname.endsWith('/learn') && location.pathname !== '/learn') || location.pathname.includes('/quiz') || location.pathname === '/onboarding' || location.pathname.startsWith('/learn/lesson/');
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors">
