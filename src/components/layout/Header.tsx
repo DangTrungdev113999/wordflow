@@ -1,5 +1,6 @@
 import { BookOpen } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
+import { FontScaleToggle } from './FontScaleToggle';
 
 export function Header() {
   return (
@@ -11,7 +12,10 @@ export function Header() {
           </div>
           <span className="font-bold text-gray-900 dark:text-white text-lg tracking-tight">WordFlow</span>
         </div>
-        <ThemeToggle />
+        <div className="flex items-center gap-1">
+          <FontScaleToggle />
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );
