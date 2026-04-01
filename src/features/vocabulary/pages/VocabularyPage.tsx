@@ -180,7 +180,7 @@ export function VocabularyPage() {
                     <h3 className="font-semibold text-gray-900 dark:text-white">{topic.name}</h3>
                     <p className="text-sm text-gray-700 dark:text-gray-300">{topic.wordCount} words</p>
                   </div>
-                  <ChevronRight size={18} className="text-gray-600 dark:text-gray-400 group-hover:text-indigo-400 transition-colors" />
+                  <ChevronRight size={18} className="text-gray-400 dark:text-gray-500 group-hover:text-indigo-400 transition-colors" />
                 </Link>
               </motion.div>
             ))}

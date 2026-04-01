@@ -137,7 +137,7 @@ export function ListeningPage() {
               </div>
               <div className="flex items-center gap-2">
                 <Badge label={topic.cefrLevel} variant="cefr" />
-                <ChevronRight size={18} className="text-gray-600 dark:text-gray-400 group-hover:text-indigo-400 transition-colors" />
+                <ChevronRight size={18} className="text-gray-400 dark:text-gray-500 group-hover:text-indigo-400 transition-colors" />
               </div>
             </Link>
           </motion.div>

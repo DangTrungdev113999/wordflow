@@ -44,7 +44,7 @@ export function DailyChallengeCard() {
                 )}
               </p>
             </div>
-            <ChevronRight size={16} className="text-gray-600 dark:text-gray-400 group-hover:text-indigo-400" />
+            <ChevronRight size={16} className="text-gray-400 dark:text-gray-500 group-hover:text-indigo-400" />
           </div>
         ) : (
           <div className="flex items-center justify-between">

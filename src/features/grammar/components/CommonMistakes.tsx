@@ -73,7 +73,7 @@ export function CommonMistakes() {
           onChange={e => setQuery(e.target.value)}
           placeholder="Tìm lỗi: tense, preposition, article..."
           aria-label="Tìm kiếm lỗi thường gặp"
-          className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-600 dark:text-gray-400 dark:placeholder:text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-rose-500/30 focus:border-rose-300 dark:focus:border-rose-600 transition-all"
+          className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-600 dark:text-gray-400 dark:placeholder:text-gray-500 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-rose-500/30 focus:border-rose-300 dark:focus:border-rose-600 transition-all"
         />
         {query && (
           <button onClick={() => setQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400">

@@ -44,7 +44,7 @@ export function TenseCompare() {
         </div>
 
         <button onClick={next} aria-label="So sánh tiếp" className="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors flex-shrink-0">
-          <ChevronRight size={16} className="text-gray-600 dark:text-gray-400" />
+          <ChevronRight size={16} className="text-gray-400 dark:text-gray-500" />
         </button>
       </div>
 

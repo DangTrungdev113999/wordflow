@@ -35,7 +35,7 @@ export function LessonCard({ lesson, progress }: LessonCardProps) {
           )}
         </div>
       </div>
-      <ChevronRight size={20} className="text-gray-600 dark:text-gray-400 flex-shrink-0" />
+      <ChevronRight size={20} className="text-gray-400 dark:text-gray-500 flex-shrink-0" />
     </Link>
   );
 }
