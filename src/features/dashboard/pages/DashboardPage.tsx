@@ -1,115 +1,294 @@
+import { useMemo } from 'react';
 import { Link } from 'react-router';
 import { motion } from 'framer-motion';
-import { BookOpen, ChevronRight, Target, Mic2 } from 'lucide-react';
+import {
+  ChevronRight,
+  Flame,
+  RotateCcw,
+  BookOpen,
+  Target,
+  Lightbulb,
+  Headphones,
+  BookText,
+  GraduationCap,
+  Sparkles,
+  Zap,
+} from 'lucide-react';
 import { useProgressStore } from '../../../stores/progressStore';
 import { useSettingsStore } from '../../../stores/settingsStore';
 import { useVocabularyStore } from '../../../stores/vocabularyStore';
-import { StreakWidget } from '../components/StreakWidget';
-import { XPBar } from '../components/XPBar';
+import { useMistakeStore } from '../../../stores/mistakeStore';
+import { useDailyChallenge } from '../../daily-challenge/hooks/useDailyChallenge';
 import { StatsChart } from '../components/StatsChart';
-import { Card } from '../../../components/ui/Card';
-import { ProgressBar } from '../../../components/ui/ProgressBar';
-import { TOPIC_ICONS, TOPIC_COLORS } from '../../../lib/constants';
-import { DailyChallengeCard } from '../../daily-challenge/components/DailyChallengeCard';
+import { getLevelFromXP } from '../../../lib/utils';
 
-function getGreeting(): string {
-  const hour = new Date().getHours();
-  if (hour >= 5 && hour < 12) return 'Good morning';
-  if (hour >= 12 && hour < 18) return 'Good afternoon';
-  return 'Good evening';
-}
+// Fix 3: Animation variants as module-level constants (avoid re-creation each render)
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.05 } },
+};
+const fadeUp = {
+  hidden: { opacity: 0, y: 12 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
+};
 
 export function DashboardPage() {
-  const { todayWordsLearned, todayWordsReviewed } = useProgressStore();
+  const { xp, currentStreak, todayWordsLearned, todayWordsReviewed } = useProgressStore();
   const { dailyGoal } = useSettingsStore();
-  const { topics } = useVocabularyStore();
+  const { topics, wordProgressMap } = useVocabularyStore();
+  const dueCount = useMistakeStore((s) => s.getDueForReview().length);
+  const { completed: dailyChallengeCompleted } = useDailyChallenge();
 
+  const { level, title: levelTitle, progress: xpProgress } = getLevelFromXP(xp);
   const todayTotal = todayWordsLearned + todayWordsReviewed;
   const goalProgress = Math.min(100, (todayTotal / dailyGoal) * 100);
 
+  // Fix 1: Memoize O(topics × words) computation
+  const incompleteTopic = useMemo(
+    () =>
+      topics.find((t) => {
+        const learnedCount = t.words.filter((w) => {
+          const p = wordProgressMap[w.word];
+          return p && p.status !== 'new';
+        }).length;
+        return learnedCount > 0 && learnedCount < t.words.length;
+      }),
+    [topics, wordProgressMap],
+  );
+
+  // Session items by priority: review → continue topic → daily challenge
+  const sessionItems: Array<{
+    icon: React.ReactNode;
+    text: string;
+    to: string;
+    accent: string;
+  }> = [];
+
+  if (dueCount >= 3) {
+    sessionItems.push({
+      icon: <RotateCcw size={18} />,
+      text: `${dueCount} từ cần ôn tập`,
+      to: '/review',
+      accent: 'from-amber-500 to-orange-500',
+    });
+  }
+
+  if (incompleteTopic && sessionItems.length < 3) {
+    sessionItems.push({
+      icon: <BookOpen size={18} />,
+      text: `Tiếp tục: ${incompleteTopic.topicLabel}`,
+      to: `/vocabulary/${incompleteTopic.topic}/learn`,
+      accent: 'from-emerald-500 to-teal-500',
+    });
+  }
+
+  // Fix 2: Only show Daily Challenge if not yet completed today
+  if (!dailyChallengeCompleted && sessionItems.length < 3) {
+    sessionItems.push({
+      icon: <Target size={18} />,
+      text: 'Daily Challenge',
+      to: '/daily-challenge',
+      accent: 'from-violet-500 to-purple-500',
+    });
+  }
+
+  // Smart suggestions based on today's activity
+  const suggestions: Array<{
+    icon: React.ReactNode;
+    title: string;
+    desc: string;
+    to: string;
+  }> = [];
+
+  if (todayWordsLearned > 0) {
+    suggestions.push(
+      {
+        icon: <Headphones size={18} />,
+        title: 'Luyện nghe',
+        desc: 'Củng cố từ vừa học qua bài nghe',
+        to: '/listening',
+      },
+      {
+        icon: <BookText size={18} />,
+        title: 'Luyện đọc',
+        desc: 'Đọc hiểu với từ vựng đã học',
+        to: '/reading',
+      },
+    );
+  } else if (dueCount > 0) {
+    suggestions.push({
+      icon: <RotateCcw size={18} />,
+      title: 'Ôn tập ngay',
+      desc: `${dueCount} từ đang chờ bạn ôn`,
+      to: '/review',
+    });
+  } else {
+    suggestions.push({
+      icon: <GraduationCap size={18} />,
+      title: 'Bắt đầu học',
+      desc: 'Khám phá từ vựng mới hôm nay',
+      to: '/learn',
+    });
+  }
+
   return (
-    <div className="px-4 py-6 space-y-4 max-w-2xl mx-auto">
-      {/* Greeting */}
-      <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{getGreeting()}! 👋</h1>
-        <p className="text-gray-700 dark:text-gray-300 text-sm mt-0.5">Keep up your learning streak!</p>
-      </motion.div>
+    <motion.div
+      className="px-4 py-5 space-y-4 max-w-2xl mx-auto pb-24"
+      variants={stagger}
+      initial="hidden"
+      animate="visible"
+    >
+      {/* ── Status Bar ── */}
+      <motion.div
+        variants={fadeUp}
+        className="flex items-center gap-3 px-3 py-2.5 rounded-2xl bg-gray-50 dark:bg-gray-900/60 border border-gray-100 dark:border-gray-800"
+      >
+        <div className="flex items-center gap-1.5 text-sm font-semibold text-orange-500">
+          <Flame size={16} className="fill-orange-500" />
+          <span>{currentStreak}</span>
+        </div>
 
-      {/* Daily goal */}
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-        <Card>
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center gap-2">
-              <Target size={16} className="text-indigo-500" />
-              <span className="font-semibold text-gray-900 dark:text-white text-sm">Daily Goal</span>
-            </div>
-            <span className="text-xs text-gray-600 dark:text-gray-400">{todayTotal}/{dailyGoal} words</span>
+        <div className="h-4 w-px bg-gray-200 dark:bg-gray-700" />
+
+        <div className="flex-1 flex items-center gap-2">
+          <Zap size={14} className="text-indigo-500 shrink-0" />
+          <div className="flex-1 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full transition-all duration-500"
+              style={{ width: `${Math.min(100, xpProgress)}%` }}
+            />
           </div>
-          <ProgressBar value={goalProgress} color={goalProgress >= 100 ? 'green' : 'indigo'} />
-          {goalProgress >= 100 && (
-            <p className="text-xs text-green-600 dark:text-green-400 mt-1 font-medium">🎉 Daily goal completed!</p>
-          )}
-        </Card>
+        </div>
+
+        <div className="h-4 w-px bg-gray-200 dark:bg-gray-700" />
+
+        <span className="text-xs font-bold text-gray-700 dark:text-gray-300 tracking-tight">
+          Lv.{level}{' '}
+          <span className="font-medium text-gray-500 dark:text-gray-400">{levelTitle}</span>
+        </span>
       </motion.div>
 
-      {/* Daily Challenge */}
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.12 }}>
-        <DailyChallengeCard />
-      </motion.div>
+      {/* ── Today's Session Card ── */}
+      {sessionItems.length > 0 && (
+        <motion.div variants={fadeUp}>
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-600 via-indigo-500 to-violet-600 p-4 shadow-lg shadow-indigo-500/20 dark:shadow-indigo-900/40">
+            <div className="absolute -top-8 -right-8 w-32 h-32 bg-white/[0.06] rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-white/[0.06] rounded-full blur-xl pointer-events-none" />
 
-      {/* Streak + XP */}
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }} className="grid grid-cols-2 gap-3">
-        <StreakWidget />
-        <XPBar />
-      </motion.div>
-
-      {/* Quick actions */}
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18 }}>
-        <Link
-          to="/pronunciation"
-          className="flex items-center gap-3 p-3 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-indigo-200 dark:hover:border-indigo-800 transition-all group"
-        >
-          <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-400 to-purple-600 flex items-center justify-center">
-            <Mic2 size={20} className="text-white" />
-          </span>
-          <div className="flex-1">
-            <p className="font-medium text-gray-900 dark:text-white text-sm">Pronunciation Practice</p>
-            <p className="text-xs text-gray-600 dark:text-gray-400">Improve your speaking skills</p>
-          </div>
-          <ChevronRight size={16} className="text-gray-400 dark:text-gray-500 group-hover:text-indigo-400" />
-        </Link>
-      </motion.div>
-
-      {/* Quick start */}
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-        <h2 className="font-semibold text-gray-700 dark:text-gray-300 text-sm mb-2 flex items-center gap-1.5">
-          <BookOpen size={14} />
-          Quick Start
-        </h2>
-        <div className="grid gap-2">
-          {topics.slice(0, 3).map((topic) => (
-            <Link
-              key={topic.topic}
-              to={`/vocabulary/${topic.topic}/learn`}
-              className="flex items-center gap-3 p-3 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-indigo-200 dark:hover:border-indigo-800 transition-all group"
-            >
-              <span className={`w-10 h-10 rounded-xl bg-gradient-to-br ${TOPIC_COLORS[topic.topic] ?? 'from-indigo-400 to-indigo-600'} flex items-center justify-center text-xl`}>
-                {TOPIC_ICONS[topic.topic] ?? '📝'}
-              </span>
-              <div className="flex-1">
-                <p className="font-medium text-gray-900 dark:text-white text-sm">{topic.topicLabel}</p>
-                <p className="text-xs text-gray-600 dark:text-gray-400">{topic.words.length} words</p>
+            <div className="relative">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles size={16} className="text-indigo-200" />
+                <h2 className="text-sm font-semibold text-white/90 tracking-wide uppercase">
+                  Phiên học hôm nay
+                </h2>
               </div>
-              <ChevronRight size={16} className="text-gray-400 dark:text-gray-500 group-hover:text-indigo-400" />
-            </Link>
-          ))}
+              <div className="space-y-2">
+                {sessionItems.map((item, i) => (
+                  <Link
+                    key={i}
+                    to={item.to}
+                    className="flex items-center gap-3 p-3 rounded-xl bg-white/10 backdrop-blur-sm hover:bg-white/[0.18] active:scale-[0.98] transition-all group"
+                  >
+                    <span
+                      className={`w-9 h-9 rounded-lg bg-gradient-to-br ${item.accent} flex items-center justify-center text-white shadow-sm`}
+                    >
+                      {item.icon}
+                    </span>
+                    <span className="flex-1 text-sm font-medium text-white">{item.text}</span>
+                    <ChevronRight
+                      size={16}
+                      className="text-white/40 group-hover:text-white/80 transition-colors"
+                    />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {/* ── Today's Progress ── */}
+      <motion.div variants={fadeUp}>
+        <div className="p-4 rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800">
+          <div className="flex items-center justify-between mb-2.5">
+            <span className="text-sm font-semibold text-gray-900 dark:text-white">
+              Tiến trình hôm nay
+            </span>
+            <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
+              {todayTotal}/{dailyGoal}
+            </span>
+          </div>
+          <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+            <motion.div
+              className={`h-full rounded-full ${
+                goalProgress >= 100
+                  ? 'bg-gradient-to-r from-emerald-500 to-green-400'
+                  : 'bg-gradient-to-r from-indigo-500 to-violet-500'
+              }`}
+              initial={{ width: 0 }}
+              animate={{ width: `${goalProgress}%` }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+            />
+          </div>
+          <div className="flex items-center gap-3 mt-2">
+            <span className="text-xs text-gray-500 dark:text-gray-400">
+              <span className="font-medium text-indigo-600 dark:text-indigo-400">
+                {todayWordsLearned}
+              </span>{' '}
+              từ đã học
+            </span>
+            <span className="text-xs text-gray-300 dark:text-gray-600">&middot;</span>
+            <span className="text-xs text-gray-500 dark:text-gray-400">
+              <span className="font-medium text-violet-600 dark:text-violet-400">
+                {todayWordsReviewed}
+              </span>{' '}
+              từ đã ôn
+            </span>
+            {goalProgress >= 100 && (
+              <>
+                <span className="text-xs text-gray-300 dark:text-gray-600">&middot;</span>
+                <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">
+                  Hoàn thành!
+                </span>
+              </>
+            )}
+          </div>
         </div>
       </motion.div>
 
-      {/* Stats chart */}
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}>
+      {/* ── Smart Suggestions ── */}
+      <motion.div variants={fadeUp} className="space-y-2">
+        <div className="flex items-center gap-1.5 px-1">
+          <Lightbulb size={14} className="text-amber-500" />
+          <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+            Gợi ý cho bạn
+          </span>
+        </div>
+        {suggestions.map((s, i) => (
+          <Link
+            key={i}
+            to={s.to}
+            className="flex items-center gap-3 p-3.5 rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 hover:border-indigo-200 dark:hover:border-indigo-800 hover:shadow-sm active:scale-[0.98] transition-all group"
+          >
+            <span className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 flex items-center justify-center text-indigo-500 dark:text-indigo-400">
+              {s.icon}
+            </span>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-medium text-gray-900 dark:text-white">{s.title}</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{s.desc}</p>
+            </div>
+            <ChevronRight
+              size={16}
+              className="text-gray-300 dark:text-gray-600 group-hover:text-indigo-400 transition-colors shrink-0"
+            />
+          </Link>
+        ))}
+      </motion.div>
+
+      {/* ── Stats Overview ── */}
+      <motion.div variants={fadeUp}>
         <StatsChart />
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
