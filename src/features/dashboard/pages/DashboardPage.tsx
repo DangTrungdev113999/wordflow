@@ -13,14 +13,18 @@ import {
   GraduationCap,
   Sparkles,
   Zap,
+  Play,
 } from 'lucide-react';
 import { useProgressStore } from '../../../stores/progressStore';
 import { useSettingsStore } from '../../../stores/settingsStore';
 import { useVocabularyStore } from '../../../stores/vocabularyStore';
 import { useMistakeStore } from '../../../stores/mistakeStore';
+import { useLessonStore } from '../../../stores/lessonStore';
+import { useShallow } from 'zustand/react/shallow';
 import { useDailyChallenge } from '../../daily-challenge/hooks/useDailyChallenge';
 import { StatsChart } from '../components/StatsChart';
 import { getLevelFromXP } from '../../../lib/utils';
+import { UNITS } from '../../../data/learning-path/units';
 
 // Fix 3: Animation variants as module-level constants (avoid re-creation each render)
 const stagger = {
@@ -38,6 +42,7 @@ export function DashboardPage() {
   const { topics, wordProgressMap } = useVocabularyStore();
   const dueCount = useMistakeStore((s) => s.getDueForReview().length);
   const { completed: dailyChallengeCompleted } = useDailyChallenge();
+  const nextLesson = useLessonStore(useShallow((s) => s.getNextAvailableLesson()));
 
   const { level, title: levelTitle, progress: xpProgress } = getLevelFromXP(xp);
   const todayTotal = todayWordsLearned + todayWordsReviewed;
@@ -80,6 +85,20 @@ export function DashboardPage() {
       to: `/vocabulary/${incompleteTopic.topic}/learn`,
       accent: 'from-emerald-500 to-teal-500',
     });
+  }
+
+  if (nextLesson && sessionItems.length < 3) {
+    const lessonData = UNITS
+      .find((u) => u.id === nextLesson.unitId)
+      ?.lessons.find((l) => l.id === nextLesson.lessonId);
+    if (lessonData) {
+      sessionItems.push({
+        icon: <Play size={18} />,
+        text: `Bài tiếp: ${lessonData.title}`,
+        to: `/learn/lesson/${nextLesson.lessonId}`,
+        accent: 'from-indigo-500 to-blue-500',
+      });
+    }
   }
 
   // Fix 2: Only show Daily Challenge if not yet completed today

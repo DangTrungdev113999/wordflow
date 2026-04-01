@@ -35,6 +35,7 @@ const LearnMediaPage = lazy(() => import('../features/learn-media/LearnMediaPage
 const MistakeJournalPage = lazy(() => import('../features/mistake-journal/pages/MistakeJournalPage').then(m => ({ default: m.MistakeJournalPage })));
 const StudyPlannerPage = lazy(() => import('../features/study-planner/pages/StudyPlannerPage').then(m => ({ default: m.StudyPlannerPage })));
 const LearnPage = lazy(() => import('../features/learn/pages/LearnPage').then(m => ({ default: m.LearnPage })));
+const LessonFlowPage = lazy(() => import('../features/learn/pages/LessonFlowPage').then(m => ({ default: m.LessonFlowPage })));
 const ReviewPage = lazy(() => import('../features/review/pages/ReviewPage').then(m => ({ default: m.ReviewPage })));
 const MePage = lazy(() => import('../features/me/pages/MePage').then(m => ({ default: m.MePage })));
 const MixedReviewPage = lazy(() => import('../features/vocabulary/pages/MixedReviewPage').then(m => ({ default: m.MixedReviewPage })));
@@ -92,6 +93,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: withSuspense(DashboardPage) },
       { path: 'learn', element: withSuspense(LearnPage) },
+      { path: 'learn/lesson/:lessonId', element: withSuspense(LessonFlowPage) },
       { path: 'review', element: withSuspense(ReviewPage) },
       { path: 'me', element: withSuspense(MePage) },
       { path: 'vocabulary', element: withSuspense(VocabularyPage) },
