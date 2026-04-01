@@ -1,16 +1,43 @@
-import { useState, useMemo, useCallback, useEffect } from 'react';
+import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ArrowRight, RotateCcw, Trophy, Zap, BookOpen, Star } from 'lucide-react';
+import {
+  X,
+  ArrowRight,
+  RotateCcw,
+  Trophy,
+  Zap,
+  BookOpen,
+  Star,
+  Check,
+  PenLine,
+  Award,
+} from 'lucide-react';
 import { Button } from '../../../components/ui/Button';
+import { Confetti } from '../../../components/common/Confetti';
 import { cn, shuffle } from '../../../lib/utils';
 import { UNITS } from '../../../data/learning-path/units';
 import { ALL_TOPICS } from '../../../data/vocabulary/_index';
 import { ALL_GRAMMAR_LESSONS } from '../../../data/grammar/_index';
 import { useLessonStore } from '../../../stores/lessonStore';
 import { useProgressStore } from '../../../stores/progressStore';
+import { useToastStore } from '../../../stores/toastStore';
+import { eventBus } from '../../../services/eventBus';
+import { PracticePhase } from '../components/PracticePhase';
+import { PhaseIntro } from '../components/PhaseIntro';
 import type { LessonPhase } from '../../../data/learning-path/types';
 import type { VocabWord } from '../../../lib/types';
+
+// ── Constants ──
+
+const ALL_PHASES: LessonPhase[] = ['vocab', 'grammar', 'practice', 'quiz'];
+
+const PHASE_LABELS: Record<LessonPhase, string> = {
+  vocab: 'Từ vựng',
+  grammar: 'Ngữ pháp',
+  practice: 'Thực hành',
+  quiz: 'Kiểm tra',
+};
 
 // ── Helpers ──
 
@@ -42,6 +69,45 @@ function generateQuizQuestions(words: VocabWord[], count: number) {
       correctIndex: options.indexOf(w.meaning),
     };
   });
+}
+
+// ── Phase Stepper Dots ──
+
+function PhaseStepper({
+  phases,
+  currentPhase,
+  completedPhases,
+}: {
+  phases: LessonPhase[];
+  currentPhase: LessonPhase;
+  completedPhases: LessonPhase[];
+}) {
+  return (
+    <div className="flex items-center gap-1">
+      {phases.map((p, i) => {
+        const isActive = p === currentPhase;
+        const isCompleted = completedPhases.includes(p);
+        return (
+          <div key={p} className="flex items-center">
+            <motion.div
+              layout
+              className={cn(
+                'rounded-full transition-all duration-300',
+                isActive
+                  ? 'w-6 h-2 bg-indigo-500'
+                  : isCompleted
+                    ? 'w-2 h-2 bg-emerald-400'
+                    : 'w-2 h-2 bg-gray-200 dark:bg-gray-700',
+              )}
+            />
+            {i < phases.length - 1 && (
+              <div className="w-1" />
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 // ── Sub-components ──
@@ -80,7 +146,6 @@ function VocabPhase({
         </p>
       </div>
 
-      {/* Card */}
       <div
         className="w-full max-w-sm cursor-pointer select-none"
         onClick={() => setFlipped((f) => !f)}
@@ -92,7 +157,6 @@ function VocabPhase({
           style={{ transformStyle: 'preserve-3d' }}
           className="relative w-full"
         >
-          {/* Front */}
           <div
             className="rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-lg p-8 min-h-[220px] flex flex-col items-center justify-center"
             style={{ backfaceVisibility: 'hidden' }}
@@ -105,7 +169,6 @@ function VocabPhase({
               Nhấn để lật thẻ
             </p>
           </div>
-          {/* Back */}
           <div
             className="absolute inset-0 rounded-2xl border border-indigo-200 dark:border-indigo-800 bg-gradient-to-br from-indigo-50 to-white dark:from-indigo-950/40 dark:to-gray-900 shadow-lg p-8 min-h-[220px] flex flex-col items-center justify-center"
             style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
@@ -121,11 +184,7 @@ function VocabPhase({
       </div>
 
       <div className="mt-8 w-full max-w-sm">
-        <Button
-          onClick={handleNext}
-          className="w-full"
-          size="lg"
-        >
+        <Button onClick={handleNext} className="w-full" size="lg">
           {isLast ? 'Hoàn thành' : 'Tiếp tục'}
           <ArrowRight size={18} />
         </Button>
@@ -168,7 +227,6 @@ function GrammarPhase({
       </div>
 
       <div className="max-w-lg mx-auto w-full space-y-4">
-        {/* Title card */}
         <div className="rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/20 border border-emerald-100 dark:border-emerald-900/50 p-5">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
             {grammar.title}
@@ -180,7 +238,6 @@ function GrammarPhase({
           )}
         </div>
 
-        {/* Key Points */}
         {cheat && cheat.keyPoints.length > 0 && (
           <div className="rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 p-5">
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
@@ -203,7 +260,6 @@ function GrammarPhase({
           </div>
         )}
 
-        {/* Examples from first theory section */}
         {firstSection?.examples && firstSection.examples.length > 0 && (
           <div className="rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 p-5">
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
@@ -221,7 +277,6 @@ function GrammarPhase({
           </div>
         )}
 
-        {/* Signal Words */}
         {cheat && cheat.signalWords.length > 0 && (
           <div className="rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 p-5">
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">
@@ -240,7 +295,6 @@ function GrammarPhase({
           </div>
         )}
 
-        {/* Common Mistakes */}
         {cheat && cheat.commonMistakes.length > 0 && (
           <div className="rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 p-5">
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">
@@ -344,11 +398,16 @@ function QuizPhase({
                   'w-full text-left px-4 py-3.5 rounded-xl border-2 transition-all duration-200 text-sm font-medium',
                   selected === null &&
                     'border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-indigo-200 dark:hover:border-indigo-800 active:bg-indigo-50 dark:active:bg-indigo-950/30',
-                  showResult && isAnswer &&
+                  showResult &&
+                    isAnswer &&
                     'border-emerald-400 dark:border-emerald-600 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400',
-                  showResult && isThis && !isAnswer &&
+                  showResult &&
+                    isThis &&
+                    !isAnswer &&
                     'border-red-400 dark:border-red-600 bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400',
-                  showResult && !isThis && !isAnswer &&
+                  showResult &&
+                    !isThis &&
+                    !isAnswer &&
                     'border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 opacity-50',
                 )}
               >
@@ -377,109 +436,244 @@ function QuizPhase({
   );
 }
 
+// ── Animated XP Counter ──
+
+function AnimatedXP({ target }: { target: number }) {
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    if (target === 0) return;
+    const duration = 1200;
+    const steps = 30;
+    const increment = target / steps;
+    let current = 0;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        setDisplay(target);
+        clearInterval(timer);
+      } else {
+        setDisplay(Math.round(current));
+      }
+    }, duration / steps);
+    return () => clearInterval(timer);
+  }, [target]);
+
+  return <span>{display > 0 ? `+${display}` : '+0'}</span>;
+}
+
+// ── Completion Screen (polished) ──
+
 function CompletionScreen({
-  score,
-  total,
+  quizScore,
+  quizTotal,
+  practiceScore,
+  practiceTotal,
   xp,
   lessonTitle,
   nextLessonId,
   onNextLesson,
   onGoBack,
+  newAchievements,
 }: {
-  score: number;
-  total: number;
+  quizScore: number;
+  quizTotal: number;
+  practiceScore: number;
+  practiceTotal: number;
   xp: number;
   lessonTitle: string;
   nextLessonId: string | null;
   onNextLesson: () => void;
   onGoBack: () => void;
+  newAchievements: string[];
 }) {
-  const pct = Math.round((score / total) * 100);
-  const isPerfect = pct === 100;
+  const overallPct =
+    quizTotal + practiceTotal > 0
+      ? Math.round(
+          ((quizScore + practiceScore) / (quizTotal + practiceTotal)) * 100,
+        )
+      : 100;
+  const isExcellent = overallPct >= 80;
+  const [showConfetti, setShowConfetti] = useState(isExcellent);
 
   return (
-    <div className="flex-1 flex flex-col items-center justify-center px-4 py-8">
-      <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-        className="text-center max-w-sm w-full"
-      >
-        <div
-          className={cn(
-            'w-20 h-20 rounded-full mx-auto mb-5 flex items-center justify-center',
-            isPerfect
-              ? 'bg-gradient-to-br from-amber-400 to-orange-500 shadow-lg shadow-amber-200 dark:shadow-amber-900/40'
-              : 'bg-gradient-to-br from-indigo-500 to-violet-600 shadow-lg shadow-indigo-200 dark:shadow-indigo-900/40',
-          )}
+    <>
+      <Confetti active={showConfetti} onComplete={() => setShowConfetti(false)} />
+      <div className="flex-1 flex flex-col items-center justify-center px-4 py-8">
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+          className="text-center max-w-sm w-full"
         >
-          <Trophy size={36} className="text-white" />
-        </div>
+          {/* Trophy */}
+          <motion.div
+            initial={{ scale: 0, rotate: -15 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ type: 'spring', stiffness: 200, damping: 15, delay: 0.2 }}
+            className={cn(
+              'w-20 h-20 rounded-full mx-auto mb-5 flex items-center justify-center',
+              isExcellent
+                ? 'bg-gradient-to-br from-amber-400 to-orange-500 shadow-lg shadow-amber-200 dark:shadow-amber-900/40'
+                : 'bg-gradient-to-br from-indigo-500 to-violet-600 shadow-lg shadow-indigo-200 dark:shadow-indigo-900/40',
+            )}
+          >
+            <Trophy size={36} className="text-white" />
+          </motion.div>
 
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-          {isPerfect ? 'Xuất sắc!' : 'Hoàn thành!'}
-        </h2>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">{lessonTitle}</p>
-
-        <div className="flex items-center justify-center gap-6 mb-8">
-          <div className="text-center">
-            <div className="flex items-center gap-1.5 justify-center">
-              <Zap size={18} className="text-indigo-500" />
-              <span className="text-2xl font-bold text-gray-900 dark:text-white">
-                +{xp}
-              </span>
-            </div>
-            <p className="text-xs text-gray-400 mt-0.5">XP</p>
-          </div>
-          <div className="w-px h-10 bg-gray-200 dark:bg-gray-700" />
-          <div className="text-center">
-            <div className="text-2xl font-bold text-gray-900 dark:text-white">
-              {score}/{total}
-            </div>
-            <p className="text-xs text-gray-400 mt-0.5">Điểm quiz</p>
-          </div>
-        </div>
-
-        <div className="space-y-3">
-          {nextLessonId && (
-            <Button onClick={onNextLesson} className="w-full" size="lg">
-              Bài tiếp theo
-              <ArrowRight size={18} />
-            </Button>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
+            {isExcellent ? 'Xuất sắc!' : 'Hoàn thành!'}
+          </h2>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">{lessonTitle}</p>
+          {!isExcellent && (
+            <p className="text-xs text-gray-400 dark:text-gray-500 mb-4">
+              Tiếp tục luyện tập, bạn sẽ giỏi hơn!
+            </p>
           )}
-          <Button onClick={onGoBack} variant="secondary" className="w-full" size="lg">
-            <RotateCcw size={16} />
-            Về trang học
-          </Button>
-        </div>
-      </motion.div>
-    </div>
+
+          {/* Score breakdown */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 p-4 mb-6 mt-4"
+          >
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              {/* Vocab */}
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded-md bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center">
+                  <BookOpen size={12} className="text-indigo-500" />
+                </div>
+                <span className="text-gray-600 dark:text-gray-400">Từ vựng</span>
+                <Check size={14} className="text-emerald-500 ml-auto" />
+              </div>
+
+              {/* Grammar */}
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded-md bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center">
+                  <Star size={12} className="text-emerald-500" />
+                </div>
+                <span className="text-gray-600 dark:text-gray-400">Ngữ pháp</span>
+                <Check size={14} className="text-emerald-500 ml-auto" />
+              </div>
+
+              {/* Practice */}
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded-md bg-orange-100 dark:bg-orange-900/40 flex items-center justify-center">
+                  <PenLine size={12} className="text-orange-500" />
+                </div>
+                <span className="text-gray-600 dark:text-gray-400">Thực hành</span>
+                <span className="text-xs font-semibold text-gray-900 dark:text-white ml-auto">
+                  {practiceTotal > 0 ? `${practiceScore}/${practiceTotal}` : '—'}
+                </span>
+              </div>
+
+              {/* Quiz */}
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 rounded-md bg-violet-100 dark:bg-violet-900/40 flex items-center justify-center">
+                  <Trophy size={12} className="text-violet-500" />
+                </div>
+                <span className="text-gray-600 dark:text-gray-400">Kiểm tra</span>
+                <span className="text-xs font-semibold text-gray-900 dark:text-white ml-auto">
+                  {quizScore}/{quizTotal}
+                </span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* XP */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="flex items-center justify-center gap-2 mb-6"
+          >
+            <Zap size={20} className="text-indigo-500" />
+            <span className="text-3xl font-bold text-gray-900 dark:text-white">
+              <AnimatedXP target={xp} />
+            </span>
+            <span className="text-sm text-gray-400 font-medium">XP</span>
+          </motion.div>
+
+          {/* New achievements */}
+          {newAchievements.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+              className="rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/20 border border-amber-200 dark:border-amber-800/50 p-3 mb-6"
+            >
+              <div className="flex items-center gap-2 justify-center">
+                <Award size={16} className="text-amber-500" />
+                <span className="text-sm font-semibold text-amber-700 dark:text-amber-400">
+                  Thành tựu mới!
+                </span>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Actions */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="space-y-3"
+          >
+            {nextLessonId && (
+              <Button onClick={onNextLesson} className="w-full" size="lg">
+                Bài tiếp theo
+                <ArrowRight size={18} />
+              </Button>
+            )}
+            <Button onClick={onGoBack} variant="secondary" className="w-full" size="lg">
+              <RotateCcw size={16} />
+              Về trang học
+            </Button>
+          </motion.div>
+        </motion.div>
+      </div>
+    </>
   );
 }
 
 // ── Main Page ──
 
-const PHASE_LABELS: Record<LessonPhase, string> = {
-  vocab: 'Từ vựng',
-  grammar: 'Ngữ pháp',
-  quiz: 'Kiểm tra',
-};
-
 export function LessonFlowPage() {
   const { lessonId } = useParams<{ lessonId: string }>();
   const navigate = useNavigate();
-  const { startLesson, completePhase, completeLesson, getLessonStatus } = useLessonStore();
+  const { startLesson, completePhase, completeLesson, getLessonStatus, progress } =
+    useLessonStore();
   const addXP = useProgressStore((s) => s.addXP);
+  const incrementWordsLearned = useProgressStore((s) => s.incrementWordsLearned);
 
   const result = findLesson(lessonId ?? '');
   const lesson = result?.lesson;
 
   const [phase, setPhase] = useState<LessonPhase>('vocab');
+  const [showingIntro, setShowingIntro] = useState(true);
   const [completed, setCompleted] = useState(false);
   const [quizScore, setQuizScore] = useState(0);
   const [quizTotal, setQuizTotal] = useState(0);
+  const [practiceScore, setPracticeScore] = useState(0);
+  const [practiceTotal, setPracticeTotal] = useState(0);
   const [earnedXP, setEarnedXP] = useState(0);
   const [started, setStarted] = useState(false);
+  const [completedPhases, setCompletedPhases] = useState<LessonPhase[]>([]);
+  const [newAchievements, setNewAchievements] = useState<string[]>([]);
+
+  // Track achievements unlocked during this lesson
+  const achievementListenerRef = useRef<((evt: { id: string }) => void) | null>(null);
+
+  useEffect(() => {
+    const handler = (evt: { id: string }) => {
+      setNewAchievements((prev) => [...prev, evt.id]);
+    };
+    achievementListenerRef.current = handler;
+    eventBus.on('achievement:unlocked', handler);
+    return () => {
+      eventBus.off('achievement:unlocked', handler);
+    };
+  }, []);
 
   const vocabTopic = useMemo(
     () => ALL_TOPICS.find((t) => t.topic === lesson?.vocabTopic),
@@ -491,12 +685,34 @@ export function LessonFlowPage() {
     [lessonId],
   );
 
+  // Resume: restore phase from store if lesson is in_progress
+  useEffect(() => {
+    if (!lessonId) return;
+    const p = progress[lessonId];
+    if (p?.status === 'in_progress' && p.currentPhase) {
+      setPhase(p.currentPhase);
+      setCompletedPhases(p.completedPhases);
+      setStarted(true);
+      setShowingIntro(false);
+      useToastStore.getState().addToast({
+        type: 'info',
+        title: 'Tiếp tục từ lần trước',
+        description: `Bạn đang ở phần ${PHASE_LABELS[p.currentPhase]}`,
+      });
+    }
+    // Only run on mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lessonId]);
+
   const startIfNeeded = useCallback(() => {
     if (!started && lessonId) {
-      startLesson(lessonId);
+      const existing = progress[lessonId];
+      if (!existing || existing.status !== 'in_progress') {
+        startLesson(lessonId);
+      }
       setStarted(true);
     }
-  }, [started, lessonId, startLesson]);
+  }, [started, lessonId, startLesson, progress]);
 
   const isLocked = lessonId ? getLessonStatus(lessonId) === 'locked' : false;
 
@@ -515,20 +731,30 @@ export function LessonFlowPage() {
     );
   }
 
-  // Phase index for progress bar
-  const phases: LessonPhase[] = ['vocab', 'grammar', 'quiz'];
+  const phases = ALL_PHASES;
   const phaseIdx = completed ? phases.length : phases.indexOf(phase);
+  const introAdjust = showingIntro ? 0 : 0.5;
   const progressPct = completed
     ? 100
-    : ((phaseIdx + 0.5) / phases.length) * 100;
+    : ((phaseIdx + introAdjust) / phases.length) * 100;
 
   const handlePhaseComplete = (currentPhase: LessonPhase) => {
     startIfNeeded();
     if (lessonId) completePhase(lessonId, currentPhase);
+    setCompletedPhases((prev) =>
+      prev.includes(currentPhase) ? prev : [...prev, currentPhase],
+    );
     const nextIdx = phases.indexOf(currentPhase) + 1;
     if (nextIdx < phases.length) {
       setPhase(phases[nextIdx]);
+      setShowingIntro(true);
     }
+  };
+
+  const handlePracticeComplete = (correct: number, total: number) => {
+    setPracticeScore(correct);
+    setPracticeTotal(total);
+    handlePhaseComplete('practice');
   };
 
   const handleQuizComplete = (score: number, total: number) => {
@@ -540,13 +766,33 @@ export function LessonFlowPage() {
     const xpQuiz = score * 10;
     const totalXP = xpBase + xpQuiz + xpBonus;
     setEarnedXP(totalXP);
+
     if (lessonId) {
       completePhase(lessonId, 'quiz');
-      // Fix 1: Only award XP on first completion — prevent XP farming on replay
+      setCompletedPhases((prev) =>
+        prev.includes('quiz') ? prev : [...prev, 'quiz'],
+      );
+
+      // Only award XP on first completion — prevent XP farming
       if (getLessonStatus(lessonId) !== 'completed') {
         addXP(totalXP);
+
+        // Increment words learned for vocab words in this lesson
+        const wordCount = Math.min(vocabTopic.words.length, 10);
+        for (let i = 0; i < wordCount; i++) {
+          incrementWordsLearned();
+        }
       }
+
       completeLesson(lessonId, score, totalXP);
+
+      // Emit events for achievement engine
+      eventBus.emit('lesson:complete', { lessonId });
+      eventBus.emit('quiz:complete', {
+        lessonId,
+        correct: score,
+        total,
+      });
     }
     setCompleted(true);
   };
@@ -555,10 +801,15 @@ export function LessonFlowPage() {
     if (nextLessonId) {
       navigate(`/learn/lesson/${nextLessonId}`, { replace: true });
       setPhase('vocab');
+      setShowingIntro(true);
       setCompleted(false);
       setStarted(false);
       setQuizScore(0);
       setQuizTotal(0);
+      setPracticeScore(0);
+      setPracticeTotal(0);
+      setCompletedPhases([]);
+      setNewAchievements([]);
     }
   };
 
@@ -583,9 +834,11 @@ export function LessonFlowPage() {
           </div>
         </div>
         {!completed && (
-          <span className="text-xs font-medium text-gray-400 dark:text-gray-500 shrink-0">
-            {PHASE_LABELS[phase]}
-          </span>
+          <PhaseStepper
+            phases={phases}
+            currentPhase={phase}
+            completedPhases={completedPhases}
+          />
         )}
       </div>
 
@@ -600,15 +853,27 @@ export function LessonFlowPage() {
             className="flex-1 flex"
           >
             <CompletionScreen
-              score={quizScore}
-              total={quizTotal}
+              quizScore={quizScore}
+              quizTotal={quizTotal}
+              practiceScore={practiceScore}
+              practiceTotal={practiceTotal}
               xp={earnedXP}
               lessonTitle={lesson.title}
               nextLessonId={nextLessonId}
               onNextLesson={handleNextLesson}
               onGoBack={() => navigate('/learn')}
+              newAchievements={newAchievements}
             />
           </motion.div>
+        ) : showingIntro ? (
+          <PhaseIntro
+            key={`intro-${phase}`}
+            phase={phase}
+            onStart={() => {
+              startIfNeeded();
+              setShowingIntro(false);
+            }}
+          />
         ) : phase === 'vocab' ? (
           <motion.div
             key="vocab"
@@ -620,10 +885,7 @@ export function LessonFlowPage() {
           >
             <VocabPhase
               words={vocabTopic.words}
-              onComplete={() => {
-                startIfNeeded();
-                handlePhaseComplete('vocab');
-              }}
+              onComplete={() => handlePhaseComplete('vocab')}
             />
           </motion.div>
         ) : phase === 'grammar' ? (
@@ -638,6 +900,21 @@ export function LessonFlowPage() {
             <GrammarPhase
               grammarId={lesson.grammarId}
               onComplete={() => handlePhaseComplete('grammar')}
+            />
+          </motion.div>
+        ) : phase === 'practice' ? (
+          <motion.div
+            key="practice"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -30 }}
+            transition={{ duration: 0.25 }}
+            className="flex-1 flex flex-col"
+          >
+            <PracticePhase
+              vocabTopic={lesson.vocabTopic}
+              words={vocabTopic.words}
+              onComplete={handlePracticeComplete}
             />
           </motion.div>
         ) : (
