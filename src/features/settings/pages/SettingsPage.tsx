@@ -58,65 +58,70 @@ export function SettingsPage() {
         </motion.div>
 
         <motion.div variants={containerVariants} initial="hidden" animate="visible">
-          {/* Theme */}
+          {/* Theme & Font Size */}
           <motion.div variants={sectionVariants} className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800 mb-4">
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Theme</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-              {themes.map(({ value, label, icon: Icon }) => (
-                <motion.button
-                  key={value}
-                  onClick={() => setTheme(value)}
-                  whileTap={{ scale: 0.95 }}
-                  className={cn(
-                    'flex flex-col items-center gap-2 p-3 rounded-xl border-2 transition-all',
-                    theme === value
-                      ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20'
-                      : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
-                  )}
-                >
-                  <Icon size={20} className={theme === value ? 'text-indigo-500' : 'text-gray-600 dark:text-gray-400'} />
-                  <span className={cn('text-sm font-medium', theme === value ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-700 dark:text-gray-300')}>
-                    {label}
-                  </span>
-                </motion.button>
-              ))}
+            <div className="flex flex-col sm:flex-row gap-5">
+              {/* Theme */}
+              <div className="flex-1">
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-3">Theme</h3>
+                <div className="grid grid-cols-3 gap-2">
+                  {themes.map(({ value, label, icon: Icon }) => (
+                    <motion.button
+                      key={value}
+                      onClick={() => setTheme(value)}
+                      whileTap={{ scale: 0.95 }}
+                      className={cn(
+                        'flex flex-col items-center gap-2 p-3 rounded-xl border-2 transition-all',
+                        theme === value
+                          ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20'
+                          : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
+                      )}
+                    >
+                      <Icon size={20} className={theme === value ? 'text-indigo-500' : 'text-gray-600 dark:text-gray-400'} />
+                      <span className={cn('text-sm font-medium', theme === value ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-700 dark:text-gray-300')}>
+                        {label}
+                      </span>
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Font Size */}
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-3">
+                  <Type size={16} className="text-violet-500" />
+                  <h3 className="font-semibold text-gray-900 dark:text-white">Font Size</h3>
+                </div>
+                <div className="grid grid-cols-3 gap-2">
+                  {fontScaleOptions.map(({ value, label, sizeLabel }) => (
+                    <motion.button
+                      key={value}
+                      onClick={() => setFontScale(value)}
+                      whileTap={{ scale: 0.95 }}
+                      className={cn(
+                        'flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 transition-all',
+                        fontScale === value
+                          ? 'border-violet-500 bg-violet-50 dark:bg-violet-900/20'
+                          : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
+                      )}
+                    >
+                      <span className={cn(
+                        'font-bold',
+                        value === 'small' ? 'text-sm' : value === 'large' ? 'text-xl' : 'text-base',
+                        fontScale === value ? 'text-violet-600 dark:text-violet-400' : 'text-gray-700 dark:text-gray-300'
+                      )}>
+                        {sizeLabel}
+                      </span>
+                      <span className={cn('text-xs font-medium', fontScale === value ? 'text-violet-600 dark:text-violet-400' : 'text-gray-600 dark:text-gray-400')}>
+                        {label}
+                      </span>
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          {/* Font Size */}
-          <motion.div variants={sectionVariants} className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800 mb-4">
-            <div className="flex items-center gap-2 mb-3">
-              <Type size={18} className="text-violet-500" />
-              <h3 className="font-semibold text-gray-900 dark:text-white">Font Size</h3>
-            </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Adjust text size across the app</p>
-            <div className="grid grid-cols-3 gap-2">
-              {fontScaleOptions.map(({ value, label, sizeLabel }) => (
-                <motion.button
-                  key={value}
-                  onClick={() => setFontScale(value)}
-                  whileTap={{ scale: 0.95 }}
-                  className={cn(
-                    'flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 transition-all',
-                    fontScale === value
-                      ? 'border-violet-500 bg-violet-50 dark:bg-violet-900/20'
-                      : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
-                  )}
-                >
-                  <span className={cn(
-                    'font-bold',
-                    value === 'small' ? 'text-sm' : value === 'large' ? 'text-xl' : 'text-base',
-                    fontScale === value ? 'text-violet-600 dark:text-violet-400' : 'text-gray-700 dark:text-gray-300'
-                  )}>
-                    {sizeLabel}
-                  </span>
-                  <span className={cn('text-xs font-medium', fontScale === value ? 'text-violet-600 dark:text-violet-400' : 'text-gray-600 dark:text-gray-400')}>
-                    {label}
-                  </span>
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
 
           {/* Daily Goal */}
           <motion.div variants={sectionVariants} className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800 mb-4">
