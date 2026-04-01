@@ -88,7 +88,7 @@ export function ListeningPage() {
           <Headphones className="text-indigo-500" size={24} />
           Listening Practice
         </h1>
-        <p className="text-gray-500 dark:text-gray-400 mt-1">{MODE_DESCRIPTIONS[mode]}</p>
+        <p className="text-gray-700 dark:text-gray-300 mt-1">{MODE_DESCRIPTIONS[mode]}</p>
       </div>
 
       {/* Category labels */}
@@ -102,7 +102,7 @@ export function ListeningPage() {
                 'inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium transition-colors',
                 isActive
                   ? `${cat.color} bg-gray-100 dark:bg-gray-800`
-                  : 'text-gray-400 dark:text-gray-600',
+                  : 'text-gray-600 dark:text-gray-400',
               )}
             >
               {cat.icon}
@@ -133,11 +133,11 @@ export function ListeningPage() {
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="font-semibold text-gray-900 dark:text-white">{topic.topicLabel}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">{topic.words.length} words</p>
+                <p className="text-sm text-gray-700 dark:text-gray-300">{topic.words.length} words</p>
               </div>
               <div className="flex items-center gap-2">
                 <Badge label={topic.cefrLevel} variant="cefr" />
-                <ChevronRight size={18} className="text-gray-300 dark:text-gray-600 group-hover:text-indigo-400 transition-colors" />
+                <ChevronRight size={18} className="text-gray-600 dark:text-gray-400 group-hover:text-indigo-400 transition-colors" />
               </div>
             </Link>
           </motion.div>
@@ -153,15 +153,15 @@ export function ListeningPage() {
         <div className="grid grid-cols-3 gap-4 text-center">
           <div>
             <p className="text-xl font-bold text-indigo-600 dark:text-indigo-400">{xp.toLocaleString()}</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Total XP</p>
+            <p className="text-xs text-gray-700 dark:text-gray-300">Total XP</p>
           </div>
           <div>
             <p className="text-xl font-bold text-emerald-600 dark:text-emerald-400">{todayXP}</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Today XP</p>
+            <p className="text-xs text-gray-700 dark:text-gray-300">Today XP</p>
           </div>
           <div>
             <p className="text-xl font-bold text-amber-600 dark:text-amber-400">{currentStreak}</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Day Streak</p>
+            <p className="text-xs text-gray-700 dark:text-gray-300">Day Streak</p>
           </div>
         </div>
       </div>

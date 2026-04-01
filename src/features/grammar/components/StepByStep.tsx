@@ -50,7 +50,7 @@ export function StepByStep({ steps, lessonId }: StepByStepProps) {
     <div className="space-y-4">
       {/* Progress bar */}
       <div className="space-y-2">
-        <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+        <div className="flex items-center justify-between text-xs text-gray-700 dark:text-gray-300">
           <span className="font-medium">Bước {current + 1}/{steps.length}</span>
           <span>{Math.round(progress)}%</span>
         </div>
@@ -108,7 +108,7 @@ export function StepByStep({ steps, lessonId }: StepByStepProps) {
               {step.examples.map((ex, j) => (
                 <div key={j} className="pl-3 border-l-2 border-indigo-200 dark:border-indigo-800">
                   <p className="text-sm text-gray-900 dark:text-white">{renderBold(ex.en)}</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 italic">{ex.vi}</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300 italic">{ex.vi}</p>
                 </div>
               ))}
             </div>
@@ -144,7 +144,7 @@ export function StepByStep({ steps, lessonId }: StepByStepProps) {
           className={`
             flex items-center gap-1 px-3 py-2 rounded-xl text-sm font-medium transition-colors
             ${current === 0
-              ? 'text-gray-300 dark:text-gray-700 cursor-not-allowed'
+              ? 'text-gray-600 dark:text-gray-400 cursor-not-allowed'
               : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'
             }
           `}
@@ -159,7 +159,7 @@ export function StepByStep({ steps, lessonId }: StepByStepProps) {
           className={`
             flex items-center gap-1 px-3 py-2 rounded-xl text-sm font-medium transition-colors
             ${current === steps.length - 1
-              ? 'text-gray-300 dark:text-gray-700 cursor-not-allowed'
+              ? 'text-gray-600 dark:text-gray-400 cursor-not-allowed'
               : 'text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/30'
             }
           `}

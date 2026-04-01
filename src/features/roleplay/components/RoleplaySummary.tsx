@@ -54,7 +54,7 @@ export function RoleplaySummary({ summary, scenarioTitle, onNewScenario }: Rolep
         <motion.div variants={sectionVariants} className="flex items-center gap-3 mb-5">
           <button
             onClick={onNewScenario}
-            className="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="p-1.5 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
           >
             <ArrowLeft size={20} />
           </button>
@@ -105,7 +105,7 @@ export function RoleplaySummary({ summary, scenarioTitle, onNewScenario }: Rolep
               style={{ width: `${summary.fluency * 10}%` }}
             />
           </div>
-          <p className="text-xs text-gray-500 dark:text-gray-400">{summary.fluencyFeedback}</p>
+          <p className="text-xs text-gray-700 dark:text-gray-300">{summary.fluencyFeedback}</p>
           <p className="text-xs text-indigo-500 font-semibold mt-2">+{xp} XP</p>
         </motion.div>
 
@@ -119,7 +119,7 @@ export function RoleplaySummary({ summary, scenarioTitle, onNewScenario }: Rolep
               <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
                 Lỗi ngữ pháp ({summary.grammarIssues.length})
               </h3>
-              {showGrammar ? <ChevronUp size={16} className="text-gray-400" /> : <ChevronDown size={16} className="text-gray-400" />}
+              {showGrammar ? <ChevronUp size={16} className="text-gray-600 dark:text-gray-400" /> : <ChevronDown size={16} className="text-gray-600 dark:text-gray-400" />}
             </button>
             <AnimatePresence>
               {showGrammar && (
@@ -135,10 +135,10 @@ export function RoleplaySummary({ summary, scenarioTitle, onNewScenario }: Rolep
                       <div key={i} className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-3">
                         <div className="flex items-start gap-2 text-sm">
                           <span className="text-red-500 line-through shrink-0">{issue.original}</span>
-                          <span className="text-gray-400">→</span>
+                          <span className="text-gray-600 dark:text-gray-400">→</span>
                           <span className="text-green-600 dark:text-green-400 font-medium">{issue.correction}</span>
                         </div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1.5">{issue.explanation}</p>
+                        <p className="text-xs text-gray-700 dark:text-gray-300 mt-1.5">{issue.explanation}</p>
                       </div>
                     ))}
                   </div>

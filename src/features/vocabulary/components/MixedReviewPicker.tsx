@@ -50,14 +50,14 @@ export function MixedReviewPicker({ stats, loading, initialFilter, onStart }: Mi
           <Shuffle size={26} className="text-white" />
         </div>
         <h2 className="text-xl font-bold text-gray-900 dark:text-white">Ôn tập tổng hợp</h2>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+        <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
           Ôn từ vựng xen kẽ giữa các chủ đề
         </p>
       </div>
 
       {/* Word Count */}
       <div className="space-y-2">
-        <label className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+        <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
           Số từ
         </label>
         <div className="grid grid-cols-4 gap-2">
@@ -80,7 +80,7 @@ export function MixedReviewPicker({ stats, loading, initialFilter, onStart }: Mi
 
       {/* Source Filter */}
       <div className="space-y-2">
-        <label className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+        <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
           Nguồn
         </label>
         <div className="grid grid-cols-2 gap-2">
@@ -104,7 +104,7 @@ export function MixedReviewPicker({ stats, loading, initialFilter, onStart }: Mi
 
       {/* Mode */}
       <div className="space-y-2">
-        <label className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+        <label className="text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
           Chế độ
         </label>
         <div className="grid grid-cols-3 gap-2">
@@ -128,27 +128,27 @@ export function MixedReviewPicker({ stats, loading, initialFilter, onStart }: Mi
 
       {/* Stats */}
       <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-4 space-y-2">
-        <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
+        <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-3">
           Thống kê
         </p>
         <div className="grid grid-cols-3 gap-3 text-center">
           <div>
-            <p className={cn('text-lg font-bold', stats.dueCount > 0 ? 'text-red-500' : 'text-gray-400')}>
+            <p className={cn('text-lg font-bold', stats.dueCount > 0 ? 'text-red-500' : 'text-gray-600 dark:text-gray-400')}>
               {loading ? '—' : stats.dueCount}
             </p>
-            <p className="text-[11px] text-gray-500 dark:text-gray-400">Đến hạn</p>
+            <p className="text-[11px] text-gray-700 dark:text-gray-300">Đến hạn</p>
           </div>
           <div>
-            <p className={cn('text-lg font-bold', stats.weakCount > 0 ? 'text-amber-500' : 'text-gray-400')}>
+            <p className={cn('text-lg font-bold', stats.weakCount > 0 ? 'text-amber-500' : 'text-gray-600 dark:text-gray-400')}>
               {loading ? '—' : stats.weakCount}
             </p>
-            <p className="text-[11px] text-gray-500 dark:text-gray-400">Từ yếu</p>
+            <p className="text-[11px] text-gray-700 dark:text-gray-300">Từ yếu</p>
           </div>
           <div>
             <p className="text-lg font-bold text-gray-700 dark:text-gray-300">
               {loading ? '—' : stats.totalCount}
             </p>
-            <p className="text-[11px] text-gray-500 dark:text-gray-400">Tổng số</p>
+            <p className="text-[11px] text-gray-700 dark:text-gray-300">Tổng số</p>
           </div>
         </div>
       </div>

@@ -68,7 +68,7 @@ export function VocabularyPage() {
             <BookOpen className="text-indigo-500" size={24} />
             Vocabulary
           </h1>
-          <p className="text-gray-500 dark:text-gray-400 mt-1">Choose a topic to start learning</p>
+          <p className="text-gray-700 dark:text-gray-300 mt-1">Choose a topic to start learning</p>
         </div>
         <Link
           to="/vocabulary/mixed-review"
@@ -92,7 +92,7 @@ export function VocabularyPage() {
             <p className="font-semibold text-gray-900 dark:text-white text-sm">
               {dueCount} từ đến hạn ôn tập hôm nay!
             </p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
+            <p className="text-xs text-gray-700 dark:text-gray-300">
               Ôn tập cách quãng giúp ghi nhớ lâu hơn
             </p>
           </div>
@@ -109,7 +109,7 @@ export function VocabularyPage() {
       {/* Search + Filter */}
       <div className="space-y-3">
         <div className="relative">
-          <Search size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+          <Search size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600 dark:text-gray-400" />
           <input
             type="text"
             value={search}
@@ -120,7 +120,7 @@ export function VocabularyPage() {
           {search && (
             <button
               onClick={() => setSearch('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400"
             >
               <X size={16} />
             </button>
@@ -178,9 +178,9 @@ export function VocabularyPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-semibold text-gray-900 dark:text-white">{topic.name}</h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{topic.wordCount} words</p>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">{topic.wordCount} words</p>
                   </div>
-                  <ChevronRight size={18} className="text-gray-300 dark:text-gray-600 group-hover:text-indigo-400 transition-colors" />
+                  <ChevronRight size={18} className="text-gray-600 dark:text-gray-400 group-hover:text-indigo-400 transition-colors" />
                 </Link>
               </motion.div>
             ))}
@@ -195,7 +195,7 @@ export function VocabularyPage() {
             </div>
             <div>
               <h3 className="font-semibold text-gray-900 dark:text-white">Create Custom Topic</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">Build your own word lists</p>
+              <p className="text-sm text-gray-700 dark:text-gray-300">Build your own word lists</p>
             </div>
           </Link>
         )}
@@ -205,8 +205,8 @@ export function VocabularyPage() {
       {/* Empty search state */}
       {query && filteredBuiltIn.length === 0 && filteredCustom.length === 0 && (
         <div className="text-center py-12">
-          <Search size={32} className="mx-auto text-gray-300 dark:text-gray-600 mb-3" />
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <Search size={32} className="mx-auto text-gray-600 dark:text-gray-400 mb-3" />
+          <p className="text-sm text-gray-700 dark:text-gray-300">
             No topics found for "{search}"
           </p>
         </div>

@@ -82,13 +82,13 @@ function StatusBadge({ status }: { status: KeyStatus }) {
       );
     case 'untested':
       return (
-        <span className="inline-flex items-center gap-1.5 text-sm text-gray-400">
+        <span className="inline-flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400">
           <Circle size={16} /> Chưa kiểm tra
         </span>
       );
     default:
       return (
-        <span className="inline-flex items-center gap-1.5 text-sm text-gray-400">
+        <span className="inline-flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400">
           <Circle size={16} /> Chưa cài đặt
         </span>
       );
@@ -152,7 +152,7 @@ function ProviderCard({ provider }: { provider: ProviderConfig }) {
         <div className="flex items-center gap-2">
           <span className="text-xl">{provider.icon}</span>
           <h4 className="font-semibold text-gray-900 dark:text-white">{provider.name}</h4>
-          <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400">
+          <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
             {provider.label}
           </span>
         </div>
@@ -172,7 +172,7 @@ function ProviderCard({ provider }: { provider: ProviderConfig }) {
           <button
             type="button"
             onClick={() => setShowKey(!showKey)}
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400"
           >
             {showKey ? <EyeOff size={18} /> : <Eye size={18} />}
           </button>
@@ -184,7 +184,7 @@ function ProviderCard({ provider }: { provider: ProviderConfig }) {
             'px-4 py-2.5 rounded-xl text-sm font-medium transition-colors',
             key
               ? 'bg-indigo-500 hover:bg-indigo-600 text-white'
-              : 'bg-gray-100 dark:bg-gray-800 text-gray-400 cursor-not-allowed',
+              : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 cursor-not-allowed',
           )}
         >
           Test
@@ -195,7 +195,7 @@ function ProviderCard({ provider }: { provider: ProviderConfig }) {
       <div className="mt-4">
         <button
           onClick={() => setInstructionsOpen(!instructionsOpen)}
-          className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+          className="flex items-center gap-1.5 text-sm text-gray-700 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400 transition-colors"
         >
           <span>📋 Cách lấy key</span>
           {instructionsOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -204,7 +204,7 @@ function ProviderCard({ provider }: { provider: ProviderConfig }) {
         {instructionsOpen && (
           <div className="mt-2 pl-1 space-y-1.5">
             {provider.steps.map((step, i) => (
-              <p key={i} className="text-sm text-gray-500 dark:text-gray-400">
+              <p key={i} className="text-sm text-gray-700 dark:text-gray-300">
                 {i + 1}. {step}
               </p>
             ))}

@@ -99,18 +99,18 @@ export function AccentExposureSession({ topic }: AccentExposureSessionProps) {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-4 text-center">
               <p className="text-2xl font-bold text-sky-600 dark:text-sky-400">{correctCount}/{total}</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Correct</p>
+              <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">Correct</p>
             </div>
             <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-4 text-center">
               <p className="text-2xl font-bold text-sky-600 dark:text-sky-400">{accuracy}%</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Accuracy</p>
+              <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">Accuracy</p>
             </div>
             <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-4 text-center">
               <div className="flex items-center justify-center gap-1">
                 <Trophy size={16} className="text-amber-500" />
                 <p className="text-2xl font-bold text-amber-500">+{xpEarned}</p>
               </div>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">XP Earned</p>
+              <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">XP Earned</p>
             </div>
           </div>
 
@@ -145,7 +145,7 @@ export function AccentExposureSession({ topic }: AccentExposureSessionProps) {
                     <div className="flex items-center gap-2">
                       <span>{a.question.accentFlag}</span>
                       <span className="font-medium text-gray-900 dark:text-white">{a.question.word.word}</span>
-                      <span className="text-gray-400 text-xs">{a.question.word.ipa}</span>
+                      <span className="text-gray-600 dark:text-gray-400 text-xs">{a.question.word.ipa}</span>
                     </div>
                     <p className="text-red-600 dark:text-red-400 mt-1">Your answer: {a.userAnswer}</p>
                   </div>
@@ -178,14 +178,14 @@ export function AccentExposureSession({ topic }: AccentExposureSessionProps) {
           <div>
             <h2 className="font-semibold text-gray-900 dark:text-white">Accent Exposure</h2>
             <div className="flex items-center gap-2 mt-0.5">
-              <span className="text-xs text-gray-500 dark:text-gray-400">{topicLabel}</span>
+              <span className="text-xs text-gray-700 dark:text-gray-300">{topicLabel}</span>
               <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-sky-50 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400 text-xs font-medium">
                 {currentAccent.flag} {currentAccent.label}
               </span>
             </div>
           </div>
         </div>
-        <button onClick={() => setShowExitConfirm(true)} className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+        <button onClick={() => setShowExitConfirm(true)} className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400 transition-colors">
           <X size={22} />
         </button>
       </div>
@@ -193,10 +193,10 @@ export function AccentExposureSession({ topic }: AccentExposureSessionProps) {
       {/* Round indicator */}
       <div className="space-y-2">
         <div className="flex items-center justify-between text-sm">
-          <span className="text-gray-500 dark:text-gray-400">
+          <span className="text-gray-700 dark:text-gray-300">
             Round {currentAccentIndex + 1}/3 — {currentAccent.flag} {currentAccent.label}
           </span>
-          <span className="text-gray-500 dark:text-gray-400">
+          <span className="text-gray-700 dark:text-gray-300">
             {currentIndex + 1} of {total}
           </span>
         </div>
@@ -233,7 +233,7 @@ export function AccentExposureSession({ topic }: AccentExposureSessionProps) {
             <div key={a.id} className="flex-1 text-center">
               <span className={cn(
                 'text-[10px] font-medium',
-                a.id === currentItem.accent ? 'text-sky-600 dark:text-sky-400' : 'text-gray-400 dark:text-gray-600',
+                a.id === currentItem.accent ? 'text-sky-600 dark:text-sky-400' : 'text-gray-600 dark:text-gray-400',
               )}>
                 {a.flag}
               </span>
@@ -262,7 +262,7 @@ export function AccentExposureSession({ topic }: AccentExposureSessionProps) {
             <Volume2 size={32} />
           )}
         </motion.button>
-        <p className="text-sm text-gray-400 dark:text-gray-500 mt-3">Tap to listen</p>
+        <p className="text-sm text-gray-600 dark:text-gray-400 mt-3">Tap to listen</p>
       </div>
 
       {/* Input form */}
@@ -345,7 +345,7 @@ export function AccentExposureSession({ topic }: AccentExposureSessionProps) {
                   <span className="text-lg">{a.flag}</span>
                   <Play size={16} className="text-sky-500 shrink-0" />
                   <span className="text-sm font-medium text-gray-900 dark:text-white">{a.label}</span>
-                  <span className="text-xs text-gray-400 dark:text-gray-500 ml-auto">{currentItem.word.ipa}</span>
+                  <span className="text-xs text-gray-600 dark:text-gray-400 ml-auto">{currentItem.word.ipa}</span>
                 </button>
               ))}
             </div>
@@ -380,7 +380,7 @@ export function AccentExposureSession({ topic }: AccentExposureSessionProps) {
             className="bg-white dark:bg-gray-900 rounded-2xl p-6 mx-4 max-w-sm w-full shadow-xl border border-gray-100 dark:border-gray-800"
           >
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Quit session?</h3>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">Your progress will be lost.</p>
+            <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">Your progress will be lost.</p>
             <div className="flex gap-3">
               <button onClick={() => setShowExitConfirm(false)} className="flex-1 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
                 Continue

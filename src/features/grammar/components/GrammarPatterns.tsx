@@ -57,17 +57,17 @@ export function GrammarPatterns() {
     <div className="space-y-4">
       {/* Search bar */}
       <div className="relative">
-        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600 dark:text-gray-400 pointer-events-none" />
         <input
           type="text"
           value={query}
           onChange={e => setQuery(e.target.value)}
           placeholder="Tìm pattern: suggest + V-ing, used to..."
           aria-label="Tìm kiếm grammar pattern"
-          className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/30 focus:border-fuchsia-300 dark:focus:border-fuchsia-600 transition-all"
+          className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-600 dark:text-gray-400 dark:placeholder:text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/30 focus:border-fuchsia-300 dark:focus:border-fuchsia-600 transition-all"
         />
         {query && (
-          <button onClick={() => setQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+          <button onClick={() => setQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400">
             <X size={16} />
           </button>
         )}
@@ -89,7 +89,7 @@ export function GrammarPatterns() {
           <ArrowUpDown size={13} />
           {sortBy === 'level' ? 'Level' : 'A → Z'}
         </button>
-        <span className="text-xs text-gray-400 dark:text-gray-500 ml-auto">
+        <span className="text-xs text-gray-600 dark:text-gray-400 ml-auto">
           {resultCount} / {GRAMMAR_PATTERNS.length} patterns
         </span>
       </div>
@@ -107,7 +107,7 @@ export function GrammarPatterns() {
             <div className="p-3 bg-gray-50 dark:bg-gray-800/40 rounded-xl border border-gray-100 dark:border-gray-800 space-y-3">
               {/* Level chips */}
               <div>
-                <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1.5">Level</p>
+                <p className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1.5">Level</p>
                 <div className="flex flex-wrap gap-1.5">
                   <LevelChip value="all" active={activeLevel === 'all'} onClick={() => setFilter('level', 'all')} label={`Tất cả (${GRAMMAR_PATTERNS.length})`} />
                   {Object.entries(LEVEL_STYLES).map(([key, style]) => (
@@ -124,7 +124,7 @@ export function GrammarPatterns() {
       <div className="space-y-1">
         {results.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-sm text-gray-400 dark:text-gray-500">Không tìm thấy pattern nào</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Không tìm thấy pattern nào</p>
           </div>
         ) : (
           results.map(pattern => (
@@ -165,10 +165,10 @@ function PatternCard({ pattern, expanded, onToggle, patternMap }: {
             {pattern.level}
           </span>
           <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }} className="flex-shrink-0">
-            <ChevronDown size={16} className="text-gray-400" />
+            <ChevronDown size={16} className="text-gray-600 dark:text-gray-400" />
           </motion.div>
         </div>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5 truncate">{pattern.meaning}</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300 mt-0.5 truncate">{pattern.meaning}</p>
       </div>
 
       {/* Expanded detail */}
@@ -196,7 +196,7 @@ function PatternCard({ pattern, expanded, onToggle, patternMap }: {
                     </span>
                     <div>
                       <p className="text-sm font-medium text-gray-900 dark:text-white leading-relaxed">{ex.en}</p>
-                      <p className="text-sm text-gray-500 dark:text-gray-400 italic leading-relaxed">{ex.vi}</p>
+                      <p className="text-sm text-gray-700 dark:text-gray-300 italic leading-relaxed">{ex.vi}</p>
                     </div>
                   </div>
                 ))}
@@ -217,7 +217,7 @@ function PatternCard({ pattern, expanded, onToggle, patternMap }: {
               {/* Related patterns */}
               {pattern.relatedPatterns && pattern.relatedPatterns.length > 0 && (
                 <div className="flex items-center gap-1.5 flex-wrap">
-                  <span className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Related:</span>
+                  <span className="text-[11px] font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">Related:</span>
                   {pattern.relatedPatterns.map(relId => {
                     const related = patternMap[relId];
                     if (!related) return null;
@@ -252,7 +252,7 @@ function LevelChip({ value, active, onClick, label, colorBg, colorText }: {
         ? colorBg
           ? `${colorBg} ${colorText} border-current/20`
           : 'bg-fuchsia-100 dark:bg-fuchsia-900/40 text-fuchsia-700 dark:text-fuchsia-400 border-fuchsia-200 dark:border-fuchsia-700'
-        : 'bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700 hover:border-gray-300'
+        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300'
       }`}
     >
       {label}

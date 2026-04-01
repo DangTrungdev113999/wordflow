@@ -117,7 +117,7 @@ export function RoleplayChat({ messages, isSending, error, disabled, onSend }: R
             placeholder={disabled ? 'Cuộc hội thoại đã kết thúc' : 'Nhập tin nhắn...'}
             disabled={isSending || disabled}
             rows={1}
-            className="flex-1 px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-sm text-gray-900 dark:text-white resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 disabled:opacity-50 placeholder:text-gray-400"
+            className="flex-1 px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-sm text-gray-900 dark:text-white resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 disabled:opacity-50 placeholder:text-gray-600 dark:text-gray-400"
           />
           <button
             onClick={handleSend}

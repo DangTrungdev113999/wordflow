@@ -51,12 +51,12 @@ export function PrepositionGuide() {
               className={`flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg transition-all ${
                 isActive
                   ? 'bg-white dark:bg-gray-700 text-sky-700 dark:text-sky-400 shadow-sm'
-                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400'
               }`}
             >
               <Icon size={14} />
               <span>{tab.label}</span>
-              <span className={`text-[11px] ml-0.5 ${isActive ? 'text-sky-500 dark:text-sky-400' : 'text-gray-400 dark:text-gray-500'}`}>
+              <span className={`text-[11px] ml-0.5 ${isActive ? 'text-sky-500 dark:text-sky-400' : 'text-gray-600 dark:text-gray-400'}`}>
                 ({tabCounts[tab.key] || 0})
               </span>
             </button>
@@ -76,7 +76,7 @@ export function PrepositionGuide() {
         >
           {filteredRules.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-sm text-gray-400 dark:text-gray-500">Không có dữ liệu</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Không có dữ liệu</p>
             </div>
           ) : (
             filteredRules.map(rule => (
@@ -117,12 +117,12 @@ function PrepositionCard({ rule, expanded, onToggle }: {
             <span className="inline-flex items-center px-3 py-1 rounded-lg text-base font-bold bg-sky-50 dark:bg-sky-900/25 text-sky-700 dark:text-sky-400 border border-sky-200 dark:border-sky-800">
               {rule.preposition}
             </span>
-            <span className="text-sm text-gray-500 dark:text-gray-400">
+            <span className="text-sm text-gray-700 dark:text-gray-300">
               {rule.rules.length} cách dùng · {rule.commonMistakes.length} lỗi hay gặp
             </span>
           </div>
           <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
-            <ChevronDown size={16} className="text-gray-400" />
+            <ChevronDown size={16} className="text-gray-600 dark:text-gray-400" />
           </motion.div>
         </div>
       </div>
@@ -176,7 +176,7 @@ function PrepositionCard({ rule, expanded, onToggle }: {
               {/* Common Mistakes */}
               {rule.commonMistakes.length > 0 && (
                 <div className="space-y-2 pt-2 border-t border-gray-200 dark:border-gray-700">
-                  <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  <p className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     Lỗi hay gặp
                   </p>
                   <div className="space-y-1.5">

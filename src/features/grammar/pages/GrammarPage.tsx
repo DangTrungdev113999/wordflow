@@ -83,7 +83,7 @@ export function GrammarPage() {
         </div>
         <div>
           <h1 className="text-xl font-bold text-gray-900 dark:text-white">Grammar</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-700 dark:text-gray-300">
             {lessons.length} lessons available
           </p>
         </div>
@@ -110,7 +110,7 @@ export function GrammarPage() {
               className={`relative z-10 flex items-center gap-1.5 ${
                 activeTab === tab.id
                   ? 'text-gray-900 dark:text-white'
-                  : 'text-gray-500 dark:text-gray-400'
+                  : 'text-gray-700 dark:text-gray-300'
               }`}
             >
               <tab.icon size={16} />
@@ -167,7 +167,7 @@ export function GrammarPage() {
                   animate="visible"
                   transition={{ delay: meta.delay }}
                 >
-                  <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
+                  <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-3">
                     Level {lv} — {meta.subtitle}
                   </h2>
                   <div className="space-y-3">

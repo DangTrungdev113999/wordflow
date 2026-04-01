@@ -25,7 +25,7 @@ export function ReadingPage() {
         </div>
         <div>
           <h1 className="text-xl font-bold text-gray-900 dark:text-white">Reading</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-700 dark:text-gray-300">
             {READING_PASSAGES.length} passages available
           </p>
         </div>
@@ -57,7 +57,7 @@ export function ReadingPage() {
         ))}
 
         {filtered.length === 0 && (
-          <p className="text-center text-gray-400 dark:text-gray-500 py-12">
+          <p className="text-center text-gray-600 dark:text-gray-400 py-12">
             No passages for this level yet.
           </p>
         )}

@@ -40,7 +40,7 @@ export function AIHubPage() {
         </div>
         <div>
           <h1 className="text-xl font-bold text-gray-900 dark:text-white">AI Features</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Luyện tiếng Anh với trí tuệ nhân tạo</p>
+          <p className="text-sm text-gray-700 dark:text-gray-300">Luyện tiếng Anh với trí tuệ nhân tạo</p>
         </div>
       </div>
 
@@ -61,19 +61,19 @@ export function AIHubPage() {
                   <div className="flex items-center gap-2">
                     <h3 className="font-semibold text-gray-900 dark:text-white">{feature.titleVi}</h3>
                     {!feature.available && (
-                      <span className="px-2 py-0.5 text-xs rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400">
+                      <span className="px-2 py-0.5 text-xs rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
                         Sắp có
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+                  <p className="text-sm text-gray-700 dark:text-gray-300 mt-0.5">
                     {feature.description}
                   </p>
                 </div>
                 {feature.available && (
                   <ArrowRight
                     size={18}
-                    className="text-gray-300 dark:text-gray-600 group-hover:text-indigo-500 transition-colors shrink-0 mt-1"
+                    className="text-gray-600 dark:text-gray-400 group-hover:text-indigo-500 transition-colors shrink-0 mt-1"
                   />
                 )}
               </div>

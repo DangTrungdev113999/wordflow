@@ -52,7 +52,7 @@ export function PassageReader({ passage, onStartQuiz }: Props) {
       {/* Title & Meta */}
       <div>
         <h2 className="text-xl font-bold text-gray-900 dark:text-white">{passage.title}</h2>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+        <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
           {passage.level} · {passage.wordCount} words · {passage.questions.length} questions
         </p>
       </div>
@@ -70,7 +70,7 @@ export function PassageReader({ passage, onStartQuiz }: Props) {
       </div>
 
       {/* Hint */}
-      <p className="text-sm text-gray-400 dark:text-gray-500 text-center">
+      <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
         Tap highlighted words to see their meaning
       </p>
 

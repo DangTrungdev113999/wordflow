@@ -70,7 +70,7 @@ export function TransformExercise({ exercise, onAnswer }: Props) {
 
       {/* Original sentence card */}
       <div className="relative px-4 py-3 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100/60 dark:from-gray-800/60 dark:to-gray-900/40 border border-gray-200 dark:border-gray-700">
-        <div className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-1">
+        <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-1">
           Original
         </div>
         <p className="text-base text-gray-900 dark:text-white font-medium">
@@ -131,7 +131,7 @@ export function TransformExercise({ exercise, onAnswer }: Props) {
           transition={{ duration: 0.3, delay: 0.2 }}
           className="px-4 py-3 rounded-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800"
         >
-          <div className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide mb-2">
+          <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">
             {isCorrect ? 'Changes made' : 'Correct answer'}
           </div>
           <div className="flex flex-wrap gap-1">

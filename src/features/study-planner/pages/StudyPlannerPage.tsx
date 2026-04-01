@@ -51,7 +51,7 @@ export function StudyPlannerPage() {
       {/* Page header */}
       <div>
         <h1 className="text-xl font-bold text-gray-900 dark:text-white">Study Planner</h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+        <p className="text-sm text-gray-700 dark:text-gray-300 mt-0.5">
           Set goals, track progress, and build a study habit
         </p>
       </div>
@@ -119,9 +119,9 @@ export function StudyPlannerPage() {
         ) : (
           <Card className="mb-3">
             <div className="text-center py-6">
-              <Target size={32} className="mx-auto text-gray-300 dark:text-gray-600 mb-2" />
-              <p className="text-sm text-gray-500 dark:text-gray-400">No goals yet</p>
-              <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
+              <Target size={32} className="mx-auto text-gray-600 dark:text-gray-400 mb-2" />
+              <p className="text-sm text-gray-700 dark:text-gray-300">No goals yet</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">
                 Add a goal to start tracking your progress
               </p>
             </div>

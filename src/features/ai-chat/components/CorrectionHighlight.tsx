@@ -13,9 +13,9 @@ export function CorrectionHighlight({ corrections }: CorrectionHighlightProps) {
       {corrections.map((c, i) => (
         <div key={i} className="text-sm">
           <span className="text-red-500 line-through">{c.wrong}</span>
-          <span className="mx-1.5 text-gray-400">→</span>
+          <span className="mx-1.5 text-gray-600 dark:text-gray-400">→</span>
           <span className="text-green-600 dark:text-green-400 font-medium">{c.correct}</span>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 pl-0.5">
+          <p className="text-xs text-gray-700 dark:text-gray-300 mt-0.5 pl-0.5">
             {c.explanation}
           </p>
         </div>

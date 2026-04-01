@@ -30,10 +30,10 @@ export function ScenarioCard({ scenario, onSelect }: ScenarioCardProps) {
               {scenario.level}
             </span>
           </div>
-          <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2 mb-2">
+          <p className="text-xs text-gray-700 dark:text-gray-300 line-clamp-2 mb-2">
             {scenario.descriptionVi}
           </p>
-          <p className="text-xs text-gray-400 dark:text-gray-500">
+          <p className="text-xs text-gray-600 dark:text-gray-400">
             {scenario.maxTurns} lượt · {scenario.userRoleVi}
           </p>
         </div>

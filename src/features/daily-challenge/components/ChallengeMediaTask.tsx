@@ -30,13 +30,13 @@ export function ChallengeMediaTask({ word, options, done, onComplete }: Props) {
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
       <Card>
         <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-1">📰 Vocab Quiz</h3>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+        <p className="text-xs text-gray-700 dark:text-gray-300 mb-3">
           What does this word mean?
         </p>
 
         <div className="mb-4 p-3 rounded-xl bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30 border border-indigo-100 dark:border-indigo-900/50">
           <p className="text-xl font-bold text-indigo-700 dark:text-indigo-400 text-center">{word.word}</p>
-          <p className="text-xs text-gray-400 dark:text-gray-500 font-mono text-center mt-1">{word.ipa}</p>
+          <p className="text-xs text-gray-600 dark:text-gray-400 font-mono text-center mt-1">{word.ipa}</p>
         </div>
 
         <div className="space-y-2 mb-3">
@@ -66,7 +66,7 @@ export function ChallengeMediaTask({ word, options, done, onComplete }: Props) {
               {isCorrect ? '🎉 Correct!' : `❌ The meaning is: "${word.meaning}"`}
             </p>
             <div className="p-2.5 bg-gray-50 dark:bg-gray-800 rounded-xl">
-              <p className="text-xs text-gray-500 dark:text-gray-400 italic">"{word.example}"</p>
+              <p className="text-xs text-gray-700 dark:text-gray-300 italic">"{word.example}"</p>
             </div>
             <button
               onClick={() => onComplete(isCorrect ? 100 : 0)}

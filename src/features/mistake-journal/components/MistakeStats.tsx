@@ -80,7 +80,7 @@ export function MistakeStatsView() {
       <div className="text-center py-16">
         <p className="text-4xl mb-3">📊</p>
         <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1">No data yet</h3>
-        <p className="text-sm text-gray-500">Start practicing to see your mistake statistics.</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300">Start practicing to see your mistake statistics.</p>
       </div>
     );
   }
@@ -97,7 +97,7 @@ export function MistakeStatsView() {
         ].map(s => (
           <div key={s.label} className="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-3 text-center">
             <p className={`text-2xl font-bold ${s.color}`}>{s.value}</p>
-            <p className="text-xs text-gray-500 mt-0.5">{s.label}</p>
+            <p className="text-xs text-gray-700 dark:text-gray-300 mt-0.5">{s.label}</p>
           </div>
         ))}
       </div>
@@ -167,7 +167,7 @@ export function MistakeStatsView() {
           <span className="text-sm text-gray-600 dark:text-gray-400">Average Ease Factor</span>
           <span className="text-lg font-bold text-gray-800 dark:text-gray-200">{stats.avgEase}</span>
         </div>
-        <p className="text-xs text-gray-400 mt-1">Higher is easier (1.3 - 3.5+). A value around 2.5 is normal.</p>
+        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Higher is easier (1.3 - 3.5+). A value around 2.5 is normal.</p>
       </div>
     </div>
   );

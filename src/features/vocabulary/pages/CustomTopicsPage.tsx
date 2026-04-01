@@ -58,7 +58,7 @@ export function CustomTopicsPage() {
         </Link>
         <div className="flex-1">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">My Word Lists</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Create custom topics and add words</p>
+          <p className="text-sm text-gray-700 dark:text-gray-300">Create custom topics and add words</p>
         </div>
       </div>
 
@@ -78,8 +78,8 @@ export function CustomTopicsPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-indigo-50 dark:bg-indigo-900/20 mb-4">
             <FolderOpen size={28} className="text-indigo-400" />
           </div>
-          <p className="text-gray-500 dark:text-gray-400 font-medium">No custom topics yet</p>
-          <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">Create one to start building your vocabulary</p>
+          <p className="text-gray-700 dark:text-gray-300 font-medium">No custom topics yet</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Create one to start building your vocabulary</p>
         </div>
       ) : (
         <div className="grid gap-3">
@@ -99,16 +99,16 @@ export function CustomTopicsPage() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="font-semibold text-gray-900 dark:text-white">{topic.name}</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{topic.wordCount} words</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">{topic.wordCount} words</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
                     onClick={(e) => handleDeleteClick(e, topic.id!)}
-                    className="p-2 rounded-lg text-gray-300 dark:text-gray-600 hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors opacity-100 sm:opacity-0 sm:group-hover:opacity-100"
+                    className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors opacity-100 sm:opacity-0 sm:group-hover:opacity-100"
                   >
                     <Trash2 size={16} />
                   </button>
-                  <ChevronRight size={18} className="text-gray-300 dark:text-gray-600 group-hover:text-indigo-400 transition-colors" />
+                  <ChevronRight size={18} className="text-gray-600 dark:text-gray-400 group-hover:text-indigo-400 transition-colors" />
                 </div>
               </Link>
             </motion.div>

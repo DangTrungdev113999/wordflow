@@ -49,7 +49,7 @@ export function PlacementQuiz({ onComplete }: PlacementQuizProps) {
   return (
     <div className="flex flex-col px-6 py-8 max-w-md mx-auto w-full">
       <div className="mb-6">
-        <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 mb-2">
+        <div className="flex justify-between text-sm text-gray-700 dark:text-gray-300 mb-2">
           <span>Question {currentIndex + 1}/{total}</span>
           <span>{question.level}</span>
         </div>
@@ -80,7 +80,7 @@ export function PlacementQuiz({ onComplete }: PlacementQuizProps) {
                 } else if (isSelected && !isCorrect) {
                   optionStyle = 'border-red-400 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400';
                 } else {
-                  optionStyle = 'border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500';
+                  optionStyle = 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400';
                 }
               } else if (isSelected) {
                 optionStyle = 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-700 dark:text-indigo-300';

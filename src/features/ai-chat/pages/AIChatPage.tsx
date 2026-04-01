@@ -61,7 +61,7 @@ export function AIChatPage() {
       >
         <div className="flex items-center justify-between mb-3 lg:hidden">
           <h3 className="font-semibold text-gray-900 dark:text-white">Hội thoại</h3>
-          <button onClick={() => setSidebarOpen(false)} className="p-1 text-gray-400">
+          <button onClick={() => setSidebarOpen(false)} className="p-1 text-gray-600 dark:text-gray-400">
             <PanelLeftClose size={20} />
           </button>
         </div>
@@ -78,7 +78,7 @@ export function AIChatPage() {
         <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-gray-950/80 backdrop-blur-sm">
           <button
             onClick={() => setSidebarOpen(true)}
-            className="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 lg:hidden"
+            className="p-1.5 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 lg:hidden"
           >
             <PanelLeftOpen size={20} />
           </button>
@@ -87,7 +87,7 @@ export function AIChatPage() {
           </div>
           <div>
             <h2 className="text-sm font-semibold text-gray-900 dark:text-white">AI Tutor</h2>
-            <p className="text-xs text-gray-400">Luyện tiếng Anh qua hội thoại</p>
+            <p className="text-xs text-gray-600 dark:text-gray-400">Luyện tiếng Anh qua hội thoại</p>
           </div>
         </div>
 

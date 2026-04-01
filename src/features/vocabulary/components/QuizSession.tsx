@@ -45,7 +45,7 @@ export function QuizSession({
     <div className="space-y-6">
       {/* Progress bar */}
       <div className="space-y-1.5">
-        <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+        <div className="flex items-center justify-between text-xs text-gray-700 dark:text-gray-300">
           <span>{currentIndex + 1} / {total}</span>
           <span>{Math.round(progress)}%</span>
         </div>
@@ -69,7 +69,7 @@ export function QuizSession({
           transition={{ duration: 0.25 }}
           className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800/80 dark:to-gray-900 rounded-3xl p-6 text-center border border-gray-100 dark:border-gray-800"
         >
-          <p className="text-xs font-medium text-gray-400 dark:text-gray-500 mb-3 uppercase tracking-wider">
+          <p className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-3 uppercase tracking-wider">
             {subtitle}
           </p>
 
@@ -82,13 +82,13 @@ export function QuizSession({
                 onClick={handleSpeak}
                 className="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               >
-                <Volume2 size={18} className="text-gray-400" />
+                <Volume2 size={18} className="text-gray-600 dark:text-gray-400" />
               </button>
             )}
           </div>
 
           {direction === 'en-to-vi' && currentWord.ipa && (
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-700 dark:text-gray-300">
               {currentWord.ipa}
             </p>
           )}

@@ -63,17 +63,17 @@ export function CollocationGuide() {
     <div className="space-y-4">
       {/* Search bar */}
       <div className="relative">
-        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600 dark:text-gray-400 pointer-events-none" />
         <input
           type="text"
           value={query}
           onChange={e => setQuery(e.target.value)}
           placeholder="Tìm collocation: make a decision, nói dối..."
           aria-label="Tìm kiếm collocation"
-          className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-300 dark:focus:border-emerald-600 transition-all"
+          className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-600 dark:text-gray-400 dark:placeholder:text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-300 dark:focus:border-emerald-600 transition-all"
         />
         {query && (
-          <button onClick={() => setQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+          <button onClick={() => setQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400">
             <X size={16} />
           </button>
         )}
@@ -81,7 +81,7 @@ export function CollocationGuide() {
 
       {/* Counter */}
       <div className="flex items-center">
-        <span className="text-xs text-gray-400 dark:text-gray-500 ml-auto">
+        <span className="text-xs text-gray-600 dark:text-gray-400 ml-auto">
           {displayedGroups.length} / {COLLOCATION_GROUPS.length} groups
         </span>
       </div>
@@ -90,7 +90,7 @@ export function CollocationGuide() {
       <div className="space-y-2">
         {displayedGroups.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-sm text-gray-400 dark:text-gray-500">Không tìm thấy collocation nào</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Không tìm thấy collocation nào</p>
           </div>
         ) : (
           displayedGroups.map(group => (
@@ -126,14 +126,14 @@ function GroupAccordion({ group, expanded, onToggle, highlightedPhrases }: {
         <div className="flex items-center justify-between gap-3">
           <div className="min-w-0">
             <h3 className="font-semibold text-gray-900 dark:text-white text-[15px]">{group.title}</h3>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-1">{group.description}</p>
+            <p className="text-xs text-gray-700 dark:text-gray-300 mt-0.5 line-clamp-1">{group.description}</p>
           </div>
           <div className="flex items-center gap-2 flex-shrink-0">
-            <span className="text-xs text-gray-400 dark:text-gray-500">
+            <span className="text-xs text-gray-600 dark:text-gray-400">
               {group.entries.reduce((sum, e) => sum + e.collocations.length, 0)} phrases
             </span>
             <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
-              <ChevronDown size={16} className="text-gray-400" />
+              <ChevronDown size={16} className="text-gray-600 dark:text-gray-400" />
             </motion.div>
           </div>
         </div>
@@ -167,8 +167,8 @@ function GroupAccordion({ group, expanded, onToggle, highlightedPhrases }: {
                               className={`transition-opacity ${isHighlighted ? 'opacity-100' : 'opacity-40'}`}
                             >
                               <p className="text-sm font-medium text-gray-900 dark:text-white">{col.phrase}</p>
-                              <p className="text-xs text-gray-500 dark:text-gray-400">{col.meaning}</p>
-                              <p className="text-xs text-gray-400 dark:text-gray-500 italic mt-0.5">{col.example}</p>
+                              <p className="text-xs text-gray-700 dark:text-gray-300">{col.meaning}</p>
+                              <p className="text-xs text-gray-600 dark:text-gray-400 italic mt-0.5">{col.example}</p>
                             </div>
                           );
                         })}
@@ -245,7 +245,7 @@ function MiniQuiz({ groupId, questions }: {
         <p className="text-2xl font-bold text-gray-900 dark:text-white">
           {score} / {questions.length}
         </p>
-        <p className="text-sm text-gray-500 dark:text-gray-400">
+        <p className="text-sm text-gray-700 dark:text-gray-300">
           {score === questions.length ? 'Xuất sắc! Bạn trả lời đúng tất cả!' : score >= questions.length * 0.6 ? 'Khá tốt! Hãy ôn lại những câu sai nhé.' : 'Cố gắng hơn nhé! Xem lại collocations phía trên.'}
         </p>
         <div className="flex items-center justify-center gap-2">
@@ -276,7 +276,7 @@ function MiniQuiz({ groupId, questions }: {
       className="p-4 bg-white dark:bg-gray-800/60 rounded-lg border border-gray-200 dark:border-gray-700 space-y-3"
     >
       <div className="flex items-center justify-between">
-        <span className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+        <span className="text-[11px] font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
           Question {currentQ + 1} / {questions.length}
         </span>
         <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
@@ -298,7 +298,7 @@ function MiniQuiz({ groupId, questions }: {
             } else if (idx === answered) {
               chipClass = 'bg-rose-50 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400 border-rose-300 dark:border-rose-700';
             } else {
-              chipClass = 'bg-gray-50 dark:bg-gray-800 text-gray-400 dark:text-gray-500 border-gray-200 dark:border-gray-700 opacity-50';
+              chipClass = 'bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-700 opacity-50';
             }
           }
 

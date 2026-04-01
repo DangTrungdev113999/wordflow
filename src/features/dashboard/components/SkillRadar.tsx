@@ -10,7 +10,7 @@ export function SkillRadar({ data }: Props) {
   const chart = useChartTheme();
 
   if (data.every((d) => d.score === 0)) {
-    return <p className="text-sm text-gray-400 text-center py-6">Start learning to see your skill breakdown.</p>;
+    return <p className="text-sm text-gray-600 dark:text-gray-400 text-center py-6">Start learning to see your skill breakdown.</p>;
   }
 
   return (

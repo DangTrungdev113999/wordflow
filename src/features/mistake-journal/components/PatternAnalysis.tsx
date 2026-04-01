@@ -71,14 +71,14 @@ export function PatternAnalysis() {
       <div className="text-center py-16">
         <p className="text-4xl mb-3">🔍</p>
         <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1">No patterns yet</h3>
-        <p className="text-sm text-gray-500">More mistakes = better pattern detection. Keep practicing!</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300">More mistakes = better pattern detection. Keep practicing!</p>
       </div>
     );
   }
 
   return (
     <div className="space-y-3">
-      <p className="text-xs text-gray-400 mb-2">Mistakes grouped by detected patterns</p>
+      <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">Mistakes grouped by detected patterns</p>
       {patterns.map(group => (
         <div key={group.pattern} className="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-4">
           <div className="flex items-center justify-between mb-2">
@@ -102,8 +102,8 @@ export function PatternAnalysis() {
               <div key={ex.id} className="flex items-start gap-2 text-xs">
                 <span className="text-red-400 shrink-0">✕</span>
                 <div>
-                  <span className="text-gray-500 dark:text-gray-400">{ex.question}</span>
-                  <span className="text-gray-400 mx-1">→</span>
+                  <span className="text-gray-700 dark:text-gray-300">{ex.question}</span>
+                  <span className="text-gray-600 dark:text-gray-400 mx-1">→</span>
                   <span className="text-emerald-600 dark:text-emerald-400 font-medium">{ex.correctAnswer}</span>
                 </div>
               </div>

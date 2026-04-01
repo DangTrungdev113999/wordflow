@@ -91,7 +91,7 @@ export function CustomTopicDetailPage() {
 
   if (!topic) {
     return (
-      <div className="px-4 py-6 text-center text-gray-500">
+      <div className="px-4 py-6 text-center text-gray-700 dark:text-gray-300">
         Topic not found.{' '}
         <Link to="/vocabulary/custom" className="text-indigo-500">Go back</Link>
       </div>
@@ -110,7 +110,7 @@ export function CustomTopicDetailPage() {
             <span className="text-2xl">{topic.icon}</span>
             <h1 className="text-xl font-bold text-gray-900 dark:text-white">{topic.name}</h1>
           </div>
-          <p className="text-sm text-gray-500 dark:text-gray-400">{words.length} words</p>
+          <p className="text-sm text-gray-700 dark:text-gray-300">{words.length} words</p>
         </div>
         <TopicExportImport
           topicId={numericId}
@@ -134,7 +134,7 @@ export function CustomTopicDetailPage() {
 
       {/* Word search */}
       <div>
-        <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
+        <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-3">
           Add Words
         </h2>
         <WordSearch existingWords={existingWords} onAdd={handleAddWord} />
@@ -143,7 +143,7 @@ export function CustomTopicDetailPage() {
       {/* Word list */}
       {words.length > 0 && (
         <div>
-          <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">
+          <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-3">
             Word List
           </h2>
           <div className="space-y-2">
@@ -168,20 +168,20 @@ export function CustomTopicDetailPage() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="font-semibold text-gray-900 dark:text-white">{w.word}</span>
-                      {w.ipa && <span className="text-xs text-gray-400 font-mono">{w.ipa}</span>}
+                      {w.ipa && <span className="text-xs text-gray-600 dark:text-gray-400 font-mono">{w.ipa}</span>}
                     </div>
                     {w.meaning && (
                       <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium mt-0.5">{w.meaning}</p>
                     )}
                     {w.example && (
-                      <p className="text-xs text-gray-400 dark:text-gray-500 mt-1 italic">{w.example}</p>
+                      <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 italic">{w.example}</p>
                     )}
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
                     <Badge label={status} variant={STATUS_VARIANT[status]} />
                     <button
                       onClick={() => handleRemoveWord(w.id!, w.word)}
-                      className="p-1.5 rounded-lg text-gray-300 dark:text-gray-600 hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors opacity-0 group-hover:opacity-100"
+                      className="p-1.5 rounded-lg text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors opacity-0 group-hover:opacity-100"
                     >
                       <Trash2 size={14} />
                     </button>

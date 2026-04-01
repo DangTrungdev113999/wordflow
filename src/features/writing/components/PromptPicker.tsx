@@ -37,14 +37,14 @@ export function PromptPicker({ prompts, onSelect }: PromptPickerProps) {
     <div>
       {/* Filters */}
       <div className="flex items-center gap-2 mb-4 flex-wrap">
-        <Filter size={16} className="text-gray-400 shrink-0" />
+        <Filter size={16} className="text-gray-600 dark:text-gray-400 shrink-0" />
         <button
           onClick={() => { setFilterType(null); setFilterLevel(null); }}
           className={cn(
             'px-3 py-1 rounded-full text-xs font-medium transition-colors',
             !filterType && !filterLevel
               ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400'
-              : 'bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400',
+              : 'bg-gray-100 text-gray-700 dark:text-gray-300 dark:bg-gray-800 dark:text-gray-400',
           )}
         >
           Tất cả
@@ -59,7 +59,7 @@ export function PromptPicker({ prompts, onSelect }: PromptPickerProps) {
                 'px-3 py-1 rounded-full text-xs font-medium transition-colors',
                 filterType === t
                   ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400'
-                  : 'bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400',
+                  : 'bg-gray-100 text-gray-700 dark:text-gray-300 dark:bg-gray-800 dark:text-gray-400',
               )}
             >
               {cfg.label}
@@ -75,7 +75,7 @@ export function PromptPicker({ prompts, onSelect }: PromptPickerProps) {
               'px-3 py-1 rounded-full text-xs font-medium transition-colors',
               filterLevel === l
                 ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400'
-                : 'bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400',
+                : 'bg-gray-100 text-gray-700 dark:text-gray-300 dark:bg-gray-800 dark:text-gray-400',
             )}
           >
             {l}
@@ -107,10 +107,10 @@ export function PromptPicker({ prompts, onSelect }: PromptPickerProps) {
                       {prompt.level}
                     </span>
                   </div>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2">
+                  <p className="text-xs text-gray-700 dark:text-gray-300 line-clamp-2">
                     {prompt.promptVi}
                   </p>
-                  <p className="text-xs text-gray-400 dark:text-gray-500 mt-1.5">
+                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-1.5">
                     {prompt.minWords}–{prompt.maxWords} từ
                   </p>
                 </div>
@@ -121,7 +121,7 @@ export function PromptPicker({ prompts, onSelect }: PromptPickerProps) {
       </div>
 
       {filtered.length === 0 && (
-        <p className="text-center text-sm text-gray-400 dark:text-gray-500 py-8">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-400 py-8">
           Không có đề bài phù hợp với bộ lọc
         </p>
       )}

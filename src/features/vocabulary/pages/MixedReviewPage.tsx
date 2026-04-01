@@ -460,7 +460,7 @@ function ContextReview({
 
   if (questions.length === 0) {
     return (
-      <div className="text-center py-16 text-gray-500 dark:text-gray-400">
+      <div className="text-center py-16 text-gray-700 dark:text-gray-300">
         <p className="text-sm">Chưa có dữ liệu ngữ cảnh cho các từ này.</p>
         <p className="text-xs mt-1">Hãy mở từng từ trong Word Detail để AI tạo examples.</p>
       </div>
@@ -598,7 +598,7 @@ export function MixedReviewPage() {
         <h1 className="flex-1 font-semibold text-gray-900 dark:text-white">
           Ôn tập tổng hợp
           {pageState === 'review' && config && (
-            <span className="text-sm font-normal text-gray-400 ml-2 capitalize">{effectiveMode}</span>
+            <span className="text-sm font-normal text-gray-600 dark:text-gray-400 ml-2 capitalize">{effectiveMode}</span>
           )}
         </h1>
         {pageState === 'review' && <StreakIndicator streak={streak} multiplier={multiplier} />}

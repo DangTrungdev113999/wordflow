@@ -148,7 +148,7 @@ export function ConjugationGrid({ table, highlightMode = 'changes' }: Conjugatio
       </motion.div>
 
       {table.notes && (
-        <div className="text-xs text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 rounded-lg px-3 py-2 italic">
+        <div className="text-xs text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800/50 rounded-lg px-3 py-2 italic">
           💡 {table.notes}
         </div>
       )}

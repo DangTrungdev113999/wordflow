@@ -69,7 +69,7 @@ function ExploreView({ parts, vi }: { parts: SentencePart[]; vi?: string }) {
       </AnimatePresence>
 
       {vi && (
-        <p className="text-sm text-gray-500 dark:text-gray-400 italic pl-1">{vi}</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300 italic pl-1">{vi}</p>
       )}
     </div>
   );
@@ -195,7 +195,7 @@ function QuizView({ parts, vi }: { parts: SentencePart[]; vi?: string }) {
       )}
 
       {vi && (
-        <p className="text-sm text-gray-500 dark:text-gray-400 italic pl-1">{vi}</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300 italic pl-1">{vi}</p>
       )}
     </div>
   );
@@ -217,7 +217,7 @@ export function SentenceExplorer({ examples }: SentenceExplorerProps) {
               px-3 py-1 text-xs font-semibold rounded-md transition-all
               ${mode === m
                 ? 'bg-white dark:bg-gray-700 text-indigo-600 dark:text-indigo-400 shadow-sm'
-                : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
+                : 'text-gray-700 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400'
               }
             `}
           >

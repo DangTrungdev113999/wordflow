@@ -37,7 +37,7 @@ export function StudyTimerWidget() {
         }`}
       >
         <span>{formatTime(elapsedMs)}</span>
-        <ChevronUp size={14} className={isRunning ? 'text-white/70' : 'text-gray-400'} />
+        <ChevronUp size={14} className={isRunning ? 'text-white/70' : 'text-gray-600 dark:text-gray-400'} />
       </motion.button>
     );
   }
@@ -73,7 +73,7 @@ export function StudyTimerWidget() {
           {formatTime(elapsedMs)}
         </span>
         {!isManual && isRunning && (
-          <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Auto-tracking</p>
+          <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">Auto-tracking</p>
         )}
       </div>
 
@@ -99,7 +99,7 @@ export function StudyTimerWidget() {
         {hasTime && (
           <button
             onClick={stopAndReset}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-xs font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
           >
             <Square size={12} />
             Stop

@@ -17,7 +17,7 @@ export function XPBar() {
           </div>
           <span className="font-semibold text-gray-900 dark:text-white text-sm">Level {level} — {levelTitle}</span>
         </div>
-        <span className="text-xs text-gray-400 tabular-nums">{xp} / {nextXP} XP</span>
+        <span className="text-xs text-gray-600 dark:text-gray-400 tabular-nums">{xp} / {nextXP} XP</span>
       </div>
       <ProgressBar value={progress} color="indigo" size="md" />
     </Card>

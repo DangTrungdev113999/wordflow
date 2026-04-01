@@ -49,12 +49,12 @@ export function QuizPage() {
   }, [isSessionComplete]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (isLoading) {
-    return <div className="p-6 text-center text-gray-500">Loading...</div>;
+    return <div className="p-6 text-center text-gray-700 dark:text-gray-300">Loading...</div>;
   }
 
   if (!topicData) {
     return (
-      <div className="px-4 py-6 text-center text-gray-500">
+      <div className="px-4 py-6 text-center text-gray-700 dark:text-gray-300">
         Topic not found.{' '}
         <Link to="/vocabulary" className="text-indigo-500">Go back</Link>
       </div>
@@ -85,7 +85,7 @@ export function QuizPage() {
   }
 
   if (!currentWord) {
-    return <div className="p-6 text-center text-gray-400">No words available.</div>;
+    return <div className="p-6 text-center text-gray-600 dark:text-gray-400">No words available.</div>;
   }
 
   return (
@@ -99,7 +99,7 @@ export function QuizPage() {
         </Link>
         <h1 className="flex-1 font-semibold text-gray-900 dark:text-white">
           {topicData.topicLabel}
-          <span className="text-sm font-normal text-gray-400 ml-2">
+          <span className="text-sm font-normal text-gray-600 dark:text-gray-400 ml-2">
             Quiz{isTimed ? ' ⏱' : ''}
           </span>
         </h1>

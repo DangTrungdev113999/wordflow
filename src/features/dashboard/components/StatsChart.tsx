@@ -19,7 +19,7 @@ export function StatsChart() {
     return (
       <Card>
         <h3 className="font-semibold text-gray-700 dark:text-gray-300 mb-3 text-sm">Last 7 Days</h3>
-        <div className="h-32 flex items-center justify-center text-gray-400 text-sm">
+        <div className="h-32 flex items-center justify-center text-gray-600 dark:text-gray-400 text-sm">
           No activity yet
         </div>
       </Card>

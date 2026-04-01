@@ -25,7 +25,7 @@ export function TenseOverviewPage() {
           </div>
           <div>
             <h1 className="text-xl font-bold text-gray-900 dark:text-white">Tense Overview</h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-700 dark:text-gray-300">
               Tổng quan 9 thì — Past, Present, Future
             </p>
           </div>
@@ -37,7 +37,7 @@ export function TenseOverviewPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1 }}
-        className="text-sm text-gray-500 dark:text-gray-400 mb-4"
+        className="text-sm text-gray-700 dark:text-gray-300 mb-4"
       >
         Nhấn vào mỗi thì để xem cấu trúc, cách dùng và ví dụ.
       </motion.p>

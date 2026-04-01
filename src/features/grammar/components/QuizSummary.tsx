@@ -47,7 +47,7 @@ export function QuizSummary({
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
           Quiz Complete!
         </h2>
-        <p className="text-gray-500 dark:text-gray-400 mt-1">{lessonTitle}</p>
+        <p className="text-gray-700 dark:text-gray-300 mt-1">{lessonTitle}</p>
       </div>
 
       <div className="grid grid-cols-2 gap-4 w-full">
@@ -63,7 +63,7 @@ export function QuizSummary({
         </div>
       </div>
 
-      <div className="w-full text-sm text-gray-500 dark:text-gray-400 space-y-1">
+      <div className="w-full text-sm text-gray-700 dark:text-gray-300 space-y-1">
         <p>
           ✅ Correct: {correctCount}/{totalQuestions}
         </p>

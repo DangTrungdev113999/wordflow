@@ -13,7 +13,7 @@ export function WeeklyChart({ data }: WeeklyChartProps) {
 
   if (data.length === 0) {
     return (
-      <div className="h-40 flex items-center justify-center text-gray-400 dark:text-gray-600 text-sm">
+      <div className="h-40 flex items-center justify-center text-gray-600 dark:text-gray-400 text-sm">
         No data yet
       </div>
     );
@@ -72,16 +72,16 @@ export function WeeklyChart({ data }: WeeklyChartProps) {
       <div className="flex items-center justify-center gap-4 mt-2">
         <div className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-sm bg-indigo-500" />
-          <span className="text-xs text-gray-500 dark:text-gray-400">XP</span>
+          <span className="text-xs text-gray-700 dark:text-gray-300">XP</span>
         </div>
         <div className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-sm bg-cyan-500" />
-          <span className="text-xs text-gray-500 dark:text-gray-400">Minutes</span>
+          <span className="text-xs text-gray-700 dark:text-gray-300">Minutes</span>
         </div>
         {dailyXpGoal && (
           <div className="flex items-center gap-1.5">
             <span className="w-4 border-t-2 border-dashed border-emerald-500" />
-            <span className="text-xs text-gray-500 dark:text-gray-400">XP Goal</span>
+            <span className="text-xs text-gray-700 dark:text-gray-300">XP Goal</span>
           </div>
         )}
       </div>

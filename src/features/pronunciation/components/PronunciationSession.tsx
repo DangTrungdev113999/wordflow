@@ -43,7 +43,7 @@ export function PronunciationSession({ words, topicLabel, topicIcon, onExit }: P
           <Mic size={28} className="text-red-500" />
         </div>
         <h2 className="text-xl font-bold text-gray-900 dark:text-white">Speech Recognition Not Available</h2>
-        <p className="text-gray-500 dark:text-gray-400 text-sm">
+        <p className="text-gray-700 dark:text-gray-300 text-sm">
           Your browser doesn't support speech recognition. Please try Chrome or Edge.
         </p>
         <button
@@ -91,7 +91,7 @@ export function PronunciationSession({ words, topicLabel, topicIcon, onExit }: P
         </div>
         <button
           onClick={() => setShowExitConfirm(true)}
-          className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+          className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
         >
           <X size={22} />
         </button>
@@ -99,7 +99,7 @@ export function PronunciationSession({ words, topicLabel, topicIcon, onExit }: P
 
       {/* Progress bar */}
       <div className="space-y-2">
-        <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400">
+        <div className="flex justify-between text-sm text-gray-700 dark:text-gray-300">
           <span>Word {currentIndex + 1} of {total}</span>
           <span>Pronunciation</span>
         </div>
@@ -136,7 +136,7 @@ export function PronunciationSession({ words, topicLabel, topicIcon, onExit }: P
             className="bg-white dark:bg-gray-900 rounded-2xl p-6 mx-4 max-w-sm w-full shadow-xl border border-gray-100 dark:border-gray-800"
           >
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Quit session?</h3>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">
+            <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">
               Your progress in this session will be lost.
             </p>
             <div className="flex gap-3">

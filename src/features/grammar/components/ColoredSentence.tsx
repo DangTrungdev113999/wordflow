@@ -76,7 +76,7 @@ export function ColoredSentence({ parts, vi, interactive = true, size = 'md' }: 
       </AnimatePresence>
 
       {vi && (
-        <p className="text-sm text-gray-500 dark:text-gray-400 italic pl-1">{vi}</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300 italic pl-1">{vi}</p>
       )}
     </div>
   );

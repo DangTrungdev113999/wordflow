@@ -36,7 +36,7 @@ export function GoalCard({ data, onRemove }: GoalCardProps) {
     >
       <button
         onClick={() => setShowConfirm(true)}
-        className="absolute top-3 right-3 p-1.5 rounded-lg text-gray-300 dark:text-gray-700 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all"
+        className="absolute top-3 right-3 p-1.5 rounded-lg text-gray-600 dark:text-gray-400 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all"
         title="Remove goal"
       >
         <Trash2 size={14} />
@@ -86,7 +86,7 @@ export function GoalCard({ data, onRemove }: GoalCardProps) {
           <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
             {METRIC_LABELS[goal.metric]}
           </h3>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+          <p className="text-xs text-gray-700 dark:text-gray-300 mt-0.5">
             {current} / {goal.target} {METRIC_UNITS[goal.metric]}
           </p>
           {isComplete && (

@@ -25,7 +25,7 @@ export function TenseComparePage() {
           </div>
           <div>
             <h1 className="text-xl font-bold text-gray-900 dark:text-white">Tense Comparison</h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-700 dark:text-gray-300">
               So sánh cấu trúc, cách dùng & lỗi sai giữa các thì
             </p>
           </div>

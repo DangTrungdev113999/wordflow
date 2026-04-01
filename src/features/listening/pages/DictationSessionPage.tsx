@@ -98,7 +98,7 @@ export function DictationSessionPage() {
   if (!topicData || total === 0) {
     return (
       <div className="px-4 py-6 text-center">
-        <p className="text-gray-500 dark:text-gray-400">Topic not found</p>
+        <p className="text-gray-700 dark:text-gray-300">Topic not found</p>
       </div>
     );
   }
@@ -130,7 +130,7 @@ export function DictationSessionPage() {
         </div>
         <button
           onClick={() => setShowExitConfirm(true)}
-          className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+          className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
         >
           <X size={22} />
         </button>
@@ -138,7 +138,7 @@ export function DictationSessionPage() {
 
       {/* Progress */}
       <div className="space-y-2">
-        <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400">
+        <div className="flex justify-between text-sm text-gray-700 dark:text-gray-300">
           <span>Word {currentIndex + 1} of {total}</span>
           <span className="capitalize">{mode} mode</span>
         </div>
@@ -195,7 +195,7 @@ export function DictationSessionPage() {
             className="bg-white dark:bg-gray-900 rounded-2xl p-6 mx-4 max-w-sm w-full shadow-xl border border-gray-100 dark:border-gray-800"
           >
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Quit session?</h3>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">
+            <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">
               Your progress in this session will be lost.
             </p>
             <div className="flex gap-3">

@@ -35,8 +35,8 @@ export function PlaybackControls({
           className={cn(
             'w-10 h-10 rounded-full flex items-center justify-center transition-colors',
             disablePrev
-              ? 'text-gray-300 dark:text-gray-700'
-              : 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800',
+              ? 'text-gray-600 dark:text-gray-400'
+              : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800',
           )}
         >
           <SkipBack size={20} />
@@ -67,8 +67,8 @@ export function PlaybackControls({
           className={cn(
             'w-10 h-10 rounded-full flex items-center justify-center transition-colors',
             disableNext
-              ? 'text-gray-300 dark:text-gray-700'
-              : 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800',
+              ? 'text-gray-600 dark:text-gray-400'
+              : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800',
           )}
         >
           <SkipForward size={20} />
@@ -85,7 +85,7 @@ export function PlaybackControls({
               'px-2.5 py-1 rounded-md text-xs font-medium transition-all',
               s === speed
                 ? 'bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 ring-1 ring-teal-300 dark:ring-teal-700'
-                : 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800',
+                : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800',
             )}
           >
             {s}x

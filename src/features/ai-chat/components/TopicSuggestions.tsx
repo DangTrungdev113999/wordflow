@@ -22,7 +22,7 @@ export function TopicSuggestions({ onSelect }: TopicSuggestionsProps) {
       <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
         Bắt đầu hội thoại
       </h2>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 text-center">
+      <p className="text-sm text-gray-700 dark:text-gray-300 mb-6 text-center">
         Chọn chủ đề hoặc gõ bất kỳ điều gì bạn muốn nói
       </p>
       <div className="grid grid-cols-2 gap-2 w-full max-w-sm">

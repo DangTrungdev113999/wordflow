@@ -27,7 +27,7 @@ export function BottomNav() {
                 'relative flex-1 flex flex-col items-center gap-0.5 py-2 px-1 transition-colors',
                 isActive
                   ? 'text-indigo-500 dark:text-indigo-400'
-                  : 'text-gray-400 dark:text-gray-600 hover:text-gray-600 dark:hover:text-gray-400'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400'
               )
             }
           >

@@ -25,7 +25,7 @@ export function PhrasalVerbsPage() {
           </div>
           <div>
             <h1 className="text-xl font-bold text-gray-900 dark:text-white">Phrasal Verbs</h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-700 dark:text-gray-300">
               Cụm động từ phổ biến: get up, look for, turn on...
             </p>
           </div>
@@ -41,11 +41,11 @@ export function PhrasalVerbsPage() {
       >
         <div className="flex items-center gap-1.5">
           <span className="text-sm">✂️</span>
-          <span className="text-xs text-gray-500 dark:text-gray-400">Separable</span>
+          <span className="text-xs text-gray-700 dark:text-gray-300">Separable</span>
         </div>
         <div className="flex items-center gap-1.5">
           <span className="text-sm">🔗</span>
-          <span className="text-xs text-gray-500 dark:text-gray-400">Inseparable</span>
+          <span className="text-xs text-gray-700 dark:text-gray-300">Inseparable</span>
         </div>
       </motion.div>
 

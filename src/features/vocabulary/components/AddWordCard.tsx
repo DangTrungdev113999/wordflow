@@ -39,7 +39,7 @@ export function AddWordCard({ result, alreadyAdded, onAdd }: AddWordCardProps) {
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-lg font-bold text-gray-900 dark:text-white">{result.word}</span>
             {result.ipa && (
-              <span className="text-sm text-gray-400 font-mono">{result.ipa}</span>
+              <span className="text-sm text-gray-600 dark:text-gray-400 font-mono">{result.ipa}</span>
             )}
             {result.audioUrl && (
               <button
@@ -54,7 +54,7 @@ export function AddWordCard({ result, alreadyAdded, onAdd }: AddWordCardProps) {
             <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{result.meaning}</p>
           )}
           {result.example && (
-            <p className="text-xs text-gray-400 dark:text-gray-500 mt-1.5 italic leading-relaxed">
+            <p className="text-xs text-gray-600 dark:text-gray-400 mt-1.5 italic leading-relaxed">
               "{result.example}"
             </p>
           )}

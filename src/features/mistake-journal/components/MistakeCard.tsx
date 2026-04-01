@@ -48,7 +48,7 @@ export function MistakeCard({ mistake, onDelete }: Props) {
           <span className={`inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium ${TYPE_COLORS[mistake.type] ?? 'bg-gray-100 text-gray-700'}`}>
             {mistake.type.replace('_', ' ')}
           </span>
-          <span className="text-xs text-gray-400">{SOURCE_LABELS[mistake.source] ?? mistake.source}</span>
+          <span className="text-xs text-gray-600 dark:text-gray-400">{SOURCE_LABELS[mistake.source] ?? mistake.source}</span>
           {isDue && (
             <Badge variant="warning" className="text-xs">Due</Badge>
           )}
@@ -56,7 +56,7 @@ export function MistakeCard({ mistake, onDelete }: Props) {
         {onDelete && (
           <button
             onClick={() => setShowConfirm(true)}
-            className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 p-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 text-gray-400 hover:text-red-500 transition-all"
+            className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 p-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 text-gray-600 dark:text-gray-400 hover:text-red-500 transition-all"
           >
             <Trash2 size={14} />
           </button>
@@ -77,10 +77,10 @@ export function MistakeCard({ mistake, onDelete }: Props) {
       </div>
 
       {mistake.explanation && (
-        <p className="mt-2 text-xs text-gray-500 dark:text-gray-400 italic leading-relaxed">{mistake.explanation}</p>
+        <p className="mt-2 text-xs text-gray-700 dark:text-gray-300 italic leading-relaxed">{mistake.explanation}</p>
       )}
 
-      <div className="mt-3 flex items-center gap-3 text-xs text-gray-400">
+      <div className="mt-3 flex items-center gap-3 text-xs text-gray-600 dark:text-gray-400">
         <span>Reviews: {mistake.reviewCount}</span>
         <span>Interval: {mistake.interval}d</span>
         <span>Next: {mistake.nextReview}</span>

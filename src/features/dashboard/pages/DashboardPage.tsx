@@ -32,7 +32,7 @@ export function DashboardPage() {
       {/* Greeting */}
       <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{getGreeting()}! 👋</h1>
-        <p className="text-gray-500 dark:text-gray-400 text-sm mt-0.5">Keep up your learning streak!</p>
+        <p className="text-gray-700 dark:text-gray-300 text-sm mt-0.5">Keep up your learning streak!</p>
       </motion.div>
 
       {/* Daily goal */}
@@ -43,7 +43,7 @@ export function DashboardPage() {
               <Target size={16} className="text-indigo-500" />
               <span className="font-semibold text-gray-900 dark:text-white text-sm">Daily Goal</span>
             </div>
-            <span className="text-xs text-gray-400">{todayTotal}/{dailyGoal} words</span>
+            <span className="text-xs text-gray-600 dark:text-gray-400">{todayTotal}/{dailyGoal} words</span>
           </div>
           <ProgressBar value={goalProgress} color={goalProgress >= 100 ? 'green' : 'indigo'} />
           {goalProgress >= 100 && (
@@ -74,9 +74,9 @@ export function DashboardPage() {
           </span>
           <div className="flex-1">
             <p className="font-medium text-gray-900 dark:text-white text-sm">Pronunciation Practice</p>
-            <p className="text-xs text-gray-400">Improve your speaking skills</p>
+            <p className="text-xs text-gray-600 dark:text-gray-400">Improve your speaking skills</p>
           </div>
-          <ChevronRight size={16} className="text-gray-300 dark:text-gray-600 group-hover:text-indigo-400" />
+          <ChevronRight size={16} className="text-gray-600 dark:text-gray-400 group-hover:text-indigo-400" />
         </Link>
       </motion.div>
 
@@ -98,9 +98,9 @@ export function DashboardPage() {
               </span>
               <div className="flex-1">
                 <p className="font-medium text-gray-900 dark:text-white text-sm">{topic.topicLabel}</p>
-                <p className="text-xs text-gray-400">{topic.words.length} words</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400">{topic.words.length} words</p>
               </div>
-              <ChevronRight size={16} className="text-gray-300 dark:text-gray-600 group-hover:text-indigo-400" />
+              <ChevronRight size={16} className="text-gray-600 dark:text-gray-400 group-hover:text-indigo-400" />
             </Link>
           ))}
         </div>

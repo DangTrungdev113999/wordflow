@@ -63,7 +63,7 @@ export function WeeklySchedule() {
 
           return (
             <div key={i} className="flex flex-col items-center">
-              <span className="text-xs font-medium text-gray-400 dark:text-gray-500 mb-1">
+              <span className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
                 {label}
               </span>
               <button
@@ -73,7 +73,7 @@ export function WeeklySchedule() {
                     ? 'bg-indigo-500 text-white shadow-sm shadow-indigo-200 dark:shadow-indigo-900'
                     : isEditing
                       ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 ring-2 ring-indigo-500'
-                      : 'bg-gray-50 dark:bg-gray-800/50 text-gray-400 dark:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800'
+                      : 'bg-gray-50 dark:bg-gray-800/50 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'
                 }`}
               >
                 {slot ? (
@@ -90,14 +90,14 @@ export function WeeklySchedule() {
                 <div className="flex items-center gap-0.5 mt-1">
                   <button
                     onClick={() => updateScheduleReminder(i, !slot.reminderEnabled)}
-                    className="p-0.5 rounded text-gray-400 hover:text-indigo-500 transition-colors"
+                    className="p-0.5 rounded text-gray-600 dark:text-gray-400 hover:text-indigo-500 transition-colors"
                     title={slot.reminderEnabled ? 'Disable reminder' : 'Enable reminder'}
                   >
                     {slot.reminderEnabled ? <Bell size={10} /> : <BellOff size={10} />}
                   </button>
                   <button
                     onClick={() => removeScheduleDay(i)}
-                    className="p-0.5 rounded text-gray-400 hover:text-red-500 transition-colors"
+                    className="p-0.5 rounded text-gray-600 dark:text-gray-400 hover:text-red-500 transition-colors"
                     title="Remove"
                   >
                     <X size={10} />
@@ -125,7 +125,7 @@ export function WeeklySchedule() {
                 </span>
                 <button
                   onClick={() => setEditing(null)}
-                  className="p-1 rounded-lg text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  className="p-1 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700"
                 >
                   <X size={14} />
                 </button>
@@ -133,7 +133,7 @@ export function WeeklySchedule() {
 
               <div className="flex gap-3">
                 <div>
-                  <label className="block text-xs font-medium text-gray-500 mb-1">Time</label>
+                  <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Time</label>
                   <input
                     type="time"
                     value={editing.startTime}
@@ -142,7 +142,7 @@ export function WeeklySchedule() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-gray-500 mb-1">
+                  <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Duration (min)
                   </label>
                   <input
@@ -160,7 +160,7 @@ export function WeeklySchedule() {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-500 mb-1.5">
+                <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5">
                   Focus Areas
                 </label>
                 <div className="flex flex-wrap gap-1.5">
@@ -171,7 +171,7 @@ export function WeeklySchedule() {
                       className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-all border ${
                         editing.focus.includes(area.id)
                           ? 'text-white border-transparent'
-                          : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400'
+                          : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300'
                       }`}
                       style={
                         editing.focus.includes(area.id)
@@ -205,7 +205,7 @@ export function WeeklySchedule() {
             .map((slot) => (
               <div
                 key={slot.dayOfWeek}
-                className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400"
+                className="flex items-center gap-2 text-xs text-gray-700 dark:text-gray-300"
               >
                 <span className="font-medium text-gray-700 dark:text-gray-300 w-8">
                   {DAY_LABELS[slot.dayOfWeek]}

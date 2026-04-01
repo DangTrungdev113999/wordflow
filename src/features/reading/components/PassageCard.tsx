@@ -28,7 +28,7 @@ export function PassageCard({ passage, index }: Props) {
         </div>
         <div className="flex-1 min-w-0">
           <h3 className="font-semibold text-gray-900 dark:text-white truncate">{passage.title}</h3>
-          <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+          <div className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 mt-0.5">
             <FileText size={14} />
             <span>{passage.wordCount} words</span>
             <span>·</span>
@@ -39,7 +39,7 @@ export function PassageCard({ passage, index }: Props) {
           <Badge label={passage.level} variant="cefr" />
           <ChevronRight
             size={18}
-            className="text-gray-300 dark:text-gray-600 group-hover:text-indigo-400 transition-colors"
+            className="text-gray-600 dark:text-gray-400 group-hover:text-indigo-400 transition-colors"
           />
         </div>
       </Link>

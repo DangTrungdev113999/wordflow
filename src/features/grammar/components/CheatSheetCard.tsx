@@ -50,12 +50,12 @@ export function CheatSheetCard({ sheet, bookmarked = false, onBookmark }: CheatS
           <span className="text-lg">📝</span>
           <h3 className="font-bold text-gray-900 dark:text-white text-sm">Cheat Sheet</h3>
         </div>
-        <span className="text-xs text-gray-500 dark:text-gray-400">{sheet.title}</span>
+        <span className="text-xs text-gray-700 dark:text-gray-300">{sheet.title}</span>
       </div>
 
       {/* Formula */}
       <div className="bg-white dark:bg-gray-800/80 rounded-xl px-4 py-3 border border-indigo-100 dark:border-indigo-800/40">
-        <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-1">
+        <div className="flex items-center gap-2 text-xs text-gray-700 dark:text-gray-300 mb-1">
           <span>📐</span>
           <span className="uppercase tracking-wide font-medium">Công thức</span>
         </div>

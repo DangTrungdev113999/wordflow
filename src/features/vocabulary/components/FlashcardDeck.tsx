@@ -34,7 +34,7 @@ export function FlashcardDeck({ word, isFlipped, onFlip, onRate, cardIndex, tota
     <div className="flex flex-col items-center gap-6 w-full max-w-md mx-auto">
       {/* Progress */}
       <div className="w-full flex items-center gap-3">
-        <span className="text-sm text-gray-400">{cardIndex + 1}/{total}</span>
+        <span className="text-sm text-gray-600 dark:text-gray-400">{cardIndex + 1}/{total}</span>
         <div className="flex-1 h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
           <div
             className="h-full bg-indigo-500 rounded-full transition-all duration-500"
@@ -68,8 +68,8 @@ export function FlashcardDeck({ word, isFlipped, onFlip, onRate, cardIndex, tota
         back={
           <div className="w-full h-full bg-white dark:bg-gray-900 rounded-3xl border-2 border-indigo-200 dark:border-indigo-800 flex flex-col items-center justify-center gap-2.5 shadow-lg p-6 text-center">
             <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">{word.meaning}</p>
-            <p className="text-sm text-gray-400 font-mono">{word.ipa}</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 italic">&quot;{word.example}&quot;</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 font-mono">{word.ipa}</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300 italic">&quot;{word.example}&quot;</p>
             <div className="flex items-center gap-2 mt-1">
               <AudioButton word={word.word} audioUrl={word.audioUrl} size="sm" />
               {wordId && <PronunciationButton word={word.word} wordId={wordId} />}

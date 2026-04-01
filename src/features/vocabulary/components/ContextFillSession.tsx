@@ -38,7 +38,7 @@ export function ContextFillSession({
     <div className="space-y-6">
       {/* Progress bar */}
       <div className="space-y-1.5">
-        <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+        <div className="flex items-center justify-between text-xs text-gray-700 dark:text-gray-300">
           <span>{currentIndex + 1} / {total}</span>
           <span>{Math.round(progress)}%</span>
         </div>
@@ -75,7 +75,7 @@ export function ContextFillSession({
           </div>
 
           {/* Instruction */}
-          <p className="text-xs font-medium text-gray-400 dark:text-gray-500 mb-3 uppercase tracking-wider">
+          <p className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-3 uppercase tracking-wider">
             Fill in the blank
           </p>
 
@@ -95,7 +95,7 @@ export function ContextFillSession({
 
           {/* Translation hint */}
           {translation && (
-            <p className="text-sm text-gray-400 dark:text-gray-500 mt-3 italic">
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-3 italic">
               {translation}
             </p>
           )}

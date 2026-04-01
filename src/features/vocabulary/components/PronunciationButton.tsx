@@ -51,7 +51,7 @@ export function PronunciationButton({ word, wordId }: PronunciationButtonProps) 
           'flex items-center justify-center rounded-full transition-all duration-200 active:scale-95 w-9 h-9',
           isListening
             ? 'text-red-500 bg-red-50 dark:bg-red-900/30'
-            : 'text-gray-400 hover:text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30'
+            : 'text-gray-600 dark:text-gray-400 hover:text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30'
         )}
         title={`Pronounce "${word}"`}
       >
@@ -66,7 +66,7 @@ export function PronunciationButton({ word, wordId }: PronunciationButtonProps) 
       </button>
 
       {isListening && (
-        <span className="text-xs text-gray-400 animate-pulse">Listening...</span>
+        <span className="text-xs text-gray-600 dark:text-gray-400 animate-pulse">Listening...</span>
       )}
 
       <AnimatePresence>

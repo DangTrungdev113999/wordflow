@@ -25,7 +25,7 @@ export function ArticlesPage() {
           </div>
           <div>
             <h1 className="text-xl font-bold text-gray-900 dark:text-white">Articles</h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-700 dark:text-gray-300">
               Cheat sheet mạo từ a/an/the và zero article
             </p>
           </div>
@@ -61,7 +61,7 @@ function LegendDot({ color, label }: { color: string; label: string }) {
   return (
     <div className="flex items-center gap-1.5">
       <div className={`w-2.5 h-2.5 rounded-full ${color}`} />
-      <span className="text-xs text-gray-500 dark:text-gray-400">{label}</span>
+      <span className="text-xs text-gray-700 dark:text-gray-300">{label}</span>
     </div>
   );
 }

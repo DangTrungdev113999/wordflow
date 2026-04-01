@@ -33,10 +33,10 @@ export function ChallengeWordTask({ word, done, onComplete }: Props) {
               <Volume2 size={16} />
             </button>
           </div>
-          <p className="text-xs text-gray-400 font-mono">{word.ipa}</p>
+          <p className="text-xs text-gray-600 dark:text-gray-400 font-mono">{word.ipa}</p>
           <p className="text-sm text-gray-700 dark:text-gray-300">{word.meaning}</p>
           <div className="p-2.5 bg-gray-50 dark:bg-gray-800 rounded-xl">
-            <p className="text-xs text-gray-500 dark:text-gray-400 italic">"{word.example}"</p>
+            <p className="text-xs text-gray-700 dark:text-gray-300 italic">"{word.example}"</p>
           </div>
           <button
             onClick={onComplete}

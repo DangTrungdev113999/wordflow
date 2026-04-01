@@ -49,7 +49,7 @@ export function SentenceOrder({ exercise, onAnswer }: Props) {
       {/* Selected words (answer area) — tap to remove & reorder */}
       <div className="min-h-[56px] p-3 rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-600 flex flex-wrap gap-2">
         {selected.length === 0 && (
-          <span className="text-gray-400 text-sm">Tap words below to build the sentence. Tap here to remove.</span>
+          <span className="text-gray-600 dark:text-gray-400 text-sm">Tap words below to build the sentence. Tap here to remove.</span>
         )}
         {selected.map((item) => (
           <button

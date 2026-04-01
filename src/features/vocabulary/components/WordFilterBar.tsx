@@ -50,7 +50,7 @@ export function WordFilterBar({
                 'relative shrink-0 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors',
                 isActive
                   ? 'text-white'
-                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800',
+                  : 'text-gray-700 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800',
               )}
             >
               {isActive && (
@@ -65,7 +65,7 @@ export function WordFilterBar({
                 {count > 0 && (
                   <span className={cn(
                     'ml-1.5 tabular-nums',
-                    isActive ? 'text-indigo-200' : 'text-gray-400 dark:text-gray-500',
+                    isActive ? 'text-indigo-200' : 'text-gray-600 dark:text-gray-400',
                   )}>
                     {count}
                   </span>
@@ -90,7 +90,7 @@ export function WordFilterBar({
           </select>
           <ChevronDown
             size={14}
-            className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+            className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-600 dark:text-gray-400 pointer-events-none"
           />
         </div>
       </div>

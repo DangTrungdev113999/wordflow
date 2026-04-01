@@ -76,12 +76,12 @@ function ArticleCard({ rule, style, expanded, onToggle }: {
             <span className={`inline-flex items-center px-3 py-1 rounded-lg text-base font-bold border ${style.bg} ${style.text} ${style.border}`}>
               {style.label}
             </span>
-            <span className="text-sm text-gray-500 dark:text-gray-400">
+            <span className="text-sm text-gray-700 dark:text-gray-300">
               {rule.rules.length} quy tắc · {rule.commonMistakes.length} lỗi hay gặp
             </span>
           </div>
           <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
-            <ChevronDown size={16} className="text-gray-400" />
+            <ChevronDown size={16} className="text-gray-600 dark:text-gray-400" />
           </motion.div>
         </div>
       </div>
@@ -121,7 +121,7 @@ function ArticleCard({ rule, style, expanded, onToggle }: {
                         <p className={`text-sm italic leading-relaxed ${style.text}`}>
                           {ex.en}
                         </p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                        <p className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">
                           {ex.vi}
                         </p>
                       </div>
@@ -147,7 +147,7 @@ function ArticleCard({ rule, style, expanded, onToggle }: {
                 <div className="space-y-2 pt-2 border-t border-gray-200 dark:border-gray-700">
                   <div className="flex items-center gap-1.5">
                     <Lightbulb size={13} className="text-teal-500" />
-                    <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                    <p className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                       Trường hợp đặc biệt
                     </p>
                   </div>
@@ -165,7 +165,7 @@ function ArticleCard({ rule, style, expanded, onToggle }: {
               {/* Common Mistakes */}
               {rule.commonMistakes.length > 0 && (
                 <div className="space-y-2 pt-2 border-t border-gray-200 dark:border-gray-700">
-                  <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  <p className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                     Lỗi hay gặp
                   </p>
                   <div className="space-y-1.5">
@@ -179,7 +179,7 @@ function ArticleCard({ rule, style, expanded, onToggle }: {
                           <span className="text-emerald-500 font-bold text-xs flex-shrink-0">✓</span>
                           <span className="text-sm text-emerald-700 dark:text-emerald-400">{m.correct}</span>
                         </div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed ml-5">
+                        <p className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed ml-5">
                           {m.explanation}
                         </p>
                       </div>

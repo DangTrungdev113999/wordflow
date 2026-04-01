@@ -29,7 +29,7 @@ export function ChallengeDictationTask({ word, done, onComplete }: Props) {
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
       <Card>
         <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-3">🎧 Listen & Type</h3>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">Listen to the word and type what you hear.</p>
+        <p className="text-xs text-gray-700 dark:text-gray-300 mb-3">Listen to the word and type what you hear.</p>
         <button
           onClick={() => playWordAudio(word.word, word.audioUrl)}
           className="w-full flex items-center justify-center gap-2 py-3 mb-3 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-xl hover:bg-indigo-200 dark:hover:bg-indigo-900 transition-colors"

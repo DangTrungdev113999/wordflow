@@ -25,7 +25,7 @@ export function DropZone({ placedWords, wrongWordIds, onRemoveWord }: DropZonePr
       )}
     >
       {placedWords.length === 0 ? (
-        <p className="text-sm text-gray-400 dark:text-gray-500 text-center">
+        <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
           Drag words here to build the sentence
         </p>
       ) : (

@@ -54,7 +54,7 @@ export function LessonPage() {
   }, [lessonId]);
 
   if (!currentLesson) {
-    return <div className="p-6 text-center text-gray-500">Loading...</div>;
+    return <div className="p-6 text-center text-gray-700 dark:text-gray-300">Loading...</div>;
   }
 
   const progress = lessonProgress[currentLesson.id];
@@ -120,7 +120,7 @@ export function LessonPage() {
                     {section.examples.map((ex, j) => (
                       <div key={j} className="pl-3 border-l-2 border-indigo-200 dark:border-indigo-800">
                         <p className="text-sm text-gray-900 dark:text-white">{renderBold(ex.en)}</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 italic">{ex.vi}</p>
+                        <p className="text-sm text-gray-700 dark:text-gray-300 italic">{ex.vi}</p>
                       </div>
                     ))}
                   </div>
@@ -129,7 +129,7 @@ export function LessonPage() {
                 {/* Colored examples — interactive SentenceExplorer */}
                 {section.coloredExamples && section.coloredExamples.length > 0 && (
                   <div className="pt-2">
-                    <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Phân tích câu</div>
+                    <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wide mb-2">Phân tích câu</div>
                     <SentenceExplorer examples={section.coloredExamples} />
                   </div>
                 )}
@@ -144,7 +144,7 @@ export function LessonPage() {
                 {/* Before/After */}
                 {section.beforeAfter && section.beforeAfter.length > 0 && (
                   <div className="pt-2">
-                    <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Sai vs Đúng</div>
+                    <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wide mb-2">Sai vs Đúng</div>
                     <BeforeAfterCard items={section.beforeAfter} />
                   </div>
                 )}

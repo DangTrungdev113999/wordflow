@@ -23,7 +23,7 @@ export function PairQuizInline({ quiz, word1, word2 }: PairQuizInlineProps) {
         <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
           Kết quả: {score}/{results.length}
         </p>
-        <p className="text-xs text-gray-400 mt-1">
+        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
           {score === results.length ? 'Tuyệt vời! Bạn đã phân biệt đúng!' : 'Hãy xem lại phần so sánh phía trên nhé.'}
         </p>
         <button
@@ -63,7 +63,7 @@ export function PairQuizInline({ quiz, word1, word2 }: PairQuizInlineProps) {
     <div className="space-y-3">
       {/* Progress */}
       <div className="flex items-center justify-between">
-        <span className="text-[10px] font-medium text-gray-400 uppercase tracking-wide">Câu {currentIndex + 1}/{quiz.sentences.length}</span>
+        <span className="text-[10px] font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wide">Câu {currentIndex + 1}/{quiz.sentences.length}</span>
         <div className="flex gap-1">
           {quiz.sentences.map((_, i) => (
             <div
@@ -97,7 +97,7 @@ export function PairQuizInline({ quiz, word1, word2 }: PairQuizInlineProps) {
             } else if (isThis && !isCorrectWord) {
               style = 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border-red-300 dark:border-red-700';
             } else {
-              style = 'opacity-40 bg-gray-50 dark:bg-gray-800 text-gray-400 border-gray-200 dark:border-gray-700';
+              style = 'opacity-40 bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-700';
             }
           }
 
@@ -132,7 +132,7 @@ export function PairQuizInline({ quiz, word1, word2 }: PairQuizInlineProps) {
             )}>
               {isCorrect ? 'Chính xác!' : `Sai rồi! Đáp án đúng: ${item.correct}`}
             </p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">{item.explanation}</p>
+            <p className="text-xs text-gray-700 dark:text-gray-300">{item.explanation}</p>
 
             {currentIndex < quiz.sentences.length - 1 && (
               <button

@@ -22,7 +22,7 @@ export function WeakWordsList({ words, maxShow = 5 }: WeakWordsListProps) {
         <h3 className="font-semibold text-gray-900 dark:text-white text-sm">
           Words to Review
         </h3>
-        <span className="text-xs text-gray-400">({words.length})</span>
+        <span className="text-xs text-gray-600 dark:text-gray-400">({words.length})</span>
       </div>
 
       <div className="space-y-1.5">
@@ -34,8 +34,8 @@ export function WeakWordsList({ words, maxShow = 5 }: WeakWordsListProps) {
             <span className="font-medium text-gray-900 dark:text-white text-sm">
               {w.word}
             </span>
-            <span className="text-xs text-gray-400">{w.ipa}</span>
-            <span className="text-xs text-gray-500 dark:text-gray-400 ml-auto">
+            <span className="text-xs text-gray-600 dark:text-gray-400">{w.ipa}</span>
+            <span className="text-xs text-gray-700 dark:text-gray-300 ml-auto">
               {w.meaning}
             </span>
           </div>

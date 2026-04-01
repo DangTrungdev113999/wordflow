@@ -35,7 +35,7 @@ export function TenseCompare() {
                 onClick={() => setActiveIdx(i)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${i === activeIdx
                   ? 'bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-400 shadow-sm'
-                  : 'text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'}`}
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'}`}
               >
                 {comp.title.replace(' vs ', ' / ')}
               </button>
@@ -100,7 +100,7 @@ function ComparisonCard({ comparison }: { comparison: TenseComparison }) {
       <div className="space-y-2">
         <div className="flex items-center gap-2">
           <AlertTriangle size={15} className="text-rose-500" />
-          <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Lỗi thường gặp</p>
+          <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">Lỗi thường gặp</p>
         </div>
         <div className="space-y-2">
           {comparison.commonMistakes.map((mistake, i) => (
@@ -113,7 +113,7 @@ function ComparisonCard({ comparison }: { comparison: TenseComparison }) {
                 <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-emerald-700 dark:text-emerald-400 font-medium">{mistake.correct}</p>
               </div>
-              <p className="text-xs text-gray-500 dark:text-gray-400 pl-[22px] leading-relaxed">{mistake.explanation}</p>
+              <p className="text-xs text-gray-700 dark:text-gray-300 pl-[22px] leading-relaxed">{mistake.explanation}</p>
             </div>
           ))}
         </div>
@@ -181,7 +181,7 @@ function TensePanel({ tense, variant }: {
 
       {/* Signal words */}
       <div>
-        <p className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1.5">Signal Words</p>
+        <p className="text-[11px] font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1.5">Signal Words</p>
         <div className="flex flex-wrap gap-1">
           {tense.signalWords.map(word => (
             <span key={word} className={`px-2 py-0.5 rounded-md text-xs font-medium border ${styles.signal}`}>
@@ -284,7 +284,7 @@ function MiniQuiz({ questions, onClose }: {
             transition={{ duration: 0.3 }}
           />
         </div>
-        <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">{current + 1}/{questions.length}</span>
+        <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">{current + 1}/{questions.length}</span>
       </div>
 
       {/* Question */}
@@ -300,7 +300,7 @@ function MiniQuiz({ questions, onClose }: {
             } else if (i === selected && i !== q.correct) {
               optStyle = 'bg-rose-50 dark:bg-rose-900/30 border-rose-300 dark:border-rose-700 text-rose-600 dark:text-rose-400';
             } else {
-              optStyle = 'bg-gray-50 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700 text-gray-400 dark:text-gray-500';
+              optStyle = 'bg-gray-50 dark:bg-gray-800/60 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400';
             }
           }
 

@@ -36,7 +36,7 @@ export function WelcomeScreen({ onStart, onSkip }: WelcomeScreenProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4 }}
-        className="text-gray-500 dark:text-gray-400 mb-10 leading-relaxed"
+        className="text-gray-700 dark:text-gray-300 mb-10 leading-relaxed"
       >
         Let's find your English level with a quick 10-question quiz.
       </motion.p>
@@ -52,7 +52,7 @@ export function WelcomeScreen({ onStart, onSkip }: WelcomeScreenProps) {
         </Button>
         <button
           onClick={onSkip}
-          className="text-sm text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors py-2"
+          className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400 transition-colors py-2"
         >
           Skip — I'll start at A1
         </button>

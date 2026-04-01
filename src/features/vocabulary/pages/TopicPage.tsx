@@ -80,7 +80,7 @@ export function TopicPage() {
 
   if (!topicData) {
     return (
-      <div className="px-4 py-6 text-center text-gray-500">
+      <div className="px-4 py-6 text-center text-gray-700 dark:text-gray-300">
         Topic not found.{' '}
         <Link to="/vocabulary" className="text-indigo-500">Go back</Link>
       </div>
@@ -123,7 +123,7 @@ export function TopicPage() {
       {/* Word list */}
       <div className="space-y-2">
         {displayWords.length === 0 && (
-          <p className="text-center text-sm text-gray-400 dark:text-gray-500 py-8">
+          <p className="text-center text-sm text-gray-600 dark:text-gray-400 py-8">
             No words match this filter.
           </p>
         )}

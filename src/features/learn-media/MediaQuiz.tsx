@@ -20,7 +20,7 @@ export function MediaQuiz({ exercises, currentIndex, onAnswer }: QuizProps) {
     <div className="space-y-5">
       {/* Progress */}
       <div className="space-y-2">
-        <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+        <div className="flex items-center justify-between text-xs text-gray-700 dark:text-gray-300">
           <span>Question {currentIndex + 1} of {exercises.length}</span>
           <span>{Math.round(progress)}%</span>
         </div>
@@ -81,7 +81,7 @@ export function MediaQuizSummary({ score, results, exercises, onReset }: Summary
         <p className="text-sm text-gray-600 dark:text-gray-300">
           {correctCount}/{results.length} correct
         </p>
-        <p className="text-xs text-gray-400 mt-1">
+        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
           {score >= 80 ? 'Excellent work!' : score >= 50 ? 'Good effort, keep practicing!' : 'Keep learning, you\'ll improve!'}
         </p>
       </div>

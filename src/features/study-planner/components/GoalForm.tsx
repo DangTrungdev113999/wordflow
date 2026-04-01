@@ -45,7 +45,7 @@ export function GoalForm() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl border-2 border-dashed border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-400 dark:text-gray-500 hover:border-indigo-300 hover:text-indigo-500 dark:hover:border-indigo-700 dark:hover:text-indigo-400 transition-colors"
+        className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl border-2 border-dashed border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-600 dark:text-gray-400 hover:border-indigo-300 hover:text-indigo-500 dark:hover:border-indigo-700 dark:hover:text-indigo-400 transition-colors"
       >
         <Plus size={16} />
         Add Goal
@@ -70,7 +70,7 @@ export function GoalForm() {
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white">New Goal</h3>
                 <button
                   onClick={() => setOpen(false)}
-                  className="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  className="p-1.5 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
                 >
                   <X size={18} />
                 </button>
@@ -85,7 +85,7 @@ export function GoalForm() {
                     className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all ${
                       type === t
                         ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm'
-                        : 'text-gray-500 dark:text-gray-400'
+                        : 'text-gray-700 dark:text-gray-300'
                     }`}
                   >
                     {t === 'daily' ? 'Daily' : 'Weekly'}
@@ -94,7 +94,7 @@ export function GoalForm() {
               </div>
 
               {/* Metric */}
-              <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1.5">
+              <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5">
                 Metric
               </label>
               <div className="grid grid-cols-2 gap-1.5 mb-4">
@@ -114,7 +114,7 @@ export function GoalForm() {
               </div>
 
               {/* Target */}
-              <label className="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1.5">
+              <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5">
                 Target
               </label>
               <input

@@ -33,14 +33,14 @@ export function PhrasalVerbItem({ item }: PhrasalVerbItemProps) {
               {item.level}
             </span>
           </div>
-          <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 truncate">
+          <p className="text-[11px] text-gray-700 dark:text-gray-300 mt-0.5 truncate">
             {item.meaning}
           </p>
         </div>
         <motion.div
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.2 }}
-          className="shrink-0 text-gray-400"
+          className="shrink-0 text-gray-600 dark:text-gray-400"
         >
           <ChevronDown size={16} />
         </motion.div>
@@ -68,7 +68,7 @@ export function PhrasalVerbItem({ item }: PhrasalVerbItemProps) {
                     <p className="text-xs text-gray-800 dark:text-gray-200 leading-relaxed">
                       {ex.sentence}
                     </p>
-                    <p className="text-[11px] text-gray-400 mt-0.5">
+                    <p className="text-[11px] text-gray-600 dark:text-gray-400 mt-0.5">
                       → {ex.translation}
                     </p>
                   </div>
@@ -78,7 +78,7 @@ export function PhrasalVerbItem({ item }: PhrasalVerbItemProps) {
               {/* Synonyms */}
               {item.synonyms && item.synonyms.length > 0 && (
                 <div className="flex items-center gap-1.5 flex-wrap">
-                  <span className="text-[10px] text-gray-400 uppercase font-medium">Synonyms:</span>
+                  <span className="text-[10px] text-gray-600 dark:text-gray-400 uppercase font-medium">Synonyms:</span>
                   {item.synonyms.map(s => (
                     <span key={s} className="px-1.5 py-0.5 rounded bg-indigo-50 dark:bg-indigo-900/20 text-[10px] text-indigo-600 dark:text-indigo-400 font-medium">
                       {s}

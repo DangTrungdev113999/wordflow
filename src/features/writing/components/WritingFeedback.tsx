@@ -72,7 +72,7 @@ function CircularScore({ score }: { score: number }) {
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="text-3xl font-bold text-gray-900 dark:text-white"><ScoreCountUp end={score} /></span>
-        <span className="text-xs text-gray-400">/10</span>
+        <span className="text-xs text-gray-600 dark:text-gray-400">/10</span>
       </div>
     </motion.div>
   );
@@ -85,7 +85,7 @@ export function WritingFeedback({ submission, onBack, onNewWriting }: WritingFee
 
   if (!feedback) {
     return (
-      <div className="text-center py-12 text-gray-400">
+      <div className="text-center py-12 text-gray-600 dark:text-gray-400">
         Không có dữ liệu phản hồi
       </div>
     );
@@ -99,7 +99,7 @@ export function WritingFeedback({ submission, onBack, onNewWriting }: WritingFee
       <motion.div variants={sectionVariants} className="flex items-center gap-3 mb-5">
         <button
           onClick={onBack}
-          className="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          className="p-1.5 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
         >
           <ArrowLeft size={20} />
         </button>
@@ -109,7 +109,7 @@ export function WritingFeedback({ submission, onBack, onNewWriting }: WritingFee
       {/* Overall score */}
       <motion.div variants={sectionVariants} className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-6 mb-4">
         <CircularScore score={feedback.overallScore} />
-        <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-3">
+        <p className="text-center text-sm text-gray-700 dark:text-gray-300 mt-3">
           Điểm tổng · <span className="text-indigo-500 font-semibold">+{xp} XP</span>
         </p>
       </motion.div>
@@ -134,7 +134,7 @@ export function WritingFeedback({ submission, onBack, onNewWriting }: WritingFee
                   />
                 </div>
                 {'feedback' in cat && (
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{cat.feedback}</p>
+                  <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">{cat.feedback}</p>
                 )}
               </div>
             );
@@ -152,7 +152,7 @@ export function WritingFeedback({ submission, onBack, onNewWriting }: WritingFee
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
               Lỗi ngữ pháp ({feedback.categories.grammar.issues.length})
             </h3>
-            {expandedIssues ? <ChevronUp size={16} className="text-gray-400" /> : <ChevronDown size={16} className="text-gray-400" />}
+            {expandedIssues ? <ChevronUp size={16} className="text-gray-600 dark:text-gray-400" /> : <ChevronDown size={16} className="text-gray-600 dark:text-gray-400" />}
           </button>
           <AnimatePresence>
             {expandedIssues && (
@@ -168,10 +168,10 @@ export function WritingFeedback({ submission, onBack, onNewWriting }: WritingFee
                     <div key={i} className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-3">
                       <div className="flex items-start gap-2 text-sm">
                         <span className="text-red-500 line-through shrink-0">{issue.original}</span>
-                        <span className="text-gray-400">→</span>
+                        <span className="text-gray-600 dark:text-gray-400">→</span>
                         <span className="text-green-600 dark:text-green-400 font-medium">{issue.correction}</span>
                       </div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1.5">{issue.rule}</p>
+                      <p className="text-xs text-gray-700 dark:text-gray-300 mt-1.5">{issue.rule}</p>
                     </div>
                   ))}
                 </div>

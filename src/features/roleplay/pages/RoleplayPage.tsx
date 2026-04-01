@@ -78,7 +78,7 @@ export function RoleplayPage() {
           <div className="absolute inset-0 bg-white/60 dark:bg-gray-950/60 flex items-center justify-center z-10">
             <div className="text-center">
               <div className="w-10 h-10 border-3 border-indigo-500 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-              <p className="text-sm text-gray-500 dark:text-gray-400">Đang tạo tổng kết...</p>
+              <p className="text-sm text-gray-700 dark:text-gray-300">Đang tạo tổng kết...</p>
             </div>
           </div>
         )}
@@ -95,7 +95,7 @@ export function RoleplayPage() {
         </div>
         <div>
           <h1 className="text-xl font-bold text-gray-900 dark:text-white">Đóng vai hội thoại</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400">Chọn kịch bản và bắt đầu luyện nói</p>
+          <p className="text-sm text-gray-700 dark:text-gray-300">Chọn kịch bản và bắt đầu luyện nói</p>
         </div>
       </div>
       <ScenarioGrid scenarios={scenarios} onSelect={startScenario} />

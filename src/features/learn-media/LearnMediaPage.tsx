@@ -27,7 +27,7 @@ export function LearnMediaPage() {
             onClick={media.reset}
             className="p-2 -ml-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
           >
-            <ArrowLeft size={20} className="text-gray-500" />
+            <ArrowLeft size={20} className="text-gray-700 dark:text-gray-300" />
           </button>
         )}
         <div className="flex items-center gap-2.5">
@@ -36,7 +36,7 @@ export function LearnMediaPage() {
           </div>
           <div>
             <h1 className="text-lg font-bold text-gray-900 dark:text-white">Learn from Media</h1>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
+            <p className="text-xs text-gray-700 dark:text-gray-300">
               {media.step === 'input' && 'Paste a URL or text to learn vocabulary'}
               {media.step === 'extracting' && 'Analyzing content...'}
               {media.step === 'vocab' && `${media.vocab.length} words found`}

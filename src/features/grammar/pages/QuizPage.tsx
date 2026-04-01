@@ -115,7 +115,7 @@ export function QuizPage() {
   }, [quiz.isComplete]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!currentLesson) {
-    return <div className="p-6 text-center text-gray-500">Loading...</div>;
+    return <div className="p-6 text-center text-gray-700 dark:text-gray-300">Loading...</div>;
   }
 
   const currentExercise = currentLesson.exercises[quiz.currentExerciseIndex];
@@ -183,7 +183,7 @@ export function QuizPage() {
           <ArrowLeft size={20} className="text-gray-600 dark:text-gray-400" />
         </Link>
         <div className="flex-1">
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-700 dark:text-gray-300">
             Question {quiz.currentExerciseIndex + 1} of {currentLesson.exercises.length}
           </p>
         </div>

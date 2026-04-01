@@ -45,14 +45,14 @@ export function CollocationItem({ item }: CollocationItemProps) {
               {CAT_LABEL[item.category]}
             </span>
           </div>
-          <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 truncate">
+          <p className="text-[11px] text-gray-700 dark:text-gray-300 mt-0.5 truncate">
             {item.meaning}
           </p>
         </div>
         <motion.div
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.2 }}
-          className="shrink-0 text-gray-400"
+          className="shrink-0 text-gray-600 dark:text-gray-400"
         >
           <ChevronDown size={16} />
         </motion.div>
@@ -93,7 +93,7 @@ export function CollocationItem({ item }: CollocationItemProps) {
                     <p className="text-xs text-gray-800 dark:text-gray-200 leading-relaxed">
                       {ex.sentence}
                     </p>
-                    <p className="text-[11px] text-gray-400 mt-0.5">
+                    <p className="text-[11px] text-gray-600 dark:text-gray-400 mt-0.5">
                       → {ex.translation}
                     </p>
                   </div>

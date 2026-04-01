@@ -26,14 +26,14 @@ export function ScenarioGrid({ scenarios, onSelect }: ScenarioGridProps) {
     <div>
       {/* Filters */}
       <div className="flex items-center gap-2 mb-4 flex-wrap">
-        <Filter size={16} className="text-gray-400 shrink-0" />
+        <Filter size={16} className="text-gray-600 dark:text-gray-400 shrink-0" />
         <button
           onClick={() => setFilterCategory(null)}
           className={cn(
             'px-3 py-1 rounded-full text-xs font-medium transition-colors',
             !filterCategory
               ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400'
-              : 'bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400',
+              : 'bg-gray-100 text-gray-700 dark:text-gray-300 dark:bg-gray-800 dark:text-gray-400',
           )}
         >
           Tất cả
@@ -46,7 +46,7 @@ export function ScenarioGrid({ scenarios, onSelect }: ScenarioGridProps) {
               'px-3 py-1 rounded-full text-xs font-medium transition-colors',
               filterCategory === cat
                 ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400'
-                : 'bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400',
+                : 'bg-gray-100 text-gray-700 dark:text-gray-300 dark:bg-gray-800 dark:text-gray-400',
             )}
           >
             {CATEGORY_LABELS[cat] || cat}
@@ -62,7 +62,7 @@ export function ScenarioGrid({ scenarios, onSelect }: ScenarioGridProps) {
       </div>
 
       {filtered.length === 0 && (
-        <p className="text-center text-sm text-gray-400 dark:text-gray-500 py-8">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-400 py-8">
           Không có kịch bản phù hợp
         </p>
       )}

@@ -35,7 +35,7 @@ export function DictationPlayer({ onPlay, isPlaying, hasPlayed, disabled }: Dict
           <Volume2 size={40} />
         )}
       </motion.button>
-      <p className="text-sm text-gray-500 dark:text-gray-400">
+      <p className="text-sm text-gray-700 dark:text-gray-300">
         {hasPlayed ? 'Tap to listen again' : 'Tap to listen'}
       </p>
     </div>

@@ -26,7 +26,7 @@ const DEFAULT_PART_COLORS = ['blue', 'orange', 'green', 'purple', 'pink', 'teal'
 export function FormulaCard({ title, parts, example }: FormulaCardProps) {
   return (
     <div className="space-y-2">
-      <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+      <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wide">
         {title}
       </div>
 
@@ -48,7 +48,7 @@ export function FormulaCard({ title, parts, example }: FormulaCardProps) {
                 {/* Plus sign between parts */}
                 {i > 0 && (
                   <motion.span
-                    className="text-gray-400 dark:text-gray-500 font-bold text-lg"
+                    className="text-gray-600 dark:text-gray-400 font-bold text-lg"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: i * 0.12 - 0.06 }}

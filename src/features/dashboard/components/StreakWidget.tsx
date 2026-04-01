@@ -10,7 +10,7 @@ export function StreakWidget() {
       <StreakFire streak={currentStreak} size="lg" />
       <div>
         <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Current Streak</p>
-        <p className="text-xs text-gray-400">Best: {longestStreak} days</p>
+        <p className="text-xs text-gray-600 dark:text-gray-400">Best: {longestStreak} days</p>
       </div>
     </Card>
   );

@@ -38,7 +38,7 @@ export function WritingEditor({ prompt, isSubmitting, error, onSubmit, onBack }:
       <div className="flex items-center gap-3 mb-4">
         <button
           onClick={onBack}
-          className="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          className="p-1.5 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
         >
           <ArrowLeft size={20} />
         </button>
@@ -46,14 +46,14 @@ export function WritingEditor({ prompt, isSubmitting, error, onSubmit, onBack }:
           <h2 className="text-base font-semibold text-gray-900 dark:text-white truncate">
             {prompt.titleVi}
           </h2>
-          <p className="text-xs text-gray-400">{prompt.level} · {prompt.minWords}–{prompt.maxWords} từ</p>
+          <p className="text-xs text-gray-600 dark:text-gray-400">{prompt.level} · {prompt.minWords}–{prompt.maxWords} từ</p>
         </div>
       </div>
 
       {/* Prompt instructions */}
       <div className="bg-indigo-50 dark:bg-indigo-900/10 rounded-xl p-4 mb-4 border border-indigo-100 dark:border-indigo-900/30">
         <p className="text-sm text-gray-700 dark:text-gray-300">{prompt.prompt}</p>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 italic">{prompt.promptVi}</p>
+        <p className="text-xs text-gray-700 dark:text-gray-300 mt-1 italic">{prompt.promptVi}</p>
       </div>
 
       {/* Hints toggle */}
@@ -91,7 +91,7 @@ export function WritingEditor({ prompt, isSubmitting, error, onSubmit, onBack }:
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Bắt đầu viết tại đây..."
-        className="w-full min-h-[200px] px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white text-sm resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-colors placeholder:text-gray-400"
+        className="w-full min-h-[200px] px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white text-sm resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-colors placeholder:text-gray-600 dark:text-gray-400"
         disabled={isSubmitting}
       />
 
@@ -106,7 +106,7 @@ export function WritingEditor({ prompt, isSubmitting, error, onSubmit, onBack }:
           >
             {wordCount} từ
           </span>
-          <span className="text-xs text-gray-400">
+          <span className="text-xs text-gray-600 dark:text-gray-400">
             ({prompt.minWords} min – {prompt.maxWords} max)
           </span>
         </div>

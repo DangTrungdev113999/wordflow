@@ -29,7 +29,7 @@ export function SentenceBuildingSummary({
           <Trophy size={32} />
         </div>
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Session Complete!</h2>
-        <p className="text-gray-500 dark:text-gray-400">
+        <p className="text-gray-700 dark:text-gray-300">
           {correctCount === totalCount
             ? 'Perfect score! Amazing work!'
             : correctCount >= totalCount * 0.7
@@ -58,7 +58,7 @@ export function SentenceBuildingSummary({
 
       {/* Results list */}
       <div className="space-y-2">
-        <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+        <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider">
           Review
         </h3>
         <div className="space-y-2">
@@ -88,7 +88,7 @@ export function SentenceBuildingSummary({
                     <p className="text-sm font-medium text-gray-800 dark:text-gray-200 truncate">
                       {exercise.sentence}
                     </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                    <p className="text-xs text-gray-700 dark:text-gray-300 mt-0.5">
                       {exercise.translation}
                     </p>
                     {!result.correct && (

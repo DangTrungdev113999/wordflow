@@ -33,7 +33,7 @@ export function HintBar({ hints, usedHints, onUseHint, revealedValues, disabled 
             >
               <span>{hint.icon}</span>
               <span>{hint.label}</span>
-              {!isUsed && <span className="text-[10px] text-gray-400">−{hint.xpPenalty}xp</span>}
+              {!isUsed && <span className="text-[10px] text-gray-600 dark:text-gray-400">−{hint.xpPenalty}xp</span>}
             </button>
           );
         })}

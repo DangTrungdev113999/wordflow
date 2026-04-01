@@ -71,14 +71,14 @@ export function ChallengeSentenceBuildingTask({ sentence, done, onComplete }: Pr
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
       <Card>
         <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-1">🧩 Build a Sentence</h3>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+        <p className="text-xs text-gray-700 dark:text-gray-300 mb-3">
           {sentence.translation}
         </p>
 
         {/* Drop zone */}
         <div className="min-h-[52px] p-3 mb-3 rounded-xl border-2 border-dashed border-gray-200 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/50 flex flex-wrap gap-1.5 items-start">
           {placedWords.length === 0 && (
-            <span className="text-xs text-gray-400 dark:text-gray-500 italic">Tap words below to build the sentence...</span>
+            <span className="text-xs text-gray-600 dark:text-gray-400 italic">Tap words below to build the sentence...</span>
           )}
           <AnimatePresence mode="popLayout">
             {placedWords.map((token) => (

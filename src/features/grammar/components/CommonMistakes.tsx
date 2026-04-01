@@ -66,17 +66,17 @@ export function CommonMistakes() {
     <div className="space-y-4">
       {/* Search bar */}
       <div className="relative">
-        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600 dark:text-gray-400 pointer-events-none" />
         <input
           type="text"
           value={query}
           onChange={e => setQuery(e.target.value)}
           placeholder="Tìm lỗi: tense, preposition, article..."
           aria-label="Tìm kiếm lỗi thường gặp"
-          className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-500/30 focus:border-rose-300 dark:focus:border-rose-600 transition-all"
+          className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-600 dark:text-gray-400 dark:placeholder:text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-rose-500/30 focus:border-rose-300 dark:focus:border-rose-600 transition-all"
         />
         {query && (
-          <button onClick={() => setQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+          <button onClick={() => setQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400">
             <X size={16} />
           </button>
         )}
@@ -98,7 +98,7 @@ export function CommonMistakes() {
           <ArrowUpDown size={13} />
           {sortBy === 'category' ? 'Loại lỗi' : sortBy === 'level' ? 'Trình độ' : 'A → Z'}
         </button>
-        <span className="text-xs text-gray-400 dark:text-gray-500 ml-auto">
+        <span className="text-xs text-gray-600 dark:text-gray-400 ml-auto">
           {resultCount} / {COMMON_MISTAKES.length} lỗi
         </span>
       </div>
@@ -116,7 +116,7 @@ export function CommonMistakes() {
             <div className="p-3 bg-gray-50 dark:bg-gray-800/40 rounded-xl border border-gray-100 dark:border-gray-800 space-y-3">
               {/* Category chips */}
               <div>
-                <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1.5">Loại lỗi</p>
+                <p className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1.5">Loại lỗi</p>
                 <div className="flex flex-wrap gap-1.5">
                   <FilterChip value="all" active={activeCategory === 'all'} onClick={() => setFilter('category', 'all')} label={`Tất cả (${COMMON_MISTAKES.length})`} />
                   {Object.entries(CATEGORY_STYLES).map(([key, style]) => (
@@ -126,7 +126,7 @@ export function CommonMistakes() {
               </div>
               {/* Level chips */}
               <div>
-                <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1.5">Trình độ</p>
+                <p className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1.5">Trình độ</p>
                 <div className="flex flex-wrap gap-1.5">
                   <FilterChip value="all" active={activeLevel === 'all'} onClick={() => setFilter('level', 'all')} label="Tất cả" />
                   {LEVELS.map(level => (
@@ -143,7 +143,7 @@ export function CommonMistakes() {
       <div className="space-y-1">
         {results.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-sm text-gray-400 dark:text-gray-500">Không tìm thấy lỗi nào</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Không tìm thấy lỗi nào</p>
           </div>
         ) : (
           results.map(mistake => (
@@ -190,7 +190,7 @@ function MistakeCard({ mistake, expanded, onToggle }: {
             </span>
           )}
           <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
-            <ChevronDown size={16} className="text-gray-400 flex-shrink-0" />
+            <ChevronDown size={16} className="text-gray-600 dark:text-gray-400 flex-shrink-0" />
           </motion.div>
         </div>
       </div>
@@ -249,7 +249,7 @@ function FilterChip({ value, active, onClick, label, colorBg, colorText }: {
         ? colorBg
           ? `${colorBg} ${colorText} border-current/20`
           : 'bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-400 border-rose-200 dark:border-rose-700'
-        : 'bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700 hover:border-gray-300'
+        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300'
       }`}
     >
       {label}

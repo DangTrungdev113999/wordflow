@@ -32,7 +32,7 @@ export function MediaInput({ onSubmit, loading, error }: Props) {
             'flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-sm font-medium transition-all',
             mode === 'url'
               ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm'
-              : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300',
+              : 'text-gray-700 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400',
           )}
         >
           <Link2 size={16} />
@@ -45,7 +45,7 @@ export function MediaInput({ onSubmit, loading, error }: Props) {
             'flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-sm font-medium transition-all',
             mode === 'text'
               ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm'
-              : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300',
+              : 'text-gray-700 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400',
           )}
         >
           <FileText size={16} />
@@ -64,10 +64,10 @@ export function MediaInput({ onSubmit, loading, error }: Props) {
             value={url}
             onChange={e => setUrl(e.target.value)}
             placeholder="https://example.com/article..."
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder:text-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder:text-gray-600 dark:text-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
             disabled={loading}
           />
-          <p className="mt-2 text-xs text-gray-400 dark:text-gray-500">
+          <p className="mt-2 text-xs text-gray-600 dark:text-gray-400">
             Supports most news articles and blog posts
           </p>
         </div>
@@ -82,10 +82,10 @@ export function MediaInput({ onSubmit, loading, error }: Props) {
             placeholder="Paste article text, YouTube transcript, podcast notes, or any English text here..."
             rows={4}
             maxLength={5000}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder:text-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all resize-none min-h-[7rem] sm:min-h-[12rem]"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder:text-gray-600 dark:text-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all resize-none min-h-[7rem] sm:min-h-[12rem]"
             disabled={loading}
           />
-          <p className="mt-2 text-xs text-gray-400 dark:text-gray-500">
+          <p className="mt-2 text-xs text-gray-600 dark:text-gray-400">
             {text.length < 50
               ? `Minimum 50 characters (${text.length}/50)`
               : `${text.length.toLocaleString()} / 5,000 characters`}
@@ -106,7 +106,7 @@ export function MediaInput({ onSubmit, loading, error }: Props) {
           'w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl text-sm font-semibold transition-all',
           canSubmit && !loading
             ? 'bg-indigo-500 hover:bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
-            : 'bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 cursor-not-allowed',
+            : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 cursor-not-allowed',
         )}
       >
         {loading ? (

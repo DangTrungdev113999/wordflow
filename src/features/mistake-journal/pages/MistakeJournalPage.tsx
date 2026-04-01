@@ -41,7 +41,7 @@ export function MistakeJournalPage() {
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Mistake Journal</h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+        <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
           Learn from your mistakes with spaced repetition
         </p>
       </div>
@@ -58,7 +58,7 @@ export function MistakeJournalPage() {
               className={`relative flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-sm font-medium transition-all ${
                 isActive
                   ? 'text-gray-900 dark:text-white'
-                  : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400'
               }`}
             >
               {isActive && (

@@ -92,8 +92,8 @@ export function GrammarDashboard() {
               {s.icon}
             </div>
             <div className="text-lg font-bold text-gray-900 dark:text-white leading-tight">{s.value}</div>
-            <div className="text-[10px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wide">{s.label}</div>
-            {s.sub && <div className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5">{s.sub}</div>}
+            <div className="text-[10px] text-gray-700 dark:text-gray-300 font-medium uppercase tracking-wide">{s.label}</div>
+            {s.sub && <div className="text-[10px] text-gray-600 dark:text-gray-400 mt-0.5">{s.sub}</div>}
           </motion.div>
         ))}
       </div>
@@ -105,10 +105,10 @@ export function GrammarDashboard() {
         transition={{ delay: 0.25, duration: 0.35 }}
         className="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-4"
       >
-        <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">
+        <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wide mb-3">
           Tiến độ theo cấp độ
         </div>
-        <Suspense fallback={<div className="h-24 flex items-center justify-center text-xs text-gray-400">Loading chart...</div>}>
+        <Suspense fallback={<div className="h-24 flex items-center justify-center text-xs text-gray-600 dark:text-gray-400">Loading chart...</div>}>
           <LazyChart data={levelData} />
         </Suspense>
       </motion.div>

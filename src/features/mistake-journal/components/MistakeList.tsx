@@ -88,7 +88,7 @@ export function MistakeList() {
       <div className="text-center py-16">
         <p className="text-4xl mb-3">📝</p>
         <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1">No mistakes yet</h3>
-        <p className="text-sm text-gray-500">Complete quizzes and practice sessions to start tracking your mistakes.</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300">Complete quizzes and practice sessions to start tracking your mistakes.</p>
       </div>
     );
   }
@@ -98,7 +98,7 @@ export function MistakeList() {
       {/* Search + Filter bar */}
       <div className="flex items-center gap-2 mb-4">
         <div className="flex-1 relative">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600 dark:text-gray-400" />
           <input
             type="text"
             placeholder="Search mistakes..."
@@ -109,7 +109,7 @@ export function MistakeList() {
         </div>
         <button
           onClick={() => setShowFilters(!showFilters)}
-          className={`p-2 rounded-xl border transition-colors ${showFilters ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-400' : 'bg-gray-50 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700 text-gray-500'}`}
+          className={`p-2 rounded-xl border transition-colors ${showFilters ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-400' : 'bg-gray-50 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300'}`}
         >
           <Filter size={16} />
         </button>
@@ -133,7 +133,7 @@ export function MistakeList() {
             {SOURCE_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
           </select>
           <div className="flex items-center gap-1">
-            <SortAsc size={14} className="text-gray-400" />
+            <SortAsc size={14} className="text-gray-600 dark:text-gray-400" />
             <select
               value={sortBy}
               onChange={e => setSortBy(e.target.value as SortBy)}
@@ -146,7 +146,7 @@ export function MistakeList() {
       )}
 
       {/* Count */}
-      <p className="text-xs text-gray-400 mb-3">{filtered.length} {filtered.length === 1 ? 'mistake' : 'mistakes'}</p>
+      <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">{filtered.length} {filtered.length === 1 ? 'mistake' : 'mistakes'}</p>
 
       {/* List */}
       <div className="space-y-3">
@@ -158,7 +158,7 @@ export function MistakeList() {
       </div>
 
       {filtered.length === 0 && mistakes.length > 0 && (
-        <p className="text-center text-sm text-gray-400 py-8">No mistakes match your filters.</p>
+        <p className="text-center text-sm text-gray-600 dark:text-gray-400 py-8">No mistakes match your filters.</p>
       )}
     </div>
   );

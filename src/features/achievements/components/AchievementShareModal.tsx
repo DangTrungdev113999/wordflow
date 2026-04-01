@@ -56,7 +56,7 @@ export function AchievementShareModal({ achievement, onClose }: Props) {
             <h3 className="font-semibold text-gray-900 dark:text-white">Share Achievement</h3>
             <button
               onClick={onClose}
-              className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-400"
+              className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400"
             >
               <X size={18} />
             </button>
@@ -77,7 +77,7 @@ export function AchievementShareModal({ achievement, onClose }: Props) {
               <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
                 {achievement.title}
               </h4>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
                 {achievement.description}
               </p>
               {achievement.tier && <TierBadge tier={achievement.tier} size="md" />}

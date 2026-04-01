@@ -65,7 +65,7 @@ export function OnboardingPage() {
                     ? 'bg-indigo-500 text-white'
                     : i === currentStepIndex
                       ? 'bg-indigo-500 text-white ring-4 ring-indigo-500/20'
-                      : 'bg-gray-200 dark:bg-gray-800 text-gray-400 dark:text-gray-500',
+                      : 'bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400',
                 )}
                 animate={i === currentStepIndex ? { scale: [1, 1.1, 1] } : {}}
                 transition={{ duration: 0.3 }}
@@ -77,7 +77,7 @@ export function OnboardingPage() {
                   'text-xs font-medium',
                   i <= currentStepIndex
                     ? 'text-indigo-600 dark:text-indigo-400'
-                    : 'text-gray-400 dark:text-gray-500',
+                    : 'text-gray-600 dark:text-gray-400',
                 )}
               >
                 {s.label}

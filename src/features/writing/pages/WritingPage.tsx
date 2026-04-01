@@ -53,13 +53,13 @@ export function WritingPage() {
                   </div>
                   <div>
                     <h1 className="text-xl font-bold text-gray-900 dark:text-white">Luyện viết</h1>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">Chọn đề bài và bắt đầu viết</p>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">Chọn đề bài và bắt đầu viết</p>
                   </div>
                 </div>
                 {submissions.length > 0 && (
                   <button
                     onClick={goToHistory}
-                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                   >
                     <History size={14} />
                     Lịch sử
@@ -92,7 +92,7 @@ export function WritingPage() {
               className="flex flex-col items-center justify-center py-20"
             >
               <div className="w-10 h-10 border-3 border-indigo-500 border-t-transparent rounded-full animate-spin mb-4" />
-              <p className="text-sm text-gray-500 dark:text-gray-400">AI đang chấm bài...</p>
+              <p className="text-sm text-gray-700 dark:text-gray-300">AI đang chấm bài...</p>
             </motion.div>
           )}
 

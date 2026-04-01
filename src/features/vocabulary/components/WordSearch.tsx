@@ -56,7 +56,7 @@ export function WordSearch({ existingWords, onAdd }: WordSearchProps) {
   return (
     <div className="space-y-3">
       <div className="relative">
-        <Search size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+        <Search size={18} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600 dark:text-gray-400" />
         <input
           type="text"
           value={query}

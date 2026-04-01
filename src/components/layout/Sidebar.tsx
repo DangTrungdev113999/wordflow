@@ -60,7 +60,7 @@ export function Sidebar() {
 
       <div className="mt-auto px-3 py-3 rounded-xl bg-gray-50 dark:bg-gray-900">
         <p className="text-sm font-semibold text-gray-900 dark:text-white">Level {level} — {levelTitle}</p>
-        <p className="text-xs text-gray-500">{xp.toLocaleString()} XP</p>
+        <p className="text-xs text-gray-700 dark:text-gray-300">{xp.toLocaleString()} XP</p>
       </div>
     </aside>
   );

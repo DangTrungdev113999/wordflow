@@ -85,19 +85,19 @@ export function StatsPage() {
           <div className="grid grid-cols-2 gap-3 mb-6">
             <motion.div variants={itemVariants} className="bg-white dark:bg-gray-900 rounded-2xl p-4 border border-gray-100 dark:border-gray-800">
               <p className="text-2xl font-bold text-indigo-600"><CountUp end={xp} /></p>
-              <p className="text-sm text-gray-500">Total XP</p>
+              <p className="text-sm text-gray-700 dark:text-gray-300">Total XP</p>
             </motion.div>
             <motion.div variants={itemVariants} className="bg-white dark:bg-gray-900 rounded-2xl p-4 border border-gray-100 dark:border-gray-800">
               <p className="text-2xl font-bold text-green-600"><CountUp end={totalWordsLearned} /></p>
-              <p className="text-sm text-gray-500">Words Learned</p>
+              <p className="text-sm text-gray-700 dark:text-gray-300">Words Learned</p>
             </motion.div>
             <motion.div variants={itemVariants} className="bg-white dark:bg-gray-900 rounded-2xl p-4 border border-gray-100 dark:border-gray-800">
               <p className="text-2xl font-bold text-orange-500"><CountUp end={currentStreak} suffix="🔥" /></p>
-              <p className="text-sm text-gray-500">Current Streak</p>
+              <p className="text-sm text-gray-700 dark:text-gray-300">Current Streak</p>
             </motion.div>
             <motion.div variants={itemVariants} className="bg-white dark:bg-gray-900 rounded-2xl p-4 border border-gray-100 dark:border-gray-800">
               <p className="text-2xl font-bold text-amber-500">{badges.length}/10</p>
-              <p className="text-sm text-gray-500">Badges</p>
+              <p className="text-sm text-gray-700 dark:text-gray-300">Badges</p>
             </motion.div>
           </div>
 
@@ -105,7 +105,7 @@ export function StatsPage() {
           <motion.div variants={itemVariants} className="bg-white dark:bg-gray-900 rounded-2xl p-4 border border-gray-100 dark:border-gray-800 mb-6">
             <div className="flex items-center gap-2">
               <TrendingUp size={18} className="text-orange-500" />
-              <span className="text-sm text-gray-500">Longest Streak</span>
+              <span className="text-sm text-gray-700 dark:text-gray-300">Longest Streak</span>
               <span className="ml-auto font-bold text-orange-500"><CountUp end={longestStreak} suffix=" days" /></span>
             </div>
           </motion.div>
@@ -142,8 +142,8 @@ export function StatsPage() {
             </>
           ) : (
             <motion.div variants={itemVariants} className="bg-white dark:bg-gray-900 rounded-2xl p-8 border border-gray-100 dark:border-gray-800 text-center">
-              <p className="text-gray-400">Start learning to see your stats!</p>
-              <p className="text-sm text-gray-400 mt-1">Charts will appear after your first study session.</p>
+              <p className="text-gray-600 dark:text-gray-400">Start learning to see your stats!</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Charts will appear after your first study session.</p>
             </motion.div>
           )}
 

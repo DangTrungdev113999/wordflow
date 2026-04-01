@@ -40,7 +40,7 @@ export function PronunciationResult({ isCorrect, spokenText, targetWord, onDismi
             <X size={16} />
             <span className="text-sm font-medium">Try again</span>
           </div>
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-gray-600 dark:text-gray-400">
             You said: &ldquo;{spokenText}&rdquo; &middot; Expected: &ldquo;{targetWord}&rdquo;
           </p>
         </div>

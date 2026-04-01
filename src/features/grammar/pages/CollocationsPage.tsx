@@ -25,7 +25,7 @@ export function CollocationsPage() {
           </div>
           <div>
             <h1 className="text-xl font-bold text-gray-900 dark:text-white">Collocations</h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-700 dark:text-gray-300">
               Make vs Do, Say vs Tell — từ nào đi với từ nào?
             </p>
           </div>

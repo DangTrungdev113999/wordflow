@@ -85,7 +85,7 @@ export function AchievementsPage() {
         </div>
         <div>
           <h1 className="text-xl font-bold text-gray-900 dark:text-white">Achievements</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-700 dark:text-gray-300">
             {earnedCount}/{allAchievements.length} unlocked
           </p>
         </div>
@@ -97,23 +97,23 @@ export function AchievementsPage() {
       <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
         <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-3 text-center">
           <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">{earnedCount}</div>
-          <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Earned</div>
+          <div className="text-xs text-gray-700 dark:text-gray-300 mt-0.5">Earned</div>
         </div>
         <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-3 text-center">
-          <div className="text-2xl font-bold text-gray-400 dark:text-gray-500">{allAchievements.length - earnedCount}</div>
-          <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Locked</div>
+          <div className="text-2xl font-bold text-gray-600 dark:text-gray-400">{allAchievements.length - earnedCount}</div>
+          <div className="text-xs text-gray-700 dark:text-gray-300 mt-0.5">Locked</div>
         </div>
         <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 p-3 text-center">
           <div className="text-2xl font-bold text-amber-500">
             {allAchievements.length > 0 ? Math.round((earnedCount / allAchievements.length) * 100) : 0}%
           </div>
-          <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Complete</div>
+          <div className="text-xs text-gray-700 dark:text-gray-300 mt-0.5">Complete</div>
         </div>
       </div>
 
       {/* Tier Filter */}
       <div className="mt-5 flex items-center gap-2">
-        <Filter size={14} className="text-gray-400 shrink-0" />
+        <Filter size={14} className="text-gray-600 dark:text-gray-400 shrink-0" />
         <div className="flex gap-1.5 overflow-x-auto">
           {tierFilters.map((f) => (
             <button
@@ -136,10 +136,10 @@ export function AchievementsPage() {
       {grouped.map(({ category, label, achievements, earnedInGroup }) => (
         <div key={category} className="mt-6">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
               {label}
             </h2>
-            <span className="text-xs text-gray-400 dark:text-gray-500">
+            <span className="text-xs text-gray-600 dark:text-gray-400">
               {earnedInGroup}/{achievements.length}
             </span>
           </div>
@@ -164,7 +164,7 @@ export function AchievementsPage() {
       ))}
 
       {filteredAchievements.length === 0 && (
-        <div className="mt-12 text-center text-gray-400 dark:text-gray-500">
+        <div className="mt-12 text-center text-gray-600 dark:text-gray-400">
           <p>No achievements match this filter.</p>
         </div>
       )}

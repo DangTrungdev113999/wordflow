@@ -45,7 +45,7 @@ export function WordMasteryBreakdown({ data }: Props) {
           verticalAlign="bottom"
           iconType="circle"
           iconSize={8}
-          formatter={(value: string) => <span className="text-xs text-gray-500 dark:text-gray-400">{value}</span>}
+          formatter={(value: string) => <span className="text-xs text-gray-700 dark:text-gray-300">{value}</span>}
         />
       </PieChart>
     </ResponsiveContainer>

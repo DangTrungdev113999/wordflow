@@ -70,7 +70,7 @@ export function VocabPopup({ word, onClose }: Props) {
             <div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white">{entry?.word ?? word}</h3>
               {entry?.ipa && (
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{entry.ipa}</p>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mt-0.5">{entry.ipa}</p>
               )}
             </div>
             <div className="flex items-center gap-2">
@@ -84,7 +84,7 @@ export function VocabPopup({ word, onClose }: Props) {
               <button
                 type="button"
                 onClick={onClose}
-                className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               >
                 <X size={20} />
               </button>
@@ -97,13 +97,13 @@ export function VocabPopup({ word, onClose }: Props) {
                 <span className="font-medium">Meaning:</span> {entry.meaning}
               </p>
               {entry.example && (
-                <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+                <p className="text-sm text-gray-700 dark:text-gray-300 italic">
                   "{entry.example}"
                 </p>
               )}
             </div>
           ) : (
-            <p className="text-gray-500 dark:text-gray-400">
+            <p className="text-gray-700 dark:text-gray-300">
               Definition not found in vocabulary data.
             </p>
           )}

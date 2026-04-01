@@ -50,7 +50,7 @@ export function MistakeReviewSession({ onComplete }: Props) {
       <div className="flex flex-col items-center justify-center py-16 text-center">
         <CheckCircle2 size={48} className="text-emerald-400 mb-4" />
         <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1">All caught up!</h3>
-        <p className="text-sm text-gray-500">No mistakes due for review right now. Come back later.</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300">No mistakes due for review right now. Come back later.</p>
       </div>
     );
   }
@@ -60,7 +60,7 @@ export function MistakeReviewSession({ onComplete }: Props) {
       <div className="flex flex-col items-center justify-center py-16 text-center">
         <CheckCircle2 size={48} className="text-emerald-400 mb-4" />
         <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Session Complete!</h3>
-        <p className="text-sm text-gray-500 mb-4">You reviewed {reviewedCount} {reviewedCount === 1 ? 'mistake' : 'mistakes'}.</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">You reviewed {reviewedCount} {reviewedCount === 1 ? 'mistake' : 'mistakes'}.</p>
         <Button onClick={onComplete}>Done</Button>
       </div>
     );
@@ -72,10 +72,10 @@ export function MistakeReviewSession({ onComplete }: Props) {
     <div className="max-w-lg mx-auto">
       {/* Progress header */}
       <div className="flex items-center justify-between mb-3">
-        <span className="text-sm text-gray-500 dark:text-gray-400">
+        <span className="text-sm text-gray-700 dark:text-gray-300">
           {currentIndex + 1} / {total}
         </span>
-        <span className="text-xs text-gray-400">
+        <span className="text-xs text-gray-600 dark:text-gray-400">
           {reviewedCount} reviewed
         </span>
       </div>
@@ -108,7 +108,7 @@ export function MistakeReviewSession({ onComplete }: Props) {
                 style={{ backfaceVisibility: 'hidden' }}
               >
                 <div className="absolute top-4 left-4">
-                  <span className="text-xs font-medium text-gray-400 capitalize">{current.type.replace('_', ' ')}</span>
+                  <span className="text-xs font-medium text-gray-600 dark:text-gray-400 capitalize">{current.type.replace('_', ' ')}</span>
                 </div>
                 <div className="flex flex-col items-center justify-center min-h-[280px] p-8 text-center">
                   <p className="text-base font-medium text-gray-800 dark:text-gray-200 leading-relaxed mb-6">
@@ -117,7 +117,7 @@ export function MistakeReviewSession({ onComplete }: Props) {
                   <p className="text-sm text-red-500 dark:text-red-400 mb-4">
                     Your answer: <span className="font-medium line-through">{current.userAnswer}</span>
                   </p>
-                  <div className="flex items-center gap-1.5 text-xs text-gray-400">
+                  <div className="flex items-center gap-1.5 text-xs text-gray-600 dark:text-gray-400">
                     <RotateCcw size={14} />
                     <span>Tap to reveal answer</span>
                   </div>
@@ -130,13 +130,13 @@ export function MistakeReviewSession({ onComplete }: Props) {
                 style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
               >
                 <div className="absolute top-4 left-4">
-                  <span className="text-xs font-medium text-gray-400 capitalize">{current.type.replace('_', ' ')}</span>
+                  <span className="text-xs font-medium text-gray-600 dark:text-gray-400 capitalize">{current.type.replace('_', ' ')}</span>
                 </div>
                 <div className="flex flex-col items-center justify-center min-h-[280px] p-8 text-center">
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{current.question}</p>
+                  <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{current.question}</p>
                   <p className="text-lg font-semibold text-emerald-600 dark:text-emerald-400 mb-2">{current.correctAnswer}</p>
                   {current.explanation && (
-                    <p className="text-xs text-gray-500 dark:text-gray-400 italic mt-2 max-w-xs">{current.explanation}</p>
+                    <p className="text-xs text-gray-700 dark:text-gray-300 italic mt-2 max-w-xs">{current.explanation}</p>
                   )}
                 </div>
               </div>

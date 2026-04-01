@@ -62,7 +62,7 @@ export function ChatInput({ onSend, isLoading }: ChatInputProps) {
           'w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors',
           value.trim() && !isLoading
             ? 'bg-indigo-500 hover:bg-indigo-600 text-white'
-            : 'bg-gray-100 dark:bg-gray-800 text-gray-400 cursor-not-allowed',
+            : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 cursor-not-allowed',
         )}
       >
         {isLoading ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}

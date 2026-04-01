@@ -183,12 +183,12 @@ export function TenseOverview() {
           <svg viewBox="0 0 700 40" className="w-full h-auto mb-4" aria-hidden="true">
             <motion.line
               x1="20" y1="20" x2="680" y2="20"
-              stroke="currentColor" className="text-gray-300 dark:text-gray-600"
+              stroke="currentColor" className="text-gray-600 dark:text-gray-400"
               strokeWidth="2" strokeLinecap="round"
               initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
               transition={{ duration: 0.8 }}
             />
-            <motion.polygon points="680,14 692,20 680,26" fill="currentColor" className="text-gray-300 dark:text-gray-600" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }} />
+            <motion.polygon points="680,14 692,20 680,26" fill="currentColor" className="text-gray-600 dark:text-gray-400" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }} />
             {/* Epoch marks */}
             {[
               { x: 120, label: 'PAST' },
@@ -196,7 +196,7 @@ export function TenseOverview() {
               { x: 580, label: 'FUTURE' },
             ].map((ep, i) => (
               <motion.g key={ep.label} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 + i * 0.15 }}>
-                <line x1={ep.x} y1="12" x2={ep.x} y2="28" stroke="currentColor" className="text-gray-400 dark:text-gray-500" strokeWidth="2" />
+                <line x1={ep.x} y1="12" x2={ep.x} y2="28" stroke="currentColor" className="text-gray-600 dark:text-gray-400" strokeWidth="2" />
                 <text x={ep.x} y="38" textAnchor="middle" className="fill-gray-400 dark:fill-gray-500" fontSize="10" fontWeight="700" letterSpacing="0.05em">{ep.label}</text>
               </motion.g>
             ))}
@@ -221,7 +221,7 @@ export function TenseOverview() {
                     <span className={`text-sm font-semibold ${activeTense === tense.id ? tense.colorText : 'text-gray-800 dark:text-gray-200'}`}>
                       {tense.name}
                     </span>
-                    <p className="text-[11px] text-gray-400 dark:text-gray-500 font-mono mt-0.5">{tense.structure}</p>
+                    <p className="text-[11px] text-gray-600 dark:text-gray-400 font-mono mt-0.5">{tense.structure}</p>
                   </motion.button>
                 ))}
               </div>
@@ -238,7 +238,7 @@ export function TenseOverview() {
               <div key={period}>
                 <div className="flex items-center gap-2 mb-2.5">
                   <div className={`w-3 h-3 rounded-full ${pStyle.dot}`} />
-                  <span className="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">{pStyle.label}</span>
+                  <span className="text-[11px] font-bold text-gray-600 dark:text-gray-400 uppercase tracking-widest">{pStyle.label}</span>
                   <div className="flex-1 h-px bg-gray-200 dark:bg-gray-700" />
                 </div>
                 <div className="space-y-2 pl-5 border-l-2 border-gray-200 dark:border-gray-700 ml-1.5">
@@ -257,7 +257,7 @@ export function TenseOverview() {
                       <span className={`text-sm font-semibold ${activeTense === tense.id ? tense.colorText : 'text-gray-800 dark:text-gray-200'}`}>
                         {tense.name}
                       </span>
-                      <p className="text-[11px] text-gray-400 dark:text-gray-500 font-mono mt-0.5">{tense.structure}</p>
+                      <p className="text-[11px] text-gray-600 dark:text-gray-400 font-mono mt-0.5">{tense.structure}</p>
                     </motion.button>
                   ))}
                 </div>
@@ -285,7 +285,7 @@ export function TenseOverview() {
                 <p className={`font-mono text-sm mt-0.5 ${active.colorText} opacity-70`}>{active.structure}</p>
               </div>
               <button onClick={() => setActiveTense(null)} aria-label="Đóng chi tiết thì" className="w-7 h-7 rounded-lg bg-white/60 dark:bg-gray-800/60 flex items-center justify-center hover:bg-white dark:hover:bg-gray-800 transition-colors">
-                <X size={14} className="text-gray-500" />
+                <X size={14} className="text-gray-700 dark:text-gray-300" />
               </button>
             </div>
 
@@ -304,7 +304,7 @@ export function TenseOverview() {
               {active.examples.map((ex, i) => (
                 <div key={i} className="bg-white/50 dark:bg-gray-900/30 rounded-lg px-3 py-2">
                   <p className={`text-sm font-medium ${active.colorText}`}>{ex.en}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 italic mt-0.5">{ex.vi}</p>
+                  <p className="text-xs text-gray-700 dark:text-gray-300 italic mt-0.5">{ex.vi}</p>
                 </div>
               ))}
             </div>

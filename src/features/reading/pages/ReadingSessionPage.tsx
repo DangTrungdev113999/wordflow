@@ -23,7 +23,7 @@ export function ReadingSessionPage() {
   if (!passage) {
     return (
       <div className="text-center py-20 space-y-4">
-        <p className="text-gray-500 dark:text-gray-400">Passage not found.</p>
+        <p className="text-gray-700 dark:text-gray-300">Passage not found.</p>
         <button
           onClick={() => navigate('/reading')}
           className="text-indigo-500 font-medium hover:underline"
@@ -39,7 +39,7 @@ export function ReadingSessionPage() {
       {/* Back button */}
       <button
         onClick={() => navigate('/reading')}
-        className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+        className="flex items-center gap-1.5 text-sm text-gray-700 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400 transition-colors"
       >
         <ArrowLeft size={16} />
         Back to Reading

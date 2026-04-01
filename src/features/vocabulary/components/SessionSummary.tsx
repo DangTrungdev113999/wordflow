@@ -96,7 +96,7 @@ export function SessionSummary({
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
           {title}
         </h2>
-        <p className="text-gray-500 dark:text-gray-400 mt-1">
+        <p className="text-gray-700 dark:text-gray-300 mt-1">
           {total} cards reviewed
         </p>
       </div>

@@ -29,9 +29,9 @@ export function MediaSessionCard({ session }: Props) {
           <h4 className="text-sm font-semibold text-gray-900 dark:text-white truncate">
             {session.title}
           </h4>
-          <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{dateStr}</p>
+          <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">{dateStr}</p>
           <div className="flex items-center gap-3 mt-2">
-            <span className="text-xs text-gray-500 dark:text-gray-400">
+            <span className="text-xs text-gray-700 dark:text-gray-300">
               {session.extractedVocab.length} words
             </span>
             {session.quizScore != null && (

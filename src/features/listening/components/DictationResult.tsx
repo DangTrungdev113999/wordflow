@@ -41,8 +41,8 @@ export function DictationResult({ correct, userAnswer, target, word, onNext }: D
         )}
 
         <div className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-          <p><span className="font-medium">{word.word}</span> <span className="text-gray-400">{word.ipa}</span></p>
-          <p className="text-gray-500 dark:text-gray-400">{word.meaning}</p>
+          <p><span className="font-medium">{word.word}</span> <span className="text-gray-600 dark:text-gray-400">{word.ipa}</span></p>
+          <p className="text-gray-700 dark:text-gray-300">{word.meaning}</p>
         </div>
       </div>
 

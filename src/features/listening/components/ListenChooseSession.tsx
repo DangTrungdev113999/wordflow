@@ -101,7 +101,7 @@ export function ListenChooseSession({ topic }: ListenChooseSessionProps) {
   if (!topicData || total === 0) {
     return (
       <div className="px-4 py-6 text-center">
-        <p className="text-gray-500 dark:text-gray-400">Topic not found</p>
+        <p className="text-gray-700 dark:text-gray-300">Topic not found</p>
       </div>
     );
   }
@@ -139,7 +139,7 @@ export function ListenChooseSession({ topic }: ListenChooseSessionProps) {
         </div>
         <button
           onClick={() => setShowExitConfirm(true)}
-          className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+          className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
         >
           <X size={22} />
         </button>
@@ -147,7 +147,7 @@ export function ListenChooseSession({ topic }: ListenChooseSessionProps) {
 
       {/* Progress */}
       <div className="space-y-2">
-        <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400">
+        <div className="flex justify-between text-sm text-gray-700 dark:text-gray-300">
           <span>Question {currentIndex + 1} of {total}</span>
           <span>{correctCount} correct</span>
         </div>
@@ -234,10 +234,10 @@ export function ListenChooseSession({ topic }: ListenChooseSessionProps) {
                 >
                   <span className={cn(
                     'w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold shrink-0 mt-0.5',
-                    !submitted && 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400',
+                    !submitted && 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300',
                     submitted && isThisCorrect && 'bg-green-500 text-white',
                     submitted && isThisSelected && !isThisCorrect && 'bg-red-500 text-white',
-                    submitted && !isThisCorrect && !isThisSelected && 'bg-gray-100 dark:bg-gray-800 text-gray-400',
+                    submitted && !isThisCorrect && !isThisSelected && 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400',
                   )}>
                     {optionLabels[i]}
                   </span>
@@ -246,7 +246,7 @@ export function ListenChooseSession({ topic }: ListenChooseSessionProps) {
                     !submitted && 'text-gray-900 dark:text-white',
                     submitted && isThisCorrect && 'text-green-700 dark:text-green-400',
                     submitted && isThisSelected && !isThisCorrect && 'text-red-700 dark:text-red-400',
-                    submitted && !isThisCorrect && !isThisSelected && 'text-gray-400 dark:text-gray-500',
+                    submitted && !isThisCorrect && !isThisSelected && 'text-gray-600 dark:text-gray-400',
                   )}>
                     {option}
                   </span>
@@ -306,7 +306,7 @@ export function ListenChooseSession({ topic }: ListenChooseSessionProps) {
             className="bg-white dark:bg-gray-900 rounded-2xl p-6 mx-4 max-w-sm w-full shadow-xl border border-gray-100 dark:border-gray-800"
           >
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Quit session?</h3>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">Your progress will be lost.</p>
+            <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">Your progress will be lost.</p>
             <div className="flex gap-3">
               <button onClick={() => setShowExitConfirm(false)} className="flex-1 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
                 Continue

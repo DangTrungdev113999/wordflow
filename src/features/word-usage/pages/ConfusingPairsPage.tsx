@@ -53,19 +53,19 @@ export function ConfusingPairsPage() {
       <div className="flex items-center gap-3">
         <button
           onClick={() => navigate('/word-usage')}
-          className="p-2 -ml-2 rounded-xl text-gray-400 hover:text-gray-600 hover:bg-gray-100 dark:hover:text-gray-300 dark:hover:bg-gray-800 transition-colors"
+          className="p-2 -ml-2 rounded-xl text-gray-600 dark:text-gray-400 hover:text-gray-600 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-800 transition-colors"
         >
           <ArrowLeft size={20} />
         </button>
         <div>
           <h1 className="text-xl font-bold text-gray-900 dark:text-white">Cặp từ dễ nhầm</h1>
-          <p className="text-xs text-gray-400">{CONFUSING_PAIRS.length} cặp từ</p>
+          <p className="text-xs text-gray-600 dark:text-gray-400">{CONFUSING_PAIRS.length} cặp từ</p>
         </div>
       </div>
 
       {/* Search */}
       <div className="relative">
-        <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+        <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-600 dark:text-gray-400" />
         <input
           type="text"
           placeholder="Tìm cặp từ..."
@@ -112,14 +112,14 @@ export function ConfusingPairsPage() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="font-semibold text-sm text-gray-900 dark:text-white">{pair.word1}</span>
-                  <span className="text-gray-300 dark:text-gray-600 text-xs">vs</span>
+                  <span className="text-gray-600 dark:text-gray-400 text-xs">vs</span>
                   <span className="font-semibold text-sm text-gray-900 dark:text-white">{pair.word2}</span>
                 </div>
                 <span className={cn('px-2 py-0.5 rounded-full text-[10px] font-semibold', CAT_COLOR[pair.category])}>
                   {CATEGORIES.find(c => c.value === pair.category)?.label}
                 </span>
               </div>
-              <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-1 line-clamp-1">
+              <p className="text-[11px] text-gray-700 dark:text-gray-300 mt-1 line-clamp-1">
                 {pair.comparison.map(c => c.meaning).join(' / ')}
               </p>
             </Card>
@@ -127,7 +127,7 @@ export function ConfusingPairsPage() {
         ))}
 
         {filtered.length === 0 && (
-          <p className="text-center text-sm text-gray-400 py-8">Không tìm thấy cặp từ nào</p>
+          <p className="text-center text-sm text-gray-600 dark:text-gray-400 py-8">Không tìm thấy cặp từ nào</p>
         )}
       </div>
     </div>

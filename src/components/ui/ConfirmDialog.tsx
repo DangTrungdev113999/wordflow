@@ -115,7 +115,7 @@ export function ConfirmDialog({
                 {description && (
                   <p
                     id="confirm-dialog-desc"
-                    className="mt-2 text-sm text-gray-500 dark:text-gray-400 leading-relaxed"
+                    className="mt-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed"
                   >
                     {description}
                   </p>

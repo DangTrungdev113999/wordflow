@@ -35,7 +35,7 @@ export function DailyChallengeCard() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-semibold text-green-600 dark:text-green-400">✅ Challenge Complete!</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+              <p className="text-xs text-gray-700 dark:text-gray-300 mt-0.5">
                 Earned {xpEarned} XP today
                 {currentStreak > 1 && (
                   <span className="inline-flex items-center gap-0.5 ml-1.5 text-amber-600 dark:text-amber-400">
@@ -44,7 +44,7 @@ export function DailyChallengeCard() {
                 )}
               </p>
             </div>
-            <ChevronRight size={16} className="text-gray-300 dark:text-gray-600 group-hover:text-indigo-400" />
+            <ChevronRight size={16} className="text-gray-600 dark:text-gray-400 group-hover:text-indigo-400" />
           </div>
         ) : (
           <div className="flex items-center justify-between">
@@ -53,9 +53,9 @@ export function DailyChallengeCard() {
               {started ? (
                 <p className="text-xs text-indigo-500 mt-0.5">{doneCount}/5 tasks done — Continue</p>
               ) : (
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                <p className="text-xs text-gray-700 dark:text-gray-300 mt-0.5">
                   Word: <span className="font-medium text-indigo-600 dark:text-indigo-400">{content.word.word}</span>
-                  <span className="text-gray-300 dark:text-gray-600 mx-1">·</span>
+                  <span className="text-gray-600 dark:text-gray-400 mx-1">·</span>
                   5 tasks
                 </p>
               )}

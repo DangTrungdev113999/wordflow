@@ -54,16 +54,16 @@ export function ReferenceCard({
           <h3 className="font-semibold text-gray-900 dark:text-white text-[15px] leading-snug">
             {title}
           </h3>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5 line-clamp-2">
+          <p className="text-sm text-gray-700 dark:text-gray-300 mt-0.5 line-clamp-2">
             {description}
           </p>
-          <span className="inline-block mt-1.5 text-xs font-medium text-gray-400 dark:text-gray-500">
+          <span className="inline-block mt-1.5 text-xs font-medium text-gray-600 dark:text-gray-400">
             {count}
           </span>
         </div>
         <ChevronRight
           size={18}
-          className="text-gray-300 dark:text-gray-600 mt-1 flex-shrink-0 group-hover:text-gray-400 dark:group-hover:text-gray-500 transition-colors"
+          className="text-gray-600 dark:text-gray-400 mt-1 flex-shrink-0 group-hover:text-gray-600 dark:text-gray-400 dark:group-hover:text-gray-700 dark:text-gray-300 transition-colors"
         />
       </motion.div>
     </Link>

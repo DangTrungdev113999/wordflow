@@ -125,7 +125,7 @@ export function DataExportImport() {
           <div className="flex gap-2 pt-2">
             <button
               onClick={() => setConfirmOpen(false)}
-              className="flex-1 py-2 rounded-xl border-2 border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-500 hover:border-gray-300 transition-all"
+              className="flex-1 py-2 rounded-xl border-2 border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-gray-300 transition-all"
             >
               Cancel
             </button>

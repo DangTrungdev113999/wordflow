@@ -87,17 +87,17 @@ export function PhrasalVerbLookup() {
     <div className="space-y-4">
       {/* Search bar */}
       <div className="relative">
-        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600 dark:text-gray-400 pointer-events-none" />
         <input
           type="text"
           value={query}
           onChange={e => setQuery(e.target.value)}
           placeholder="Tìm phrasal verb: get up, tìm kiếm, look..."
           aria-label="Tìm kiếm phrasal verb"
-          className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-300 dark:focus:border-amber-600 transition-all"
+          className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-600 dark:text-gray-400 dark:placeholder:text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-300 dark:focus:border-amber-600 transition-all"
         />
         {query && (
-          <button onClick={() => setQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+          <button onClick={() => setQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400">
             <X size={16} />
           </button>
         )}
@@ -119,7 +119,7 @@ export function PhrasalVerbLookup() {
           <ArrowUpDown size={13} />
           {SORT_LABELS[sortBy || 'alpha']}
         </button>
-        <span className="text-xs text-gray-400 dark:text-gray-500 ml-auto">
+        <span className="text-xs text-gray-600 dark:text-gray-400 ml-auto">
           {resultCount} / {PHRASAL_VERBS.length} phrasal verbs
         </span>
       </div>
@@ -137,7 +137,7 @@ export function PhrasalVerbLookup() {
             <div className="p-3 bg-gray-50 dark:bg-gray-800/40 rounded-xl border border-gray-100 dark:border-gray-800 space-y-3">
               {/* Base verb chips */}
               <div>
-                <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1.5">Base verb</p>
+                <p className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1.5">Base verb</p>
                 <div className="flex flex-wrap gap-1.5">
                   <FilterChip value="all" active={activeBaseVerb === 'all'} onClick={() => setFilter('baseVerb', 'all')} label={`Tất cả (${PHRASAL_VERBS.length})`} />
                   {BASE_VERBS.map(bv => (
@@ -147,7 +147,7 @@ export function PhrasalVerbLookup() {
               </div>
               {/* Level chips */}
               <div>
-                <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1.5">Level</p>
+                <p className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1.5">Level</p>
                 <div className="flex flex-wrap gap-1.5">
                   <FilterChip value="all" active={activeLevel === 'all'} onClick={() => setFilter('level', 'all')} label="Tất cả" />
                   {LEVELS.map(lvl => (
@@ -165,7 +165,7 @@ export function PhrasalVerbLookup() {
               </div>
               {/* Separable chips */}
               <div>
-                <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1.5">Separable</p>
+                <p className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1.5">Separable</p>
                 <div className="flex flex-wrap gap-1.5">
                   {SEPARABLE_OPTIONS.map(opt => (
                     <FilterChip
@@ -187,7 +187,7 @@ export function PhrasalVerbLookup() {
       <div className="space-y-1">
         {results.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-sm text-gray-400 dark:text-gray-500">Không tìm thấy phrasal verb nào</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Không tìm thấy phrasal verb nào</p>
           </div>
         ) : (
           results.map(verb => (
@@ -238,11 +238,11 @@ function VerbRow({ verb, expanded, onToggle }: {
             ))}
           </div>
           <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
-            <ChevronDown size={16} className="text-gray-400" />
+            <ChevronDown size={16} className="text-gray-600 dark:text-gray-400" />
           </motion.div>
         </div>
         {/* Meaning */}
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{verb.meaning}</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300 mt-0.5">{verb.meaning}</p>
       </div>
 
       {/* Expanded detail */}
@@ -261,7 +261,7 @@ function VerbRow({ verb, expanded, onToggle }: {
                 <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border ${verb.separable ? 'bg-emerald-50 dark:bg-emerald-900/25 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800' : 'bg-blue-50 dark:bg-blue-900/25 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800'}`}>
                   {verb.separable ? '✂️ Separable' : '🔗 Inseparable'}
                 </span>
-                <span className="text-xs text-gray-400 dark:text-gray-500">
+                <span className="text-xs text-gray-600 dark:text-gray-400">
                   {verb.separable
                     ? `Có thể tách: ${verb.baseVerb} + object + ${verb.particle}`
                     : `Không tách được: luôn dùng ${verb.verb} liền nhau`}
@@ -271,7 +271,7 @@ function VerbRow({ verb, expanded, onToggle }: {
               {/* Base verb + particle */}
               <div className="flex items-center gap-1.5 text-xs">
                 <span className="px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-900/25 text-amber-700 dark:text-amber-400 font-medium">{verb.baseVerb}</span>
-                <span className="text-gray-400">+</span>
+                <span className="text-gray-600 dark:text-gray-400">+</span>
                 <span className="px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 font-medium">{verb.particle}</span>
               </div>
 
@@ -280,7 +280,7 @@ function VerbRow({ verb, expanded, onToggle }: {
                 {verb.examples.map((ex, idx) => (
                   <div key={idx} className="space-y-0.5">
                     <p className="text-sm text-gray-900 dark:text-white leading-relaxed">{ex.en}</p>
-                    <p className="text-xs text-gray-400 dark:text-gray-500 italic">{ex.vi}</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 italic">{ex.vi}</p>
                   </div>
                 ))}
               </div>
@@ -307,7 +307,7 @@ function FilterChip({ value, active, onClick, label, colorBg, colorText }: {
         ? colorBg
           ? `${colorBg} ${colorText} border-current/20`
           : 'bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-700'
-        : 'bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700 hover:border-gray-300'
+        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300'
       }`}
     >
       {label}

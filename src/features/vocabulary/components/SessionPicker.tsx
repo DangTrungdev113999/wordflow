@@ -141,7 +141,7 @@ export function SessionPicker({ topicId, wordCount: totalWords, isOpen, onClose,
                   onClick={onClose}
                   className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                 >
-                  <X size={18} className="text-gray-500" />
+                  <X size={18} className="text-gray-700 dark:text-gray-300" />
                 </button>
               </div>
 
@@ -185,7 +185,7 @@ export function SessionPicker({ topicId, wordCount: totalWords, isOpen, onClose,
                         </p>
                         <p className={cn(
                           'text-xs mt-0.5',
-                          selected ? 'text-white/80' : 'text-gray-500 dark:text-gray-400',
+                          selected ? 'text-white/80' : 'text-gray-700 dark:text-gray-300',
                         )}>
                           {m.description}
                         </p>
@@ -197,7 +197,7 @@ export function SessionPicker({ topicId, wordCount: totalWords, isOpen, onClose,
 
               {/* Word count */}
               <div className="mb-5">
-                <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wider">
+                <p className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-wider">
                   Words
                 </p>
                 <div className="flex gap-2">
@@ -224,7 +224,7 @@ export function SessionPicker({ topicId, wordCount: totalWords, isOpen, onClose,
 
               {/* Filter */}
               <div className="mb-6">
-                <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wider">
+                <p className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-wider">
                   Filter
                 </p>
                 <div className="flex gap-2">
@@ -276,7 +276,7 @@ export function SessionPicker({ topicId, wordCount: totalWords, isOpen, onClose,
                       >
                         <Timer
                           size={20}
-                          className={timedEnabled ? 'text-amber-600 dark:text-amber-400' : 'text-gray-500'}
+                          className={timedEnabled ? 'text-amber-600 dark:text-amber-400' : 'text-gray-700 dark:text-gray-300'}
                         />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -288,7 +288,7 @@ export function SessionPicker({ topicId, wordCount: totalWords, isOpen, onClose,
                         >
                           Timed Challenge
                         </p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                        <p className="text-xs text-gray-700 dark:text-gray-300 mt-0.5">
                           {selectedMode === 'quiz' ? '10s' : '15s'} per word — bonus XP for speed
                         </p>
                       </div>

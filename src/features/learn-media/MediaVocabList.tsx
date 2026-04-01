@@ -42,7 +42,7 @@ export function MediaVocabList({ vocab, onStartQuiz, onSaveToMyWords, loading }:
             {vocab.length} words extracted
           </h3>
         </div>
-        <span className="text-xs text-gray-400">Tap a word to expand</span>
+        <span className="text-xs text-gray-600 dark:text-gray-400">Tap a word to expand</span>
       </div>
 
       <div className="space-y-2">
@@ -66,20 +66,20 @@ export function MediaVocabList({ vocab, onStartQuiz, onSaveToMyWords, loading }:
               )}>
                 <div className="flex items-center justify-between px-4 py-3">
                   <div className="flex items-center gap-3 min-w-0">
-                    <span className="text-xs font-mono text-gray-400 w-5 text-right flex-shrink-0">{i + 1}</span>
+                    <span className="text-xs font-mono text-gray-600 dark:text-gray-400 w-5 text-right flex-shrink-0">{i + 1}</span>
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
                         <span className="font-semibold text-gray-900 dark:text-white">{word.word}</span>
-                        <span className="text-xs text-gray-400 font-mono">{word.ipa}</span>
+                        <span className="text-xs text-gray-600 dark:text-gray-400 font-mono">{word.ipa}</span>
                         <button
                           type="button"
                           onClick={(e) => { e.stopPropagation(); speakWord(word.word); }}
                           className="p-0.5 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                         >
-                          <Volume2 size={12} className="text-gray-400" />
+                          <Volume2 size={12} className="text-gray-600 dark:text-gray-400" />
                         </button>
                       </div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{word.meaning}</p>
+                      <p className="text-xs text-gray-700 dark:text-gray-300 truncate">{word.meaning}</p>
                     </div>
                   </div>
                   <span className={cn(
@@ -104,11 +104,11 @@ export function MediaVocabList({ vocab, onStartQuiz, onSaveToMyWords, loading }:
                     >
                       <div className="px-4 pb-3 pt-1 space-y-2 border-t border-gray-100 dark:border-gray-800">
                         <div>
-                          <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-0.5">Context from text</p>
+                          <p className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-0.5">Context from text</p>
                           <p className="text-sm text-gray-700 dark:text-gray-300 italic">"{word.contextSentence}"</p>
                         </div>
                         <div>
-                          <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-0.5">Example</p>
+                          <p className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-0.5">Example</p>
                           <p className="text-sm text-gray-700 dark:text-gray-300">{word.example}</p>
                         </div>
                       </div>

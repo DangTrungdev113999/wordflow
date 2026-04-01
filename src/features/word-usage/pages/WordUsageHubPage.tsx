@@ -86,7 +86,7 @@ export function WordUsageHubPage() {
       {/* Header */}
       <div>
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Cách dùng từ</h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+        <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">
           Hiểu sâu từ vựng: nghĩa, cách dùng, và các lỗi thường gặp
         </p>
       </div>
@@ -119,14 +119,14 @@ export function WordUsageHubPage() {
                       {feature.count} {feature.countLabel}
                     </span>
                   ) : (
-                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-500">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">
                       Sắp ra mắt
                     </span>
                   )}
                 </div>
 
                 <h3 className="font-semibold text-gray-900 dark:text-white text-sm">{feature.title}</h3>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">{feature.description}</p>
+                <p className="text-xs text-gray-700 dark:text-gray-300 mt-1 leading-relaxed">{feature.description}</p>
               </div>
             </Card>
           </motion.div>

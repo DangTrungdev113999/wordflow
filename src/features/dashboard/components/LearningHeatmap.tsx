@@ -19,7 +19,7 @@ export function LearningHeatmap({ data }: Props) {
   const [tooltip, setTooltip] = useState<{ date: string; intensity: number; x: number; y: number } | null>(null);
 
   if (data.length === 0) {
-    return <p className="text-sm text-gray-400 text-center py-6">No activity data yet.</p>;
+    return <p className="text-sm text-gray-600 dark:text-gray-400 text-center py-6">No activity data yet.</p>;
   }
 
   // Align data to start on Monday — pad front with empty cells
@@ -65,7 +65,7 @@ export function LearningHeatmap({ data }: Props) {
           return (
             <div
               key={`${label}-${col}`}
-              className="text-xs text-gray-400"
+              className="text-xs text-gray-600 dark:text-gray-400"
               style={{ width: span * 18, flexShrink: 0, marginLeft: i === 0 ? col * 18 : 0 }}
             >
               {label}
@@ -78,7 +78,7 @@ export function LearningHeatmap({ data }: Props) {
         {/* Day labels */}
         <div className="flex flex-col justify-between mr-1" style={{ height: 7 * 18 - 4 }}>
           {['Mon', '', 'Wed', '', 'Fri', '', 'Sun'].map((label, i) => (
-            <span key={i} className="text-xs text-gray-400 leading-none" style={{ height: 14 }}>
+            <span key={i} className="text-xs text-gray-600 dark:text-gray-400 leading-none" style={{ height: 14 }}>
               {label}
             </span>
           ))}
@@ -115,11 +115,11 @@ export function LearningHeatmap({ data }: Props) {
 
       {/* Legend */}
       <div className="flex items-center gap-1 mt-2 ml-8">
-        <span className="text-xs text-gray-400 mr-1">Less</span>
+        <span className="text-xs text-gray-600 dark:text-gray-400 mr-1">Less</span>
         {INTENSITY_COLORS.map((cls, i) => (
           <div key={i} className={`w-[14px] h-[14px] rounded-sm ${cls}`} />
         ))}
-        <span className="text-xs text-gray-400 ml-1">More</span>
+        <span className="text-xs text-gray-600 dark:text-gray-400 ml-1">More</span>
       </div>
 
       {/* Tooltip */}

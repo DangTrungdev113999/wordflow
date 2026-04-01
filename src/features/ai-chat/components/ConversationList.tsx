@@ -40,7 +40,7 @@ export function ConversationList({ conversations, onNew, onDelete }: Conversatio
       </button>
 
       {conversations.length === 0 ? (
-        <p className="text-center text-sm text-gray-400 dark:text-gray-500 py-6">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-400 py-6">
           Chưa có hội thoại nào
         </p>
       ) : (
@@ -65,7 +65,7 @@ export function ConversationList({ conversations, onNew, onDelete }: Conversatio
                     'shrink-0',
                     conversationId === c.id
                       ? 'text-indigo-500'
-                      : 'text-gray-400 dark:text-gray-600',
+                      : 'text-gray-600 dark:text-gray-400',
                   )}
                 />
                 <div className="min-w-0 flex-1">
@@ -79,7 +79,7 @@ export function ConversationList({ conversations, onNew, onDelete }: Conversatio
                   >
                     {c.title}
                   </p>
-                  <p className="text-xs text-gray-400 dark:text-gray-500">
+                  <p className="text-xs text-gray-600 dark:text-gray-400">
                     {formatDate(c.updatedAt)}
                   </p>
                 </div>
@@ -89,7 +89,7 @@ export function ConversationList({ conversations, onNew, onDelete }: Conversatio
                   e.preventDefault();
                   setDeleteTarget(c.id);
                 }}
-                className="p-2 mr-1 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 text-gray-400 hover:text-red-500 transition-all"
+                className="p-2 mr-1 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 text-gray-600 dark:text-gray-400 hover:text-red-500 transition-all"
               >
                 <Trash2 size={14} />
               </button>

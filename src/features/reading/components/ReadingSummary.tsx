@@ -46,18 +46,18 @@ export function ReadingSummary({ passage, results, correctCount, xpEarned, onBac
           <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
             {correctCount}/{total}
           </p>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Correct</p>
+          <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">Correct</p>
         </div>
         <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-4 text-center">
           <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">{accuracy}%</p>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Accuracy</p>
+          <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">Accuracy</p>
         </div>
         <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-4 text-center">
           <div className="flex items-center justify-center gap-1">
             <Trophy size={16} className="text-amber-500" />
             <p className="text-2xl font-bold text-amber-500">+{xpEarned}</p>
           </div>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">XP Earned</p>
+          <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">XP Earned</p>
         </div>
       </div>
 
@@ -75,7 +75,7 @@ export function ReadingSummary({ passage, results, correctCount, xpEarned, onBac
                 <p className="text-green-600 dark:text-green-400">
                   Correct: {getCorrectAnswerDisplay(item.question)}
                 </p>
-                <p className="text-gray-500 dark:text-gray-400 italic">{item.question.explanation}</p>
+                <p className="text-gray-700 dark:text-gray-300 italic">{item.question.explanation}</p>
               </div>
             ))}
           </div>

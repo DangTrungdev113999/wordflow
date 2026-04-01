@@ -28,7 +28,7 @@ export function PronunciationPage() {
           <Mic2 className="text-indigo-500" size={24} />
           Pronunciation Practice
         </h1>
-        <p className="text-gray-500 dark:text-gray-400 mt-1">Choose a topic and practice speaking</p>
+        <p className="text-gray-700 dark:text-gray-300 mt-1">Choose a topic and practice speaking</p>
       </div>
 
       <div className="grid gap-3">
@@ -50,13 +50,13 @@ export function PronunciationPage() {
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="font-semibold text-gray-900 dark:text-white">{topic.topicLabel}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">{topic.words.length} words</p>
+                <p className="text-sm text-gray-700 dark:text-gray-300">{topic.words.length} words</p>
               </div>
               <div className="flex items-center gap-2">
                 <Badge label={topic.cefrLevel} variant="cefr" />
                 <ChevronRight
                   size={18}
-                  className="text-gray-300 dark:text-gray-600 group-hover:text-indigo-400 transition-colors"
+                  className="text-gray-600 dark:text-gray-400 group-hover:text-indigo-400 transition-colors"
                 />
               </div>
             </button>

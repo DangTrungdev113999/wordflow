@@ -50,7 +50,7 @@ export function TopicList({ topics }: TopicListProps) {
                 <h3 className="font-semibold text-gray-900 dark:text-white">
                   {topic.topicLabel}
                 </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-sm text-gray-700 dark:text-gray-300">
                   {topic.words.length} words
                 </p>
 
@@ -89,7 +89,7 @@ export function TopicList({ topics }: TopicListProps) {
               </div>
               <div className="flex items-center gap-2 shrink-0">
                 <Badge label={topic.cefrLevel} variant="cefr" />
-                <ChevronRight size={18} className="text-gray-300 dark:text-gray-600 group-hover:text-indigo-400 transition-colors" />
+                <ChevronRight size={18} className="text-gray-600 dark:text-gray-400 group-hover:text-indigo-400 transition-colors" />
               </div>
             </Link>
           </motion.div>

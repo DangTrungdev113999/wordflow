@@ -70,7 +70,7 @@ export function UsageQuizSession({ items, title = 'Grammar Quiz', onClose }: Usa
             {pct === 100 ? '🏆' : pct >= 70 ? '🎯' : '📖'}
           </motion.div>
           <h2 className="text-lg font-bold text-gray-900 dark:text-white">{title}</h2>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Kết quả</p>
+          <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">Kết quả</p>
         </div>
 
         {/* Score ring */}
@@ -143,11 +143,11 @@ export function UsageQuizSession({ items, title = 'Grammar Quiz', onClose }: Usa
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-sm font-bold text-gray-900 dark:text-white">{title}</h2>
-          <p className="text-[10px] text-gray-400 mt-0.5">{item.source}</p>
+          <p className="text-[10px] text-gray-600 dark:text-gray-400 mt-0.5">{item.source}</p>
         </div>
         <button
           onClick={onClose}
-          className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+          className="text-xs text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
         >
           Đóng
         </button>
@@ -186,7 +186,7 @@ export function UsageQuizSession({ items, title = 'Grammar Quiz', onClose }: Usa
             } else if (isThis) {
               style = 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border-red-300 dark:border-red-700';
             } else {
-              style = 'opacity-40 bg-gray-50 dark:bg-gray-800/70 text-gray-400 border-gray-200 dark:border-gray-700';
+              style = 'opacity-40 bg-gray-50 dark:bg-gray-800/70 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-700';
             }
           }
 
@@ -200,7 +200,7 @@ export function UsageQuizSession({ items, title = 'Grammar Quiz', onClose }: Usa
                 style
               )}
             >
-              <span className="text-[10px] text-gray-400 mr-2 font-mono">
+              <span className="text-[10px] text-gray-600 dark:text-gray-400 mr-2 font-mono">
                 {String.fromCharCode(65 + oi)}.
               </span>
               {opt}
@@ -226,7 +226,7 @@ export function UsageQuizSession({ items, title = 'Grammar Quiz', onClose }: Usa
                 {isCorrect ? 'Chính xác! +10 XP' : `Sai rồi! Đáp án: ${item.options[item.correctIndex]}`}
               </p>
             </div>
-            <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{item.explanation}</p>
+            <p className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">{item.explanation}</p>
 
             <button
               onClick={handleNext}

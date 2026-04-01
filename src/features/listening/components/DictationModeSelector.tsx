@@ -58,7 +58,7 @@ export function DictationModeSelector({ mode, onChange }: DictationModeSelectorP
               'flex-1 py-2 px-2 rounded-lg text-sm font-medium transition-colors relative z-10',
               isActive
                 ? activeColor
-                : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300',
+                : 'text-gray-700 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400',
             )}
           >
             {isActive && activeRow === rowId && (

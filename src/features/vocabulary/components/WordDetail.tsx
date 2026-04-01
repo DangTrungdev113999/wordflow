@@ -111,7 +111,7 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
         <div className="flex items-start justify-between gap-3">
           <div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{word.word}</h1>
-            <p className="text-sm text-gray-400 font-mono mt-0.5">{word.ipa}</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 font-mono mt-0.5">{word.ipa}</p>
             <AnimatePresence>
               {revealed && (
                 <motion.p
@@ -133,7 +133,7 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.1 }}
-              className="text-sm text-gray-500 dark:text-gray-400 italic mt-3"
+              className="text-sm text-gray-700 dark:text-gray-300 italic mt-3"
             >
               &quot;{word.example}&quot;
             </motion.p>
@@ -189,7 +189,7 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
                   <button
                     onClick={handleRegenerateMnemonic}
                     disabled={regenerating}
-                    className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 dark:text-gray-400 dark:hover:text-indigo-400 dark:hover:bg-indigo-900/20 transition-colors disabled:opacity-50"
+                    className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 hover:bg-indigo-50 dark:text-gray-400 dark:hover:text-indigo-400 dark:hover:bg-indigo-900/20 transition-colors disabled:opacity-50"
                   >
                     <svg
                       className={`w-3.5 h-3.5 ${regenerating ? 'animate-spin' : ''}`}
@@ -215,7 +215,7 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
                   <h2 className="font-semibold text-gray-700 dark:text-gray-300 text-sm uppercase tracking-wide">Examples</h2>
                   {/* Context mastery progress */}
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xs text-gray-400">Context</span>
+                    <span className="text-xs text-gray-600 dark:text-gray-400">Context</span>
                     <div className="flex gap-0.5">
                       {(['daily', 'work', 'social', 'formal', 'dialogue'] as const).map((ctx) => (
                         <div
@@ -260,7 +260,7 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
                         <div className="min-w-0 flex-1">
                           <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{ex.sentence}</p>
                           {ex.translation && (
-                            <p className="text-xs text-gray-400 mt-0.5">{ex.translation}</p>
+                            <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">{ex.translation}</p>
                           )}
                         </div>
                         {isContextMastered && (
@@ -280,7 +280,7 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
                 <h2 className="font-semibold text-gray-700 dark:text-gray-300 mb-3 text-sm uppercase tracking-wide">Examples</h2>
                 <ul className="space-y-2">
                   {fallbackExamples.map((ex, i) => (
-                    <li key={i} className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed pl-4 relative before:content-['\2022'] before:absolute before:left-0 before:text-gray-400">
+                    <li key={i} className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed pl-4 relative before:content-['\2022'] before:absolute before:left-0 before:text-gray-600 dark:text-gray-400">
                       {ex}
                     </li>
                   ))}
@@ -303,7 +303,7 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
                     <div className="mt-1">
                       <p className="text-sm text-gray-700 dark:text-gray-300">{def.definition}</p>
                       {def.example && (
-                        <p className="text-xs text-gray-400 italic mt-0.5">&quot;{def.example}&quot;</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 italic mt-0.5">&quot;{def.example}&quot;</p>
                       )}
                     </div>
                   </div>
@@ -311,7 +311,7 @@ export function WordDetail({ word, topicId }: WordDetailProps) {
               </Card>
             ) : (
               <Card>
-                <p className="text-sm text-gray-400 text-center py-4">No dictionary entry found</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 text-center py-4">No dictionary entry found</p>
               </Card>
             )}
 

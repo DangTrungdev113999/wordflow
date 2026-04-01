@@ -206,7 +206,7 @@ export function RoleIdentify({ exercise, onAnswer }: Props) {
       {/* Progress + Submit */}
       {!submitted && (
         <div className="space-y-2">
-          <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+          <div className="flex items-center justify-between text-xs text-gray-700 dark:text-gray-300">
             <span>{answeredCount}/{targetIndices.length} identified</span>
             <div className="flex gap-0.5">
               {targetIndices.map((idx) => (

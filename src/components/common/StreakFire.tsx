@@ -25,7 +25,7 @@ export function StreakFire({ streak, size = 'md', className }: StreakFireProps) 
       ) : (
         <Flame
           className={cn(
-            'transition-colors text-gray-300 dark:text-gray-700',
+            'transition-colors text-gray-600 dark:text-gray-400',
             iconSizeClasses[size]
           )}
         />
@@ -33,7 +33,7 @@ export function StreakFire({ streak, size = 'md', className }: StreakFireProps) 
       <span
         className={cn(
           'font-bold tabular-nums',
-          isActive ? 'text-orange-500' : 'text-gray-400 dark:text-gray-600',
+          isActive ? 'text-orange-500' : 'text-gray-600 dark:text-gray-400',
           { sm: 'text-sm', md: 'text-base', lg: 'text-lg' }[size]
         )}
       >

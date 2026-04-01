@@ -35,11 +35,11 @@ export function WordCard({ word, status = 'new', topicId, onClick }: WordCardPro
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="font-semibold text-gray-900 dark:text-white">{word.word}</span>
-          <span className="text-xs text-gray-400 font-mono">{word.ipa}</span>
+          <span className="text-xs text-gray-600 dark:text-gray-400 font-mono">{word.ipa}</span>
           <AudioButton word={word.word} audioUrl={word.audioUrl} size="sm" />
         </div>
         <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium mt-0.5">{word.meaning}</p>
-        <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5 italic truncate">{word.example}</p>
+        <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5 italic truncate">{word.example}</p>
       </div>
       <Badge label={status} variant={STATUS_COLORS[status] as 'default' | 'success' | 'warning' | 'info'} />
     </motion.div>

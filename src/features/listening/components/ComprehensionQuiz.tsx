@@ -99,18 +99,18 @@ export function ComprehensionQuiz({
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-4 text-center">
             <p className={cn('text-2xl font-bold', `${accent.text} ${accent.textDark}`)}>{correctCount}/{questions.length}</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Correct</p>
+            <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">Correct</p>
           </div>
           <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-4 text-center">
             <p className={cn('text-2xl font-bold', `${accent.text} ${accent.textDark}`)}>{accuracy}%</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Accuracy</p>
+            <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">Accuracy</p>
           </div>
           <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-4 text-center">
             <div className="flex items-center justify-center gap-1">
               <Trophy size={16} className="text-amber-500" />
               <p className="text-2xl font-bold text-amber-500">+{xpEarned}</p>
             </div>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">XP Earned</p>
+            <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">XP Earned</p>
           </div>
         </div>
 
@@ -137,7 +137,7 @@ export function ComprehensionQuiz({
                     <p className="text-green-600 dark:text-green-400">
                       Correct: {q.options[q.correctIndex]}
                     </p>
-                    <p className="text-gray-500 dark:text-gray-400 mt-1 text-xs">{q.explanation}</p>
+                    <p className="text-gray-700 dark:text-gray-300 mt-1 text-xs">{q.explanation}</p>
                   </div>
                 );
               })}
@@ -172,7 +172,7 @@ export function ComprehensionQuiz({
     <div className="space-y-5">
       {/* Progress */}
       <div className="space-y-2">
-        <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400">
+        <div className="flex justify-between text-sm text-gray-700 dark:text-gray-300">
           <span>Question {currentIndex + 1} of {questions.length}</span>
           <span>{answers.filter(a => a.correct).length} correct</span>
         </div>
@@ -224,10 +224,10 @@ export function ComprehensionQuiz({
               >
                 <span className={cn(
                   'w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold shrink-0 mt-0.5',
-                  !submitted && 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400',
+                  !submitted && 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300',
                   submitted && isThisCorrect && 'bg-green-500 text-white',
                   submitted && isThisSelected && !isThisCorrect && 'bg-red-500 text-white',
-                  submitted && !isThisCorrect && !isThisSelected && 'bg-gray-100 dark:bg-gray-800 text-gray-400',
+                  submitted && !isThisCorrect && !isThisSelected && 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400',
                 )}>
                   {OPTION_LABELS[i]}
                 </span>
@@ -236,7 +236,7 @@ export function ComprehensionQuiz({
                   !submitted && 'text-gray-900 dark:text-white',
                   submitted && isThisCorrect && 'text-green-700 dark:text-green-400',
                   submitted && isThisSelected && !isThisCorrect && 'text-red-700 dark:text-red-400',
-                  submitted && !isThisCorrect && !isThisSelected && 'text-gray-400 dark:text-gray-500',
+                  submitted && !isThisCorrect && !isThisSelected && 'text-gray-600 dark:text-gray-400',
                 )}>
                   {option}
                 </span>

@@ -75,7 +75,7 @@ export function GrammarCompareCard({ pattern, defaultOpen = false }: GrammarComp
             </span>
           </div>
           {!open && (
-            <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 truncate">
+            <p className="text-[11px] text-gray-700 dark:text-gray-300 mt-0.5 truncate">
               {pattern.forms.map(f => f.meaning).join(' · ')}
             </p>
           )}
@@ -83,7 +83,7 @@ export function GrammarCompareCard({ pattern, defaultOpen = false }: GrammarComp
         <motion.div
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.2 }}
-          className="shrink-0 text-gray-400"
+          className="shrink-0 text-gray-600 dark:text-gray-400"
         >
           <ChevronDown size={16} />
         </motion.div>
@@ -123,11 +123,11 @@ export function GrammarCompareCard({ pattern, defaultOpen = false }: GrammarComp
                       <p className="text-[11px] text-gray-700 dark:text-gray-300 italic leading-relaxed">
                         &quot;{form.example.sentence}&quot;
                       </p>
-                      <p className="text-[10px] text-gray-400 mt-0.5">
+                      <p className="text-[10px] text-gray-600 dark:text-gray-400 mt-0.5">
                         → {form.example.translation}
                       </p>
                     </div>
-                    <p className="text-[10px] text-gray-500 dark:text-gray-400 leading-relaxed">
+                    <p className="text-[10px] text-gray-700 dark:text-gray-300 leading-relaxed">
                       {form.usage}
                     </p>
                   </motion.div>
@@ -196,7 +196,7 @@ function QuizSection({ quiz }: { quiz: NonNullable<GrammarPattern['quiz']> }) {
         <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
           {score}/{results.length}
         </p>
-        <p className="text-xs text-gray-400 mt-1">
+        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
           {score === results.length ? 'Xuất sắc! Bạn nắm vững mẫu ngữ pháp này!' : 'Hãy đọc lại phần so sánh phía trên nhé.'}
         </p>
         {score > 0 && (
@@ -234,7 +234,7 @@ function QuizSection({ quiz }: { quiz: NonNullable<GrammarPattern['quiz']> }) {
     <div className="space-y-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 p-3">
       {/* Progress dots */}
       <div className="flex items-center justify-between">
-        <span className="text-[10px] font-medium text-gray-400 uppercase tracking-wide">
+        <span className="text-[10px] font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wide">
           Câu {currentIndex + 1}/{quiz.items.length}
         </span>
         <div className="flex gap-1">
@@ -268,7 +268,7 @@ function QuizSection({ quiz }: { quiz: NonNullable<GrammarPattern['quiz']> }) {
             } else if (isThis) {
               style = 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border-red-300 dark:border-red-700';
             } else {
-              style = 'opacity-40 bg-white dark:bg-gray-900 text-gray-400 border-gray-200 dark:border-gray-700';
+              style = 'opacity-40 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 border-gray-200 dark:border-gray-700';
             }
           }
 
@@ -303,7 +303,7 @@ function QuizSection({ quiz }: { quiz: NonNullable<GrammarPattern['quiz']> }) {
             )}>
               {isCorrect ? 'Chính xác!' : `Sai rồi! Đáp án: ${item.options[item.correct]}`}
             </p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">{item.explanation}</p>
+            <p className="text-xs text-gray-700 dark:text-gray-300">{item.explanation}</p>
             <button
               onClick={handleNext}
               className="text-xs font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-700"

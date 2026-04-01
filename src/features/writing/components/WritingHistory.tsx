@@ -43,7 +43,7 @@ export function WritingHistory({ submissions, onSelect, onBack }: WritingHistory
       >
         <button
           onClick={onBack}
-          className="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          className="p-1.5 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
         >
           <ArrowLeft size={20} />
         </button>
@@ -57,8 +57,8 @@ export function WritingHistory({ submissions, onSelect, onBack }: WritingHistory
           transition={{ duration: 0.3 }}
           className="text-center py-12"
         >
-          <FileText size={32} className="text-gray-300 dark:text-gray-600 mx-auto mb-3" />
-          <p className="text-sm text-gray-400">Chưa có bài viết nào</p>
+          <FileText size={32} className="text-gray-600 dark:text-gray-400 mx-auto mb-3" />
+          <p className="text-sm text-gray-600 dark:text-gray-400">Chưa có bài viết nào</p>
         </motion.div>
       ) : (
         <motion.div className="space-y-2" variants={listVariants} initial="hidden" animate="visible">
@@ -80,7 +80,7 @@ export function WritingHistory({ submissions, onSelect, onBack }: WritingHistory
                     {sub.overallScore}
                   </span>
                 </div>
-                <div className="flex items-center gap-3 text-xs text-gray-400">
+                <div className="flex items-center gap-3 text-xs text-gray-600 dark:text-gray-400">
                   <span className="flex items-center gap-1">
                     <Clock size={12} />
                     {formatDate(sub.submittedAt)}

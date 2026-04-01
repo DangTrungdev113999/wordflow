@@ -19,7 +19,7 @@ export function AudioButton({ word, audioUrl, size = 'md', className }: AudioBut
         'flex items-center justify-center rounded-full transition-all duration-200 active:scale-95',
         isPlaying
           ? 'text-indigo-500 bg-indigo-50 dark:bg-indigo-900/30'
-          : 'text-gray-400 hover:text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30',
+          : 'text-gray-600 dark:text-gray-400 hover:text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30',
         { sm: 'w-7 h-7', md: 'w-9 h-9' }[size],
         className
       )}

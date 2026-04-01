@@ -67,7 +67,7 @@ export function PronunciationCard({
           {word.word}
         </h2>
         <p className="text-lg text-indigo-500 dark:text-indigo-400 font-mono">{word.ipa}</p>
-        <p className="text-sm text-gray-500 dark:text-gray-400">{word.meaning}</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300">{word.meaning}</p>
 
         {/* Play sample audio */}
         <button
@@ -98,7 +98,7 @@ export function PronunciationCard({
             )}
           />
         ))}
-        <span className="ml-2 text-xs text-gray-400">
+        <span className="ml-2 text-xs text-gray-600 dark:text-gray-400">
           {attempt}/{maxAttempts} attempts
         </span>
       </div>
@@ -123,12 +123,12 @@ export function PronunciationCard({
               </span>
             </div>
             {lastResult.transcript && (
-              <p className="text-sm text-gray-500 dark:text-gray-400">
+              <p className="text-sm text-gray-700 dark:text-gray-300">
                 You said: "<span className="font-medium text-gray-700 dark:text-gray-300">{lastResult.transcript}</span>"
               </p>
             )}
             {lastResult.result === 'miss' && isWordDone && (
-              <p className="text-xs text-gray-400 mt-1">Listen to the correct pronunciation above</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">Listen to the correct pronunciation above</p>
             )}
           </motion.div>
         )}
@@ -179,7 +179,7 @@ export function PronunciationCard({
       </div>
 
       {!isWordDone && !isListening && (
-        <p className="text-center text-xs text-gray-400">
+        <p className="text-center text-xs text-gray-600 dark:text-gray-400">
           {lastResult ? 'Tap to try again' : 'Tap the microphone and say the word'}
         </p>
       )}

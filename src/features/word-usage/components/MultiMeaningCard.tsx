@@ -68,7 +68,7 @@ export function MultiMeaningCard({ word, compact = false }: MultiMeaningCardProp
           <h2 className="font-semibold text-gray-700 dark:text-gray-300 text-sm uppercase tracking-wide">
             Nghĩa của từ
           </h2>
-          <span className="text-xs text-gray-400 font-mono">{data.ipa}</span>
+          <span className="text-xs text-gray-600 dark:text-gray-400 font-mono">{data.ipa}</span>
         </div>
         <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400">
           {data.totalSenses} nghĩa
@@ -166,7 +166,7 @@ function SenseItem({ sense, index }: { sense: WordSense; index: number }) {
       {/* Meaning */}
       <p className="text-sm font-medium text-gray-800 dark:text-gray-200 mt-0.5">{sense.meaning}</p>
       {sense.meaning !== sense.meaningEn && (
-        <p className="text-xs text-gray-400 mt-0.5">{sense.meaningEn}</p>
+        <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">{sense.meaningEn}</p>
       )}
 
       {/* Examples */}
@@ -178,7 +178,7 @@ function SenseItem({ sense, index }: { sense: WordSense; index: number }) {
                 &quot;{ex.sentence}&quot;
               </p>
               {ex.translation && (
-                <p className="text-xs text-gray-400 mt-0.5">→ {ex.translation}</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">→ {ex.translation}</p>
               )}
             </div>
           ))}
@@ -189,7 +189,7 @@ function SenseItem({ sense, index }: { sense: WordSense; index: number }) {
       {sense.collocations && sense.collocations.length > 0 && (
         <div className="flex flex-wrap gap-1 mt-1.5">
           {sense.collocations.map(c => (
-            <span key={c} className="text-[10px] px-1.5 py-0.5 bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded">
+            <span key={c} className="text-[10px] px-1.5 py-0.5 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded">
               {c}
             </span>
           ))}

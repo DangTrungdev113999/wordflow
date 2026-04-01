@@ -27,7 +27,7 @@ export function ConfusingPairCard({ pair, showQuiz = false }: ConfusingPairCardP
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           <span className="text-lg font-bold text-gray-900 dark:text-white">{pair.word1}</span>
-          <span className="text-gray-300 dark:text-gray-600">vs</span>
+          <span className="text-gray-600 dark:text-gray-400">vs</span>
           <span className="text-lg font-bold text-gray-900 dark:text-white">{pair.word2}</span>
         </div>
         <span className={cn('px-2 py-0.5 rounded-full text-[10px] font-semibold', cat.color)}>
@@ -51,12 +51,12 @@ export function ConfusingPairCard({ pair, showQuiz = false }: ConfusingPairCardP
             )}
           >
             <p className="font-bold text-sm text-gray-900 dark:text-white">{comp.word}</p>
-            <p className="text-[10px] text-gray-400 uppercase font-medium mt-0.5">{comp.partOfSpeech}</p>
+            <p className="text-[10px] text-gray-600 dark:text-gray-400 uppercase font-medium mt-0.5">{comp.partOfSpeech}</p>
             <p className="text-xs font-medium text-gray-700 dark:text-gray-300 mt-1.5">{comp.meaning}</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400 italic mt-1.5 leading-relaxed">
+            <p className="text-xs text-gray-700 dark:text-gray-300 italic mt-1.5 leading-relaxed">
               &quot;{comp.example}&quot;
             </p>
-            <p className="text-[10px] text-gray-400 mt-1">→ {comp.translation}</p>
+            <p className="text-[10px] text-gray-600 dark:text-gray-400 mt-1">→ {comp.translation}</p>
           </motion.div>
         ))}
       </div>

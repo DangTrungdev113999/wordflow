@@ -34,9 +34,9 @@ export function MediaHistory({ refreshKey = 0 }: { refreshKey?: number }) {
       transition={{ duration: 0.3, ease: 'easeOut' }}
     >
       <div className="flex items-center gap-2">
-        <History size={16} className="text-gray-400" />
+        <History size={16} className="text-gray-600 dark:text-gray-400" />
         <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Recent Sessions</h3>
-        <span className="text-xs text-gray-400 ml-auto">{sessions.length} total</span>
+        <span className="text-xs text-gray-600 dark:text-gray-400 ml-auto">{sessions.length} total</span>
       </div>
 
       <AnimatePresence mode="popLayout">
@@ -54,7 +54,7 @@ export function MediaHistory({ refreshKey = 0 }: { refreshKey?: number }) {
           type="button"
           onClick={() => setExpanded(!expanded)}
           whileTap={{ scale: 0.97 }}
-          className="w-full flex items-center justify-center gap-1 py-2 text-xs font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+          className="w-full flex items-center justify-center gap-1 py-2 text-xs font-medium text-gray-700 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400 transition-colors"
         >
           {expanded ? (
             <>Show less <ChevronUp size={14} /></>

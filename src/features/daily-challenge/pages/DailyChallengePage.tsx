@@ -42,7 +42,7 @@ export function DailyChallengePage() {
         </Link>
         <div className="flex-1">
           <h1 className="text-lg font-bold text-gray-900 dark:text-white">Daily Challenge</h1>
-          <p className="text-xs text-gray-500 dark:text-gray-400">{formattedDate}</p>
+          <p className="text-xs text-gray-700 dark:text-gray-300">{formattedDate}</p>
         </div>
         {currentStreak > 0 && (
           <div className="flex items-center gap-1 text-xs font-medium text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/30 px-2.5 py-1 rounded-full">
@@ -50,7 +50,7 @@ export function DailyChallengePage() {
             {currentStreak}
           </div>
         )}
-        <div className="text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-2.5 py-1 rounded-full">
+        <div className="text-xs font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 px-2.5 py-1 rounded-full">
           {doneCount}/5
         </div>
       </motion.div>

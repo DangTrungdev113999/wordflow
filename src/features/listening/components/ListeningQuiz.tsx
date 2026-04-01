@@ -84,7 +84,7 @@ export function ListeningQuiz({ question, onAnswer, onNext, questionNumber }: Li
             <Volume2 size={36} />
           )}
         </motion.button>
-        <p className="text-sm text-gray-500 dark:text-gray-400">
+        <p className="text-sm text-gray-700 dark:text-gray-300">
           {submitted ? '' : 'Tap to listen, then choose the word you hear'}
         </p>
       </div>
@@ -135,10 +135,10 @@ export function ListeningQuiz({ question, onAnswer, onNext, questionNumber }: Li
             >
               <span className={cn(
                 'w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold shrink-0',
-                !submitted && 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400',
+                !submitted && 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300',
                 submitted && isThisCorrect && 'bg-green-500 text-white',
                 submitted && isThisSelected && !isThisCorrect && 'bg-red-500 text-white',
-                submitted && !isThisCorrect && !isThisSelected && 'bg-gray-100 dark:bg-gray-800 text-gray-400',
+                submitted && !isThisCorrect && !isThisSelected && 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400',
               )}>
                 {optionLabels[i]}
               </span>
@@ -147,7 +147,7 @@ export function ListeningQuiz({ question, onAnswer, onNext, questionNumber }: Li
                 !submitted && 'text-gray-900 dark:text-white',
                 submitted && isThisCorrect && 'text-green-700 dark:text-green-400',
                 submitted && isThisSelected && !isThisCorrect && 'text-red-700 dark:text-red-400',
-                submitted && !isThisCorrect && !isThisSelected && 'text-gray-400 dark:text-gray-500',
+                submitted && !isThisCorrect && !isThisSelected && 'text-gray-600 dark:text-gray-400',
               )}>
                 {option}
               </span>

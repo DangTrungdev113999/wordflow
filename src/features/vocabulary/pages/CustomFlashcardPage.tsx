@@ -39,7 +39,7 @@ export function CustomFlashcardPage() {
   }, [isSessionComplete]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!topic) {
-    return <div className="p-6 text-center text-gray-500">Loading...</div>;
+    return <div className="p-6 text-center text-gray-700 dark:text-gray-300">Loading...</div>;
   }
 
   if (isSessionComplete) {
@@ -58,7 +58,7 @@ export function CustomFlashcardPage() {
   }
 
   if (!currentWord) {
-    return <div className="p-6 text-center text-gray-400">No cards due for review.</div>;
+    return <div className="p-6 text-center text-gray-600 dark:text-gray-400">No cards due for review.</div>;
   }
 
   return (

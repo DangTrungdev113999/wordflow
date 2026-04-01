@@ -94,7 +94,7 @@ export function Modal({ open, onClose, title, children, className }: ModalProps)
                     aria-label="Close"
                     className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   >
-                    <X size={18} className="text-gray-500" />
+                    <X size={18} className="text-gray-700 dark:text-gray-300" />
                   </button>
                 </div>
               )}

@@ -20,12 +20,12 @@ export function RoleplayHeader({ scenario, turnCount, onEnd }: RoleplayHeaderPro
           <h2 className="text-sm font-semibold text-gray-900 dark:text-white truncate">
             {scenario.titleVi}
           </h2>
-          <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+          <p className="text-xs text-gray-700 dark:text-gray-300 truncate">
             {scenario.userRoleVi}
           </p>
         </div>
         <div className="flex items-center gap-3 shrink-0">
-          <div className="flex items-center gap-1 text-xs text-gray-400">
+          <div className="flex items-center gap-1 text-xs text-gray-600 dark:text-gray-400">
             <MessageCircle size={14} />
             <span className="font-medium">{turnCount}/{scenario.maxTurns}</span>
           </div>

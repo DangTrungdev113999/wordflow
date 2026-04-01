@@ -25,7 +25,7 @@ export function CommonMistakesPage() {
           </div>
           <div>
             <h1 className="text-xl font-bold text-gray-900 dark:text-white">Common Mistakes</h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-700 dark:text-gray-300">
               Lỗi người Việt hay mắc khi học tiếng Anh
             </p>
           </div>

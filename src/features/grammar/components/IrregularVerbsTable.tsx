@@ -37,7 +37,7 @@ const FREQUENCY_LABELS: Record<number, string> = { 1: 'Phổ biến', 2: 'Trung 
 const FREQUENCY_DOTS: Record<number, string> = {
   1: 'text-emerald-500',
   2: 'text-amber-500',
-  3: 'text-gray-400 dark:text-gray-500',
+  3: 'text-gray-600 dark:text-gray-400',
 };
 
 const SEARCH_FIELDS: (keyof IrregularVerb)[] = ['base', 'past', 'pastParticiple', 'meaning'];
@@ -87,17 +87,17 @@ export function IrregularVerbsTable() {
     <div className="space-y-4">
       {/* Search bar */}
       <div className="relative">
-        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600 dark:text-gray-400 pointer-events-none" />
         <input
           type="text"
           value={query}
           onChange={e => setQuery(e.target.value)}
           placeholder="Tìm verb: go, went, gone, đi..."
           aria-label="Tìm kiếm irregular verb"
-          className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-violet-500/30 focus:border-violet-300 dark:focus:border-violet-600 transition-all"
+          className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-600 dark:text-gray-400 dark:placeholder:text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500/30 focus:border-violet-300 dark:focus:border-violet-600 transition-all"
         />
         {query && (
-          <button onClick={() => setQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+          <button onClick={() => setQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400">
             <X size={16} />
           </button>
         )}
@@ -119,7 +119,7 @@ export function IrregularVerbsTable() {
           <ArrowUpDown size={13} />
           {sortBy === 'pattern' ? 'Pattern' : sortBy === 'frequency' ? 'Tần suất' : 'A → Z'}
         </button>
-        <span className="text-xs text-gray-400 dark:text-gray-500 ml-auto">
+        <span className="text-xs text-gray-600 dark:text-gray-400 ml-auto">
           {resultCount} / {IRREGULAR_VERBS.length} verbs
         </span>
       </div>
@@ -137,7 +137,7 @@ export function IrregularVerbsTable() {
             <div className="p-3 bg-gray-50 dark:bg-gray-800/40 rounded-xl border border-gray-100 dark:border-gray-800 space-y-3">
               {/* Pattern chips */}
               <div>
-                <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1.5">Pattern</p>
+                <p className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1.5">Pattern</p>
                 <div className="flex flex-wrap gap-1.5">
                   <PatternChip value="all" active={activePattern === 'all'} onClick={() => setFilter('pattern', 'all')} label={`Tất cả (${IRREGULAR_VERBS.length})`} />
                   {Object.entries(PATTERN_STYLES).map(([key, style]) => (
@@ -147,7 +147,7 @@ export function IrregularVerbsTable() {
               </div>
               {/* Frequency chips */}
               <div>
-                <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1.5">Tần suất</p>
+                <p className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1.5">Tần suất</p>
                 <div className="flex flex-wrap gap-1.5">
                   <PatternChip value="all" active={activeFrequency === 'all'} onClick={() => setFilter('frequency', 'all')} label="Tất cả" />
                   {[1, 2, 3].map(f => (
@@ -161,7 +161,7 @@ export function IrregularVerbsTable() {
       </AnimatePresence>
 
       {/* Table header */}
-      <div className="hidden sm:grid grid-cols-[1fr_1fr_1fr_auto] gap-2 px-4 py-2 text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider border-b border-gray-100 dark:border-gray-800">
+      <div className="hidden sm:grid grid-cols-[1fr_1fr_1fr_auto] gap-2 px-4 py-2 text-[11px] font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider border-b border-gray-100 dark:border-gray-800">
         <span>V1 (Base)</span>
         <span>V2 (Past)</span>
         <span>V3 (Past Participle)</span>
@@ -172,7 +172,7 @@ export function IrregularVerbsTable() {
       <div className="space-y-1">
         {results.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-sm text-gray-400 dark:text-gray-500">Không tìm thấy verb nào</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Không tìm thấy verb nào</p>
           </div>
         ) : (
           results.map(verb => (
@@ -225,7 +225,7 @@ function VerbRow({ verb, expanded, onToggle, onPlay }: {
           <span className="text-gray-700 dark:text-gray-300 text-sm hidden sm:block">{verb.pastParticiple}</span>
           {/* Meaning + expand icon */}
           <div className="flex items-center gap-2 ml-auto sm:ml-0">
-            <span className="text-sm text-gray-500 dark:text-gray-400 hidden sm:block truncate max-w-[80px]">{verb.meaning}</span>
+            <span className="text-sm text-gray-700 dark:text-gray-300 hidden sm:block truncate max-w-[80px]">{verb.meaning}</span>
             {/* Frequency dots */}
             <div className="flex gap-0.5">
               {[1, 2, 3].map(i => (
@@ -233,17 +233,17 @@ function VerbRow({ verb, expanded, onToggle, onPlay }: {
               ))}
             </div>
             <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
-              <ChevronDown size={16} className="text-gray-400" />
+              <ChevronDown size={16} className="text-gray-600 dark:text-gray-400" />
             </motion.div>
           </div>
         </div>
 
         {/* Mobile: show V2/V3/meaning inline */}
         <div className="flex items-center gap-3 mt-1.5 sm:hidden">
-          <span className="text-xs text-gray-500 dark:text-gray-400">{verb.past}</span>
-          <span className="text-xs text-gray-400 dark:text-gray-500">→</span>
-          <span className="text-xs text-gray-500 dark:text-gray-400">{verb.pastParticiple}</span>
-          <span className="text-xs text-gray-400 dark:text-gray-500 ml-auto">{verb.meaning}</span>
+          <span className="text-xs text-gray-700 dark:text-gray-300">{verb.past}</span>
+          <span className="text-xs text-gray-600 dark:text-gray-400">→</span>
+          <span className="text-xs text-gray-700 dark:text-gray-300">{verb.pastParticiple}</span>
+          <span className="text-xs text-gray-600 dark:text-gray-400 ml-auto">{verb.meaning}</span>
         </div>
       </div>
 
@@ -310,7 +310,7 @@ function PatternChip({ value, active, onClick, label, colorBg, colorText }: {
         ? colorBg
           ? `${colorBg} ${colorText} border-current/20`
           : 'bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-400 border-violet-200 dark:border-violet-700'
-        : 'bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700 hover:border-gray-300'
+        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300'
       }`}
     >
       {label}

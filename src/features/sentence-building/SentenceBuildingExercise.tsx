@@ -102,7 +102,7 @@ export function SentenceBuildingExercise({ exercise, state }: SentenceBuildingEx
     <div className="space-y-6">
       {/* Progress bar */}
       <div className="space-y-2">
-        <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400">
+        <div className="flex justify-between text-xs text-gray-700 dark:text-gray-300">
           <span>Question {state.currentIndex + 1} / {state.exercises.length}</span>
           <span className="capitalize text-gray-600 dark:text-gray-300 font-medium">{exercise.difficulty}</span>
         </div>
@@ -131,7 +131,7 @@ export function SentenceBuildingExercise({ exercise, state }: SentenceBuildingEx
       >
         {/* Drop Zone */}
         <div className="space-y-2">
-          <label className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+          <label className="text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider">
             Your sentence
           </label>
           <DropZone
@@ -143,7 +143,7 @@ export function SentenceBuildingExercise({ exercise, state }: SentenceBuildingEx
 
         {/* Word Bank */}
         <div className="space-y-2">
-          <label className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+          <label className="text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider">
             Word Bank
           </label>
           <div
@@ -154,7 +154,7 @@ export function SentenceBuildingExercise({ exercise, state }: SentenceBuildingEx
             )}
           >
             {state.bankWords.length === 0 ? (
-              <p className="text-sm text-gray-400 dark:text-gray-500">All words placed!</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">All words placed!</p>
             ) : (
               <div className="flex flex-wrap gap-2">
                 {state.bankWords.map((word) => (
@@ -225,7 +225,7 @@ export function SentenceBuildingExercise({ exercise, state }: SentenceBuildingEx
                 'flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-colors shadow-sm',
                 state.placedWords.length > 0
                   ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-                  : 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                  : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 cursor-not-allowed'
               )}
             >
               <Check size={16} /> Check

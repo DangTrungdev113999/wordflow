@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Settings, Sun, Moon, Monitor, Target, GraduationCap } from 'lucide-react';
+import { Settings, Sun, Moon, Monitor, Target, GraduationCap, Type } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router';
 import { useSettingsStore } from '../../../stores/settingsStore';
-import type { Theme, CEFRLevel } from '../../../lib/types';
+import type { Theme, FontScale, CEFRLevel } from '../../../lib/types';
 import { cn } from '../../../lib/utils';
 import { DataExportImport } from '../components/DataExportImport';
 import { AISettings } from '../components/AISettings';
@@ -20,7 +20,7 @@ const sectionVariants = {
 };
 
 export function SettingsPage() {
-  const { theme, setTheme, dailyGoal, setDailyGoal } = useSettingsStore();
+  const { theme, setTheme, dailyGoal, setDailyGoal, fontScale, setFontScale } = useSettingsStore();
   const navigate = useNavigate();
   const [placementLevel, setPlacementLevel] = useState<CEFRLevel | undefined>();
 
@@ -36,6 +36,12 @@ export function SettingsPage() {
 
   const goalOptions = [5, 10, 15, 20, 30];
 
+  const fontScaleOptions: Array<{ value: FontScale; label: string; sizeLabel: string }> = [
+    { value: 'small', label: 'Nhỏ', sizeLabel: 'A' },
+    { value: 'normal', label: 'Bình thường', sizeLabel: 'A' },
+    { value: 'large', label: 'Lớn', sizeLabel: 'A' },
+  ];
+
   return (
     <PageTransition>
       <div className="px-4 py-6 max-w-2xl mx-auto">
@@ -46,7 +52,7 @@ export function SettingsPage() {
           className="flex items-center gap-3 mb-6"
         >
           <div className="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
-            <Settings size={22} className="text-gray-500" />
+            <Settings size={22} className="text-gray-700 dark:text-gray-300" />
           </div>
           <h1 className="text-xl font-bold text-gray-900 dark:text-white">Settings</h1>
         </motion.div>
@@ -68,8 +74,43 @@ export function SettingsPage() {
                       : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
                   )}
                 >
-                  <Icon size={20} className={theme === value ? 'text-indigo-500' : 'text-gray-400'} />
-                  <span className={cn('text-sm font-medium', theme === value ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-600 dark:text-gray-400')}>
+                  <Icon size={20} className={theme === value ? 'text-indigo-500' : 'text-gray-600 dark:text-gray-400'} />
+                  <span className={cn('text-sm font-medium', theme === value ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-700 dark:text-gray-300')}>
+                    {label}
+                  </span>
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Font Size */}
+          <motion.div variants={sectionVariants} className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800 mb-4">
+            <div className="flex items-center gap-2 mb-3">
+              <Type size={18} className="text-violet-500" />
+              <h3 className="font-semibold text-gray-900 dark:text-white">Font Size</h3>
+            </div>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Adjust text size across the app</p>
+            <div className="grid grid-cols-3 gap-2">
+              {fontScaleOptions.map(({ value, label, sizeLabel }) => (
+                <motion.button
+                  key={value}
+                  onClick={() => setFontScale(value)}
+                  whileTap={{ scale: 0.95 }}
+                  className={cn(
+                    'flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 transition-all',
+                    fontScale === value
+                      ? 'border-violet-500 bg-violet-50 dark:bg-violet-900/20'
+                      : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
+                  )}
+                >
+                  <span className={cn(
+                    'font-bold',
+                    value === 'small' ? 'text-sm' : value === 'large' ? 'text-xl' : 'text-base',
+                    fontScale === value ? 'text-violet-600 dark:text-violet-400' : 'text-gray-700 dark:text-gray-300'
+                  )}>
+                    {sizeLabel}
+                  </span>
+                  <span className={cn('text-xs font-medium', fontScale === value ? 'text-violet-600 dark:text-violet-400' : 'text-gray-600 dark:text-gray-400')}>
                     {label}
                   </span>
                 </motion.button>
@@ -83,7 +124,7 @@ export function SettingsPage() {
               <Target size={18} className="text-green-500" />
               <h3 className="font-semibold text-gray-900 dark:text-white">Daily Goal</h3>
             </div>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">Words to learn per day</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Words to learn per day</p>
             <div className="flex gap-2">
               {goalOptions.map((g) => (
                 <motion.button
@@ -94,7 +135,7 @@ export function SettingsPage() {
                     'flex-1 py-2 rounded-xl border-2 font-semibold text-sm transition-all',
                     dailyGoal === g
                       ? 'border-green-500 bg-green-50 dark:bg-green-900/20 text-green-600'
-                      : 'border-gray-200 dark:border-gray-700 text-gray-500 hover:border-gray-300'
+                      : 'border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-gray-300'
                   )}
                 >
                   {g}
@@ -110,7 +151,7 @@ export function SettingsPage() {
               <h3 className="font-semibold text-gray-900 dark:text-white">Placement Test</h3>
             </div>
             {placementLevel && (
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
                 Current level: <span className="font-semibold text-indigo-600 dark:text-indigo-400">{placementLevel}</span>
               </p>
             )}
@@ -139,8 +180,8 @@ export function SettingsPage() {
           {/* App info */}
           <motion.div variants={sectionVariants} className="bg-white dark:bg-gray-900 rounded-2xl p-5 border border-gray-100 dark:border-gray-800">
             <h3 className="font-semibold text-gray-900 dark:text-white mb-2">About</h3>
-            <p className="text-sm text-gray-500">WordFlow v0.1.0</p>
-            <p className="text-sm text-gray-400">English learning app with spaced repetition</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">WordFlow v0.1.0</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">English learning app with spaced repetition</p>
           </motion.div>
         </motion.div>
       </div>

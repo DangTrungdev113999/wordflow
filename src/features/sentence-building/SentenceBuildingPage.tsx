@@ -53,14 +53,14 @@ function TopicSelector({
           <Puzzle size={28} />
         </div>
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Sentence Building</h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400">
+        <p className="text-sm text-gray-700 dark:text-gray-300">
           Arrange words to build correct English sentences
         </p>
       </div>
 
       {/* Difficulty filter */}
       <div className="space-y-2">
-        <div className="flex items-center gap-2 text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+        <div className="flex items-center gap-2 text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider">
           <Filter size={12} />
           <span>Difficulty</span>
         </div>
@@ -105,11 +105,11 @@ function TopicSelector({
                   <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                     {topic.topicLabel}
                   </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                  <p className="text-xs text-gray-700 dark:text-gray-300 mt-0.5">
                     {count} sentence{count !== 1 ? 's' : ''} available
                   </p>
                 </div>
-                <div className="text-gray-300 dark:text-gray-600 group-hover:text-indigo-400 transition-colors">
+                <div className="text-gray-600 dark:text-gray-400 group-hover:text-indigo-400 transition-colors">
                   →
                 </div>
               </div>
@@ -159,7 +159,7 @@ function ExerciseView({
     <div className="space-y-4">
       <button
         onClick={onBack}
-        className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+        className="flex items-center gap-1.5 text-sm text-gray-700 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400 transition-colors"
       >
         <ArrowLeft size={16} />
         Back to topics

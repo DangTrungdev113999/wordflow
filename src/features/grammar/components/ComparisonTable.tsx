@@ -31,7 +31,7 @@ function Column({ data, accent }: { data: TenseColumn; accent: 'indigo' | 'viole
       <div className="bg-white dark:bg-gray-900 border border-t-0 border-gray-100 dark:border-gray-800 rounded-b-xl p-4 space-y-3">
         {/* Formula */}
         <div>
-          <div className="text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500 font-semibold mb-1">Công thức</div>
+          <div className="text-[10px] uppercase tracking-wider text-gray-600 dark:text-gray-400 font-semibold mb-1">Công thức</div>
           <div className={`text-sm font-mono font-semibold px-2.5 py-1.5 rounded-lg ${colors.badge}`}>
             {data.formula}
           </div>
@@ -39,20 +39,20 @@ function Column({ data, accent }: { data: TenseColumn; accent: 'indigo' | 'viole
 
         {/* Usage */}
         <div className={`border-t ${colors.line} pt-3`}>
-          <div className="text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500 font-semibold mb-1">Cách dùng</div>
+          <div className="text-[10px] uppercase tracking-wider text-gray-600 dark:text-gray-400 font-semibold mb-1">Cách dùng</div>
           <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{data.usage}</p>
         </div>
 
         {/* Example */}
         <div className={`border-t ${colors.line} pt-3`}>
-          <div className="text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500 font-semibold mb-1">Ví dụ</div>
+          <div className="text-[10px] uppercase tracking-wider text-gray-600 dark:text-gray-400 font-semibold mb-1">Ví dụ</div>
           <p className="text-sm text-gray-900 dark:text-white italic">&ldquo;{data.example}&rdquo;</p>
         </div>
 
         {/* Signal words */}
         {data.signalWords && data.signalWords.length > 0 && (
           <div className={`border-t ${colors.line} pt-3`}>
-            <div className="text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500 font-semibold mb-1.5">Dấu hiệu</div>
+            <div className="text-[10px] uppercase tracking-wider text-gray-600 dark:text-gray-400 font-semibold mb-1.5">Dấu hiệu</div>
             <div className="flex flex-wrap gap-1.5">
               {data.signalWords.map((w) => (
                 <span key={w} className={`text-xs px-2 py-0.5 rounded-full ${colors.badge}`}>{w}</span>
@@ -68,7 +68,7 @@ function Column({ data, accent }: { data: TenseColumn; accent: 'indigo' | 'viole
 export function ComparisonTable({ left, right }: ComparisonTableProps) {
   return (
     <div className="space-y-2">
-      <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+      <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wide">
         So sánh
       </div>
 
@@ -80,12 +80,12 @@ export function ComparisonTable({ left, right }: ComparisonTableProps) {
 
         {/* VS badge */}
         <div className="hidden sm:flex items-center justify-center">
-          <div className="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-xs font-bold text-gray-500 dark:text-gray-400 shadow-sm">
+          <div className="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-xs font-bold text-gray-700 dark:text-gray-300 shadow-sm">
             VS
           </div>
         </div>
         <div className="sm:hidden flex items-center justify-center py-1">
-          <div className="px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-xs font-bold text-gray-500 dark:text-gray-400">
+          <div className="px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-xs font-bold text-gray-700 dark:text-gray-300">
             VS
           </div>
         </div>

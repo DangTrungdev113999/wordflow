@@ -28,7 +28,7 @@ export function TenseTimeline({ tense, markers, example }: TenseTimelineProps) {
 
   return (
     <div className="space-y-3">
-      <div className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+      <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wide">
         Timeline — {tense}
       </div>
 
@@ -38,7 +38,7 @@ export function TenseTimeline({ tense, markers, example }: TenseTimelineProps) {
           <motion.line
             x1="30" y1="60" x2="470" y2="60"
             stroke="currentColor"
-            className="text-gray-300 dark:text-gray-600"
+            className="text-gray-600 dark:text-gray-400"
             strokeWidth="2"
             strokeLinecap="round"
             initial={{ pathLength: 0 }}
@@ -50,7 +50,7 @@ export function TenseTimeline({ tense, markers, example }: TenseTimelineProps) {
           <motion.polygon
             points="470,54 482,60 470,66"
             fill="currentColor"
-            className="text-gray-300 dark:text-gray-600"
+            className="text-gray-600 dark:text-gray-400"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
@@ -62,7 +62,7 @@ export function TenseTimeline({ tense, markers, example }: TenseTimelineProps) {
               <line
                 x1={POSITION_X[epoch]} y1="52" x2={POSITION_X[epoch]} y2="68"
                 stroke="currentColor"
-                className="text-gray-400 dark:text-gray-500"
+                className="text-gray-600 dark:text-gray-400"
                 strokeWidth="1.5"
               />
               <text

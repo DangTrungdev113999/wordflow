@@ -109,14 +109,14 @@ export function TopicHeader({
         <div className="flex-1 min-w-0">
           <p className="text-sm font-medium text-gray-900 dark:text-white">
             {progress.mastered}/{wordCount}{' '}
-            <span className="text-gray-400 dark:text-gray-500 font-normal">mastered</span>
+            <span className="text-gray-600 dark:text-gray-400 font-normal">mastered</span>
           </p>
           <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2">
             {STATUS_ITEMS.map(({ key, label, dot }) => {
               const count = progress[key];
               if (count === 0) return null;
               return (
-                <span key={key} className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
+                <span key={key} className="flex items-center gap-1.5 text-xs text-gray-700 dark:text-gray-300">
                   <span className={`w-2 h-2 rounded-full ${dot}`} />
                   {count} {label}
                 </span>

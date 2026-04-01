@@ -88,7 +88,7 @@ export function SpeedListeningSession({ topic }: SpeedListeningSessionProps) {
   if (!topicData || total === 0) {
     return (
       <div className="px-4 py-6 text-center">
-        <p className="text-gray-500 dark:text-gray-400">Topic not found</p>
+        <p className="text-gray-700 dark:text-gray-300">Topic not found</p>
       </div>
     );
   }
@@ -126,7 +126,7 @@ export function SpeedListeningSession({ topic }: SpeedListeningSessionProps) {
         </div>
         <button
           onClick={() => setShowExitConfirm(true)}
-          className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+          className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
         >
           <X size={22} />
         </button>
@@ -138,7 +138,7 @@ export function SpeedListeningSession({ topic }: SpeedListeningSessionProps) {
           <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
             Round {currentRound + 1}/4 — {currentLevel.label}
           </span>
-          <span className="text-sm text-gray-500 dark:text-gray-400">
+          <span className="text-sm text-gray-700 dark:text-gray-300">
             {correctCount} correct
           </span>
         </div>
@@ -167,7 +167,7 @@ export function SpeedListeningSession({ topic }: SpeedListeningSessionProps) {
 
         {/* Speed bar */}
         <div className="flex items-center gap-3">
-          <span className="text-xs text-gray-500 dark:text-gray-400 w-12">Speed</span>
+          <span className="text-xs text-gray-700 dark:text-gray-300 w-12">Speed</span>
           <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
             <motion.div
               className="h-full bg-gradient-to-r from-green-400 via-orange-400 to-red-500 rounded-full"
@@ -282,9 +282,9 @@ export function SpeedListeningSession({ topic }: SpeedListeningSessionProps) {
                 </p>
               </div>
             )}
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-700 dark:text-gray-300">
               <span className="font-medium text-gray-700 dark:text-gray-300">{currentItem?.word.word}</span>
-              {' '}<span className="text-gray-400">{currentItem?.word.ipa}</span>
+              {' '}<span className="text-gray-600 dark:text-gray-400">{currentItem?.word.ipa}</span>
               {' — '}{currentItem?.word.meaning}
             </p>
           </div>
@@ -330,7 +330,7 @@ export function SpeedListeningSession({ topic }: SpeedListeningSessionProps) {
             className="bg-white dark:bg-gray-900 rounded-2xl p-6 mx-4 max-w-sm w-full shadow-xl border border-gray-100 dark:border-gray-800"
           >
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Quit session?</h3>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">Your progress will be lost.</p>
+            <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">Your progress will be lost.</p>
             <div className="flex gap-3">
               <button onClick={() => setShowExitConfirm(false)} className="flex-1 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
                 Continue

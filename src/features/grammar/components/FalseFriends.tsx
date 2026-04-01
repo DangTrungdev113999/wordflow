@@ -48,17 +48,17 @@ export function FalseFriends() {
     <div className="space-y-4">
       {/* Search bar */}
       <div className="relative">
-        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+        <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600 dark:text-gray-400 pointer-events-none" />
         <input
           type="text"
           value={query}
           onChange={e => setQuery(e.target.value)}
           placeholder="Tìm từ: actually, eventually, sensible..."
           aria-label="Tìm kiếm từ dễ nhầm"
-          className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-300 dark:focus:border-orange-600 transition-all"
+          className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-600 dark:text-gray-400 dark:placeholder:text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-300 dark:focus:border-orange-600 transition-all"
         />
         {query && (
-          <button onClick={() => setQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+          <button onClick={() => setQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400">
             <X size={16} />
           </button>
         )}
@@ -80,7 +80,7 @@ export function FalseFriends() {
           <ArrowUpDown size={13} />
           {sortBy === 'level' ? 'Trình độ' : 'A → Z'}
         </button>
-        <span className="text-xs text-gray-400 dark:text-gray-500 ml-auto">
+        <span className="text-xs text-gray-600 dark:text-gray-400 ml-auto">
           {resultCount} / {FALSE_FRIENDS.length} từ
         </span>
       </div>
@@ -98,7 +98,7 @@ export function FalseFriends() {
             <div className="p-3 bg-gray-50 dark:bg-gray-800/40 rounded-xl border border-gray-100 dark:border-gray-800 space-y-3">
               {/* Level chips */}
               <div>
-                <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1.5">Trình độ</p>
+                <p className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1.5">Trình độ</p>
                 <div className="flex flex-wrap gap-1.5">
                   <FilterChip value="all" active={activeLevel === 'all'} onClick={() => setFilter('level', 'all')} label="Tất cả" />
                   {LEVELS.map(level => (
@@ -115,7 +115,7 @@ export function FalseFriends() {
       <div className="space-y-1">
         {results.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-sm text-gray-400 dark:text-gray-500">Không tìm thấy từ nào</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Không tìm thấy từ nào</p>
           </div>
         ) : (
           results.map(friend => (
@@ -156,11 +156,11 @@ function WordCard({ friend, expanded, onToggle }: {
             </span>
           )}
           <motion.div className="ml-auto flex-shrink-0" animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
-            <ChevronDown size={16} className="text-gray-400" />
+            <ChevronDown size={16} className="text-gray-600 dark:text-gray-400" />
           </motion.div>
         </div>
-        <p className="text-sm mt-1 text-gray-500 dark:text-gray-400">
-          <span className="text-gray-400 dark:text-gray-500">Hay nhầm: </span>
+        <p className="text-sm mt-1 text-gray-700 dark:text-gray-300">
+          <span className="text-gray-600 dark:text-gray-400">Hay nhầm: </span>
           <span className="text-rose-600 dark:text-rose-400">{friend.commonMistake}</span>
         </p>
       </div>
@@ -178,25 +178,25 @@ function WordCard({ friend, expanded, onToggle }: {
             <div className="mx-2 mb-1 px-4 py-3 bg-gray-50 dark:bg-gray-800/30 rounded-b-xl border-x border-b border-gray-100 dark:border-gray-800 space-y-3">
               {/* Correct meaning */}
               <div>
-                <p className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Nghĩa đúng</p>
+                <p className="text-[11px] font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">Nghĩa đúng</p>
                 <p className="text-sm text-emerald-600 dark:text-emerald-400 font-medium leading-relaxed">{friend.correctMeaning}</p>
               </div>
 
               {/* Wrong usage */}
               <div>
-                <p className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Cách dùng sai</p>
+                <p className="text-[11px] font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1">Cách dùng sai</p>
                 <p className="text-sm text-rose-600 dark:text-rose-400 italic leading-relaxed">{friend.wrongUsage}</p>
               </div>
 
               {/* Examples */}
               {friend.examples.length > 0 && (
                 <div>
-                  <p className="text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1.5">Ví dụ</p>
+                  <p className="text-[11px] font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider mb-1.5">Ví dụ</p>
                   <div className="space-y-2">
                     {friend.examples.map((ex, i) => (
                       <div key={i} className="space-y-0.5">
                         <p className="text-sm font-medium text-gray-900 dark:text-white leading-relaxed">{ex.en}</p>
-                        <p className="text-sm text-gray-400 dark:text-gray-500 italic leading-relaxed">{ex.vi}</p>
+                        <p className="text-sm text-gray-600 dark:text-gray-400 italic leading-relaxed">{ex.vi}</p>
                       </div>
                     ))}
                   </div>
@@ -231,7 +231,7 @@ function FilterChip({ value, active, onClick, label, colorBg, colorText }: {
         ? colorBg
           ? `${colorBg} ${colorText} border-current/20`
           : 'bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-400 border-orange-200 dark:border-orange-700'
-        : 'bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700 hover:border-gray-300'
+        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300'
       }`}
     >
       {label}

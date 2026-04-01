@@ -26,7 +26,7 @@ export default function DashboardChart({ data }: DashboardChartProps) {
         <div key={d.level} className="space-y-1">
           <div className="flex items-center justify-between text-xs">
             <span className="font-semibold text-gray-700 dark:text-gray-300">{d.level}</span>
-            <span className="text-gray-500 dark:text-gray-400">{d.completed}/{d.total} ({d.pct}%)</span>
+            <span className="text-gray-700 dark:text-gray-300">{d.completed}/{d.total} ({d.pct}%)</span>
           </div>
           <div className="h-2.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
             <div

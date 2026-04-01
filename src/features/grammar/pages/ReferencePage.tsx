@@ -67,7 +67,7 @@ export function ReferencePage() {
         </Link>
         <div>
           <h1 className="text-xl font-bold text-gray-900 dark:text-white">Reference</h1>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-700 dark:text-gray-300">
             Tra cứu nhanh ngữ pháp tiếng Anh
           </p>
         </div>
@@ -82,19 +82,19 @@ export function ReferencePage() {
       >
         <Search
           size={18}
-          className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 pointer-events-none"
+          className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-600 dark:text-gray-400 pointer-events-none"
         />
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Tìm kiếm reference..."
-          className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-300 dark:focus:border-indigo-600 transition-all"
+          className="w-full pl-10 pr-10 py-2.5 bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-600 dark:text-gray-400 dark:placeholder:text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-300 dark:focus:border-indigo-600 transition-all"
         />
         {query && (
           <button
             onClick={() => setQuery('')}
-            className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+            className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
           >
             <X size={16} />
           </button>
@@ -113,7 +113,7 @@ export function ReferencePage() {
           >
             {resultCount > 0 ? (
               <div className="space-y-2.5">
-                <p className="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+                <p className="text-xs font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider">
                   {resultCount} result{resultCount !== 1 ? 's' : ''}
                 </p>
                 {results.map((item) => (
@@ -122,7 +122,7 @@ export function ReferencePage() {
               </div>
             ) : (
               <div className="text-center py-12">
-                <p className="text-sm text-gray-400 dark:text-gray-500">
+                <p className="text-sm text-gray-600 dark:text-gray-400">
                   Không tìm thấy kết quả cho "{query}"
                 </p>
               </div>
@@ -150,10 +150,10 @@ export function ReferencePage() {
                   }}
                 >
                   <div className="mb-3">
-                    <h2 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                    <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
                       {section.label}
                     </h2>
-                    <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">
                       {section.description}
                     </p>
                   </div>

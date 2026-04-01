@@ -25,7 +25,7 @@ export function LessonCard({ lesson, progress }: LessonCardProps) {
         <h3 className="font-semibold text-gray-900 dark:text-white truncate">{lesson.title}</h3>
         <div className="flex items-center gap-2 mt-1">
           <Badge variant={lesson.level === 'A1' ? 'cefr' : 'default'}>{lesson.level}</Badge>
-          <span className="text-sm text-gray-500 dark:text-gray-400">
+          <span className="text-sm text-gray-700 dark:text-gray-300">
             {lesson.exercises.length} questions
           </span>
           {progress && (
@@ -35,7 +35,7 @@ export function LessonCard({ lesson, progress }: LessonCardProps) {
           )}
         </div>
       </div>
-      <ChevronRight size={20} className="text-gray-400 flex-shrink-0" />
+      <ChevronRight size={20} className="text-gray-600 dark:text-gray-400 flex-shrink-0" />
     </Link>
   );
 }

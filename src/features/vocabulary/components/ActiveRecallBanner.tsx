@@ -111,7 +111,7 @@ export function ActiveRecallBanner({ wordId, word, onReveal }: ActiveRecallBanne
           transition={{ duration: 0.3, ease: 'easeOut' }}
           className="rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm p-5"
         >
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-3 text-center">
+          <p className="text-sm text-gray-700 dark:text-gray-300 mb-3 text-center">
             Bạn nhớ được bao nhiêu?
           </p>
           <div className="grid grid-cols-3 gap-2">

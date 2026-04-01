@@ -14,7 +14,7 @@ export function WordDetailPage() {
   if (!wordData) {
     return (
       <div className="px-4 py-6 text-center">
-        <p className="text-gray-500">Word not found.</p>
+        <p className="text-gray-700 dark:text-gray-300">Word not found.</p>
         <Link to="/vocabulary" className="text-indigo-500 mt-2 block">Back to Vocabulary</Link>
       </div>
     );

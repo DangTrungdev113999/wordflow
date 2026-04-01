@@ -25,7 +25,7 @@ export function ChallengeTaskList({ tasks, activeTask }: Props) {
                 ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400'
                 : isActive
                 ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400'
-                : 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400'
+                : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300'
             }`}
           >
             {isDone ? <CheckCircle2 size={11} /> : <Circle size={11} />}

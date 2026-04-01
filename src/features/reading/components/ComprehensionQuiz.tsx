@@ -68,7 +68,7 @@ export function ComprehensionQuiz({ questions, currentIndex, onAnswer, onNext }:
     >
       {/* Progress */}
       <div className="space-y-2">
-        <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400">
+        <div className="flex justify-between text-sm text-gray-700 dark:text-gray-300">
           <span>Question {currentIndex + 1} of {questions.length}</span>
           <span>{question.type === 'multiple_choice' ? 'Multiple Choice' : question.type === 'true_false' ? 'True / False' : 'Fill in the Blank'}</span>
         </div>
@@ -104,10 +104,10 @@ export function ComprehensionQuiz({ questions, currentIndex, onAnswer, onNext }:
                 <span
                   className={cn(
                     'w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold shrink-0',
-                    !submitted && 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400',
+                    !submitted && 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300',
                     submitted && isThisCorrect && 'bg-green-500 text-white',
                     submitted && isThisSelected && !isThisCorrect && 'bg-red-500 text-white',
-                    submitted && !isThisCorrect && !isThisSelected && 'bg-gray-100 dark:bg-gray-800 text-gray-400',
+                    submitted && !isThisCorrect && !isThisSelected && 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400',
                   )}
                 >
                   {optionLabels[i]}
@@ -118,7 +118,7 @@ export function ComprehensionQuiz({ questions, currentIndex, onAnswer, onNext }:
                     !submitted && 'text-gray-900 dark:text-white',
                     submitted && isThisCorrect && 'text-green-700 dark:text-green-400',
                     submitted && isThisSelected && !isThisCorrect && 'text-red-700 dark:text-red-400',
-                    submitted && !isThisCorrect && !isThisSelected && 'text-gray-400 dark:text-gray-500',
+                    submitted && !isThisCorrect && !isThisSelected && 'text-gray-600 dark:text-gray-400',
                   )}
                 >
                   {option}
@@ -147,7 +147,7 @@ export function ComprehensionQuiz({ questions, currentIndex, onAnswer, onNext }:
                   !submitted && 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:border-indigo-300 dark:hover:border-indigo-700 text-gray-900 dark:text-white',
                   submitted && isThisCorrect && 'border-green-500 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400',
                   submitted && isThisSelected && !isThisCorrect && 'border-red-500 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400',
-                  submitted && !isThisCorrect && !isThisSelected && 'border-gray-200 dark:border-gray-700 opacity-40 text-gray-400',
+                  submitted && !isThisCorrect && !isThisSelected && 'border-gray-200 dark:border-gray-700 opacity-40 text-gray-600 dark:text-gray-400',
                 )}
               >
                 {value ? 'True' : 'False'}

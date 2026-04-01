@@ -39,7 +39,7 @@ export function BookmarkedSheetsPage() {
           </Link>
           <div>
             <h1 className="font-bold text-lg text-gray-900 dark:text-white">Cheat Sheets đã lưu</h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-700 dark:text-gray-300">
               {bookmarkedLessons.length} cheat sheet{bookmarkedLessons.length !== 1 ? 's' : ''}
             </p>
           </div>
@@ -51,8 +51,8 @@ export function BookmarkedSheetsPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center py-16 space-y-3"
           >
-            <BookmarkX size={48} className="mx-auto text-gray-300 dark:text-gray-600" />
-            <p className="text-gray-500 dark:text-gray-400">Chưa có cheat sheet nào được lưu</p>
+            <BookmarkX size={48} className="mx-auto text-gray-600 dark:text-gray-400" />
+            <p className="text-gray-700 dark:text-gray-300">Chưa có cheat sheet nào được lưu</p>
             <Link
               to="/grammar"
               className="inline-block text-sm text-indigo-600 dark:text-indigo-400 hover:underline"

@@ -10,7 +10,7 @@ export function AccuracyTrend({ data }: Props) {
   const chart = useChartTheme();
 
   if (data.length === 0) {
-    return <p className="text-sm text-gray-400 text-center py-6">No quiz data yet. Complete quizzes to see your accuracy trend.</p>;
+    return <p className="text-sm text-gray-600 dark:text-gray-400 text-center py-6">No quiz data yet. Complete quizzes to see your accuracy trend.</p>;
   }
 
   const chartData = data.map((d) => ({

@@ -94,7 +94,7 @@ export function NoteTakingSession({ topic }: NoteTakingSessionProps) {
           </div>
           <div className="text-center">
             <p className="text-gray-900 dark:text-white font-medium">Preparing content...</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">This may take a few seconds</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">This may take a few seconds</p>
           </div>
         </div>
       </div>
@@ -125,7 +125,7 @@ export function NoteTakingSession({ topic }: NoteTakingSessionProps) {
           <div className="text-center space-y-3">
             <div className="text-5xl">{matchedCount === totalPoints ? '🎉' : matchedCount >= 3 ? '👏' : '💪'}</div>
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Notes Evaluated!</h2>
-            <p className="text-gray-500 dark:text-gray-400">
+            <p className="text-gray-700 dark:text-gray-300">
               You captured <span className="font-semibold text-violet-600 dark:text-violet-400">{matchedCount}</span> of <span className="font-semibold">{totalPoints}</span> key points
             </p>
           </div>
@@ -134,14 +134,14 @@ export function NoteTakingSession({ topic }: NoteTakingSessionProps) {
           <div className="grid grid-cols-2 gap-3">
             <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-4 text-center">
               <p className="text-2xl font-bold text-violet-600 dark:text-violet-400">{matchedCount}/{totalPoints}</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Key Points</p>
+              <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">Key Points</p>
             </div>
             <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-4 text-center">
               <div className="flex items-center justify-center gap-1">
                 <Trophy size={16} className="text-amber-500" />
                 <p className="text-2xl font-bold text-amber-500">+{xpEarned}</p>
               </div>
-              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">XP Earned</p>
+              <p className="text-xs text-gray-700 dark:text-gray-300 mt-1">XP Earned</p>
             </div>
           </div>
 
@@ -217,7 +217,7 @@ export function NoteTakingSession({ topic }: NoteTakingSessionProps) {
           </div>
           <div className="text-center">
             <p className="text-gray-900 dark:text-white font-medium">Evaluating your notes...</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">AI is comparing your notes with key points</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">AI is comparing your notes with key points</p>
           </div>
         </div>
       </div>
@@ -236,21 +236,21 @@ export function NoteTakingSession({ topic }: NoteTakingSessionProps) {
           <div>
             <h2 className="font-semibold text-gray-900 dark:text-white">{content.title}</h2>
             <div className="flex items-center gap-2 mt-0.5">
-              <span className="text-xs text-gray-500 dark:text-gray-400">{topicLabel}</span>
+              <span className="text-xs text-gray-700 dark:text-gray-300">{topicLabel}</span>
               <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-violet-50 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 text-xs font-medium">
                 Note-taking
               </span>
             </div>
           </div>
         </div>
-        <button onClick={() => setShowExitConfirm(true)} className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+        <button onClick={() => setShowExitConfirm(true)} className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400 transition-colors">
           <X size={22} />
         </button>
       </div>
 
       {/* Paragraph indicator */}
       <div className="flex items-center gap-2">
-        <span className="text-sm text-gray-500 dark:text-gray-400">
+        <span className="text-sm text-gray-700 dark:text-gray-300">
           Paragraph {Math.max(1, currentParagraphIndex + 1)} of {totalParagraphs}
         </span>
         <div className="flex gap-1 flex-1">
@@ -302,7 +302,7 @@ export function NoteTakingSession({ topic }: NoteTakingSessionProps) {
                   <motion.p
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
-                    className="text-xs text-gray-400 dark:text-gray-500 mt-2 italic border-t border-gray-100 dark:border-gray-700 pt-2"
+                    className="text-xs text-gray-600 dark:text-gray-400 mt-2 italic border-t border-gray-100 dark:border-gray-700 pt-2"
                   >
                     {content.translation[i]}
                   </motion.p>
@@ -374,7 +374,7 @@ export function NoteTakingSession({ topic }: NoteTakingSessionProps) {
       {/* Key vocab */}
       {content.keyVocab.length > 0 && (
         <div className="p-3 bg-gray-50 dark:bg-gray-800/50 rounded-xl">
-          <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1.5">Key Vocabulary</p>
+          <p className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5">Key Vocabulary</p>
           <div className="flex flex-wrap gap-1.5">
             {content.keyVocab.map((word, i) => (
               <span key={i} className="px-2 py-0.5 rounded-md bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 text-xs font-medium">
@@ -394,7 +394,7 @@ export function NoteTakingSession({ topic }: NoteTakingSessionProps) {
             className="bg-white dark:bg-gray-900 rounded-2xl p-6 mx-4 max-w-sm w-full shadow-xl border border-gray-100 dark:border-gray-800"
           >
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Quit session?</h3>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">Your progress will be lost.</p>
+            <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">Your progress will be lost.</p>
             <div className="flex gap-3">
               <button onClick={() => setShowExitConfirm(false)} className="flex-1 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
                 Continue

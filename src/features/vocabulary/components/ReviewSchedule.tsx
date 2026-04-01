@@ -49,7 +49,7 @@ export function ReviewSchedule() {
             <h3 className="text-sm font-bold text-gray-900 dark:text-white">
               Lịch ôn tập
             </h3>
-            <p className="text-xs text-gray-500 dark:text-gray-400">
+            <p className="text-xs text-gray-700 dark:text-gray-300">
               Tuần này: {dueThisWeek} từ
             </p>
           </div>
@@ -76,11 +76,11 @@ export function ReviewSchedule() {
         )}>
           <p className={cn(
             'text-lg font-bold tabular-nums',
-            totalDue > 0 ? 'text-red-600 dark:text-red-400' : 'text-gray-400',
+            totalDue > 0 ? 'text-red-600 dark:text-red-400' : 'text-gray-600 dark:text-gray-400',
           )}>
             {totalDue}
           </p>
-          <p className="text-[10px] font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+          <p className="text-[10px] font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wide">
             Hôm nay
           </p>
         </div>
@@ -88,7 +88,7 @@ export function ReviewSchedule() {
           <p className="text-lg font-bold tabular-nums text-gray-700 dark:text-gray-300">
             {dueTomorrow}
           </p>
-          <p className="text-[10px] font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+          <p className="text-[10px] font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wide">
             Ngày mai
           </p>
         </div>
@@ -96,7 +96,7 @@ export function ReviewSchedule() {
           <p className="text-lg font-bold tabular-nums text-gray-700 dark:text-gray-300">
             {dueThisWeek}
           </p>
-          <p className="text-[10px] font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+          <p className="text-[10px] font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wide">
             Tuần này
           </p>
         </div>
@@ -123,7 +123,7 @@ export function ReviewSchedule() {
               )}
             >
               {count > 0 && (
-                <span className="absolute -top-5 left-1/2 -translate-x-1/2 text-[10px] font-semibold text-gray-500 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity tabular-nums">
+                <span className="absolute -top-5 left-1/2 -translate-x-1/2 text-[10px] font-semibold text-gray-700 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity tabular-nums">
                   {count}
                 </span>
               )}
@@ -141,7 +141,7 @@ export function ReviewSchedule() {
               'flex-1 text-center text-[10px] font-medium',
               i === 0
                 ? 'text-indigo-600 dark:text-indigo-400'
-                : 'text-gray-400 dark:text-gray-500',
+                : 'text-gray-600 dark:text-gray-400',
             )}
           >
             {label}

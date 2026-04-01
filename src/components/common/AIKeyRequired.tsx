@@ -11,7 +11,7 @@ export function AIKeyRequired() {
         <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
           Cần cài đặt API Key
         </h2>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-5">
+        <p className="text-sm text-gray-700 dark:text-gray-300 mb-5">
           Để sử dụng tính năng AI, bạn cần cài đặt API key miễn phí.
         </p>
         <Link

@@ -36,20 +36,20 @@ export function BadgeCard({ achievement, earned, onShare }: Props) {
         <div className="flex items-center gap-2">
           <h3 className={cn(
             'font-semibold truncate',
-            earned ? 'text-gray-900 dark:text-white' : 'text-gray-400 dark:text-gray-600'
+            earned ? 'text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400'
           )}>
             {achievement.title}
           </h3>
           {achievement.tier && <TierBadge tier={achievement.tier} />}
         </div>
-        <p className="text-sm text-gray-500 dark:text-gray-400 truncate">{achievement.description}</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300 truncate">{achievement.description}</p>
       </div>
       {earned && (
         <div className="flex items-center gap-2 shrink-0">
           {onShare && (
             <button
               onClick={(e) => { e.stopPropagation(); onShare(achievement); }}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-400 hover:text-indigo-500 transition-colors"
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-indigo-500 transition-colors"
               aria-label="Share achievement"
             >
               <Share2 size={16} />

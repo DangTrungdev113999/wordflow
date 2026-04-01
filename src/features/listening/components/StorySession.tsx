@@ -67,7 +67,7 @@ export function StorySession({ topic }: StorySessionProps) {
           </div>
           <div className="text-center">
             <p className="text-gray-900 dark:text-white font-medium">Generating story...</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">This may take a few seconds</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">This may take a few seconds</p>
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@ export function StorySession({ topic }: StorySessionProps) {
           </div>
           <div className="flex-1 min-w-0">
             <h2 className="font-semibold text-gray-900 dark:text-white truncate">{content.title}</h2>
-            <p className="text-xs text-gray-500 dark:text-gray-400">Comprehension Quiz</p>
+            <p className="text-xs text-gray-700 dark:text-gray-300">Comprehension Quiz</p>
           </div>
         </div>
 
@@ -132,7 +132,7 @@ export function StorySession({ topic }: StorySessionProps) {
           <div>
             <h2 className="font-semibold text-gray-900 dark:text-white">{content.title}</h2>
             <div className="flex items-center gap-2 mt-0.5">
-              <span className="text-xs text-gray-500 dark:text-gray-400">{topicLabel}</span>
+              <span className="text-xs text-gray-700 dark:text-gray-300">{topicLabel}</span>
               <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-xs font-medium">
                 Story
               </span>
@@ -141,7 +141,7 @@ export function StorySession({ topic }: StorySessionProps) {
         </div>
         <button
           onClick={() => setShowExitConfirm(true)}
-          className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+          className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
         >
           <X size={22} />
         </button>
@@ -149,7 +149,7 @@ export function StorySession({ topic }: StorySessionProps) {
 
       {/* Paragraph indicator */}
       <div className="flex items-center gap-2">
-        <span className="text-sm text-gray-500 dark:text-gray-400">
+        <span className="text-sm text-gray-700 dark:text-gray-300">
           Paragraph {Math.max(1, currentParagraphIndex + 1)} of {totalParagraphs}
         </span>
         <div className="flex gap-1 flex-1">
@@ -201,7 +201,7 @@ export function StorySession({ topic }: StorySessionProps) {
                   <motion.p
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
-                    className="text-xs text-gray-400 dark:text-gray-500 mt-2 italic border-t border-gray-100 dark:border-gray-700 pt-2"
+                    className="text-xs text-gray-600 dark:text-gray-400 mt-2 italic border-t border-gray-100 dark:border-gray-700 pt-2"
                   >
                     {content.translation[i]}
                   </motion.p>
@@ -249,7 +249,7 @@ export function StorySession({ topic }: StorySessionProps) {
       {/* Key vocab */}
       {content.keyVocab.length > 0 && (
         <div className="p-3 bg-gray-50 dark:bg-gray-800/50 rounded-xl">
-          <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1.5">Key Vocabulary</p>
+          <p className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-1.5">Key Vocabulary</p>
           <div className="flex flex-wrap gap-1.5">
             {content.keyVocab.map((word, i) => (
               <span key={i} className="px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-xs font-medium">
@@ -269,7 +269,7 @@ export function StorySession({ topic }: StorySessionProps) {
             className="bg-white dark:bg-gray-900 rounded-2xl p-6 mx-4 max-w-sm w-full shadow-xl border border-gray-100 dark:border-gray-800"
           >
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Quit session?</h3>
-            <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">Your progress will be lost.</p>
+            <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">Your progress will be lost.</p>
             <div className="flex gap-3">
               <button onClick={() => setShowExitConfirm(false)} className="flex-1 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
                 Continue
