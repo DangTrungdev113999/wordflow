@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowRight, RotateCcw, Trophy, Zap, BookOpen, Star } from 'lucide-react';
@@ -142,7 +142,19 @@ function GrammarPhase({
   onComplete: () => void;
 }) {
   const grammar = ALL_GRAMMAR_LESSONS.find((g) => g.id === grammarId);
-  if (!grammar) return null;
+  if (!grammar) {
+    return (
+      <div className="flex-1 flex flex-col items-center justify-center px-4 py-6">
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+          Grammar content not available
+        </p>
+        <Button onClick={onComplete} size="lg">
+          Tiếp tục
+          <ArrowRight size={18} />
+        </Button>
+      </div>
+    );
+  }
 
   const cheat = grammar.cheatSheet;
   const firstSection = grammar.theory.sections[0];
@@ -456,7 +468,7 @@ const PHASE_LABELS: Record<LessonPhase, string> = {
 export function LessonFlowPage() {
   const { lessonId } = useParams<{ lessonId: string }>();
   const navigate = useNavigate();
-  const { startLesson, completePhase, completeLesson } = useLessonStore();
+  const { startLesson, completePhase, completeLesson, getLessonStatus } = useLessonStore();
   const addXP = useProgressStore((s) => s.addXP);
 
   const result = findLesson(lessonId ?? '');
@@ -466,6 +478,7 @@ export function LessonFlowPage() {
   const [completed, setCompleted] = useState(false);
   const [quizScore, setQuizScore] = useState(0);
   const [quizTotal, setQuizTotal] = useState(0);
+  const [earnedXP, setEarnedXP] = useState(0);
   const [started, setStarted] = useState(false);
 
   const vocabTopic = useMemo(
@@ -485,7 +498,16 @@ export function LessonFlowPage() {
     }
   }, [started, lessonId, startLesson]);
 
-  if (!lesson || !vocabTopic) {
+  const isLocked = lessonId ? getLessonStatus(lessonId) === 'locked' : false;
+
+  useEffect(() => {
+    if (isLocked) {
+      navigate('/learn', { replace: true });
+    }
+  }, [isLocked, navigate]);
+
+  if (!lesson || !vocabTopic || isLocked) {
+    if (isLocked) return null;
     return (
       <div className="flex-1 flex items-center justify-center min-h-screen">
         <p className="text-gray-500">Không tìm thấy bài học</p>
@@ -517,11 +539,15 @@ export function LessonFlowPage() {
     const xpBonus = score === total ? 20 : 0;
     const xpQuiz = score * 10;
     const totalXP = xpBase + xpQuiz + xpBonus;
+    setEarnedXP(totalXP);
     if (lessonId) {
       completePhase(lessonId, 'quiz');
+      // Fix 1: Only award XP on first completion — prevent XP farming on replay
+      if (getLessonStatus(lessonId) !== 'completed') {
+        addXP(totalXP);
+      }
       completeLesson(lessonId, score, totalXP);
     }
-    addXP(totalXP);
     setCompleted(true);
   };
 
@@ -576,7 +602,7 @@ export function LessonFlowPage() {
             <CompletionScreen
               score={quizScore}
               total={quizTotal}
-              xp={30 + quizScore * 10 + (quizScore === quizTotal ? 20 : 0)}
+              xp={earnedXP}
               lessonTitle={lesson.title}
               nextLessonId={nextLessonId}
               onNextLesson={handleNextLesson}
